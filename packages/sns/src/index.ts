@@ -61,6 +61,7 @@ export * from "./errors/governance.errors";
 export * from "./errors/swap.errors";
 export { SnsGovernanceCanister } from "./governance.canister";
 export { SnsGovernanceTestCanister } from "./governance_test.canister";
+export * from "./optionals/optionals";
 export { SnsRootCanister } from "./root.canister";
 export * from "./sns";
 export * from "./sns.wrapper";
