@@ -1,1 +1,3 @@
-export * from "@dfinity/cmc";
+export type { CmcDid } from "../declarations";
+export { CMCCanister } from "./cmc.canister";
+export * from "./cmc.errors";

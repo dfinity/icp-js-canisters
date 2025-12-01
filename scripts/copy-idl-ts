@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+DIR="$(pwd)/declarations"
+
+if [ ! -d "$DIR" ]; then
+  mkdir "$DIR"
+fi
+
+rsync -aq --include='*/' --include='*.d.ts' --include='*.did' --exclude='*' "$(pwd)/src/declarations/" "$DIR/"
+
+echo "📦 Bundle declarations copied"
+
