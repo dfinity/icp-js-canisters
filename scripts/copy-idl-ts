@@ -9,4 +9,3 @@ fi
 rsync -aq --include='*/' --include='*.d.ts' --include='*.did' --exclude='*' "$(pwd)/src/declarations/" "$DIR/"
 
 echo "📦 Bundle declarations copied"
-
