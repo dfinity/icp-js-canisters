@@ -51,7 +51,7 @@
     "ts-protoc-gen": "^0.15.0",
     "tsdoc-markdown": "^1.4.1",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.4",
+    "vitest": "^4.0.14",
     "vitest-mock-extended": "^3.1.0"
   },
   "size-limit": [
