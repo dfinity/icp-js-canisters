@@ -14,3 +14,4 @@ fi
 cp -r "$(pwd)/src/declarations/"* "$DIR/"
 
 echo "📦 Bundle declarations copied"
+
