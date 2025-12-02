@@ -32,6 +32,10 @@ export default [
       "packages/**/*.mjs",
       "packages/**/*.d.ts",
 
+      "packages/index.js",
+      "packages/index.mjs",
+      "packages/index.d.ts",
+
       "!packages/*.js",
       "!packages/*.mjs",
       "!packages/*.d.ts",
