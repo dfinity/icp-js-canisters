@@ -256,6 +256,9 @@ export interface ListProposalsRequest {
   // is useful to improve download times and to ensure that the response to the
   // request doesn't exceed the message size limit.
   omitLargeFields?: boolean;
+
+  // Whether to include self-describing proposal actions in the response.
+  returnSelfDescribingAction?: boolean;
 }
 export interface ListProposalsResponse {
   proposals: Array<ProposalInfo>;
