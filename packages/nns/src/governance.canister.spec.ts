@@ -347,14 +347,12 @@ describe("GovernanceCanister", () => {
         ledgerCanister: mockLedger,
       });
 
-      expect(mockLedger.transfer).toHaveBeenCalledTimes(1);
-      expect(mockLedger.transfer).toHaveBeenCalledWith({
+      expect(mockLedger.transfer).toHaveBeenCalledExactlyOnceWith({
         amount: stake,
         memo: expectedMemo,
         to: expectedIcpAccount,
       });
-      expect(service.manage_neuron).toHaveBeenCalledTimes(1);
-      expect(service.manage_neuron).toHaveBeenCalledWith({
+      expect(service.manage_neuron).toHaveBeenCalledExactlyOnceWith({
         command: [
           {
             ClaimOrRefresh: {
@@ -468,7 +466,7 @@ describe("GovernanceCanister", () => {
         service.claim_or_refresh_neuron_from_account,
       ).not.toHaveBeenCalled();
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new InsufficientAmountError(BigInt(10_000_000)),
       );
     });
@@ -499,8 +497,7 @@ describe("GovernanceCanister", () => {
         includePublicNeurons: true,
       });
 
-      expect(certifiedService.list_neurons).toHaveBeenCalledTimes(1);
-      expect(certifiedService.list_neurons).toHaveBeenCalledWith({
+      expect(certifiedService.list_neurons).toHaveBeenCalledExactlyOnceWith({
         neuron_ids: new BigUint64Array(),
         include_neurons_readable_by_caller: true,
         include_empty_neurons_readable_by_caller: [true],
@@ -585,7 +582,7 @@ describe("GovernanceCanister", () => {
         includeEmptyNeurons: false,
       });
 
-      expect(service.list_neurons).toHaveBeenCalledWith({
+      expect(service.list_neurons).toHaveBeenCalledExactlyOnceWith({
         neuron_ids: new BigUint64Array(),
         include_neurons_readable_by_caller: true,
         include_empty_neurons_readable_by_caller: [false],
@@ -594,7 +591,6 @@ describe("GovernanceCanister", () => {
         page_number: [0n],
         page_size: [500n],
       });
-      expect(service.list_neurons).toHaveBeenCalledTimes(1);
       expect(neurons).toHaveLength(1);
     });
 
@@ -613,7 +609,7 @@ describe("GovernanceCanister", () => {
         includePublicNeurons: false,
       });
 
-      expect(service.list_neurons).toHaveBeenCalledWith({
+      expect(service.list_neurons).toHaveBeenCalledExactlyOnceWith({
         neuron_ids: new BigUint64Array(),
         include_neurons_readable_by_caller: true,
         include_empty_neurons_readable_by_caller: [],
@@ -622,7 +618,6 @@ describe("GovernanceCanister", () => {
         page_number: [0n],
         page_size: [500n],
       });
-      expect(service.list_neurons).toHaveBeenCalledTimes(1);
       expect(neurons).toHaveLength(1);
     });
 
@@ -646,7 +641,7 @@ describe("GovernanceCanister", () => {
         ],
       });
 
-      expect(service.list_neurons).toHaveBeenCalledWith({
+      expect(service.list_neurons).toHaveBeenCalledExactlyOnceWith({
         neuron_ids: new BigUint64Array(),
         include_neurons_readable_by_caller: true,
         include_empty_neurons_readable_by_caller: [true],
@@ -660,7 +655,6 @@ describe("GovernanceCanister", () => {
           ],
         ],
       });
-      expect(service.list_neurons).toHaveBeenCalledTimes(1);
       expect(neurons).toHaveLength(1);
     });
 
@@ -678,7 +672,7 @@ describe("GovernanceCanister", () => {
         certified: true,
       });
 
-      expect(oldService.list_neurons).toHaveBeenCalledWith({
+      expect(oldService.list_neurons).toHaveBeenCalledExactlyOnceWith({
         neuron_ids: new BigUint64Array(),
         include_neurons_readable_by_caller: true,
         // The field is present in the argument but ignored by the old service.
@@ -692,7 +686,6 @@ describe("GovernanceCanister", () => {
         // The field is present in the argument but ignored by the old service.
         neuron_subaccounts: [],
       });
-      expect(oldService.list_neurons).toHaveBeenCalledTimes(1);
       expect(neurons).toHaveLength(1);
       expect(service.list_neurons).not.toHaveBeenCalled();
     });
@@ -712,7 +705,7 @@ describe("GovernanceCanister", () => {
         certified: false,
       });
 
-      expect(service.list_neurons).toHaveBeenCalledWith({
+      expect(service.list_neurons).toHaveBeenCalledExactlyOnceWith({
         neuron_ids: new BigUint64Array(),
         include_neurons_readable_by_caller: true,
         include_empty_neurons_readable_by_caller: [],
@@ -721,7 +714,6 @@ describe("GovernanceCanister", () => {
         page_size: [500n],
         neuron_subaccounts: [],
       });
-      expect(service.list_neurons).toHaveBeenCalledTimes(1);
       expect(neurons).toHaveLength(1);
       expect(oldService.list_neurons).not.toHaveBeenCalled();
       expect(certifiedService.list_neurons).not.toHaveBeenCalled();
@@ -769,6 +761,7 @@ describe("GovernanceCanister", () => {
         include_all_manage_neuron_proposals: [false],
         include_status: new Int32Array(),
         omit_large_fields: [],
+        return_self_describing_action: [],
       });
       expect(proposals).toHaveLength(1);
     });
@@ -806,6 +799,45 @@ describe("GovernanceCanister", () => {
         include_all_manage_neuron_proposals: [false],
         include_status: new Int32Array(),
         omit_large_fields: [true],
+        return_self_describing_action: [],
+      });
+      expect(proposals).toHaveLength(1);
+    });
+
+    it("list user proposals supports optional returnSelfDescribingAction", async () => {
+      const service = mock<ActorSubclass<GovernanceService>>();
+      service.list_proposals.mockResolvedValue({
+        proposal_info: [rawProposal],
+      });
+
+      const governance = GovernanceCanister.create({
+        certifiedServiceOverride: service,
+        serviceOverride: service,
+      });
+      const limit = 2;
+      const { proposals } = await governance.listProposals({
+        certified: true,
+        request: {
+          limit,
+          beforeProposal: undefined,
+          includeRewardStatus: [],
+          includeAllManageNeuronProposals: false,
+          excludeTopic: [],
+          includeStatus: [],
+          returnSelfDescribingAction: true,
+        },
+      });
+
+      expect(service.list_proposals).toHaveBeenCalled();
+      expect(service.list_proposals).toHaveBeenCalledWith({
+        limit,
+        include_reward_status: new Int32Array(),
+        before_proposal: [],
+        exclude_topic: new Int32Array(),
+        include_all_manage_neuron_proposals: [false],
+        include_status: new Int32Array(),
+        omit_large_fields: [],
+        return_self_describing_action: [true],
       });
       expect(proposals).toHaveLength(1);
     });
@@ -846,7 +878,7 @@ describe("GovernanceCanister", () => {
           proposalId: BigInt(2),
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
 
     it("throw error when registers vote fails unexpectedly", async () => {
@@ -867,7 +899,7 @@ describe("GovernanceCanister", () => {
           proposalId: BigInt(2),
         });
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new GovernanceError(unexpectedGovernanceError),
       );
     });
@@ -1010,8 +1042,9 @@ describe("GovernanceCanister", () => {
         proposalId,
       });
 
-      expect(service.get_proposal_info).toHaveBeenCalledWith(proposalId);
-      expect(service.get_proposal_info).toHaveBeenCalledTimes(1);
+      expect(service.get_proposal_info).toHaveBeenCalledExactlyOnceWith(
+        proposalId,
+      );
       expect(response).not.toBeUndefined();
       expect(response).toHaveProperty("id", 1n);
 
@@ -1063,8 +1096,9 @@ describe("GovernanceCanister", () => {
         proposalId,
       });
 
-      expect(service.get_proposal_info).toHaveBeenCalledWith(proposalId);
-      expect(service.get_proposal_info).toHaveBeenCalledTimes(1);
+      expect(service.get_proposal_info).toHaveBeenCalledExactlyOnceWith(
+        proposalId,
+      );
       expect(response).not.toBeUndefined();
       expect(response).toHaveProperty("id", 1n);
 
@@ -1139,8 +1173,7 @@ describe("GovernanceCanister", () => {
         proposalId: 1n,
       });
 
-      expect(service.get_proposal_info).toHaveBeenCalledWith(1n);
-      expect(service.get_proposal_info).toHaveBeenCalledTimes(1);
+      expect(service.get_proposal_info).toHaveBeenCalledExactlyOnceWith(1n);
       expect(response).not.toBeUndefined();
       expect(response).toHaveProperty("id", 1n);
 
@@ -1193,7 +1226,7 @@ describe("GovernanceCanister", () => {
           controller: principal,
         });
 
-      await expect(call).rejects.toThrow(UnrecognizedTypeError);
+      await expect(call).rejects.toThrowError(UnrecognizedTypeError);
     });
   });
 
@@ -1230,7 +1263,7 @@ describe("GovernanceCanister", () => {
           additionalDissolveDelaySeconds: 100000,
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
 
     it("throw error when increaseDissolveDelay fails unexpectedly", async () => {
@@ -1250,7 +1283,7 @@ describe("GovernanceCanister", () => {
           additionalDissolveDelaySeconds: 100000,
         });
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new GovernanceError(unexpectedGovernanceError),
       );
     });
@@ -1289,7 +1322,7 @@ describe("GovernanceCanister", () => {
           dissolveDelaySeconds: 100000,
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
 
     it("throw error when setDissolveDelay fails unexpectedly", async () => {
@@ -1309,7 +1342,7 @@ describe("GovernanceCanister", () => {
           dissolveDelaySeconds: 100000,
         });
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new GovernanceError(unexpectedGovernanceError),
       );
     });
@@ -1348,7 +1381,7 @@ describe("GovernanceCanister", () => {
       const call = async () =>
         await governance.setNodeProviderAccount(validAccount);
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
 
     it("throw error when account is not valid", async () => {
@@ -1365,7 +1398,7 @@ describe("GovernanceCanister", () => {
       const call = async () =>
         await governance.setNodeProviderAccount("invalid");
 
-      await expect(call).rejects.toThrow(InvalidAccountIDError);
+      await expect(call).rejects.toThrowError(InvalidAccountIDError);
     });
   });
 
@@ -1407,7 +1440,7 @@ describe("GovernanceCanister", () => {
           followees: [BigInt(3), BigInt(6)],
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
 
     it("throw error when setFollowees fails unexpectedly", async () => {
@@ -1428,7 +1461,7 @@ describe("GovernanceCanister", () => {
           followees: [BigInt(3), BigInt(6)],
         });
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new GovernanceError(unexpectedGovernanceError),
       );
     });
@@ -1473,7 +1506,7 @@ describe("GovernanceCanister", () => {
           by: { NeuronIdOrSubaccount: {} },
         });
 
-      await expect(call).rejects.toThrow();
+      await expect(call).rejects.toThrowError();
     });
   });
 
@@ -1507,7 +1540,7 @@ describe("GovernanceCanister", () => {
       });
       const call = () => governance.joinCommunityFund(neuronId);
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -1541,7 +1574,7 @@ describe("GovernanceCanister", () => {
       });
       const call = () => governance.leaveCommunityFund(neuronId);
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -1614,7 +1647,7 @@ describe("GovernanceCanister", () => {
       });
       const call = () => autoStakeMaturity({ neuronId, autoStake: true });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -1651,7 +1684,7 @@ describe("GovernanceCanister", () => {
 
       const call = () => governance.addHotkey({ neuronId, principal });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -1688,7 +1721,7 @@ describe("GovernanceCanister", () => {
 
       const call = () => governance.removeHotkey({ neuronId, principal });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -1740,7 +1773,7 @@ describe("GovernanceCanister", () => {
       const call = () =>
         governance.setVisibility(neuronId, NeuronVisibility.Public);
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -1792,7 +1825,7 @@ describe("GovernanceCanister", () => {
           targetNeuronId,
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -1847,7 +1880,7 @@ describe("GovernanceCanister", () => {
           targetNeuronId,
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -1889,7 +1922,7 @@ describe("GovernanceCanister", () => {
           percentageToMerge: 300,
         });
 
-      await expect(call).rejects.toThrow(InvalidPercentageError);
+      await expect(call).rejects.toThrowError(InvalidPercentageError);
       expect(service.manage_neuron).not.toHaveBeenCalled();
     });
 
@@ -1909,7 +1942,7 @@ describe("GovernanceCanister", () => {
           percentageToMerge: 50,
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -1983,7 +2016,7 @@ describe("GovernanceCanister", () => {
           percentageToStake: 300,
         });
 
-      await expect(call).rejects.toThrow(InvalidPercentageError);
+      await expect(call).rejects.toThrowError(InvalidPercentageError);
       expect(service.manage_neuron).not.toHaveBeenCalled();
     });
 
@@ -2005,7 +2038,7 @@ describe("GovernanceCanister", () => {
           percentageToStake: 50,
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -2048,7 +2081,7 @@ describe("GovernanceCanister", () => {
           percentageToSpawn: 300,
         });
 
-      await expect(call).rejects.toThrow(InvalidPercentageError);
+      await expect(call).rejects.toThrowError(InvalidPercentageError);
       expect(service.manage_neuron).not.toHaveBeenCalled();
     });
 
@@ -2068,7 +2101,7 @@ describe("GovernanceCanister", () => {
           percentageToSpawn: 50,
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -2107,7 +2140,7 @@ describe("GovernanceCanister", () => {
           neuronId,
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
 
     it("throws error if invalid account id", async () => {
@@ -2124,7 +2157,7 @@ describe("GovernanceCanister", () => {
           toAccountId: "not-valid",
         });
 
-      await expect(call).rejects.toThrow(InvalidAccountIDError);
+      await expect(call).rejects.toThrowError(InvalidAccountIDError);
       expect(service.manage_neuron).not.toHaveBeenCalled();
     });
   });
@@ -2145,7 +2178,7 @@ describe("GovernanceCanister", () => {
         neuronId,
       });
 
-      expect(service.manage_neuron).toHaveBeenCalledTimes(1);
+      expect(service.manage_neuron).toHaveBeenCalledOnce();
     });
 
     it("throws error if response is error", async () => {
@@ -2164,7 +2197,7 @@ describe("GovernanceCanister", () => {
           neuronId,
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -2226,7 +2259,7 @@ describe("GovernanceCanister", () => {
           amount,
         });
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -2260,7 +2293,7 @@ describe("GovernanceCanister", () => {
       });
       const call = () => governance.startDissolving(neuronId);
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -2294,7 +2327,7 @@ describe("GovernanceCanister", () => {
       });
       const call = () => governance.stopDissolving(neuronId);
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -2355,7 +2388,7 @@ describe("GovernanceCanister", () => {
       });
       const call = () => governance.makeProposal(makeProposalRequest);
 
-      await expect(call).rejects.toThrow(new GovernanceError(error));
+      await expect(call).rejects.toThrowError(new GovernanceError(error));
     });
   });
 
@@ -2400,7 +2433,7 @@ describe("GovernanceCanister", () => {
         certified: true,
       });
 
-      expect(service.get_network_economics_parameters).toHaveBeenCalledTimes(1);
+      expect(service.get_network_economics_parameters).toHaveBeenCalledOnce();
       expect(response).toEqual(mockManageNetworkEconomics);
     });
   });
@@ -2423,8 +2456,7 @@ describe("GovernanceCanister", () => {
         percentageToDisburse,
       });
 
-      expect(service.manage_neuron).toHaveBeenCalledTimes(1);
-      expect(service.manage_neuron).toHaveBeenCalledWith({
+      expect(service.manage_neuron).toHaveBeenCalledExactlyOnceWith({
         command: [
           {
             DisburseMaturity: {
@@ -2465,8 +2497,7 @@ describe("GovernanceCanister", () => {
         },
       });
 
-      expect(service.manage_neuron).toHaveBeenCalledTimes(1);
-      expect(service.manage_neuron).toHaveBeenCalledWith({
+      expect(service.manage_neuron).toHaveBeenCalledExactlyOnceWith({
         command: [
           {
             DisburseMaturity: {
@@ -2520,8 +2551,7 @@ describe("GovernanceCanister", () => {
         topicFollowing,
       });
 
-      expect(service.manage_neuron).toHaveBeenCalledTimes(1);
-      expect(service.manage_neuron).toHaveBeenCalledWith({
+      expect(service.manage_neuron).toHaveBeenCalledExactlyOnceWith({
         command: [
           {
             SetFollowing: {
@@ -2734,7 +2764,7 @@ describe("GovernanceCanister", () => {
         certified: true,
       });
 
-      expect(service.get_metrics).toHaveBeenCalledTimes(1);
+      expect(service.get_metrics).toHaveBeenCalledOnce();
       expect(response).toEqual(mockMetrics);
     });
 
@@ -2752,7 +2782,7 @@ describe("GovernanceCanister", () => {
         certified: true,
       });
 
-      expect(service.get_metrics).toHaveBeenCalledTimes(1);
+      expect(service.get_metrics).toHaveBeenCalledOnce();
       expect(response).toEqual({
         ...mockMetrics,
         publicNeuronSubsetMetrics: undefined,
@@ -2774,8 +2804,8 @@ describe("GovernanceCanister", () => {
         certified: true,
       });
 
-      expect(service.get_metrics).toHaveBeenCalledTimes(1);
-      await expect(response).rejects.toThrow(new GovernanceError(error));
+      expect(service.get_metrics).toHaveBeenCalledOnce();
+      await expect(response).rejects.toThrowError(new GovernanceError(error));
     });
   });
 });

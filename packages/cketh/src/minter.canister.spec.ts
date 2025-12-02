@@ -76,7 +76,7 @@ describe("ckETH minter canister", () => {
 
       const canister = minter(service);
 
-      expect(() => canister.getSmartContractAddress()).toThrow();
+      expect(() => canister.getSmartContractAddress()).toThrowError();
     });
   });
 
@@ -99,11 +99,9 @@ describe("ckETH minter canister", () => {
 
       const res = await canister.withdrawEth(params);
 
-      expect(service.withdraw_eth).toHaveBeenCalledTimes(1);
-
       const { address, ...rest } = params;
 
-      expect(service.withdraw_eth).toHaveBeenCalledWith({
+      expect(service.withdraw_eth).toHaveBeenCalledExactlyOnceWith({
         recipient: address,
         from_subaccount: toNullable(),
         ...rest,
@@ -125,11 +123,9 @@ describe("ckETH minter canister", () => {
         fromSubaccount,
       });
 
-      expect(service.withdraw_eth).toHaveBeenCalledTimes(1);
-
       const { address, ...rest } = params;
 
-      expect(service.withdraw_eth).toHaveBeenCalledWith({
+      expect(service.withdraw_eth).toHaveBeenCalledExactlyOnceWith({
         recipient: address,
         from_subaccount: toNullable(fromSubaccount),
         ...rest,
@@ -149,11 +145,9 @@ describe("ckETH minter canister", () => {
         fromSubaccount,
       });
 
-      expect(service.withdraw_eth).toHaveBeenCalledTimes(1);
-
       const { address, ...rest } = params;
 
-      expect(service.withdraw_eth).toHaveBeenCalledWith({
+      expect(service.withdraw_eth).toHaveBeenCalledExactlyOnceWith({
         recipient: address,
         from_subaccount: toNullable(fromSubaccount),
         ...rest,
@@ -170,7 +164,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.withdrawEth(params);
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new MinterTemporaryUnavailableError(error.Err.TemporarilyUnavailable),
       );
     });
@@ -185,7 +179,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.withdrawEth(params);
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new MinterAmountTooLowError({
           details: error.Err.AmountTooLow.min_withdrawal_amount,
         }),
@@ -204,7 +198,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.withdrawEth(params);
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new MinterRecipientAddressBlockedError({
           details: error.Err.RecipientAddressBlocked.address,
         }),
@@ -221,7 +215,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.withdrawEth(params);
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new MinterInsufficientFundsError({
           details: error.Err.InsufficientFunds.balance,
         }),
@@ -238,7 +232,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.withdrawEth(params);
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new MinterInsufficientAllowanceError({
           details: error.Err.InsufficientAllowance.allowance,
         }),
@@ -256,7 +250,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.withdrawEth(params);
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new MinterError({
           msg: "Unsupported response type in minter.withdrawEth",
           details: error.Err,
@@ -288,11 +282,9 @@ describe("ckETH minter canister", () => {
 
       const res = await canister.withdrawErc20(params);
 
-      expect(service.withdraw_erc20).toHaveBeenCalledTimes(1);
-
       const { address, ledgerCanisterId: _, ...rest } = params;
 
-      expect(service.withdraw_erc20).toHaveBeenCalledWith({
+      expect(service.withdraw_erc20).toHaveBeenCalledExactlyOnceWith({
         recipient: address,
         ckerc20_ledger_id: ledgerCanisterIdMock,
         from_cketh_subaccount: toNullable(),
@@ -314,11 +306,9 @@ describe("ckETH minter canister", () => {
         fromCkEthSubaccount: account,
       });
 
-      expect(service.withdraw_erc20).toHaveBeenCalledTimes(1);
-
       const { address, ledgerCanisterId: _, ...rest } = params;
 
-      expect(service.withdraw_erc20).toHaveBeenCalledWith({
+      expect(service.withdraw_erc20).toHaveBeenCalledExactlyOnceWith({
         recipient: address,
         ckerc20_ledger_id: ledgerCanisterIdMock,
         from_cketh_subaccount: toNullable(account),
@@ -338,11 +328,9 @@ describe("ckETH minter canister", () => {
         fromCkErc20Subaccount: account,
       });
 
-      expect(service.withdraw_erc20).toHaveBeenCalledTimes(1);
-
       const { address, ledgerCanisterId: _, ...rest } = params;
 
-      expect(service.withdraw_erc20).toHaveBeenCalledWith({
+      expect(service.withdraw_erc20).toHaveBeenCalledExactlyOnceWith({
         recipient: address,
         ckerc20_ledger_id: ledgerCanisterIdMock,
         from_cketh_subaccount: toNullable(),
@@ -363,11 +351,9 @@ describe("ckETH minter canister", () => {
         fromCkErc20Subaccount: account,
       });
 
-      expect(service.withdraw_erc20).toHaveBeenCalledTimes(1);
-
       const { address, ledgerCanisterId: _, ...rest } = params;
 
-      expect(service.withdraw_erc20).toHaveBeenCalledWith({
+      expect(service.withdraw_erc20).toHaveBeenCalledExactlyOnceWith({
         recipient: address,
         ckerc20_ledger_id: ledgerCanisterIdMock,
         from_cketh_subaccount: toNullable(account),
@@ -386,7 +372,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.withdrawErc20(params);
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new MinterTemporaryUnavailableError(error.Err.TemporarilyUnavailable),
       );
     });
@@ -403,7 +389,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.withdrawErc20(params);
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new MinterRecipientAddressBlockedError({
           details: error.Err.RecipientAddressBlocked.address,
         }),
@@ -437,7 +423,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.withdrawErc20(params);
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new MinterTokenNotSupported({
           details: error.Err.TokenNotSupported.supported_tokens,
         }),
@@ -465,7 +451,7 @@ describe("ckETH minter canister", () => {
 
           const call = () => canister.withdrawErc20(params);
 
-          await expect(call).rejects.toThrow(
+          await expect(call).rejects.toThrowError(
             new LedgerTemporaryUnavailableError({
               msg: error.Err.CkErc20LedgerError.error.TemporarilyUnavailable,
               details: {
@@ -499,7 +485,7 @@ describe("ckETH minter canister", () => {
 
           const call = () => canister.withdrawErc20(params);
 
-          await expect(call).rejects.toThrow(
+          await expect(call).rejects.toThrowError(
             new LedgerInsufficientAllowanceError({
               details: {
                 error: error.Err.CkErc20LedgerError.error.InsufficientAllowance,
@@ -533,7 +519,7 @@ describe("ckETH minter canister", () => {
 
           const call = () => canister.withdrawErc20(params);
 
-          await expect(call).rejects.toThrow(
+          await expect(call).rejects.toThrowError(
             new LedgerAmountTooLowError({
               details: {
                 error: error.Err.CkErc20LedgerError.error.AmountTooLow,
@@ -567,7 +553,7 @@ describe("ckETH minter canister", () => {
 
           const call = () => canister.withdrawErc20(params);
 
-          await expect(call).rejects.toThrow(
+          await expect(call).rejects.toThrowError(
             new LedgerInsufficientFundsError({
               details: {
                 error: error.Err.CkErc20LedgerError.error.InsufficientFunds,
@@ -596,7 +582,7 @@ describe("ckETH minter canister", () => {
 
           const call = () => canister.withdrawErc20(params);
 
-          await expect(call).rejects.toThrow(
+          await expect(call).rejects.toThrowError(
             new LedgerWithdrawalError({
               msg: "Unsupported response type in ledger for minter.withdrawErc20",
               details: {
@@ -627,7 +613,7 @@ describe("ckETH minter canister", () => {
 
           const call = () => canister.withdrawErc20(params);
 
-          await expect(call).rejects.toThrow(
+          await expect(call).rejects.toThrowError(
             new LedgerTemporaryUnavailableError({
               msg: error.Err.CkEthLedgerError.error.TemporarilyUnavailable,
             }),
@@ -657,7 +643,7 @@ describe("ckETH minter canister", () => {
 
           const call = () => canister.withdrawErc20(params);
 
-          await expect(call).rejects.toThrow(
+          await expect(call).rejects.toThrowError(
             new LedgerInsufficientAllowanceError({
               details: {
                 error: error.Err.CkEthLedgerError.error.InsufficientAllowance,
@@ -689,7 +675,7 @@ describe("ckETH minter canister", () => {
 
           const call = () => canister.withdrawErc20(params);
 
-          await expect(call).rejects.toThrow(
+          await expect(call).rejects.toThrowError(
             new LedgerAmountTooLowError({
               details: {
                 error: error.Err.CkEthLedgerError.error.AmountTooLow,
@@ -721,7 +707,7 @@ describe("ckETH minter canister", () => {
 
           const call = () => canister.withdrawErc20(params);
 
-          await expect(call).rejects.toThrow(
+          await expect(call).rejects.toThrowError(
             new LedgerInsufficientFundsError({
               details: {
                 error: error.Err.CkEthLedgerError.error.InsufficientFunds,
@@ -748,7 +734,7 @@ describe("ckETH minter canister", () => {
 
           const call = () => canister.withdrawErc20(params);
 
-          await expect(call).rejects.toThrow(
+          await expect(call).rejects.toThrowError(
             new LedgerWithdrawalError({
               msg: "Unsupported response type in ledger for minter.withdrawErc20",
               details: {
@@ -771,7 +757,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.withdrawErc20(params);
 
-      await expect(call).rejects.toThrow(
+      await expect(call).rejects.toThrowError(
         new MinterError({
           msg: "Unsupported response type in minter.withdrawErc20",
           details: error.Err,
@@ -823,7 +809,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.eip1559TransactionPrice({ certified: true });
 
-      await expect(call).rejects.toThrow();
+      await expect(call).rejects.toThrowError();
     });
 
     it("should bubble errors non-certified", async () => {
@@ -834,7 +820,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.eip1559TransactionPrice({ certified: false });
 
-      await expect(call).rejects.toThrow();
+      await expect(call).rejects.toThrowError();
     });
   });
 
@@ -865,7 +851,7 @@ describe("ckETH minter canister", () => {
 
       const call = () => canister.retrieveEthStatus(123n);
 
-      await expect(call).rejects.toThrow();
+      await expect(call).rejects.toThrowError();
     });
   });
 
@@ -928,7 +914,7 @@ describe("ckETH minter canister", () => {
 
       await expect(
         async () => await canister.getMinterInfo({ certified: true }),
-      ).rejects.toThrow();
+      ).rejects.toThrowError();
     });
   });
 });

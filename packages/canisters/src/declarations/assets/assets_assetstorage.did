@@ -1,3 +1,5 @@
+// Generated from dfinity/sdk commit 320e540eb2717012e50cefe67564d3be4a605a22 for file 'src/distributed/assetstorage.did'
+
 type BatchId = nat;
 type ChunkId = nat;
 type Key = text;

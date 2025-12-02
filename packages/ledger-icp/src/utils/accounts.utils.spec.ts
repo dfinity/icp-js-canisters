@@ -7,15 +7,15 @@ describe("accounts-utils", () => {
       "cd70bfa0f092c38a0ff8643d4617219761eb61d199b15418c0b1114d59e30f8e";
 
     it("should not throw if valid account id", () => {
-      expect(() => checkAccountId(validAccountId)).not.toThrow();
+      expect(() => checkAccountId(validAccountId)).not.toThrowError();
     });
 
     it("should throw if invalid checksum", () => {
       const incorrectChecksum = `a${validAccountId.slice(1)}`;
       const usage = () => checkAccountId(incorrectChecksum);
 
-      expect(usage).toThrow(InvalidAccountIDError);
-      expect(usage).toThrow(
+      expect(usage).toThrowError(InvalidAccountIDError);
+      expect(usage).toThrowError(
         `Account identifier ${incorrectChecksum} has an invalid checksum. Are you sure the account identifier is correct?`,
       );
     });
@@ -23,8 +23,8 @@ describe("accounts-utils", () => {
     it("should throw if not valid account id", () => {
       const usage = () => checkAccountId("not-valid");
 
-      expect(usage).toThrow(InvalidAccountIDError);
-      expect(usage).toThrow(
+      expect(usage).toThrowError(InvalidAccountIDError);
+      expect(usage).toThrowError(
         "Invalid account identifier not-valid. The account identifier must be 64 chars in length.",
       );
     });

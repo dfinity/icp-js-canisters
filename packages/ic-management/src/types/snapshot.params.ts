@@ -81,8 +81,7 @@ export type UploadCanisterSnapshotMetadataParam = Pick<
   | "wasmMemorySize"
 >;
 
-export interface UploadCanisterSnapshotMetadataParams
-  extends OptionSnapshotParams {
+export interface UploadCanisterSnapshotMetadataParams extends OptionSnapshotParams {
   metadata: UploadCanisterSnapshotMetadataParam;
 }
 
