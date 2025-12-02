@@ -3,12 +3,12 @@ import { idlFactory as idlFactoryCertifiedCmc } from "./cmc/cmc.certified.idl";
 import { idlFactory as idlFactoryCmc } from "./cmc/cmc.idl";
 
 import type { _SERVICE as AssetsActor } from "./assets/assets_assetstorage";
-import type { _SERVICE as CmcActor } from "./cmc/cmc";
+import type { _SERVICE as CmcService } from "./cmc/cmc";
 
 export {
   idlFactoryAssets,
   idlFactoryCertifiedCmc,
   idlFactoryCmc,
   type AssetsActor,
-  type CmcActor,
+  type CmcService,
 };

@@ -2,7 +2,7 @@ import { arrayOfNumberToUint8Array, type QueryParams } from "@dfinity/utils";
 import type { ActorSubclass, HttpAgent } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import type { CmcActor, CmcDid } from "../declarations";
+import type { CmcService, CmcDid } from "../declarations";
 import { CMCCanister } from "./cmc.canister";
 import {
   CMCError,
@@ -16,13 +16,13 @@ import { mockPrincipalText } from "./cmc.mock";
 describe("CyclesMintingCanister", () => {
   const mockAgent: HttpAgent = mock<HttpAgent>();
 
-  const createCMC = (service: CmcActor): CMCCanister => {
+  const createCMC = (service: CmcService): CMCCanister => {
     const canisterId = Principal.fromText("aaaaa-aa");
 
     return CMCCanister.create({
       agent: mockAgent,
-      serviceOverride: service as ActorSubclass<CmcActor>,
-      certifiedServiceOverride: service as ActorSubclass<CmcActor>,
+      serviceOverride: service as ActorSubclass<CmcService>,
+      certifiedServiceOverride: service as ActorSubclass<CmcService>,
       canisterId,
     });
   };
@@ -38,13 +38,13 @@ describe("CyclesMintingCanister", () => {
         },
         hash_tree: arrayOfNumberToUint8Array([]),
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.get_icp_xdr_conversion_rate.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
       const callerSpy = vi.spyOn(
         cmc as unknown as {
-          caller: (params: QueryParams) => Promise<CmcActor>;
+          caller: (params: QueryParams) => Promise<CmcService>;
         },
         "caller",
       );
@@ -66,13 +66,13 @@ describe("CyclesMintingCanister", () => {
         },
         hash_tree: arrayOfNumberToUint8Array([]),
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.get_icp_xdr_conversion_rate.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
       const callerSpy = vi.spyOn(
         cmc as unknown as {
-          caller: (params: QueryParams) => Promise<CmcActor>;
+          caller: (params: QueryParams) => Promise<CmcService>;
         },
         "caller",
       );
@@ -93,7 +93,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyCreateCanisterResult = {
         Ok: canisterId,
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_create_canister.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -113,7 +113,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyCreateCanisterResult = {
         Err: { Refunded: { block_index: [], reason: "test" } },
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_create_canister.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -134,7 +134,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyCreateCanisterResult = {
         Err: { InvalidTransaction: "test" },
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_create_canister.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -155,7 +155,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyCreateCanisterResult = {
         Err: { Processing: null },
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_create_canister.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -176,7 +176,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyCreateCanisterResult = {
         Err: { TransactionTooOld: BigInt(10) },
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_create_canister.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -197,7 +197,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyCreateCanisterResult = {
         Err: { Other: { error_code: BigInt(10), error_message: "test" } },
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_create_canister.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -220,7 +220,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyTopUpResult = {
         Ok: BigInt(10),
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_top_up.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -237,7 +237,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyTopUpResult = {
         Err: { Refunded: { block_index: [], reason: "test" } },
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_top_up.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -255,7 +255,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyTopUpResult = {
         Err: { InvalidTransaction: "test" },
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_top_up.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -273,7 +273,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyTopUpResult = {
         Err: { Processing: null },
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_top_up.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -291,7 +291,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyTopUpResult = {
         Err: { TransactionTooOld: BigInt(10) },
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_top_up.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -309,7 +309,7 @@ describe("CyclesMintingCanister", () => {
       const response: CmcDid.NotifyTopUpResult = {
         Err: { Other: { error_code: BigInt(10), error_message: "test" } },
       };
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.notify_top_up.mockResolvedValue(response);
 
       const cmc = await createCMC(service);
@@ -331,14 +331,14 @@ describe("CyclesMintingCanister", () => {
     ];
 
     it("should return a list of default subnets for a query", async () => {
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.get_default_subnets.mockResolvedValue(expectedSubnets);
 
       const cmc = await createCMC(service);
 
       const callerSpy = vi.spyOn(
         cmc as unknown as {
-          caller: (params: QueryParams) => Promise<CmcActor>;
+          caller: (params: QueryParams) => Promise<CmcService>;
         },
         "caller",
       );
@@ -352,14 +352,14 @@ describe("CyclesMintingCanister", () => {
     });
 
     it("should return a list of default subnets for an update", async () => {
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.get_default_subnets.mockResolvedValue(expectedSubnets);
 
       const cmc = await createCMC(service);
 
       const callerSpy = vi.spyOn(
         cmc as unknown as {
-          caller: (params: QueryParams) => Promise<CmcActor>;
+          caller: (params: QueryParams) => Promise<CmcService>;
         },
         "caller",
       );
@@ -373,7 +373,7 @@ describe("CyclesMintingCanister", () => {
     });
 
     it("should throw an error if the canister call ends in error", async () => {
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.get_default_subnets.mockRejectedValue(new Error("Test"));
 
       const cmc = await createCMC(service);
@@ -408,14 +408,14 @@ describe("CyclesMintingCanister", () => {
     };
 
     it("should return a list of default subnets for a query", async () => {
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.get_subnet_types_to_subnets.mockResolvedValue(expectedSubnets);
 
       const cmc = await createCMC(service);
 
       const callerSpy = vi.spyOn(
         cmc as unknown as {
-          caller: (params: QueryParams) => Promise<CmcActor>;
+          caller: (params: QueryParams) => Promise<CmcService>;
         },
         "caller",
       );
@@ -429,14 +429,14 @@ describe("CyclesMintingCanister", () => {
     });
 
     it("should return a list of default subnets for an update", async () => {
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.get_subnet_types_to_subnets.mockResolvedValue(expectedSubnets);
 
       const cmc = await createCMC(service);
 
       const callerSpy = vi.spyOn(
         cmc as unknown as {
-          caller: (params: QueryParams) => Promise<CmcActor>;
+          caller: (params: QueryParams) => Promise<CmcService>;
         },
         "caller",
       );
@@ -450,7 +450,7 @@ describe("CyclesMintingCanister", () => {
     });
 
     it("should throw an error if the canister call ends in error", async () => {
-      const service = mock<CmcActor>();
+      const service = mock<CmcService>();
       service.get_subnet_types_to_subnets.mockRejectedValue(new Error("Test"));
 
       const cmc = await createCMC(service);
