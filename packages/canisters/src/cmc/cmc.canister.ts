@@ -1,8 +1,8 @@
 import { Canister, createServices, type QueryParams } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
 import {
-  type CmcService,
   type CmcDid,
+  type CmcService,
   idlFactoryCertifiedCmc,
   idlFactoryCmc,
 } from "../declarations";
@@ -11,11 +11,12 @@ import type { CMCCanisterOptions } from "./cmc.options";
 
 export class CMCCanister extends Canister<CmcService> {
   static create(options: CMCCanisterOptions): CMCCanister {
-    const { service, certifiedService, canisterId } = createServices<CmcService>({
-      options,
-      idlFactory: idlFactoryCmc,
-      certifiedIdlFactory: idlFactoryCertifiedCmc,
-    });
+    const { service, certifiedService, canisterId } =
+      createServices<CmcService>({
+        options,
+        idlFactory: idlFactoryCmc,
+        certifiedIdlFactory: idlFactoryCertifiedCmc,
+      });
 
     return new CMCCanister(canisterId, service, certifiedService);
   }

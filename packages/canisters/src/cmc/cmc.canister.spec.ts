@@ -2,7 +2,7 @@ import { arrayOfNumberToUint8Array, type QueryParams } from "@dfinity/utils";
 import type { ActorSubclass, HttpAgent } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import type { CmcService, CmcDid } from "../declarations";
+import type { CmcDid, CmcService } from "../declarations";
 import { CMCCanister } from "./cmc.canister";
 import {
   CMCError,
