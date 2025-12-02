@@ -1112,6 +1112,7 @@ export const fromListProposalsRequest = ({
   limit,
   includeAllManageNeuronProposals,
   omitLargeFields,
+  returnSelfDescribingAction,
 }: ListProposalsRequest): RawListProposalInfo => ({
   include_reward_status: Int32Array.from(includeRewardStatus),
   before_proposal: beforeProposal ? [fromProposalId(beforeProposal)] : [],
@@ -1123,6 +1124,7 @@ export const fromListProposalsRequest = ({
       : [],
   include_status: Int32Array.from(includeStatus),
   omit_large_fields: toNullable(omitLargeFields),
+  return_self_describing_action: toNullable(returnSelfDescribingAction),
 });
 
 /* Protobuf is not supported yet
