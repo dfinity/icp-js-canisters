@@ -38,6 +38,6 @@ describe("GenesisTokenCanister", () => {
       await gtc.claimNeurons({ hexPubKey: "" });
     };
 
-    await expect(call).rejects.toThrow("An error occurred.");
+    await expect(call).rejects.toThrowError("An error occurred.");
   });
 });

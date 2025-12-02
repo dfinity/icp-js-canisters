@@ -12,31 +12,31 @@ describe("asserts-utils", () => {
     it("should throw an exception if undefined", () => {
       const call = () => assertNonNullish(undefined);
 
-      expect(call).toThrow();
+      expect(call).toThrowError();
     });
 
     it("should throw an exception if null", () => {
       const call = () => assertNonNullish(null);
 
-      expect(call).toThrow();
+      expect(call).toThrowError();
     });
 
     it("should throw an exception with particular message", () => {
       const call = () => assertNonNullish(undefined, "Test error");
 
-      expect(call).toThrow(new NullishError("Test error"));
+      expect(call).toThrowError(new NullishError("Test error"));
     });
 
     it("should not throw an exception if valid primitive type", () => {
       const call = () => assertNonNullish(1);
 
-      expect(call).not.toThrow();
+      expect(call).not.toThrowError();
     });
 
     it("should not throw an exception if valid object", () => {
       const call = () => assertNonNullish({});
 
-      expect(call).not.toThrow();
+      expect(call).not.toThrowError();
     });
 
     it("should make value of non-nullable type", () => {
@@ -44,7 +44,7 @@ describe("asserts-utils", () => {
       const value: string | null = getStringOrNull();
       const call = () => assertNonNullish(value);
 
-      expect(call).not.toThrow();
+      expect(call).not.toThrowError();
     });
   });
 
@@ -52,31 +52,31 @@ describe("asserts-utils", () => {
     it("should throw an exception if undefined", () => {
       const call = () => asNonNullish(undefined);
 
-      expect(call).toThrow();
+      expect(call).toThrowError();
     });
 
     it("should throw an exception if null", () => {
       const call = () => asNonNullish(null);
 
-      expect(call).toThrow();
+      expect(call).toThrowError();
     });
 
     it("should throw an exception with particular message", () => {
       const call = () => asNonNullish(undefined, "Test error");
 
-      expect(call).toThrow(new NullishError("Test error"));
+      expect(call).toThrowError(new NullishError("Test error"));
     });
 
     it("should not throw an exception if valid primitive type", () => {
       const call = () => asNonNullish(1);
 
-      expect(call).not.toThrow();
+      expect(call).not.toThrowError();
     });
 
     it("should not throw an exception if valid object", () => {
       const call = () => asNonNullish({});
 
-      expect(call).not.toThrow();
+      expect(call).not.toThrowError();
     });
 
     it("should return the value if valid", () => {
@@ -89,13 +89,13 @@ describe("asserts-utils", () => {
 
   describe("assertPercentageNumber", () => {
     it("should not throw if valid percentage", () => {
-      expect(() => assertPercentageNumber(30)).not.toThrow();
+      expect(() => assertPercentageNumber(30)).not.toThrowError();
     });
 
     it("should throw if not valid account id", () => {
       const call1 = () => assertPercentageNumber(300);
 
-      expect(call1).toThrow(InvalidPercentageError);
+      expect(call1).toThrowError(InvalidPercentageError);
     });
   });
 
@@ -103,11 +103,11 @@ describe("asserts-utils", () => {
     it("throws an Error with the provided message", () => {
       const msg = "Unsupported source";
 
-      expect(() => assertNever(undefined as never, msg)).toThrow(msg);
+      expect(() => assertNever(undefined as never, msg)).toThrowError(msg);
     });
 
     it("throws an Error when message is omitted", () => {
-      expect(() => assertNever(undefined as never)).toThrow(Error);
+      expect(() => assertNever(undefined as never)).toThrowError(Error);
     });
 
     it("has a `never` parameter type", () => {
