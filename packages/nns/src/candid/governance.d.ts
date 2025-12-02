@@ -274,6 +274,9 @@ export interface GetNeuronsFundAuditInfoRequest {
 export interface GetNeuronsFundAuditInfoResponse {
   result: [] | [Result_6];
 }
+export interface GetPendingProposalsRequest {
+  return_self_describing_action: [] | [boolean];
+}
 export interface GlobalTimeOfDay {
   seconds_after_utc_midnight: [] | [bigint];
 }
@@ -502,6 +505,7 @@ export interface ListNodeProvidersResponse {
   node_providers: Array<NodeProvider>;
 }
 export interface ListProposalInfoRequest {
+  return_self_describing_action: [] | [boolean];
   include_reward_status: Int32Array;
   omit_large_fields: [] | [boolean];
   before_proposal: [] | [ProposalId];
@@ -949,6 +953,7 @@ export interface Proposal {
   title: [] | [string];
   action: [] | [Action];
   summary: string;
+  self_describing_action: [] | [SelfDescribingProposalAction];
 }
 export type ProposalActionRequest =
   | { RegisterKnownNeuron: KnownNeuron }
@@ -1076,6 +1081,18 @@ export interface RewardToAccount {
 export interface RewardToNeuron {
   dissolve_delay_seconds: bigint;
 }
+export interface SelfDescribingProposalAction {
+  type_description: [] | [string];
+  type_name: [] | [string];
+  value: [] | [SelfDescribingValue];
+}
+export type SelfDescribingValue =
+  | { Int: bigint }
+  | { Map: Array<[string, SelfDescribingValue]> }
+  | { Nat: bigint }
+  | { Blob: Uint8Array }
+  | { Text: string }
+  | { Array: Array<SelfDescribingValue> };
 export interface SetDefaultFollowees {
   default_followees: Array<[number, Followees]>;
 }
@@ -1302,7 +1319,10 @@ export interface _SERVICE {
     GetNeuronsFundAuditInfoResponse
   >;
   get_node_provider_by_caller: ActorMethod<[null], Result_7>;
-  get_pending_proposals: ActorMethod<[], Array<ProposalInfo>>;
+  get_pending_proposals: ActorMethod<
+    [[] | [GetPendingProposalsRequest]],
+    Array<ProposalInfo>
+  >;
   get_proposal_info: ActorMethod<[bigint], [] | [ProposalInfo]>;
   get_restore_aging_summary: ActorMethod<[], RestoreAgingSummary>;
   list_known_neurons: ActorMethod<[], ListKnownNeuronsResponse>;
