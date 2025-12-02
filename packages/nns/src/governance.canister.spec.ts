@@ -769,6 +769,7 @@ describe("GovernanceCanister", () => {
         include_all_manage_neuron_proposals: [false],
         include_status: new Int32Array(),
         omit_large_fields: [],
+        return_self_describing_action: [],
       });
       expect(proposals).toHaveLength(1);
     });
@@ -806,6 +807,45 @@ describe("GovernanceCanister", () => {
         include_all_manage_neuron_proposals: [false],
         include_status: new Int32Array(),
         omit_large_fields: [true],
+        return_self_describing_action: [],
+      });
+      expect(proposals).toHaveLength(1);
+    });
+
+    it("list user proposals supports optional returnSelfDescribingAction", async () => {
+      const service = mock<ActorSubclass<GovernanceService>>();
+      service.list_proposals.mockResolvedValue({
+        proposal_info: [rawProposal],
+      });
+
+      const governance = GovernanceCanister.create({
+        certifiedServiceOverride: service,
+        serviceOverride: service,
+      });
+      const limit = 2;
+      const { proposals } = await governance.listProposals({
+        certified: true,
+        request: {
+          limit,
+          beforeProposal: undefined,
+          includeRewardStatus: [],
+          includeAllManageNeuronProposals: false,
+          excludeTopic: [],
+          includeStatus: [],
+          returnSelfDescribingAction: true,
+        },
+      });
+
+      expect(service.list_proposals).toHaveBeenCalled();
+      expect(service.list_proposals).toHaveBeenCalledWith({
+        limit,
+        include_reward_status: new Int32Array(),
+        before_proposal: [],
+        exclude_topic: new Int32Array(),
+        include_all_manage_neuron_proposals: [false],
+        include_status: new Int32Array(),
+        omit_large_fields: [],
+        return_self_describing_action: [true],
       });
       expect(proposals).toHaveLength(1);
     });

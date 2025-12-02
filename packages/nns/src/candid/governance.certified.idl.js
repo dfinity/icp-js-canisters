@@ -9,6 +9,7 @@
 export const idlFactory = ({ IDL }) => {
   const ManageNeuronRequest = IDL.Rec();
   const Proposal = IDL.Rec();
+  const SelfDescribingValue = IDL.Rec();
   const NeuronId = IDL.Record({ id: IDL.Nat64 });
   const Followees = IDL.Record({ followees: IDL.Vec(NeuronId) });
   const DateUtc = IDL.Record({
@@ -593,12 +594,28 @@ export const idlFactory = ({ IDL }) => {
     AddOrRemoveNodeProvider: AddOrRemoveNodeProvider,
     Motion: Motion,
   });
+  SelfDescribingValue.fill(
+    IDL.Variant({
+      Int: IDL.Int,
+      Map: IDL.Vec(IDL.Tuple(IDL.Text, SelfDescribingValue)),
+      Nat: IDL.Nat,
+      Blob: IDL.Vec(IDL.Nat8),
+      Text: IDL.Text,
+      Array: IDL.Vec(SelfDescribingValue),
+    }),
+  );
+  const SelfDescribingProposalAction = IDL.Record({
+    type_description: IDL.Opt(IDL.Text),
+    type_name: IDL.Opt(IDL.Text),
+    value: IDL.Opt(SelfDescribingValue),
+  });
   Proposal.fill(
     IDL.Record({
       url: IDL.Text,
       title: IDL.Opt(IDL.Text),
       action: IDL.Opt(Action),
       summary: IDL.Text,
+      self_describing_action: IDL.Opt(SelfDescribingProposalAction),
     }),
   );
   const WaitForQuietState = IDL.Record({
@@ -770,6 +787,9 @@ export const idlFactory = ({ IDL }) => {
     Ok: NodeProvider,
     Err: GovernanceError,
   });
+  const GetPendingProposalsRequest = IDL.Record({
+    return_self_describing_action: IDL.Opt(IDL.Bool),
+  });
   const ProposalInfo = IDL.Record({
     id: IDL.Opt(ProposalId),
     status: IDL.Int32,
@@ -843,6 +863,7 @@ export const idlFactory = ({ IDL }) => {
     node_providers: IDL.Vec(NodeProvider),
   });
   const ListProposalInfoRequest = IDL.Record({
+    return_self_describing_action: IDL.Opt(IDL.Bool),
     include_reward_status: IDL.Vec(IDL.Int32),
     omit_large_fields: IDL.Opt(IDL.Bool),
     before_proposal: IDL.Opt(ProposalId),
@@ -1044,7 +1065,11 @@ export const idlFactory = ({ IDL }) => {
       [],
     ),
     get_node_provider_by_caller: IDL.Func([IDL.Null], [Result_7], []),
-    get_pending_proposals: IDL.Func([], [IDL.Vec(ProposalInfo)], []),
+    get_pending_proposals: IDL.Func(
+      [IDL.Opt(GetPendingProposalsRequest)],
+      [IDL.Vec(ProposalInfo)],
+      [],
+    ),
     get_proposal_info: IDL.Func([IDL.Nat64], [IDL.Opt(ProposalInfo)], []),
     get_restore_aging_summary: IDL.Func([], [RestoreAgingSummary], []),
     list_known_neurons: IDL.Func([], [ListKnownNeuronsResponse], []),
@@ -1088,6 +1113,7 @@ export const idlFactory = ({ IDL }) => {
 
 export const init = ({ IDL }) => {
   const Proposal = IDL.Rec();
+  const SelfDescribingValue = IDL.Rec();
   const NeuronId = IDL.Record({ id: IDL.Nat64 });
   const Followees = IDL.Record({ followees: IDL.Vec(NeuronId) });
   const DateUtc = IDL.Record({
@@ -1672,12 +1698,28 @@ export const init = ({ IDL }) => {
     AddOrRemoveNodeProvider: AddOrRemoveNodeProvider,
     Motion: Motion,
   });
+  SelfDescribingValue.fill(
+    IDL.Variant({
+      Int: IDL.Int,
+      Map: IDL.Vec(IDL.Tuple(IDL.Text, SelfDescribingValue)),
+      Nat: IDL.Nat,
+      Blob: IDL.Vec(IDL.Nat8),
+      Text: IDL.Text,
+      Array: IDL.Vec(SelfDescribingValue),
+    }),
+  );
+  const SelfDescribingProposalAction = IDL.Record({
+    type_description: IDL.Opt(IDL.Text),
+    type_name: IDL.Opt(IDL.Text),
+    value: IDL.Opt(SelfDescribingValue),
+  });
   Proposal.fill(
     IDL.Record({
       url: IDL.Text,
       title: IDL.Opt(IDL.Text),
       action: IDL.Opt(Action),
       summary: IDL.Text,
+      self_describing_action: IDL.Opt(SelfDescribingProposalAction),
     }),
   );
   const WaitForQuietState = IDL.Record({
