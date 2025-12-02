@@ -378,9 +378,9 @@ describe("CyclesMintingCanister", () => {
 
       const cmc = await createCMC(service);
 
-      await expect(cmc.getDefaultSubnets({ certified: true })).rejects.toThrowError(
-        "Test",
-      );
+      await expect(
+        cmc.getDefaultSubnets({ certified: true }),
+      ).rejects.toThrowError("Test");
       expect(service.get_default_subnets).toHaveBeenCalledOnce();
     });
   });
