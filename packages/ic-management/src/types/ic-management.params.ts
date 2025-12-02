@@ -94,8 +94,10 @@ export interface StoredChunksParams {
   canisterId: Principal;
 }
 
-export interface InstallChunkedCodeParams
-  extends Omit<InstallCodeParams, "canisterId" | "wasmModule"> {
+export interface InstallChunkedCodeParams extends Omit<
+  InstallCodeParams,
+  "canisterId" | "wasmModule"
+> {
   chunkHashesList: Array<chunk_hash>;
   targetCanisterId: Principal;
   storeCanisterId?: Principal;
