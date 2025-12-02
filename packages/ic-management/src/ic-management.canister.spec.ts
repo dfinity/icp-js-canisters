@@ -151,7 +151,7 @@ describe("ICManagementCanister", () => {
 
       const call = () => icManagement.createCanister();
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -268,7 +268,7 @@ describe("ICManagementCanister", () => {
           },
         });
 
-      expect(call).toThrow(UnsupportedLogVisibility);
+      expect(call).toThrowError(UnsupportedLogVisibility);
     });
 
     it("throws Error", async () => {
@@ -284,7 +284,7 @@ describe("ICManagementCanister", () => {
           settings: mockCanisterSettings,
         });
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -330,7 +330,7 @@ describe("ICManagementCanister", () => {
 
       const call = () => icManagement.installCode(params);
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -359,7 +359,7 @@ describe("ICManagementCanister", () => {
       const call = () =>
         icManagement.uninstallCode({ canisterId: mockCanisterId });
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -386,7 +386,7 @@ describe("ICManagementCanister", () => {
 
       const call = () => icManagement.startCanister(mockCanisterId);
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -413,7 +413,7 @@ describe("ICManagementCanister", () => {
 
       const call = () => icManagement.stopCanister(mockCanisterId);
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -524,7 +524,7 @@ describe("ICManagementCanister", () => {
       const call = () =>
         icManagement.canisterStatus({ canisterId: mockCanisterId });
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -551,7 +551,7 @@ describe("ICManagementCanister", () => {
 
       const call = () => icManagement.deleteCanister(mockCanisterId);
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -595,7 +595,7 @@ describe("ICManagementCanister", () => {
 
       const call = () => icManagement.provisionalCreateCanisterWithCycles();
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -632,7 +632,7 @@ describe("ICManagementCanister", () => {
 
       const call = () => icManagement.uploadChunk(params);
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -663,7 +663,7 @@ describe("ICManagementCanister", () => {
 
       const call = () => icManagement.clearChunkStore(params);
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -701,7 +701,7 @@ describe("ICManagementCanister", () => {
 
       const call = () => icManagement.storedChunks(params);
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -815,7 +815,7 @@ describe("ICManagementCanister", () => {
 
       const call = () => icManagement.installChunkedCode(params);
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -873,7 +873,7 @@ describe("ICManagementCanister", () => {
 
       const call = () => icManagement.fetchCanisterLogs(mockCanisterId);
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -958,7 +958,7 @@ describe("ICManagementCanister", () => {
           canisterId: mockCanisterId,
         });
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -1024,7 +1024,7 @@ describe("ICManagementCanister", () => {
           canisterId: mockCanisterId,
         });
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -1103,7 +1103,7 @@ describe("ICManagementCanister", () => {
           snapshotId: Uint8Array.from([1, 2, 3, 4]),
         });
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -1159,7 +1159,7 @@ describe("ICManagementCanister", () => {
           snapshotId: Uint8Array.from([1, 2, 3, 4]),
         });
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -1195,8 +1195,9 @@ describe("ICManagementCanister", () => {
         fromReadCanisterSnapshotMetadataResponse(mockResponse),
       );
 
-      expect(service.read_canister_snapshot_metadata).toHaveBeenCalledTimes(1);
-      expect(service.read_canister_snapshot_metadata).toHaveBeenCalledWith({
+      expect(
+        service.read_canister_snapshot_metadata,
+      ).toHaveBeenCalledExactlyOnceWith({
         canister_id: params.canisterId,
         snapshot_id: params.snapshotId,
       });
@@ -1219,8 +1220,9 @@ describe("ICManagementCanister", () => {
         fromReadCanisterSnapshotMetadataResponse(mockResponse),
       );
 
-      expect(service.read_canister_snapshot_metadata).toHaveBeenCalledTimes(1);
-      expect(service.read_canister_snapshot_metadata).toHaveBeenCalledWith({
+      expect(
+        service.read_canister_snapshot_metadata,
+      ).toHaveBeenCalledExactlyOnceWith({
         canister_id: params.canisterId,
         snapshot_id: decodeSnapshotId(params.snapshotId),
       });
@@ -1239,7 +1241,7 @@ describe("ICManagementCanister", () => {
           snapshotId: Uint8Array.from([1, 2, 3, 4]),
         });
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -1267,8 +1269,9 @@ describe("ICManagementCanister", () => {
 
       expect(res).toEqual(mockResponse);
 
-      expect(service.read_canister_snapshot_data).toHaveBeenCalledTimes(1);
-      expect(service.read_canister_snapshot_data).toHaveBeenCalledWith({
+      expect(
+        service.read_canister_snapshot_data,
+      ).toHaveBeenCalledExactlyOnceWith({
         canister_id: params.canisterId,
         snapshot_id: params.snapshotId,
         kind: expectedKind,
@@ -1291,8 +1294,9 @@ describe("ICManagementCanister", () => {
 
       expect(res).toEqual(mockResponse);
 
-      expect(service.read_canister_snapshot_data).toHaveBeenCalledTimes(1);
-      expect(service.read_canister_snapshot_data).toHaveBeenCalledWith({
+      expect(
+        service.read_canister_snapshot_data,
+      ).toHaveBeenCalledExactlyOnceWith({
         canister_id: params.canisterId,
         snapshot_id: decodeSnapshotId(params.snapshotId),
         kind: expectedKind,
@@ -1313,7 +1317,7 @@ describe("ICManagementCanister", () => {
           kind: mockKind,
         });
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -1413,7 +1417,7 @@ describe("ICManagementCanister", () => {
           metadata: mockMetadata,
         });
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 
@@ -1439,8 +1443,9 @@ describe("ICManagementCanister", () => {
 
       expect(res).toEqual(undefined);
 
-      expect(service.upload_canister_snapshot_data).toHaveBeenCalledTimes(1);
-      expect(service.upload_canister_snapshot_data).toHaveBeenCalledWith({
+      expect(
+        service.upload_canister_snapshot_data,
+      ).toHaveBeenCalledExactlyOnceWith({
         canister_id: params.canisterId,
         snapshot_id: params.snapshotId,
         kind: expectedKind,
@@ -1465,8 +1470,9 @@ describe("ICManagementCanister", () => {
 
       expect(res).toEqual(undefined);
 
-      expect(service.upload_canister_snapshot_data).toHaveBeenCalledTimes(1);
-      expect(service.upload_canister_snapshot_data).toHaveBeenCalledWith({
+      expect(
+        service.upload_canister_snapshot_data,
+      ).toHaveBeenCalledExactlyOnceWith({
         canister_id: params.canisterId,
         snapshot_id: decodeSnapshotId(params.snapshotId),
         kind: expectedKind,
@@ -1489,7 +1495,7 @@ describe("ICManagementCanister", () => {
           chunk: mockChunk,
         });
 
-      await expect(call).rejects.toThrow(error);
+      await expect(call).rejects.toThrowError(error);
     });
   });
 });

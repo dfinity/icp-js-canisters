@@ -35,7 +35,9 @@ describe("NFT Ledger canister", () => {
         certifiedServiceOverride: service,
       });
 
-      await expect(canister.collectionMetadata({})).rejects.toThrow(mockError);
+      await expect(canister.collectionMetadata({})).rejects.toThrowError(
+        mockError,
+      );
     });
   });
 });

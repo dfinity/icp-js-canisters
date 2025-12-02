@@ -11,6 +11,10 @@ export default [
       // (which impacts the build pipeline) or setting up path aliases (which requires configuration).
       // Since neither is a current priority, the rule remains off.
       "import/no-relative-parent-imports": "off",
+
+      // We use no-restricted-imports in apps to prevent imports from the legacy @dfinity/... libraries
+      // which are developed in this repo.
+      "no-restricted-imports": "off",
     },
   },
   {

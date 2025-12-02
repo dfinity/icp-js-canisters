@@ -98,7 +98,7 @@ describe("ckETH orchestrator canister", () => {
 
       const canister = orchestrator(service);
 
-      expect(() => canister.getOrchestratorInfo()).toThrow();
+      expect(() => canister.getOrchestratorInfo()).toThrowError();
     });
   });
 });
