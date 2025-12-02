@@ -34,6 +34,11 @@ export interface Burn {
   amount: Tokens;
   spender: [] | [Account];
 }
+export interface FeeCollector {
+  ts: [] | [bigint];
+  fee_collector: [] | [Account];
+  caller: [] | [Principal];
+}
 export interface FeeCollectorRanges {
   ranges: Array<[Account, Array<[BlockIndex, BlockIndex]>]>;
 }
@@ -105,6 +110,7 @@ export interface Transaction {
   kind: string;
   mint: [] | [Mint];
   approve: [] | [Approve];
+  fee_collector: [] | [FeeCollector];
   timestamp: bigint;
   transfer: [] | [Transfer];
 }
