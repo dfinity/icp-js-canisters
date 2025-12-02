@@ -658,8 +658,7 @@ describe("Ledger canister", () => {
         args: [{ start: 0n, length: 1n }],
       });
 
-      expect(service.icrc3_get_blocks).toHaveBeenCalledOnce();
-      expect(service.icrc3_get_blocks).toHaveBeenNthCalledWith(1, [
+      expect(service.icrc3_get_blocks).toHaveBeenCalledExactlyOnceWith([
         { start: 0n, length: 1n },
       ]);
 
@@ -682,8 +681,7 @@ describe("Ledger canister", () => {
 
       const res = await canister.getBlocks({ args: [] });
 
-      expect(service.icrc3_get_blocks).toHaveBeenCalledOnce();
-      expect(service.icrc3_get_blocks).toHaveBeenNthCalledWith(1, []);
+      expect(service.icrc3_get_blocks).toHaveBeenCalledExactlyOnceWith([]);
 
       expect(res).toEqual(blocks);
     });

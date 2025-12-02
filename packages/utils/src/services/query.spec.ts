@@ -228,8 +228,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledOnce();
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: false,
                 response: queryResponse,
               });
@@ -250,8 +249,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledOnce();
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: false,
                 response: queryResponse,
               });
@@ -421,8 +419,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledOnce();
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: false,
                 response: queryResponse,
               });
@@ -483,8 +480,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledOnce();
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: true,
                 response: updateResponse,
               });
@@ -601,8 +597,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledOnce();
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: true,
                 response: updateResponse,
               });
@@ -681,8 +676,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledOnce();
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: true,
                 response: updateResponse,
               });
@@ -768,8 +762,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledOnce();
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: true,
                 response: updateResponse,
               });
@@ -848,8 +841,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledOnce();
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: true,
                 response: updateResponse,
               });
@@ -966,8 +958,7 @@ describe("query", () => {
 
         await queryAndUpdate(mockParams);
 
-        expect(onLoadMock).toHaveBeenCalledOnce();
-        expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+        expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
           certified: false,
           response: requestResponse,
         });
@@ -1046,8 +1037,7 @@ describe("query", () => {
 
         await queryAndUpdate(mockParams);
 
-        expect(onLoadMock).toHaveBeenCalledOnce();
-        expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+        expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
           certified: true,
           response: requestResponse,
         });
