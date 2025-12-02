@@ -4,11 +4,7 @@ tsconfig.json
 vitest.config.ts
 
 # Build and publish scripts
-copy-ts-declarations.mjs
-copy-candid.mjs
 esbuild.mjs
-post-pack.mjs
-pre-pack.mjs
 
 # Temporary files
 package.json.backup
