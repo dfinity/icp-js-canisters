@@ -51,10 +51,10 @@ describe("Index canister", () => {
                 subaccount: [],
               },
             ],
-            fee_collector: [],
           },
         ],
         approve: [],
+        fee_collector: [],
       };
       const transactionWithId = {
         id: BigInt(1),
