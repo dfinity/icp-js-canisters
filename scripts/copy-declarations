@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+DIR="$(pwd)/declarations"
+
+if [ ! -d "$DIR" ]; then
+  mkdir "$DIR"
+fi
+
+# While technically we could copy only the .d.ts declaration files,
+# we also copy the .did and .js files for convenience. According to our experience,
+# those files can be useful for developers. For example, for accessing the DID
+# file without the need to search for their effective source, or to create scripts
+# that load non-exposed functions with an actor.
+cp -r "$(pwd)/src/declarations/"* "$DIR/"
+
+echo "📦 Bundle declarations copied"
+

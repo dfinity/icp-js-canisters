@@ -56,7 +56,7 @@
   },
   "scripts": {
     "clean": "git ls-files --others --ignored --exclude-standard | grep -v \"LICENSE\" | xargs rm -rf",
-    "ts-declaration": "tsc --emitDeclarationOnly --outDir . && ../../scripts/copy-idl-ts",
+    "ts-declaration": "tsc --emitDeclarationOnly --outDir . && ../../scripts/copy-declarations",
     "build": "npm run clean && node esbuild.mjs && npm run ts-declaration",
     "prepack": "npm run build",
     "pretest": "npm run build",
