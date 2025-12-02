@@ -51,6 +51,7 @@ describe("Index canister", () => {
                 subaccount: [],
               },
             ],
+            fee_collector: [],
           },
         ],
         approve: [],
