@@ -46,6 +46,8 @@ export interface CanisterStatusResponse {
   memory_metrics: MemoryMetrics;
   status: CanisterStatusType;
   memory_size: bigint;
+  ready_for_migration: boolean;
+  version: bigint;
   cycles: bigint;
   settings: DefiniteCanisterSettings;
   query_stats: QueryStats;
@@ -60,6 +62,7 @@ export type CanisterStatusType =
 export interface DefiniteCanisterSettings {
   freezing_threshold: bigint;
   wasm_memory_threshold: bigint;
+  environment_variables: Array<environment_variable>;
   controllers: Array<Principal>;
   reserved_cycles_limit: bigint;
   log_visibility: LogVisibility;
@@ -701,6 +704,10 @@ export interface WithdrawalFee {
 export type WithdrawalReimbursementReason = {
   invalid_transaction: InvalidTransactionError;
 };
+export interface environment_variable {
+  value: string;
+  name: string;
+}
 export interface _SERVICE {
   /**
    * / Returns an estimate of the user's fee (in Satoshi) for a
