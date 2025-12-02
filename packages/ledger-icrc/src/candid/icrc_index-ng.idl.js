@@ -54,6 +54,11 @@ export const idlFactory = ({ IDL }) => {
     expires_at: IDL.Opt(IDL.Nat64),
     spender: Account,
   });
+  const FeeCollector = IDL.Record({
+    ts: IDL.Opt(IDL.Nat64),
+    fee_collector: IDL.Opt(Account),
+    caller: IDL.Opt(IDL.Principal),
+  });
   const Transfer = IDL.Record({
     to: Account,
     fee: IDL.Opt(Tokens),
@@ -68,6 +73,7 @@ export const idlFactory = ({ IDL }) => {
     kind: IDL.Text,
     mint: IDL.Opt(Mint),
     approve: IDL.Opt(Approve),
+    fee_collector: IDL.Opt(FeeCollector),
     timestamp: IDL.Nat64,
     transfer: IDL.Opt(Transfer),
   });

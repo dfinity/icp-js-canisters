@@ -54,6 +54,7 @@ describe("Index canister", () => {
           },
         ],
         approve: [],
+        fee_collector: [],
       };
       const transactionWithId = {
         id: BigInt(1),
