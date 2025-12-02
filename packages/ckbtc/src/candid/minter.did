@@ -1,10 +1,17 @@
-// Generated from IC repo commit 948d5b9 (2025-11-19 tags: release-2025-11-20_03-21-base) 'rs/bitcoin/ckbtc/minter/ckbtc_minter.did' by import-candid
+// Generated from IC repo commit 724ae41 (2025-11-27 tags: release-2025-11-28_03-22-base) 'rs/bitcoin/ckbtc/minter/ckbtc_minter.did' by import-candid
 
 // Represents an account on the ckBTC ledger.
 type Account = record { owner : principal; subaccount : opt blob };
 
+type environment_variable = record { 
+    name: text; 
+    value: text;
+};
+
 type CanisterStatusResponse = record {
   status : CanisterStatusType;
+  ready_for_migration : bool;
+  version : nat64;
   memory_size : nat;
   cycles : nat;
   settings : DefiniteCanisterSettings;
@@ -44,6 +51,7 @@ type DefiniteCanisterSettings = record {
   log_visibility: LogVisibility;
   wasm_memory_limit : nat;
   wasm_memory_threshold : nat;
+  environment_variables : vec environment_variable;
 };
 
 type LogVisibility = variant {
