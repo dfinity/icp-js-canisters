@@ -85,8 +85,10 @@ export interface SnsStakeNeuronParams extends Omit<QueryParams, "certified"> {
   fee?: bigint;
 }
 
-export interface SnsIncreaseStakeNeuronParams
-  extends Omit<QueryParams, "certified"> {
+export interface SnsIncreaseStakeNeuronParams extends Omit<
+  QueryParams,
+  "certified"
+> {
   stakeE8s: IcrcTokens;
   source: IcrcAccount;
   neuronId: NeuronId;
@@ -133,16 +135,14 @@ export interface SnsDisburseNeuronParams extends SnsNeuronManagementParams {
 /**
  * The parameters to set dissolve timestamp
  */
-export interface SnsSetDissolveTimestampParams
-  extends SnsNeuronManagementParams {
+export interface SnsSetDissolveTimestampParams extends SnsNeuronManagementParams {
   dissolveTimestampSeconds: bigint;
 }
 
 /**
  * The parameters to increase dissolve delay
  */
-export interface SnsIncreaseDissolveDelayParams
-  extends SnsNeuronManagementParams {
+export interface SnsIncreaseDissolveDelayParams extends SnsNeuronManagementParams {
   additionalDissolveDelaySeconds: number;
 }
 
@@ -187,16 +187,14 @@ export interface SnsClaimNeuronParams {
 /**
  * The parameters to stake maturity of a neuron
  */
-export interface SnsNeuronStakeMaturityParams
-  extends SnsNeuronManagementParams {
+export interface SnsNeuronStakeMaturityParams extends SnsNeuronManagementParams {
   percentageToStake?: number;
 }
 
 /**
  * The parameters to disburse maturity of a neuron
  */
-export interface SnsNeuronDisburseMaturityParams
-  extends SnsNeuronManagementParams {
+export interface SnsNeuronDisburseMaturityParams extends SnsNeuronManagementParams {
   toAccount?: IcrcAccount;
   percentageToDisburse: number;
 }
@@ -204,7 +202,6 @@ export interface SnsNeuronDisburseMaturityParams
 /**
  * The parameters to toggle auto stake maturity of a neuron
  */
-export interface SnsNeuronAutoStakeMaturityParams
-  extends SnsNeuronManagementParams {
+export interface SnsNeuronAutoStakeMaturityParams extends SnsNeuronManagementParams {
   autoStake: boolean;
 }
