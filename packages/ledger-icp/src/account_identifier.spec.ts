@@ -4,13 +4,13 @@ import { mockAccountIdentifier } from "./mocks/ledger.mock";
 
 describe("SubAccount", () => {
   it("only accepts 32-byte blobs", () => {
-    expect(() => SubAccount.fromBytes(new Uint8Array([1, 2]))).toThrow(
+    expect(() => SubAccount.fromBytes(new Uint8Array([1, 2]))).toThrowError(
       "Subaccount length must be 32-bytes",
     );
-    expect(() => SubAccount.fromBytes(new Uint8Array(31))).toThrow(
+    expect(() => SubAccount.fromBytes(new Uint8Array(31))).toThrowError(
       "Subaccount length must be 32-bytes",
     );
-    expect(() => SubAccount.fromBytes(new Uint8Array(33))).toThrow(
+    expect(() => SubAccount.fromBytes(new Uint8Array(33))).toThrowError(
       "Subaccount length must be 32-bytes",
     );
     expect(SubAccount.fromBytes(new Uint8Array(32))).toBeInstanceOf(SubAccount);
@@ -85,13 +85,13 @@ describe("SubAccount", () => {
   it("throws an exception if initialized with an ID < 0", () => {
     expect(() => {
       SubAccount.fromID(-1);
-    }).toThrow();
+    }).toThrowError();
   });
 
   it("throws an exception if initialized with an ID > max int", () => {
     expect(() => {
       SubAccount.fromID(Number.MAX_SAFE_INTEGER + 1);
-    }).toThrow();
+    }).toThrowError();
   });
 });
 
@@ -107,25 +107,25 @@ describe("AccountIdentifier", () => {
       AccountIdentifier.fromHex(
         "bad13d4777e22367532053190b6c6ccf57444a61337e996242b1abfb52cf92c8",
       );
-    }).toThrow("Checksum mismatch. Expected d3e13d47, but got bad13d47.");
+    }).toThrowError("Checksum mismatch. Expected d3e13d47, but got bad13d47.");
   });
 
   it("should reject an invalid hex string", () => {
     expect(() => {
       AccountIdentifier.fromHex("foo bar");
-    }).toThrow("Invalid AccountIdentifier: expected 32 bytes, got 4.");
+    }).toThrowError("Invalid AccountIdentifier: expected 32 bytes, got 4.");
   });
 
   it("should reject an empty hex string", () => {
     expect(() => {
       AccountIdentifier.fromHex("");
-    }).toThrow("Invalid hex string.");
+    }).toThrowError("Invalid hex string.");
   });
 
   it("should reject an hex string too short", () => {
     expect(() => {
       AccountIdentifier.fromHex("deadbeef");
-    }).toThrow("Invalid AccountIdentifier: expected 32 bytes, got 4.");
+    }).toThrowError("Invalid AccountIdentifier: expected 32 bytes, got 4.");
   });
 
   test("can be initialized from a principal", () => {

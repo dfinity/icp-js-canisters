@@ -18,6 +18,7 @@ describe("PrincipalText", () => {
     expect(result.success).toBeFalsy();
 
     if (!result.success) {
+      // eslint-disable-next-line vitest/no-conditional-expect
       expect(result.error.issues).toEqual([
         {
           code: "custom",
@@ -25,7 +26,11 @@ describe("PrincipalText", () => {
           path: [],
         },
       ]);
+
+      return;
     }
+
+    expect(true).toBeFalsy();
   });
 
   it("should pass validation with an anonymous Principal", () => {
@@ -42,6 +47,7 @@ describe("PrincipalText", () => {
     expect(result.success).toBeFalsy();
 
     if (!result.success) {
+      // eslint-disable-next-line vitest/no-conditional-expect
       expect(result.error.issues).toEqual([
         {
           code: "invalid_type",
@@ -50,6 +56,10 @@ describe("PrincipalText", () => {
           path: [],
         },
       ]);
+
+      return;
     }
+
+    expect(true).toBeFalsy();
   });
 });

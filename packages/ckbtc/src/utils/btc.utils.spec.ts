@@ -45,13 +45,13 @@ describe("BTC utils", () => {
 
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Mainnet }),
-    ).toThrow(ParseBtcAddressMalformedAddressError);
+    ).toThrowError(ParseBtcAddressMalformedAddressError);
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Testnet }),
-    ).toThrow(ParseBtcAddressMalformedAddressError);
+    ).toThrowError(ParseBtcAddressMalformedAddressError);
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Regtest }),
-    ).toThrow(ParseBtcAddressMalformedAddressError);
+    ).toThrowError(ParseBtcAddressMalformedAddressError);
   });
 
   it("parse Mainnet P2SH", () => {
@@ -92,13 +92,13 @@ describe("BTC utils", () => {
 
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Mainnet }),
-    ).toThrow(ParseBtcAddressMalformedAddressError);
+    ).toThrowError(ParseBtcAddressMalformedAddressError);
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Testnet }),
-    ).toThrow(ParseBtcAddressMalformedAddressError);
+    ).toThrowError(ParseBtcAddressMalformedAddressError);
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Regtest }),
-    ).toThrow(ParseBtcAddressMalformedAddressError);
+    ).toThrowError(ParseBtcAddressMalformedAddressError);
   });
 
   it("fails on bogus address", () => {
@@ -106,13 +106,13 @@ describe("BTC utils", () => {
 
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Mainnet }),
-    ).toThrow(ParseBtcAddressUnsupportedAddressTypeError);
+    ).toThrowError(ParseBtcAddressUnsupportedAddressTypeError);
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Testnet }),
-    ).toThrow(ParseBtcAddressUnsupportedAddressTypeError);
+    ).toThrowError(ParseBtcAddressUnsupportedAddressTypeError);
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Regtest }),
-    ).toThrow(ParseBtcAddressUnsupportedAddressTypeError);
+    ).toThrowError(ParseBtcAddressUnsupportedAddressTypeError);
   });
 
   it("fails on empty address", () => {
@@ -120,13 +120,13 @@ describe("BTC utils", () => {
 
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Mainnet }),
-    ).toThrow(ParseBtcAddressNoDataError);
+    ).toThrowError(ParseBtcAddressNoDataError);
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Testnet }),
-    ).toThrow(ParseBtcAddressNoDataError);
+    ).toThrowError(ParseBtcAddressNoDataError);
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Regtest }),
-    ).toThrow(ParseBtcAddressNoDataError);
+    ).toThrowError(ParseBtcAddressNoDataError);
   });
 
   it("parse Mainnet Bech32 P2WPKH", () => {
@@ -180,13 +180,13 @@ describe("BTC utils", () => {
 
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Mainnet }),
-    ).toThrow(ParseBtcAddressMalformedAddressError);
+    ).toThrowError(ParseBtcAddressMalformedAddressError);
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Testnet }),
-    ).toThrow(ParseBtcAddressMalformedAddressError);
+    ).toThrowError(ParseBtcAddressMalformedAddressError);
     expect(() =>
       parseBtcAddress({ address, network: BtcNetwork.Regtest }),
-    ).toThrow(ParseBtcAddressMalformedAddressError);
+    ).toThrowError(ParseBtcAddressMalformedAddressError);
   });
 
   describe("minter canister samples", () => {
@@ -220,7 +220,7 @@ describe("BTC utils", () => {
 
       expect(() => {
         parseBtcAddress({ address, network: BtcNetwork.Regtest });
-      }).toThrow(ParseBtcAddressMalformedAddressError);
+      }).toThrowError(ParseBtcAddressMalformedAddressError);
     });
   });
 
