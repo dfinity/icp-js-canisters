@@ -1,5 +1,5 @@
 import { idlFactory as idlFactoryAssets } from "./assets/assets_assetstorage.idl";
 
-import type { _SERVICE as AssetsActor } from "./assets/assets_assetstorage";
+import type { _SERVICE as AssetsService } from "./assets/assets_assetstorage";
 
-export { idlFactoryAssets, type AssetsActor };
+export { idlFactoryAssets, type AssetsService };
