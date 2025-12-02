@@ -141,7 +141,7 @@ describe("Ledger canister", () => {
 
       const call = () => canister.transfer(transferParams);
 
-      await expect(call).rejects.toThrow(IcrcTransferError);
+      await expect(call).rejects.toThrowError(IcrcTransferError);
     });
   });
 
@@ -207,7 +207,7 @@ describe("Ledger canister", () => {
 
       const call = () => canister.transferFrom(transferParams);
 
-      await expect(call).rejects.toThrow(IcrcTransferError);
+      await expect(call).rejects.toThrowError(IcrcTransferError);
     });
   });
 
@@ -268,7 +268,7 @@ describe("Ledger canister", () => {
 
       const call = () => canister.approve(approveParams);
 
-      await expect(call).rejects.toThrow(IcrcTransferError);
+      await expect(call).rejects.toThrowError(IcrcTransferError);
     });
   });
 
@@ -509,7 +509,7 @@ describe("Ledger canister", () => {
 
       await expect(
         ledger.consentMessage(consentMessageRequest),
-      ).rejects.toThrow(new GenericError(errorDescription, BigInt(500)));
+      ).rejects.toThrowError(new GenericError(errorDescription, BigInt(500)));
     });
 
     it("should throw InsufficientPaymentError when the canister returns an InsufficientPayment error", async () => {
@@ -536,7 +536,7 @@ describe("Ledger canister", () => {
 
       await expect(
         ledger.consentMessage(consentMessageRequest),
-      ).rejects.toThrow(
+      ).rejects.toThrowError(
         new InsufficientPaymentError(insufficientPaymentDescription),
       );
     });
@@ -566,7 +566,7 @@ describe("Ledger canister", () => {
 
       await expect(
         ledger.consentMessage(consentMessageRequest),
-      ).rejects.toThrow(
+      ).rejects.toThrowError(
         new UnsupportedCanisterCallError(unsupportedCanisterCallDescription),
       );
     });
@@ -596,7 +596,7 @@ describe("Ledger canister", () => {
 
       await expect(
         ledger.consentMessage(consentMessageRequest),
-      ).rejects.toThrow(
+      ).rejects.toThrowError(
         new ConsentMessageUnavailableError(
           consentMessageUnavailableDescription,
         ),
@@ -628,7 +628,7 @@ describe("Ledger canister", () => {
 
       await expect(
         ledger.consentMessage(consentMessageRequest),
-      ).rejects.toThrow(
+      ).rejects.toThrowError(
         new ConsentMessageError(`Unknown error type ${JSON.stringify(Err)}`),
       );
     });
@@ -658,7 +658,7 @@ describe("Ledger canister", () => {
         args: [{ start: 0n, length: 1n }],
       });
 
-      expect(service.icrc3_get_blocks).toHaveBeenCalledTimes(1);
+      expect(service.icrc3_get_blocks).toHaveBeenCalledOnce();
       expect(service.icrc3_get_blocks).toHaveBeenNthCalledWith(1, [
         { start: 0n, length: 1n },
       ]);
@@ -682,7 +682,7 @@ describe("Ledger canister", () => {
 
       const res = await canister.getBlocks({ args: [] });
 
-      expect(service.icrc3_get_blocks).toHaveBeenCalledTimes(1);
+      expect(service.icrc3_get_blocks).toHaveBeenCalledOnce();
       expect(service.icrc3_get_blocks).toHaveBeenNthCalledWith(1, []);
 
       expect(res).toEqual(blocks);
@@ -741,7 +741,7 @@ describe("Ledger canister", () => {
 
       await expect(
         ledger.getIndexPrincipal(indexPrincipalRequest),
-      ).rejects.toThrow(new GenericError(errorDescription, BigInt(500)));
+      ).rejects.toThrowError(new GenericError(errorDescription, BigInt(500)));
     });
 
     it("should throw IndexPrincipalNotSetError when the canister returns an IndexPrincipalNotSet error", async () => {
@@ -764,7 +764,7 @@ describe("Ledger canister", () => {
 
       await expect(
         ledger.getIndexPrincipal(indexPrincipalRequest),
-      ).rejects.toThrow(
+      ).rejects.toThrowError(
         new IndexPrincipalNotSetError(
           "Index principal is not set for this ledger canister.",
         ),

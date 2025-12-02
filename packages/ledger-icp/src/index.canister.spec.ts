@@ -75,7 +75,7 @@ describe("IndexCanister", () => {
           accountIdentifier: mockAccountIdentifier.toHex(),
           certified: false,
         }),
-      ).toThrow();
+      ).toThrowError();
     });
   });
 
@@ -237,7 +237,7 @@ describe("IndexCanister", () => {
           certified: false,
           maxResults: 10n,
         }),
-      ).rejects.toThrow();
+      ).rejects.toThrowError();
     });
 
     it("should bubble errors", async () => {
@@ -256,7 +256,7 @@ describe("IndexCanister", () => {
           certified: false,
           maxResults: 10n,
         }),
-      ).rejects.toThrow();
+      ).rejects.toThrowError();
     });
   });
 });

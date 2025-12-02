@@ -58,7 +58,7 @@ describe("CyclesMintingCanister", () => {
       const res = await cmc.getIcpToCyclesConversionRate({ certified: false });
 
       expect(res).toEqual(exchangeRate);
-      expect(service.get_icp_xdr_conversion_rate).toHaveBeenCalledTimes(1);
+      expect(service.get_icp_xdr_conversion_rate).toHaveBeenCalledOnce();
       expect(callerSpy).toHaveBeenCalledWith({ certified: false });
     });
 
@@ -86,7 +86,7 @@ describe("CyclesMintingCanister", () => {
       const res = await cmc.getIcpToCyclesConversionRate({ certified: true });
 
       expect(res).toEqual(exchangeRate);
-      expect(service.get_icp_xdr_conversion_rate).toHaveBeenCalledTimes(1);
+      expect(service.get_icp_xdr_conversion_rate).toHaveBeenCalledOnce();
       expect(callerSpy).toHaveBeenCalledWith({ certified: true });
     });
   });
@@ -133,7 +133,7 @@ describe("CyclesMintingCanister", () => {
           settings: [],
         });
 
-      await expect(call).rejects.toThrow(RefundedError);
+      await expect(call).rejects.toThrowError(RefundedError);
     });
 
     it("throws InvalidaTransactionError error", async () => {
@@ -154,7 +154,7 @@ describe("CyclesMintingCanister", () => {
           settings: [],
         });
 
-      await expect(call).rejects.toThrow(InvalidaTransactionError);
+      await expect(call).rejects.toThrowError(InvalidaTransactionError);
     });
 
     it("throws ProcessingError error", async () => {
@@ -175,7 +175,7 @@ describe("CyclesMintingCanister", () => {
           settings: [],
         });
 
-      await expect(call).rejects.toThrow(ProcessingError);
+      await expect(call).rejects.toThrowError(ProcessingError);
     });
 
     it("throws TransactionTooOldError error", async () => {
@@ -196,7 +196,7 @@ describe("CyclesMintingCanister", () => {
           settings: [],
         });
 
-      await expect(call).rejects.toThrow(TransactionTooOldError);
+      await expect(call).rejects.toThrowError(TransactionTooOldError);
     });
 
     it("throws CMCError error", async () => {
@@ -217,7 +217,7 @@ describe("CyclesMintingCanister", () => {
           settings: [],
         });
 
-      await expect(call).rejects.toThrow(CMCError);
+      await expect(call).rejects.toThrowError(CMCError);
     });
   });
 
@@ -254,7 +254,7 @@ describe("CyclesMintingCanister", () => {
           block_index: BigInt(10),
         });
 
-      await expect(call).rejects.toThrow(RefundedError);
+      await expect(call).rejects.toThrowError(RefundedError);
     });
 
     it("throws InvalidaTransactionError error", async () => {
@@ -272,7 +272,7 @@ describe("CyclesMintingCanister", () => {
           block_index: BigInt(10),
         });
 
-      await expect(call).rejects.toThrow(InvalidaTransactionError);
+      await expect(call).rejects.toThrowError(InvalidaTransactionError);
     });
 
     it("throws ProcessingError error", async () => {
@@ -290,7 +290,7 @@ describe("CyclesMintingCanister", () => {
           block_index: BigInt(10),
         });
 
-      await expect(call).rejects.toThrow(ProcessingError);
+      await expect(call).rejects.toThrowError(ProcessingError);
     });
 
     it("throws TransactionTooOldError error", async () => {
@@ -308,7 +308,7 @@ describe("CyclesMintingCanister", () => {
           block_index: BigInt(10),
         });
 
-      await expect(call).rejects.toThrow(TransactionTooOldError);
+      await expect(call).rejects.toThrowError(TransactionTooOldError);
     });
 
     it("throws CMCError error", async () => {
@@ -326,7 +326,7 @@ describe("CyclesMintingCanister", () => {
           block_index: BigInt(10),
         });
 
-      await expect(call).rejects.toThrow(CMCError);
+      await expect(call).rejects.toThrowError(CMCError);
     });
   });
 
@@ -352,7 +352,7 @@ describe("CyclesMintingCanister", () => {
       const result = await cmc.getDefaultSubnets({ certified: false });
 
       expect(result).toEqual(expectedSubnets);
-      expect(service.get_default_subnets).toHaveBeenCalledTimes(1);
+      expect(service.get_default_subnets).toHaveBeenCalledOnce();
 
       expect(callerSpy).toHaveBeenCalledWith({ certified: false });
     });
@@ -373,7 +373,7 @@ describe("CyclesMintingCanister", () => {
       const result = await cmc.getDefaultSubnets({ certified: true });
 
       expect(result).toEqual(expectedSubnets);
-      expect(service.get_default_subnets).toHaveBeenCalledTimes(1);
+      expect(service.get_default_subnets).toHaveBeenCalledOnce();
 
       expect(callerSpy).toHaveBeenCalledWith({ certified: true });
     });
@@ -384,10 +384,10 @@ describe("CyclesMintingCanister", () => {
 
       const cmc = await createCMC(service);
 
-      await expect(cmc.getDefaultSubnets({ certified: true })).rejects.toThrow(
-        "Test",
-      );
-      expect(service.get_default_subnets).toHaveBeenCalledTimes(1);
+      await expect(
+        cmc.getDefaultSubnets({ certified: true }),
+      ).rejects.toThrowError("Test");
+      expect(service.get_default_subnets).toHaveBeenCalledOnce();
     });
   });
 
@@ -429,7 +429,7 @@ describe("CyclesMintingCanister", () => {
       const result = await cmc.getSubnetTypesToSubnets({ certified: false });
 
       expect(result).toEqual(expectedSubnets);
-      expect(service.get_subnet_types_to_subnets).toHaveBeenCalledTimes(1);
+      expect(service.get_subnet_types_to_subnets).toHaveBeenCalledOnce();
 
       expect(callerSpy).toHaveBeenCalledWith({ certified: false });
     });
@@ -450,7 +450,7 @@ describe("CyclesMintingCanister", () => {
       const result = await cmc.getSubnetTypesToSubnets({ certified: true });
 
       expect(result).toEqual(expectedSubnets);
-      expect(service.get_subnet_types_to_subnets).toHaveBeenCalledTimes(1);
+      expect(service.get_subnet_types_to_subnets).toHaveBeenCalledOnce();
 
       expect(callerSpy).toHaveBeenCalledWith({ certified: true });
     });
@@ -463,8 +463,8 @@ describe("CyclesMintingCanister", () => {
 
       await expect(
         cmc.getSubnetTypesToSubnets({ certified: true }),
-      ).rejects.toThrow("Test");
-      expect(service.get_subnet_types_to_subnets).toHaveBeenCalledTimes(1);
+      ).rejects.toThrowError("Test");
+      expect(service.get_subnet_types_to_subnets).toHaveBeenCalledOnce();
     });
   });
 });

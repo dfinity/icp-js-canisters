@@ -99,7 +99,7 @@ describe("Index canister", () => {
           max_results: BigInt(10),
         });
 
-      await expect(call).rejects.toThrow(IndexError);
+      await expect(call).rejects.toThrowError(IndexError);
     });
   });
 
@@ -200,8 +200,7 @@ describe("Index canister", () => {
         owner,
       });
 
-      expect(service.list_subaccounts).toHaveBeenCalledTimes(1);
-      expect(service.list_subaccounts).toHaveBeenCalledWith({
+      expect(service.list_subaccounts).toHaveBeenCalledExactlyOnceWith({
         owner,
         start: [],
       });
@@ -226,8 +225,7 @@ describe("Index canister", () => {
         certified: true,
       });
 
-      expect(service.list_subaccounts).toHaveBeenCalledTimes(1);
-      expect(service.list_subaccounts).toHaveBeenCalledWith({
+      expect(service.list_subaccounts).toHaveBeenCalledExactlyOnceWith({
         owner,
         start: [startSubaccount],
       });

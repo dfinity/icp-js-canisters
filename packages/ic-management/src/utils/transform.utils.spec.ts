@@ -34,7 +34,7 @@ describe("transform", () => {
       const args = [{ canister_id: 12345 }];
       const callConfig: CallConfig = {};
 
-      expect(() => transform(methodName, args, callConfig)).toThrow();
+      expect(() => transform(methodName, args, callConfig)).toThrowError();
     });
   });
 
@@ -69,7 +69,7 @@ describe("transform", () => {
         const args = [{ target_canister: 12345 }];
         const callConfig: CallConfig = {};
 
-        expect(() => transform(methodName, args, callConfig)).toThrow();
+        expect(() => transform(methodName, args, callConfig)).toThrowError();
       });
 
       it("should map the effectiveCanisterId to target_canister if a valid target_canister and canister_id are provided with the method install_chunked_code in the request", () => {
@@ -149,7 +149,7 @@ describe("transform", () => {
         const args = [{ specified_id: [12345] }];
         const callConfig: CallConfig = {};
 
-        expect(() => transform(methodName, args, callConfig)).toThrow();
+        expect(() => transform(methodName, args, callConfig)).toThrowError();
       });
 
       it("should not map the effectiveCanisterId when specified_id is none", () => {
