@@ -7,7 +7,7 @@ import {
 import type { ActorSubclass, HttpAgent } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
 import type { IcManagementDid, IcManagementService } from "../declarations";
-import { ICManagementCanister } from "./ic-management.canister";
+import { IcManagementCanister } from "./ic-management.canister";
 import {
   mappedMockCanisterSettings,
   mockCanisterId,
@@ -36,7 +36,7 @@ import {
 import { fromReadCanisterSnapshotMetadataResponse } from "./types/snapshot.responses";
 import { decodeSnapshotId } from "./utils/ic-management.utils";
 
-describe("ICManagementCanister", () => {
+describe("IcManagementCanister", () => {
   const mockAgent: HttpAgent = mock<HttpAgent>();
 
   const mockInstallCodeModes: IcManagementDid.canister_install_mode[] = [
@@ -85,27 +85,27 @@ describe("ICManagementCanister", () => {
     },
   ];
 
-  const createICManagement = (
+  const createIcManagement = (
     service: IcManagementService,
-  ): ICManagementCanister =>
-    ICManagementCanister.create({
+  ): IcManagementCanister =>
+    IcManagementCanister.create({
       agent: mockAgent,
       serviceOverride: service as ActorSubclass<IcManagementService>,
       certifiedServiceOverride: service as ActorSubclass<IcManagementService>,
     });
 
-  const createQueryICManagement = (
+  const createQueryIcManagement = (
     service: IcManagementService,
-  ): ICManagementCanister =>
-    ICManagementCanister.create({
+  ): IcManagementCanister =>
+    IcManagementCanister.create({
       agent: mockAgent,
       serviceOverride: service as ActorSubclass<IcManagementService>,
     });
 
-  const createUpdateICManagement = (
+  const createUpdateIcManagement = (
     certifiedService: IcManagementService,
-  ): ICManagementCanister =>
-    ICManagementCanister.create({
+  ): IcManagementCanister =>
+    IcManagementCanister.create({
       agent: mockAgent,
       certifiedServiceOverride:
         certifiedService as ActorSubclass<IcManagementService>,
@@ -120,7 +120,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.create_canister.mockResolvedValue(response);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const res = await icManagement.createCanister({
         settings: mockCanisterSettings,
@@ -138,7 +138,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.create_canister.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () => icManagement.createCanister();
 
@@ -151,7 +151,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.update_settings.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.updateSettings({
         canisterId: mockCanisterId,
@@ -172,7 +172,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.update_settings.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.updateSettings({
         canisterId: mockCanisterId,
@@ -200,7 +200,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.update_settings.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.updateSettings({
         canisterId: mockCanisterId,
@@ -224,7 +224,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.update_settings.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.updateSettings({
         canisterId: mockCanisterId,
@@ -248,7 +248,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.update_settings.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.updateSettings({
@@ -267,7 +267,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.update_settings.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.updateSettings({
@@ -292,7 +292,7 @@ describe("ICManagementCanister", () => {
         const service = mock<IcManagementService>();
         service.install_code.mockResolvedValue(undefined);
 
-        const icManagement = await createICManagement(service);
+        const icManagement = await createIcManagement(service);
 
         await icManagement.installCode(params);
 
@@ -317,7 +317,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.install_code.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () => icManagement.installCode(params);
 
@@ -330,7 +330,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.uninstall_code.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.uninstallCode({ canisterId: mockCanisterId });
 
@@ -345,7 +345,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.uninstall_code.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.uninstallCode({ canisterId: mockCanisterId });
@@ -359,7 +359,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.start_canister.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.startCanister(mockCanisterId);
 
@@ -373,7 +373,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.start_canister.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () => icManagement.startCanister(mockCanisterId);
 
@@ -386,7 +386,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.stop_canister.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.stopCanister(mockCanisterId);
 
@@ -400,7 +400,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.stop_canister.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () => icManagement.stopCanister(mockCanisterId);
 
@@ -452,7 +452,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.canister_status.mockResolvedValue(response);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const res = await icManagement.canisterStatus({
         canisterId: mockCanisterId,
@@ -465,11 +465,11 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.canister_status.mockResolvedValue(response);
 
-      const icManagement = await createUpdateICManagement(service);
+      const icManagement = await createUpdateIcManagement(service);
 
       const callerSpy = vi.spyOn(
         icManagement as unknown as {
-          caller: (params: QueryParams) => Promise<ICManagementCanister>;
+          caller: (params: QueryParams) => Promise<IcManagementCanister>;
         },
         "caller",
       );
@@ -487,11 +487,11 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.canister_status.mockResolvedValue(response);
 
-      const icManagement = await createQueryICManagement(service);
+      const icManagement = await createQueryIcManagement(service);
 
       const callerSpy = vi.spyOn(
         icManagement as unknown as {
-          caller: (params: QueryParams) => Promise<ICManagementCanister>;
+          caller: (params: QueryParams) => Promise<IcManagementCanister>;
         },
         "caller",
       );
@@ -510,7 +510,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.canister_status.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.canisterStatus({ canisterId: mockCanisterId });
@@ -524,7 +524,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.delete_canister.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.deleteCanister(mockCanisterId);
 
@@ -538,7 +538,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.delete_canister.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () => icManagement.deleteCanister(mockCanisterId);
 
@@ -559,7 +559,7 @@ describe("ICManagementCanister", () => {
         response,
       );
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.provisionalCreateCanisterWithCycles({
         amount: BigInt(100_000),
@@ -582,7 +582,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.provisional_create_canister_with_cycles.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () => icManagement.provisionalCreateCanisterWithCycles();
 
@@ -603,7 +603,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.upload_chunk.mockResolvedValue(response);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const res = await icManagement.uploadChunk(params);
 
@@ -619,7 +619,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.upload_chunk.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () => icManagement.uploadChunk(params);
 
@@ -636,7 +636,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.clear_chunk_store.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.clearChunkStore(params);
 
@@ -650,7 +650,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.clear_chunk_store.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () => icManagement.clearChunkStore(params);
 
@@ -673,7 +673,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.stored_chunks.mockResolvedValue(response);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const res = await icManagement.storedChunks(params);
 
@@ -688,7 +688,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.stored_chunks.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () => icManagement.storedChunks(params);
 
@@ -727,7 +727,7 @@ describe("ICManagementCanister", () => {
         const service = mock<IcManagementService>();
         service.install_chunked_code.mockResolvedValue(undefined);
 
-        const icManagement = await createICManagement(service);
+        const icManagement = await createIcManagement(service);
 
         await icManagement.installChunkedCode(params);
 
@@ -752,7 +752,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.install_chunked_code.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.installChunkedCode(params);
 
@@ -777,7 +777,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.install_chunked_code.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       await icManagement.installChunkedCode(params);
 
@@ -802,7 +802,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.install_chunked_code.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () => icManagement.installChunkedCode(params);
 
@@ -830,7 +830,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.fetch_canister_logs.mockResolvedValue(response);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const res = await icManagement.fetchCanisterLogs(mockCanisterId);
 
@@ -841,11 +841,11 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.fetch_canister_logs.mockResolvedValue(response);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const callerSpy = vi.spyOn(
         icManagement as unknown as {
-          caller: (params: QueryParams) => Promise<ICManagementCanister>;
+          caller: (params: QueryParams) => Promise<IcManagementCanister>;
         },
         "caller",
       );
@@ -860,7 +860,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.fetch_canister_logs.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () => icManagement.fetchCanisterLogs(mockCanisterId);
 
@@ -879,7 +879,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.take_canister_snapshot.mockResolvedValue(mockResponse);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -899,7 +899,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.take_canister_snapshot.mockResolvedValue(mockResponse);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -920,7 +920,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.take_canister_snapshot.mockResolvedValue(mockResponse);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -942,7 +942,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.take_canister_snapshot.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.takeCanisterSnapshot({
@@ -974,7 +974,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.list_canister_snapshots.mockResolvedValue(mockResponse);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const res = await icManagement.listCanisterSnapshots({
         canisterId: mockCanisterId,
@@ -991,7 +991,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.list_canister_snapshots.mockResolvedValue([]);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const res = await icManagement.listCanisterSnapshots({
         canisterId: mockCanisterId,
@@ -1009,7 +1009,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.list_canister_snapshots.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.listCanisterSnapshots({
@@ -1025,7 +1025,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.load_canister_snapshot.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1045,7 +1045,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.load_canister_snapshot.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1065,7 +1065,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.load_canister_snapshot.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1087,7 +1087,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.load_canister_snapshot.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.loadCanisterSnapshot({
@@ -1104,7 +1104,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.delete_canister_snapshot.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1123,7 +1123,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.delete_canister_snapshot.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1143,7 +1143,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.delete_canister_snapshot.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.deleteCanisterSnapshot({
@@ -1175,7 +1175,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.read_canister_snapshot_metadata.mockResolvedValue(mockResponse);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1200,7 +1200,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.read_canister_snapshot_metadata.mockResolvedValue(mockResponse);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1226,7 +1226,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.read_canister_snapshot_metadata.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.readCanisterSnapshotMetadata({
@@ -1250,7 +1250,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.read_canister_snapshot_data.mockResolvedValue(mockResponse);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1275,7 +1275,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.read_canister_snapshot_data.mockResolvedValue(mockResponse);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1301,7 +1301,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.read_canister_snapshot_data.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.readCanisterSnapshotData({
@@ -1334,7 +1334,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.upload_canister_snapshot_metadata.mockResolvedValue(mockResponse);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1356,7 +1356,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.upload_canister_snapshot_metadata.mockResolvedValue(mockResponse);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1379,7 +1379,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.upload_canister_snapshot_metadata.mockResolvedValue(mockResponse);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1403,7 +1403,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.upload_canister_snapshot_metadata.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.uploadCanisterSnapshotMetadata({
@@ -1424,7 +1424,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.upload_canister_snapshot_data.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1451,7 +1451,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.upload_canister_snapshot_data.mockResolvedValue(undefined);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const params = {
         canisterId: mockCanisterId,
@@ -1479,7 +1479,7 @@ describe("ICManagementCanister", () => {
       const service = mock<IcManagementService>();
       service.upload_canister_snapshot_data.mockRejectedValue(error);
 
-      const icManagement = await createICManagement(service);
+      const icManagement = await createIcManagement(service);
 
       const call = () =>
         icManagement.uploadCanisterSnapshotData({

@@ -8,7 +8,7 @@ import { Principal } from "@icp-sdk/core/principal";
 import type { IcManagementDid, IcManagementService } from "../declarations";
 import { idlFactory as certifiedIdlFactory } from "../declarations/ic-management/ic-management.certified.idl";
 import { idlFactory } from "../declarations/ic-management/ic-management.idl";
-import type { ICManagementCanisterOptions } from "./types/canister.options";
+import type { IcManagementCanisterOptions } from "./types/canister.options";
 import {
   toCanisterSettings,
   type CanisterStatusParams,
@@ -44,7 +44,7 @@ import {
 } from "./types/snapshot.responses";
 import { transform } from "./utils/transform.utils";
 
-export class ICManagementCanister {
+export class IcManagementCanister {
   private constructor(
     private readonly service: IcManagementService,
     private readonly certifiedService: IcManagementService,
@@ -53,7 +53,7 @@ export class ICManagementCanister {
   private caller = ({ certified = true }: QueryParams): IcManagementService =>
     certified ? this.certifiedService : this.service;
 
-  public static create(options: ICManagementCanisterOptions) {
+  public static create(options: IcManagementCanisterOptions) {
     const { service, certifiedService } = createServices<IcManagementService>({
       options: {
         ...options,
@@ -66,7 +66,7 @@ export class ICManagementCanister {
       certifiedIdlFactory,
     });
 
-    return new ICManagementCanister(service, certifiedService);
+    return new IcManagementCanister(service, certifiedService);
   }
 
   /**
