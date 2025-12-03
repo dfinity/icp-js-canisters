@@ -911,7 +911,7 @@ The current status of the libraries at the time of the release is as follows:
 
 ### Breaking Changes
 
-- For consistency, the `CMCCanister.create` function now requires the `canisterId` option to be provided exclusively as
+- For consistency, the `CmcCanister.create` function now requires the `canisterId` option to be provided exclusively as
   a `Principal`.
 
 ### Features
