@@ -1,6 +1,6 @@
 import { CMCCanister } from "./index";
 
-describe("@icp-sdk/cmc", () => {
+describe("@dfinity/cmc", () => {
   it("should re-export CMCCanister", () => {
     expect(CMCCanister).not.toBeUndefined();
   });
