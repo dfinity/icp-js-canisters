@@ -29,12 +29,12 @@ npm i @icp-sdk/core @dfinity/utils
 
 ## Usage
 
-The features are available through the class `CMCCanister`. It has to be instantiated with the canister ID of the cycles minting canister. On `mainnet`, its ID is `rkp4c-7iaaa-aaaaa-aaaca-cai`.
+The features are available through the class `CmcCanister`. It has to be instantiated with the canister ID of the cycles minting canister. On `mainnet`, its ID is `rkp4c-7iaaa-aaaaa-aaaca-cai`.
 
 e.g. querying the current Icp to cycles conversion rate.
 
 ```ts
-import { CMCCanister } from "@dfinity/cmc";
+import { CmcCanister } from "@dfinity/cmc";
 import { createAgent } from "@dfinity/utils";
 
 const agent = await createAgent({
@@ -42,7 +42,7 @@ const agent = await createAgent({
   host: HOST,
 });
 
-const { getIcpToCyclesConversionRate } = CMCCanister.create({
+const { getIcpToCyclesConversionRate } = CmcCanister.create({
   agent,
   canisterId: CYCLES_MINTING_CANISTER_ID,
 });
