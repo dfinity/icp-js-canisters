@@ -15,7 +15,7 @@ function install_agent() {
   npm i @icp-sdk/core@latest --workspace=packages/"$package" --save-peer
 }
 
-PACKAGES=utils,ckbtc,cketh,cmc,ic-management,ledger-icp,ledger-icrc,nns,sns,zod-schemas,canisters
+PACKAGES=utils,ckbtc,cketh,ic-management,ledger-icp,ledger-icrc,nns,sns,zod-schemas,canisters
 
 # Remove agent-js libraries from all packages first to avoid resolve conflicts between those
 for package in $(echo $PACKAGES | sed "s/,/ /g"); do
