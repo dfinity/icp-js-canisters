@@ -162,8 +162,8 @@ mkdir -p packages/cketh/src/candid
 import_did "rs/ethereum/cketh/minter/cketh_minter.did" "minter.did" "cketh"
 import_did "rs/ethereum/ledger-suite-orchestrator/ledger_suite_orchestrator.did" "orchestrator.did" "cketh"
 
-mkdir -p packages/ic-management/src/candid
-download_did https://raw.githubusercontent.com/dfinity/portal/master/docs/references/_attachments/ic.did "ic-management.did" "ic-management"
+mkdir -p packages/canisters/src/declarations/ic-management
+download_did https://raw.githubusercontent.com/dfinity/portal/master/docs/references/_attachments/ic.did "ic-management.did" "canisters" "src/declarations/ic-management"
 
 mkdir -p packages/canisters/src/declarations/assets
 download_did https://raw.githubusercontent.com/dfinity/sdk/master/src/distributed/assetstorage.did "assets_assetstorage.did" "canisters" "src/declarations/assets"
