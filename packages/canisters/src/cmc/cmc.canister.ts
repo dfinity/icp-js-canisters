@@ -1,24 +1,21 @@
 import { Canister, createServices, type QueryParams } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  _SERVICE as CMCCanisterService,
-  Cycles,
-  NotifyCreateCanisterArg,
-  NotifyTopUpArg,
-  SubnetTypesToSubnetsResponse,
-} from "../declarations/cmc/cmc";
-import { idlFactory as certifiedIdlFactory } from "../declarations/cmc/cmc.certified.idl";
-import { idlFactory } from "../declarations/cmc/cmc.idl";
+import {
+  type CmcDid,
+  type CmcService,
+  idlFactoryCertifiedCmc,
+  idlFactoryCmc,
+} from "../declarations";
 import { throwNotifyError } from "./cmc.errors";
 import type { CMCCanisterOptions } from "./cmc.options";
 
-export class CMCCanister extends Canister<CMCCanisterService> {
+export class CMCCanister extends Canister<CmcService> {
   static create(options: CMCCanisterOptions): CMCCanister {
     const { service, certifiedService, canisterId } =
-      createServices<CMCCanisterService>({
+      createServices<CmcService>({
         options,
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactoryCmc,
+        certifiedIdlFactory: idlFactoryCertifiedCmc,
       });
 
     return new CMCCanister(canisterId, service, certifiedService);
@@ -55,7 +52,7 @@ export class CMCCanister extends Canister<CMCCanisterService> {
    * @throws RefundedError, InvalidaTransactionError, ProcessingError, TransactionTooOldError, CMCError
    */
   public notifyCreateCanister = async (
-    request: NotifyCreateCanisterArg,
+    request: CmcDid.NotifyCreateCanisterArg,
   ): Promise<Principal> => {
     const response = await this.service.notify_create_canister(request);
     if ("Err" in response) {
@@ -82,7 +79,9 @@ export class CMCCanister extends Canister<CMCCanisterService> {
    * @returns Promise<Cycles>
    * @throws RefundedError, InvalidaTransactionError, ProcessingError, TransactionTooOldError, CMCError
    */
-  public notifyTopUp = async (request: NotifyTopUpArg): Promise<Cycles> => {
+  public notifyTopUp = async (
+    request: CmcDid.NotifyTopUpArg,
+  ): Promise<CmcDid.Cycles> => {
     const response = await this.service.notify_top_up(request);
     if ("Err" in response) {
       throwNotifyError(response);
@@ -128,7 +127,7 @@ export class CMCCanister extends Canister<CMCCanisterService> {
    */
   public getSubnetTypesToSubnets = ({
     certified,
-  }: QueryParams = {}): Promise<SubnetTypesToSubnetsResponse> => {
+  }: QueryParams = {}): Promise<CmcDid.SubnetTypesToSubnetsResponse> => {
     const { get_subnet_types_to_subnets } = this.caller({ certified });
     return get_subnet_types_to_subnets();
   };

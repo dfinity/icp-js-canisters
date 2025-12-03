@@ -1,5 +1,5 @@
 import { assertNever, jsonReplacer } from "@dfinity/utils";
-import type { NotifyError } from "../declarations/cmc/cmc";
+import type { CmcDid } from "../declarations";
 
 export class RefundedError extends Error {}
 export class InvalidaTransactionError extends Error {}
@@ -11,7 +11,7 @@ export class TransactionTooOldError extends Error {}
 export const throwNotifyError = ({
   Err: error,
 }: {
-  Err: NotifyError;
+  Err: CmcDid.NotifyError;
 }): void => {
   if ("Refunded" in error) {
     throw new RefundedError(error.Refunded.reason);
