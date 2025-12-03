@@ -34,5 +34,5 @@ export * from "@icp-sdk/canisters/ic-management";
  */
 export {
   IcManagementCanister as ICManagementCanister,
-  IcManagementCanisterOptions as ICManagementCanisterOptions,
+  type IcManagementCanisterOptions as ICManagementCanisterOptions,
 } from "@icp-sdk/canisters/ic-management";
