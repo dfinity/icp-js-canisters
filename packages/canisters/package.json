@@ -97,6 +97,6 @@
     "@dfinity/nns": "^11",
     "@dfinity/sns": "^6",
     "@dfinity/utils": "^4",
-    "@icp-sdk/core": "^4"
+    "@icp-sdk/core": "5.0.0-beta.0"
   }
 }
