@@ -23,4 +23,16 @@ export type take_canister_snapshot_result =
 export type upload_canister_snapshot_metadata_response =
   IcManagementDid.upload_canister_snapshot_metadata_response;
 
+/**
+ * @deprecated Use "@icp-sdk/canisters/ic-management" directly instead
+ */
 export * from "@icp-sdk/canisters/ic-management";
+
+/**
+ * Legacy re-export for backward compatibility.
+ * @deprecated Use "@icp-sdk/canisters/ic-management" directly instead
+ */
+export {
+  IcManagementCanister as ICManagementCanister,
+  type IcManagementCanisterOptions as ICManagementCanisterOptions,
+} from "@icp-sdk/canisters/ic-management";
