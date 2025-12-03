@@ -90,7 +90,6 @@
   "peerDependencies": {
     "@dfinity/ckbtc": "^6",
     "@dfinity/cketh": "^6",
-    "@dfinity/ic-management": "^9",
     "@dfinity/ledger-icp": "^8",
     "@dfinity/ledger-icrc": "^6",
     "@dfinity/nns": "^11",
