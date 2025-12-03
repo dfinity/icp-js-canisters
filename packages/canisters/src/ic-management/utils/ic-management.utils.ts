@@ -1,5 +1,5 @@
 import { hexStringToUint8Array, uint8ArrayToHexString } from "@dfinity/utils";
-import type { snapshot_id } from "../../declarations/ic-management/ic-management";
+import type { IcManagementDid } from "../../declarations";
 import type { SnapshotIdText } from "../types/snapshot.params";
 
 /**
@@ -12,8 +12,9 @@ import type { SnapshotIdText } from "../types/snapshot.params";
  * @param {snapshot_id} snapshotId - The snapshot ID to encode, represented as a `Uint8Array` or an array of numbers.
  * @returns {string} The hex string representation of the snapshot ID.
  */
-export const encodeSnapshotId = (snapshotId: snapshot_id): SnapshotIdText =>
-  uint8ArrayToHexString(snapshotId);
+export const encodeSnapshotId = (
+  snapshotId: IcManagementDid.snapshot_id,
+): SnapshotIdText => uint8ArrayToHexString(snapshotId);
 
 /**
  * Decodes a hex string representation of a snapshot ID back into its original format.
@@ -25,8 +26,9 @@ export const encodeSnapshotId = (snapshotId: snapshot_id): SnapshotIdText =>
  * @param {string} snapshotId - The hex string representation of the snapshot ID.
  * @returns {snapshot_id} The decoded snapshot ID as a `Uint8Array`.
  */
-export const decodeSnapshotId = (snapshotId: SnapshotIdText): snapshot_id =>
-  hexStringToUint8Array(snapshotId);
+export const decodeSnapshotId = (
+  snapshotId: SnapshotIdText,
+): IcManagementDid.snapshot_id => hexStringToUint8Array(snapshotId);
 
 /**
  * Maps a snapshot ID to the appropriate format for the IC interface.
@@ -38,6 +40,6 @@ export const decodeSnapshotId = (snapshotId: SnapshotIdText): snapshot_id =>
  * @returns {Uint8Array} The mapped snapshot ID.
  */
 export const mapSnapshotId = (
-  snapshotId: SnapshotIdText | snapshot_id,
-): snapshot_id =>
+  snapshotId: SnapshotIdText | IcManagementDid.snapshot_id,
+): IcManagementDid.snapshot_id =>
   typeof snapshotId === "string" ? decodeSnapshotId(snapshotId) : snapshotId;
