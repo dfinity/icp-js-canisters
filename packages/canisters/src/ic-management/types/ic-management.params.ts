@@ -1,13 +1,6 @@
 import { isNullish, type QueryParams, toNullable } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
-import type {
-  canister_install_mode,
-  canister_settings,
-  chunk_hash,
-  environment_variable,
-  log_visibility,
-  upload_chunk_args,
-} from "../../declarations/ic-management/ic-management";
+import type { IcManagementDid } from "../../declarations";
 
 export enum LogVisibility {
   Controllers,
@@ -23,7 +16,7 @@ export interface CanisterSettings {
   logVisibility?: LogVisibility;
   wasmMemoryLimit?: bigint;
   wasmMemoryThreshold?: bigint;
-  environmentVariables?: environment_variable[];
+  environmentVariables?: IcManagementDid.environment_variable[];
 }
 
 export class UnsupportedLogVisibility extends Error {}
@@ -38,8 +31,8 @@ export const toCanisterSettings = ({
   wasmMemoryLimit,
   wasmMemoryThreshold,
   environmentVariables,
-}: CanisterSettings = {}): canister_settings => {
-  const toLogVisibility = (): log_visibility => {
+}: CanisterSettings = {}): IcManagementDid.canister_settings => {
+  const toLogVisibility = (): IcManagementDid.log_visibility => {
     switch (logVisibility) {
       case LogVisibility.Controllers:
         return { controllers: null };
@@ -75,14 +68,17 @@ export interface UpdateSettingsParams {
 }
 
 export interface InstallCodeParams {
-  mode: canister_install_mode;
+  mode: IcManagementDid.canister_install_mode;
   canisterId: Principal;
   wasmModule: Uint8Array;
   arg: Uint8Array;
   senderCanisterVersion?: bigint;
 }
 
-export interface UploadChunkParams extends Pick<upload_chunk_args, "chunk"> {
+export interface UploadChunkParams extends Pick<
+  IcManagementDid.upload_chunk_args,
+  "chunk"
+> {
   canisterId: Principal;
 }
 
@@ -98,7 +94,7 @@ export interface InstallChunkedCodeParams extends Omit<
   InstallCodeParams,
   "canisterId" | "wasmModule"
 > {
-  chunkHashesList: Array<chunk_hash>;
+  chunkHashesList: Array<IcManagementDid.chunk_hash>;
   targetCanisterId: Principal;
   storeCanisterId?: Principal;
   wasmModuleHash: string | Uint8Array;

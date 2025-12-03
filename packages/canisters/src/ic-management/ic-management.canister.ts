@@ -5,14 +5,7 @@ import {
   type QueryParams,
 } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
-import type {
-  chunk_hash,
-  _SERVICE as IcManagementService,
-  list_canister_snapshots_result,
-  read_canister_snapshot_data_response,
-  take_canister_snapshot_result,
-  upload_canister_snapshot_metadata_response,
-} from "../declarations/ic-management/ic-management";
+import type { IcManagementDid, IcManagementService } from "../declarations";
 import { idlFactory as certifiedIdlFactory } from "../declarations/ic-management/ic-management.certified.idl";
 import { idlFactory } from "../declarations/ic-management/ic-management.idl";
 import type { ICManagementCanisterOptions } from "./types/canister.options";
@@ -155,13 +148,13 @@ export class ICManagementCanister {
    *
    * @param {UploadChunkParams} params
    * @param {canisterId} params.canisterId The canister in which the chunks will be stored.
-   * @param {Uint8Array | number[]} params.chunk A chunk of Wasm module.
+   * @param {Uint8Array} params.chunk A chunk of Wasm module.
    * @returns {Promise<chunk_hash>} The hash of the stored chunk.
    */
   uploadChunk = ({
     canisterId,
     ...rest
-  }: UploadChunkParams): Promise<chunk_hash> => {
+  }: UploadChunkParams): Promise<IcManagementDid.chunk_hash> => {
     const { upload_chunk } = this.certifiedService;
 
     return upload_chunk({
@@ -199,7 +192,7 @@ export class ICManagementCanister {
    */
   storedChunks = ({
     canisterId,
-  }: StoredChunksParams): Promise<chunk_hash[]> => {
+  }: StoredChunksParams): Promise<IcManagementDid.chunk_hash[]> => {
     const { stored_chunks } = this.certifiedService;
 
     return stored_chunks({
@@ -380,7 +373,7 @@ export class ICManagementCanister {
    */
   takeCanisterSnapshot = (
     params: OptionSnapshotParams,
-  ): Promise<take_canister_snapshot_result> => {
+  ): Promise<IcManagementDid.take_canister_snapshot_result> => {
     const { take_canister_snapshot } = this.certifiedService;
 
     return take_canister_snapshot(toReplaceSnapshotArgs(params));
@@ -402,7 +395,7 @@ export class ICManagementCanister {
     canisterId,
   }: {
     canisterId: Principal;
-  }): Promise<list_canister_snapshots_result> => {
+  }): Promise<IcManagementDid.list_canister_snapshots_result> => {
     const { list_canister_snapshots } = this.certifiedService;
 
     return list_canister_snapshots({
@@ -499,7 +492,7 @@ export class ICManagementCanister {
   readCanisterSnapshotData = ({
     kind,
     ...params
-  }: ReadCanisterSnapshotDataParams): Promise<read_canister_snapshot_data_response> => {
+  }: ReadCanisterSnapshotDataParams): Promise<IcManagementDid.read_canister_snapshot_data_response> => {
     const { read_canister_snapshot_data } = this.certifiedService;
 
     return read_canister_snapshot_data({
@@ -525,7 +518,7 @@ export class ICManagementCanister {
   uploadCanisterSnapshotMetadata = ({
     metadata,
     ...params
-  }: UploadCanisterSnapshotMetadataParams): Promise<upload_canister_snapshot_metadata_response> => {
+  }: UploadCanisterSnapshotMetadataParams): Promise<IcManagementDid.upload_canister_snapshot_metadata_response> => {
     const { upload_canister_snapshot_metadata } = this.certifiedService;
 
     return upload_canister_snapshot_metadata({
@@ -543,7 +536,7 @@ export class ICManagementCanister {
    * @param {Principal} params.canisterId - The ID of the canister the snapshot belongs to.
    * @param {SnapshotIdText | snapshot_id} params.snapshotId - The ID of the snapshot to which data is uploaded.
    * @param {UploadCanisterSnapshotDataKind} params.kind - The target to upload to.
-   * @param {Uint8Array | number[]} params.chunk - The raw bytes to upload.
+   * @param {Uint8Array} params.chunk - The raw bytes to upload.
    *
    * @returns {Promise<void>} A promise that resolves when the data is successfully uploaded.
    *

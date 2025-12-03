@@ -1,13 +1,6 @@
 import { assertNever, isNullish, nonNullish, toNullable } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  canister_id,
-  read_canister_snapshot_data_args,
-  snapshot_id,
-  take_canister_snapshot_args,
-  upload_canister_snapshot_data_args,
-  upload_canister_snapshot_metadata_args,
-} from "../../declarations/ic-management/ic-management";
+import type { IcManagementDid } from "../../declarations";
 import { mapSnapshotId } from "../utils/ic-management.utils";
 import type { ReadCanisterSnapshotMetadataResponse } from "./snapshot.responses";
 
@@ -15,7 +8,7 @@ export type SnapshotIdText = string;
 
 export interface OptionSnapshotParams {
   canisterId: Principal;
-  snapshotId?: SnapshotIdText | snapshot_id;
+  snapshotId?: SnapshotIdText | IcManagementDid.snapshot_id;
 }
 
 export type SnapshotParams = Required<OptionSnapshotParams>;
@@ -23,7 +16,10 @@ export type SnapshotParams = Required<OptionSnapshotParams>;
 export const toSnapshotArgs = ({
   canisterId: canister_id,
   snapshotId,
-}: SnapshotParams): { canister_id: canister_id; snapshot_id: snapshot_id } => ({
+}: SnapshotParams): {
+  canister_id: IcManagementDid.canister_id;
+  snapshot_id: IcManagementDid.snapshot_id;
+} => ({
   canister_id,
   snapshot_id: mapSnapshotId(snapshotId),
 });
@@ -31,7 +27,7 @@ export const toSnapshotArgs = ({
 export const toReplaceSnapshotArgs = ({
   canisterId: canister_id,
   snapshotId,
-}: OptionSnapshotParams): take_canister_snapshot_args => ({
+}: OptionSnapshotParams): IcManagementDid.take_canister_snapshot_args => ({
   canister_id,
   replace_snapshot: toNullable(
     nonNullish(snapshotId) ? mapSnapshotId(snapshotId) : undefined,
@@ -50,7 +46,7 @@ export interface ReadCanisterSnapshotDataParams extends SnapshotParams {
 
 export const toCanisterSnapshotMetadataKind = (
   kind: CanisterSnapshotMetadataKind,
-): read_canister_snapshot_data_args["kind"] => {
+): IcManagementDid.read_canister_snapshot_data_args["kind"] => {
   if ("wasmModule" in kind) {
     return { wasm_module: kind.wasmModule };
   }
@@ -94,11 +90,11 @@ export const toUploadCanisterSnapshotMetadata = ({
   stableMemorySize: stable_memory_size,
   wasmMemorySize: wasm_memory_size,
 }: UploadCanisterSnapshotMetadataParam): Omit<
-  upload_canister_snapshot_metadata_args,
+  IcManagementDid.upload_canister_snapshot_metadata_args,
   "canister_id" | "replace_snapshot"
 > => {
   const mapOnLowWasmMemoryHookStatus =
-    (): upload_canister_snapshot_metadata_args["on_low_wasm_memory_hook_status"] => {
+    (): IcManagementDid.upload_canister_snapshot_metadata_args["on_low_wasm_memory_hook_status"] => {
       if (isNullish(onLowWasmMemoryHookStatus)) {
         return toNullable();
       }
@@ -141,7 +137,7 @@ export interface UploadCanisterSnapshotDataParams extends SnapshotParams {
 
 export const toUploadCanisterSnapshotDataKind = (
   kind: UploadCanisterSnapshotDataKind,
-): upload_canister_snapshot_data_args["kind"] => {
+): IcManagementDid.upload_canister_snapshot_data_args["kind"] => {
   if ("wasmModule" in kind) {
     return { wasm_module: kind.wasmModule };
   }

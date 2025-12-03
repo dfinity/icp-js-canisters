@@ -1,5 +1,5 @@
 import { assertNever, fromNullable, isNullish } from "@dfinity/utils";
-import type { read_canister_snapshot_metadata_response } from "../../declarations/ic-management/ic-management";
+import type { IcManagementDid } from "../../declarations";
 
 export interface ReadCanisterSnapshotMetadataResponse {
   globals: (
@@ -36,7 +36,7 @@ export const fromReadCanisterSnapshotMetadataResponse = ({
   wasm_chunk_store: wasmChunkStore,
   taken_at_timestamp: takenAtTimestamp,
   wasm_memory_size: wasmMemorySize,
-}: read_canister_snapshot_metadata_response): ReadCanisterSnapshotMetadataResponse => {
+}: IcManagementDid.read_canister_snapshot_metadata_response): ReadCanisterSnapshotMetadataResponse => {
   const mapSource = (): ReadCanisterSnapshotMetadataResponse["source"] => {
     if ("metadata_upload" in source) {
       return { metadataUpload: source.metadata_upload };

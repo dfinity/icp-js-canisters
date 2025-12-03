@@ -1,29 +1,30 @@
-import type { read_canister_snapshot_metadata_response } from "../../declarations/ic-management/ic-management";
+import type { IcManagementDid } from "../../declarations";
 import {
   fromReadCanisterSnapshotMetadataResponse,
   type ReadCanisterSnapshotMetadataResponse,
 } from "./snapshot.responses";
 
 describe("snapshot.responses", () => {
-  const mockResponse: read_canister_snapshot_metadata_response = {
-    globals: [
-      { i32: 1 },
-      { i64: 2n },
-      { f32: 3.14 },
-      { f64: 6.28 },
-      { v128: 0n },
-    ],
-    canister_version: 42n,
-    source: { metadata_upload: { hello: "world test" } },
-    certified_data: new Uint8Array([1, 2, 3]),
-    global_timer: [],
-    on_low_wasm_memory_hook_status: [],
-    wasm_module_size: 1000n,
-    stable_memory_size: 2000n,
-    wasm_chunk_store: [{ hash: new Uint8Array([9, 9, 9]) }],
-    taken_at_timestamp: 123456789n,
-    wasm_memory_size: 3000n,
-  };
+  const mockResponse: IcManagementDid.read_canister_snapshot_metadata_response =
+    {
+      globals: [
+        { i32: 1 },
+        { i64: 2n },
+        { f32: 3.14 },
+        { f64: 6.28 },
+        { v128: 0n },
+      ],
+      canister_version: 42n,
+      source: { metadata_upload: { hello: "world test" } },
+      certified_data: new Uint8Array([1, 2, 3]),
+      global_timer: [],
+      on_low_wasm_memory_hook_status: [],
+      wasm_module_size: 1000n,
+      stable_memory_size: 2000n,
+      wasm_chunk_store: [{ hash: new Uint8Array([9, 9, 9]) }],
+      taken_at_timestamp: 123456789n,
+      wasm_memory_size: 3000n,
+    };
 
   it("should map fields", () => {
     const mapped = fromReadCanisterSnapshotMetadataResponse(mockResponse);
@@ -46,7 +47,7 @@ describe("snapshot.responses", () => {
   });
 
   it("should map source with taken_from_canister", () => {
-    const candid: read_canister_snapshot_metadata_response = {
+    const candid: IcManagementDid.read_canister_snapshot_metadata_response = {
       ...mockResponse,
       source: { taken_from_canister: { hello: "world" } },
     };
@@ -60,7 +61,7 @@ describe("snapshot.responses", () => {
 
   describe("global_timer", () => {
     it("should map active global_timer", () => {
-      const candid: read_canister_snapshot_metadata_response = {
+      const candid: IcManagementDid.read_canister_snapshot_metadata_response = {
         ...mockResponse,
         global_timer: [{ active: 787n }],
       };
@@ -71,7 +72,7 @@ describe("snapshot.responses", () => {
     });
 
     it("should map inactive global_timer", () => {
-      const candid: read_canister_snapshot_metadata_response = {
+      const candid: IcManagementDid.read_canister_snapshot_metadata_response = {
         ...mockResponse,
         global_timer: [{ inactive: null }],
       };
@@ -84,7 +85,7 @@ describe("snapshot.responses", () => {
 
   describe("onLowWasmMemoryHookStatus", () => {
     it("should map condition_not_satisfied", () => {
-      const candid: read_canister_snapshot_metadata_response = {
+      const candid: IcManagementDid.read_canister_snapshot_metadata_response = {
         ...mockResponse,
         on_low_wasm_memory_hook_status: [{ condition_not_satisfied: null }],
       };
@@ -97,7 +98,7 @@ describe("snapshot.responses", () => {
     });
 
     it("should map executed", () => {
-      const candid: read_canister_snapshot_metadata_response = {
+      const candid: IcManagementDid.read_canister_snapshot_metadata_response = {
         ...mockResponse,
         on_low_wasm_memory_hook_status: [{ executed: null }],
       };
@@ -110,7 +111,7 @@ describe("snapshot.responses", () => {
     });
 
     it("should map ready", () => {
-      const candid: read_canister_snapshot_metadata_response = {
+      const candid: IcManagementDid.read_canister_snapshot_metadata_response = {
         ...mockResponse,
         on_low_wasm_memory_hook_status: [{ ready: null }],
       };
@@ -121,7 +122,7 @@ describe("snapshot.responses", () => {
     });
 
     it("should stays undefined when empty", () => {
-      const candid: read_canister_snapshot_metadata_response = {
+      const candid: IcManagementDid.read_canister_snapshot_metadata_response = {
         ...mockResponse,
         on_low_wasm_memory_hook_status: [],
       };
@@ -136,7 +137,7 @@ describe("snapshot.responses", () => {
     const candid = {
       ...mockResponse,
       source: { something_else: 1 },
-    } as unknown as read_canister_snapshot_metadata_response;
+    } as unknown as IcManagementDid.read_canister_snapshot_metadata_response;
 
     expect(() => fromReadCanisterSnapshotMetadataResponse(candid)).toThrowError(
       "Unsupported snapshot metadata source",
@@ -147,7 +148,7 @@ describe("snapshot.responses", () => {
     const candid = {
       ...mockResponse,
       on_low_wasm_memory_hook_status: [{ unknown: null }],
-    } as unknown as read_canister_snapshot_metadata_response;
+    } as unknown as IcManagementDid.read_canister_snapshot_metadata_response;
 
     expect(() => fromReadCanisterSnapshotMetadataResponse(candid)).toThrowError(
       "Unsupported snapshot metadata on_low_wasm_memory_hook_status",

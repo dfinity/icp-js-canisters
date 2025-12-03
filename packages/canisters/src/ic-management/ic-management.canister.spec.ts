@@ -6,16 +6,7 @@ import {
 } from "@dfinity/utils";
 import type { ActorSubclass, HttpAgent } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
-import type {
-  canister_install_mode,
-  chunk_hash,
-  _SERVICE as IcManagementService,
-  list_canister_snapshots_result,
-  read_canister_snapshot_data_response,
-  read_canister_snapshot_metadata_response,
-  take_canister_snapshot_result,
-  upload_canister_snapshot_metadata_response,
-} from "../declarations/ic-management/ic-management";
+import type { IcManagementDid, IcManagementService } from "../declarations";
 import { ICManagementCanister } from "./ic-management.canister";
 import {
   mappedMockCanisterSettings,
@@ -48,7 +39,7 @@ import { decodeSnapshotId } from "./utils/ic-management.utils";
 describe("ICManagementCanister", () => {
   const mockAgent: HttpAgent = mock<HttpAgent>();
 
-  const mockInstallCodeModes: canister_install_mode[] = [
+  const mockInstallCodeModes: IcManagementDid.canister_install_mode[] = [
     { install: null },
     { reinstall: null },
     { upgrade: [] },
@@ -606,7 +597,7 @@ describe("ICManagementCanister", () => {
     };
 
     it("returns hash when success", async () => {
-      const response: chunk_hash = {
+      const response: IcManagementDid.chunk_hash = {
         hash: arrayOfNumberToUint8Array([1, 2, 3, 4]),
       };
       const service = mock<IcManagementService>();
@@ -673,7 +664,7 @@ describe("ICManagementCanister", () => {
     };
 
     it("returns list of hash when success", async () => {
-      const response: chunk_hash[] = [
+      const response: IcManagementDid.chunk_hash[] = [
         { hash: arrayOfNumberToUint8Array([1, 2, 3, 4]) },
         { hash: arrayOfNumberToUint8Array([5, 6, 7]) },
         { hash: arrayOfNumberToUint8Array([8, 9, 10]) },
@@ -878,7 +869,7 @@ describe("ICManagementCanister", () => {
   });
 
   describe("takeCanisterSnapshot", () => {
-    const mockResponse: take_canister_snapshot_result = {
+    const mockResponse: IcManagementDid.take_canister_snapshot_result = {
       id: Uint8Array.from([1, 2, 3, 4]),
       total_size: BigInt(5000),
       taken_at_timestamp: BigInt(1680000000000),
@@ -976,7 +967,8 @@ describe("ICManagementCanister", () => {
       },
     ];
 
-    const mockResponse: list_canister_snapshots_result = mockSnapshots;
+    const mockResponse: IcManagementDid.list_canister_snapshots_result =
+      mockSnapshots;
 
     it("should return a list of snapshots for a canister", async () => {
       const service = mock<IcManagementService>();
@@ -1164,19 +1156,20 @@ describe("ICManagementCanister", () => {
   });
 
   describe("readCanisterSnapshotMetadata", () => {
-    const mockResponse: read_canister_snapshot_metadata_response = {
-      globals: [{ i32: 5 }, { i64: 10n }],
-      certified_data: new Uint8Array([7, 8, 9]),
-      global_timer: [],
-      on_low_wasm_memory_hook_status: [],
-      wasm_module_size: 10000n,
-      stable_memory_size: 20000n,
-      wasm_memory_size: 30000n,
-      canister_version: 123n,
-      source: { metadata_upload: { hello: "world test" } },
-      wasm_chunk_store: [{ hash: new Uint8Array([9, 9, 9]) }],
-      taken_at_timestamp: 123456789n,
-    };
+    const mockResponse: IcManagementDid.read_canister_snapshot_metadata_response =
+      {
+        globals: [{ i32: 5 }, { i64: 10n }],
+        certified_data: new Uint8Array([7, 8, 9]),
+        global_timer: [],
+        on_low_wasm_memory_hook_status: [],
+        wasm_module_size: 10000n,
+        stable_memory_size: 20000n,
+        wasm_memory_size: 30000n,
+        canister_version: 123n,
+        source: { metadata_upload: { hello: "world test" } },
+        wasm_chunk_store: [{ hash: new Uint8Array([9, 9, 9]) }],
+        taken_at_timestamp: 123456789n,
+      };
 
     it("should call read_canister_snapshot_metadata with Uint8Array snapshotId", async () => {
       const service = mock<IcManagementService>();
@@ -1246,7 +1239,7 @@ describe("ICManagementCanister", () => {
   });
 
   describe("readCanisterSnapshotData", () => {
-    const mockResponse: read_canister_snapshot_data_response = {
+    const mockResponse: IcManagementDid.read_canister_snapshot_data_response = {
       chunk: arrayOfNumberToUint8Array([4, 5, 6, 7, 7]),
     };
 
@@ -1322,9 +1315,10 @@ describe("ICManagementCanister", () => {
   });
 
   describe("uploadCanisterSnapshotMetadata", () => {
-    const mockResponse: upload_canister_snapshot_metadata_response = {
-      snapshot_id: Uint8Array.from([1, 2, 4, 3, 4]),
-    };
+    const mockResponse: IcManagementDid.upload_canister_snapshot_metadata_response =
+      {
+        snapshot_id: Uint8Array.from([1, 2, 4, 3, 4]),
+      };
 
     const mockMetadata: UploadCanisterSnapshotMetadataParam = {
       globals: [{ i32: 5 }, { i64: 10n }],
