@@ -3,7 +3,7 @@ import type { CmcDid } from "../declarations";
 
 export class RefundedError extends Error {}
 export class InvalidaTransactionError extends Error {}
-export class CMCError extends Error {}
+export class CmcError extends Error {}
 export class ProcessingError extends Error {}
 export class TransactionTooOldError extends Error {}
 
@@ -26,7 +26,7 @@ export const throwNotifyError = ({
     throw new TransactionTooOldError();
   }
   if ("Other" in error) {
-    throw new CMCError(
+    throw new CmcError(
       `Error in CMC with code ${error.Other.error_code}: ${error.Other.error_message}`,
     );
   }

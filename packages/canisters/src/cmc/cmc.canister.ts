@@ -7,10 +7,10 @@ import {
   idlFactoryCmc,
 } from "../declarations";
 import { throwNotifyError } from "./cmc.errors";
-import type { CMCCanisterOptions } from "./cmc.options";
+import type { CmcCanisterOptions } from "./cmc.options";
 
-export class CMCCanister extends Canister<CmcService> {
-  static create(options: CMCCanisterOptions): CMCCanister {
+export class CmcCanister extends Canister<CmcService> {
+  static create(options: CmcCanisterOptions): CmcCanister {
     const { service, certifiedService, canisterId } =
       createServices<CmcService>({
         options,
@@ -18,7 +18,7 @@ export class CMCCanister extends Canister<CmcService> {
         certifiedIdlFactory: idlFactoryCertifiedCmc,
       });
 
-    return new CMCCanister(canisterId, service, certifiedService);
+    return new CmcCanister(canisterId, service, certifiedService);
   }
 
   /**
@@ -49,7 +49,7 @@ export class CMCCanister extends Canister<CmcService> {
    * @param {Principal} request.controller
    * @param {BlockIndex} request.block_index
    * @returns Promise<Principal>
-   * @throws RefundedError, InvalidaTransactionError, ProcessingError, TransactionTooOldError, CMCError
+   * @throws RefundedError, InvalidaTransactionError, ProcessingError, TransactionTooOldError, CmcError
    */
   public notifyCreateCanister = async (
     request: CmcDid.NotifyCreateCanisterArg,
@@ -77,7 +77,7 @@ export class CMCCanister extends Canister<CmcService> {
    * @param {Principal} request.canister_id
    * @param {BlockIndex} request.block_index
    * @returns Promise<Cycles>
-   * @throws RefundedError, InvalidaTransactionError, ProcessingError, TransactionTooOldError, CMCError
+   * @throws RefundedError, InvalidaTransactionError, ProcessingError, TransactionTooOldError, CmcError
    */
   public notifyTopUp = async (
     request: CmcDid.NotifyTopUpArg,
