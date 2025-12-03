@@ -1,5 +1,5 @@
 import type { ServiceResponse } from "@dfinity/utils";
-import type { _SERVICE as IcManagementService } from "../../declarations/ic-management/ic-management";
+import type { IcManagementService } from "../../declarations";
 
 export type CanisterStatusResponse = ServiceResponse<
   IcManagementService,
