@@ -112,7 +112,7 @@
 
 ### Features
 
-- The `IcManagementCanister` implementation has been extended to support both query and update factories. All functions now use the latter, except for `fetch_canister_logs`, which correctly requires a query call. This aligns with the existing behavior.
+- The `ICManagementCanister` implementation has been extended to support both query and update factories. All functions now use the latter, except for `fetch_canister_logs`, which correctly requires a query call. This aligns with the existing behavior.
 
 ### Test
 
