@@ -148,7 +148,7 @@ export class ICManagementCanister {
    *
    * @param {UploadChunkParams} params
    * @param {canisterId} params.canisterId The canister in which the chunks will be stored.
-   * @param {Uint8Array | number[]} params.chunk A chunk of Wasm module.
+   * @param {Uint8Array} params.chunk A chunk of Wasm module.
    * @returns {Promise<chunk_hash>} The hash of the stored chunk.
    */
   uploadChunk = ({
@@ -536,7 +536,7 @@ export class ICManagementCanister {
    * @param {Principal} params.canisterId - The ID of the canister the snapshot belongs to.
    * @param {SnapshotIdText | snapshot_id} params.snapshotId - The ID of the snapshot to which data is uploaded.
    * @param {UploadCanisterSnapshotDataKind} params.kind - The target to upload to.
-   * @param {Uint8Array | number[]} params.chunk - The raw bytes to upload.
+   * @param {Uint8Array} params.chunk - The raw bytes to upload.
    *
    * @returns {Promise<void>} A promise that resolves when the data is successfully uploaded.
    *
