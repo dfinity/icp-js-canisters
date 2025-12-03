@@ -4,7 +4,7 @@
     "../packages/ckbtc/src/index.ts",
     "../packages/cketh/src/index.ts",
     "../packages/canisters/src/cmc/index.ts",
-    "../packages/ic-management/src/index.ts",
+    "../packages/canisters/src/ic-management/index.ts",
     "../packages/ledger-icp/src/index.ts",
     "../packages/ledger-icrc/src/index.ts",
     "../packages/nns/src/index.ts",
