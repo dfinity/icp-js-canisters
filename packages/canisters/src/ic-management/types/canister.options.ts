@@ -1,5 +1,5 @@
 import type { CanisterOptions } from "@dfinity/utils";
-import type { _SERVICE as IcManagementService } from "../../declarations/ic-management/ic-management";
+import type { IcManagementService } from "../../declarations";
 
 export type ICManagementCanisterOptions = Pick<
   CanisterOptions<IcManagementService>,
