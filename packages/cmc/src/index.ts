@@ -1,7 +1,3 @@
-/**
- * @module api/cmc
- */
-
 import type { CmcDid } from "@icp-sdk/canisters/cmc";
 
 export type Cycles = CmcDid.Cycles;
