@@ -35,7 +35,7 @@ export const decodeSnapshotId = (snapshotId: SnapshotIdText): snapshot_id =>
  * It can either be a `string` (SnapshotIdText) or a `Uint8Array | number[]` (snapshot_id).
  * If a `string` is provided, it is decoded into a `Uint8Array` using `decodeSnapshotId`.
  *
- * @returns {Uint8Array | number[]} The mapped snapshot ID.
+ * @returns {Uint8Array} The mapped snapshot ID.
  */
 export const mapSnapshotId = (
   snapshotId: SnapshotIdText | snapshot_id,
