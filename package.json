@@ -11,11 +11,11 @@
     "packages/nns",
     "packages/sns",
     "packages/ckbtc",
-    "packages/ic-management",
     "packages/cketh",
     "packages/zod-schemas",
     "packages/canisters",
     "packages/cmc",
+    "packages/ic-management",
     "docs"
   ],
   "scripts": {
