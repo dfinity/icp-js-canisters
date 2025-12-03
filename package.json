@@ -10,12 +10,12 @@
     "packages/ledger-icrc",
     "packages/nns",
     "packages/sns",
+    "packages/cmc",
     "packages/ckbtc",
     "packages/ic-management",
     "packages/cketh",
     "packages/zod-schemas",
     "packages/canisters",
-    "packages/cmc",
     "docs"
   ],
   "scripts": {
