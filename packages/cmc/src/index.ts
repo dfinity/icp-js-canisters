@@ -17,4 +17,5 @@ export * from "@icp-sdk/canisters/cmc";
 export {
   CmcCanister as CMCCanister,
   CmcError as CMCError,
+  type CmcCanisterOptions as CMCCanisterOptions,
 } from "@icp-sdk/canisters/cmc";
