@@ -137,9 +137,6 @@ import_did "rs/sns/root/canister/root.did" "sns_root.did" "sns"
 import_did "rs/sns/governance/canister/governance.did" "sns_governance.did" "sns"
 patch_import_did "rs/sns/governance/canister/governance.did" "rs/sns/governance/canister/governance_test.did.patch" "sns_governance_test.did" "sns"
 
-mkdir -p packages/cmc/src/candid
-import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc"
-
 mkdir -p packages/ledger-icp/src/candid
 import_did "rs/ledger_suite/icp/ledger.did" "ledger.did" "ledger-icp"
 import_did "rs/ledger_suite/icp/index/index.did" "index.did" "ledger-icp"
