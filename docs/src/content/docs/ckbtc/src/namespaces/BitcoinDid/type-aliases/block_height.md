@@ -5,6 +5,6 @@ next: true
 prev: true
 ---
 
-> **block\_height** = `number`
+> **block_height** = `number`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:16

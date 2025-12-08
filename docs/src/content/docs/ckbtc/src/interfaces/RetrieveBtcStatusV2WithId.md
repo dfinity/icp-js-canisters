@@ -15,7 +15,7 @@ Defined in: packages/canisters/ckbtc/types/minter.responses.d.ts:22
 
 Defined in: packages/canisters/ckbtc/types/minter.responses.d.ts:23
 
-***
+---
 
 ### status
 

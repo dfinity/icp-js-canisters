@@ -15,7 +15,7 @@ Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:6
 
 Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:8
 
-***
+---
 
 ### P2sh
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:8
 
 Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:9
 
-***
+---
 
 ### P2tr
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:9
 
 Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:11
 
-***
+---
 
 ### P2wpkhV0
 
@@ -39,7 +39,7 @@ Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:11
 
 Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:7
 
-***
+---
 
 ### P2wsh
 

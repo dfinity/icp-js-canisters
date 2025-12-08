@@ -63,7 +63,7 @@ Defined in: packages/utils/dist/services/canister.d.ts:9
 
 `Canister.caller`
 
-***
+---
 
 ### certifiedService
 
@@ -75,7 +75,7 @@ Defined in: packages/utils/dist/services/canister.d.ts:6
 
 `Canister.certifiedService`
 
-***
+---
 
 ### getBalanceQuery()
 
@@ -103,7 +103,7 @@ The balance is returned in `Satoshi` (10^8 Satoshi = 1 Bitcoin).
 
 https://internetcomputer.org/docs/current/references/ic-interface-spec#ic-bitcoin_get_balance
 
-***
+---
 
 ### getUtxosQuery()
 
@@ -131,7 +131,7 @@ The UTXOs are returned sorted by block height in descending order.
 
 https://internetcomputer.org/docs/current/references/ic-interface-spec#ic-bitcoin_get_utxos
 
-***
+---
 
 ### service
 

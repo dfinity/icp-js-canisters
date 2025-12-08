@@ -23,7 +23,7 @@ Defined in: packages/canisters/ckbtc/types/btc.d.ts:3
 
 [`BtcAddress`](BtcAddress.md).[`address`](BtcAddress.md#address)
 
-***
+---
 
 ### network
 
@@ -35,7 +35,7 @@ Defined in: packages/canisters/ckbtc/types/btc.d.ts:4
 
 [`BtcAddress`](BtcAddress.md).[`network`](BtcAddress.md#network)
 
-***
+---
 
 ### parser
 
@@ -43,7 +43,7 @@ Defined in: packages/canisters/ckbtc/types/btc.d.ts:4
 
 Defined in: packages/canisters/ckbtc/types/btc.d.ts:7
 
-***
+---
 
 ### type
 

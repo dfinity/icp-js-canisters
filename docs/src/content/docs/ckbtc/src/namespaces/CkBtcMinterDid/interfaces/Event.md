@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:73
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:75
 
-***
+---
 
 ### timestamp
 

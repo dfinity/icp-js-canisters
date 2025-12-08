@@ -17,7 +17,7 @@ Utxos that don't have enough confirmations to be processed.
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:303
 
-***
+---
 
 ### outpoint
 
@@ -33,7 +33,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:305
 
 > **vout**: `number`
 
-***
+---
 
 ### value
 

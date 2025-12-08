@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:91
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:93
 
-***
+---
 
 ### transaction
 

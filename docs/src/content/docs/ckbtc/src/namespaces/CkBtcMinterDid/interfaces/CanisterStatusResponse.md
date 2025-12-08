@@ -15,63 +15,63 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:45
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:51
 
-***
+---
 
-### idle\_cycles\_burned\_per\_day
+### idle_cycles_burned_per_day
 
-> **idle\_cycles\_burned\_per\_day**: `bigint`
+> **idle_cycles_burned_per_day**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:54
 
-***
+---
 
-### memory\_metrics
+### memory_metrics
 
-> **memory\_metrics**: [`MemoryMetrics`](MemoryMetrics.md)
+> **memory_metrics**: [`MemoryMetrics`](MemoryMetrics.md)
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:46
 
-***
+---
 
-### memory\_size
+### memory_size
 
-> **memory\_size**: `bigint`
+> **memory_size**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:48
 
-***
+---
 
-### module\_hash
+### module_hash
 
-> **module\_hash**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
+> **module_hash**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:55
 
-***
+---
 
-### query\_stats
+### query_stats
 
-> **query\_stats**: [`QueryStats`](QueryStats.md)
+> **query_stats**: [`QueryStats`](QueryStats.md)
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:53
 
-***
+---
 
-### ready\_for\_migration
+### ready_for_migration
 
-> **ready\_for\_migration**: `boolean`
+> **ready_for_migration**: `boolean`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:49
 
-***
+---
 
-### reserved\_cycles
+### reserved_cycles
 
-> **reserved\_cycles**: `bigint`
+> **reserved_cycles**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:56
 
-***
+---
 
 ### settings
 
@@ -79,7 +79,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:56
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:52
 
-***
+---
 
 ### status
 
@@ -87,7 +87,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:52
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:47
 
-***
+---
 
 ### version
 

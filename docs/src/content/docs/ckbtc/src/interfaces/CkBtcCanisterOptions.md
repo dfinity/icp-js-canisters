@@ -29,7 +29,7 @@ Defined in: packages/utils/dist/types/canister.options.d.ts:4
 
 [`GovernanceCanisterOptions`](../../../api/nns/interfaces/GovernanceCanisterOptions.md).[`agent`](../../../api/nns/interfaces/GovernanceCanisterOptions.md#agent)
 
-***
+---
 
 ### canisterId
 
@@ -37,7 +37,7 @@ Defined in: packages/utils/dist/types/canister.options.d.ts:4
 
 Defined in: packages/canisters/ckbtc/types/canister.options.d.ts:4
 
-***
+---
 
 ### certifiedServiceOverride?
 
@@ -49,7 +49,7 @@ Defined in: packages/utils/dist/types/canister.options.d.ts:7
 
 `Omit.certifiedServiceOverride`
 
-***
+---
 
 ### serviceOverride?
 
