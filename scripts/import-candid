@@ -158,10 +158,6 @@ mkdir -p packages/ckbtc/src/candid
 import_did "rs/bitcoin/ckbtc/minter/ckbtc_minter.did" "minter.did" "ckbtc"
 download_did https://raw.githubusercontent.com/dfinity/bitcoin-canister/master/canister/candid.did "bitcoin.did" "ckbtc"
 
-mkdir -p packages/cketh/src/candid
-import_did "rs/ethereum/cketh/minter/cketh_minter.did" "minter.did" "cketh"
-import_did "rs/ethereum/ledger-suite-orchestrator/ledger_suite_orchestrator.did" "orchestrator.did" "cketh"
-
 mkdir -p packages/canisters/src/declarations/ic-management
 download_did https://raw.githubusercontent.com/dfinity/portal/master/docs/references/_attachments/ic.did "ic-management.did" "canisters" "src/declarations/ic-management"
 
@@ -170,5 +166,10 @@ download_did https://raw.githubusercontent.com/dfinity/sdk/master/src/distribute
 
 mkdir -p packages/canisters/src/declarations/cmc
 import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc" "modern"
+
+mkdir -p packages/canisters/src/declarations/cketh
+import_did "rs/ethereum/cketh/minter/cketh_minter.did" "minter.did" "cketh" "modern"
+import_did "rs/ethereum/ledger-suite-orchestrator/ledger_suite_orchestrator.did" "orchestrator.did" "cketh" "modern"
+
 
 : Fin
