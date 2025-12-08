@@ -22,13 +22,13 @@ import type { _SERVICE as IcManagementService } from "./ic-management/ic-managem
 
 export {
   idlFactoryAssets,
+  idlFactoryBitcoin,
   idlFactoryCertifiedBitcoin,
   idlFactoryCertifiedCkBtcMinter,
   idlFactoryCertifiedCkEthMinter,
   idlFactoryCertifiedCkEthOrchestrator,
   idlFactoryCertifiedCmc,
   idlFactoryCertifiedIcManagement,
-  idlFactoryBitcoin,
   idlFactoryCkBtcMinter,
   idlFactoryCkEthMinter,
   idlFactoryCkEthOrchestrator,
