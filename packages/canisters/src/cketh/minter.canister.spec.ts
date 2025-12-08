@@ -22,7 +22,7 @@ import {
   MinterTemporaryUnavailableError,
   MinterTokenNotSupported,
 } from "./errors/minter.errors";
-import { CkETHMinterCanister } from "./minter.canister";
+import { CkEthMinterCanister } from "./minter.canister";
 import {
   ckETHSmartContractAddressMock,
   ethAddressMock,
@@ -33,16 +33,16 @@ import {
 describe("ckETH minter canister", () => {
   const minter = (
     service: ActorSubclass<CkETHMinterService>,
-  ): CkETHMinterCanister =>
-    CkETHMinterCanister.create({
+  ): CkEthMinterCanister =>
+    CkEthMinterCanister.create({
       canisterId: minterCanisterIdMock,
       certifiedServiceOverride: service,
     });
 
   const nonCertifiedMinter = (
     service: ActorSubclass<CkETHMinterService>,
-  ): CkETHMinterCanister =>
-    CkETHMinterCanister.create({
+  ): CkEthMinterCanister =>
+    CkEthMinterCanister.create({
       canisterId: minterCanisterIdMock,
       serviceOverride: service,
     });

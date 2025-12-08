@@ -20,14 +20,14 @@ import {
   createWithdrawErc20Error,
   createWithdrawEthError,
 } from "./errors/minter.errors";
-import type { CkETHMinterCanisterOptions } from "./types/canister.options";
+import type { CkEthMinterCanisterOptions } from "./types/canister.options";
 import {
   toEip1559TransactionPriceParams,
   type Eip1559TransactionPriceParams,
 } from "./types/minter.params";
 
-export class CkETHMinterCanister extends Canister<CkETHMinterService> {
-  static create(options: CkETHMinterCanisterOptions<CkETHMinterService>) {
+export class CkEthMinterCanister extends Canister<CkETHMinterService> {
+  static create(options: CkEthMinterCanisterOptions<CkETHMinterService>) {
     const { service, certifiedService, canisterId } =
       createServices<CkETHMinterService>({
         options,
@@ -35,7 +35,7 @@ export class CkETHMinterCanister extends Canister<CkETHMinterService> {
         certifiedIdlFactory,
       });
 
-    return new CkETHMinterCanister(canisterId, service, certifiedService);
+    return new CkEthMinterCanister(canisterId, service, certifiedService);
   }
 
   /**

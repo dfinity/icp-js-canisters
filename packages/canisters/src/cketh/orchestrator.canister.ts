@@ -5,22 +5,22 @@ import type {
 } from "../declarations/cketh/orchestrator";
 import { idlFactory as certifiedIdlFactory } from "../declarations/cketh/orchestrator.certified.idl";
 import { idlFactory } from "../declarations/cketh/orchestrator.idl";
-import type { CkETHOrchestratorCanisterOptions } from "./types/canister.options";
+import type { CkEthOrchestratorCanisterOptions } from "./types/canister.options";
 
 /**
  * Class representing the CkETH Orchestrator Canister, which manages the Ledger and Index canisters of ckERC20 tokens.
  * @extends {Canister<CkETHOrchestratorService>}
  * @see {@link https://github.com/dfinity/ic/tree/master/rs/ethereum/ledger-suite-orchestrator|Source Code}
  */
-export class CkETHOrchestratorCanister extends Canister<CkETHOrchestratorService> {
+export class CkEthOrchestratorCanister extends Canister<CkETHOrchestratorService> {
   /**
    * Creates an instance of CkETHOrchestratorCanister.
-   * @param {CkETHOrchestratorCanisterOptions<CkETHOrchestratorService>} options - Options for creating the canister.
-   * @returns {CkETHOrchestratorCanister} A new instance of CkETHOrchestratorCanister.
+   * @param {CkEthOrchestratorCanisterOptions<CkETHOrchestratorService>} options - Options for creating the canister.
+   * @returns {CkEthOrchestratorCanister} A new instance of CkETHOrchestratorCanister.
    */
   static create(
-    options: CkETHOrchestratorCanisterOptions<CkETHOrchestratorService>,
-  ): CkETHOrchestratorCanister {
+    options: CkEthOrchestratorCanisterOptions<CkETHOrchestratorService>,
+  ): CkEthOrchestratorCanister {
     const { service, certifiedService, canisterId } =
       createServices<CkETHOrchestratorService>({
         options,
@@ -28,7 +28,7 @@ export class CkETHOrchestratorCanister extends Canister<CkETHOrchestratorService
         certifiedIdlFactory,
       });
 
-    return new CkETHOrchestratorCanister(canisterId, service, certifiedService);
+    return new CkEthOrchestratorCanister(canisterId, service, certifiedService);
   }
 
   /**
