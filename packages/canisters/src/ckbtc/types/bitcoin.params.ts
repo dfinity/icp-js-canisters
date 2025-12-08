@@ -1,9 +1,9 @@
+import { nonNullish, toNullable, type QueryParams } from "@dfinity/utils";
 import type {
   get_balance_request,
   get_utxos_request,
   network,
-} from ".../declarations/ckbtc/bitcoin";
-import { nonNullish, toNullable, type QueryParams } from "@dfinity/utils";
+} from "../../declarations/ckbtc/bitcoin";
 
 export type BitcoinNetwork = "testnet" | "mainnet" | "regtest";
 
