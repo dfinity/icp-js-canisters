@@ -168,6 +168,10 @@ export interface _SERVICE {
     [ComputeEvidenceArguments],
     [] | [Uint8Array]
   >,
+  /**
+   * Compute a hash over the canister content.  Call until it returns Some(hash).
+   */
+  'compute_state_hash' : ActorMethod<[], [] | [string]>,
   'configure' : ActorMethod<[ConfigureArguments], undefined>,
   'create_asset' : ActorMethod<[CreateAssetArguments], undefined>,
   'create_batch' : ActorMethod<[{}], { 'batch_id' : BatchId }>,
@@ -227,7 +231,7 @@ export interface _SERVICE {
     [] | [StreamingCallbackHttpResponse]
   >,
   'list' : ActorMethod<
-    [{}],
+    [{ 'start' : [] | [bigint], 'length' : [] | [bigint] }],
     Array<
       {
         'key' : Key,
@@ -240,6 +244,10 @@ export interface _SERVICE {
           }
         >,
         'content_type' : string,
+        'headers' : [] | [Array<HeaderField>],
+        'is_aliased' : [] | [boolean],
+        'allow_raw_access' : [] | [boolean],
+        'max_age' : [] | [bigint],
       }
     >
   >,
