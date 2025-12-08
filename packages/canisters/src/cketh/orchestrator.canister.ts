@@ -5,22 +5,22 @@ import {
   idlFactoryCertifiedCkEthOrchestrator,
   idlFactoryCkEthOrchestrator,
 } from "../declarations";
-import type { CkETHOrchestratorCanisterOptions } from "./types/canister.options";
+import type { CkEthOrchestratorCanisterOptions } from "./types/canister.options";
 
 /**
- * Class representing the CkETH Orchestrator Canister, which manages the Ledger and Index canisters of ckERC20 tokens.
+ * Class representing the CkEth Orchestrator Canister, which manages the Ledger and Index canisters of ckERC20 tokens.
  * @extends {Canister<CkEthOrchestratorService>}
  * @see {@link https://github.com/dfinity/ic/tree/master/rs/ethereum/ledger-suite-orchestrator|Source Code}
  */
-export class CkETHOrchestratorCanister extends Canister<CkEthOrchestratorService> {
+export class CkEthOrchestratorCanister extends Canister<CkEthOrchestratorService> {
   /**
-   * Creates an instance of CkETHOrchestratorCanister.
-   * @param {CkETHOrchestratorCanisterOptions<CkEthOrchestratorService>} options - Options for creating the canister.
-   * @returns {CkETHOrchestratorCanister} A new instance of CkETHOrchestratorCanister.
+   * Creates an instance of CkEthOrchestratorCanister.
+   * @param {CkEthOrchestratorCanisterOptions<CkEthOrchestratorService>} options - Options for creating the canister.
+   * @returns {CkEthOrchestratorCanister} A new instance of CkEthOrchestratorCanister.
    */
   static create(
-    options: CkETHOrchestratorCanisterOptions<CkEthOrchestratorService>,
-  ): CkETHOrchestratorCanister {
+    options: CkEthOrchestratorCanisterOptions<CkEthOrchestratorService>,
+  ): CkEthOrchestratorCanister {
     const { service, certifiedService, canisterId } =
       createServices<CkEthOrchestratorService>({
         options,
@@ -28,7 +28,7 @@ export class CkETHOrchestratorCanister extends Canister<CkEthOrchestratorService
         certifiedIdlFactory: idlFactoryCertifiedCkEthOrchestrator,
       });
 
-    return new CkETHOrchestratorCanister(canisterId, service, certifiedService);
+    return new CkEthOrchestratorCanister(canisterId, service, certifiedService);
   }
 
   /**
