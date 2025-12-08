@@ -10,6 +10,7 @@ export * from "./errors/minter.errors";
 export { CkBtcMinterCanister } from "./minter.canister";
 export * from "./types/bitcoin.params";
 export * from "./types/btc";
+export type * from "./types/canister.options";
 export * from "./types/minter.params";
 export * from "./types/minter.responses";
 export * from "./utils/btc.utils";
