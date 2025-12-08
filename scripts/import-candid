@@ -171,5 +171,4 @@ patch_import_did "rs/nns/governance/canister/governance.did" "rs/nns/governance/
 import_did "rs/nns/gtc/canister/gtc.did" "genesis_token.did" "nns" "modern"
 import_did "rs/nns/sns-wasm/canister/sns-wasm.did" "sns_wasm.did" "nns" "modern"
 
-
 : Fin
