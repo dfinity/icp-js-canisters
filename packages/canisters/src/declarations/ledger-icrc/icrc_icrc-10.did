@@ -1,0 +1,8 @@
+// Generated from dfinity/ICRC commit 1df0c6af6ecca4f4eb1956c67b29c0d13279f1cd for file 'ICRCs/ICRC-10/ICRC-10.did'
+
+type SupportedStandard = record { name : text; url : text; };
+type SupportedStandardsResponse = vec SupportedStandard;
+
+service : {
+  icrc10_supported_standards : () -> (SupportedStandardsResponse) query;
+}
