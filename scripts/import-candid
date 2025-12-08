@@ -140,10 +140,6 @@ patch_import_did "rs/sns/governance/canister/governance.did" "rs/sns/governance/
 mkdir -p packages/cmc/src/candid
 import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc"
 
-mkdir -p packages/ledger-icp/src/candid
-import_did "rs/ledger_suite/icp/ledger.did" "ledger.did" "ledger-icp"
-import_did "rs/ledger_suite/icp/index/index.did" "index.did" "ledger-icp"
-
 mkdir -p packages/ledger-icrc/src/candid
 import_did "rs/ledger_suite/icrc1/ledger/ledger.did" "icrc_ledger.did" "ledger-icrc"
 import_did "rs/ledger_suite/icrc1/index-ng/index-ng.did" "icrc_index-ng.did" "ledger-icrc"
@@ -170,5 +166,9 @@ download_did https://raw.githubusercontent.com/dfinity/sdk/master/src/distribute
 
 mkdir -p packages/canisters/src/declarations/cmc
 import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc" "modern"
+
+mkdir -p packages/canisters/src/declarations/ledger-icp
+import_did "rs/ledger_suite/icp/ledger.did" "ledger.did" "ledger-icp" "modern"
+import_did "rs/ledger_suite/icp/index/index.did" "index.did" "ledger-icp" "modern"
 
 : Fin
