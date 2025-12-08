@@ -5,17 +5,12 @@ import {
   type QueryParams,
 } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  _SERVICE as CkETHMinterService,
-  Eip1559TransactionPrice,
-  MinterInfo,
-  RetrieveErc20Request,
-  RetrieveEthRequest,
-  RetrieveEthStatus,
-  Subaccount,
-} from "../declarations/cketh/minter";
-import { idlFactory as certifiedIdlFactory } from "../declarations/cketh/minter.certified.idl";
-import { idlFactory } from "../declarations/cketh/minter.idl";
+import {
+  idlFactoryCertifiedCkEthMinter,
+  idlFactoryCkEthMinter,
+  type CkEthMinterDid,
+  type CkEthMinterService,
+} from "../declarations";
 import {
   createWithdrawErc20Error,
   createWithdrawEthError,
@@ -26,13 +21,13 @@ import {
   type Eip1559TransactionPriceParams,
 } from "./types/minter.params";
 
-export class CkEthMinterCanister extends Canister<CkETHMinterService> {
-  static create(options: CkEthMinterCanisterOptions<CkETHMinterService>) {
+export class CkEthMinterCanister extends Canister<CkEthMinterService> {
+  static create(options: CkEthMinterCanisterOptions<CkEthMinterService>) {
     const { service, certifiedService, canisterId } =
-      createServices<CkETHMinterService>({
+      createServices<CkEthMinterService>({
         options,
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactoryCkEthMinter,
+        certifiedIdlFactory: idlFactoryCertifiedCkEthMinter,
       });
 
     return new CkEthMinterCanister(canisterId, service, certifiedService);
@@ -73,8 +68,8 @@ export class CkEthMinterCanister extends Canister<CkETHMinterService> {
   }: {
     address: string;
     amount: bigint;
-    fromSubaccount?: Subaccount;
-  }): Promise<RetrieveEthRequest> => {
+    fromSubaccount?: CkEthMinterDid.Subaccount;
+  }): Promise<CkEthMinterDid.RetrieveEthRequest> => {
     const { withdraw_eth } = this.caller({
       certified: true,
     });
@@ -98,7 +93,7 @@ export class CkEthMinterCanister extends Canister<CkETHMinterService> {
    * Preconditions:
    *
    * The caller allowed the minter's principal to spend its funds using
-   * [icrc2_approve] on the ckErc20 ledger and to burn some of the user’s ckETH tokens to pay for the transaction fees on the CkETH ledger.
+   * [icrc2_approve] on the ckErc20 ledger and to burn some of the user’s ckETH tokens to pay for the transaction fees on the CkEth ledger.
    *
    * @param {Object} params The parameters to withdrawal ckErc20 to Erc20.
    * @param {string} params.address The destination ETH address.
@@ -117,9 +112,9 @@ export class CkEthMinterCanister extends Canister<CkETHMinterService> {
     address: string;
     amount: bigint;
     ledgerCanisterId: Principal;
-    fromCkEthSubaccount?: Subaccount;
-    fromCkErc20Subaccount?: Subaccount;
-  }): Promise<RetrieveErc20Request> => {
+    fromCkEthSubaccount?: CkEthMinterDid.Subaccount;
+    fromCkErc20Subaccount?: CkEthMinterDid.Subaccount;
+  }): Promise<CkEthMinterDid.RetrieveErc20Request> => {
     const { withdraw_erc20 } = this.caller({
       certified: true,
     });
@@ -151,7 +146,7 @@ export class CkEthMinterCanister extends Canister<CkETHMinterService> {
   eip1559TransactionPrice = ({
     certified,
     ...rest
-  }: Eip1559TransactionPriceParams): Promise<Eip1559TransactionPrice> => {
+  }: Eip1559TransactionPriceParams): Promise<CkEthMinterDid.Eip1559TransactionPrice> => {
     const { eip_1559_transaction_price } = this.caller({
       certified,
     });
@@ -163,7 +158,9 @@ export class CkEthMinterCanister extends Canister<CkETHMinterService> {
    *
    * @returns {Promise<RetrieveEthStatus>} The current status of an Ethereum transaction for a block index resulting from a withdrawal.
    */
-  retrieveEthStatus = (blockIndex: bigint): Promise<RetrieveEthStatus> => {
+  retrieveEthStatus = (
+    blockIndex: bigint,
+  ): Promise<CkEthMinterDid.RetrieveEthStatus> => {
     const { retrieve_eth_status } = this.caller({
       certified: true,
     });
@@ -176,7 +173,9 @@ export class CkEthMinterCanister extends Canister<CkETHMinterService> {
    * @param {QueryParams} params The parameters to get the minter info.
    * @param {boolean} params.certified query or update call
    */
-  getMinterInfo = ({ certified }: QueryParams): Promise<MinterInfo> => {
+  getMinterInfo = ({
+    certified,
+  }: QueryParams): Promise<CkEthMinterDid.MinterInfo> => {
     const { get_minter_info } = this.caller({ certified });
     return get_minter_info();
   };

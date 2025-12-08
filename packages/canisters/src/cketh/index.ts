@@ -2,23 +2,7 @@
  * @module api/cketh
  */
 
-export type {
-  Eip1559TransactionPrice,
-  EthTransaction,
-  MinterInfo,
-  RetrieveErc20Request,
-  RetrieveEthRequest,
-  RetrieveEthStatus,
-  Subaccount,
-  TxFinalizedStatus,
-} from "../declarations/cketh/minter";
-export type {
-  CyclesManagement,
-  Erc20Contract,
-  ManagedCanisterStatus,
-  ManagedCanisters,
-  OrchestratorInfo,
-} from "../declarations/cketh/orchestrator";
+export type { CkEthMinterDid, CkEthOrchestratorDid } from "../declarations";
 export * from "./errors/minter.errors";
 export { CkEthMinterCanister } from "./minter.canister";
 export { CkEthOrchestratorCanister } from "./orchestrator.canister";
