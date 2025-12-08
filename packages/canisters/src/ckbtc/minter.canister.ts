@@ -6,16 +6,12 @@ import {
   toNullable,
   type QueryParams,
 } from "@dfinity/utils";
-import type {
-  _SERVICE as CkBTCMinterService,
-  MinterInfo,
-  RetrieveBtcOk,
-  RetrieveBtcStatus,
-  Utxo,
-  Account as WithdrawalAccount,
-} from "../declarations/ckbtc/minter";
-import { idlFactory as certifiedIdlFactory } from "../declarations/ckbtc/minter.certified.idl";
-import { idlFactory } from "../declarations/ckbtc/minter.idl";
+import {
+  idlFactoryCertifiedCkBtcMinter,
+  idlFactoryCkBtcMinter,
+  type CkBtcMinterDid,
+  type CkBtcMinterService,
+} from "../declarations";
 import {
   createRetrieveBtcError,
   createRetrieveBtcWithApprovalError,
@@ -39,13 +35,13 @@ import type {
   UpdateBalanceResponse,
 } from "./types/minter.responses";
 
-export class CkBtcMinterCanister extends Canister<CkBTCMinterService> {
-  static create(options: CkBtcCanisterOptions<CkBTCMinterService>) {
+export class CkBtcMinterCanister extends Canister<CkBtcMinterService> {
+  static create(options: CkBtcCanisterOptions<CkBtcMinterService>) {
     const { service, certifiedService, canisterId } =
-      createServices<CkBTCMinterService>({
+      createServices<CkBtcMinterService>({
         options,
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactoryCkBtcMinter,
+        certifiedIdlFactory: idlFactoryCertifiedCkBtcMinter,
       });
 
     return new CkBtcMinterCanister(canisterId, service, certifiedService);
@@ -103,7 +99,7 @@ export class CkBtcMinterCanister extends Canister<CkBTCMinterService> {
    *
    * @returns {Promise<Account>} The account to which ckBTC needs to be transferred. Provide corresponding information to map an Icrc1 account.
    */
-  getWithdrawalAccount = (): Promise<WithdrawalAccount> =>
+  getWithdrawalAccount = (): Promise<CkBtcMinterDid.Account> =>
     this.caller({ certified: true }).get_withdrawal_account();
 
   /**
@@ -122,7 +118,9 @@ export class CkBtcMinterCanister extends Canister<CkBTCMinterService> {
    * @param {bigint} params.amount The ckBTC amount.
    * @returns {Promise<RetrieveBtcOk>} The result or the operation.
    */
-  retrieveBtc = async (params: RetrieveBtcParams): Promise<RetrieveBtcOk> => {
+  retrieveBtc = async (
+    params: RetrieveBtcParams,
+  ): Promise<CkBtcMinterDid.RetrieveBtcOk> => {
     const response: RetrieveBtcResponse = await this.caller({
       certified: true,
     }).retrieve_btc(params);
@@ -160,7 +158,7 @@ export class CkBtcMinterCanister extends Canister<CkBTCMinterService> {
     address: string;
     amount: bigint;
     fromSubaccount?: Uint8Array;
-  }): Promise<RetrieveBtcOk> => {
+  }): Promise<CkBtcMinterDid.RetrieveBtcOk> => {
     const response: RetrieveBtcWithApprovalResponse = await this.caller({
       certified: true,
     }).retrieve_btc_with_approval({
@@ -190,7 +188,7 @@ export class CkBtcMinterCanister extends Canister<CkBTCMinterService> {
   }: {
     transactionId: bigint;
     certified: boolean;
-  }): Promise<RetrieveBtcStatus> =>
+  }): Promise<CkBtcMinterDid.RetrieveBtcStatus> =>
     this.caller({
       certified,
     }).retrieve_btc_status({ block_index: transactionId });
@@ -250,7 +248,9 @@ export class CkBtcMinterCanister extends Canister<CkBTCMinterService> {
    * @param {QueryParams} params The parameters to get the minter info.
    * @param {boolean} params.certified query or update call
    */
-  getMinterInfo = ({ certified }: QueryParams): Promise<MinterInfo> =>
+  getMinterInfo = ({
+    certified,
+  }: QueryParams): Promise<CkBtcMinterDid.MinterInfo> =>
     this.caller({
       certified,
     }).get_minter_info();
@@ -267,7 +267,7 @@ export class CkBtcMinterCanister extends Canister<CkBTCMinterService> {
     owner,
     subaccount,
     certified,
-  }: GetKnownUtxosParams): Promise<Utxo[]> => {
+  }: GetKnownUtxosParams): Promise<CkBtcMinterDid.Utxo[]> => {
     const { get_known_utxos } = this.caller({ certified });
 
     return get_known_utxos({
