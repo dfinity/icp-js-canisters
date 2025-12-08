@@ -1,16 +1,16 @@
 import { nonNullish, toNullable, type QueryParams } from "@dfinity/utils";
-import type { CkBtcBitcoinDid } from "../../declarations";
+import type { BitcoinDid } from "../../declarations";
 
 export type BitcoinNetwork = "testnet" | "mainnet" | "regtest";
 
-const mapBitcoinNetwork: Record<BitcoinNetwork, CkBtcBitcoinDid.network> = {
+const mapBitcoinNetwork: Record<BitcoinNetwork, BitcoinDid.network> = {
   mainnet: { mainnet: null },
   testnet: { testnet: null },
   regtest: { regtest: null },
 };
 
 export type GetUtxosParams = Omit<
-  CkBtcBitcoinDid.get_utxos_request,
+  BitcoinDid.get_utxos_request,
   "network" | "filter"
 > & {
   network: BitcoinNetwork;
@@ -21,7 +21,7 @@ export const toGetUtxosParams = ({
   network,
   filter,
   ...rest
-}: GetUtxosParams): CkBtcBitcoinDid.get_utxos_request => ({
+}: GetUtxosParams): BitcoinDid.get_utxos_request => ({
   filter: nonNullish(filter)
     ? toNullable(
         "minConfirmations" in filter
@@ -34,7 +34,7 @@ export const toGetUtxosParams = ({
 });
 
 export type GetBalanceParams = Omit<
-  CkBtcBitcoinDid.get_balance_request,
+  BitcoinDid.get_balance_request,
   "network" | "min_confirmations"
 > & {
   network: BitcoinNetwork;
@@ -45,7 +45,7 @@ export const toGetBalanceParams = ({
   network,
   minConfirmations,
   ...rest
-}: GetBalanceParams): CkBtcBitcoinDid.get_balance_request => ({
+}: GetBalanceParams): BitcoinDid.get_balance_request => ({
   min_confirmations: toNullable(minConfirmations),
   network: mapBitcoinNetwork[network],
   ...rest,

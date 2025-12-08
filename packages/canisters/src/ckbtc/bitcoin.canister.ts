@@ -1,9 +1,9 @@
 import { Canister, createServices } from "@dfinity/utils";
 import {
-  idlFactoryCertifiedCkBtcBitcoin,
-  idlFactoryCkBtcBitcoin,
-  type CkBtcBitcoinDid,
-  type CkBtcBitcoinService,
+  idlFactoryBitcoin,
+  idlFactoryCertifiedBitcoin,
+  type BitcoinDid,
+  type BitcoinService,
 } from "../declarations";
 import {
   toGetBalanceParams,
@@ -13,13 +13,13 @@ import {
 } from "./types/bitcoin.params";
 import type { CkBTCCanisterOptions } from "./types/canister.options";
 
-export class BitcoinCanister extends Canister<CkBtcBitcoinService> {
-  static create(options: CkBTCCanisterOptions<CkBtcBitcoinService>) {
+export class BitcoinCanister extends Canister<BitcoinService> {
+  static create(options: CkBTCCanisterOptions<BitcoinService>) {
     const { service, certifiedService, canisterId } =
-      createServices<CkBtcBitcoinService>({
+      createServices<BitcoinService>({
         options,
-        idlFactory: idlFactoryCkBtcBitcoin,
-        certifiedIdlFactory: idlFactoryCertifiedCkBtcBitcoin,
+        idlFactory: idlFactoryBitcoin,
+        certifiedIdlFactory: idlFactoryCertifiedBitcoin,
       });
 
     return new BitcoinCanister(canisterId, service, certifiedService);
@@ -40,7 +40,7 @@ export class BitcoinCanister extends Canister<CkBtcBitcoinService> {
    */
   getUtxosQuery = ({
     ...params
-  }: GetUtxosParams): Promise<CkBtcBitcoinDid.get_utxos_response> => {
+  }: GetUtxosParams): Promise<BitcoinDid.get_utxos_response> => {
     const { bitcoin_get_utxos_query } = this.caller({
       certified: false,
     });
@@ -62,7 +62,7 @@ export class BitcoinCanister extends Canister<CkBtcBitcoinService> {
    */
   getBalanceQuery = ({
     ...params
-  }: GetBalanceParams): Promise<CkBtcBitcoinDid.satoshi> => {
+  }: GetBalanceParams): Promise<BitcoinDid.satoshi> => {
     const { bitcoin_get_balance_query } = this.caller({
       certified: false,
     });

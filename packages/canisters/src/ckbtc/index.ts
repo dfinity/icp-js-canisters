@@ -2,7 +2,7 @@
  * @module api/ckbtc
  */
 
-export type { CkBtcBitcoinDid, CkBtcMinterDid } from "../declarations";
+export type { BitcoinDid, CkBtcMinterDid } from "../declarations";
 export { BitcoinCanister } from "./bitcoin.canister";
 export * from "./enums/btc.enums";
 export * from "./errors/btc.errors";
