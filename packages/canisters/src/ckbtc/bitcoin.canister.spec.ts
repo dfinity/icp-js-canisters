@@ -4,18 +4,14 @@ import {
 } from "@dfinity/utils";
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
-import type {
-  _SERVICE as BitcoinService,
-  get_utxos_response,
-  satoshi,
-} from "../declarations/ckbtc/bitcoin";
+import type { CkBtcBitcoinDid, CkBtcBitcoinService } from "../declarations";
 import { BitcoinCanister } from "./bitcoin.canister";
 import { bitcoinAddressMock, bitcoinCanisterIdMock } from "./mocks/minter.mock";
 import type { GetBalanceParams, GetUtxosParams } from "./types/bitcoin.params";
 
 describe("BitcoinCanister", () => {
   const createBitcoinCanister = (
-    services: Pick<CanisterOptions<BitcoinService>, "serviceOverride">,
+    services: Pick<CanisterOptions<CkBtcBitcoinService>, "serviceOverride">,
   ): BitcoinCanister =>
     BitcoinCanister.create({
       canisterId: bitcoinCanisterIdMock,
@@ -29,7 +25,7 @@ describe("BitcoinCanister", () => {
       address: bitcoinAddressMock,
     };
 
-    const response: get_utxos_response = {
+    const response: CkBtcBitcoinDid.get_utxos_response = {
       next_page: [],
       tip_height: 123,
       tip_block_hash: new Uint8Array([1, 2, 3]),
@@ -54,7 +50,7 @@ describe("BitcoinCanister", () => {
     };
 
     it("returns get utxos result when success", async () => {
-      const service = mock<ActorSubclass<BitcoinService>>();
+      const service = mock<ActorSubclass<CkBtcBitcoinService>>();
       service.bitcoin_get_utxos_query.mockResolvedValue(response);
 
       const { getUtxosQuery } = createBitcoinCanister({
@@ -75,7 +71,7 @@ describe("BitcoinCanister", () => {
     });
 
     it("call get utxos with min_confirmations", async () => {
-      const service = mock<ActorSubclass<BitcoinService>>();
+      const service = mock<ActorSubclass<CkBtcBitcoinService>>();
       service.bitcoin_get_utxos_query.mockResolvedValue(response);
 
       const { getUtxosQuery } = createBitcoinCanister({
@@ -94,7 +90,7 @@ describe("BitcoinCanister", () => {
     });
 
     it("call get utxos with page", async () => {
-      const service = mock<ActorSubclass<BitcoinService>>();
+      const service = mock<ActorSubclass<CkBtcBitcoinService>>();
       service.bitcoin_get_utxos_query.mockResolvedValue(response);
 
       const { getUtxosQuery } = createBitcoinCanister({
@@ -122,7 +118,7 @@ describe("BitcoinCanister", () => {
 
     it("throws Error", async () => {
       const error = new Error("Test");
-      const service = mock<ActorSubclass<BitcoinService>>();
+      const service = mock<ActorSubclass<CkBtcBitcoinService>>();
       service.bitcoin_get_utxos_query.mockRejectedValue(error);
 
       const { getUtxosQuery } = createBitcoinCanister({
@@ -138,7 +134,7 @@ describe("BitcoinCanister", () => {
     });
 
     it("should not call certified end point", async () => {
-      const service = mock<ActorSubclass<BitcoinService>>();
+      const service = mock<ActorSubclass<CkBtcBitcoinService>>();
       service.bitcoin_get_utxos_query.mockResolvedValue(response);
 
       const { getUtxosQuery } = createBitcoinCanister({
@@ -160,10 +156,10 @@ describe("BitcoinCanister", () => {
       address: bitcoinAddressMock,
     };
 
-    const response: satoshi = 1000n;
+    const response: CkBtcBitcoinDid.satoshi = 1000n;
 
     it("returns balance result when success", async () => {
-      const service = mock<ActorSubclass<BitcoinService>>();
+      const service = mock<ActorSubclass<CkBtcBitcoinService>>();
       service.bitcoin_get_balance_query.mockResolvedValue(response);
 
       const { getBalanceQuery } = createBitcoinCanister({
@@ -184,7 +180,7 @@ describe("BitcoinCanister", () => {
 
     it("throws Error", async () => {
       const error = new Error("Test");
-      const service = mock<ActorSubclass<BitcoinService>>();
+      const service = mock<ActorSubclass<CkBtcBitcoinService>>();
       service.bitcoin_get_balance_query.mockRejectedValue(error);
 
       const { getBalanceQuery } = createBitcoinCanister({
@@ -200,7 +196,7 @@ describe("BitcoinCanister", () => {
     });
 
     it("should not call certified end point", async () => {
-      const service = mock<ActorSubclass<BitcoinService>>();
+      const service = mock<ActorSubclass<CkBtcBitcoinService>>();
       service.bitcoin_get_balance_query.mockResolvedValue(response);
 
       const { getBalanceQuery } = createBitcoinCanister({

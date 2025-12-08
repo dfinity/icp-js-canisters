@@ -1,11 +1,10 @@
 import { Canister, createServices } from "@dfinity/utils";
-import type {
-  _SERVICE as BitcoinService,
-  get_utxos_response,
-  satoshi,
-} from "../declarations/ckbtc/bitcoin";
-import { idlFactory as certifiedIdlFactory } from "../declarations/ckbtc/bitcoin.certified.idl";
-import { idlFactory } from "../declarations/ckbtc/bitcoin.idl";
+import {
+  idlFactoryCertifiedCkBtcBitcoin,
+  idlFactoryCkBtcBitcoin,
+  type CkBtcBitcoinDid,
+  type CkBtcBitcoinService,
+} from "../declarations";
 import {
   toGetBalanceParams,
   toGetUtxosParams,
@@ -14,13 +13,13 @@ import {
 } from "./types/bitcoin.params";
 import type { CkBTCCanisterOptions } from "./types/canister.options";
 
-export class BitcoinCanister extends Canister<BitcoinService> {
-  static create(options: CkBTCCanisterOptions<BitcoinService>) {
+export class BitcoinCanister extends Canister<CkBtcBitcoinService> {
+  static create(options: CkBTCCanisterOptions<CkBtcBitcoinService>) {
     const { service, certifiedService, canisterId } =
-      createServices<BitcoinService>({
+      createServices<CkBtcBitcoinService>({
         options,
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactoryCkBtcBitcoin,
+        certifiedIdlFactory: idlFactoryCertifiedCkBtcBitcoin,
       });
 
     return new BitcoinCanister(canisterId, service, certifiedService);
@@ -41,7 +40,7 @@ export class BitcoinCanister extends Canister<BitcoinService> {
    */
   getUtxosQuery = ({
     ...params
-  }: GetUtxosParams): Promise<get_utxos_response> => {
+  }: GetUtxosParams): Promise<CkBtcBitcoinDid.get_utxos_response> => {
     const { bitcoin_get_utxos_query } = this.caller({
       certified: false,
     });
@@ -61,7 +60,9 @@ export class BitcoinCanister extends Canister<BitcoinService> {
    * @param {string} params.address A Bitcoin address.
    * @returns {Promise<satoshi>} The balance is returned in `Satoshi` (10^8 Satoshi = 1 Bitcoin).
    */
-  getBalanceQuery = ({ ...params }: GetBalanceParams): Promise<satoshi> => {
+  getBalanceQuery = ({
+    ...params
+  }: GetBalanceParams): Promise<CkBtcBitcoinDid.satoshi> => {
     const { bitcoin_get_balance_query } = this.caller({
       certified: false,
     });

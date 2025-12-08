@@ -1,25 +1,18 @@
-import type {
-  RetrieveBtcError,
-  RetrieveBtcOk,
-  RetrieveBtcStatusV2,
-  RetrieveBtcWithApprovalError,
-  UpdateBalanceError,
-  UtxoStatus,
-} from "../../declarations/ckbtc/minter";
+import type { CkBtcMinterDid } from "../../declarations";
 
-export type UpdateBalanceOk = UtxoStatus[];
+export type UpdateBalanceOk = CkBtcMinterDid.UtxoStatus[];
 
 export type UpdateBalanceResponse =
   | { Ok: UpdateBalanceOk }
-  | { Err: UpdateBalanceError };
+  | { Err: CkBtcMinterDid.UpdateBalanceError };
 
 export type RetrieveBtcResponse =
-  | { Ok: RetrieveBtcOk }
-  | { Err: RetrieveBtcError };
+  | { Ok: CkBtcMinterDid.RetrieveBtcOk }
+  | { Err: CkBtcMinterDid.RetrieveBtcError };
 
 export type RetrieveBtcWithApprovalResponse =
-  | { Ok: RetrieveBtcOk }
-  | { Err: RetrieveBtcWithApprovalError };
+  | { Ok: CkBtcMinterDid.RetrieveBtcOk }
+  | { Err: CkBtcMinterDid.RetrieveBtcWithApprovalError };
 
 export interface EstimateWithdrawalFee {
   minter_fee: bigint;
@@ -28,5 +21,5 @@ export interface EstimateWithdrawalFee {
 
 export interface RetrieveBtcStatusV2WithId {
   id: bigint;
-  status: RetrieveBtcStatusV2 | undefined;
+  status: CkBtcMinterDid.RetrieveBtcStatusV2 | undefined;
 }
