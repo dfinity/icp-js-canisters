@@ -9,37 +9,37 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:17
 
 ## Properties
 
-### api\_access
+### api_access
 
-> **api\_access**: [`flag`](../type-aliases/flag.md)
+> **api_access**: [`flag`](../type-aliases/flag.md)
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:18
 
-***
+---
 
-### blocks\_source
+### blocks_source
 
-> **blocks\_source**: `Principal`
+> **blocks_source**: `Principal`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:20
 
-***
+---
 
-### burn\_cycles
+### burn_cycles
 
-> **burn\_cycles**: [`flag`](../type-aliases/flag.md)
+> **burn_cycles**: [`flag`](../type-aliases/flag.md)
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:26
 
-***
+---
 
-### disable\_api\_if\_not\_fully\_synced
+### disable_api_if_not_fully_synced
 
-> **disable\_api\_if\_not\_fully\_synced**: [`flag`](../type-aliases/flag.md)
+> **disable_api_if_not_fully_synced**: [`flag`](../type-aliases/flag.md)
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:27
 
-***
+---
 
 ### fees
 
@@ -47,15 +47,15 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:27
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:21
 
-***
+---
 
-### lazily\_evaluate\_fee\_percentiles
+### lazily_evaluate_fee_percentiles
 
-> **lazily\_evaluate\_fee\_percentiles**: [`flag`](../type-aliases/flag.md)
+> **lazily_evaluate_fee_percentiles**: [`flag`](../type-aliases/flag.md)
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:19
 
-***
+---
 
 ### network
 
@@ -63,15 +63,15 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:19
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:23
 
-***
+---
 
-### stability\_threshold
+### stability_threshold
 
-> **stability\_threshold**: `bigint`
+> **stability_threshold**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:24
 
-***
+---
 
 ### syncing
 
@@ -79,10 +79,10 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:24
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:25
 
-***
+---
 
-### watchdog\_canister
+### watchdog_canister
 
-> **watchdog\_canister**: \[\] \| \[`Principal`\]
+> **watchdog_canister**: \[\] \| \[`Principal`\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:22

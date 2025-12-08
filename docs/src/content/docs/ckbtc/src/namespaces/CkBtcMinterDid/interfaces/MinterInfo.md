@@ -9,27 +9,27 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:262
 
 ## Properties
 
-### kyt\_fee
+### kyt_fee
 
-> **kyt\_fee**: `bigint`
+> **kyt_fee**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:272
 
 The same as `check_fee`, but the old name is kept here to be backward compatible.
 
-***
+---
 
-### min\_confirmations
+### min_confirmations
 
-> **min\_confirmations**: `number`
+> **min_confirmations**: `number`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:268
 
-***
+---
 
-### retrieve\_btc\_min\_amount
+### retrieve_btc_min_amount
 
-> **retrieve\_btc\_min\_amount**: `bigint`
+> **retrieve_btc_min_amount**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:267
 

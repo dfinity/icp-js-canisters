@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:577
 
 ## Properties
 
-### earliest\_retry
+### earliest_retry
 
-> **earliest\_retry**: `bigint`
+> **earliest_retry**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:579
 
-***
+---
 
 ### reason
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:579
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:580
 
-***
+---
 
 ### utxo
 

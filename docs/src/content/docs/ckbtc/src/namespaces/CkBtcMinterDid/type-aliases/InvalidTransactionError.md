@@ -11,16 +11,16 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:244
 
 ## Properties
 
-### too\_many\_inputs
+### too_many_inputs
 
-> **too\_many\_inputs**: `object`
+> **too_many_inputs**: `object`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:245
 
-#### max\_num\_inputs
+#### max_num_inputs
 
-> **max\_num\_inputs**: `bigint`
+> **max_num_inputs**: `bigint`
 
-#### num\_inputs
+#### num_inputs
 
-> **num\_inputs**: `bigint`
+> **num_inputs**: `bigint`

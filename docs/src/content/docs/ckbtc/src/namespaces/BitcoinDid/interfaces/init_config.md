@@ -9,37 +9,37 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:72
 
 ## Properties
 
-### api\_access
+### api_access
 
-> **api\_access**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
+> **api_access**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:73
 
-***
+---
 
-### blocks\_source
+### blocks_source
 
-> **blocks\_source**: \[\] \| \[`Principal`\]
+> **blocks_source**: \[\] \| \[`Principal`\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:75
 
-***
+---
 
-### burn\_cycles
+### burn_cycles
 
-> **burn\_cycles**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
+> **burn_cycles**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:81
 
-***
+---
 
-### disable\_api\_if\_not\_fully\_synced
+### disable_api_if_not_fully_synced
 
-> **disable\_api\_if\_not\_fully\_synced**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
+> **disable_api_if_not_fully_synced**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:82
 
-***
+---
 
 ### fees
 
@@ -47,15 +47,15 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:82
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:76
 
-***
+---
 
-### lazily\_evaluate\_fee\_percentiles
+### lazily_evaluate_fee_percentiles
 
-> **lazily\_evaluate\_fee\_percentiles**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
+> **lazily_evaluate_fee_percentiles**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:74
 
-***
+---
 
 ### network
 
@@ -63,15 +63,15 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:74
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:78
 
-***
+---
 
-### stability\_threshold
+### stability_threshold
 
-> **stability\_threshold**: \[\] \| \[`bigint`\]
+> **stability_threshold**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:79
 
-***
+---
 
 ### syncing
 
@@ -79,10 +79,10 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:79
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:80
 
-***
+---
 
-### watchdog\_canister
+### watchdog_canister
 
-> **watchdog\_canister**: \[\] \| \[\[\] \| \[`Principal`\]\]
+> **watchdog_canister**: \[\] \| \[\[\] \| \[`Principal`\]\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:77

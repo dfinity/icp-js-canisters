@@ -9,64 +9,64 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:251
 
 ## Properties
 
-### canister\_history\_size
+### canister_history_size
 
-> **canister\_history\_size**: `bigint`
+> **canister_history_size**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:254
 
-***
+---
 
-### custom\_sections\_size
+### custom_sections_size
 
-> **custom\_sections\_size**: `bigint`
+> **custom_sections_size**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:259
 
-***
+---
 
-### global\_memory\_size
+### global_memory_size
 
-> **global\_memory\_size**: `bigint`
+> **global_memory_size**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:258
 
-***
+---
 
-### snapshots\_size
+### snapshots_size
 
-> **snapshots\_size**: `bigint`
+> **snapshots_size**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:256
 
-***
+---
 
-### stable\_memory\_size
+### stable_memory_size
 
-> **stable\_memory\_size**: `bigint`
+> **stable_memory_size**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:255
 
-***
+---
 
-### wasm\_binary\_size
+### wasm_binary_size
 
-> **wasm\_binary\_size**: `bigint`
+> **wasm_binary_size**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:252
 
-***
+---
 
-### wasm\_chunk\_store\_size
+### wasm_chunk_store_size
 
-> **wasm\_chunk\_store\_size**: `bigint`
+> **wasm_chunk_store_size**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:253
 
-***
+---
 
-### wasm\_memory\_size
+### wasm_memory_size
 
-> **wasm\_memory\_size**: `bigint`
+> **wasm_memory_size**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:257

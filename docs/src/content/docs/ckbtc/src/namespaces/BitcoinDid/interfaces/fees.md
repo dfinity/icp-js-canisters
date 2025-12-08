@@ -9,96 +9,96 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:29
 
 ## Properties
 
-### get\_balance
+### get_balance
 
-> **get\_balance**: `bigint`
+> **get_balance**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:35
 
-***
+---
 
-### get\_balance\_maximum
+### get_balance_maximum
 
-> **get\_balance\_maximum**: `bigint`
+> **get_balance_maximum**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:39
 
-***
+---
 
-### get\_block\_headers\_base
+### get_block_headers_base
 
-> **get\_block\_headers\_base**: `bigint`
+> **get_block_headers_base**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:37
 
-***
+---
 
-### get\_block\_headers\_cycles\_per\_ten\_instructions
+### get_block_headers_cycles_per_ten_instructions
 
-> **get\_block\_headers\_cycles\_per\_ten\_instructions**: `bigint`
+> **get_block_headers_cycles_per_ten_instructions**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:32
 
-***
+---
 
-### get\_block\_headers\_maximum
+### get_block_headers_maximum
 
-> **get\_block\_headers\_maximum**: `bigint`
+> **get_block_headers_maximum**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:41
 
-***
+---
 
-### get\_current\_fee\_percentiles
+### get_current_fee_percentiles
 
-> **get\_current\_fee\_percentiles**: `bigint`
+> **get_current_fee_percentiles**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:30
 
-***
+---
 
-### get\_current\_fee\_percentiles\_maximum
+### get_current_fee_percentiles_maximum
 
-> **get\_current\_fee\_percentiles\_maximum**: `bigint`
+> **get_current_fee_percentiles_maximum**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:33
 
-***
+---
 
-### get\_utxos\_base
+### get_utxos_base
 
-> **get\_utxos\_base**: `bigint`
+> **get_utxos_base**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:38
 
-***
+---
 
-### get\_utxos\_cycles\_per\_ten\_instructions
+### get_utxos_cycles_per_ten_instructions
 
-> **get\_utxos\_cycles\_per\_ten\_instructions**: `bigint`
+> **get_utxos_cycles_per_ten_instructions**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:36
 
-***
+---
 
-### get\_utxos\_maximum
+### get_utxos_maximum
 
-> **get\_utxos\_maximum**: `bigint`
+> **get_utxos_maximum**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:31
 
-***
+---
 
-### send\_transaction\_base
+### send_transaction_base
 
-> **send\_transaction\_base**: `bigint`
+> **send_transaction_base**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:40
 
-***
+---
 
-### send\_transaction\_per\_byte
+### send_transaction_per_byte
 
-> **send\_transaction\_per\_byte**: `bigint`
+> **send_transaction_per_byte**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:34

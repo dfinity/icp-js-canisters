@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:128
 
 #### IDL
 
-*typeof* `IDL`
+_typeof_ `IDL`
 
 ## Returns
 

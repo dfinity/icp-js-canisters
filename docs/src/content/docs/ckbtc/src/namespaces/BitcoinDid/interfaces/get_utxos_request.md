@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:61
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:64
 
-***
+---
 
 ### filter
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:64
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:63
 
-***
+---
 
 ### network
 

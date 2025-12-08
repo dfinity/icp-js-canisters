@@ -9,72 +9,72 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:110
 
 ## Properties
 
-### bitcoin\_get\_balance
+### bitcoin_get_balance
 
-> **bitcoin\_get\_balance**: `ActorMethod`\<\[[`get_balance_request`](get_balance_request.md)\], `bigint`\>
+> **bitcoin_get_balance**: `ActorMethod`\<\[[`get_balance_request`](get_balance_request.md)\], `bigint`\>
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:111
 
-***
+---
 
-### bitcoin\_get\_balance\_query
+### bitcoin_get_balance_query
 
-> **bitcoin\_get\_balance\_query**: `ActorMethod`\<\[[`get_balance_request`](get_balance_request.md)\], `bigint`\>
+> **bitcoin_get_balance_query**: `ActorMethod`\<\[[`get_balance_request`](get_balance_request.md)\], `bigint`\>
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:112
 
-***
+---
 
-### bitcoin\_get\_block\_headers
+### bitcoin_get_block_headers
 
-> **bitcoin\_get\_block\_headers**: `ActorMethod`\<\[[`get_block_headers_request`](get_block_headers_request.md)\], [`get_block_headers_response`](get_block_headers_response.md)\>
+> **bitcoin_get_block_headers**: `ActorMethod`\<\[[`get_block_headers_request`](get_block_headers_request.md)\], [`get_block_headers_response`](get_block_headers_response.md)\>
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:113
 
-***
+---
 
-### bitcoin\_get\_current\_fee\_percentiles
+### bitcoin_get_current_fee_percentiles
 
-> **bitcoin\_get\_current\_fee\_percentiles**: `ActorMethod`\<\[[`get_current_fee_percentiles_request`](get_current_fee_percentiles_request.md)\], `BigUint64Array`\<`ArrayBufferLike`\>\>
+> **bitcoin_get_current_fee_percentiles**: `ActorMethod`\<\[[`get_current_fee_percentiles_request`](get_current_fee_percentiles_request.md)\], `BigUint64Array`\<`ArrayBufferLike`\>\>
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:117
 
-***
+---
 
-### bitcoin\_get\_utxos
+### bitcoin_get_utxos
 
-> **bitcoin\_get\_utxos**: `ActorMethod`\<\[[`get_utxos_request`](get_utxos_request.md)\], [`get_utxos_response`](get_utxos_response.md)\>
+> **bitcoin_get_utxos**: `ActorMethod`\<\[[`get_utxos_request`](get_utxos_request.md)\], [`get_utxos_response`](get_utxos_response.md)\>
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:121
 
-***
+---
 
-### bitcoin\_get\_utxos\_query
+### bitcoin_get_utxos_query
 
-> **bitcoin\_get\_utxos\_query**: `ActorMethod`\<\[[`get_utxos_request`](get_utxos_request.md)\], [`get_utxos_response`](get_utxos_response.md)\>
+> **bitcoin_get_utxos_query**: `ActorMethod`\<\[[`get_utxos_request`](get_utxos_request.md)\], [`get_utxos_response`](get_utxos_response.md)\>
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:122
 
-***
+---
 
-### bitcoin\_send\_transaction
+### bitcoin_send_transaction
 
-> **bitcoin\_send\_transaction**: `ActorMethod`\<\[[`send_transaction_request`](send_transaction_request.md)\], `undefined`\>
+> **bitcoin_send_transaction**: `ActorMethod`\<\[[`send_transaction_request`](send_transaction_request.md)\], `undefined`\>
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:123
 
-***
+---
 
-### get\_config
+### get_config
 
-> **get\_config**: `ActorMethod`\<\[\], [`config`](config.md)\>
+> **get_config**: `ActorMethod`\<\[\], [`config`](config.md)\>
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:124
 
-***
+---
 
-### set\_config
+### set_config
 
-> **set\_config**: `ActorMethod`\<\[[`set_config_request`](set_config_request.md)\], `undefined`\>
+> **set_config**: `ActorMethod`\<\[[`set_config_request`](set_config_request.md)\], `undefined`\>
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:125

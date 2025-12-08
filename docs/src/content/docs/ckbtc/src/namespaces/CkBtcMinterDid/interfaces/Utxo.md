@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:660
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:661
 
-***
+---
 
 ### outpoint
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:663
 
 > **vout**: `number`
 
-***
+---
 
 ### value
 

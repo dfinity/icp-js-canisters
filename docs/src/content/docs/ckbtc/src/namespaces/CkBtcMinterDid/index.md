@@ -11,7 +11,7 @@ prev: true
 - [Account](interfaces/Account.md)
 - [CanisterStatusResponse](interfaces/CanisterStatusResponse.md)
 - [DefiniteCanisterSettings](interfaces/DefiniteCanisterSettings.md)
-- [environment\_variable](interfaces/environment_variable.md)
+- [environment_variable](interfaces/environment_variable.md)
 - [Event](interfaces/Event.md)
 - [InitArgs](interfaces/InitArgs.md)
 - [MemoryMetrics](interfaces/MemoryMetrics.md)
