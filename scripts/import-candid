@@ -171,5 +171,4 @@ mkdir -p packages/canisters/src/declarations/cketh
 import_did "rs/ethereum/cketh/minter/cketh_minter.did" "minter.did" "cketh" "modern"
 import_did "rs/ethereum/ledger-suite-orchestrator/ledger_suite_orchestrator.did" "orchestrator.did" "cketh" "modern"
 
-
 : Fin
