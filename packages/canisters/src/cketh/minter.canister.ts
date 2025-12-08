@@ -15,14 +15,14 @@ import {
   createWithdrawErc20Error,
   createWithdrawEthError,
 } from "./errors/minter.errors";
-import type { CkETHMinterCanisterOptions } from "./types/canister.options";
+import type { CkEthMinterCanisterOptions } from "./types/canister.options";
 import {
   toEip1559TransactionPriceParams,
   type Eip1559TransactionPriceParams,
 } from "./types/minter.params";
 
-export class CkETHMinterCanister extends Canister<CkEthMinterService> {
-  static create(options: CkETHMinterCanisterOptions<CkEthMinterService>) {
+export class CkEthMinterCanister extends Canister<CkEthMinterService> {
+  static create(options: CkEthMinterCanisterOptions<CkEthMinterService>) {
     const { service, certifiedService, canisterId } =
       createServices<CkEthMinterService>({
         options,
@@ -30,7 +30,7 @@ export class CkETHMinterCanister extends Canister<CkEthMinterService> {
         certifiedIdlFactory: idlFactoryCertifiedCkEthMinter,
       });
 
-    return new CkETHMinterCanister(canisterId, service, certifiedService);
+    return new CkEthMinterCanister(canisterId, service, certifiedService);
   }
 
   /**
@@ -93,7 +93,7 @@ export class CkETHMinterCanister extends Canister<CkEthMinterService> {
    * Preconditions:
    *
    * The caller allowed the minter's principal to spend its funds using
-   * [icrc2_approve] on the ckErc20 ledger and to burn some of the user’s ckETH tokens to pay for the transaction fees on the CkETH ledger.
+   * [icrc2_approve] on the ckErc20 ledger and to burn some of the user’s ckETH tokens to pay for the transaction fees on the CkEth ledger.
    *
    * @param {Object} params The parameters to withdrawal ckErc20 to Erc20.
    * @param {string} params.address The destination ETH address.

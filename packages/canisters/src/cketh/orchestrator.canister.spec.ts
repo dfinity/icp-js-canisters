@@ -6,13 +6,13 @@ import type {
   CkEthOrchestratorService,
 } from "../declarations";
 import { minterCanisterIdMock } from "./mocks/minter.mock";
-import { CkETHOrchestratorCanister } from "./orchestrator.canister";
+import { CkEthOrchestratorCanister } from "./orchestrator.canister";
 
 describe("ckETH orchestrator canister", () => {
   const orchestrator = (
     service: ActorSubclass<CkEthOrchestratorService>,
-  ): CkETHOrchestratorCanister =>
-    CkETHOrchestratorCanister.create({
+  ): CkEthOrchestratorCanister =>
+    CkEthOrchestratorCanister.create({
       // ckSepoliaETH Orchestrator Canister ID on mainnet
       canisterId: Principal.from("2s5qh-7aaaa-aaaar-qadya-cai"),
       certifiedServiceOverride: service,
