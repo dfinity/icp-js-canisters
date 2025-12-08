@@ -6,10 +6,10 @@ import {
 } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
 import {
-  type IcManagementDid,
-  type IcManagementService,
   idlFactoryCertifiedIcManagement,
   idlFactoryIcManagement,
+  type IcManagementDid,
+  type IcManagementService,
 } from "../declarations";
 import type { IcManagementCanisterOptions } from "./types/canister.options";
 import {
