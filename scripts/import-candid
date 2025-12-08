@@ -131,12 +131,6 @@ patch_import_did "rs/nns/governance/canister/governance.did" "rs/nns/governance/
 import_did "rs/nns/gtc/canister/gtc.did" "genesis_token.did" "nns"
 import_did "rs/nns/sns-wasm/canister/sns-wasm.did" "sns_wasm.did" "nns"
 
-mkdir -p packages/sns/src/candid
-import_did "rs/sns/swap/canister/swap.did" "sns_swap.did" "sns"
-import_did "rs/sns/root/canister/root.did" "sns_root.did" "sns"
-import_did "rs/sns/governance/canister/governance.did" "sns_governance.did" "sns"
-patch_import_did "rs/sns/governance/canister/governance.did" "rs/sns/governance/canister/governance_test.did.patch" "sns_governance_test.did" "sns"
-
 mkdir -p packages/cmc/src/candid
 import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc"
 
@@ -170,5 +164,12 @@ download_did https://raw.githubusercontent.com/dfinity/sdk/master/src/distribute
 
 mkdir -p packages/canisters/src/declarations/cmc
 import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc" "modern"
+
+mkdir -p packages/canisters/src/declarations/sns
+import_did "rs/sns/swap/canister/swap.did" "swap.did" "sns" "modern"
+import_did "rs/sns/root/canister/root.did" "root.did" "sns" "modern"
+import_did "rs/sns/governance/canister/governance.did" "governance.did" "sns" "modern"
+patch_import_did "rs/sns/governance/canister/governance.did" "rs/sns/governance/canister/governance_test.did.patch" "governance_test.did" "sns" "modern"
+
 
 : Fin
