@@ -1,11 +1,10 @@
 import { Canister, createServices } from "@dfinity/utils";
-import type {
-  _SERVICE as BitcoinService,
-  get_utxos_response,
-  satoshi,
-} from "../declarations/ckbtc/bitcoin";
-import { idlFactory as certifiedIdlFactory } from "../declarations/ckbtc/bitcoin.certified.idl";
-import { idlFactory } from "../declarations/ckbtc/bitcoin.idl";
+import {
+  idlFactoryBitcoin,
+  idlFactoryCertifiedBitcoin,
+  type BitcoinDid,
+  type BitcoinService,
+} from "../declarations";
 import {
   toGetBalanceParams,
   toGetUtxosParams,
@@ -19,8 +18,8 @@ export class BitcoinCanister extends Canister<BitcoinService> {
     const { service, certifiedService, canisterId } =
       createServices<BitcoinService>({
         options,
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactoryBitcoin,
+        certifiedIdlFactory: idlFactoryCertifiedBitcoin,
       });
 
     return new BitcoinCanister(canisterId, service, certifiedService);
@@ -41,7 +40,7 @@ export class BitcoinCanister extends Canister<BitcoinService> {
    */
   getUtxosQuery = ({
     ...params
-  }: GetUtxosParams): Promise<get_utxos_response> => {
+  }: GetUtxosParams): Promise<BitcoinDid.get_utxos_response> => {
     const { bitcoin_get_utxos_query } = this.caller({
       certified: false,
     });
@@ -61,7 +60,9 @@ export class BitcoinCanister extends Canister<BitcoinService> {
    * @param {string} params.address A Bitcoin address.
    * @returns {Promise<satoshi>} The balance is returned in `Satoshi` (10^8 Satoshi = 1 Bitcoin).
    */
-  getBalanceQuery = ({ ...params }: GetBalanceParams): Promise<satoshi> => {
+  getBalanceQuery = ({
+    ...params
+  }: GetBalanceParams): Promise<BitcoinDid.satoshi> => {
     const { bitcoin_get_balance_query } = this.caller({
       certified: false,
     });

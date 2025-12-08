@@ -4,11 +4,7 @@ import {
 } from "@dfinity/utils";
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
-import type {
-  _SERVICE as BitcoinService,
-  get_utxos_response,
-  satoshi,
-} from "../declarations/ckbtc/bitcoin";
+import type { BitcoinDid, BitcoinService } from "../declarations";
 import { BitcoinCanister } from "./bitcoin.canister";
 import { bitcoinAddressMock, bitcoinCanisterIdMock } from "./mocks/minter.mock";
 import type { GetBalanceParams, GetUtxosParams } from "./types/bitcoin.params";
@@ -29,7 +25,7 @@ describe("BitcoinCanister", () => {
       address: bitcoinAddressMock,
     };
 
-    const response: get_utxos_response = {
+    const response: BitcoinDid.get_utxos_response = {
       next_page: [],
       tip_height: 123,
       tip_block_hash: new Uint8Array([1, 2, 3]),
@@ -160,7 +156,7 @@ describe("BitcoinCanister", () => {
       address: bitcoinAddressMock,
     };
 
-    const response: satoshi = 1000n;
+    const response: BitcoinDid.satoshi = 1000n;
 
     it("returns balance result when success", async () => {
       const service = mock<ActorSubclass<BitcoinService>>();
