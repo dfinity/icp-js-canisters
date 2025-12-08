@@ -125,12 +125,6 @@ test -n "${IC_DIR:-}" || {
 } >&2
 
 : Import canisters
-mkdir -p packages/nns/src/candid
-import_did "rs/nns/governance/canister/governance.did" "governance.did" "nns"
-patch_import_did "rs/nns/governance/canister/governance.did" "rs/nns/governance/canister/governance_test.did.patch" "governance_test.did" "nns"
-import_did "rs/nns/gtc/canister/gtc.did" "genesis_token.did" "nns"
-import_did "rs/nns/sns-wasm/canister/sns-wasm.did" "sns_wasm.did" "nns"
-
 mkdir -p packages/sns/src/candid
 import_did "rs/sns/swap/canister/swap.did" "sns_swap.did" "sns"
 import_did "rs/sns/root/canister/root.did" "sns_root.did" "sns"
@@ -170,5 +164,12 @@ download_did https://raw.githubusercontent.com/dfinity/sdk/master/src/distribute
 
 mkdir -p packages/canisters/src/declarations/cmc
 import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc" "modern"
+
+mkdir -p packages/canisters/src/declarations/nns
+import_did "rs/nns/governance/canister/governance.did" "governance.did" "nns" "modern"
+patch_import_did "rs/nns/governance/canister/governance.did" "rs/nns/governance/canister/governance_test.did.patch" "governance_test.did" "nns" "modern"
+import_did "rs/nns/gtc/canister/gtc.did" "genesis_token.did" "nns" "modern"
+import_did "rs/nns/sns-wasm/canister/sns-wasm.did" "sns_wasm.did" "nns" "modern"
+
 
 : Fin
