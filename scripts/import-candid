@@ -151,10 +151,6 @@ download_did "https://raw.githubusercontent.com/dfinity/ICRC/main/ICRCs/ICRC-10/
 # However, there is no centralized .did file (similar to ICRC-1) that includes all possible methods of IC NFTs
 download_did "https://raw.githubusercontent.com/dfinity/ICRC/main/ICRCs/ICRC-7/ICRC-7.did" "icrc_nft-ledger.did" "ledger-icrc"
 
-mkdir -p packages/ckbtc/src/candid
-import_did "rs/bitcoin/ckbtc/minter/ckbtc_minter.did" "minter.did" "ckbtc"
-download_did https://raw.githubusercontent.com/dfinity/bitcoin-canister/master/canister/candid.did "bitcoin.did" "ckbtc"
-
 mkdir -p packages/canisters/src/declarations/ic-management
 download_did https://raw.githubusercontent.com/dfinity/portal/master/docs/references/_attachments/ic.did "ic-management.did" "canisters" "src/declarations/ic-management"
 
@@ -167,5 +163,9 @@ import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc" "modern"
 mkdir -p packages/canisters/src/declarations/cketh
 import_did "rs/ethereum/cketh/minter/cketh_minter.did" "minter.did" "cketh" "modern"
 import_did "rs/ethereum/ledger-suite-orchestrator/ledger_suite_orchestrator.did" "orchestrator.did" "cketh" "modern"
+
+mkdir -p packages/canisters/src/declarations/ckbtc
+import_did "rs/bitcoin/ckbtc/minter/ckbtc_minter.did" "minter.did" "ckbtc" "modern"
+download_did https://raw.githubusercontent.com/dfinity/bitcoin-canister/master/canister/candid.did "bitcoin.did" "canisters" "src/declarations/ckbtc"
 
 : Fin
