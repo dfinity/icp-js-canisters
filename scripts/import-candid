@@ -171,5 +171,4 @@ import_did "rs/sns/root/canister/root.did" "root.did" "sns" "modern"
 import_did "rs/sns/governance/canister/governance.did" "governance.did" "sns" "modern"
 patch_import_did "rs/sns/governance/canister/governance.did" "rs/sns/governance/canister/governance_test.did.patch" "governance_test.did" "sns" "modern"
 
-
 : Fin
