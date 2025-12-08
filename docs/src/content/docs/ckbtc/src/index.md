@@ -52,10 +52,10 @@ prev: true
 
 - [Account](type-aliases/Account.md)
 - [BitcoinNetwork](type-aliases/BitcoinNetwork.md)
-- [block_hash](type-aliases/block_hash.md)
-- [block_height](type-aliases/block_height.md)
+- [block\_hash](type-aliases/block_hash.md)
+- [block\_height](type-aliases/block_height.md)
 - [EstimateWithdrawalFeeParams](type-aliases/EstimateWithdrawalFeeParams.md)
-- [get_utxos_response](type-aliases/get_utxos_response.md)
+- [get\_utxos\_response](type-aliases/get_utxos_response.md)
 - [GetBalanceParams](type-aliases/GetBalanceParams.md)
 - [GetBTCAddressParams](type-aliases/GetBTCAddressParams.md)
 - [GetKnownUtxosParams](type-aliases/GetKnownUtxosParams.md)
@@ -97,7 +97,7 @@ prev: true
 
 Renames and re-exports [CkBtcCanisterOptions](interfaces/CkBtcCanisterOptions.md)
 
----
+***
 
 ### CkBtcMinterCanister
 

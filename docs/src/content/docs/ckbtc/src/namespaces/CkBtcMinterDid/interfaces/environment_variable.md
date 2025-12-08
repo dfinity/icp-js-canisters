@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:707
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:709
 
----
+***
 
 ### value
 

@@ -9,16 +9,16 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:700
 
 ## Properties
 
-### bitcoin_fee
+### bitcoin\_fee
 
-> **bitcoin_fee**: `bigint`
+> **bitcoin\_fee**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:702
 
----
+***
 
-### minter_fee
+### minter\_fee
 
-> **minter_fee**: `bigint`
+> **minter\_fee**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:701

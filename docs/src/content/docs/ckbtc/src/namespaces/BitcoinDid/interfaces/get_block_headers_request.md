@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:49
 
 ## Properties
 
-### end_height
+### end\_height
 
-> **end_height**: \[\] \| \[`number`\]
+> **end\_height**: \[\] \| \[`number`\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:51
 
----
+***
 
 ### network
 
@@ -23,10 +23,10 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:51
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:52
 
----
+***
 
-### start_height
+### start\_height
 
-> **start_height**: `number`
+> **start\_height**: `number`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:50

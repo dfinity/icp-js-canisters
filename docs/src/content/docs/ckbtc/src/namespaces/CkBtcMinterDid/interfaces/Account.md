@@ -17,7 +17,7 @@ Represents an account on the ckBTC ledger.
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:17
 
----
+***
 
 ### subaccount
 

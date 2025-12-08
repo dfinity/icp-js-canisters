@@ -9,16 +9,16 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:54
 
 ## Properties
 
-### block_headers
+### block\_headers
 
-> **block_headers**: [`block_header`](../type-aliases/block_header.md)[]
+> **block\_headers**: [`block_header`](../type-aliases/block_header.md)[]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:56
 
----
+***
 
-### tip_height
+### tip\_height
 
-> **tip_height**: `number`
+> **tip\_height**: `number`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:55

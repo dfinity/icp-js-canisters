@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:850
 
 #### IDL
 
-_typeof_ `IDL`
+*typeof* `IDL`
 
 ## Returns
 

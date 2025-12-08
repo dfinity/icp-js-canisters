@@ -9,9 +9,9 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:382
 
 ## Properties
 
-### block_index
+### block\_index
 
-> **block_index**: `bigint`
+> **block\_index**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:387
 

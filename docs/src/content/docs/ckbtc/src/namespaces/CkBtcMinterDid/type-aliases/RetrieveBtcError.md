@@ -27,13 +27,13 @@ The minter failed to parse the destination address.
 
 A generic error reserved for future extensions.
 
-#### GenericError.error_code
+#### GenericError.error\_code
 
-> **error_code**: `bigint`
+> **error\_code**: `bigint`
 
-#### GenericError.error_message
+#### GenericError.error\_message
 
-> **error_message**: `string`
+> **error\_message**: `string`
 
 \{ `TemporarilyUnavailable`: `string`; \}
 

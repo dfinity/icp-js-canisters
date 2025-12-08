@@ -9,32 +9,32 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:307
 
 ## Properties
 
-### num_calls_total
+### num\_calls\_total
 
-> **num_calls_total**: `bigint`
+> **num\_calls\_total**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:310
 
----
+***
 
-### num_instructions_total
+### num\_instructions\_total
 
-> **num_instructions_total**: `bigint`
+> **num\_instructions\_total**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:309
 
----
+***
 
-### request_payload_bytes_total
+### request\_payload\_bytes\_total
 
-> **request_payload_bytes_total**: `bigint`
+> **request\_payload\_bytes\_total**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:311
 
----
+***
 
-### response_payload_bytes_total
+### response\_payload\_bytes\_total
 
-> **response_payload_bytes_total**: `bigint`
+> **response\_payload\_bytes\_total**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:308

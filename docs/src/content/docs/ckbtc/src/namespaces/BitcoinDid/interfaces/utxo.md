@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:105
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:106
 
----
+***
 
 ### outpoint
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:106
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:108
 
----
+***
 
 ### value
 

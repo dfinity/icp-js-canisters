@@ -15,7 +15,7 @@ Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:1
 
 Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:2
 
----
+***
 
 ### Regtest
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:2
 
 Defined in: packages/canisters/ckbtc/enums/btc.enums.d.ts:3
 
----
+***
 
 ### Testnet
 

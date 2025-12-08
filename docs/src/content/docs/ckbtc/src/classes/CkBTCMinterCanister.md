@@ -69,7 +69,7 @@ Defined in: packages/utils/dist/services/canister.d.ts:9
 
 `Canister.caller`
 
----
+***
 
 ### ~~certifiedService~~
 
@@ -81,7 +81,7 @@ Defined in: packages/utils/dist/services/canister.d.ts:6
 
 `Canister.certifiedService`
 
----
+***
 
 ### ~~estimateWithdrawalFee()~~
 
@@ -103,7 +103,7 @@ The parameters to estimate the fee.
 
 `Promise`\<[`EstimateWithdrawalFee`](../interfaces/EstimateWithdrawalFee.md)\>
 
----
+***
 
 ### ~~getBtcAddress()~~
 
@@ -129,7 +129,7 @@ The parameters for which a BTC address should be resolved.
 
 The BTC address of the given account.
 
----
+***
 
 ### ~~getKnownUtxos()~~
 
@@ -153,7 +153,7 @@ The parameters for which the known utxos should be resolved.
 
 The known utxos (with no guarantee in the ordering).
 
----
+***
 
 ### ~~getMinterInfo()~~
 
@@ -175,7 +175,7 @@ The parameters to get the minter info.
 
 `Promise`\<[`MinterInfo`](../namespaces/CkBtcMinterDid/interfaces/MinterInfo.md)\>
 
----
+***
 
 ### ~~getWithdrawalAccount()~~
 
@@ -191,7 +191,7 @@ Returns the account to which the caller should deposit ckBTC before withdrawing 
 
 The account to which ckBTC needs to be transferred. Provide corresponding information to map an Icrc1 account.
 
----
+***
 
 ### ~~retrieveBtc()~~
 
@@ -223,7 +223,7 @@ The parameters are the bitcoin address and amount to convert.
 
 The result or the operation.
 
----
+***
 
 ### ~~retrieveBtcStatus()~~
 
@@ -254,7 +254,7 @@ The ID of the corresponding burn transaction.
 
 The status of the BTC retrieval request.
 
----
+***
 
 ### ~~retrieveBtcStatusV2ByAccount()~~
 
@@ -278,7 +278,7 @@ query or update call
 
 The statuses of the BTC retrieval requests.
 
----
+***
 
 ### ~~retrieveBtcWithApproval()~~
 
@@ -287,6 +287,7 @@ The statuses of the BTC retrieval requests.
 Defined in: packages/canisters/ckbtc/minter.canister.d.ts:71
 
 Submits a request to convert ckBTC to BTC after making an ICRC-2 approval.
+
 
 The BTC retrieval process is slow. Instead of synchronously waiting for a BTC transaction to settle, this method returns a request ([block_index]) that the caller can use to query the request status.
 
@@ -317,7 +318,7 @@ The caller allowed the minter's principal to spend its funds using
 
 The result or the operation.
 
----
+***
 
 ### ~~service~~
 
@@ -329,7 +330,7 @@ Defined in: packages/utils/dist/services/canister.d.ts:5
 
 `Canister.service`
 
----
+***
 
 ### ~~updateBalance()~~
 

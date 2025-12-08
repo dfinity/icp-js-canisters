@@ -9,29 +9,29 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:66
 
 ## Properties
 
-### next_page
+### next\_page
 
-> **next_page**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
+> **next\_page**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:67
 
----
+***
 
-### tip_block_hash
+### tip\_block\_hash
 
-> **tip_block_hash**: [`block_hash`](../type-aliases/block_hash.md)
+> **tip\_block\_hash**: [`block_hash`](../type-aliases/block_hash.md)
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:69
 
----
+***
 
-### tip_height
+### tip\_height
 
-> **tip_height**: `number`
+> **tip\_height**: `number`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:68
 
----
+***
 
 ### utxos
 

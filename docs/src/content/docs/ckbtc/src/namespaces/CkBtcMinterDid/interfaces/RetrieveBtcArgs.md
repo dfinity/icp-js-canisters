@@ -17,7 +17,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:336
 
 The address to which the ckBTC minter should deposit BTC.
 
----
+***
 
 ### amount
 

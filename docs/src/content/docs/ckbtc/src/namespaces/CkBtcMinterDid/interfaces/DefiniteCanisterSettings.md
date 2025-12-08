@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:62
 
 ## Properties
 
-### compute_allocation
+### compute\_allocation
 
-> **compute_allocation**: `bigint`
+> **compute\_allocation**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:71
 
----
+***
 
 ### controllers
 
@@ -23,58 +23,58 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:71
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:66
 
----
+***
 
-### environment_variables
+### environment\_variables
 
-> **environment_variables**: [`environment_variable`](environment_variable.md)[]
+> **environment\_variables**: [`environment_variable`](environment_variable.md)[]
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:65
 
----
+***
 
-### freezing_threshold
+### freezing\_threshold
 
-> **freezing_threshold**: `bigint`
+> **freezing\_threshold**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:63
 
----
+***
 
-### log_visibility
+### log\_visibility
 
-> **log_visibility**: [`LogVisibility`](../type-aliases/LogVisibility.md)
+> **log\_visibility**: [`LogVisibility`](../type-aliases/LogVisibility.md)
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:68
 
----
+***
 
-### memory_allocation
+### memory\_allocation
 
-> **memory_allocation**: `bigint`
+> **memory\_allocation**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:70
 
----
+***
 
-### reserved_cycles_limit
+### reserved\_cycles\_limit
 
-> **reserved_cycles_limit**: `bigint`
+> **reserved\_cycles\_limit**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:67
 
----
+***
 
-### wasm_memory_limit
+### wasm\_memory\_limit
 
-> **wasm_memory_limit**: `bigint`
+> **wasm\_memory\_limit**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:69
 
----
+***
 
-### wasm_memory_threshold
+### wasm\_memory\_threshold
 
-> **wasm_memory_threshold**: `bigint`
+> **wasm\_memory\_threshold**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:64

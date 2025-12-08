@@ -11,8 +11,8 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:704
 
 ## Properties
 
-### invalid_transaction
+### invalid\_transaction
 
-> **invalid_transaction**: [`InvalidTransactionError`](InvalidTransactionError.md)
+> **invalid\_transaction**: [`InvalidTransactionError`](InvalidTransactionError.md)
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:705

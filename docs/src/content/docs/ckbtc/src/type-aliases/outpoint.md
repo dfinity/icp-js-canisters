@@ -7,4 +7,4 @@ prev: true
 
 > **outpoint** = [`outpoint`](../namespaces/BitcoinDid/interfaces/outpoint.md)
 
-Defined in: [packages/ckbtc/src/index.ts:6](https://github.com/dfinity/icp-js-canisters/blob/840fb6710bf57279f55908811725e3a57ac35333/packages/ckbtc/src/index.ts#L6)
+Defined in: [packages/ckbtc/src/index.ts:6](https://github.com/dfinity/icp-js-canisters/blob/de49efe247924c400192e20b3d4a5681622c97de/packages/ckbtc/src/index.ts#L6)

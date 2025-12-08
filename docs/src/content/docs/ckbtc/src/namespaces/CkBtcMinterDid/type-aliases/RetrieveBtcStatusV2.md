@@ -27,7 +27,7 @@ Bitcoin transaction for this request.
 > **Confirmed**: `object`
 
 The minter received enough confirmations for the Bitcoin
-transaction for this request. The payload contains the
+transaction for this request.  The payload contains the
 identifier of the transaction on the Bitcoin network.
 
 #### Confirmed.txid
@@ -70,7 +70,7 @@ The amount was too low to cover the transaction fees.
 > **Unknown**: `null`
 
 The minter does not have any information on the specified
-retrieval request. It can be that nobody submitted the
+retrieval request.  It can be that nobody submitted the
 request or the minter pruned the relevant information from the
 history to save space.
 

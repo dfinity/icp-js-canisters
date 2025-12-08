@@ -19,13 +19,13 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:586
 
 A generic error reserved for future extensions.
 
-#### GenericError.error_code
+#### GenericError.error\_code
 
-> **error_code**: `bigint`
+> **error\_code**: `bigint`
 
-#### GenericError.error_message
+#### GenericError.error\_message
 
-> **error_message**: `string`
+> **error\_message**: `string`
 
 \{ `TemporarilyUnavailable`: `string`; \}
 
@@ -52,18 +52,18 @@ The minter is already processing another update balance request for the caller.
 
 There are no new UTXOs to process.
 
-#### NoNewUtxos.current_confirmations
+#### NoNewUtxos.current\_confirmations
 
-> **current_confirmations**: \[\] \| \[`number`\]
+> **current\_confirmations**: \[\] \| \[`number`\]
 
-#### NoNewUtxos.pending_utxos
+#### NoNewUtxos.pending\_utxos
 
-> **pending_utxos**: \[\] \| \[[`PendingUtxo`](../interfaces/PendingUtxo.md)[]\]
+> **pending\_utxos**: \[\] \| \[[`PendingUtxo`](../interfaces/PendingUtxo.md)[]\]
 
-#### NoNewUtxos.required_confirmations
+#### NoNewUtxos.required\_confirmations
 
-> **required_confirmations**: `number`
+> **required\_confirmations**: `number`
 
-#### NoNewUtxos.suspended_utxos
+#### NoNewUtxos.suspended\_utxos
 
-> **suspended_utxos**: \[\] \| \[[`SuspendedUtxo`](../interfaces/SuspendedUtxo.md)[]\]
+> **suspended\_utxos**: \[\] \| \[[`SuspendedUtxo`](../interfaces/SuspendedUtxo.md)[]\]

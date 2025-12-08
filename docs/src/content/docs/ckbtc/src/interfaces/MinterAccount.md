@@ -15,7 +15,7 @@ Defined in: packages/canisters/ckbtc/types/minter.params.d.ts:4
 
 Defined in: packages/canisters/ckbtc/types/minter.params.d.ts:5
 
----
+***
 
 ### subaccount?
 

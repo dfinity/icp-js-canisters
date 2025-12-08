@@ -9,29 +9,29 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:95
 
 ## Properties
 
-### api_access
+### api\_access
 
-> **api_access**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
+> **api\_access**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:96
 
----
+***
 
-### burn_cycles
+### burn\_cycles
 
-> **burn_cycles**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
+> **burn\_cycles**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:102
 
----
+***
 
-### disable_api_if_not_fully_synced
+### disable\_api\_if\_not\_fully\_synced
 
-> **disable_api_if_not_fully_synced**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
+> **disable\_api\_if\_not\_fully\_synced**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:103
 
----
+***
 
 ### fees
 
@@ -39,23 +39,23 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:103
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:98
 
----
+***
 
-### lazily_evaluate_fee_percentiles
+### lazily\_evaluate\_fee\_percentiles
 
-> **lazily_evaluate_fee_percentiles**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
+> **lazily\_evaluate\_fee\_percentiles**: \[\] \| \[[`flag`](../type-aliases/flag.md)\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:97
 
----
+***
 
-### stability_threshold
+### stability\_threshold
 
-> **stability_threshold**: \[\] \| \[`bigint`\]
+> **stability\_threshold**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:100
 
----
+***
 
 ### syncing
 
@@ -63,10 +63,10 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:100
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:101
 
----
+***
 
-### watchdog_canister
+### watchdog\_canister
 
-> **watchdog_canister**: \[\] \| \[\[\] \| \[`Principal`\]\]
+> **watchdog\_canister**: \[\] \| \[\[\] \| \[`Principal`\]\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:99

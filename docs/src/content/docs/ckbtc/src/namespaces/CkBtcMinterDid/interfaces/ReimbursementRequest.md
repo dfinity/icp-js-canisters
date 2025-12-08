@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:322
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:323
 
----
+***
 
 ### amount
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:323
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:324
 
----
+***
 
 ### reason
 

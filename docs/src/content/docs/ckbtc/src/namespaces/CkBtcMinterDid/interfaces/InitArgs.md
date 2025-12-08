@@ -11,80 +11,80 @@ The initialization parameters of the minter canister.
 
 ## Properties
 
-### btc_checker_principal
+### btc\_checker\_principal
 
-> **btc_checker_principal**: \[\] \| \[`Principal`\]
+> **btc\_checker\_principal**: \[\] \| \[`Principal`\]
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:233
 
 / The canister id of the Bitcoin checker canister.
 
----
+***
 
-### btc_network
+### btc\_network
 
-> **btc_network**: [`BtcNetwork`](../type-aliases/BtcNetwork.md)
+> **btc\_network**: [`BtcNetwork`](../type-aliases/BtcNetwork.md)
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:225
 
 The minter will interact with this Bitcoin network.
 
----
+***
 
-### check_fee
+### check\_fee
 
-> **check_fee**: \[\] \| \[`bigint`\]
+> **check\_fee**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:229
 
 / The fee paid per Bitcoin check.
 
----
+***
 
-### ecdsa_key_name
+### ecdsa\_key\_name
 
-> **ecdsa_key_name**: `string`
+> **ecdsa\_key\_name**: `string`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:202
 
 The name of the ECDSA key to use.
 E.g., "dfx_test_key" on the local replica.
 
----
+***
 
-### get_utxos_cache_expiration_seconds
+### get\_utxos\_cache\_expiration\_seconds
 
-> **get_utxos_cache_expiration_seconds**: \[\] \| \[`bigint`\]
+> **get\_utxos\_cache\_expiration\_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:193
 
 / The expiration duration (in seconds) for cached entries in the get_utxos cache.
 
----
+***
 
-### kyt_fee
+### kyt\_fee
 
-> **kyt_fee**: \[\] \| \[`bigint`\]
+> **kyt\_fee**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:242
 
 / The fee paid per check by the KYT canister (deprecated, use check_fee instead).
 
----
+***
 
-### kyt_principal
+### kyt\_principal
 
-> **kyt_principal**: \[\] \| \[`Principal`\]
+> **kyt\_principal**: \[\] \| \[`Principal`\]
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:197
 
 / The canister id of the KYT canister (deprecated, use btc_checker_principal instead).
 
----
+***
 
-### ledger_id
+### ledger\_id
 
-> **ledger_id**: `Principal`
+> **ledger\_id**: `Principal`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:216
 
@@ -92,29 +92,29 @@ The principal of the ledger that handles ckBTC transfers.
 The default account of the ckBTC minter must be configured as
 the minting account of the ledger.
 
----
+***
 
-### max_time_in_queue_nanos
+### max\_time\_in\_queue\_nanos
 
-> **max_time_in_queue_nanos**: `bigint`
+> **max\_time\_in\_queue\_nanos**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:221
 
 / Maximum time in nanoseconds that a transaction should spend in the queue
 / before being sent.
 
----
+***
 
-### min_confirmations
+### min\_confirmations
 
-> **min_confirmations**: \[\] \| \[`number`\]
+> **min\_confirmations**: \[\] \| \[`number`\]
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:238
 
 / The minimum number of confirmations required for the minter to
 / accept a Bitcoin transaction.
 
----
+***
 
 ### mode
 
@@ -124,11 +124,11 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:206
 
 / The minter's operation mode.
 
----
+***
 
-### retrieve_btc_min_amount
+### retrieve\_btc\_min\_amount
 
-> **retrieve_btc_min_amount**: `bigint`
+> **retrieve\_btc\_min\_amount**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:210
 

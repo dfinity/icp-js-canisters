@@ -15,15 +15,15 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:44
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:46
 
----
+***
 
-### min_confirmations
+### min\_confirmations
 
-> **min_confirmations**: \[\] \| \[`number`\]
+> **min\_confirmations**: \[\] \| \[`number`\]
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:47
 
----
+***
 
 ### network
 

@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:86
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:87
 
----
+***
 
 ### vout
 

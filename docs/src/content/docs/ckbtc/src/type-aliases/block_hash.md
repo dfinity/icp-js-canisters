@@ -5,6 +5,6 @@ next: true
 prev: true
 ---
 
-> **block_hash** = [`block_hash`](../namespaces/BitcoinDid/type-aliases/block_hash.md)
+> **block\_hash** = [`block_hash`](../namespaces/BitcoinDid/type-aliases/block_hash.md)
 
-Defined in: [packages/ckbtc/src/index.ts:3](https://github.com/dfinity/icp-js-canisters/blob/840fb6710bf57279f55908811725e3a57ac35333/packages/ckbtc/src/index.ts#L3)
+Defined in: [packages/ckbtc/src/index.ts:3](https://github.com/dfinity/icp-js-canisters/blob/de49efe247924c400192e20b3d4a5681622c97de/packages/ckbtc/src/index.ts#L3)

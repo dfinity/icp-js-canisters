@@ -5,6 +5,6 @@ next: true
 prev: true
 ---
 
-> **millisatoshi_per_byte** = `bigint`
+> **millisatoshi\_per\_byte** = `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/bitcoin.d.ts:84

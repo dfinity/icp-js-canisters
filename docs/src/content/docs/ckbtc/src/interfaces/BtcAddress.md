@@ -15,7 +15,7 @@ Defined in: packages/canisters/ckbtc/types/btc.d.ts:2
 
 Defined in: packages/canisters/ckbtc/types/btc.d.ts:3
 
----
+***
 
 ### network?
 

@@ -38,13 +38,13 @@ The Bitcoin checker considered this UTXO to be tainted.
 
 The UTXO passed the Bitcoin check, and ckBTC has been minted.
 
-#### Minted.block_index
+#### Minted.block\_index
 
-> **block_index**: `bigint`
+> **block\_index**: `bigint`
 
-#### Minted.minted_amount
+#### Minted.minted\_amount
 
-> **minted_amount**: `bigint`
+> **minted\_amount**: `bigint`
 
 #### Minted.utxo
 

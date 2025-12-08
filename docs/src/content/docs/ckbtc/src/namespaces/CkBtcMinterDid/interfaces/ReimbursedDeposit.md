@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:313
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:314
 
----
+***
 
 ### amount
 
@@ -23,15 +23,15 @@ Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:314
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:316
 
----
+***
 
-### mint_block_index
+### mint\_block\_index
 
-> **mint_block_index**: `bigint`
+> **mint\_block\_index**: `bigint`
 
 Defined in: packages/canisters/declarations/ckbtc/minter.d.ts:315
 
----
+***
 
 ### reason
 
