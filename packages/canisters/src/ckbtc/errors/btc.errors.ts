@@ -1,0 +1,9 @@
+export class ParseBtcAddressError extends Error {}
+export class ParseBtcAddressInvalidError extends ParseBtcAddressError {}
+export class ParseBtcAddressNoDataError extends ParseBtcAddressError {}
+export class ParseBtcAddressUnsupportedAddressTypeError extends ParseBtcAddressError {}
+export class ParseBtcAddressBadWitnessLengthError extends ParseBtcAddressError {}
+export class ParseBtcAddressUnsupportedWitnessVersionError extends ParseBtcAddressError {}
+export class ParseBtcAddressUnexpectedHumanReadablePartError extends ParseBtcAddressError {}
+export class ParseBtcAddressMalformedAddressError extends ParseBtcAddressError {}
+export class ParseBtcAddressWrongNetworkError extends ParseBtcAddressError {}
