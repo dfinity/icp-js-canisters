@@ -27,7 +27,7 @@
   "scripts": {
     "rmdir": "node ../../scripts/rmdir.mjs",
     "ts-declaration": "tsc --emitDeclarationOnly --outDir dist",
-    "build": "npm run rmdir && mkdir -p dist && cp -R src/candid dist && node esbuild.mjs && npm run ts-declaration",
+    "build": "npm run rmdir && mkdir -p dist && node esbuild.mjs && npm run ts-declaration",
     "prepack": "npm run build",
     "test": "vitest"
   },
@@ -51,12 +51,6 @@
   ],
   "homepage": "https://github.com/dfinity/icp-js-canisters#readme",
   "peerDependencies": {
-    "@dfinity/utils": "^4",
-    "@icp-sdk/core": "^4"
-  },
-  "dependencies": {
-    "@noble/hashes": "^1.8.0",
-    "base58-js": "^3.0.3",
-    "bech32": "^2.0.0"
+    "@icp-sdk/canisters": "^2"
   }
 }
