@@ -15,23 +15,23 @@ import {
   MinterTemporaryUnavailableError,
   MinterUpdateBalanceError,
 } from "./errors/minter.errors";
-import { CkBTCMinterCanister } from "./minter.canister";
+import { CkBtcMinterCanister } from "./minter.canister";
 import { bitcoinAddressMock, minterCanisterIdMock } from "./mocks/minter.mock";
 import type { UpdateBalanceOk } from "./types/minter.responses";
 
 describe("ckBTC minter canister", () => {
   const minter = (
     service: ActorSubclass<CkBtcMinterService>,
-  ): CkBTCMinterCanister =>
-    CkBTCMinterCanister.create({
+  ): CkBtcMinterCanister =>
+    CkBtcMinterCanister.create({
       canisterId: minterCanisterIdMock,
       certifiedServiceOverride: service,
     });
 
   const nonCertifiedMinter = (
     service: ActorSubclass<CkBtcMinterService>,
-  ): CkBTCMinterCanister =>
-    CkBTCMinterCanister.create({
+  ): CkBtcMinterCanister =>
+    CkBtcMinterCanister.create({
       canisterId: minterCanisterIdMock,
       serviceOverride: service,
     });

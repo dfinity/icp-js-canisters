@@ -7,7 +7,7 @@ export { BitcoinCanister } from "./bitcoin.canister";
 export * from "./enums/btc.enums";
 export * from "./errors/btc.errors";
 export * from "./errors/minter.errors";
-export { CkBTCMinterCanister } from "./minter.canister";
+export { CkBtcMinterCanister } from "./minter.canister";
 export * from "./types/bitcoin.params";
 export * from "./types/btc";
 export * from "./types/minter.params";

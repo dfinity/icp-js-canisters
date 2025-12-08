@@ -11,10 +11,10 @@ import {
   type GetBalanceParams,
   type GetUtxosParams,
 } from "./types/bitcoin.params";
-import type { CkBTCCanisterOptions } from "./types/canister.options";
+import type { CkBtcCanisterOptions } from "./types/canister.options";
 
 export class BitcoinCanister extends Canister<BitcoinService> {
-  static create(options: CkBTCCanisterOptions<BitcoinService>) {
+  static create(options: CkBtcCanisterOptions<BitcoinService>) {
     const { service, certifiedService, canisterId } =
       createServices<BitcoinService>({
         options,
