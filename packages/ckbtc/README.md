@@ -29,10 +29,10 @@ npm i @icp-sdk/core @dfinity/utils
 
 ## Usage
 
-The features are available through the class `CkBTCMinterCanister`. It has to be instantiated with a canister ID.
+The features are available through the class `CkBtcMinterCanister`. It has to be instantiated with a canister ID.
 
 ```ts
-import { CkBTCMinterCanister } from "@dfinity/ckbtc";
+import { CkBtcMinterCanister } from "@dfinity/ckbtc";
 import { createAgent } from "@dfinity/utils";
 
 const agent = await createAgent({
@@ -40,7 +40,7 @@ const agent = await createAgent({
   host: HOST,
 });
 
-const { getBtcAddress } = CkBTCMinterCanister.create({
+const { getBtcAddress } = CkBtcMinterCanister.create({
   agent,
   canisterId: MY_CKBTC_MINTER_CANISTER_ID,
 });

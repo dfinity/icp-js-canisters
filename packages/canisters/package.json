@@ -88,13 +88,16 @@
   ],
   "homepage": "https://js.icp.build/canisters/",
   "peerDependencies": {
-    "@dfinity/ckbtc": "^6",
-    "@dfinity/cketh": "^6",
     "@dfinity/ledger-icp": "^8",
     "@dfinity/ledger-icrc": "^6",
     "@dfinity/nns": "^11",
     "@dfinity/sns": "^6",
     "@dfinity/utils": "^4",
     "@icp-sdk/core": "^4"
+  },
+  "dependencies": {
+    "@noble/hashes": "^1.8.0",
+    "base58-js": "^3.0.3",
+    "bech32": "^2.0.0"
   }
 }
