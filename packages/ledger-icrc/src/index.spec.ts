@@ -1,6 +1,6 @@
 import {
-  IcrcIndexNgCanister,
   IcrcIndexCanister,
+  IcrcIndexNgCanister,
   IcrcLedgerCanister,
   IcrcNftLedgerCanister,
 } from "./index";
