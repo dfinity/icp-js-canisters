@@ -6,8 +6,6 @@
   "workspaces": [
     "packages/utils",
     "packages/nns-proto",
-    "packages/ledger-icp",
-    "packages/ledger-icrc",
     "packages/nns",
     "packages/sns",
     "packages/zod-schemas",
@@ -16,6 +14,8 @@
     "packages/cketh",
     "packages/cmc",
     "packages/ic-management",
+    "packages/ledger-icp",
+    "packages/ledger-icrc",
     "docs"
   ],
   "scripts": {

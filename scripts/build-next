@@ -22,8 +22,6 @@ done
 node ./scripts/update-version.mjs utils dfinity $TAG
 node ./scripts/update-version.mjs zod-schemas dfinity $TAG
 node ./scripts/update-version.mjs nns-proto dfinity $TAG
-node ./scripts/update-version.mjs ledger-icp dfinity $TAG
-node ./scripts/update-version.mjs ledger-icrc dfinity $TAG
 node ./scripts/update-version.mjs nns dfinity $TAG
 node ./scripts/update-version.mjs sns dfinity $TAG
 node ./scripts/update-version.mjs canisters icp-sdk $TAG
@@ -31,6 +29,8 @@ node ./scripts/update-version.mjs ckbtc dfinity $TAG
 node ./scripts/update-version.mjs cketh dfinity $TAG
 node ./scripts/update-version.mjs cmc dfinity $TAG
 node ./scripts/update-version.mjs ic-management dfinity $TAG
+node ./scripts/update-version.mjs ledger-icp dfinity $TAG
+node ./scripts/update-version.mjs ledger-icrc dfinity $TAG
 
 : Now we can build
 npm run build

@@ -17,8 +17,6 @@ did_files_to_compile_for_pkg() {
 did_files_to_compile() {
   did_files_to_compile_for_pkg "nns"
   did_files_to_compile_for_pkg "sns"
-  did_files_to_compile_for_pkg "ledger-icrc"
-  did_files_to_compile_for_pkg "ledger-icp"
   did_files_to_compile_for_pkg "canisters" "declarations"
 }
 
