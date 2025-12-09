@@ -5,11 +5,7 @@ import type {
 } from "@dfinity/ledger-icrc";
 import type { QueryParams } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  NeuronId,
-  ProposalId,
-  Topic,
-} from "../../declarations/sns/governance";
+import type { SnsGovernanceDid } from "../../declarations";
 import type {
   SnsNeuronPermissionType,
   SnsProposalDecisionStatus,
@@ -27,7 +23,7 @@ export interface SnsListNeuronsParams extends QueryParams {
   /** The maximum number of neurons returned by the method `list_neurons` */
   limit?: number;
   /** Index the search to returns a list that starts after specified neuron id */
-  beforeNeuronId?: NeuronId;
+  beforeNeuronId?: SnsGovernanceDid.NeuronId;
 }
 
 /**
@@ -42,7 +38,7 @@ export interface SnsListProposalsParams extends QueryParams {
   // The proposal ID specifying which proposals to return.
   // This should be set to the last proposal of the previously returned page and
   // will not be included in the current page.
-  beforeProposal?: ProposalId;
+  beforeProposal?: SnsGovernanceDid.ProposalId;
   // Limit the number of Proposals returned in each page, from 1 to 100.
   // If a value outside of this range is provided, 100 will be used.
   limit?: number;
@@ -61,7 +57,7 @@ export interface SnsListProposalsParams extends QueryParams {
   // If this list is empty, no restriction is applied.
   // If there is null, then proposals without a topic are included.
   // Ref: https://github.com/dfinity/ic/blob/23abac5891de0ebde5c49c0fe91a1aab39c6241f/rs/sns/governance/api/src/ic_sns_governance.pb.v1.rs#L2140
-  includeTopics?: Array<Topic | null>;
+  includeTopics?: Array<SnsGovernanceDid.Topic | null>;
 }
 
 export type SnsListTopicsParams = QueryParams;
@@ -70,14 +66,14 @@ export type SnsListTopicsParams = QueryParams;
  * The parameters to get an sns proposal
  */
 export interface SnsGetProposalParams extends QueryParams {
-  proposalId: ProposalId;
+  proposalId: SnsGovernanceDid.ProposalId;
 }
 
 /**
  * The parameters to get a Sns neuron
  */
 export interface SnsGetNeuronParams extends QueryParams {
-  neuronId: NeuronId;
+  neuronId: SnsGovernanceDid.NeuronId;
 }
 
 export interface SnsStakeNeuronParams extends Omit<QueryParams, "certified"> {
@@ -95,7 +91,7 @@ export interface SnsIncreaseStakeNeuronParams extends Omit<
 > {
   stakeE8s: IcrcTokens;
   source: IcrcAccount;
-  neuronId: NeuronId;
+  neuronId: SnsGovernanceDid.NeuronId;
 }
 
 // Type to transform to a ClaimOrRefresh command
@@ -109,7 +105,7 @@ export interface SnsClaimOrRefreshArgs extends Omit<QueryParams, "certified"> {
  * General neuron management request parameter interface
  */
 interface SnsNeuronManagementParams extends Omit<QueryParams, "certified"> {
-  neuronId: NeuronId;
+  neuronId: SnsGovernanceDid.NeuronId;
 }
 
 /**
@@ -155,7 +151,7 @@ export interface SnsIncreaseDissolveDelayParams extends SnsNeuronManagementParam
  */
 export interface SnsSetTopicFollowees extends SnsNeuronManagementParams {
   functionId: bigint;
-  followees: NeuronId[];
+  followees: SnsGovernanceDid.NeuronId[];
 }
 
 /**
@@ -163,9 +159,9 @@ export interface SnsSetTopicFollowees extends SnsNeuronManagementParams {
  */
 export interface SnsSetFollowingParams extends SnsNeuronManagementParams {
   topicFollowing: Array<{
-    topic: Topic;
+    topic: SnsGovernanceDid.Topic;
     followees: Array<{
-      neuronId: NeuronId;
+      neuronId: SnsGovernanceDid.NeuronId;
       alias?: string;
     }>;
   }>;
@@ -176,7 +172,7 @@ export interface SnsSetFollowingParams extends SnsNeuronManagementParams {
  */
 export interface SnsRegisterVoteParams extends SnsNeuronManagementParams {
   vote: SnsVote;
-  proposalId: ProposalId;
+  proposalId: SnsGovernanceDid.ProposalId;
 }
 
 /**

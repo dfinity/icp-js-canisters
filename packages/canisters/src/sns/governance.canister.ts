@@ -7,21 +7,12 @@ import {
   type QueryParams,
 } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  GetMetadataResponse,
-  ListNervousSystemFunctionsResponse,
-  ListProposalsResponse,
-  ListTopicsResponse,
-  ManageNeuron,
-  ManageNeuronResponse,
-  NervousSystemParameters,
-  Neuron,
-  NeuronId,
-  ProposalData,
-  _SERVICE as SnsGovernanceService,
-} from "../declarations/sns/governance";
-import { idlFactory as certifiedIdlFactory } from "../declarations/sns/governance.certified.idl";
-import { idlFactory } from "../declarations/sns/governance.idl";
+import {
+  idlFactoryCertifiedSnsGovernance,
+  idlFactorySnsGovernance,
+  type SnsGovernanceDid,
+  type SnsGovernanceService,
+} from "../declarations";
 import { MAX_LIST_NEURONS_RESULTS } from "./constants/governance.constants";
 import {
   toAddPermissionsRequest,
@@ -73,8 +64,8 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
     const { service, certifiedService, canisterId } =
       createServices<SnsGovernanceService>({
         options,
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactorySnsGovernance,
+        certifiedIdlFactory: idlFactoryCertifiedSnsGovernance,
       });
 
     return new SnsGovernanceCanister(canisterId, service, certifiedService);
@@ -83,13 +74,15 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
   /**
    * List the neurons of the Sns
    */
-  listNeurons = async (params: SnsListNeuronsParams): Promise<Neuron[]> => {
+  listNeurons = async (
+    params: SnsListNeuronsParams,
+  ): Promise<SnsGovernanceDid.Neuron[]> => {
     const { principal, limit, beforeNeuronId } = params;
 
     const { neurons } = await this.caller(params).list_neurons({
       of_principal: toNullable<Principal>(principal),
       limit: limit ?? MAX_LIST_NEURONS_RESULTS,
-      start_page_at: toNullable<NeuronId>(beforeNeuronId),
+      start_page_at: toNullable<SnsGovernanceDid.NeuronId>(beforeNeuronId),
     });
     return neurons;
   };
@@ -99,7 +92,7 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
    */
   listProposals = async (
     params: SnsListProposalsParams,
-  ): Promise<ListProposalsResponse> => {
+  ): Promise<SnsGovernanceDid.ListProposalsResponse> => {
     const { certified } = params;
 
     const response = await this.caller({ certified }).list_proposals(
@@ -114,7 +107,7 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
    */
   listTopics = async (
     params: SnsListTopicsParams,
-  ): Promise<ListTopicsResponse> => {
+  ): Promise<SnsGovernanceDid.ListTopicsResponse> => {
     const { certified } = params;
     const response = await this.caller({ certified }).list_topics({});
     return response;
@@ -123,7 +116,9 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
   /**
    * Get the proposal of the Sns
    */
-  getProposal = async (params: SnsGetProposalParams): Promise<ProposalData> => {
+  getProposal = async (
+    params: SnsGetProposalParams,
+  ): Promise<SnsGovernanceDid.ProposalData> => {
     const { proposalId } = params;
 
     const { result } = await this.caller(params).get_proposal({
@@ -144,13 +139,15 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
    */
   listNervousSystemFunctions = (
     params: QueryParams,
-  ): Promise<ListNervousSystemFunctionsResponse> =>
+  ): Promise<SnsGovernanceDid.ListNervousSystemFunctionsResponse> =>
     this.caller(params).list_nervous_system_functions();
 
   /**
    * Get the Sns metadata (title, description, etc.)
    */
-  metadata = (params: QueryParams): Promise<GetMetadataResponse> =>
+  metadata = (
+    params: QueryParams,
+  ): Promise<SnsGovernanceDid.GetMetadataResponse> =>
     this.caller(params).get_metadata({});
 
   /**
@@ -158,13 +155,15 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
    */
   nervousSystemParameters = (
     params: QueryParams,
-  ): Promise<NervousSystemParameters> =>
+  ): Promise<SnsGovernanceDid.NervousSystemParameters> =>
     this.caller(params).get_nervous_system_parameters(null);
 
   /**
    * Get the neuron of the Sns
    */
-  getNeuron = async (params: SnsGetNeuronParams): Promise<Neuron> => {
+  getNeuron = async (
+    params: SnsGetNeuronParams,
+  ): Promise<SnsGovernanceDid.Neuron> => {
     const { neuronId } = params;
 
     const { result } = await this.caller(params).get_neuron({
@@ -184,7 +183,7 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
    */
   queryNeuron = async (
     params: SnsGetNeuronParams,
-  ): Promise<Neuron | undefined> => {
+  ): Promise<SnsGovernanceDid.Neuron | undefined> => {
     try {
       return await this.getNeuron(params);
     } catch (error: unknown) {
@@ -203,8 +202,8 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
    * Manage neuron. For advanced users.
    */
   manageNeuron = async (
-    request: ManageNeuron,
-  ): Promise<ManageNeuronResponse> => {
+    request: SnsGovernanceDid.ManageNeuron,
+  ): Promise<SnsGovernanceDid.ManageNeuronResponse> => {
     const response = await this.caller({ certified: true }).manage_neuron(
       request,
     );
@@ -218,7 +217,8 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
   addNeuronPermissions = async (
     params: SnsNeuronPermissionsParams,
   ): Promise<void> => {
-    const request: ManageNeuron = toAddPermissionsRequest(params);
+    const request: SnsGovernanceDid.ManageNeuron =
+      toAddPermissionsRequest(params);
     await this.manageNeuron(request);
   };
 
@@ -228,7 +228,8 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
   removeNeuronPermissions = async (
     params: SnsNeuronPermissionsParams,
   ): Promise<void> => {
-    const request: ManageNeuron = toRemovePermissionsRequest(params);
+    const request: SnsGovernanceDid.ManageNeuron =
+      toRemovePermissionsRequest(params);
     await this.manageNeuron(request);
   };
 
@@ -237,8 +238,8 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
    */
   public splitNeuron = async (
     params: SnsSplitNeuronParams,
-  ): Promise<NeuronId | undefined> => {
-    const request: ManageNeuron = toSplitNeuronRequest(params);
+  ): Promise<SnsGovernanceDid.NeuronId | undefined> => {
+    const request: SnsGovernanceDid.ManageNeuron = toSplitNeuronRequest(params);
     const { command } = await this.manageNeuron(request);
     const response = fromNullable(command);
     const errorMessage = (details: string) =>
@@ -251,7 +252,9 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
 
     if ("Split" in response) {
       const split = response.Split;
-      const neuronId = fromNullable(split.created_neuron_id) as NeuronId;
+      const neuronId = fromNullable(
+        split.created_neuron_id,
+      ) as SnsGovernanceDid.NeuronId;
 
       if (neuronId !== undefined) {
         return neuronId;
@@ -267,23 +270,30 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
    * Disburse neuron on Account
    */
   disburse = async (params: SnsDisburseNeuronParams): Promise<void> => {
-    const request: ManageNeuron = toDisburseNeuronRequest(params);
+    const request: SnsGovernanceDid.ManageNeuron =
+      toDisburseNeuronRequest(params);
     await this.manageNeuron(request);
   };
 
   /**
    * Start dissolving process of a neuron
    */
-  startDissolving = async (neuronId: NeuronId): Promise<void> => {
-    const request: ManageNeuron = toStartDissolvingNeuronRequest(neuronId);
+  startDissolving = async (
+    neuronId: SnsGovernanceDid.NeuronId,
+  ): Promise<void> => {
+    const request: SnsGovernanceDid.ManageNeuron =
+      toStartDissolvingNeuronRequest(neuronId);
     await this.manageNeuron(request);
   };
 
   /**
    * Stop dissolving process of a neuron
    */
-  stopDissolving = async (neuronId: NeuronId): Promise<void> => {
-    const request: ManageNeuron = toStopDissolvingNeuronRequest(neuronId);
+  stopDissolving = async (
+    neuronId: SnsGovernanceDid.NeuronId,
+  ): Promise<void> => {
+    const request: SnsGovernanceDid.ManageNeuron =
+      toStopDissolvingNeuronRequest(neuronId);
     await this.manageNeuron(request);
   };
 
@@ -300,7 +310,7 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
   }: SnsNeuronStakeMaturityParams): Promise<void> => {
     assertPercentageNumber(percentageToStake ?? 100);
 
-    const request: ManageNeuron = toStakeMaturityRequest({
+    const request: SnsGovernanceDid.ManageNeuron = toStakeMaturityRequest({
       neuronId,
       percentageToStake,
     });
@@ -320,7 +330,8 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
   ): Promise<void> => {
     assertPercentageNumber(params.percentageToDisburse);
 
-    const request: ManageNeuron = toDisburseMaturityRequest(params);
+    const request: SnsGovernanceDid.ManageNeuron =
+      toDisburseMaturityRequest(params);
     await this.manageNeuron(request);
   };
 
@@ -334,7 +345,8 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
   autoStakeMaturity = async (
     params: SnsNeuronAutoStakeMaturityParams,
   ): Promise<void> => {
-    const request: ManageNeuron = toAutoStakeMaturityNeuronRequest(params);
+    const request: SnsGovernanceDid.ManageNeuron =
+      toAutoStakeMaturityNeuronRequest(params);
     await this.manageNeuron(request);
   };
 
@@ -344,7 +356,8 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
   setDissolveTimestamp = async (
     params: SnsSetDissolveTimestampParams,
   ): Promise<void> => {
-    const request: ManageNeuron = toSetDissolveTimestampRequest(params);
+    const request: SnsGovernanceDid.ManageNeuron =
+      toSetDissolveTimestampRequest(params);
     await this.manageNeuron(request);
   };
 
@@ -354,7 +367,8 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
   increaseDissolveDelay = async (
     params: SnsIncreaseDissolveDelayParams,
   ): Promise<void> => {
-    const request: ManageNeuron = toIncreaseDissolveDelayRequest(params);
+    const request: SnsGovernanceDid.ManageNeuron =
+      toIncreaseDissolveDelayRequest(params);
     await this.manageNeuron(request);
   };
 
@@ -363,7 +377,7 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
    * @deprecated will be replaced by `setFollowing` in the future.
    */
   setTopicFollowees = async (params: SnsSetTopicFollowees): Promise<void> => {
-    const request: ManageNeuron = toFollowRequest(params);
+    const request: SnsGovernanceDid.ManageNeuron = toFollowRequest(params);
     await this.manageNeuron(request);
   };
 
@@ -371,7 +385,8 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
    * Sets followees of a neuron for topics
    */
   setFollowing = async (params: SnsSetFollowingParams): Promise<void> => {
-    const request: ManageNeuron = toSetFollowingRequest(params);
+    const request: SnsGovernanceDid.ManageNeuron =
+      toSetFollowingRequest(params);
     await this.manageNeuron(request);
   };
 
@@ -379,15 +394,18 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
    * Registers vote for a proposal from the neuron passed.
    */
   registerVote = async (params: SnsRegisterVoteParams): Promise<void> => {
-    const request: ManageNeuron = toRegisterVoteRequest(params);
+    const request: SnsGovernanceDid.ManageNeuron =
+      toRegisterVoteRequest(params);
     await this.manageNeuron(request);
   };
 
   /**
    * Refresh neuron
    */
-  refreshNeuron = async (neuronId: NeuronId): Promise<void> => {
-    const request: ManageNeuron = toClaimOrRefreshRequest({
+  refreshNeuron = async (
+    neuronId: SnsGovernanceDid.NeuronId,
+  ): Promise<void> => {
+    const request: SnsGovernanceDid.ManageNeuron = toClaimOrRefreshRequest({
       subaccount: neuronId.id,
     });
     await this.manageNeuron(request);
@@ -400,8 +418,8 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
     memo,
     controller,
     subaccount,
-  }: SnsClaimNeuronParams): Promise<NeuronId> => {
-    const request: ManageNeuron = toClaimOrRefreshRequest({
+  }: SnsClaimNeuronParams): Promise<SnsGovernanceDid.NeuronId> => {
+    const request: SnsGovernanceDid.ManageNeuron = toClaimOrRefreshRequest({
       subaccount,
       memo,
       controller,
@@ -428,12 +446,12 @@ export class SnsGovernanceCanister extends Canister<SnsGovernanceService> {
 
   /**
    *
-   * @param response ManageNeuronResponse
+   * @param response SnsGovernanceDid.ManageNeuronResponse
    * @throws SnsGovernanceError
    */
   private assertManageNeuronError = ({
     command,
-  }: ManageNeuronResponse): void => {
+  }: SnsGovernanceDid.ManageNeuronResponse): void => {
     // TODO: use upcoming fromDefinedNullable
     const [firstCommand] = command;
     if (firstCommand !== undefined && "Error" in firstCommand) {

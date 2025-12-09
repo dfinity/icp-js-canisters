@@ -1,10 +1,10 @@
 import { createServices, type CanisterOptions } from "@dfinity/utils";
-import type {
-  DeployedSns,
-  _SERVICE as SnsWasmService,
-} from "../declarations/nns/sns_wasm";
-import { idlFactory as certifiedIdlFactory } from "../declarations/nns/sns_wasm.certified.idl";
-import { idlFactory } from "../declarations/nns/sns_wasm.idl";
+import {
+  idlFactoryCertifiedSnsWasm,
+  idlFactorySnsWasm,
+  type SnsWasmDid,
+  type SnsWasmService,
+} from "../declarations";
 import { MAINNET_SNS_WASM_CANISTER_ID } from "./constants/canister_ids";
 
 export class SnsWasmCanister {
@@ -19,8 +19,8 @@ export class SnsWasmCanister {
         ...options,
         canisterId: options.canisterId ?? MAINNET_SNS_WASM_CANISTER_ID,
       },
-      idlFactory,
-      certifiedIdlFactory,
+      idlFactory: idlFactorySnsWasm,
+      certifiedIdlFactory: idlFactoryCertifiedSnsWasm,
     });
 
     return new SnsWasmCanister(service, certifiedService);
@@ -30,7 +30,7 @@ export class SnsWasmCanister {
     certified = true,
   }: {
     certified?: boolean;
-  }): Promise<DeployedSns[]> => {
+  }): Promise<SnsWasmDid.DeployedSns[]> => {
     const service = certified ? this.certifiedService : this.service;
 
     const { instances } = await service.list_deployed_snses({});

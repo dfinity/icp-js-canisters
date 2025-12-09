@@ -1,12 +1,5 @@
 import { Principal } from "@icp-sdk/core/principal";
-import type {
-  Action as ActionCandid,
-  DefaultFollowees,
-  ExtensionInit,
-  ExtensionOperationArg as ExtensionOperationArgCandid,
-  ExtensionUpgradeArg as ExtensionUpgradeArgCandid,
-  Topic,
-} from "../../declarations/sns/governance";
+import type { SnsGovernanceDid } from "../../declarations";
 import { topicMock } from "../mocks/governance.mock";
 import type { Action } from "../types/actions";
 import { fromCandidAction } from "./governance.converters";
@@ -16,7 +9,7 @@ describe("governance converters", () => {
     const mockPrincipal = Principal.fromText("aaaaa-aa");
 
     it("converts ManageNervousSystemParameters action", () => {
-      const default_followees: DefaultFollowees = {
+      const default_followees: SnsGovernanceDid.DefaultFollowees = {
         followees: [[BigInt(20), { followees: [{ id: new Uint8Array(0) }] }]],
       };
       const max_dissolve_delay_seconds = BigInt(21);
@@ -39,7 +32,7 @@ describe("governance converters", () => {
       const round_duration_seconds = BigInt(35);
       const max_number_of_principals_per_neuron = BigInt(2);
 
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         ManageNervousSystemParameters: {
           default_followees: [default_followees],
           max_dissolve_delay_seconds: [max_dissolve_delay_seconds],
@@ -117,7 +110,7 @@ describe("governance converters", () => {
     it("converts AdvanceSnsTargetVersion action", () => {
       const archive_wasm_hash = new Uint8Array([1, 2, 3]);
       const root_wasm_hash = new Uint8Array([4, 5, 6]);
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         AdvanceSnsTargetVersion: {
           new_target: [
             {
@@ -155,9 +148,9 @@ describe("governance converters", () => {
       const target_canister_id = Principal.fromHex("AB");
       const validator_method_name = "validator_method_name";
       const target_method_name = "target_method_name";
-      const topic: Topic = topicMock;
+      const topic: SnsGovernanceDid.Topic = topicMock;
 
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         AddGenericNervousSystemFunction: {
           id,
           name,
@@ -204,7 +197,7 @@ describe("governance converters", () => {
       const wasm_memory_limit = BigInt(5);
       const memory_allocation = BigInt(6);
       const compute_allocation = BigInt(7);
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         ManageDappCanisterSettings: {
           freezing_threshold: [freezing_threshold],
           wasm_memory_threshold: [wasm_memory_threshold],
@@ -235,7 +228,7 @@ describe("governance converters", () => {
     it("converts ExecuteExtensionOperation action", () => {
       const extension_canister_id = mockPrincipal;
       const operation_name = "do_something";
-      const operation_arg: ExtensionOperationArgCandid = {
+      const operation_arg: SnsGovernanceDid.ExtensionOperationArg = {
         value: [
           {
             Map: [
@@ -249,7 +242,7 @@ describe("governance converters", () => {
           },
         ],
       };
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         ExecuteExtensionOperation: {
           extension_canister_id: [extension_canister_id],
           operation_name: [operation_name],
@@ -279,7 +272,7 @@ describe("governance converters", () => {
     });
 
     it("converts SetTopicsForCustomProposals action", () => {
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         SetTopicsForCustomProposals: {
           custom_function_id_to_topic: [[BigInt(3), topicMock]],
         },
@@ -295,11 +288,11 @@ describe("governance converters", () => {
         new Uint8Array([4, 5, 6]),
         new Uint8Array([7, 8, 9]),
       ];
-      const extension_init: ExtensionInit = {
+      const extension_init: SnsGovernanceDid.ExtensionInit = {
         value: [{ Int: BigInt(42) }],
       };
 
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         RegisterExtension: {
           chunked_canister_wasm: [
             {
@@ -337,7 +330,7 @@ describe("governance converters", () => {
           chunk_hashes_list,
         },
       };
-      const canister_upgrade_arg: ExtensionUpgradeArgCandid = {
+      const canister_upgrade_arg: SnsGovernanceDid.ExtensionUpgradeArg = {
         value: [
           {
             Map: [
@@ -359,7 +352,7 @@ describe("governance converters", () => {
           },
         ],
       };
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         UpgradeExtension: {
           extension_canister_id: [extension_canister_id],
           wasm: [wasm],
@@ -403,7 +396,7 @@ describe("governance converters", () => {
     });
 
     it("converts RemoveGenericNervousSystemFunction action", () => {
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         RemoveGenericNervousSystemFunction: BigInt(3),
       };
 
@@ -411,7 +404,7 @@ describe("governance converters", () => {
     });
 
     it("converts UpgradeSnsToNextVersion action", () => {
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         UpgradeSnsToNextVersion: {},
       };
 
@@ -419,7 +412,7 @@ describe("governance converters", () => {
     });
 
     it("converts RegisterDappCanisters action", () => {
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         RegisterDappCanisters: {
           canister_ids: [mockPrincipal],
         },
@@ -433,7 +426,7 @@ describe("governance converters", () => {
       const to_principal = mockPrincipal;
       const memo = BigInt(3);
       const amount_e8s = BigInt(10_000_000_000);
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         TransferSnsTreasuryFunds: {
           from_treasury,
           to_principal: [to_principal],
@@ -462,7 +455,7 @@ describe("governance converters", () => {
       };
       const memo = BigInt(7);
       const amount_e8s = BigInt(500);
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         MintSnsTokens: {
           to_principal: [to_principal],
           to_subaccount: [to_subaccount],
@@ -492,7 +485,7 @@ describe("governance converters", () => {
         new Uint8Array([7, 8, 9]),
       ];
       const mode = 1;
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         UpgradeSnsControlledCanister: {
           new_canister_wasm,
           chunked_canister_wasm: [
@@ -525,7 +518,7 @@ describe("governance converters", () => {
     });
 
     it("converts DeregisterDappCanisters action", () => {
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         DeregisterDappCanisters: {
           canister_ids: [mockPrincipal],
           new_controllers: [Principal.fromHex("AB")],
@@ -536,7 +529,7 @@ describe("governance converters", () => {
     });
 
     it("converts Unspecified action", () => {
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         Unspecified: {},
       };
 
@@ -546,7 +539,7 @@ describe("governance converters", () => {
     it("converts ManageSnsMetadata action", () => {
       const url = "https://example.com";
       const name = "New name";
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         ManageSnsMetadata: {
           url: [url],
           logo: [],
@@ -571,7 +564,7 @@ describe("governance converters", () => {
       const transfer_fee = BigInt(10);
       const token_logo = "https://logo";
       const token_name = "Service Token";
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         ManageLedgerParameters: {
           token_symbol: [token_symbol],
           transfer_fee: [transfer_fee],
@@ -592,7 +585,7 @@ describe("governance converters", () => {
     });
 
     it("converts ExecuteGenericNervousSystemFunction action", () => {
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         ExecuteGenericNervousSystemFunction: {
           function_id: BigInt(3),
           payload: new Uint8Array(),
@@ -603,7 +596,7 @@ describe("governance converters", () => {
     });
 
     it("converts Motion action", () => {
-      const action: ActionCandid = {
+      const action: SnsGovernanceDid.Action = {
         Motion: { motion_text: "test motion" },
       };
 
