@@ -137,10 +137,6 @@ import_did "rs/sns/root/canister/root.did" "sns_root.did" "sns"
 import_did "rs/sns/governance/canister/governance.did" "sns_governance.did" "sns"
 patch_import_did "rs/sns/governance/canister/governance.did" "rs/sns/governance/canister/governance_test.did.patch" "sns_governance_test.did" "sns"
 
-mkdir -p packages/ledger-icp/src/candid
-import_did "rs/ledger_suite/icp/ledger.did" "ledger.did" "ledger-icp"
-import_did "rs/ledger_suite/icp/index/index.did" "index.did" "ledger-icp"
-
 mkdir -p packages/ledger-icrc/src/candid
 import_did "rs/ledger_suite/icrc1/ledger/ledger.did" "icrc_ledger.did" "ledger-icrc"
 import_did "rs/ledger_suite/icrc1/index-ng/index-ng.did" "icrc_index-ng.did" "ledger-icrc"
@@ -167,5 +163,9 @@ import_did "rs/ethereum/ledger-suite-orchestrator/ledger_suite_orchestrator.did"
 mkdir -p packages/canisters/src/declarations/ckbtc
 import_did "rs/bitcoin/ckbtc/minter/ckbtc_minter.did" "minter.did" "ckbtc" "modern"
 download_did https://raw.githubusercontent.com/dfinity/bitcoin-canister/master/canister/candid.did "bitcoin.did" "canisters" "src/declarations/ckbtc"
+
+mkdir -p packages/canisters/src/declarations/ledger-icp
+import_did "rs/ledger_suite/icp/ledger.did" "ledger.did" "ledger-icp" "modern"
+import_did "rs/ledger_suite/icp/index/index.did" "index.did" "ledger-icp" "modern"
 
 : Fin
