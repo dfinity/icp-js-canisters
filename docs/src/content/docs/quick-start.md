@@ -12,7 +12,7 @@ This guide offers simple examples of how to use the `@icp-sdk/canisters` package
 Here's an example on how to use the ckETH module through its sub-entry:
 
 ```typescript
-import { CkETHMinterCanister } from "@icp-sdk/canisters/cketh";
+import { CkEthMinterCanister } from "@icp-sdk/canisters/cketh";
 import { createAgent } from "@dfinity/utils";
 
 const agent = await createAgent({
@@ -20,7 +20,7 @@ const agent = await createAgent({
   host: HOST,
 });
 
-const { getSmartContractAddress } = CkETHMinterCanister.create({
+const { getSmartContractAddress } = CkEthMinterCanister.create({
   agent,
   canisterId: MY_CKETH_MINTER_CANISTER_ID,
 });
