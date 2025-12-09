@@ -1,13 +1,5 @@
 import type { QueryParams } from "@dfinity/utils";
-import type {
-  Account,
-  AllowanceArgs,
-  icrc21_consent_message_request as ConsentMessageArgs,
-  GetBlocksArgs,
-  Subaccount,
-  Timestamp,
-  Tokens,
-} from "../../../declarations/ledger-icrc/icrc_ledger";
+import type { IcrcLedgerDid } from "../../../declarations";
 import type { IcrcAccount } from "./ledger.responses";
 
 /**
@@ -33,12 +25,12 @@ export type BalanceParams = IcrcAccount & QueryParams;
  * @param {Tokens?} fee The fee of the transfer when it's not the default fee.
  */
 export interface TransferParams {
-  to: Account;
-  fee?: Tokens;
+  to: IcrcLedgerDid.Account;
+  fee?: IcrcLedgerDid.Tokens;
   memo?: Uint8Array;
-  from_subaccount?: Subaccount;
-  created_at_time?: Timestamp;
-  amount: Tokens;
+  from_subaccount?: IcrcLedgerDid.Subaccount;
+  created_at_time?: IcrcLedgerDid.Timestamp;
+  amount: IcrcLedgerDid.Tokens;
 }
 
 /**
@@ -53,8 +45,8 @@ export interface TransferParams {
  * @param {Tokens?} fee The fee of the transfer when it's not the default fee.
  */
 export type TransferFromParams = Omit<TransferParams, "from_subaccount"> & {
-  spender_subaccount?: Subaccount;
-  from: Account;
+  spender_subaccount?: IcrcLedgerDid.Subaccount;
+  from: IcrcLedgerDid.Account;
 };
 
 /**
@@ -70,15 +62,15 @@ export type TransferFromParams = Omit<TransferParams, "from_subaccount"> & {
  * @param {Timestamp?} expires_at When the approval expires. If the field is set, it's greater than the current ledger time.
  */
 export type ApproveParams = Omit<TransferParams, "to"> & {
-  expected_allowance?: Tokens;
-  expires_at?: Timestamp;
-  spender: Account;
+  expected_allowance?: IcrcLedgerDid.Tokens;
+  expires_at?: IcrcLedgerDid.Timestamp;
+  spender: IcrcLedgerDid.Account;
 };
 
 /**
  * Params to get the token allowance that the spender account can transfer from the specified account
  */
-export type AllowanceParams = AllowanceArgs & QueryParams;
+export type AllowanceParams = IcrcLedgerDid.AllowanceArgs & QueryParams;
 
 /**
  * Metadata for the consent message in ICRC-21 specification.
@@ -121,7 +113,7 @@ export interface Icrc21ConsentMessageSpec {
  * @param {Icrc21ConsentMessageSpec} userPreferences - User preferences with regards to the consent message presented to the end-user.
  */
 export type Icrc21ConsentMessageParams = Omit<
-  ConsentMessageArgs,
+  IcrcLedgerDid.icrc21_consent_message_request,
   "user_preferences"
 > & {
   userPreferences: Icrc21ConsentMessageSpec;
@@ -131,5 +123,5 @@ export type Icrc21ConsentMessageParams = Omit<
  * Parameters to get the canister blocks.
  */
 export type GetBlocksParams = QueryParams & {
-  args: GetBlocksArgs[];
+  args: IcrcLedgerDid.GetBlocksArgs[];
 };

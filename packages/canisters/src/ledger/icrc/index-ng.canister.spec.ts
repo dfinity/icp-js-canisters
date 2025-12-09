@@ -2,13 +2,7 @@ import { arrayOfNumberToUint8Array } from "@dfinity/utils";
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import type {
-  Account,
-  _SERVICE as IcrcIndexNgService,
-  Status,
-  SubAccount,
-  Transaction,
-} from "../../declarations/ledger-icrc/icrc_index-ng";
+import type { IcrcIndexNgDid, IcrcIndexNgService } from "../../declarations";
 import { IndexError } from "./errors/index.errors";
 import { IcrcIndexNgCanister } from "./index-ng.canister";
 import {
@@ -25,14 +19,14 @@ describe("Index canister", () => {
     owner: Principal.fromText("aaaaa-aa"),
   };
 
-  const fakeCandidAccount: Account = {
+  const fakeCandidAccount: IcrcIndexNgDid.Account = {
     owner: Principal.fromText("aaaaa-aa"),
     subaccount: [],
   };
 
   describe("getTransactions", () => {
     it("returns transactions", async () => {
-      const transaction: Transaction = {
+      const transaction: IcrcIndexNgDid.Transaction = {
         kind: "transfer",
         timestamp: BigInt(12354),
         burn: [],
@@ -162,7 +156,7 @@ describe("Index canister", () => {
 
   describe("status", () => {
     it("should return the status of the index canister", async () => {
-      const mockStatus: Status = {
+      const mockStatus: IcrcIndexNgDid.Status = {
         num_blocks_synced: 12_345n,
       };
 
@@ -181,7 +175,7 @@ describe("Index canister", () => {
   });
 
   describe("listSubaccounts", () => {
-    const mockSubaccounts: SubAccount[] = [
+    const mockSubaccounts: IcrcIndexNgDid.SubAccount[] = [
       new Uint8Array([1, 2, 3, 4]),
       new Uint8Array([5, 6, 7, 8]),
     ];

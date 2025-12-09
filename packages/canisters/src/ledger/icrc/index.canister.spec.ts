@@ -1,11 +1,7 @@
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import type {
-  Account,
-  _SERVICE as IcrcIndexService,
-  Transaction,
-} from "../../declarations/ledger-icrc/icrc_index";
+import type { IcrcIndexDid, IcrcIndexService } from "../../declarations";
 import { IndexError } from "./errors/index.errors";
 import { IcrcIndexCanister } from "./index.canister";
 import { indexCanisterIdMock, ledgerCanisterIdMock } from "./mocks/ledger.mock";
@@ -18,14 +14,14 @@ describe("Index canister", () => {
     owner: Principal.fromText("aaaaa-aa"),
   };
 
-  const fakeCandidAccount: Account = {
+  const fakeCandidAccount: IcrcIndexDid.Account = {
     owner: Principal.fromText("aaaaa-aa"),
     subaccount: [],
   };
 
   describe("getTransactions", () => {
     it("returns transactions", async () => {
-      const transaction: Transaction = {
+      const transaction: IcrcIndexDid.Transaction = {
         kind: "transfer",
         timestamp: BigInt(12354),
         burn: [],
