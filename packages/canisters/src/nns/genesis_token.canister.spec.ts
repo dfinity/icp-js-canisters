@@ -1,6 +1,6 @@
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
-import type { _SERVICE as GenesisTokenService } from "../declarations/nns/genesis_token";
+import type { NnsGenesisTokenService } from "../declarations";
 import { GenesisTokenCanister } from "./genesis_token.canister";
 
 describe("GenesisTokenCanister", () => {
@@ -15,7 +15,7 @@ describe("GenesisTokenCanister", () => {
         },
       ],
     };
-    const service = mock<ActorSubclass<GenesisTokenService>>();
+    const service = mock<ActorSubclass<NnsGenesisTokenService>>();
     service.claim_neurons.mockResolvedValue(response);
 
     const gtc = GenesisTokenCanister.create({ serviceOverride: service });
@@ -30,7 +30,7 @@ describe("GenesisTokenCanister", () => {
     const response = {
       Err: "An error occurred.",
     };
-    const service = mock<ActorSubclass<GenesisTokenService>>();
+    const service = mock<ActorSubclass<NnsGenesisTokenService>>();
     service.claim_neurons.mockResolvedValue(response);
 
     const gtc = GenesisTokenCanister.create({ serviceOverride: service });
