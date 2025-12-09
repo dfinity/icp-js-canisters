@@ -51,7 +51,6 @@
   ],
   "homepage": "https://github.com/dfinity/icp-js-canisters#readme",
   "peerDependencies": {
-    "@dfinity/utils": "^4",
-    "@icp-sdk/core": "^4"
+    "@icp-sdk/canisters": "^2"
   }
 }
