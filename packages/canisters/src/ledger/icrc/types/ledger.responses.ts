@@ -1,8 +1,5 @@
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  Subaccount,
-  Value,
-} from "../../../declarations/ledger-icrc/icrc_ledger";
+import type { IcrcLedgerDid } from "../../../declarations";
 
 // Source: https://github.com/dfinity/icrc-1#standard-metadata-entries
 export enum IcrcMetadataResponseEntries {
@@ -15,12 +12,12 @@ export enum IcrcMetadataResponseEntries {
 
 export type IcrcTokenMetadataResponse = [
   string | IcrcMetadataResponseEntries,
-  Value,
+  IcrcLedgerDid.Value,
 ][];
 
 export interface IcrcAccount {
   owner: Principal;
-  subaccount?: Subaccount;
+  subaccount?: IcrcLedgerDid.Subaccount;
 }
 
 export interface IcrcTokenMetadata {

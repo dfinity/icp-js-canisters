@@ -1,10 +1,10 @@
 import { Principal } from "@icp-sdk/core/principal";
-import type { MetadataValue } from "../../../declarations/ledger-icrc/icrc_ledger";
+import type { IcrcLedgerDid } from "../../../declarations";
 import { IcrcMetadataResponseEntries } from "../types/ledger.responses";
 
 export const tokenMetadataResponseMock: [
   string | IcrcMetadataResponseEntries,
-  MetadataValue,
+  IcrcLedgerDid.MetadataValue,
 ][] = [
   [IcrcMetadataResponseEntries.DECIMALS, { Nat: BigInt(8) }],
   [IcrcMetadataResponseEntries.NAME, { Text: "Beta Test" }],

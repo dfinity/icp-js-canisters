@@ -1,7 +1,9 @@
 import { Canister, createServices, type QueryParams } from "@dfinity/utils";
-import type { _SERVICE as IcrcNftLedgerService } from "../../declarations/ledger-icrc/icrc_nft-ledger";
-import { idlFactory as certifiedIdlFactory } from "../../declarations/ledger-icrc/icrc_nft-ledger.certified.idl";
-import { idlFactory } from "../../declarations/ledger-icrc/icrc_nft-ledger.idl";
+import {
+  idlFactoryCertifiedIcrcNftLedger,
+  idlFactoryIcrcNftLedger,
+  type IcrcNftLedgerService,
+} from "../../declarations";
 import type { IcrcLedgerCanisterOptions } from "./types/canister.options";
 import type { IcrcTokenMetadataResponse } from "./types/ledger.responses";
 
@@ -10,8 +12,8 @@ export class IcrcNftLedgerCanister extends Canister<IcrcNftLedgerService> {
     const { service, certifiedService, canisterId } =
       createServices<IcrcNftLedgerService>({
         options,
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactoryIcrcNftLedger,
+        certifiedIdlFactory: idlFactoryCertifiedIcrcNftLedger,
       });
 
     return new IcrcNftLedgerCanister(canisterId, service, certifiedService);

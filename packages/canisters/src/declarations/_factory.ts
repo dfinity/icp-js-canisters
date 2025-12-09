@@ -33,6 +33,7 @@ import type { _SERVICE as CmcService } from "./cmc/cmc";
 import type { _SERVICE as IcManagementService } from "./ic-management/ic-management";
 import type { _SERVICE as IcpIndexService } from "./ledger-icp/index";
 import type { _SERVICE as IcpLedgerService } from "./ledger-icp/ledger";
+import type { _SERVICE as IcrcIcrc1Service } from "./ledger-icrc/icrc_icrc-1";
 import type { _SERVICE as IcrcIndexService } from "./ledger-icrc/icrc_index";
 import type { _SERVICE as IcrcIndexNgService } from "./ledger-icrc/icrc_index-ng";
 import type { _SERVICE as IcrcLedgerService } from "./ledger-icrc/icrc_ledger";
@@ -73,6 +74,7 @@ export {
   type IcManagementService,
   type IcpIndexService,
   type IcpLedgerService,
+  type IcrcIcrc1Service,
   type IcrcIndexNgService,
   type IcrcIndexService,
   type IcrcLedgerService,

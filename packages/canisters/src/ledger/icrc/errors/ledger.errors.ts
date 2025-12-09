@@ -1,7 +1,4 @@
-import type {
-  GetIndexPrincipalError,
-  icrc21_error as Icrc21RawError,
-} from "../../../declarations/ledger-icrc/icrc_ledger";
+import type { IcrcLedgerDid } from "../../../declarations";
 
 export class IcrcTransferError<T> extends Error {
   public errorType: T;
@@ -27,7 +24,7 @@ export class UnsupportedCanisterCallError extends ConsentMessageError {}
 export class ConsentMessageUnavailableError extends ConsentMessageError {}
 
 export const mapIcrc21ConsentMessageError = (
-  rawError: Icrc21RawError,
+  rawError: IcrcLedgerDid.icrc21_error,
 ): ConsentMessageError => {
   if ("GenericError" in rawError) {
     return new GenericError(
@@ -62,7 +59,7 @@ export const mapIcrc21ConsentMessageError = (
 export class IndexPrincipalNotSetError extends Error {}
 
 export const mapIcrc106GetIndexPrincipalError = (
-  err: GetIndexPrincipalError,
+  err: IcrcLedgerDid.GetIndexPrincipalError,
 ) => {
   if ("IndexPrincipalNotSet" in err) {
     return new IndexPrincipalNotSetError(

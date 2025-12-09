@@ -1,3 +1,3 @@
-import type { _SERVICE as Icrc1Service } from "../../../declarations/ledger-icrc/icrc_icrc-1";
+import type { IcrcIcrc1Service } from "../../../declarations";
 
-export type IcrcCanisterService = Pick<Icrc1Service, "icrc1_balance_of">;
+export type IcrcCanisterService = Pick<IcrcIcrc1Service, "icrc1_balance_of">;
