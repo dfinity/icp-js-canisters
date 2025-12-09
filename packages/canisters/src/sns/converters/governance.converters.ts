@@ -1,4 +1,3 @@
-import type { IcrcAccount } from "@dfinity/ledger-icrc";
 import {
   assertNever,
   fromNullable,
@@ -35,6 +34,7 @@ import type {
   VotingRewardsParameters as VotingRewardsParametersCandid,
   Wasm as WasmCandid,
 } from "../../declarations/sns/governance";
+import type { IcrcAccount } from "../../ledger/icrc";
 import { DEFAULT_PROPOSALS_LIMIT } from "../constants/governance.constants";
 import type {
   Action,

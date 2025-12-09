@@ -1,4 +1,3 @@
-import { IcrcIndexCanister, IcrcLedgerCanister } from "@dfinity/ledger-icrc";
 import {
   assertNonNullish,
   fromNullable,
@@ -10,6 +9,7 @@ import type {
   ListSnsCanistersResponse,
   _SERVICE as SnsRootService,
 } from "../declarations/sns/root";
+import { IcrcIndexCanister, IcrcLedgerCanister } from "../ledger/icrc";
 import { SnsGovernanceCanister } from "./governance.canister";
 import { SnsRootCanister } from "./root.canister";
 import { SnsWrapper } from "./sns.wrapper";

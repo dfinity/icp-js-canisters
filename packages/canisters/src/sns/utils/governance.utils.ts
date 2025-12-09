@@ -1,4 +1,3 @@
-import type { IcrcSubaccount } from "@dfinity/ledger-icrc";
 import {
   arrayOfNumberToUint8Array,
   asciiStringToByteArray,
@@ -6,6 +5,7 @@ import {
 } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
 import { sha256 } from "@noble/hashes/sha2";
+import type { IcrcLedgerDid } from "../../ledger/icrc";
 
 /**
  * Neuron subaccount is calculated as "sha256(0x0c . “neuron-stake” . controller . i)"
@@ -21,7 +21,7 @@ export const neuronSubaccount = ({
 }: {
   index: number;
   controller: Principal;
-}): IcrcSubaccount => {
+}): IcrcLedgerDid.Subaccount => {
   const padding = asciiStringToByteArray("neuron-stake");
   const data = [
     0x0c,
