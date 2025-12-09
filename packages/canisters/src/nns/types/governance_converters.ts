@@ -1,7 +1,7 @@
-import type { AccountIdentifierHex } from "@dfinity/ledger-icp";
 import type { DerEncodedPublicKey } from "@icp-sdk/core/agent";
 import type { Principal } from "@icp-sdk/core/principal";
 import type { NnsGovernanceDid } from "../../declarations";
+import type { AccountIdentifierHex } from "../../ledger/icp";
 import type {
   CanisterAction,
   CanisterInstallMode,

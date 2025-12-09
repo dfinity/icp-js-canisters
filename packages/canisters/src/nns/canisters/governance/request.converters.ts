@@ -1,7 +1,3 @@
-import type {
-  AccountIdentifier as AccountIdentifierClass,
-  AccountIdentifierHex,
-} from "@dfinity/ledger-icp";
 import {
   arrayBufferToUint8Array,
   arrayOfNumberToUint8Array,
@@ -12,6 +8,10 @@ import {
 } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
 import type { NnsGovernanceDid } from "../../../declarations";
+import type {
+  AccountIdentifier as AccountIdentifierClass,
+  AccountIdentifierHex,
+} from "../../../ledger/icp";
 import type { NeuronVisibility, Vote } from "../../enums/governance.enums";
 import { UnsupportedValueError } from "../../errors/governance.errors";
 import type { E8s, NeuronId, Option } from "../../types/common";

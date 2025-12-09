@@ -1,13 +1,13 @@
-import {
-  AccountIdentifier,
-  InvalidAccountIDError,
-  type LedgerCanister,
-} from "@dfinity/ledger-icp";
 import { InvalidPercentageError } from "@dfinity/utils";
 import { AnonymousIdentity, type ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
 import type { NnsGovernanceDid, NnsGovernanceService } from "../declarations";
+import {
+  AccountIdentifier,
+  InvalidAccountIDError,
+  type LedgerCanister,
+} from "../ledger/icp";
 import {
   CanisterAction,
   CanisterInstallMode,

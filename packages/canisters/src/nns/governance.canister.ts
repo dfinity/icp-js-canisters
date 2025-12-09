@@ -1,10 +1,4 @@
 import {
-  AccountIdentifier,
-  checkAccountId,
-  type AccountIdentifierHex,
-  type LedgerCanister,
-} from "@dfinity/ledger-icp";
-import {
   assertPercentageNumber,
   createServices,
   fromNullable,
@@ -23,6 +17,12 @@ import {
 } from "../declarations";
 // This seems rather like a specific workaround that a proper common service therefore it's import points directly to the IDL
 import { idlFactory as oldListNeuronsCertifiedIdlFactory } from "../declarations/nns/old_list_neurons_service.certified.idl";
+import {
+  AccountIdentifier,
+  checkAccountId,
+  type AccountIdentifierHex,
+  type LedgerCanister,
+} from "../ledger/icp";
 import {
   fromClaimOrRefreshNeuronRequest,
   fromListNeurons,
