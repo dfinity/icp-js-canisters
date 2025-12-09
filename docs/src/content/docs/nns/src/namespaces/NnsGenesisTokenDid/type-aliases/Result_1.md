@@ -5,6 +5,6 @@ next: true
 prev: true
 ---
 
-> **Result\_1** = \{ `Ok`: `null`; \} \| \{ `Err`: `string`; \}
+> **Result_1** = \{ `Ok`: `null`; \} \| \{ `Err`: `string`; \}
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:28
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:28

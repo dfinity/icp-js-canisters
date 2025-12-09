@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:121
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:121
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:121
 
 > **instances**: [`DeployedSns`](DeployedSns.md)[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:122
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:122

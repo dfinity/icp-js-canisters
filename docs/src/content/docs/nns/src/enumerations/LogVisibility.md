@@ -15,7 +15,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:118
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:120
 
-***
+---
 
 ### Public
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:120
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:121
 
-***
+---
 
 ### Unspecified
 

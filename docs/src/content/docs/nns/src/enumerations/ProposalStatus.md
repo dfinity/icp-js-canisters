@@ -15,7 +15,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:39
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:43
 
-***
+---
 
 ### Executed
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:43
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:44
 
-***
+---
 
 ### Failed
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:44
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:45
 
-***
+---
 
 ### Open
 
@@ -39,7 +39,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:45
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:41
 
-***
+---
 
 ### Rejected
 
@@ -47,7 +47,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:41
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:42
 
-***
+---
 
 ### Unknown
 

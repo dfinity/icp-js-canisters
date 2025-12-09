@@ -5,6 +5,6 @@ next: true
 prev: true
 ---
 
-> **Result\_7** = \{ `Ok`: [`NodeProvider`](../interfaces/NodeProvider.md); \} \| \{ `Err`: [`GovernanceError`](../interfaces/GovernanceError.md); \}
+> **Result_7** = \{ `Ok`: [`NodeProvider`](../interfaces/NodeProvider.md); \} \| \{ `Err`: [`GovernanceError`](../interfaces/GovernanceError.md); \}
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1054
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1054

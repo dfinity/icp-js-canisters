@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:256
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:256
 
 ## Properties
 
-### added\_principals
+### added_principals
 
-> **added\_principals**: `Principal`[]
+> **added_principals**: `Principal`[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:257
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:257
 
-***
+---
 
-### removed\_principals
+### removed_principals
 
-> **removed\_principals**: `Principal`[]
+> **removed_principals**: `Principal`[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:258
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:258

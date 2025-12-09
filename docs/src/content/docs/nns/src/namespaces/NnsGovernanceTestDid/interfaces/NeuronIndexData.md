@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:771
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:771
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:771
 
 > **neurons**: [`NeuronInfo`](NeuronInfo.md)[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:772
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:772

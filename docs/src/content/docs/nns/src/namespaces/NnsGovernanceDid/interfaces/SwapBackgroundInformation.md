@@ -9,64 +9,64 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1150
 
 ## Properties
 
-### dapp\_canister\_summaries
+### dapp_canister_summaries
 
-> **dapp\_canister\_summaries**: [`CanisterSummary`](CanisterSummary.md)[]
+> **dapp_canister_summaries**: [`CanisterSummary`](CanisterSummary.md)[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1158
 
-***
+---
 
-### fallback\_controller\_principal\_ids
+### fallback_controller_principal_ids
 
-> **fallback\_controller\_principal\_ids**: `Principal`[]
+> **fallback_controller_principal_ids**: `Principal`[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1152
 
-***
+---
 
-### governance\_canister\_summary
+### governance_canister_summary
 
-> **governance\_canister\_summary**: \[\] \| \[[`CanisterSummary`](CanisterSummary.md)\]
+> **governance_canister_summary**: \[\] \| \[[`CanisterSummary`](CanisterSummary.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1156
 
-***
+---
 
-### ledger\_archive\_canister\_summaries
+### ledger_archive_canister_summaries
 
-> **ledger\_archive\_canister\_summaries**: [`CanisterSummary`](CanisterSummary.md)[]
+> **ledger_archive_canister_summaries**: [`CanisterSummary`](CanisterSummary.md)[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1153
 
-***
+---
 
-### ledger\_canister\_summary
+### ledger_canister_summary
 
-> **ledger\_canister\_summary**: \[\] \| \[[`CanisterSummary`](CanisterSummary.md)\]
+> **ledger_canister_summary**: \[\] \| \[[`CanisterSummary`](CanisterSummary.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1154
 
-***
+---
 
-### ledger\_index\_canister\_summary
+### ledger_index_canister_summary
 
-> **ledger\_index\_canister\_summary**: \[\] \| \[[`CanisterSummary`](CanisterSummary.md)\]
+> **ledger_index_canister_summary**: \[\] \| \[[`CanisterSummary`](CanisterSummary.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1151
 
-***
+---
 
-### root\_canister\_summary
+### root_canister_summary
 
-> **root\_canister\_summary**: \[\] \| \[[`CanisterSummary`](CanisterSummary.md)\]
+> **root_canister_summary**: \[\] \| \[[`CanisterSummary`](CanisterSummary.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1157
 
-***
+---
 
-### swap\_canister\_summary
+### swap_canister_summary
 
-> **swap\_canister\_summary**: \[\] \| \[[`CanisterSummary`](CanisterSummary.md)\]
+> **swap_canister_summary**: \[\] \| \[[`CanisterSummary`](CanisterSummary.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1155

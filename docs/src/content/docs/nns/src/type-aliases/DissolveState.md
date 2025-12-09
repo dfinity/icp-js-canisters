@@ -7,4 +7,4 @@ prev: true
 
 > **DissolveState** = \{ `DissolveDelaySeconds`: `bigint`; \} \| \{ `WhenDissolvedTimestampSeconds`: `bigint`; \}
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:210
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:210

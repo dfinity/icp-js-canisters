@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:181
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:181
 
 ## Properties
 
-### developer\_neurons
+### developer_neurons
 
-> **developer\_neurons**: [`NeuronDistribution`](NeuronDistribution.md)[]
+> **developer_neurons**: [`NeuronDistribution`](NeuronDistribution.md)[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:182
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:182

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:546
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:546
 
 ## Properties
 
@@ -13,20 +13,20 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:546
 
 > **amountE8s**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:549
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:549
 
-***
+---
 
 ### nodeProvider
 
 > **nodeProvider**: [`Option`](../type-aliases/Option.md)\<[`NodeProvider`](NodeProvider.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:547
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:547
 
-***
+---
 
 ### rewardMode
 
 > **rewardMode**: [`Option`](../type-aliases/Option.md)\<[`RewardMode`](../type-aliases/RewardMode.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:548
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:548

@@ -15,10 +15,10 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:746
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:748
 
-***
+---
 
-### dissolve\_delay\_interval
+### dissolve_delay_interval
 
-> **dissolve\_delay\_interval**: \[\] \| \[[`Duration`](Duration.md)\]
+> **dissolve_delay_interval**: \[\] \| \[[`Duration`](Duration.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:747

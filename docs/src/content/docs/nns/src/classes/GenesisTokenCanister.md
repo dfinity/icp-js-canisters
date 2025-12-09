@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/genesis\_token.canister.d.ts:4
+Defined in: packages/canisters/nns/genesis_token.canister.d.ts:4
 
 ## Properties
 
@@ -13,7 +13,7 @@ Defined in: packages/canisters/nns/genesis\_token.canister.d.ts:4
 
 > **claimNeurons**: (`__namedParameters`) => `Promise`\<`bigint`[]\>
 
-Defined in: packages/canisters/nns/genesis\_token.canister.d.ts:8
+Defined in: packages/canisters/nns/genesis_token.canister.d.ts:8
 
 #### Parameters
 
@@ -33,7 +33,7 @@ Defined in: packages/canisters/nns/genesis\_token.canister.d.ts:8
 
 > `static` **create**(`options?`): `GenesisTokenCanister`
 
-Defined in: packages/canisters/nns/genesis\_token.canister.d.ts:7
+Defined in: packages/canisters/nns/genesis_token.canister.d.ts:7
 
 #### Parameters
 

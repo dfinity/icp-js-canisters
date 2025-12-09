@@ -7,4 +7,4 @@ prev: true
 
 > **Result** = \{ `Ok`: [`NeuronId`](../interfaces/NeuronId.md)[]; \} \| \{ `Err`: `string`; \}
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:27
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:27

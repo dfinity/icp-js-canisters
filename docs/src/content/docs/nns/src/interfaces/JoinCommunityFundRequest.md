@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:618
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:618
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:618
 
 > **neuronId**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:619
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:619

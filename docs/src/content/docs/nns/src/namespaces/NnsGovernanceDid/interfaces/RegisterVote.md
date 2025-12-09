@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1025
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1027
 
-***
+---
 
 ### vote
 

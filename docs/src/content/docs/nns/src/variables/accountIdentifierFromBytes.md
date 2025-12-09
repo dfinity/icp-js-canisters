@@ -7,7 +7,7 @@ prev: true
 
 > `const` **accountIdentifierFromBytes**: (`accountIdentifier`) => `AccountIdentifierHex`
 
-Defined in: packages/canisters/nns/utils/account\_identifier.utils.d.ts:4
+Defined in: packages/canisters/nns/utils/account_identifier.utils.d.ts:4
 
 ## Parameters
 

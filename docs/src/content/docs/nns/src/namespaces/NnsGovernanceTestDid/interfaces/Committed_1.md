@@ -5,28 +5,28 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:137
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:137
 
 ## Properties
 
-### sns\_governance\_canister\_id
+### sns_governance_canister_id
 
-> **sns\_governance\_canister\_id**: \[\] \| \[`Principal`\]
+> **sns_governance_canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:140
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:140
 
-***
+---
 
-### total\_direct\_participation\_icp\_e8s
+### total_direct_participation_icp_e8s
 
-> **total\_direct\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **total_direct_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:138
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:138
 
-***
+---
 
-### total\_neurons\_fund\_participation\_icp\_e8s
+### total_neurons_fund_participation_icp_e8s
 
-> **total\_neurons\_fund\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **total_neurons_fund_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:139
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:139

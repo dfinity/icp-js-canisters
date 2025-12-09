@@ -7,4 +7,4 @@ prev: true
 
 > **By** = \{ `NeuronIdOrSubaccount`: \{ \}; \} \| \{ `MemoAndController`: [`ClaimOrRefreshNeuronFromAccount`](../interfaces/ClaimOrRefreshNeuronFromAccount.md); \} \| \{ `Memo`: `bigint`; \}
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:59
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:59

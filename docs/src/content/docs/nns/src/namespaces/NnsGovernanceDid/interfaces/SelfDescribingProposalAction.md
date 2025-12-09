@@ -9,21 +9,21 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1084
 
 ## Properties
 
-### type\_description
+### type_description
 
-> **type\_description**: \[\] \| \[`string`\]
+> **type_description**: \[\] \| \[`string`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1085
 
-***
+---
 
-### type\_name
+### type_name
 
-> **type\_name**: \[\] \| \[`string`\]
+> **type_name**: \[\] \| \[`string`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1086
 
-***
+---
 
 ### value
 

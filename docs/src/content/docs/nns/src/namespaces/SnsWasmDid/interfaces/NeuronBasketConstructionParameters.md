@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:141
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:141
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:141
 
 > **count**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:143
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:143
 
-***
+---
 
-### dissolve\_delay\_interval\_seconds
+### dissolve_delay_interval_seconds
 
-> **dissolve\_delay\_interval\_seconds**: `bigint`
+> **dissolve_delay_interval_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:142
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:142

@@ -5,28 +5,28 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:241
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:241
 
 ## Properties
 
-### access\_controls\_enabled
+### access_controls_enabled
 
-> **access\_controls\_enabled**: `boolean`
+> **access_controls_enabled**: `boolean`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:243
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:243
 
-***
+---
 
-### allowed\_principals
+### allowed_principals
 
-> **allowed\_principals**: `Principal`[]
+> **allowed_principals**: `Principal`[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:242
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:242
 
-***
+---
 
-### sns\_subnet\_ids
+### sns_subnet_ids
 
-> **sns\_subnet\_ids**: `Principal`[]
+> **sns_subnet_ids**: `Principal`[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:244
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:244

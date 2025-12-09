@@ -9,32 +9,32 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1181
 
 ## Properties
 
-### max\_direct\_participation\_icp\_e8s
+### max_direct_participation_icp_e8s
 
-> **max\_direct\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **max_direct_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1185
 
-***
+---
 
-### max\_participant\_icp\_e8s
+### max_participant_icp_e8s
 
-> **max\_participant\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **max_participant_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1183
 
-***
+---
 
-### min\_direct\_participation\_icp\_e8s
+### min_direct_participation_icp_e8s
 
-> **min\_direct\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **min_direct_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1184
 
-***
+---
 
-### min\_participant\_icp\_e8s
+### min_participant_icp_e8s
 
-> **min\_participant\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **min_participant_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1182

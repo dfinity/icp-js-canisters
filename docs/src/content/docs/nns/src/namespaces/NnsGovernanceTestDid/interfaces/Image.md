@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:373
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:373
 
 ## Properties
 
-### base64\_encoding
+### base64_encoding
 
-> **base64\_encoding**: \[\] \| \[`string`\]
+> **base64_encoding**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:374
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:374

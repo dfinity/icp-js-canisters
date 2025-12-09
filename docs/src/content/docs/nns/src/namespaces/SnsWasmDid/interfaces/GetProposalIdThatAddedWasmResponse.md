@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:83
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:83
 
 ## Properties
 
-### proposal\_id
+### proposal_id
 
-> **proposal\_id**: \[\] \| \[`bigint`\]
+> **proposal_id**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:84
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:84

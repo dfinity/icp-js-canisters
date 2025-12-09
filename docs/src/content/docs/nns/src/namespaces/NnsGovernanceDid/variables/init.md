@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1360
 
 #### IDL
 
-*typeof* `IDL`
+_typeof_ `IDL`
 
 ## Returns
 

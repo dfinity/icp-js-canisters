@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1187
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1187
 
 ## Properties
 
@@ -13,28 +13,28 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1187
 
 > **no**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1188
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1188
 
-***
+---
 
-### timestamp\_seconds
+### timestamp_seconds
 
-> **timestamp\_seconds**: `bigint`
+> **timestamp_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1191
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1191
 
-***
+---
 
 ### total
 
 > **total**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1190
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1190
 
-***
+---
 
 ### yes
 
 > **yes**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1189
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1189

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:38
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:38
 
 ## Properties
 
@@ -13,28 +13,28 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:38
 
 > **canisters**: \[\] \| \[[`SnsCanisterIds`](SnsCanisterIds.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:42
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:42
 
-***
+---
 
-### dapp\_canisters\_transfer\_result
+### dapp_canisters_transfer_result
 
-> **dapp\_canisters\_transfer\_result**: \[\] \| \[[`DappCanistersTransferResult`](DappCanistersTransferResult.md)\]
+> **dapp_canisters_transfer_result**: \[\] \| \[[`DappCanistersTransferResult`](DappCanistersTransferResult.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:39
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:39
 
-***
+---
 
 ### error
 
 > **error**: \[\] \| \[[`SnsWasmError`](SnsWasmError.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:41
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:41
 
-***
+---
 
-### subnet\_id
+### subnet_id
 
-> **subnet\_id**: \[\] \| \[`Principal`\]
+> **subnet_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:40
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:40

@@ -9,336 +9,336 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:304
 
 ## Properties
 
-### community\_fund\_total\_maturity\_e8s\_equivalent
+### community_fund_total_maturity_e8s_equivalent
 
-> **community\_fund\_total\_maturity\_e8s\_equivalent**: `bigint`
+> **community_fund_total_maturity_e8s_equivalent**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:318
 
-***
+---
 
-### community\_fund\_total\_staked\_e8s
+### community_fund_total_staked_e8s
 
-> **community\_fund\_total\_staked\_e8s**: `bigint`
+> **community_fund_total_staked_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:348
 
-***
+---
 
-### declining\_voting\_power\_neuron\_subset\_metrics
+### declining_voting_power_neuron_subset_metrics
 
-> **declining\_voting\_power\_neuron\_subset\_metrics**: \[\] \| \[[`NeuronSubsetMetrics`](NeuronSubsetMetrics.md)\]
+> **declining_voting_power_neuron_subset_metrics**: \[\] \| \[[`NeuronSubsetMetrics`](NeuronSubsetMetrics.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:330
 
-***
+---
 
-### dissolved\_neurons\_count
+### dissolved_neurons_count
 
-> **dissolved\_neurons\_count**: `bigint`
+> **dissolved_neurons_count**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:317
 
-***
+---
 
-### dissolved\_neurons\_e8s
+### dissolved_neurons_e8s
 
-> **dissolved\_neurons\_e8s**: `bigint`
+> **dissolved_neurons_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:333
 
-***
+---
 
-### dissolving\_neurons\_count
+### dissolving_neurons_count
 
-> **dissolving\_neurons\_count**: `bigint`
+> **dissolving_neurons_count**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:345
 
-***
+---
 
-### dissolving\_neurons\_count\_buckets
+### dissolving_neurons_count_buckets
 
-> **dissolving\_neurons\_count\_buckets**: \[`bigint`, `bigint`\][]
+> **dissolving_neurons_count_buckets**: \[`bigint`, `bigint`\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:340
 
-***
+---
 
-### dissolving\_neurons\_e8s\_buckets
+### dissolving_neurons_e8s_buckets
 
-> **dissolving\_neurons\_e8s\_buckets**: \[`bigint`, `number`\][]
+> **dissolving_neurons_e8s_buckets**: \[`bigint`, `number`\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:346
 
-***
+---
 
-### dissolving\_neurons\_e8s\_buckets\_ect
+### dissolving_neurons_e8s_buckets_ect
 
-> **dissolving\_neurons\_e8s\_buckets\_ect**: \[`bigint`, `number`\][]
+> **dissolving_neurons_e8s_buckets_ect**: \[`bigint`, `number`\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:341
 
-***
+---
 
-### dissolving\_neurons\_e8s\_buckets\_seed
+### dissolving_neurons_e8s_buckets_seed
 
-> **dissolving\_neurons\_e8s\_buckets\_seed**: \[`bigint`, `number`\][]
+> **dissolving_neurons_e8s_buckets_seed**: \[`bigint`, `number`\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:335
 
-***
+---
 
-### dissolving\_neurons\_staked\_maturity\_e8s\_equivalent\_buckets
+### dissolving_neurons_staked_maturity_e8s_equivalent_buckets
 
-> **dissolving\_neurons\_staked\_maturity\_e8s\_equivalent\_buckets**: \[`bigint`, `number`\][]
+> **dissolving_neurons_staked_maturity_e8s_equivalent_buckets**: \[`bigint`, `number`\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:309
 
-***
+---
 
-### dissolving\_neurons\_staked\_maturity\_e8s\_equivalent\_sum
+### dissolving_neurons_staked_maturity_e8s_equivalent_sum
 
-> **dissolving\_neurons\_staked\_maturity\_e8s\_equivalent\_sum**: `bigint`
+> **dissolving_neurons_staked_maturity_e8s_equivalent_sum**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:307
 
-***
+---
 
-### ect\_neuron\_count
+### ect_neuron_count
 
-> **ect\_neuron\_count**: `bigint`
+> **ect_neuron_count**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:314
 
-***
+---
 
-### fully\_lost\_voting\_power\_neuron\_subset\_metrics
+### fully_lost_voting_power_neuron_subset_metrics
 
-> **fully\_lost\_voting\_power\_neuron\_subset\_metrics**: \[\] \| \[[`NeuronSubsetMetrics`](NeuronSubsetMetrics.md)\]
+> **fully_lost_voting_power_neuron_subset_metrics**: \[\] \| \[[`NeuronSubsetMetrics`](NeuronSubsetMetrics.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:322
 
-***
+---
 
-### garbage\_collectable\_neurons\_count
+### garbage_collectable_neurons_count
 
-> **garbage\_collectable\_neurons\_count**: `bigint`
+> **garbage_collectable_neurons_count**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:308
 
-***
+---
 
-### neurons\_fund\_total\_active\_neurons
+### neurons_fund_total_active_neurons
 
-> **neurons\_fund\_total\_active\_neurons**: `bigint`
+> **neurons_fund_total_active_neurons**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:325
 
-***
+---
 
-### neurons\_with\_invalid\_stake\_count
+### neurons_with_invalid_stake_count
 
-> **neurons\_with\_invalid\_stake\_count**: `bigint`
+> **neurons_with_invalid_stake_count**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:312
 
-***
+---
 
-### neurons\_with\_less\_than\_6\_months\_dissolve\_delay\_count
+### neurons_with_less_than_6_months_dissolve_delay_count
 
-> **neurons\_with\_less\_than\_6\_months\_dissolve\_delay\_count**: `bigint`
+> **neurons_with_less_than_6_months_dissolve_delay_count**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:316
 
-***
+---
 
-### neurons\_with\_less\_than\_6\_months\_dissolve\_delay\_e8s
+### neurons_with_less_than_6_months_dissolve_delay_e8s
 
-> **neurons\_with\_less\_than\_6\_months\_dissolve\_delay\_e8s**: `bigint`
+> **neurons_with_less_than_6_months_dissolve_delay_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:336
 
-***
+---
 
-### non\_self\_authenticating\_controller\_neuron\_subset\_metrics
+### non_self_authenticating_controller_neuron_subset_metrics
 
-> **non\_self\_authenticating\_controller\_neuron\_subset\_metrics**: \[\] \| \[[`NeuronSubsetMetrics`](NeuronSubsetMetrics.md)\]
+> **non_self_authenticating_controller_neuron_subset_metrics**: \[\] \| \[[`NeuronSubsetMetrics`](NeuronSubsetMetrics.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:342
 
-***
+---
 
-### not\_dissolving\_neurons\_count
+### not_dissolving_neurons_count
 
-> **not\_dissolving\_neurons\_count**: `bigint`
+> **not_dissolving_neurons_count**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:323
 
-***
+---
 
-### not\_dissolving\_neurons\_count\_buckets
+### not_dissolving_neurons_count_buckets
 
-> **not\_dissolving\_neurons\_count\_buckets**: \[`bigint`, `bigint`\][]
+> **not_dissolving_neurons_count_buckets**: \[`bigint`, `bigint`\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:313
 
-***
+---
 
-### not\_dissolving\_neurons\_e8s\_buckets
+### not_dissolving_neurons_e8s_buckets
 
-> **not\_dissolving\_neurons\_e8s\_buckets**: \[`bigint`, `number`\][]
+> **not_dissolving_neurons_e8s_buckets**: \[`bigint`, `number`\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:306
 
-***
+---
 
-### not\_dissolving\_neurons\_e8s\_buckets\_ect
+### not_dissolving_neurons_e8s_buckets_ect
 
-> **not\_dissolving\_neurons\_e8s\_buckets\_ect**: \[`bigint`, `number`\][]
+> **not_dissolving_neurons_e8s_buckets_ect**: \[`bigint`, `number`\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:328
 
-***
+---
 
-### not\_dissolving\_neurons\_e8s\_buckets\_seed
+### not_dissolving_neurons_e8s_buckets_seed
 
-> **not\_dissolving\_neurons\_e8s\_buckets\_seed**: \[`bigint`, `number`\][]
+> **not_dissolving_neurons_e8s_buckets_seed**: \[`bigint`, `number`\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:349
 
-***
+---
 
-### not\_dissolving\_neurons\_staked\_maturity\_e8s\_equivalent\_buckets
+### not_dissolving_neurons_staked_maturity_e8s_equivalent_buckets
 
-> **not\_dissolving\_neurons\_staked\_maturity\_e8s\_equivalent\_buckets**: \[`bigint`, `number`\][]
+> **not_dissolving_neurons_staked_maturity_e8s_equivalent_buckets**: \[`bigint`, `number`\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:337
 
-***
+---
 
-### not\_dissolving\_neurons\_staked\_maturity\_e8s\_equivalent\_sum
+### not_dissolving_neurons_staked_maturity_e8s_equivalent_sum
 
-> **not\_dissolving\_neurons\_staked\_maturity\_e8s\_equivalent\_sum**: `bigint`
+> **not_dissolving_neurons_staked_maturity_e8s_equivalent_sum**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:332
 
-***
+---
 
-### public\_neuron\_subset\_metrics
+### public_neuron_subset_metrics
 
-> **public\_neuron\_subset\_metrics**: \[\] \| \[[`NeuronSubsetMetrics`](NeuronSubsetMetrics.md)\]
+> **public_neuron_subset_metrics**: \[\] \| \[[`NeuronSubsetMetrics`](NeuronSubsetMetrics.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:350
 
-***
+---
 
-### seed\_neuron\_count
+### seed_neuron_count
 
-> **seed\_neuron\_count**: `bigint`
+> **seed_neuron_count**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:352
 
-***
+---
 
-### spawning\_neurons\_count
+### spawning_neurons_count
 
-> **spawning\_neurons\_count**: `bigint`
+> **spawning_neurons_count**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:329
 
-***
+---
 
-### timestamp\_seconds
+### timestamp_seconds
 
-> **timestamp\_seconds**: `bigint`
+> **timestamp_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:351
 
-***
+---
 
-### total\_locked\_e8s
+### total_locked_e8s
 
-> **total\_locked\_e8s**: `bigint`
+> **total_locked_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:324
 
-***
+---
 
-### total\_maturity\_e8s\_equivalent
+### total_maturity_e8s_equivalent
 
-> **total\_maturity\_e8s\_equivalent**: `bigint`
+> **total_maturity_e8s_equivalent**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:305
 
-***
+---
 
-### total\_staked\_e8s
+### total_staked_e8s
 
-> **total\_staked\_e8s**: `bigint`
+> **total_staked_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:321
 
-***
+---
 
-### total\_staked\_e8s\_ect
+### total_staked_e8s_ect
 
-> **total\_staked\_e8s\_ect**: `bigint`
+> **total_staked_e8s_ect**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:331
 
-***
+---
 
-### total\_staked\_e8s\_non\_self\_authenticating\_controller
+### total_staked_e8s_non_self_authenticating_controller
 
-> **total\_staked\_e8s\_non\_self\_authenticating\_controller**: \[\] \| \[`bigint`\]
+> **total_staked_e8s_non_self_authenticating_controller**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:334
 
-***
+---
 
-### total\_staked\_e8s\_seed
+### total_staked_e8s_seed
 
-> **total\_staked\_e8s\_seed**: `bigint`
+> **total_staked_e8s_seed**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:319
 
-***
+---
 
-### total\_staked\_maturity\_e8s\_equivalent
+### total_staked_maturity_e8s_equivalent
 
-> **total\_staked\_maturity\_e8s\_equivalent**: `bigint`
+> **total_staked_maturity_e8s_equivalent**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:327
 
-***
+---
 
-### total\_staked\_maturity\_e8s\_equivalent\_ect
+### total_staked_maturity_e8s_equivalent_ect
 
-> **total\_staked\_maturity\_e8s\_equivalent\_ect**: `bigint`
+> **total_staked_maturity_e8s_equivalent_ect**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:320
 
-***
+---
 
-### total\_staked\_maturity\_e8s\_equivalent\_seed
+### total_staked_maturity_e8s_equivalent_seed
 
-> **total\_staked\_maturity\_e8s\_equivalent\_seed**: `bigint`
+> **total_staked_maturity_e8s_equivalent_seed**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:347
 
-***
+---
 
-### total\_supply\_icp
+### total_supply_icp
 
-> **total\_supply\_icp**: `bigint`
+> **total_supply_icp**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:315
 
-***
+---
 
-### total\_voting\_power\_non\_self\_authenticating\_controller
+### total_voting_power_non_self_authenticating_controller
 
-> **total\_voting\_power\_non\_self\_authenticating\_controller**: \[\] \| \[`bigint`\]
+> **total_voting_power_non_self_authenticating_controller**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:326

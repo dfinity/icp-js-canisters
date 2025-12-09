@@ -23,7 +23,7 @@ Defined in: packages/utils/dist/types/canister.options.d.ts:4
 
 `CanisterOptions.agent`
 
-***
+---
 
 ### canisterId?
 
@@ -35,7 +35,7 @@ Defined in: packages/utils/dist/types/canister.options.d.ts:5
 
 `CanisterOptions.canisterId`
 
-***
+---
 
 ### certifiedServiceOverride?
 
@@ -47,7 +47,7 @@ Defined in: packages/utils/dist/types/canister.options.d.ts:7
 
 `CanisterOptions.certifiedServiceOverride`
 
-***
+---
 
 ### hardwareWallet?
 
@@ -55,7 +55,7 @@ Defined in: packages/utils/dist/types/canister.options.d.ts:7
 
 Defined in: packages/canisters/nns/types/governance.options.d.ts:5
 
-***
+---
 
 ### oldListNeuronsServiceOverride?
 
@@ -63,7 +63,7 @@ Defined in: packages/canisters/nns/types/governance.options.d.ts:5
 
 Defined in: packages/canisters/nns/types/governance.options.d.ts:6
 
-***
+---
 
 ### serviceOverride?
 

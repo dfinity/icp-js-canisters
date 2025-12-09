@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:39
 
 ## Properties
 
-### new\_hot\_key
+### new_hot_key
 
-> **new\_hot\_key**: \[\] \| \[`Principal`\]
+> **new_hot_key**: \[\] \| \[`Principal`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:40

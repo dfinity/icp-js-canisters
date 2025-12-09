@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:945
 
 ## Properties
 
-### basis\_points
+### basis_points
 
-> **basis\_points**: \[\] \| \[`bigint`\]
+> **basis_points**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:946

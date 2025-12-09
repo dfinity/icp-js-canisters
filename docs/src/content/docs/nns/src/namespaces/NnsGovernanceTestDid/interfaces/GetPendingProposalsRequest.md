@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:277
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:277
 
 ## Properties
 
-### return\_self\_describing\_action
+### return_self_describing_action
 
-> **return\_self\_describing\_action**: \[\] \| \[`boolean`\]
+> **return_self_describing_action**: \[\] \| \[`boolean`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:278
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:278

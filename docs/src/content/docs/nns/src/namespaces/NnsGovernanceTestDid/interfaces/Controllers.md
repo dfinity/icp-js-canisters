@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:145
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:145
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:145
 
 > **controllers**: `Principal`[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:146
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:146

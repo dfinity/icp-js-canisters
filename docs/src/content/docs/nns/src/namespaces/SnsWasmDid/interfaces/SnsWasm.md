@@ -5,28 +5,28 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:236
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:236
 
 ## Properties
 
-### canister\_type
+### canister_type
 
-> **canister\_type**: `number`
+> **canister_type**: `number`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:239
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:239
 
-***
+---
 
-### proposal\_id
+### proposal_id
 
-> **proposal\_id**: \[\] \| \[`bigint`\]
+> **proposal_id**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:238
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:238
 
-***
+---
 
 ### wasm
 
 > **wasm**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:237
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:237

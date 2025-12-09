@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:684
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:684
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:684
 
 > **base64Encoding**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:685
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:685

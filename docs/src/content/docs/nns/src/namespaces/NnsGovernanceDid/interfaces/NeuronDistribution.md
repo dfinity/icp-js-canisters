@@ -15,15 +15,15 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:754
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:755
 
-***
+---
 
-### dissolve\_delay
+### dissolve_delay
 
-> **dissolve\_delay**: \[\] \| \[[`Duration`](Duration.md)\]
+> **dissolve_delay**: \[\] \| \[[`Duration`](Duration.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:756
 
-***
+---
 
 ### memo
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:756
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:757
 
-***
+---
 
 ### stake
 
@@ -39,10 +39,10 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:757
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:759
 
-***
+---
 
-### vesting\_period
+### vesting_period
 
-> **vesting\_period**: \[\] \| \[[`Duration`](Duration.md)\]
+> **vesting_period**: \[\] \| \[[`Duration`](Duration.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:758

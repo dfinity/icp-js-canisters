@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:554
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:554
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:554
 
 > **newController**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:555
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:555
 
-***
+---
 
 ### percentageToSpawn
 
 > **percentageToSpawn**: `number` \| `undefined`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:556
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:556

@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:816
 
 ## Properties
 
-### block\_height
+### block_height
 
-> **block\_height**: `bigint`
+> **block_height**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:823
 
-***
+---
 
 ### from
 
@@ -23,15 +23,15 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:823
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:819
 
-***
+---
 
-### from\_subaccount
+### from_subaccount
 
-> **from\_subaccount**: `Uint8Array`
+> **from_subaccount**: `Uint8Array`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:821
 
-***
+---
 
 ### memo
 
@@ -39,26 +39,26 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:821
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:820
 
-***
+---
 
-### neuron\_stake\_e8s
+### neuron_stake_e8s
 
-> **neuron\_stake\_e8s**: `bigint`
+> **neuron_stake_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:818
 
-***
+---
 
-### to\_subaccount
+### to_subaccount
 
-> **to\_subaccount**: `Uint8Array`
+> **to_subaccount**: `Uint8Array`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:817
 
-***
+---
 
-### transfer\_timestamp
+### transfer_timestamp
 
-> **transfer\_timestamp**: `bigint`
+> **transfer_timestamp**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:822

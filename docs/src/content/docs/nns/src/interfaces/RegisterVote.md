@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:519
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:519
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:519
 
 > **proposal**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:521
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:521
 
-***
+---
 
 ### vote
 
 > **vote**: [`Vote`](../enumerations/Vote.md)
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:520
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:520

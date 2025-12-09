@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1025
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1025
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1025
 
 > **proposal**: \[\] \| \[[`ProposalId`](ProposalId.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1027
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1027
 
-***
+---
 
 ### vote
 
 > **vote**: `number`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1026
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1026

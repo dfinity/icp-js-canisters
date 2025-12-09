@@ -15,7 +15,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:8
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:27
 
-***
+---
 
 ### ExchangeRate
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:27
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:11
 
-***
+---
 
 ### Governance
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:11
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:13
 
-***
+---
 
 ### IcOsVersionDeployment
 
@@ -39,7 +39,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:13
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:24
 
-***
+---
 
 ### IcOsVersionElection
 
@@ -47,7 +47,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:24
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:25
 
-***
+---
 
 ### Kyc
 
@@ -55,7 +55,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:25
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:18
 
-***
+---
 
 ### NetworkCanisterManagement
 
@@ -63,7 +63,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:18
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:17
 
-***
+---
 
 ### NetworkEconomics
 
@@ -71,7 +71,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:17
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:12
 
-***
+---
 
 ### NeuronManagement
 
@@ -79,7 +79,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:12
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:10
 
-***
+---
 
 ### NodeAdmin
 
@@ -87,7 +87,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:10
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:14
 
-***
+---
 
 ### NodeProviderRewards
 
@@ -95,7 +95,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:14
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:19
 
-***
+---
 
 ### ParticipantManagement
 
@@ -103,7 +103,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:19
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:15
 
-***
+---
 
 ### ProtocolCanisterManagement
 
@@ -111,7 +111,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:15
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:29
 
-***
+---
 
 ### ServiceNervousSystemManagement
 
@@ -119,7 +119,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:29
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:30
 
-***
+---
 
 ### SnsAndCommunityFund
 
@@ -127,7 +127,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:30
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:26
 
-***
+---
 
 ### ~~SnsDecentralizationSale~~
 
@@ -137,7 +137,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:23
 
 #### Deprecated
 
-***
+---
 
 ### SubnetManagement
 
@@ -145,7 +145,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:23
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:16
 
-***
+---
 
 ### SubnetRental
 
@@ -153,7 +153,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:16
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:28
 
-***
+---
 
 ### Unspecified
 

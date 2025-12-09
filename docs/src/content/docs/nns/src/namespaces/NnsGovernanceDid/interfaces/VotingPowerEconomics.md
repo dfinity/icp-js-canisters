@@ -11,9 +11,9 @@ Parameters that affect the voting power of neurons.
 
 ## Properties
 
-### clear\_following\_after\_seconds
+### clear_following_after_seconds
 
-> **clear\_following\_after\_seconds**: \[\] \| \[`bigint`\]
+> **clear_following_after_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1276
 
@@ -26,11 +26,11 @@ time, a couple of things happen:
 
 Initially, set to 1/12 years.
 
-***
+---
 
-### neuron\_minimum\_dissolve\_delay\_to\_vote\_seconds
+### neuron_minimum_dissolve_delay_to_vote_seconds
 
-> **neuron\_minimum\_dissolve\_delay\_to\_vote\_seconds**: \[\] \| \[`bigint`\]
+> **neuron_minimum_dissolve_delay_to_vote_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1265
 
@@ -42,11 +42,11 @@ voting power, even if they are otherwise active.
 This value is an essential part of the staking mechanism, promoting
 long-term alignment with the network's governance.
 
-***
+---
 
-### start\_reducing\_voting\_power\_after\_seconds
+### start_reducing_voting_power_after_seconds
 
-> **start\_reducing\_voting\_power\_after\_seconds**: \[\] \| \[`bigint`\]
+> **start_reducing_voting_power_after_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1255
 

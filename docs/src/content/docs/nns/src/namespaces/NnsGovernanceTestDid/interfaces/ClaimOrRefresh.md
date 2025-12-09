@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:92
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:92
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:92
 
 > **by**: \[\] \| \[[`By`](../type-aliases/By.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:93
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:93

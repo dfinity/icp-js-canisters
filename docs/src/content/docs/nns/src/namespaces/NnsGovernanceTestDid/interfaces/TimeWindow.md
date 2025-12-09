@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1193
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1193
 
 ## Properties
 
-### end\_timestamp\_seconds
+### end_timestamp_seconds
 
-> **end\_timestamp\_seconds**: `bigint`
+> **end_timestamp_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1195
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1195
 
-***
+---
 
-### start\_timestamp\_seconds
+### start_timestamp_seconds
 
-> **start\_timestamp\_seconds**: `bigint`
+> **start_timestamp_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1194
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1194

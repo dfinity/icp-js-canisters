@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1135
 
 ## Properties
 
-### amount\_e8s
+### amount_e8s
 
-> **amount\_e8s**: `bigint`
+> **amount_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1137
 
-***
+---
 
 ### memo
 

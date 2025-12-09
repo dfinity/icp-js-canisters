@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:391
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:391
 
 ## Properties
 
@@ -13,36 +13,36 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:391
 
 > **arg**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:392
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:392
 
-***
+---
 
-### canister\_id
+### canister_id
 
-> **canister\_id**: \[\] \| \[`Principal`\]
+> **canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:395
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:395
 
-***
+---
 
-### install\_mode
+### install_mode
 
-> **install\_mode**: \[\] \| \[`number`\]
+> **install_mode**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:396
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:396
 
-***
+---
 
-### skip\_stopping\_before\_installing
+### skip_stopping_before_installing
 
-> **skip\_stopping\_before\_installing**: \[\] \| \[`boolean`\]
+> **skip_stopping_before_installing**: \[\] \| \[`boolean`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:394
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:394
 
-***
+---
 
-### wasm\_module
+### wasm_module
 
-> **wasm\_module**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
+> **wasm_module**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:393
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:393

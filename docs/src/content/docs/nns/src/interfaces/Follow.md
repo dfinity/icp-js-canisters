@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:219
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:219
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:219
 
 > **followees**: `bigint`[]
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:221
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:221
 
-***
+---
 
 ### topic
 
 > **topic**: [`Topic`](../enumerations/Topic.md)
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:220
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:220

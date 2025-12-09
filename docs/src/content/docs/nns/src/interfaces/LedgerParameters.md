@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:687
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:687
 
 ## Properties
 
@@ -13,28 +13,28 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:687
 
 > **tokenLogo**: [`Option`](../type-aliases/Option.md)\<[`Image`](Image.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:690
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:690
 
-***
+---
 
 ### tokenName
 
 > **tokenName**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:691
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:691
 
-***
+---
 
 ### tokenSymbol
 
 > **tokenSymbol**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:689
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:689
 
-***
+---
 
 ### transactionFee
 
 > **transactionFee**: [`Option`](../type-aliases/Option.md)\<[`Tokens`](Tokens.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:688
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:688

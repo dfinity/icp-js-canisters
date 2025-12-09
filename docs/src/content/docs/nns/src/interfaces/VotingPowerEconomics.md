@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:402
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:402
 
 ## Properties
 
@@ -13,20 +13,20 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:402
 
 > **clearFollowingAfterSeconds**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:405
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:405
 
-***
+---
 
 ### neuronMinimumDissolveDelayToVoteSeconds
 
 > **neuronMinimumDissolveDelayToVoteSeconds**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:404
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:404
 
-***
+---
 
 ### startReducingVotingPowerAfterSeconds
 
 > **startReducingVotingPowerAfterSeconds**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:403
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:403

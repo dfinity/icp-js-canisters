@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:184
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:184
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:184
 
 > **operation**: [`Option`](../type-aliases/Option.md)\<[`Operation`](../type-aliases/Operation.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:185
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:185

@@ -7,4 +7,4 @@ prev: true
 
 > **ProposalId** = `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:500
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:500

@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1106
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1106
 
 ## Properties
 
-### open\_time\_window
+### open_time_window
 
-> **open\_time\_window**: \[\] \| \[[`TimeWindow`](TimeWindow.md)\]
+> **open_time_window**: \[\] \| \[[`TimeWindow`](TimeWindow.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1107
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1107

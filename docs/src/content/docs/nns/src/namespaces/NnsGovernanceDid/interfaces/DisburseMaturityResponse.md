@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:193
 
 ## Properties
 
-### amount\_disbursed\_e8s
+### amount_disbursed_e8s
 
-> **amount\_disbursed\_e8s**: \[\] \| \[`bigint`\]
+> **amount_disbursed_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:194

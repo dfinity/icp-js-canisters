@@ -15,7 +15,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:1
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:5
 
-***
+---
 
 ### Dissolving
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:5
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:4
 
-***
+---
 
 ### Locked
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:4
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:3
 
-***
+---
 
 ### Spawning
 
@@ -39,7 +39,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:3
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:6
 
-***
+---
 
 ### Unspecified
 

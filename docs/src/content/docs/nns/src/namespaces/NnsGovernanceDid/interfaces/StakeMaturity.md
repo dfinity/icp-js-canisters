@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1139
 
 ## Properties
 
-### percentage\_to\_stake
+### percentage_to_stake
 
-> **percentage\_to\_stake**: \[\] \| \[`number`\]
+> **percentage_to_stake**: \[\] \| \[`number`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1140

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:145
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:145
 
 ## Properties
 
@@ -13,36 +13,36 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:145
 
 > **controller**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:146
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:146
 
-***
+---
 
-### dissolve\_delay\_seconds
+### dissolve_delay_seconds
 
-> **dissolve\_delay\_seconds**: `bigint`
+> **dissolve_delay_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:147
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:147
 
-***
+---
 
 ### memo
 
 > **memo**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:148
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:148
 
-***
+---
 
-### stake\_e8s
+### stake_e8s
 
-> **stake\_e8s**: `bigint`
+> **stake_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:149
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:149
 
-***
+---
 
-### vesting\_period\_seconds
+### vesting_period_seconds
 
-> **vesting\_period\_seconds**: \[\] \| \[`bigint`\]
+> **vesting_period_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:150
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:150

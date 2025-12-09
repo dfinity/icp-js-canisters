@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:825
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:825
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:825
 
 > **subaccount**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:826
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:826

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:196
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:196
 
 ## Properties
 
@@ -13,36 +13,36 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:196
 
 > **amount**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:199
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:199
 
-***
+---
 
 ### dissolveDelaySeconds
 
 > **dissolveDelaySeconds**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:197
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:197
 
-***
+---
 
 ### kycVerified
 
 > **kycVerified**: `boolean`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:198
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:198
 
-***
+---
 
 ### newController
 
 > **newController**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:200
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:200
 
-***
+---
 
 ### nonce
 
 > **nonce**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:201
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:201

@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1120
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1120
 
 ## Properties
 
-### nns\_proposal\_id
+### nns_proposal_id
 
-> **nns\_proposal\_id**: \[\] \| \[`bigint`\]
+> **nns_proposal_id**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1122
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1122
 
-***
+---
 
 ### result
 
 > **result**: \[\] \| \[[`Result_9`](../type-aliases/Result_9.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1121
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1121

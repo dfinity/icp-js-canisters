@@ -9,32 +9,32 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:861
 
 ## Properties
 
-### max\_theoretical\_neurons\_fund\_participation\_amount\_xdr
+### max_theoretical_neurons_fund_participation_amount_xdr
 
-> **max\_theoretical\_neurons\_fund\_participation\_amount\_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
+> **max_theoretical_neurons_fund_participation_amount_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:866
 
-***
+---
 
-### maximum\_icp\_xdr\_rate
+### maximum_icp_xdr_rate
 
-> **maximum\_icp\_xdr\_rate**: \[\] \| \[[`Percentage`](Percentage.md)\]
+> **maximum_icp_xdr_rate**: \[\] \| \[[`Percentage`](Percentage.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:862
 
-***
+---
 
-### minimum\_icp\_xdr\_rate
+### minimum_icp_xdr_rate
 
-> **minimum\_icp\_xdr\_rate**: \[\] \| \[[`Percentage`](Percentage.md)\]
+> **minimum_icp_xdr_rate**: \[\] \| \[[`Percentage`](Percentage.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:867
 
-***
+---
 
-### neurons\_fund\_matched\_funding\_curve\_coefficients
+### neurons_fund_matched_funding_curve_coefficients
 
-> **neurons\_fund\_matched\_funding\_curve\_coefficients**: \[\] \| \[[`NeuronsFundMatchedFundingCurveCoefficients`](NeuronsFundMatchedFundingCurveCoefficients.md)\]
+> **neurons_fund_matched_funding_curve_coefficients**: \[\] \| \[[`NeuronsFundMatchedFundingCurveCoefficients`](NeuronsFundMatchedFundingCurveCoefficients.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:863

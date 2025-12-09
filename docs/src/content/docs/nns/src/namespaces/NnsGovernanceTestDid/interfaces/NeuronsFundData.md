@@ -5,28 +5,28 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:856
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:856
 
 ## Properties
 
-### final\_neurons\_fund\_participation
+### final_neurons_fund_participation
 
-> **final\_neurons\_fund\_participation**: \[\] \| \[[`NeuronsFundParticipation`](NeuronsFundParticipation.md)\]
+> **final_neurons_fund_participation**: \[\] \| \[[`NeuronsFundParticipation`](NeuronsFundParticipation.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:857
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:857
 
-***
+---
 
-### initial\_neurons\_fund\_participation
+### initial_neurons_fund_participation
 
-> **initial\_neurons\_fund\_participation**: \[\] \| \[[`NeuronsFundParticipation`](NeuronsFundParticipation.md)\]
+> **initial_neurons_fund_participation**: \[\] \| \[[`NeuronsFundParticipation`](NeuronsFundParticipation.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:858
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:858
 
-***
+---
 
-### neurons\_fund\_refunds
+### neurons_fund_refunds
 
-> **neurons\_fund\_refunds**: \[\] \| \[[`NeuronsFundSnapshot`](NeuronsFundSnapshot.md)\]
+> **neurons_fund_refunds**: \[\] \| \[[`NeuronsFundSnapshot`](NeuronsFundSnapshot.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:859
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:859

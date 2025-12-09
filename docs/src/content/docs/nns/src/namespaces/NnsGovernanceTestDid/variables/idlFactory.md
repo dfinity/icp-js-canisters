@@ -7,4 +7,4 @@ prev: true
 
 > `const` **idlFactory**: `IDL.InterfaceFactory`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1363
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1363

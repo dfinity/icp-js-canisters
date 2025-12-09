@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:558
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:558
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:558
 
 > **amount**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:559
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:559
 
-***
+---
 
 ### memo
 
 > **memo**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:560
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:560

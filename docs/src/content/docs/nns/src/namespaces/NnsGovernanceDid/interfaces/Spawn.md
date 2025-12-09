@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1127
 
 ## Properties
 
-### new\_controller
+### new_controller
 
-> **new\_controller**: \[\] \| \[`Principal`\]
+> **new_controller**: \[\] \| \[`Principal`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1129
 
-***
+---
 
 ### nonce
 
@@ -23,10 +23,10 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1129
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1130
 
-***
+---
 
-### percentage\_to\_spawn
+### percentage_to_spawn
 
-> **percentage\_to\_spawn**: \[\] \| \[`number`\]
+> **percentage_to_spawn**: \[\] \| \[`number`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1128

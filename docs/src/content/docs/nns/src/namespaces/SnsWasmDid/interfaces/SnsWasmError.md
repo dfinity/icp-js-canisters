@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:246
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:246
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:246
 
 > **message**: `string`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:247
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:247

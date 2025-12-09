@@ -15,7 +15,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:32
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:34
 
-***
+---
 
 ### Ineligible
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:34
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:37
 
-***
+---
 
 ### ReadyToSettle
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:37
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:35
 
-***
+---
 
 ### Settled
 
@@ -39,7 +39,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:35
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:36
 
-***
+---
 
 ### Unknown
 

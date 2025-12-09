@@ -7,7 +7,7 @@ prev: true
 
 > **InitialTokenDistribution** = `object`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:104
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:104
 
 ## Properties
 
@@ -15,4 +15,4 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:104
 
 > **FractionalDeveloperVotingPower**: [`FractionalDeveloperVotingPower`](../interfaces/FractionalDeveloperVotingPower.md)
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:105
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:105

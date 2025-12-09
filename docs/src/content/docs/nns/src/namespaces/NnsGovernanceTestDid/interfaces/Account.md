@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:13
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:13
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:13
 
 > **owner**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:14
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:14
 
-***
+---
 
 ### subaccount
 
 > **subaccount**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:15
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:15

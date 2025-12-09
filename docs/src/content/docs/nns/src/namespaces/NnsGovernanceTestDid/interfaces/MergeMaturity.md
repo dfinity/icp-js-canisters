@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:614
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:614
 
 ## Properties
 
-### percentage\_to\_merge
+### percentage_to_merge
 
-> **percentage\_to\_merge**: `number`
+> **percentage_to_merge**: `number`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:615
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:615

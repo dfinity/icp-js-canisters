@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:639
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:639
 
 ## Properties
 
-### motion\_text
+### motion_text
 
-> **motion\_text**: `string`
+> **motion_text**: `string`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:640
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:640

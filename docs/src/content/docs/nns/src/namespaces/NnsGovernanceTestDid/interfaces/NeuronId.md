@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:761
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:761
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:761
 
 > **id**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:762
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:762

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:51
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:51
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:51
 
 > **vote**: `number`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:52
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:52
 
-***
+---
 
-### voting\_power
+### voting_power
 
-> **voting\_power**: `bigint`
+> **voting_power**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:53
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:53

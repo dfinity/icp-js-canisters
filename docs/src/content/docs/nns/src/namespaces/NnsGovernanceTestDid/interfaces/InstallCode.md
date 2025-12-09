@@ -5,44 +5,44 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:384
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:384
 
 ## Properties
 
-### arg\_hash
+### arg_hash
 
-> **arg\_hash**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
+> **arg_hash**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:388
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:388
 
-***
+---
 
-### canister\_id
+### canister_id
 
-> **canister\_id**: \[\] \| \[`Principal`\]
+> **canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:387
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:387
 
-***
+---
 
-### install\_mode
+### install_mode
 
-> **install\_mode**: \[\] \| \[`number`\]
+> **install_mode**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:389
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:389
 
-***
+---
 
-### skip\_stopping\_before\_installing
+### skip_stopping_before_installing
 
-> **skip\_stopping\_before\_installing**: \[\] \| \[`boolean`\]
+> **skip_stopping_before_installing**: \[\] \| \[`boolean`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:385
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:385
 
-***
+---
 
-### wasm\_module\_hash
+### wasm_module_hash
 
-> **wasm\_module\_hash**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
+> **wasm_module_hash**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:386
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:386

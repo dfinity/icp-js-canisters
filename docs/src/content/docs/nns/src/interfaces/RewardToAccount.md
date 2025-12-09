@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:535
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:535
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:535
 
 > **toAccount**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:536
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:536

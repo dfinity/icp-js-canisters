@@ -9,9 +9,9 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:402
 
 ## Properties
 
-### committed\_topics
+### committed_topics
 
-> **committed\_topics**: \[\] \| \[(\[\] \| \[[`TopicToFollow`](../type-aliases/TopicToFollow.md)\])[]\]
+> **committed_topics**: \[\] \| \[(\[\] \| \[[`TopicToFollow`](../type-aliases/TopicToFollow.md)\])[]\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:409
 
@@ -19,7 +19,7 @@ The first `opt` makes it so that the field can be renamed/deprecated in the futu
 the second `opt` makes it so that an older client not recognizing a new variant can still
 get the rest of the `vec`.
 
-***
+---
 
 ### description
 
@@ -27,7 +27,7 @@ get the rest of the `vec`.
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:410
 
-***
+---
 
 ### links
 
@@ -35,7 +35,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:410
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:411
 
-***
+---
 
 ### name
 

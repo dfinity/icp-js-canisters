@@ -7,7 +7,7 @@ prev: true
 
 > `const` **init**: (`args`) => `IDL.Type`[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:315
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:315
 
 ## Parameters
 
@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:315
 
 #### IDL
 
-*typeof* `IDL`
+_typeof_ `IDL`
 
 ## Returns
 

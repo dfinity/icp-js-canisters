@@ -5,84 +5,84 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:627
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:627
 
 ## Properties
 
-### algorithm\_version
+### algorithm_version
 
-> **algorithm\_version**: \[\] \| \[`number`\]
+> **algorithm_version**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:628
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:628
 
-***
+---
 
-### end\_date
+### end_date
 
-> **end\_date**: \[\] \| \[[`DateUtc`](DateUtc.md)\]
+> **end_date**: \[\] \| \[[`DateUtc`](DateUtc.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:630
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:630
 
-***
+---
 
-### maximum\_node\_provider\_rewards\_e8s
+### maximum_node_provider_rewards_e8s
 
-> **maximum\_node\_provider\_rewards\_e8s**: \[\] \| \[`bigint`\]
+> **maximum_node_provider_rewards_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:637
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:637
 
-***
+---
 
-### minimum\_xdr\_permyriad\_per\_icp
+### minimum_xdr_permyriad_per_icp
 
-> **minimum\_xdr\_permyriad\_per\_icp**: \[\] \| \[`bigint`\]
+> **minimum_xdr_permyriad_per_icp**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:629
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:629
 
-***
+---
 
-### node\_providers
+### node_providers
 
-> **node\_providers**: [`NodeProvider`](NodeProvider.md)[]
+> **node_providers**: [`NodeProvider`](NodeProvider.md)[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:632
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:632
 
-***
+---
 
-### registry\_version
+### registry_version
 
-> **registry\_version**: \[\] \| \[`bigint`\]
+> **registry_version**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:631
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:631
 
-***
+---
 
 ### rewards
 
 > **rewards**: [`RewardNodeProvider`](RewardNodeProvider.md)[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:635
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:635
 
-***
+---
 
-### start\_date
+### start_date
 
-> **start\_date**: \[\] \| \[[`DateUtc`](DateUtc.md)\]
+> **start_date**: \[\] \| \[[`DateUtc`](DateUtc.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:633
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:633
 
-***
+---
 
 ### timestamp
 
 > **timestamp**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:634
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:634
 
-***
+---
 
-### xdr\_conversion\_rate
+### xdr_conversion_rate
 
-> **xdr\_conversion\_rate**: \[\] \| \[[`XdrConversionRate`](XdrConversionRate.md)\]
+> **xdr_conversion_rate**: \[\] \| \[[`XdrConversionRate`](XdrConversionRate.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:636
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:636

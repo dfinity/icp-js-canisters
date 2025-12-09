@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1160
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1160
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1160
 
 > **total**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1161
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1161

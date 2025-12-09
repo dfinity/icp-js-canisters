@@ -5,28 +5,28 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:379
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:379
 
 ## Properties
 
-### developer\_distribution
+### developer_distribution
 
-> **developer\_distribution**: \[\] \| \[[`DeveloperDistribution`](DeveloperDistribution.md)\]
+> **developer_distribution**: \[\] \| \[[`DeveloperDistribution`](DeveloperDistribution.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:381
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:381
 
-***
+---
 
-### swap\_distribution
+### swap_distribution
 
-> **swap\_distribution**: \[\] \| \[[`SwapDistribution`](SwapDistribution.md)\]
+> **swap_distribution**: \[\] \| \[[`SwapDistribution`](SwapDistribution.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:382
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:382
 
-***
+---
 
-### treasury\_distribution
+### treasury_distribution
 
-> **treasury\_distribution**: \[\] \| \[[`SwapDistribution`](SwapDistribution.md)\]
+> **treasury_distribution**: \[\] \| \[[`SwapDistribution`](SwapDistribution.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:380
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:380

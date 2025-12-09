@@ -15,10 +15,10 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:904
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:905
 
-***
+---
 
-### reward\_account
+### reward_account
 
-> **reward\_account**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
+> **reward_account**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:906

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:24
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:24
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:24
 
 > **id**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:25
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:25

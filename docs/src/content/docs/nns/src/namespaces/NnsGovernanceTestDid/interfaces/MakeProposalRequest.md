@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:520
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:520
 
 ## Properties
 
@@ -13,28 +13,28 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:520
 
 > **action**: \[\] \| \[[`ProposalActionRequest`](../type-aliases/ProposalActionRequest.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:523
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:523
 
-***
+---
 
 ### summary
 
 > **summary**: `string`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:524
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:524
 
-***
+---
 
 ### title
 
 > **title**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:522
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:522
 
-***
+---
 
 ### url
 
 > **url**: `string`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:521
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:521

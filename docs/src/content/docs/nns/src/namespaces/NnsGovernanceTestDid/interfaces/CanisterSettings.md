@@ -5,60 +5,60 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:66
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:66
 
 ## Properties
 
-### compute\_allocation
+### compute_allocation
 
-> **compute\_allocation**: \[\] \| \[`bigint`\]
+> **compute_allocation**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:73
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:73
 
-***
+---
 
 ### controllers
 
 > **controllers**: \[\] \| \[[`Controllers`](Controllers.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:69
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:69
 
-***
+---
 
-### freezing\_threshold
+### freezing_threshold
 
-> **freezing\_threshold**: \[\] \| \[`bigint`\]
+> **freezing_threshold**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:67
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:67
 
-***
+---
 
-### log\_visibility
+### log_visibility
 
-> **log\_visibility**: \[\] \| \[`number`\]
+> **log_visibility**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:70
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:70
 
-***
+---
 
-### memory\_allocation
+### memory_allocation
 
-> **memory\_allocation**: \[\] \| \[`bigint`\]
+> **memory_allocation**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:72
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:72
 
-***
+---
 
-### wasm\_memory\_limit
+### wasm_memory_limit
 
-> **wasm\_memory\_limit**: \[\] \| \[`bigint`\]
+> **wasm_memory_limit**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:71
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:71
 
-***
+---
 
-### wasm\_memory\_threshold
+### wasm_memory_threshold
 
-> **wasm\_memory\_threshold**: \[\] \| \[`bigint`\]
+> **wasm_memory_threshold**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:68
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:68

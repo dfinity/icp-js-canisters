@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:178
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:178
 
 ## Properties
 
-### swap\_background\_information
+### swap_background_information
 
-> **swap\_background\_information**: \[\] \| \[[`SwapBackgroundInformation`](SwapBackgroundInformation.md)\]
+> **swap_background_information**: \[\] \| \[[`SwapBackgroundInformation`](SwapBackgroundInformation.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:179
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:179

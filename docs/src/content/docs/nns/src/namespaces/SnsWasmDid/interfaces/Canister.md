@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:21
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:21
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:21
 
 > **id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:22
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:22

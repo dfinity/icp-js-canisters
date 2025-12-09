@@ -15,7 +15,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:52
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:96
 
-***
+---
 
 ### AddFirewallRules
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:96
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:78
 
-***
+---
 
 ### AddNodeToSubnet
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:78
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:55
 
-***
+---
 
 ### AddOrRemoveDataCenters
 
@@ -39,7 +39,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:55
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:74
 
-***
+---
 
 ### AddSnsWasm
 
@@ -47,7 +47,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:74
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:83
 
-***
+---
 
 ### AssignNoid
 
@@ -55,7 +55,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:83
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:61
 
-***
+---
 
 ### BitcoinSetConfig
 
@@ -63,7 +63,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:61
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:92
 
-***
+---
 
 ### BlessReplicaVersion
 
@@ -71,7 +71,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:92
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:58
 
-***
+---
 
 ### ChangeSubnetMembership
 
@@ -79,7 +79,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:58
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:84
 
-***
+---
 
 ### ChangeSubnetTypeAssignment
 
@@ -87,7 +87,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:84
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:86
 
-***
+---
 
 ### ClearProvisionalWhitelist
 
@@ -95,7 +95,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:86
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:65
 
-***
+---
 
 ### CompleteCanisterMigration
 
@@ -103,7 +103,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:65
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:82
 
-***
+---
 
 ### CreateSubnet
 
@@ -111,7 +111,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:82
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:54
 
-***
+---
 
 ### DeployGuestosToAllSubnetNodes
 
@@ -119,7 +119,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:54
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:64
 
-***
+---
 
 ### DeployGuestosToAllUnassignedNodes
 
@@ -127,7 +127,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:64
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:104
 
-***
+---
 
 ### DeployGuestosToSomeApiBoundaryNodes
 
@@ -135,7 +135,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:104
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:103
 
-***
+---
 
 ### DeployHostosToSomeNodes
 
@@ -143,7 +143,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:103
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:107
 
-***
+---
 
 ### HardResetNnsRootToVersion
 
@@ -151,7 +151,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:107
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:95
 
-***
+---
 
 ### IcpXdrConversionRate
 
@@ -159,7 +159,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:95
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:63
 
-***
+---
 
 ### InsertSnsWasmUpgradePathEntries
 
@@ -167,7 +167,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:63
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:90
 
-***
+---
 
 ### NnsCanisterInstall
 
@@ -175,7 +175,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:90
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:56
 
-***
+---
 
 ### NnsCanisterUpgrade
 
@@ -183,7 +183,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:56
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:57
 
-***
+---
 
 ### NnsRootUpgrade
 
@@ -191,7 +191,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:57
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:62
 
-***
+---
 
 ### PauseCanisterMigrations
 
@@ -199,7 +199,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:62
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:109
 
-***
+---
 
 ### PrepareCanisterMigration
 
@@ -207,7 +207,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:109
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:81
 
-***
+---
 
 ### RecoverSubnet
 
@@ -215,7 +215,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:81
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:59
 
-***
+---
 
 ### RemoveApiBoundaryNodes
 
@@ -223,7 +223,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:59
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:97
 
-***
+---
 
 ### RemoveFirewallRules
 
@@ -231,7 +231,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:97
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:79
 
-***
+---
 
 ### RemoveNodeOperators
 
@@ -239,7 +239,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:79
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:76
 
-***
+---
 
 ### RemoveNodes
 
@@ -247,7 +247,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:76
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:71
 
-***
+---
 
 ### RemoveNodesFromSubnet
 
@@ -255,7 +255,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:71
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:66
 
-***
+---
 
 ### RerouteCanisterRanges
 
@@ -263,7 +263,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:66
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:77
 
-***
+---
 
 ### RetireReplicaVersion
 
@@ -271,7 +271,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:77
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:89
 
-***
+---
 
 ### ReviseElectedGuestosVersions
 
@@ -279,7 +279,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:89
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:91
 
-***
+---
 
 ### ReviseElectedHostosVersions
 
@@ -287,7 +287,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:91
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:106
 
-***
+---
 
 ### SetAuthorizedSubnetworks
 
@@ -295,7 +295,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:106
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:67
 
-***
+---
 
 ### SetFirewallConfig
 
@@ -303,7 +303,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:67
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:68
 
-***
+---
 
 ### SetSubnetOperationalLevel
 
@@ -311,7 +311,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:68
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:111
 
-***
+---
 
 ### StopOrStartNnsCanister
 
@@ -319,7 +319,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:111
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:70
 
-***
+---
 
 ### SubnetRentalRequest
 
@@ -327,7 +327,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:70
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:108
 
-***
+---
 
 ### UninstallCode
 
@@ -335,7 +335,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:108
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:72
 
-***
+---
 
 ### UnpauseCanisterMigrations
 
@@ -343,7 +343,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:72
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:110
 
-***
+---
 
 ### Unspecified
 
@@ -351,7 +351,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:110
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:53
 
-***
+---
 
 ### UpdateAllowedPrincipals
 
@@ -359,7 +359,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:53
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:88
 
-***
+---
 
 ### ~~UpdateApiBoundaryNodeDomain~~
 
@@ -369,7 +369,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:101
 
 #### Deprecated
 
-***
+---
 
 ### UpdateApiBoundaryNodesVersion
 
@@ -377,7 +377,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:101
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:102
 
-***
+---
 
 ### UpdateConfigOfSubnet
 
@@ -385,7 +385,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:102
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:60
 
-***
+---
 
 ### UpdateElectedHostosVersions
 
@@ -393,7 +393,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:60
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:93
 
-***
+---
 
 ### UpdateFirewallRules
 
@@ -401,7 +401,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:93
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:80
 
-***
+---
 
 ### UpdateNodeOperatorConfig
 
@@ -409,7 +409,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:80
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:69
 
-***
+---
 
 ### UpdateNodeRewardsTable
 
@@ -417,7 +417,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:69
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:73
 
-***
+---
 
 ### UpdateNodesHostosVersion
 
@@ -425,7 +425,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:73
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:94
 
-***
+---
 
 ### UpdateSnsWasmSnsSubnetIds
 
@@ -433,7 +433,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:94
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:87
 
-***
+---
 
 ### UpdateSshReadOnlyAccessForAllUnassignedNodes
 
@@ -441,7 +441,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:87
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:105
 
-***
+---
 
 ### UpdateSubnetType
 
@@ -449,7 +449,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:105
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:85
 
-***
+---
 
 ### UpdateUnassignedNodesConfig
 

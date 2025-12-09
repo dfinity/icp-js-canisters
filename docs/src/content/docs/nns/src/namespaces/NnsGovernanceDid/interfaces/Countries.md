@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:148
 
 ## Properties
 
-### iso\_codes
+### iso_codes
 
-> **iso\_codes**: `string`[]
+> **iso_codes**: `string`[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:149

@@ -16,37 +16,37 @@ one of the same (or at least similar) name in Neuron.
 
 ## Properties
 
-### age\_seconds
+### age_seconds
 
-> **age\_seconds**: `bigint`
+> **age_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:814
 
-***
+---
 
-### created\_timestamp\_seconds
+### created_timestamp_seconds
 
-> **created\_timestamp\_seconds**: `bigint`
+> **created_timestamp_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:790
 
-***
+---
 
-### deciding\_voting\_power
+### deciding_voting_power
 
-> **deciding\_voting\_power**: \[\] \| \[`bigint`\]
+> **deciding_voting_power**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:789
 
-***
+---
 
-### dissolve\_delay\_seconds
+### dissolve_delay_seconds
 
-> **dissolve\_delay\_seconds**: `bigint`
+> **dissolve_delay_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:784
 
-***
+---
 
 ### id
 
@@ -54,59 +54,59 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:784
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:783
 
-***
+---
 
-### joined\_community\_fund\_timestamp\_seconds
+### joined_community_fund_timestamp_seconds
 
-> **joined\_community\_fund\_timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **joined_community_fund_timestamp_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:800
 
-***
+---
 
-### known\_neuron\_data
+### known_neuron_data
 
-> **known\_neuron\_data**: \[\] \| \[[`KnownNeuronData`](KnownNeuronData.md)\]
+> **known_neuron_data**: \[\] \| \[[`KnownNeuronData`](KnownNeuronData.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:803
 
-***
+---
 
-### neuron\_type
+### neuron_type
 
-> **neuron\_type**: \[\] \| \[`number`\]
+> **neuron_type**: \[\] \| \[`number`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:788
 
-***
+---
 
-### potential\_voting\_power
+### potential_voting_power
 
-> **potential\_voting\_power**: \[\] \| \[`bigint`\]
+> **potential_voting_power**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:787
 
-***
+---
 
-### recent\_ballots
+### recent_ballots
 
-> **recent\_ballots**: [`BallotInfo`](BallotInfo.md)[]
+> **recent_ballots**: [`BallotInfo`](BallotInfo.md)[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:785
 
-***
+---
 
-### retrieved\_at\_timestamp\_seconds
+### retrieved_at_timestamp_seconds
 
-> **retrieved\_at\_timestamp\_seconds**: `bigint`
+> **retrieved_at_timestamp_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:801
 
-***
+---
 
-### stake\_e8s
+### stake_e8s
 
-> **stake\_e8s**: `bigint`
+> **stake_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:799
 
@@ -116,7 +116,7 @@ This is the foundation of the neuron's voting power.
 
 cached_neuron_stake_e8s - neuron_fees_e8s + staked_maturity_e8s_equivalent
 
-***
+---
 
 ### state
 
@@ -124,7 +124,7 @@ cached_neuron_stake_e8s - neuron_fees_e8s + staked_maturity_e8s_equivalent
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:791
 
-***
+---
 
 ### visibility
 
@@ -132,11 +132,11 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:791
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:802
 
-***
+---
 
-### voting\_power
+### voting_power
 
-> **voting\_power**: `bigint`
+> **voting_power**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:813
 
@@ -148,10 +148,10 @@ to vote), this would not get set to 0 (zero). That was pretty confusing.
 Now that this is set to deciding_voting_power, this actually does get
 zeroed out.
 
-***
+---
 
-### voting\_power\_refreshed\_timestamp\_seconds
+### voting_power_refreshed_timestamp_seconds
 
-> **voting\_power\_refreshed\_timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **voting_power_refreshed_timestamp_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:786

@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1099
 
 ## Properties
 
-### dissolve\_timestamp\_seconds
+### dissolve_timestamp_seconds
 
-> **dissolve\_timestamp\_seconds**: `bigint`
+> **dissolve_timestamp_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1100

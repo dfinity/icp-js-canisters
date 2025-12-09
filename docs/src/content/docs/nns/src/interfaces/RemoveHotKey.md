@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:523
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:523
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:523
 
 > **hotKeyToRemove**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:524
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:524

@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1132
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1132
 
 ## Properties
 
-### created\_neuron\_id
+### created_neuron_id
 
-> **created\_neuron\_id**: \[\] \| \[[`NeuronId`](NeuronId.md)\]
+> **created_neuron_id**: \[\] \| \[[`NeuronId`](NeuronId.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1133
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1133

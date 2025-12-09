@@ -5,44 +5,44 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:874
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:874
 
 ## Properties
 
-### amount\_icp\_e8s
+### amount_icp_e8s
 
-> **amount\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **amount_icp_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:879
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:879
 
-***
+---
 
 ### controller
 
 > **controller**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:875
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:875
 
-***
+---
 
 ### hotkeys
 
 > **hotkeys**: \[\] \| \[[`Principals`](Principals.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:876
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:876
 
-***
+---
 
-### is\_capped
+### is_capped
 
-> **is\_capped**: \[\] \| \[`boolean`\]
+> **is_capped**: \[\] \| \[`boolean`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:877
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:877
 
-***
+---
 
-### nns\_neuron\_id
+### nns_neuron_id
 
-> **nns\_neuron\_id**: \[\] \| \[`bigint`\]
+> **nns_neuron_id**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:878
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:878

@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1081
 
 ## Properties
 
-### dissolve\_delay\_seconds
+### dissolve_delay_seconds
 
-> **dissolve\_delay\_seconds**: `bigint`
+> **dissolve_delay_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1082

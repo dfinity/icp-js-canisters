@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:908
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:908
 
 ## Properties
 
-### neurons\_fund\_audit\_info
+### neurons_fund_audit_info
 
-> **neurons\_fund\_audit\_info**: \[\] \| \[[`NeuronsFundAuditInfo`](NeuronsFundAuditInfo.md)\]
+> **neurons_fund_audit_info**: \[\] \| \[[`NeuronsFundAuditInfo`](NeuronsFundAuditInfo.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:909
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:909

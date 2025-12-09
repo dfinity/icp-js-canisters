@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:678
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:678
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:678
 
 > **isoCodes**: `string`[]
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:679
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:679

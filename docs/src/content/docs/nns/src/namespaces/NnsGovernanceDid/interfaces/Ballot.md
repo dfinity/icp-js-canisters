@@ -15,10 +15,10 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:51
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:52
 
-***
+---
 
-### voting\_power
+### voting_power
 
-> **voting\_power**: `bigint`
+> **voting_power**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:53

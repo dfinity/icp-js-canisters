@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:614
 
 ## Properties
 
-### percentage\_to\_merge
+### percentage_to_merge
 
-> **percentage\_to\_merge**: `number`
+> **percentage_to_merge**: `number`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:615

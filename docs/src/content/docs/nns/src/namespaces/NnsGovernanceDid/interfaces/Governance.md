@@ -9,21 +9,21 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:283
 
 ## Properties
 
-### cached\_daily\_maturity\_modulation\_basis\_points
+### cached_daily_maturity_modulation_basis_points
 
-> **cached\_daily\_maturity\_modulation\_basis\_points**: \[\] \| \[`number`\]
+> **cached_daily_maturity_modulation_basis_points**: \[\] \| \[`number`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:291
 
-***
+---
 
-### default\_followees
+### default_followees
 
-> **default\_followees**: \[`number`, [`Followees`](Followees.md)\][]
+> **default_followees**: \[`number`, [`Followees`](Followees.md)\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:284
 
-***
+---
 
 ### economics
 
@@ -31,39 +31,39 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:284
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:292
 
-***
+---
 
-### genesis\_timestamp\_seconds
+### genesis_timestamp_seconds
 
-> **genesis\_timestamp\_seconds**: `bigint`
+> **genesis_timestamp_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:302
 
-***
+---
 
-### in\_flight\_commands
+### in_flight_commands
 
-> **in\_flight\_commands**: \[`bigint`, [`NeuronInFlightCommand`](NeuronInFlightCommand.md)\][]
+> **in_flight_commands**: \[`bigint`, [`NeuronInFlightCommand`](NeuronInFlightCommand.md)\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:300
 
-***
+---
 
-### latest\_reward\_event
+### latest_reward_event
 
-> **latest\_reward\_event**: \[\] \| \[[`RewardEvent`](RewardEvent.md)\]
+> **latest_reward_event**: \[\] \| \[[`RewardEvent`](RewardEvent.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:295
 
-***
+---
 
-### maturity\_modulation\_last\_updated\_at\_timestamp\_seconds
+### maturity_modulation_last_updated_at_timestamp_seconds
 
-> **maturity\_modulation\_last\_updated\_at\_timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **maturity_modulation_last_updated_at_timestamp_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:286
 
-***
+---
 
 ### metrics
 
@@ -71,23 +71,23 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:286
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:288
 
-***
+---
 
-### most\_recent\_monthly\_node\_provider\_rewards
+### most_recent_monthly_node_provider_rewards
 
-> **most\_recent\_monthly\_node\_provider\_rewards**: \[\] \| \[[`MonthlyNodeProviderRewards`](MonthlyNodeProviderRewards.md)\]
+> **most_recent_monthly_node_provider_rewards**: \[\] \| \[[`MonthlyNodeProviderRewards`](MonthlyNodeProviderRewards.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:285
 
-***
+---
 
-### neuron\_management\_voting\_period\_seconds
+### neuron_management_voting_period_seconds
 
-> **neuron\_management\_voting\_period\_seconds**: \[\] \| \[`bigint`\]
+> **neuron_management_voting_period_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:289
 
-***
+---
 
 ### neurons
 
@@ -95,15 +95,15 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:289
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:301
 
-***
+---
 
-### node\_providers
+### node_providers
 
-> **node\_providers**: [`NodeProvider`](NodeProvider.md)[]
+> **node_providers**: [`NodeProvider`](NodeProvider.md)[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:290
 
-***
+---
 
 ### proposals
 
@@ -111,50 +111,50 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:290
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:298
 
-***
+---
 
-### restore\_aging\_summary
+### restore_aging_summary
 
-> **restore\_aging\_summary**: \[\] \| \[[`RestoreAgingSummary`](RestoreAgingSummary.md)\]
+> **restore_aging_summary**: \[\] \| \[[`RestoreAgingSummary`](RestoreAgingSummary.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:293
 
-***
+---
 
-### short\_voting\_period\_seconds
+### short_voting_period_seconds
 
-> **short\_voting\_period\_seconds**: `bigint`
+> **short_voting_period_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:297
 
-***
+---
 
-### spawning\_neurons
+### spawning_neurons
 
-> **spawning\_neurons**: \[\] \| \[`boolean`\]
+> **spawning_neurons**: \[\] \| \[`boolean`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:294
 
-***
+---
 
-### to\_claim\_transfers
+### to_claim_transfers
 
-> **to\_claim\_transfers**: [`NeuronStakeTransfer`](NeuronStakeTransfer.md)[]
+> **to_claim_transfers**: [`NeuronStakeTransfer`](NeuronStakeTransfer.md)[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:296
 
-***
+---
 
-### wait\_for\_quiet\_threshold\_seconds
+### wait_for_quiet_threshold_seconds
 
-> **wait\_for\_quiet\_threshold\_seconds**: `bigint`
+> **wait_for_quiet_threshold_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:287
 
-***
+---
 
-### xdr\_conversion\_rate
+### xdr_conversion_rate
 
-> **xdr\_conversion\_rate**: \[\] \| \[[`XdrConversionRate`](XdrConversionRate.md)\]
+> **xdr_conversion_rate**: \[\] \| \[[`XdrConversionRate`](XdrConversionRate.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:299

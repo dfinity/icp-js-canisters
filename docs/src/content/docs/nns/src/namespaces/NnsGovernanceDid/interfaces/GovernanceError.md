@@ -9,16 +9,16 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:354
 
 ## Properties
 
-### error\_message
+### error_message
 
-> **error\_message**: `string`
+> **error_message**: `string`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:355
 
-***
+---
 
-### error\_type
+### error_type
 
-> **error\_type**: `number`
+> **error_type**: `number`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:356

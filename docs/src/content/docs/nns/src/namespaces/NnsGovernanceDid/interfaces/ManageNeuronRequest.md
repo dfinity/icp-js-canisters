@@ -19,7 +19,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:588
 
 What operation to perform on the neuron.
 
-***
+---
 
 ### id
 
@@ -29,11 +29,11 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:584
 
 Deprecated. Use neuron_id_or_subaccount instead.
 
-***
+---
 
-### neuron\_id\_or\_subaccount
+### neuron_id_or_subaccount
 
-> **neuron\_id\_or\_subaccount**: \[\] \| \[[`NeuronIdOrSubaccount`](../type-aliases/NeuronIdOrSubaccount.md)\]
+> **neuron_id_or_subaccount**: \[\] \| \[[`NeuronIdOrSubaccount`](../type-aliases/NeuronIdOrSubaccount.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:592
 

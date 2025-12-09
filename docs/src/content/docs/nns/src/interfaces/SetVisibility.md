@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:262
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:262
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:262
 
 > **visibility**: [`Option`](../type-aliases/Option.md)\<[`NeuronVisibility`](../enumerations/NeuronVisibility.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:263
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:263

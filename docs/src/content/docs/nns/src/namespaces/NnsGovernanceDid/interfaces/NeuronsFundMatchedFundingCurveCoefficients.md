@@ -9,24 +9,24 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:869
 
 ## Properties
 
-### contribution\_threshold\_xdr
+### contribution_threshold_xdr
 
-> **contribution\_threshold\_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
+> **contribution_threshold_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:870
 
-***
+---
 
-### full\_participation\_milestone\_xdr
+### full_participation_milestone_xdr
 
-> **full\_participation\_milestone\_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
+> **full_participation_milestone_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:872
 
-***
+---
 
-### one\_third\_participation\_milestone\_xdr
+### one_third_participation_milestone_xdr
 
-> **one\_third\_participation\_milestone\_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
+> **one_third_participation_milestone_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:871

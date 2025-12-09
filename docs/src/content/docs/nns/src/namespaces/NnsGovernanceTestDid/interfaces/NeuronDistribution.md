@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:754
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:754
 
 ## Properties
 
@@ -13,36 +13,36 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:754
 
 > **controller**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:755
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:755
 
-***
+---
 
-### dissolve\_delay
+### dissolve_delay
 
-> **dissolve\_delay**: \[\] \| \[[`Duration`](Duration.md)\]
+> **dissolve_delay**: \[\] \| \[[`Duration`](Duration.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:756
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:756
 
-***
+---
 
 ### memo
 
 > **memo**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:757
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:757
 
-***
+---
 
 ### stake
 
 > **stake**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:759
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:759
 
-***
+---
 
-### vesting\_period
+### vesting_period
 
-> **vesting\_period**: \[\] \| \[[`Duration`](Duration.md)\]
+> **vesting_period**: \[\] \| \[[`Duration`](Duration.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:758
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:758

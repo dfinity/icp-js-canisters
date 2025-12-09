@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1109
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1109
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1109
 
 > **request**: \[\] \| \[[`SetOpenTimeWindowRequest`](SetOpenTimeWindowRequest.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1110
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1110
 
-***
+---
 
-### swap\_canister\_id
+### swap_canister_id
 
-> **swap\_canister\_id**: \[\] \| \[`Principal`\]
+> **swap_canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1111
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1111

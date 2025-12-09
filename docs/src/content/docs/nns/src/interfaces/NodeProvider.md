@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:469
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:469
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:469
 
 > **id**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:470
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:470
 
-***
+---
 
 ### rewardAccount
 
 > **rewardAccount**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:471
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:471

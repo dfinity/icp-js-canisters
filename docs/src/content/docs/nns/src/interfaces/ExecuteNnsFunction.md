@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:215
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:215
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:215
 
 > **nnsFunctionId**: `number`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:216
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:216
 
-***
+---
 
 ### payloadBytes?
 
 > `optional` **payloadBytes**: `ArrayBuffer`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:217
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:217

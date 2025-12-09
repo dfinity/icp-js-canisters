@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:95
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:96
 
-***
+---
 
 ### memo
 

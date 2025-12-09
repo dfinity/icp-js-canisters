@@ -15,10 +15,10 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1038
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1039
 
-***
+---
 
-### timestamp\_seconds
+### timestamp_seconds
 
-> **timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **timestamp_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1040

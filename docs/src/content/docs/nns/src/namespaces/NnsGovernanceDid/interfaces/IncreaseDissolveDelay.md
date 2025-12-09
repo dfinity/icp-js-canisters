@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:376
 
 ## Properties
 
-### additional\_dissolve\_delay\_seconds
+### additional_dissolve_delay_seconds
 
-> **additional\_dissolve\_delay\_seconds**: `number`
+> **additional_dissolve_delay_seconds**: `number`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:377

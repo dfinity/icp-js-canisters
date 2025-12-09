@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:398
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:398
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:398
 
 > **id**: \[\] \| \[[`NeuronId`](NeuronId.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:399
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:399
 
-***
+---
 
-### known\_neuron\_data
+### known_neuron_data
 
-> **known\_neuron\_data**: \[\] \| \[[`KnownNeuronData`](KnownNeuronData.md)\]
+> **known_neuron_data**: \[\] \| \[[`KnownNeuronData`](KnownNeuronData.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:400
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:400

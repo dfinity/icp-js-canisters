@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/sns\_wasm.canister.d.ts:3
+Defined in: packages/canisters/nns/sns_wasm.canister.d.ts:3
 
 ## Properties
 
@@ -13,7 +13,7 @@ Defined in: packages/canisters/nns/sns\_wasm.canister.d.ts:3
 
 > **listSnses**: (`__namedParameters`) => `Promise`\<[`DeployedSns`](../namespaces/SnsWasmDid/interfaces/DeployedSns.md)[]\>
 
-Defined in: packages/canisters/nns/sns\_wasm.canister.d.ts:8
+Defined in: packages/canisters/nns/sns_wasm.canister.d.ts:8
 
 #### Parameters
 
@@ -33,7 +33,7 @@ Defined in: packages/canisters/nns/sns\_wasm.canister.d.ts:8
 
 > `static` **create**(`options?`): `SnsWasmCanister`
 
-Defined in: packages/canisters/nns/sns\_wasm.canister.d.ts:7
+Defined in: packages/canisters/nns/sns_wasm.canister.d.ts:7
 
 #### Parameters
 

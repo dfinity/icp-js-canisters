@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:520
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:523
 
-***
+---
 
 ### summary
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:523
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:524
 
-***
+---
 
 ### title
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:524
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:522
 
-***
+---
 
 ### url
 

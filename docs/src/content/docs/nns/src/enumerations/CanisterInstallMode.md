@@ -15,7 +15,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:133
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:135
 
-***
+---
 
 ### Reinstall
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:135
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:136
 
-***
+---
 
 ### Unspecified
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:136
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:134
 
-***
+---
 
 ### Upgrade
 

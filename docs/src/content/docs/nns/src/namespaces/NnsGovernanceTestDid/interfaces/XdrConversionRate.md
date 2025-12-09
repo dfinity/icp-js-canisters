@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1286
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1286
 
 ## Properties
 
-### timestamp\_seconds
+### timestamp_seconds
 
-> **timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **timestamp_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1288
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1288
 
-***
+---
 
-### xdr\_permyriad\_per\_icp
+### xdr_permyriad_per_icp
 
-> **xdr\_permyriad\_per\_icp**: \[\] \| \[`bigint`\]
+> **xdr_permyriad_per_icp**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1287
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1287

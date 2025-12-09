@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:216
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:216
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:216
 
 > **followees**: [`NeuronId`](NeuronId.md)[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:218
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:218
 
-***
+---
 
 ### topic
 
 > **topic**: `number`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:217
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:217

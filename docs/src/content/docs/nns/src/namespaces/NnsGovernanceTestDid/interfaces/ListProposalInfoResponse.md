@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:517
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:517
 
 ## Properties
 
-### proposal\_info
+### proposal_info
 
-> **proposal\_info**: [`ProposalInfo`](ProposalInfo.md)[]
+> **proposal_info**: [`ProposalInfo`](ProposalInfo.md)[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:518
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:518

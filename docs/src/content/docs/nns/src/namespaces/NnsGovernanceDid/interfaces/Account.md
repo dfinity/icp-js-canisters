@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:13
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:14
 
-***
+---
 
 ### subaccount
 

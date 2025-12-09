@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:35
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:35
 
 ## Properties
 
@@ -13,60 +13,60 @@ Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:35
 
 > **balance**: `ActorMethod`\<\[`string`\], `number`\>
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:36
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:36
 
-***
+---
 
-### claim\_neurons
+### claim_neurons
 
-> **claim\_neurons**: `ActorMethod`\<\[`string`\], [`Result`](../type-aliases/Result.md)\>
+> **claim_neurons**: `ActorMethod`\<\[`string`\], [`Result`](../type-aliases/Result.md)\>
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:37
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:37
 
-***
+---
 
-### donate\_account
+### donate_account
 
-> **donate\_account**: `ActorMethod`\<\[`string`\], [`Result_1`](../type-aliases/Result_1.md)\>
+> **donate_account**: `ActorMethod`\<\[`string`\], [`Result_1`](../type-aliases/Result_1.md)\>
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:38
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:38
 
-***
+---
 
-### forward\_whitelisted\_unclaimed\_accounts
+### forward_whitelisted_unclaimed_accounts
 
-> **forward\_whitelisted\_unclaimed\_accounts**: `ActorMethod`\<\[`null`\], [`Result_1`](../type-aliases/Result_1.md)\>
+> **forward_whitelisted_unclaimed_accounts**: `ActorMethod`\<\[`null`\], [`Result_1`](../type-aliases/Result_1.md)\>
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:39
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:39
 
-***
+---
 
-### get\_account
+### get_account
 
-> **get\_account**: `ActorMethod`\<\[`string`\], [`Result_2`](../type-aliases/Result_2.md)\>
+> **get_account**: `ActorMethod`\<\[`string`\], [`Result_2`](../type-aliases/Result_2.md)\>
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:40
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:40
 
-***
+---
 
-### get\_build\_metadata
+### get_build_metadata
 
-> **get\_build\_metadata**: `ActorMethod`\<\[\], `string`\>
+> **get_build_metadata**: `ActorMethod`\<\[\], `string`\>
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:41
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:41
 
-***
+---
 
 ### len
 
 > **len**: `ActorMethod`\<\[\], `number`\>
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:42
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:42
 
-***
+---
 
 ### total
 
 > **total**: `ActorMethod`\<\[\], `number`\>
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:43
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:43

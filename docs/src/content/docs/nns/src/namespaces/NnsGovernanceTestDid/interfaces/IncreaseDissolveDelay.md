@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:376
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:376
 
 ## Properties
 
-### additional\_dissolve\_delay\_seconds
+### additional_dissolve_delay_seconds
 
-> **additional\_dissolve\_delay\_seconds**: `number`
+> **additional_dissolve_delay_seconds**: `number`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:377
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:377

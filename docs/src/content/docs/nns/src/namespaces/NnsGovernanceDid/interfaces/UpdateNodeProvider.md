@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1229
 
 ## Properties
 
-### reward\_account
+### reward_account
 
-> **reward\_account**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
+> **reward_account**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1230

@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:517
 
 ## Properties
 
-### proposal\_info
+### proposal_info
 
-> **proposal\_info**: [`ProposalInfo`](ProposalInfo.md)[]
+> **proposal_info**: [`ProposalInfo`](ProposalInfo.md)[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:518

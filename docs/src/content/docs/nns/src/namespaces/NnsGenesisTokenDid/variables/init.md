@@ -7,7 +7,7 @@ prev: true
 
 > `const` **init**: (`args`) => `IDL.Type`[]
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:46
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:46
 
 ## Parameters
 
@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:46
 
 #### IDL
 
-*typeof* `IDL`
+_typeof_ `IDL`
 
 ## Returns
 

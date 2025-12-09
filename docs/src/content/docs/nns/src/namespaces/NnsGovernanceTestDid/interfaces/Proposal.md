@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:951
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:951
 
 ## Properties
 
@@ -13,36 +13,36 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:951
 
 > **action**: \[\] \| \[[`Action`](../type-aliases/Action.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:954
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:954
 
-***
+---
 
-### self\_describing\_action
+### self_describing_action
 
-> **self\_describing\_action**: \[\] \| \[[`SelfDescribingProposalAction`](SelfDescribingProposalAction.md)\]
+> **self_describing_action**: \[\] \| \[[`SelfDescribingProposalAction`](SelfDescribingProposalAction.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:956
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:956
 
-***
+---
 
 ### summary
 
 > **summary**: `string`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:955
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:955
 
-***
+---
 
 ### title
 
 > **title**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:953
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:953
 
-***
+---
 
 ### url
 
 > **url**: `string`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:952
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:952

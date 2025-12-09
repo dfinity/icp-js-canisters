@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:498
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:498
 
 ## Properties
 
-### date\_filter
+### date_filter
 
-> **date\_filter**: \[\] \| \[[`DateRangeFilter`](DateRangeFilter.md)\]
+> **date_filter**: \[\] \| \[[`DateRangeFilter`](DateRangeFilter.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:499
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:499

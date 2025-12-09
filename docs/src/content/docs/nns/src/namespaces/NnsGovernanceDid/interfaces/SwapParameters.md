@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1163
 
 ## Properties
 
-### confirmation\_text
+### confirmation_text
 
-> **confirmation\_text**: \[\] \| \[`string`\]
+> **confirmation_text**: \[\] \| \[`string`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1170
 
-***
+---
 
 ### duration
 
@@ -23,98 +23,98 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1170
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1166
 
-***
+---
 
-### maximum\_direct\_participation\_icp
+### maximum_direct_participation_icp
 
-> **maximum\_direct\_participation\_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
+> **maximum_direct_participation_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1176
 
-***
+---
 
-### maximum\_icp
+### maximum_icp
 
-> **maximum\_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
+> **maximum_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1177
 
-***
+---
 
-### maximum\_participant\_icp
+### maximum_participant_icp
 
-> **maximum\_participant\_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
+> **maximum_participant_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1171
 
-***
+---
 
-### minimum\_direct\_participation\_icp
+### minimum_direct_participation_icp
 
-> **minimum\_direct\_participation\_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
+> **minimum_direct_participation_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1173
 
-***
+---
 
-### minimum\_icp
+### minimum_icp
 
-> **minimum\_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
+> **minimum_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1172
 
-***
+---
 
-### minimum\_participant\_icp
+### minimum_participant_icp
 
-> **minimum\_participant\_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
+> **minimum_participant_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1174
 
-***
+---
 
-### minimum\_participants
+### minimum_participants
 
-> **minimum\_participants**: \[\] \| \[`bigint`\]
+> **minimum_participants**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1164
 
-***
+---
 
-### neuron\_basket\_construction\_parameters
+### neuron_basket_construction_parameters
 
-> **neuron\_basket\_construction\_parameters**: \[\] \| \[[`NeuronBasketConstructionParameters`](NeuronBasketConstructionParameters.md)\]
+> **neuron_basket_construction_parameters**: \[\] \| \[[`NeuronBasketConstructionParameters`](NeuronBasketConstructionParameters.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1167
 
-***
+---
 
-### neurons\_fund\_investment\_icp
+### neurons_fund_investment_icp
 
-> **neurons\_fund\_investment\_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
+> **neurons_fund_investment_icp**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1178
 
-***
+---
 
-### neurons\_fund\_participation
+### neurons_fund_participation
 
-> **neurons\_fund\_participation**: \[\] \| \[`boolean`\]
+> **neurons_fund_participation**: \[\] \| \[`boolean`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1165
 
-***
+---
 
-### restricted\_countries
+### restricted_countries
 
-> **restricted\_countries**: \[\] \| \[[`Countries`](Countries.md)\]
+> **restricted_countries**: \[\] \| \[[`Countries`](Countries.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1179
 
-***
+---
 
-### start\_time
+### start_time
 
-> **start\_time**: \[\] \| \[[`GlobalTimeOfDay`](GlobalTimeOfDay.md)\]
+> **start_time**: \[\] \| \[[`GlobalTimeOfDay`](GlobalTimeOfDay.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1175

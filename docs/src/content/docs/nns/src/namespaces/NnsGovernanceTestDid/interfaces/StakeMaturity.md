@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1139
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1139
 
 ## Properties
 
-### percentage\_to\_stake
+### percentage_to_stake
 
-> **percentage\_to\_stake**: \[\] \| \[`number`\]
+> **percentage_to_stake**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1140
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1140

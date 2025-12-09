@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:639
 
 ## Properties
 
-### motion\_text
+### motion_text
 
-> **motion\_text**: `string`
+> **motion_text**: `string`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:640

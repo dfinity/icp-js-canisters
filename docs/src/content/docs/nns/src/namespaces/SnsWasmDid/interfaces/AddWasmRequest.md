@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:13
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:13
 
 ## Properties
 
@@ -13,20 +13,20 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:13
 
 > **hash**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:14
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:14
 
-***
+---
 
-### skip\_update\_latest\_version
+### skip_update_latest_version
 
-> **skip\_update\_latest\_version**: \[\] \| \[`boolean`\]
+> **skip_update_latest_version**: \[\] \| \[`boolean`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:16
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:16
 
-***
+---
 
 ### wasm
 
 > **wasm**: \[\] \| \[[`SnsWasm`](SnsWasm.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:15
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:15

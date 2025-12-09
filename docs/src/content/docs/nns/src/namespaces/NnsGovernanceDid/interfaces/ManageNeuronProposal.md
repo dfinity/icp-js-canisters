@@ -18,7 +18,7 @@ Not to be confused with ManageNeuronRequest. This is only used to represent a ma
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:555
 
-***
+---
 
 ### id
 
@@ -26,10 +26,10 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:555
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:554
 
-***
+---
 
-### neuron\_id\_or\_subaccount
+### neuron_id_or_subaccount
 
-> **neuron\_id\_or\_subaccount**: \[\] \| \[[`NeuronIdOrSubaccount`](../type-aliases/NeuronIdOrSubaccount.md)\]
+> **neuron_id_or_subaccount**: \[\] \| \[[`NeuronIdOrSubaccount`](../type-aliases/NeuronIdOrSubaccount.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:556

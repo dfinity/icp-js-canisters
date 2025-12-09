@@ -9,16 +9,16 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1286
 
 ## Properties
 
-### timestamp\_seconds
+### timestamp_seconds
 
-> **timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **timestamp_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1288
 
-***
+---
 
-### xdr\_permyriad\_per\_icp
+### xdr_permyriad_per_icp
 
-> **xdr\_permyriad\_per\_icp**: \[\] \| \[`bigint`\]
+> **xdr_permyriad_per_icp**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1287

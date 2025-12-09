@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:348
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:348
 
 ## Properties
 
@@ -13,28 +13,28 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:348
 
 > **canister**: `string`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:351
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:351
 
-***
+---
 
 ### methodName
 
 > **methodName**: `string`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:350
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:350
 
-***
+---
 
 ### operation
 
 > **operation**: [`AuthzChangeOp`](../type-aliases/AuthzChangeOp.md)
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:352
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:352
 
-***
+---
 
 ### principal
 
 > **principal**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:349
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:349

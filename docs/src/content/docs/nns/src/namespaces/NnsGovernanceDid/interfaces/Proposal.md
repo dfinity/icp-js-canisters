@@ -15,15 +15,15 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:951
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:954
 
-***
+---
 
-### self\_describing\_action
+### self_describing_action
 
-> **self\_describing\_action**: \[\] \| \[[`SelfDescribingProposalAction`](SelfDescribingProposalAction.md)\]
+> **self_describing_action**: \[\] \| \[[`SelfDescribingProposalAction`](SelfDescribingProposalAction.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:956
 
-***
+---
 
 ### summary
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:956
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:955
 
-***
+---
 
 ### title
 
@@ -39,7 +39,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:955
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:953
 
-***
+---
 
 ### url
 

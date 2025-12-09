@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:181
 
 ## Properties
 
-### developer\_neurons
+### developer_neurons
 
-> **developer\_neurons**: [`NeuronDistribution`](NeuronDistribution.md)[]
+> **developer_neurons**: [`NeuronDistribution`](NeuronDistribution.md)[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:182

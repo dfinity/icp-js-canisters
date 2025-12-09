@@ -5,6 +5,6 @@ next: true
 prev: true
 ---
 
-> **Result\_6** = \{ `Ok`: [`Ok`](../interfaces/Ok.md); \} \| \{ `Err`: [`GovernanceError`](../interfaces/GovernanceError.md); \}
+> **Result_6** = \{ `Ok`: [`Ok`](../interfaces/Ok.md); \} \| \{ `Err`: [`GovernanceError`](../interfaces/GovernanceError.md); \}
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1053

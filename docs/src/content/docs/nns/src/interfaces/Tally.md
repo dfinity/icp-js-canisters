@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:562
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:562
 
 ## Properties
 
@@ -13,28 +13,28 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:562
 
 > **no**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:563
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:563
 
-***
+---
 
 ### timestampSeconds
 
 > **timestampSeconds**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:566
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:566
 
-***
+---
 
 ### total
 
 > **total**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:565
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:565
 
-***
+---
 
 ### yes
 
 > **yes**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:564
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:564

@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:216
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:218
 
-***
+---
 
 ### topic
 

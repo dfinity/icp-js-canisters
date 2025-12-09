@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1116
 
 ## Properties
 
-### open\_sns\_token\_swap\_proposal\_id
+### open_sns_token_swap_proposal_id
 
-> **open\_sns\_token\_swap\_proposal\_id**: \[\] \| \[`bigint`\]
+> **open_sns_token_swap_proposal_id**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1118
 
-***
+---
 
 ### result
 

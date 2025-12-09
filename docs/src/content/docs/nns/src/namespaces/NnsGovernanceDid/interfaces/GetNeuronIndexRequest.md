@@ -9,16 +9,16 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:264
 
 ## Properties
 
-### exclusive\_start\_neuron\_id
+### exclusive_start_neuron_id
 
-> **exclusive\_start\_neuron\_id**: \[\] \| \[[`NeuronId`](NeuronId.md)\]
+> **exclusive_start_neuron_id**: \[\] \| \[[`NeuronId`](NeuronId.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:266
 
-***
+---
 
-### page\_size
+### page_size
 
-> **page\_size**: \[\] \| \[`number`\]
+> **page_size**: \[\] \| \[`number`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:265

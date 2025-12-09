@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1096
 
 ## Properties
 
-### default\_followees
+### default_followees
 
-> **default\_followees**: \[`number`, [`Followees`](Followees.md)\][]
+> **default_followees**: \[`number`, [`Followees`](Followees.md)\][]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1097

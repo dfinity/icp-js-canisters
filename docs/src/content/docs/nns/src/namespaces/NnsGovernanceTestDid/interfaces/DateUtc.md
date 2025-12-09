@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:167
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:167
 
 ## Properties
 
@@ -13,20 +13,20 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:167
 
 > **day**: `number`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:168
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:168
 
-***
+---
 
 ### month
 
 > **month**: `number`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:169
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:169
 
-***
+---
 
 ### year
 
 > **year**: `number`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:170
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:170

@@ -7,7 +7,7 @@ prev: true
 
 > **Vote** = \{ `No`: `null`; \} \| \{ `Yes`: `null`; \} \| \{ `Unspecified`: `null`; \}
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1232
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1232
 
 ## Type Declaration
 

@@ -9,40 +9,40 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:604
 
 ## Properties
 
-### account\_identifier\_to\_disburse\_to
+### account_identifier_to_disburse_to
 
-> **account\_identifier\_to\_disburse\_to**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
+> **account_identifier_to_disburse_to**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:605
 
-***
+---
 
-### account\_to\_disburse\_to
+### account_to_disburse_to
 
-> **account\_to\_disburse\_to**: \[\] \| \[[`Account`](Account.md)\]
+> **account_to_disburse_to**: \[\] \| \[[`Account`](Account.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:608
 
-***
+---
 
-### amount\_e8s
+### amount_e8s
 
-> **amount\_e8s**: \[\] \| \[`bigint`\]
+> **amount_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:607
 
-***
+---
 
-### finalize\_disbursement\_timestamp\_seconds
+### finalize_disbursement_timestamp_seconds
 
-> **finalize\_disbursement\_timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **finalize_disbursement_timestamp_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:609
 
-***
+---
 
-### timestamp\_of\_disbursement\_seconds
+### timestamp_of_disbursement_seconds
 
-> **timestamp\_of\_disbursement\_seconds**: \[\] \| \[`bigint`\]
+> **timestamp_of_disbursement_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:606

@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:260
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:260
 
 ## Properties
 
-### update\_allowed\_principals\_result
+### update_allowed_principals_result
 
-> **update\_allowed\_principals\_result**: \[\] \| \[[`UpdateAllowedPrincipalsResult`](../type-aliases/UpdateAllowedPrincipalsResult.md)\]
+> **update_allowed_principals_result**: \[\] \| \[[`UpdateAllowedPrincipalsResult`](../type-aliases/UpdateAllowedPrincipalsResult.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:261
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:261

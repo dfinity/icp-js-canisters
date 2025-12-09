@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1099
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1099
 
 ## Properties
 
-### dissolve\_timestamp\_seconds
+### dissolve_timestamp_seconds
 
-> **dissolve\_timestamp\_seconds**: `bigint`
+> **dissolve_timestamp_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1100
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1100

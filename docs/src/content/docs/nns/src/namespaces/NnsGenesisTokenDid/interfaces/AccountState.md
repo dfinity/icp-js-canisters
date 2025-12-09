@@ -5,76 +5,76 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:13
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:13
 
 ## Properties
 
-### authenticated\_principal\_id
+### authenticated_principal_id
 
-> **authenticated\_principal\_id**: \[\] \| \[`Principal`\]
+> **authenticated_principal_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:14
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:14
 
-***
+---
 
-### failed\_transferred\_neurons
+### failed_transferred_neurons
 
-> **failed\_transferred\_neurons**: [`TransferredNeuron`](TransferredNeuron.md)[]
+> **failed_transferred_neurons**: [`TransferredNeuron`](TransferredNeuron.md)[]
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:18
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:18
 
-***
+---
 
-### has\_claimed
+### has_claimed
 
-> **has\_claimed**: `boolean`
+> **has_claimed**: `boolean`
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:20
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:20
 
-***
+---
 
-### has\_donated
+### has_donated
 
-> **has\_donated**: `boolean`
+> **has_donated**: `boolean`
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:17
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:17
 
-***
+---
 
-### has\_forwarded
+### has_forwarded
 
-> **has\_forwarded**: `boolean`
+> **has_forwarded**: `boolean`
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:21
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:21
 
-***
+---
 
 ### icpts
 
 > **icpts**: `number`
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:22
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:22
 
-***
+---
 
-### is\_whitelisted\_for\_forwarding
+### is_whitelisted_for_forwarding
 
-> **is\_whitelisted\_for\_forwarding**: `boolean`
+> **is_whitelisted_for_forwarding**: `boolean`
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:16
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:16
 
-***
+---
 
-### neuron\_ids
+### neuron_ids
 
-> **neuron\_ids**: [`NeuronId`](NeuronId.md)[]
+> **neuron_ids**: [`NeuronId`](NeuronId.md)[]
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:19
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:19
 
-***
+---
 
-### successfully\_transferred\_neurons
+### successfully_transferred_neurons
 
-> **successfully\_transferred\_neurons**: [`TransferredNeuron`](TransferredNeuron.md)[]
+> **successfully_transferred_neurons**: [`TransferredNeuron`](TransferredNeuron.md)[]
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:15
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:15

@@ -5,28 +5,28 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:869
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:869
 
 ## Properties
 
-### contribution\_threshold\_xdr
+### contribution_threshold_xdr
 
-> **contribution\_threshold\_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
+> **contribution_threshold_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:870
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:870
 
-***
+---
 
-### full\_participation\_milestone\_xdr
+### full_participation_milestone_xdr
 
-> **full\_participation\_milestone\_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
+> **full_participation_milestone_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:872
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:872
 
-***
+---
 
-### one\_third\_participation\_milestone\_xdr
+### one_third_participation_milestone_xdr
 
-> **one\_third\_participation\_milestone\_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
+> **one_third_participation_milestone_xdr**: \[\] \| \[[`Decimal`](Decimal.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:871
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:871

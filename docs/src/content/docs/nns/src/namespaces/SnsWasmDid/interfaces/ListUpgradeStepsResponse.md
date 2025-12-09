@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:133
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:133
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:133
 
 > **steps**: [`ListUpgradeStep`](ListUpgradeStep.md)[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:134
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:134

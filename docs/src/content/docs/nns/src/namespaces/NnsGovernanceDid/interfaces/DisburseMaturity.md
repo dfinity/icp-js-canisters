@@ -9,24 +9,24 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:188
 
 ## Properties
 
-### percentage\_to\_disburse
+### percentage_to_disburse
 
-> **percentage\_to\_disburse**: `number`
+> **percentage_to_disburse**: `number`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:191
 
-***
+---
 
-### to\_account
+### to_account
 
-> **to\_account**: \[\] \| \[[`Account`](Account.md)\]
+> **to_account**: \[\] \| \[[`Account`](Account.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:190
 
-***
+---
 
-### to\_account\_identifier
+### to_account_identifier
 
-> **to\_account\_identifier**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
+> **to_account_identifier**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:189

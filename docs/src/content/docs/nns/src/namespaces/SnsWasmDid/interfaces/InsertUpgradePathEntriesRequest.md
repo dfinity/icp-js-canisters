@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:107
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:107
 
 ## Properties
 
-### sns\_governance\_canister\_id
+### sns_governance_canister_id
 
-> **sns\_governance\_canister\_id**: \[\] \| \[`Principal`\]
+> **sns_governance_canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:109
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:109
 
-***
+---
 
-### upgrade\_path
+### upgrade_path
 
-> **upgrade\_path**: [`SnsUpgrade`](SnsUpgrade.md)[]
+> **upgrade_path**: [`SnsUpgrade`](SnsUpgrade.md)[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:108
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:108

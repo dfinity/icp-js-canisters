@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1142
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1142
 
 ## Properties
 
-### maturity\_e8s
+### maturity_e8s
 
-> **maturity\_e8s**: `bigint`
+> **maturity_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1143
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1143
 
-***
+---
 
-### staked\_maturity\_e8s
+### staked_maturity_e8s
 
-> **staked\_maturity\_e8s**: `bigint`
+> **staked_maturity_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1144
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1144

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:265
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:265
 
 ## Properties
 
@@ -13,60 +13,60 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:265
 
 > **beforeProposal**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:267
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:267
 
-***
+---
 
 ### excludeTopic
 
 > **excludeTopic**: [`Topic`](../enumerations/Topic.md)[]
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:269
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:269
 
-***
+---
 
 ### includeAllManageNeuronProposals
 
 > **includeAllManageNeuronProposals**: `boolean`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:270
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:270
 
-***
+---
 
 ### includeRewardStatus
 
 > **includeRewardStatus**: [`ProposalRewardStatus`](../enumerations/ProposalRewardStatus.md)[]
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:268
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:268
 
-***
+---
 
 ### includeStatus
 
 > **includeStatus**: [`ProposalStatus`](../enumerations/ProposalStatus.md)[]
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:271
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:271
 
-***
+---
 
 ### limit
 
 > **limit**: `number`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:266
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:266
 
-***
+---
 
 ### omitLargeFields?
 
 > `optional` **omitLargeFields**: `boolean`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:272
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:272
 
-***
+---
 
 ### returnSelfDescribingAction?
 
 > `optional` **returnSelfDescribingAction**: `boolean`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:273
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:273

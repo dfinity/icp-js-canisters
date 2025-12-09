@@ -15,8 +15,8 @@ prev: true
 ## Type Aliases
 
 - [Result](type-aliases/Result.md)
-- [Result\_1](type-aliases/Result_1.md)
-- [Result\_2](type-aliases/Result_2.md)
+- [Result_1](type-aliases/Result_1.md)
+- [Result_2](type-aliases/Result_2.md)
 
 ## Variables
 

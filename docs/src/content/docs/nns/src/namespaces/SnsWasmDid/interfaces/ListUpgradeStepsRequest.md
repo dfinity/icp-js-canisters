@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:128
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:128
 
 ## Properties
 
@@ -13,20 +13,20 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:128
 
 > **limit**: `number`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:129
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:129
 
-***
+---
 
-### sns\_governance\_canister\_id
+### sns_governance_canister_id
 
-> **sns\_governance\_canister\_id**: \[\] \| \[`Principal`\]
+> **sns_governance_canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:131
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:131
 
-***
+---
 
-### starting\_at
+### starting_at
 
-> **starting\_at**: \[\] \| \[[`SnsVersion`](SnsVersion.md)\]
+> **starting_at**: \[\] \| \[[`SnsVersion`](SnsVersion.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:130
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:130

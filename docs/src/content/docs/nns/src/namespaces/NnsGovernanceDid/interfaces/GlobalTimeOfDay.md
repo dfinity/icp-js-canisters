@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:280
 
 ## Properties
 
-### seconds\_after\_utc\_midnight
+### seconds_after_utc_midnight
 
-> **seconds\_after\_utc\_midnight**: \[\] \| \[`bigint`\]
+> **seconds_after_utc_midnight**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:281

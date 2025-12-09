@@ -5,44 +5,44 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:44
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:44
 
 ## Properties
 
-### governance\_canister\_id
+### governance_canister_id
 
-> **governance\_canister\_id**: \[\] \| \[`Principal`\]
+> **governance_canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:46
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:46
 
-***
+---
 
-### index\_canister\_id
+### index_canister_id
 
-> **index\_canister\_id**: \[\] \| \[`Principal`\]
+> **index_canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:47
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:47
 
-***
+---
 
-### ledger\_canister\_id
+### ledger_canister_id
 
-> **ledger\_canister\_id**: \[\] \| \[`Principal`\]
+> **ledger_canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:49
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:49
 
-***
+---
 
-### root\_canister\_id
+### root_canister_id
 
-> **root\_canister\_id**: \[\] \| \[`Principal`\]
+> **root_canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:45
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:45
 
-***
+---
 
-### swap\_canister\_id
+### swap_canister_id
 
-> **swap\_canister\_id**: \[\] \| \[`Principal`\]
+> **swap_canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:48
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:48

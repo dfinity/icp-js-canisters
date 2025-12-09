@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1283
 
 ## Properties
 
-### current\_deadline\_timestamp\_seconds
+### current_deadline_timestamp_seconds
 
-> **current\_deadline\_timestamp\_seconds**: `bigint`
+> **current_deadline_timestamp_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1284

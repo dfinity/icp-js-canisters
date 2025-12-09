@@ -9,24 +9,24 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:132
 
 ## Properties
 
-### sns\_governance\_canister\_id
+### sns_governance_canister_id
 
-> **sns\_governance\_canister\_id**: \[\] \| \[`Principal`\]
+> **sns_governance_canister_id**: \[\] \| \[`Principal`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:135
 
-***
+---
 
-### total\_direct\_contribution\_icp\_e8s
+### total_direct_contribution_icp_e8s
 
-> **total\_direct\_contribution\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **total_direct_contribution_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:133
 
-***
+---
 
-### total\_neurons\_fund\_contribution\_icp\_e8s
+### total_neurons_fund_contribution_icp_e8s
 
-> **total\_neurons\_fund\_contribution\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **total_neurons_fund_contribution_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:134

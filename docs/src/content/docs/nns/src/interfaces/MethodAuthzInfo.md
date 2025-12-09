@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:354
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:354
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:354
 
 > **methodName**: `string`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:355
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:355
 
-***
+---
 
 ### principalIds
 
 > **principalIds**: `ArrayBuffer`[]
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:356
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:356

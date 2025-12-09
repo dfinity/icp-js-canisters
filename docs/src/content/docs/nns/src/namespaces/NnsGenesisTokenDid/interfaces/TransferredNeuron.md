@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:30
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:30
 
 ## Properties
 
@@ -13,20 +13,20 @@ Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:30
 
 > **error**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:31
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:31
 
-***
+---
 
-### neuron\_id
+### neuron_id
 
-> **neuron\_id**: \[\] \| \[[`NeuronId`](NeuronId.md)\]
+> **neuron_id**: \[\] \| \[[`NeuronId`](NeuronId.md)\]
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:33
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:33
 
-***
+---
 
-### timestamp\_seconds
+### timestamp_seconds
 
-> **timestamp\_seconds**: `bigint`
+> **timestamp_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/genesis\_token.d.ts:32
+Defined in: packages/canisters/declarations/nns/genesis_token.d.ts:32

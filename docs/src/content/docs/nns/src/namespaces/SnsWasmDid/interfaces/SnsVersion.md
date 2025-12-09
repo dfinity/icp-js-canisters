@@ -5,52 +5,52 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:228
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:228
 
 ## Properties
 
-### archive\_wasm\_hash
+### archive_wasm_hash
 
-> **archive\_wasm\_hash**: `Uint8Array`
+> **archive_wasm_hash**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:229
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:229
 
-***
+---
 
-### governance\_wasm\_hash
+### governance_wasm_hash
 
-> **governance\_wasm\_hash**: `Uint8Array`
+> **governance_wasm_hash**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:233
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:233
 
-***
+---
 
-### index\_wasm\_hash
+### index_wasm_hash
 
-> **index\_wasm\_hash**: `Uint8Array`
+> **index_wasm_hash**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:234
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:234
 
-***
+---
 
-### ledger\_wasm\_hash
+### ledger_wasm_hash
 
-> **ledger\_wasm\_hash**: `Uint8Array`
+> **ledger_wasm_hash**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:232
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:232
 
-***
+---
 
-### root\_wasm\_hash
+### root_wasm_hash
 
-> **root\_wasm\_hash**: `Uint8Array`
+> **root_wasm_hash**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:230
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:230
 
-***
+---
 
-### swap\_wasm\_hash
+### swap_wasm_hash
 
-> **swap\_wasm\_hash**: `Uint8Array`
+> **swap_wasm_hash**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:231
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:231

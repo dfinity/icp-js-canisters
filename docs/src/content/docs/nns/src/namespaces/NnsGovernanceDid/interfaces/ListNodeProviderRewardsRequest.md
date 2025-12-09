@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:498
 
 ## Properties
 
-### date\_filter
+### date_filter
 
-> **date\_filter**: \[\] \| \[[`DateRangeFilter`](DateRangeFilter.md)\]
+> **date_filter**: \[\] \| \[[`DateRangeFilter`](DateRangeFilter.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:499

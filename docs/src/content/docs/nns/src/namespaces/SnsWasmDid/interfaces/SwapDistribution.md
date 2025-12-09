@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:249
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:249
 
 ## Properties
 
-### initial\_swap\_amount\_e8s
+### initial_swap_amount_e8s
 
-> **initial\_swap\_amount\_e8s**: `bigint`
+> **initial_swap_amount_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:251
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:251
 
-***
+---
 
-### total\_e8s
+### total_e8s
 
-> **total\_e8s**: `bigint`
+> **total_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:250
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:250

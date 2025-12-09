@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:746
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:746
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:746
 
 > **count**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:748
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:748
 
-***
+---
 
-### dissolve\_delay\_interval
+### dissolve_delay_interval
 
-> **dissolve\_delay\_interval**: \[\] \| \[[`Duration`](Duration.md)\]
+> **dissolve_delay_interval**: \[\] \| \[[`Duration`](Duration.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:747
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:747

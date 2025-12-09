@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:582
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:582
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:582
 
 > **additionalDissolveDelaySeconds**: `number`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:584
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:584
 
-***
+---
 
 ### neuronId
 
 > **neuronId**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:583
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:583

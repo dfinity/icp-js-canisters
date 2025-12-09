@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:84
 
 ## Properties
 
-### canister\_id
+### canister_id
 
-> **canister\_id**: \[\] \| \[`Principal`\]
+> **canister_id**: \[\] \| \[`Principal`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:86
 
-***
+---
 
 ### status
 

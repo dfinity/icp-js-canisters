@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:95
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:95
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:95
 
 > **controller**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:96
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:96
 
-***
+---
 
 ### memo
 
 > **memo**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:97
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:97

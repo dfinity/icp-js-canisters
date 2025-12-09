@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:172
 
 ## Properties
 
-### human\_readable
+### human_readable
 
-> **human\_readable**: \[\] \| \[`string`\]
+> **human_readable**: \[\] \| \[`string`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:173

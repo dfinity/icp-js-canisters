@@ -1,4 +1,9 @@
-import { GovernanceCanister, GovernanceTestCanister, SnsWasmCanister, GenesisTokenCanister } from "./index";
+import {
+  GenesisTokenCanister,
+  GovernanceCanister,
+  GovernanceTestCanister,
+  SnsWasmCanister,
+} from "./index";
 
 describe("@dfinity/nns", () => {
   it("should re-export GovernanceCanister", () => {

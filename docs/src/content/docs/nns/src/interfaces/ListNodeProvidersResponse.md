@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:666
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:666
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:666
 
 > **nodeProviders**: [`NodeProvider`](NodeProvider.md)[]
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:667
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:667

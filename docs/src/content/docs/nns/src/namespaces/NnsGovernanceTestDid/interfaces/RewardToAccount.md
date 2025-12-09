@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1078
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1078
 
 ## Properties
 
-### to\_account
+### to_account
 
-> **to\_account**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
+> **to_account**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1079
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1079

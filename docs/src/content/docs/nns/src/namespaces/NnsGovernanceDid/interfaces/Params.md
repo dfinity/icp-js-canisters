@@ -9,88 +9,88 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:930
 
 ## Properties
 
-### max\_direct\_participation\_icp\_e8s
+### max_direct_participation_icp_e8s
 
-> **max\_direct\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **max_direct_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:943
 
-***
+---
 
-### max\_icp\_e8s
+### max_icp_e8s
 
-> **max\_icp\_e8s**: `bigint`
+> **max_icp_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:935
 
-***
+---
 
-### max\_participant\_icp\_e8s
+### max_participant_icp_e8s
 
-> **max\_participant\_icp\_e8s**: `bigint`
+> **max_participant_icp_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:940
 
-***
+---
 
-### min\_direct\_participation\_icp\_e8s
+### min_direct_participation_icp_e8s
 
-> **min\_direct\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **min_direct_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:941
 
-***
+---
 
-### min\_icp\_e8s
+### min_icp_e8s
 
-> **min\_icp\_e8s**: `bigint`
+> **min_icp_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:942
 
-***
+---
 
-### min\_participant\_icp\_e8s
+### min_participant_icp_e8s
 
-> **min\_participant\_icp\_e8s**: `bigint`
+> **min_participant_icp_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:931
 
-***
+---
 
-### min\_participants
+### min_participants
 
-> **min\_participants**: `number`
+> **min_participants**: `number`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:937
 
-***
+---
 
-### neuron\_basket\_construction\_parameters
+### neuron_basket_construction_parameters
 
-> **neuron\_basket\_construction\_parameters**: \[\] \| \[[`NeuronBasketConstructionParameters_1`](NeuronBasketConstructionParameters_1.md)\]
+> **neuron_basket_construction_parameters**: \[\] \| \[[`NeuronBasketConstructionParameters_1`](NeuronBasketConstructionParameters_1.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:932
 
-***
+---
 
-### sale\_delay\_seconds
+### sale_delay_seconds
 
-> **sale\_delay\_seconds**: \[\] \| \[`bigint`\]
+> **sale_delay_seconds**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:939
 
-***
+---
 
-### sns\_token\_e8s
+### sns_token_e8s
 
-> **sns\_token\_e8s**: `bigint`
+> **sns_token_e8s**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:938
 
-***
+---
 
-### swap\_due\_timestamp\_seconds
+### swap_due_timestamp_seconds
 
-> **swap\_due\_timestamp\_seconds**: `bigint`
+> **swap_due_timestamp_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:936

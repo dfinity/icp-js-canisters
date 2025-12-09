@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:370
 
 ## Properties
 
-### serialized\_representation
+### serialized_representation
 
-> **serialized\_representation**: \[\] \| \[`string`\]
+> **serialized_representation**: \[\] \| \[`string`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:371

@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:148
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:148
 
 ## Properties
 
-### iso\_codes
+### iso_codes
 
-> **iso\_codes**: `string`[]
+> **iso_codes**: `string`[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:149
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:149

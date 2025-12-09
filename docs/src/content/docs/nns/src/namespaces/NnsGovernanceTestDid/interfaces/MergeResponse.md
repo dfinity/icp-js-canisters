@@ -5,36 +5,36 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:621
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:621
 
 ## Properties
 
-### source\_neuron
+### source_neuron
 
-> **source\_neuron**: \[\] \| \[[`Neuron`](Neuron.md)\]
+> **source_neuron**: \[\] \| \[[`Neuron`](Neuron.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:623
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:623
 
-***
+---
 
-### source\_neuron\_info
+### source_neuron_info
 
-> **source\_neuron\_info**: \[\] \| \[[`NeuronInfo`](NeuronInfo.md)\]
+> **source_neuron_info**: \[\] \| \[[`NeuronInfo`](NeuronInfo.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:625
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:625
 
-***
+---
 
-### target\_neuron
+### target_neuron
 
-> **target\_neuron**: \[\] \| \[[`Neuron`](Neuron.md)\]
+> **target_neuron**: \[\] \| \[[`Neuron`](Neuron.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:622
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:622
 
-***
+---
 
-### target\_neuron\_info
+### target_neuron_info
 
-> **target\_neuron\_info**: \[\] \| \[[`NeuronInfo`](NeuronInfo.md)\]
+> **target_neuron_info**: \[\] \| \[[`NeuronInfo`](NeuronInfo.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:624
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:624

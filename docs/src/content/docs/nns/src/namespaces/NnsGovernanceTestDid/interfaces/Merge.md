@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:611
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:611
 
 ## Properties
 
-### source\_neuron\_id
+### source_neuron_id
 
-> **source\_neuron\_id**: \[\] \| \[[`NeuronId`](NeuronId.md)\]
+> **source_neuron_id**: \[\] \| \[[`NeuronId`](NeuronId.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:612
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:612

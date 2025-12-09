@@ -9,45 +9,45 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:507
 
 ## Properties
 
-### before\_proposal
+### before_proposal
 
-> **before\_proposal**: \[\] \| \[[`ProposalId`](ProposalId.md)\]
+> **before_proposal**: \[\] \| \[[`ProposalId`](ProposalId.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:511
 
-***
+---
 
-### exclude\_topic
+### exclude_topic
 
-> **exclude\_topic**: `Int32Array`
+> **exclude_topic**: `Int32Array`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:513
 
-***
+---
 
-### include\_all\_manage\_neuron\_proposals
+### include_all_manage_neuron_proposals
 
-> **include\_all\_manage\_neuron\_proposals**: \[\] \| \[`boolean`\]
+> **include_all_manage_neuron_proposals**: \[\] \| \[`boolean`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:514
 
-***
+---
 
-### include\_reward\_status
+### include_reward_status
 
-> **include\_reward\_status**: `Int32Array`
+> **include_reward_status**: `Int32Array`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:509
 
-***
+---
 
-### include\_status
+### include_status
 
-> **include\_status**: `Int32Array`
+> **include_status**: `Int32Array`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:515
 
-***
+---
 
 ### limit
 
@@ -55,18 +55,18 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:515
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:512
 
-***
+---
 
-### omit\_large\_fields
+### omit_large_fields
 
-> **omit\_large\_fields**: \[\] \| \[`boolean`\]
+> **omit_large_fields**: \[\] \| \[`boolean`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:510
 
-***
+---
 
-### return\_self\_describing\_action
+### return_self_describing_action
 
-> **return\_self\_describing\_action**: \[\] \| \[`boolean`\]
+> **return_self_describing_action**: \[\] \| \[`boolean`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:508

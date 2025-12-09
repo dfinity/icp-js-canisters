@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1113
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1113
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1113
 
 > **visibility**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1114
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1114

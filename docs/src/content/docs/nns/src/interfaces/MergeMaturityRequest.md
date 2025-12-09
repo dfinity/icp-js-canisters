@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:340
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:340
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:340
 
 > **neuronId**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:341
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:341
 
-***
+---
 
 ### percentageToMerge
 
 > **percentageToMerge**: `number`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:342
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:342

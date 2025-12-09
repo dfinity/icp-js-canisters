@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:209
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:209
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:209
 
 > **seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:210
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:210

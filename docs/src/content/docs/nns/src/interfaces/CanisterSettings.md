@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:309
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:309
 
 ## Properties
 
@@ -13,52 +13,52 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:309
 
 > **computeAllocation**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:315
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:315
 
-***
+---
 
 ### controllers
 
 > **controllers**: [`Option`](../type-aliases/Option.md)\<`string`[]\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:311
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:311
 
-***
+---
 
 ### freezingThreshold
 
 > **freezingThreshold**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:310
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:310
 
-***
+---
 
 ### logVisibility
 
 > **logVisibility**: [`Option`](../type-aliases/Option.md)\<[`LogVisibility`](../enumerations/LogVisibility.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:312
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:312
 
-***
+---
 
 ### memoryAllocation
 
 > **memoryAllocation**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:314
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:314
 
-***
+---
 
 ### wasmMemoryLimit
 
 > **wasmMemoryLimit**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:313
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:313
 
-***
+---
 
 ### wasmMemoryThreshold
 
 > **wasmMemoryThreshold**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:316
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:316

@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:39
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:39
 
 ## Properties
 
-### new\_hot\_key
+### new_hot_key
 
-> **new\_hot\_key**: \[\] \| \[`Principal`\]
+> **new_hot_key**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:40
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:40

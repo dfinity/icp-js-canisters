@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:207
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:207
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:207
 
 > **topicFollowing**: [`FolloweesForTopic`](FolloweesForTopic.md)[]
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:208
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:208

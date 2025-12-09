@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:59
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:59
 
 ## Properties
 
-### allowed\_principals
+### allowed_principals
 
-> **allowed\_principals**: `Principal`[]
+> **allowed_principals**: `Principal`[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:60
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:60

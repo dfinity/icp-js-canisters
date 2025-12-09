@@ -7,7 +7,7 @@ prev: true
 
 > `const` **principalToAccountIdentifier**: (`principal`, `subAccount?`) => `string`
 
-Defined in: packages/canisters/nns/utils/account\_identifier.utils.d.ts:5
+Defined in: packages/canisters/nns/utils/account_identifier.utils.d.ts:5
 
 ## Parameters
 

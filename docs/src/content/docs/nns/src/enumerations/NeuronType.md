@@ -15,7 +15,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:113
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:116
 
-***
+---
 
 ### Seed
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:116
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:115
 
-***
+---
 
 ### Unspecified
 

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:743
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:743
 
 ## Properties
 
@@ -13,20 +13,20 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:743
 
 > **developerDistribution**: [`Option`](../type-aliases/Option.md)\<[`DeveloperDistribution`](DeveloperDistribution.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:745
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:745
 
-***
+---
 
 ### swapDistribution
 
 > **swapDistribution**: [`Option`](../type-aliases/Option.md)\<[`SwapDistribution`](SwapDistribution.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:746
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:746
 
-***
+---
 
 ### treasuryDistribution
 
 > **treasuryDistribution**: [`Option`](../type-aliases/Option.md)\<[`SwapDistribution`](SwapDistribution.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:744
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:744

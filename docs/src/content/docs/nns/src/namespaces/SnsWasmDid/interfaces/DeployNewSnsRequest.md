@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:35
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:35
 
 ## Properties
 
-### sns\_init\_payload
+### sns_init_payload
 
-> **sns\_init\_payload**: \[\] \| \[[`SnsInitPayload`](SnsInitPayload.md)\]
+> **sns_init_payload**: \[\] \| \[[`SnsInitPayload`](SnsInitPayload.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:36
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:36

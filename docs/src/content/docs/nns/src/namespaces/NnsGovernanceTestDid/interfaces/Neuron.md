@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:657
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:657
 
 ## Properties
 
@@ -13,55 +13,55 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:657
 
 > **account**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:731
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:731
 
-***
+---
 
-### aging\_since\_timestamp\_seconds
+### aging_since_timestamp_seconds
 
-> **aging\_since\_timestamp\_seconds**: `bigint`
+> **aging_since_timestamp_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:729
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:729
 
-***
+---
 
-### auto\_stake\_maturity
+### auto_stake_maturity
 
-> **auto\_stake\_maturity**: \[\] \| \[`boolean`\]
+> **auto_stake_maturity**: \[\] \| \[`boolean`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:728
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:728
 
-***
+---
 
-### cached\_neuron\_stake\_e8s
+### cached_neuron_stake_e8s
 
-> **cached\_neuron\_stake\_e8s**: `bigint`
+> **cached_neuron_stake_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:726
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:726
 
-***
+---
 
 ### controller
 
 > **controller**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:660
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:660
 
-***
+---
 
-### created\_timestamp\_seconds
+### created_timestamp_seconds
 
-> **created\_timestamp\_seconds**: `bigint`
+> **created_timestamp_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:727
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:727
 
-***
+---
 
-### deciding\_voting\_power
+### deciding_voting_power
 
-> **deciding\_voting\_power**: \[\] \| \[`bigint`\]
+> **deciding_voting_power**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:725
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:725
 
 The amount of "sway" this neuron has when voting on proposals.
 
@@ -71,14 +71,14 @@ voting power at the time of proposal creation. There are two ways that a
 proposal can become decided:
 
 1. Early: Either more than half of the total voting power in the ballots
-votes in favor (then the proposal is approved), or at least half of the
-votal voting power in the ballots votes against (then, the proposal is
-rejected).
+   votes in favor (then the proposal is approved), or at least half of the
+   votal voting power in the ballots votes against (then, the proposal is
+   rejected).
 
 2. The proposal's voting deadline is reached. At that point, if there is
-more voting power in favor than against, and at least 3% of the total
-voting power voted in favor, then the proposal is approved. Otherwise, it
-is rejected.
+   more voting power in favor than against, and at least 3% of the total
+   voting power voted in favor, then the proposal is approved. Otherwise, it
+   is rejected.
 
 If a neuron regularly refreshes its voting power, this has the same value
 as potential_voting_power. Actions that cause a refresh are as follows:
@@ -99,112 +99,112 @@ For details, see https://dashboard.internetcomputer.org/proposal/132411.
 
 Per NNS policy, this is opt. Nevertheless, it will never be null.
 
-***
+---
 
-### dissolve\_state
+### dissolve_state
 
-> **dissolve\_state**: \[\] \| \[[`DissolveState`](../type-aliases/DissolveState.md)\]
+> **dissolve_state**: \[\] \| \[[`DissolveState`](../type-aliases/DissolveState.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:738
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:738
 
-***
+---
 
 ### followees
 
 > **followees**: \[`number`, [`Followees`](Followees.md)\][]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:739
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:739
 
-***
+---
 
-### hot\_keys
+### hot_keys
 
-> **hot\_keys**: `Principal`[]
+> **hot_keys**: `Principal`[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:730
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:730
 
-***
+---
 
 ### id
 
 > **id**: \[\] \| \[[`NeuronId`](NeuronId.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:658
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:658
 
-***
+---
 
-### joined\_community\_fund\_timestamp\_seconds
+### joined_community_fund_timestamp_seconds
 
-> **joined\_community\_fund\_timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **joined_community_fund_timestamp_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:732
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:732
 
-***
+---
 
-### known\_neuron\_data
+### known_neuron_data
 
-> **known\_neuron\_data**: \[\] \| \[[`KnownNeuronData`](KnownNeuronData.md)\]
+> **known_neuron_data**: \[\] \| \[[`KnownNeuronData`](KnownNeuronData.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:743
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:743
 
-***
+---
 
-### kyc\_verified
+### kyc_verified
 
-> **kyc\_verified**: `boolean`
+> **kyc_verified**: `boolean`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:663
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:663
 
-***
+---
 
-### maturity\_disbursements\_in\_progress
+### maturity_disbursements_in_progress
 
-> **maturity\_disbursements\_in\_progress**: \[\] \| \[[`MaturityDisbursement`](MaturityDisbursement.md)[]\]
+> **maturity_disbursements_in_progress**: \[\] \| \[[`MaturityDisbursement`](MaturityDisbursement.md)[]\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:737
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:737
 
 The maturity disbursements in progress, i.e. the disbursements that are initiated but not
 finalized. The finalization happens 7 days after the disbursement is initiated.
 
-***
+---
 
-### maturity\_e8s\_equivalent
+### maturity_e8s_equivalent
 
-> **maturity\_e8s\_equivalent**: `bigint`
+> **maturity_e8s_equivalent**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:687
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:687
 
-***
+---
 
-### neuron\_fees\_e8s
+### neuron_fees_e8s
 
-> **neuron\_fees\_e8s**: `bigint`
+> **neuron_fees_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:740
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:740
 
-***
+---
 
-### neuron\_type
+### neuron_type
 
-> **neuron\_type**: \[\] \| \[`number`\]
+> **neuron_type**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:685
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:685
 
-***
+---
 
-### not\_for\_profit
+### not_for_profit
 
-> **not\_for\_profit**: `boolean`
+> **not_for_profit**: `boolean`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:686
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:686
 
-***
+---
 
-### potential\_voting\_power
+### potential_voting_power
 
-> **potential\_voting\_power**: \[\] \| \[`bigint`\]
+> **potential_voting_power**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:684
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:684
 
 The amount of "sway" this neuron can have if it refreshes its voting power
 frequently enough.
@@ -213,62 +213,62 @@ Unlike deciding_voting_power, this does NOT take refreshing into account.
 Rather, this only takes three factors into account:
 
 1. (Net) staked amount - This is the "base" of a neuron's voting power.
-This primarily consists of the neuron's ICP balance.
+   This primarily consists of the neuron's ICP balance.
 
 2. Age - Neurons with more age have more voting power (all else being
-equal).
+   equal).
 
 3. Dissolve delay - Neurons with longer dissolve delay have more voting
-power (all else being equal). Neurons with a dissolve delay of less
-than six months are not eligible to vote. Therefore, such neurons
-are considered to have 0 voting power.
+   power (all else being equal). Neurons with a dissolve delay of less
+   than six months are not eligible to vote. Therefore, such neurons
+   are considered to have 0 voting power.
 
 Per NNS policy, this is opt. Nevertheless, it will never be null.
 
-***
+---
 
-### recent\_ballots
+### recent_ballots
 
-> **recent\_ballots**: [`BallotInfo`](BallotInfo.md)[]
+> **recent_ballots**: [`BallotInfo`](BallotInfo.md)[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:661
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:661
 
-***
+---
 
-### spawn\_at\_timestamp\_seconds
+### spawn_at_timestamp_seconds
 
-> **spawn\_at\_timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **spawn_at_timestamp_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:744
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:744
 
-***
+---
 
-### staked\_maturity\_e8s\_equivalent
+### staked_maturity_e8s_equivalent
 
-> **staked\_maturity\_e8s\_equivalent**: \[\] \| \[`bigint`\]
+> **staked_maturity_e8s_equivalent**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:659
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:659
 
-***
+---
 
 ### transfer
 
 > **transfer**: \[\] \| \[[`NeuronStakeTransfer`](NeuronStakeTransfer.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:742
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:742
 
-***
+---
 
 ### visibility
 
 > **visibility**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:741
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:741
 
-***
+---
 
-### voting\_power\_refreshed\_timestamp\_seconds
+### voting_power_refreshed_timestamp_seconds
 
-> **voting\_power\_refreshed\_timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **voting_power_refreshed_timestamp_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:662
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:662

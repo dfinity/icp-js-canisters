@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:373
 
 ## Properties
 
-### base64\_encoding
+### base64_encoding
 
-> **base64\_encoding**: \[\] \| \[`string`\]
+> **base64_encoding**: \[\] \| \[`string`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:374

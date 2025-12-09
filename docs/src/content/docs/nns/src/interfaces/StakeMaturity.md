@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:334
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:334
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:334
 
 > **percentageToStake**: [`Option`](../type-aliases/Option.md)\<`number`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:335
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:335

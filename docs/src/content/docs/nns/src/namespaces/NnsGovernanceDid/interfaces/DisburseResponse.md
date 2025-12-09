@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:196
 
 ## Properties
 
-### transfer\_block\_height
+### transfer_block_height
 
-> **transfer\_block\_height**: `bigint`
+> **transfer_block_height**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:197

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1146
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1146
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1146
 
 > **action**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1147
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1147
 
-***
+---
 
-### canister\_id
+### canister_id
 
-> **canister\_id**: \[\] \| \[`Principal`\]
+> **canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1148
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1148

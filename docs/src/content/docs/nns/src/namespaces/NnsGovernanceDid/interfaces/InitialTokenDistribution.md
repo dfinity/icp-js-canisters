@@ -9,24 +9,24 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:379
 
 ## Properties
 
-### developer\_distribution
+### developer_distribution
 
-> **developer\_distribution**: \[\] \| \[[`DeveloperDistribution`](DeveloperDistribution.md)\]
+> **developer_distribution**: \[\] \| \[[`DeveloperDistribution`](DeveloperDistribution.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:381
 
-***
+---
 
-### swap\_distribution
+### swap_distribution
 
-> **swap\_distribution**: \[\] \| \[[`SwapDistribution`](SwapDistribution.md)\]
+> **swap_distribution**: \[\] \| \[[`SwapDistribution`](SwapDistribution.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:382
 
-***
+---
 
-### treasury\_distribution
+### treasury_distribution
 
-> **treasury\_distribution**: \[\] \| \[[`SwapDistribution`](SwapDistribution.md)\]
+> **treasury_distribution**: \[\] \| \[[`SwapDistribution`](SwapDistribution.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:380

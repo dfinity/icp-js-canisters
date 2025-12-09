@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:277
 
 ## Properties
 
-### return\_self\_describing\_action
+### return_self_describing_action
 
-> **return\_self\_describing\_action**: \[\] \| \[`boolean`\]
+> **return_self_describing_action**: \[\] \| \[`boolean`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:278

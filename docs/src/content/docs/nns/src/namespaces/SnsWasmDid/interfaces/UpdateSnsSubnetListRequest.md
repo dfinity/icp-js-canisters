@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:266
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:266
 
 ## Properties
 
-### sns\_subnet\_ids\_to\_add
+### sns_subnet_ids_to_add
 
-> **sns\_subnet\_ids\_to\_add**: `Principal`[]
+> **sns_subnet_ids_to_add**: `Principal`[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:267
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:267
 
-***
+---
 
-### sns\_subnet\_ids\_to\_remove
+### sns_subnet_ids_to_remove
 
-> **sns\_subnet\_ids\_to\_remove**: `Principal`[]
+> **sns_subnet_ids_to_remove**: `Principal`[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:268
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:268

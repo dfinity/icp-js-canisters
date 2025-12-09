@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:494
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:494
 
 ## Properties
 
@@ -13,28 +13,28 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:494
 
 > **action**: [`Option`](../type-aliases/Option.md)\<[`Action`](../type-aliases/Action.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:497
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:497
 
-***
+---
 
 ### summary
 
 > **summary**: `string`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:498
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:498
 
-***
+---
 
 ### title
 
 > **title**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:495
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:495
 
-***
+---
 
 ### url
 
 > **url**: `string`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:496
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:496

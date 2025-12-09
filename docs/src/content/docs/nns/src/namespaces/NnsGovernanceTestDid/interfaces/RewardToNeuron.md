@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1081
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1081
 
 ## Properties
 
-### dissolve\_delay\_seconds
+### dissolve_delay_seconds
 
-> **dissolve\_delay\_seconds**: `bigint`
+> **dissolve_delay_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1082
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1082

@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:77
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:77
 
 ## Properties
 
-### next\_version
+### next_version
 
-> **next\_version**: \[\] \| \[[`SnsVersion`](SnsVersion.md)\]
+> **next_version**: \[\] \| \[[`SnsVersion`](SnsVersion.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:78
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:78

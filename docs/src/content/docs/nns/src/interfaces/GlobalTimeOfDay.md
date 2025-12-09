@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:675
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:675
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:675
 
 > **secondsAfterUtcMidnight**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:676
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:676

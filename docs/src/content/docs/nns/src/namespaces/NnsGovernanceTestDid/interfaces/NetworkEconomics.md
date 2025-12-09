@@ -5,86 +5,86 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:642
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:642
 
 ## Properties
 
-### max\_proposals\_to\_keep\_per\_topic
+### max_proposals_to_keep_per_topic
 
-> **max\_proposals\_to\_keep\_per\_topic**: `number`
+> **max_proposals_to_keep_per_topic**: `number`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:648
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:648
 
-***
+---
 
-### maximum\_node\_provider\_rewards\_e8s
+### maximum_node_provider_rewards_e8s
 
-> **maximum\_node\_provider\_rewards\_e8s**: `bigint`
+> **maximum_node_provider_rewards_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:654
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:654
 
-***
+---
 
-### minimum\_icp\_xdr\_rate
+### minimum_icp_xdr_rate
 
-> **minimum\_icp\_xdr\_rate**: `bigint`
+> **minimum_icp_xdr_rate**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:653
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:653
 
-***
+---
 
-### neuron\_management\_fee\_per\_proposal\_e8s
+### neuron_management_fee_per_proposal_e8s
 
-> **neuron\_management\_fee\_per\_proposal\_e8s**: `bigint`
+> **neuron_management_fee_per_proposal_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:649
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:649
 
-***
+---
 
-### neuron\_minimum\_stake\_e8s
+### neuron_minimum_stake_e8s
 
-> **neuron\_minimum\_stake\_e8s**: `bigint`
+> **neuron_minimum_stake_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:643
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:643
 
-***
+---
 
-### neuron\_spawn\_dissolve\_delay\_seconds
+### neuron_spawn_dissolve_delay_seconds
 
-> **neuron\_spawn\_dissolve\_delay\_seconds**: `bigint`
+> **neuron_spawn_dissolve_delay_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:652
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:652
 
-***
+---
 
-### neurons\_fund\_economics
+### neurons_fund_economics
 
-> **neurons\_fund\_economics**: \[\] \| \[[`NeuronsFundEconomics`](NeuronsFundEconomics.md)\]
+> **neurons_fund_economics**: \[\] \| \[[`NeuronsFundEconomics`](NeuronsFundEconomics.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:655
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:655
 
-***
+---
 
-### reject\_cost\_e8s
+### reject_cost_e8s
 
-> **reject\_cost\_e8s**: `bigint`
+> **reject_cost_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:650
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:650
 
-***
+---
 
-### transaction\_fee\_e8s
+### transaction_fee_e8s
 
-> **transaction\_fee\_e8s**: `bigint`
+> **transaction_fee_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:651
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:651
 
-***
+---
 
-### voting\_power\_economics
+### voting_power_economics
 
-> **voting\_power\_economics**: \[\] \| \[[`VotingPowerEconomics`](VotingPowerEconomics.md)\]
+> **voting_power_economics**: \[\] \| \[[`VotingPowerEconomics`](VotingPowerEconomics.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:647
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:647
 
 Parameters that affect the voting power of neurons.

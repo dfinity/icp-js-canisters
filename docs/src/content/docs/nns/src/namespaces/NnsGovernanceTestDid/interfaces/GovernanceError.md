@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:354
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:354
 
 ## Properties
 
-### error\_message
+### error_message
 
-> **error\_message**: `string`
+> **error_message**: `string`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:355
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:355
 
-***
+---
 
-### error\_type
+### error_type
 
-> **error\_type**: `number`
+> **error_type**: `number`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:356
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:356

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:501
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:501
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:501
 
 > **rewards**: [`MonthlyNodeProviderRewards`](MonthlyNodeProviderRewards.md)[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:502
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:502

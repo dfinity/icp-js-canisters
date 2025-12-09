@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:172
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:172
 
 ## Properties
 
-### human\_readable
+### human_readable
 
-> **human\_readable**: \[\] \| \[`string`\]
+> **human_readable**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:173
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:173

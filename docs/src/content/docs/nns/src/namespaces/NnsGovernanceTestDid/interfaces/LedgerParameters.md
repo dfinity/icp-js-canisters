@@ -5,36 +5,36 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:413
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:413
 
 ## Properties
 
-### token\_logo
+### token_logo
 
-> **token\_logo**: \[\] \| \[[`Image`](Image.md)\]
+> **token_logo**: \[\] \| \[[`Image`](Image.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:416
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:416
 
-***
+---
 
-### token\_name
+### token_name
 
-> **token\_name**: \[\] \| \[`string`\]
+> **token_name**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:417
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:417
 
-***
+---
 
-### token\_symbol
+### token_symbol
 
-> **token\_symbol**: \[\] \| \[`string`\]
+> **token_symbol**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:415
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:415
 
-***
+---
 
-### transaction\_fee
+### transaction_fee
 
-> **transaction\_fee**: \[\] \| \[[`Tokens`](Tokens.md)\]
+> **transaction_fee**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:414
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:414

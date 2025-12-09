@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1102
 
 ## Properties
 
-### topic\_following
+### topic_following
 
-> **topic\_following**: \[\] \| \[[`FolloweesForTopic`](FolloweesForTopic.md)[]\]
+> **topic_following**: \[\] \| \[[`FolloweesForTopic`](FolloweesForTopic.md)[]\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1103

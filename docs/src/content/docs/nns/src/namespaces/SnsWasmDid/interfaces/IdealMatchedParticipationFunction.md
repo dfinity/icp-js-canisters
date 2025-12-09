@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:101
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:101
 
 ## Properties
 
-### serialized\_representation
+### serialized_representation
 
-> **serialized\_representation**: \[\] \| \[`string`\]
+> **serialized_representation**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:102
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:102

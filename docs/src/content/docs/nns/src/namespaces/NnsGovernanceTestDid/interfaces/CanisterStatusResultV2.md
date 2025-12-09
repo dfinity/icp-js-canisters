@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:75
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:75
 
 ## Properties
 
@@ -13,52 +13,52 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:75
 
 > **controllers**: `Principal`[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:78
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:78
 
-***
+---
 
 ### cycles
 
 > **cycles**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:80
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:80
 
-***
+---
 
-### freezing\_threshold
+### freezing_threshold
 
-> **freezing\_threshold**: \[\] \| \[`bigint`\]
+> **freezing_threshold**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:77
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:77
 
-***
+---
 
-### idle\_cycles\_burned\_per\_day
+### idle_cycles_burned_per_day
 
-> **idle\_cycles\_burned\_per\_day**: \[\] \| \[`bigint`\]
+> **idle_cycles_burned_per_day**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:81
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:81
 
-***
+---
 
-### memory\_size
+### memory_size
 
-> **memory\_size**: \[\] \| \[`bigint`\]
+> **memory_size**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:79
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:79
 
-***
+---
 
-### module\_hash
+### module_hash
 
-> **module\_hash**: `Uint8Array`
+> **module_hash**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:82
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:82
 
-***
+---
 
 ### status
 
 > **status**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:76
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:76

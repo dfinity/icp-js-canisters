@@ -15,10 +15,10 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:526
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:527
 
-***
+---
 
-### proposal\_id
+### proposal_id
 
-> **proposal\_id**: \[\] \| \[[`ProposalId`](ProposalId.md)\]
+> **proposal_id**: \[\] \| \[[`ProposalId`](ProposalId.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:528

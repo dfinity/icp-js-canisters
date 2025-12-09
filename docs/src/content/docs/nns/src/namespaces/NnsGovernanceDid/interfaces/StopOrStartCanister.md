@@ -15,10 +15,10 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1146
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1147
 
-***
+---
 
-### canister\_id
+### canister_id
 
-> **canister\_id**: \[\] \| \[`Principal`\]
+> **canister_id**: \[\] \| \[`Principal`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1148

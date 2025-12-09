@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1102
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1102
 
 ## Properties
 
-### topic\_following
+### topic_following
 
-> **topic\_following**: \[\] \| \[[`FolloweesForTopic`](FolloweesForTopic.md)[]\]
+> **topic_following**: \[\] \| \[[`FolloweesForTopic`](FolloweesForTopic.md)[]\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1103
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1103

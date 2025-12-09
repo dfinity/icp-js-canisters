@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:693
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:693
 
 ## Properties
 
@@ -13,20 +13,20 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:693
 
 > **finalRewardRate**: [`Option`](../type-aliases/Option.md)\<[`Percentage`](Percentage.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:696
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:696
 
-***
+---
 
 ### initialRewardRate
 
 > **initialRewardRate**: [`Option`](../type-aliases/Option.md)\<[`Percentage`](Percentage.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:695
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:695
 
-***
+---
 
 ### rewardRateTransitionDuration
 
 > **rewardRateTransitionDuration**: [`Option`](../type-aliases/Option.md)\<[`Duration`](Duration.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:694
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:694

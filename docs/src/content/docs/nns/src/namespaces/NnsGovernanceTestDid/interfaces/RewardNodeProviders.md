@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1074
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1074
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1074
 
 > **rewards**: [`RewardNodeProvider`](RewardNodeProvider.md)[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1076
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1076
 
-***
+---
 
-### use\_registry\_derived\_rewards
+### use_registry_derived_rewards
 
-> **use\_registry\_derived\_rewards**: \[\] \| \[`boolean`\]
+> **use_registry_derived_rewards**: \[\] \| \[`boolean`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1075
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1075

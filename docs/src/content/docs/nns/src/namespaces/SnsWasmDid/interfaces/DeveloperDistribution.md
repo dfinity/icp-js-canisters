@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:51
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:51
 
 ## Properties
 
-### developer\_neurons
+### developer_neurons
 
-> **developer\_neurons**: [`NeuronDistribution`](NeuronDistribution.md)[]
+> **developer_neurons**: [`NeuronDistribution`](NeuronDistribution.md)[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:52
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:52

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:256
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:256
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:256
 
 > **dissolveTimestampSeconds**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:257
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:257

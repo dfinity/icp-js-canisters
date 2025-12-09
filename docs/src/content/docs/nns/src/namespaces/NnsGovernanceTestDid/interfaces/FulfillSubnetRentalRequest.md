@@ -5,28 +5,28 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:231
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:231
 
 Creates a rented subnet from a rental request (in the Subnet Rental
 canister).
 
 ## Properties
 
-### node\_ids
+### node_ids
 
-> **node\_ids**: \[\] \| \[`Principal`[]\]
+> **node_ids**: \[\] \| \[`Principal`[]\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:262
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:262
 
 Which nodes will be members of the subnet.
 
-***
+---
 
-### replica\_version\_id
+### replica_version_id
 
-> **replica\_version\_id**: \[\] \| \[`string`\]
+> **replica_version_id**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:258
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:258
 
 What software the nodes will run.
 
@@ -46,13 +46,13 @@ Where to obtain a recent version of ic-admin:
 
 https://github.com/dfinity/ic/releases/latest
 
-***
+---
 
 ### user
 
 > **user**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:238
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:238
 
 Identifies which rental request to fulfill.
 

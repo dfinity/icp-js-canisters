@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:227
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:227
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:227
 
 > **owner**: [`Option`](../type-aliases/Option.md)\<`Principal`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:228
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:228
 
-***
+---
 
 ### subaccount
 
 > **subaccount**: [`Option`](../type-aliases/Option.md)\<`number`[]\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:229
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:229

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:904
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:904
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:904
 
 > **id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:905
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:905
 
-***
+---
 
-### reward\_account
+### reward_account
 
-> **reward\_account**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
+> **reward_account**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:906
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:906

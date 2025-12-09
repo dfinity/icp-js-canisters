@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:196
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:196
 
 ## Properties
 
-### transfer\_block\_height
+### transfer_block_height
 
-> **transfer\_block\_height**: `bigint`
+> **transfer_block_height**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:197
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:197

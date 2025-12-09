@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/governance\_test.canister.d.ts:4
+Defined in: packages/canisters/nns/governance_test.canister.d.ts:4
 
 ## Methods
 
@@ -13,7 +13,7 @@ Defined in: packages/canisters/nns/governance\_test.canister.d.ts:4
 
 > **updateNeuron**(`neuron`): `Promise`\<\[\] \| \[[`GovernanceError`](../namespaces/NnsGovernanceTestDid/interfaces/GovernanceError.md)\]\>
 
-Defined in: packages/canisters/nns/governance\_test.canister.d.ts:14
+Defined in: packages/canisters/nns/governance_test.canister.d.ts:14
 
 Test method to update fields of a neuron.
 
@@ -29,13 +29,13 @@ Only available in the governance test canister.
 
 `Promise`\<\[\] \| \[[`GovernanceError`](../namespaces/NnsGovernanceTestDid/interfaces/GovernanceError.md)\]\>
 
-***
+---
 
 ### create()
 
 > `static` **create**(`options?`): `GovernanceTestCanister`
 
-Defined in: packages/canisters/nns/governance\_test.canister.d.ts:8
+Defined in: packages/canisters/nns/governance_test.canister.d.ts:8
 
 #### Parameters
 

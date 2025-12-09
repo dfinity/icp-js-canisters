@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:270
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:270
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:270
 
 > **error**: \[\] \| \[[`SnsWasmError`](SnsWasmError.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:271
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:271

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:278
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:278
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:278
 
 > **proposalId**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:279
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:279

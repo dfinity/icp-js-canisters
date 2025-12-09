@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:541
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:541
 
 ## Properties
 
@@ -13,20 +13,20 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:541
 
 > **dissolveDelayInSecs**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:544
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:544
 
-***
+---
 
 ### nonce
 
 > **nonce**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:543
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:543
 
-***
+---
 
 ### publicKey
 
 > **publicKey**: `DerEncodedPublicKey`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:542
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:542

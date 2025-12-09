@@ -9,64 +9,64 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:889
 
 ## Properties
 
-### allocated\_neurons\_fund\_participation\_icp\_e8s
+### allocated_neurons_fund_participation_icp_e8s
 
-> **allocated\_neurons\_fund\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **allocated_neurons_fund_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:899
 
-***
+---
 
-### direct\_participation\_icp\_e8s
+### direct_participation_icp_e8s
 
-> **direct\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **direct_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:892
 
-***
+---
 
-### ideal\_matched\_participation\_function
+### ideal_matched_participation_function
 
-> **ideal\_matched\_participation\_function**: \[\] \| \[[`IdealMatchedParticipationFunction`](IdealMatchedParticipationFunction.md)\]
+> **ideal_matched_participation_function**: \[\] \| \[[`IdealMatchedParticipationFunction`](IdealMatchedParticipationFunction.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:896
 
-***
+---
 
-### intended\_neurons\_fund\_participation\_icp\_e8s
+### intended_neurons_fund_participation_icp_e8s
 
-> **intended\_neurons\_fund\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **intended_neurons_fund_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:891
 
-***
+---
 
-### max\_neurons\_fund\_swap\_participation\_icp\_e8s
+### max_neurons_fund_swap_participation_icp_e8s
 
-> **max\_neurons\_fund\_swap\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **max_neurons_fund_swap_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:894
 
-***
+---
 
-### neurons\_fund\_reserves
+### neurons_fund_reserves
 
-> **neurons\_fund\_reserves**: \[\] \| \[[`NeuronsFundSnapshot`](NeuronsFundSnapshot.md)\]
+> **neurons_fund_reserves**: \[\] \| \[[`NeuronsFundSnapshot`](NeuronsFundSnapshot.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:895
 
-***
+---
 
-### swap\_participation\_limits
+### swap_participation_limits
 
-> **swap\_participation\_limits**: \[\] \| \[[`SwapParticipationLimits`](SwapParticipationLimits.md)\]
+> **swap_participation_limits**: \[\] \| \[[`SwapParticipationLimits`](SwapParticipationLimits.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:893
 
-***
+---
 
-### total\_maturity\_equivalent\_icp\_e8s
+### total_maturity_equivalent_icp_e8s
 
-> **total\_maturity\_equivalent\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **total_maturity_equivalent_icp_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:890

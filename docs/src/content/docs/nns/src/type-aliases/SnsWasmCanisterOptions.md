@@ -7,4 +7,4 @@ prev: true
 
 > **SnsWasmCanisterOptions** = `CanisterOptions`\<[`_SERVICE`](../namespaces/SnsWasmDid/interfaces/SERVICE.md)\>
 
-Defined in: packages/canisters/nns/types/sns\_wasm.options.d.ts:3
+Defined in: packages/canisters/nns/types/sns_wasm.options.d.ts:3

@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1120
 
 ## Properties
 
-### nns\_proposal\_id
+### nns_proposal_id
 
-> **nns\_proposal\_id**: \[\] \| \[`bigint`\]
+> **nns_proposal_id**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1122
 
-***
+---
 
 ### result
 

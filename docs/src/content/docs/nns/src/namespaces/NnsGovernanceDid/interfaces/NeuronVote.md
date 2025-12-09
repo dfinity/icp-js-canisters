@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:844
 
 ## Properties
 
-### proposal\_id
+### proposal_id
 
-> **proposal\_id**: \[\] \| \[[`ProposalId`](ProposalId.md)\]
+> **proposal_id**: \[\] \| \[[`ProposalId`](ProposalId.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:849
 
-***
+---
 
 ### vote
 

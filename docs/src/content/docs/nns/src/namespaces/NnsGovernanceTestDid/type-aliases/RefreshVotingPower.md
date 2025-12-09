@@ -7,7 +7,7 @@ prev: true
 
 > **RefreshVotingPower** = `object`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1023
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1023
 
 This is one way for a neuron to make sure that its deciding_voting_power is
 not less than its potential_voting_power. See the description of those fields

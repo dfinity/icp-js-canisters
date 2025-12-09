@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:243
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:243
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:243
 
 > **additionalDissolveDelaySeconds**: `number`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:244
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:244

@@ -5,308 +5,308 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:180
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:180
 
 ## Properties
 
-### confirmation\_text
+### confirmation_text
 
-> **confirmation\_text**: \[\] \| \[`string`\]
+> **confirmation_text**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:195
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:195
 
-***
+---
 
-### dapp\_canisters
+### dapp_canisters
 
-> **dapp\_canisters**: \[\] \| \[[`DappCanisters`](DappCanisters.md)\]
+> **dapp_canisters**: \[\] \| \[[`DappCanisters`](DappCanisters.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:208
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:208
 
-***
+---
 
 ### description
 
 > **description**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:202
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:202
 
-***
+---
 
-### fallback\_controller\_principal\_ids
+### fallback_controller_principal_ids
 
-> **fallback\_controller\_principal\_ids**: `string`[]
+> **fallback_controller_principal_ids**: `string`[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:190
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:190
 
-***
+---
 
-### final\_reward\_rate\_basis\_points
+### final_reward_rate_basis_points
 
-> **final\_reward\_rate\_basis\_points**: \[\] \| \[`bigint`\]
+> **final_reward_rate_basis_points**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:192
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:192
 
-***
+---
 
-### initial\_reward\_rate\_basis\_points
+### initial_reward_rate_basis_points
 
-> **initial\_reward\_rate\_basis\_points**: \[\] \| \[`bigint`\]
+> **initial_reward_rate_basis_points**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:205
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:205
 
-***
+---
 
-### initial\_token\_distribution
+### initial_token_distribution
 
-> **initial\_token\_distribution**: \[\] \| \[[`InitialTokenDistribution`](../type-aliases/InitialTokenDistribution.md)\]
+> **initial_token_distribution**: \[\] \| \[[`InitialTokenDistribution`](../type-aliases/InitialTokenDistribution.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:213
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:213
 
-***
+---
 
-### initial\_voting\_period\_seconds
+### initial_voting_period_seconds
 
-> **initial\_voting\_period\_seconds**: \[\] \| \[`bigint`\]
+> **initial_voting_period_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:200
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:200
 
-***
+---
 
 ### logo
 
 > **logo**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:196
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:196
 
-***
+---
 
-### max\_age\_bonus\_percentage
+### max_age_bonus_percentage
 
-> **max\_age\_bonus\_percentage**: \[\] \| \[`bigint`\]
+> **max_age_bonus_percentage**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:212
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:212
 
-***
+---
 
-### max\_direct\_participation\_icp\_e8s
+### max_direct_participation_icp_e8s
 
-> **max\_direct\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **max_direct_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:222
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:222
 
-***
+---
 
-### max\_dissolve\_delay\_bonus\_percentage
+### max_dissolve_delay_bonus_percentage
 
-> **max\_dissolve\_delay\_bonus\_percentage**: \[\] \| \[`bigint`\]
+> **max_dissolve_delay_bonus_percentage**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:183
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:183
 
-***
+---
 
-### max\_dissolve\_delay\_seconds
+### max_dissolve_delay_seconds
 
-> **max\_dissolve\_delay\_seconds**: \[\] \| \[`bigint`\]
+> **max_dissolve_delay_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:182
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:182
 
-***
+---
 
-### max\_icp\_e8s
+### max_icp_e8s
 
-> **max\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **max_icp_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:193
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:193
 
-***
+---
 
-### max\_neuron\_age\_seconds\_for\_age\_bonus
+### max_neuron_age_seconds_for_age_bonus
 
-> **max\_neuron\_age\_seconds\_for\_age\_bonus**: \[\] \| \[`bigint`\]
+> **max_neuron_age_seconds_for_age_bonus**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:203
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:203
 
-***
+---
 
-### max\_participant\_icp\_e8s
+### max_participant_icp_e8s
 
-> **max\_participant\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **max_participant_icp_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:217
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:217
 
-***
+---
 
-### min\_direct\_participation\_icp\_e8s
+### min_direct_participation_icp_e8s
 
-> **min\_direct\_participation\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **min_direct_participation_icp_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:218
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:218
 
-***
+---
 
-### min\_icp\_e8s
+### min_icp_e8s
 
-> **min\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **min_icp_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:221
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:221
 
-***
+---
 
-### min\_participant\_icp\_e8s
+### min_participant_icp_e8s
 
-> **min\_participant\_icp\_e8s**: \[\] \| \[`bigint`\]
+> **min_participant_icp_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:186
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:186
 
-***
+---
 
-### min\_participants
+### min_participants
 
-> **min\_participants**: \[\] \| \[`bigint`\]
+> **min_participants**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:204
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:204
 
-***
+---
 
 ### name
 
 > **name**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:197
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:197
 
-***
+---
 
-### neuron\_basket\_construction\_parameters
+### neuron_basket_construction_parameters
 
-> **neuron\_basket\_construction\_parameters**: \[\] \| \[[`NeuronBasketConstructionParameters`](NeuronBasketConstructionParameters.md)\]
+> **neuron_basket_construction_parameters**: \[\] \| \[[`NeuronBasketConstructionParameters`](NeuronBasketConstructionParameters.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:187
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:187
 
-***
+---
 
-### neuron\_minimum\_dissolve\_delay\_to\_vote\_seconds
+### neuron_minimum_dissolve_delay_to_vote_seconds
 
-> **neuron\_minimum\_dissolve\_delay\_to\_vote\_seconds**: \[\] \| \[`bigint`\]
+> **neuron_minimum_dissolve_delay_to_vote_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:201
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:201
 
-***
+---
 
-### neuron\_minimum\_stake\_e8s
+### neuron_minimum_stake_e8s
 
-> **neuron\_minimum\_stake\_e8s**: \[\] \| \[`bigint`\]
+> **neuron_minimum_stake_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:194
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:194
 
-***
+---
 
-### neurons\_fund\_participation
+### neurons_fund_participation
 
-> **neurons\_fund\_participation**: \[\] \| \[`boolean`\]
+> **neurons_fund_participation**: \[\] \| \[`boolean`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:185
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:185
 
-***
+---
 
-### neurons\_fund\_participation\_constraints
+### neurons_fund_participation_constraints
 
-> **neurons\_fund\_participation\_constraints**: \[\] \| \[[`NeuronsFundParticipationConstraints`](NeuronsFundParticipationConstraints.md)\]
+> **neurons_fund_participation_constraints**: \[\] \| \[[`NeuronsFundParticipationConstraints`](NeuronsFundParticipationConstraints.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:209
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:209
 
-***
+---
 
-### nns\_proposal\_id
+### nns_proposal_id
 
-> **nns\_proposal\_id**: \[\] \| \[`bigint`\]
+> **nns_proposal_id**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:184
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:184
 
-***
+---
 
-### proposal\_reject\_cost\_e8s
+### proposal_reject_cost_e8s
 
-> **proposal\_reject\_cost\_e8s**: \[\] \| \[`bigint`\]
+> **proposal_reject_cost_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:219
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:219
 
-***
+---
 
-### restricted\_countries
+### restricted_countries
 
-> **restricted\_countries**: \[\] \| \[[`Countries`](Countries.md)\]
+> **restricted_countries**: \[\] \| \[[`Countries`](Countries.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:220
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:220
 
-***
+---
 
-### reward\_rate\_transition\_duration\_seconds
+### reward_rate_transition_duration_seconds
 
-> **reward\_rate\_transition\_duration\_seconds**: \[\] \| \[`bigint`\]
+> **reward_rate_transition_duration_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:214
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:214
 
-***
+---
 
-### swap\_due\_timestamp\_seconds
+### swap_due_timestamp_seconds
 
-> **swap\_due\_timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **swap_due_timestamp_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:199
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:199
 
-***
+---
 
-### swap\_start\_timestamp\_seconds
+### swap_start_timestamp_seconds
 
-> **swap\_start\_timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **swap_start_timestamp_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:198
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:198
 
-***
+---
 
-### token\_logo
+### token_logo
 
-> **token\_logo**: \[\] \| \[`string`\]
+> **token_logo**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:215
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:215
 
-***
+---
 
-### token\_name
+### token_name
 
-> **token\_name**: \[\] \| \[`string`\]
+> **token_name**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:216
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:216
 
-***
+---
 
-### token\_symbol
+### token_symbol
 
-> **token\_symbol**: \[\] \| \[`string`\]
+> **token_symbol**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:191
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:191
 
-***
+---
 
-### transaction\_fee\_e8s
+### transaction_fee_e8s
 
-> **transaction\_fee\_e8s**: \[\] \| \[`bigint`\]
+> **transaction_fee_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:207
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:207
 
-***
+---
 
 ### url
 
 > **url**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:181
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:181
 
-***
+---
 
-### wait\_for\_quiet\_deadline\_increase\_seconds
+### wait_for_quiet_deadline_increase_seconds
 
-> **wait\_for\_quiet\_deadline\_increase\_seconds**: \[\] \| \[`bigint`\]
+> **wait_for_quiet_deadline_increase_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:206
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:206

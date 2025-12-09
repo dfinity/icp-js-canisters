@@ -5,28 +5,28 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:54
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:54
 
 ## Properties
 
-### developer\_distribution
+### developer_distribution
 
-> **developer\_distribution**: \[\] \| \[[`DeveloperDistribution`](DeveloperDistribution.md)\]
+> **developer_distribution**: \[\] \| \[[`DeveloperDistribution`](DeveloperDistribution.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:56
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:56
 
-***
+---
 
-### swap\_distribution
+### swap_distribution
 
-> **swap\_distribution**: \[\] \| \[[`SwapDistribution`](SwapDistribution.md)\]
+> **swap_distribution**: \[\] \| \[[`SwapDistribution`](SwapDistribution.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:57
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:57
 
-***
+---
 
-### treasury\_distribution
+### treasury_distribution
 
-> **treasury\_distribution**: \[\] \| \[[`TreasuryDistribution`](TreasuryDistribution.md)\]
+> **treasury_distribution**: \[\] \| \[[`TreasuryDistribution`](TreasuryDistribution.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:55
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:55

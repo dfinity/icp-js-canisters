@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:635
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:635
 
 ## Properties
 
@@ -13,36 +13,36 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:635
 
 > **networkEconomics**: [`NetworkEconomics`](NetworkEconomics.md)
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:640
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:640
 
-***
+---
 
 ### neuronId
 
 > **neuronId**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:636
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:636
 
-***
+---
 
 ### summary
 
 > **summary**: `string`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:638
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:638
 
-***
+---
 
 ### title
 
 > **title**: [`Option`](../type-aliases/Option.md)\<`string`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:637
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:637
 
-***
+---
 
 ### url
 
 > **url**: `string`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:639
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:639

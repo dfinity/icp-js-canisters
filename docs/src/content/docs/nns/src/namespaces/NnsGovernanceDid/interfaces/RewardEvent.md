@@ -9,56 +9,56 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1057
 
 ## Properties
 
-### actual\_timestamp\_seconds
+### actual_timestamp_seconds
 
-> **actual\_timestamp\_seconds**: `bigint`
+> **actual_timestamp_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1060
 
-***
+---
 
-### day\_after\_genesis
+### day_after_genesis
 
-> **day\_after\_genesis**: `bigint`
+> **day_after_genesis**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1059
 
-***
+---
 
-### distributed\_e8s\_equivalent
+### distributed_e8s_equivalent
 
-> **distributed\_e8s\_equivalent**: `bigint`
+> **distributed_e8s_equivalent**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1063
 
-***
+---
 
-### latest\_round\_available\_e8s\_equivalent
+### latest_round_available_e8s_equivalent
 
-> **latest\_round\_available\_e8s\_equivalent**: \[\] \| \[`bigint`\]
+> **latest_round_available_e8s_equivalent**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1062
 
-***
+---
 
-### rounds\_since\_last\_distribution
+### rounds_since_last_distribution
 
-> **rounds\_since\_last\_distribution**: \[\] \| \[`bigint`\]
+> **rounds_since_last_distribution**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1058
 
-***
+---
 
-### settled\_proposals
+### settled_proposals
 
-> **settled\_proposals**: [`ProposalId`](ProposalId.md)[]
+> **settled_proposals**: [`ProposalId`](ProposalId.md)[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1064
 
-***
+---
 
-### total\_available\_e8s\_equivalent
+### total_available_e8s_equivalent
 
-> **total\_available\_e8s\_equivalent**: `bigint`
+> **total_available_e8s_equivalent**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1061

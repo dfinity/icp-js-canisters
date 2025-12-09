@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:212
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:212
 
 ## Properties
 
-### nns\_function
+### nns_function
 
-> **nns\_function**: `number`
+> **nns_function**: `number`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:213
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:213
 
-***
+---
 
 ### payload
 
 > **payload**: `Uint8Array`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:214
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:214

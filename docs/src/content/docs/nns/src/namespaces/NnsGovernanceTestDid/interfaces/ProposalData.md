@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:974
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:974
 
 ## Properties
 
@@ -13,148 +13,148 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:974
 
 > **ballots**: \[`bigint`, [`Ballot`](Ballot.md)\][]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:978
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:978
 
-***
+---
 
-### decided\_timestamp\_seconds
+### decided_timestamp_seconds
 
-> **decided\_timestamp\_seconds**: `bigint`
+> **decided_timestamp_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:988
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:988
 
-***
+---
 
-### derived\_proposal\_information
+### derived_proposal_information
 
-> **derived\_proposal\_information**: \[\] \| \[[`DerivedProposalInformation`](DerivedProposalInformation.md)\]
+> **derived_proposal_information**: \[\] \| \[[`DerivedProposalInformation`](DerivedProposalInformation.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:984
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:984
 
-***
+---
 
-### executed\_timestamp\_seconds
+### executed_timestamp_seconds
 
-> **executed\_timestamp\_seconds**: `bigint`
+> **executed_timestamp_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:992
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:992
 
-***
+---
 
-### failed\_timestamp\_seconds
+### failed_timestamp_seconds
 
-> **failed\_timestamp\_seconds**: `bigint`
+> **failed_timestamp_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:981
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:981
 
-***
+---
 
-### failure\_reason
+### failure_reason
 
-> **failure\_reason**: \[\] \| \[[`GovernanceError`](GovernanceError.md)\]
+> **failure_reason**: \[\] \| \[[`GovernanceError`](GovernanceError.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:977
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:977
 
-***
+---
 
 ### id
 
 > **id**: \[\] \| \[[`ProposalId`](ProposalId.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:975
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:975
 
-***
+---
 
-### latest\_tally
+### latest_tally
 
-> **latest\_tally**: \[\] \| \[[`Tally`](Tally.md)\]
+> **latest_tally**: \[\] \| \[[`Tally`](Tally.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:985
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:985
 
-***
+---
 
-### neurons\_fund\_data
+### neurons_fund_data
 
-> **neurons\_fund\_data**: \[\] \| \[[`NeuronsFundData`](NeuronsFundData.md)\]
+> **neurons_fund_data**: \[\] \| \[[`NeuronsFundData`](NeuronsFundData.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:982
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:982
 
-***
+---
 
-### original\_total\_community\_fund\_maturity\_e8s\_equivalent
+### original_total_community_fund_maturity_e8s_equivalent
 
-> **original\_total\_community\_fund\_maturity\_e8s\_equivalent**: \[\] \| \[`bigint`\]
+> **original_total_community_fund_maturity_e8s_equivalent**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:993
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:993
 
-***
+---
 
 ### proposal
 
 > **proposal**: \[\] \| \[[`Proposal`](Proposal.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:989
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:989
 
-***
+---
 
-### proposal\_timestamp\_seconds
+### proposal_timestamp_seconds
 
-> **proposal\_timestamp\_seconds**: `bigint`
+> **proposal_timestamp_seconds**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:979
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:979
 
-***
+---
 
 ### proposer
 
 > **proposer**: \[\] \| \[[`NeuronId`](NeuronId.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:990
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:990
 
-***
+---
 
-### reject\_cost\_e8s
+### reject_cost_e8s
 
-> **reject\_cost\_e8s**: `bigint`
+> **reject_cost_e8s**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:983
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:983
 
-***
+---
 
-### reward\_event\_round
+### reward_event_round
 
-> **reward\_event\_round**: `bigint`
+> **reward_event_round**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:980
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:980
 
-***
+---
 
-### sns\_token\_swap\_lifecycle
+### sns_token_swap_lifecycle
 
-> **sns\_token\_swap\_lifecycle**: \[\] \| \[`number`\]
+> **sns_token_swap_lifecycle**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:987
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:987
 
-***
+---
 
 ### topic
 
 > **topic**: \[\] \| \[`number`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:976
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:976
 
-***
+---
 
-### total\_potential\_voting\_power
+### total_potential_voting_power
 
-> **total\_potential\_voting\_power**: \[\] \| \[`bigint`\]
+> **total_potential_voting_power**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:986
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:986
 
-***
+---
 
-### wait\_for\_quiet\_state
+### wait_for_quiet_state
 
-> **wait\_for\_quiet\_state**: \[\] \| \[[`WaitForQuietState`](WaitForQuietState.md)\]
+> **wait_for_quiet_state**: \[\] \| \[[`WaitForQuietState`](WaitForQuietState.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:991
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:991

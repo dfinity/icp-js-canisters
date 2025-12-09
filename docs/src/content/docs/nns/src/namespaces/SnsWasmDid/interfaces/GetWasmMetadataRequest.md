@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:89
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:89
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:89
 
 > **hash**: \[\] \| \[`Uint8Array`\<`ArrayBufferLike`\>\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:90
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:90

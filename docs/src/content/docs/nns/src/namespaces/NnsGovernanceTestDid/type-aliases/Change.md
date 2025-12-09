@@ -7,4 +7,4 @@ prev: true
 
 > **Change** = \{ `ToRemove`: [`NodeProvider`](../interfaces/NodeProvider.md); \} \| \{ `ToAdd`: [`NodeProvider`](../interfaces/NodeProvider.md); \}
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:88
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:88

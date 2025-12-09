@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:945
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:945
 
 ## Properties
 
-### basis\_points
+### basis_points
 
-> **basis\_points**: \[\] \| \[`bigint`\]
+> **basis_points**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:946
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:946

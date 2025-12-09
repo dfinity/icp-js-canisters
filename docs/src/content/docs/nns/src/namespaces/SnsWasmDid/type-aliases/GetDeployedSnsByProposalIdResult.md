@@ -7,4 +7,4 @@ prev: true
 
 > **GetDeployedSnsByProposalIdResult** = \{ `Error`: [`SnsWasmError`](../interfaces/SnsWasmError.md); \} \| \{ `DeployedSns`: [`DeployedSns`](../interfaces/DeployedSns.md); \}
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:70
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:70

@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:167
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:168
 
-***
+---
 
 ### month
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:168
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:169
 
-***
+---
 
 ### year
 

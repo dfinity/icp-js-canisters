@@ -12,19 +12,19 @@ canister).
 
 ## Properties
 
-### node\_ids
+### node_ids
 
-> **node\_ids**: \[\] \| \[`Principal`[]\]
+> **node_ids**: \[\] \| \[`Principal`[]\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:262
 
 Which nodes will be members of the subnet.
 
-***
+---
 
-### replica\_version\_id
+### replica_version_id
 
-> **replica\_version\_id**: \[\] \| \[`string`\]
+> **replica_version_id**: \[\] \| \[`string`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:258
 
@@ -46,7 +46,7 @@ Where to obtain a recent version of ic-admin:
 
 https://github.com/dfinity/ic/releases/latest
 
-***
+---
 
 ### user
 

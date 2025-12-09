@@ -5,52 +5,52 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:163
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:163
 
 ## Properties
 
-### archive\_wasm\_hash
+### archive_wasm_hash
 
-> **archive\_wasm\_hash**: `string`
+> **archive_wasm_hash**: `string`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:164
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:164
 
-***
+---
 
-### governance\_wasm\_hash
+### governance_wasm_hash
 
-> **governance\_wasm\_hash**: `string`
+> **governance_wasm_hash**: `string`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:168
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:168
 
-***
+---
 
-### index\_wasm\_hash
+### index_wasm_hash
 
-> **index\_wasm\_hash**: `string`
+> **index_wasm_hash**: `string`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:169
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:169
 
-***
+---
 
-### ledger\_wasm\_hash
+### ledger_wasm_hash
 
-> **ledger\_wasm\_hash**: `string`
+> **ledger_wasm_hash**: `string`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:167
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:167
 
-***
+---
 
-### root\_wasm\_hash
+### root_wasm_hash
 
-> **root\_wasm\_hash**: `string`
+> **root_wasm_hash**: `string`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:165
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:165
 
-***
+---
 
-### swap\_wasm\_hash
+### swap_wasm_hash
 
-> **swap\_wasm\_hash**: `string`
+> **swap_wasm_hash**: `string`
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:166
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:166

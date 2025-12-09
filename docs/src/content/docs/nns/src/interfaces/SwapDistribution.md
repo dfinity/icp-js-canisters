@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:730
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:730
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:730
 
 > **total**: [`Option`](../type-aliases/Option.md)\<[`Tokens`](Tokens.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:731
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:731

@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:370
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:370
 
 ## Properties
 
-### serialized\_representation
+### serialized_representation
 
-> **serialized\_representation**: \[\] \| \[`string`\]
+> **serialized_representation**: \[\] \| \[`string`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:371
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:371

@@ -5,6 +5,6 @@ next: true
 prev: true
 ---
 
-> **Result\_5** = \{ `Ok`: [`NeuronInfo`](../interfaces/NeuronInfo.md); \} \| \{ `Err`: [`GovernanceError`](../interfaces/GovernanceError.md); \}
+> **Result_5** = \{ `Ok`: [`NeuronInfo`](../interfaces/NeuronInfo.md); \} \| \{ `Err`: [`GovernanceError`](../interfaces/GovernanceError.md); \}
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1052

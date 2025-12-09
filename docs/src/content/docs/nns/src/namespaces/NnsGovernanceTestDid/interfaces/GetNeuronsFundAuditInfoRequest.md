@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:271
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:271
 
 ## Properties
 
-### nns\_proposal\_id
+### nns_proposal_id
 
-> **nns\_proposal\_id**: \[\] \| \[[`ProposalId`](ProposalId.md)\]
+> **nns_proposal_id**: \[\] \| \[[`ProposalId`](ProposalId.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:272
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:272

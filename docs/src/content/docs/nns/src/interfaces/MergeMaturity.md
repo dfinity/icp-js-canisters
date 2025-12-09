@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:337
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:337
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:337
 
 > **percentageToMerge**: `number`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:338
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:338

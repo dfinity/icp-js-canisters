@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:767
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:767
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:767
 
 > **command**: \[\] \| \[[`Command_2`](../type-aliases/Command_2.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:768
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:768
 
-***
+---
 
 ### timestamp
 
 > **timestamp**: `bigint`
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:769
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:769

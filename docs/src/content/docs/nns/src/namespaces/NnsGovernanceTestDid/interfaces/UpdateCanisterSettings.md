@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1225
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1225
 
 ## Properties
 
-### canister\_id
+### canister_id
 
-> **canister\_id**: \[\] \| \[`Principal`\]
+> **canister_id**: \[\] \| \[`Principal`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1226
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1226
 
-***
+---
 
 ### settings
 
 > **settings**: \[\] \| \[[`CanisterSettings`](CanisterSettings.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1227
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1227

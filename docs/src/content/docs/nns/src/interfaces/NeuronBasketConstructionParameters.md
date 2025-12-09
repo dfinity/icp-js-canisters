@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:710
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:710
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:710
 
 > **count**: [`Option`](../type-aliases/Option.md)\<`bigint`\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:712
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:712
 
-***
+---
 
 ### dissolveDelayInterval
 
 > **dissolveDelayInterval**: [`Option`](../type-aliases/Option.md)\<[`Duration`](Duration.md)\>
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:711
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:711

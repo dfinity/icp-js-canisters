@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:105
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:105
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:105
 
 > **methodsAuthz**: [`MethodAuthzInfo`](MethodAuthzInfo.md)[]
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:106
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:106

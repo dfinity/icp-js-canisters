@@ -7,4 +7,4 @@ prev: true
 
 > **AuthzChangeOp** = \{ `Authorize`: \{ `addSelf`: `boolean`; \}; \} \| \{ `Deauthorize`: `null`; \}
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:82
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:82

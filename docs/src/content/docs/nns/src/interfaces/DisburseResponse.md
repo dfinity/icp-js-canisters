@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:193
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:193
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:193
 
 > **transferBlockHeight**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:194
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:194

@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:184
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:184
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:184
 
 > **amount**: \[\] \| \[[`Amount`](Amount.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:186
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:186
 
-***
+---
 
-### to\_account
+### to_account
 
-> **to\_account**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
+> **to_account**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:185
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:185

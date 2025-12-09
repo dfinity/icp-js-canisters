@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:212
 
 ## Properties
 
-### nns\_function
+### nns_function
 
-> **nns\_function**: `number`
+> **nns_function**: `number`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:213
 
-***
+---
 
 ### payload
 

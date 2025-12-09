@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:914
 
 ## Properties
 
-### community\_fund\_investment\_e8s
+### community_fund_investment_e8s
 
-> **community\_fund\_investment\_e8s**: \[\] \| \[`bigint`\]
+> **community_fund_investment_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:915
 
-***
+---
 
 ### params
 
@@ -23,10 +23,10 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:915
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:917
 
-***
+---
 
-### target\_swap\_canister\_id
+### target_swap_canister_id
 
-> **target\_swap\_canister\_id**: \[\] \| \[`Principal`\]
+> **target_swap_canister_id**: \[\] \| \[`Principal`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:916

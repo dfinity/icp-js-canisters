@@ -5,6 +5,6 @@ next: true
 prev: true
 ---
 
-> **Command\_2** = \{ `Spawn`: [`NeuronId`](../interfaces/NeuronId.md); \} \| \{ `Split`: [`Split`](../interfaces/Split.md); \} \| \{ `Configure`: [`Configure`](../interfaces/Configure.md); \} \| \{ `Merge`: [`Merge`](../interfaces/Merge.md); \} \| \{ `DisburseToNeuron`: [`DisburseToNeuron`](../interfaces/DisburseToNeuron.md); \} \| \{ `SyncCommand`: \{ \}; \} \| \{ `ClaimOrRefreshNeuron`: [`ClaimOrRefresh`](../interfaces/ClaimOrRefresh.md); \} \| \{ `MergeMaturity`: [`MergeMaturity`](../interfaces/MergeMaturity.md); \} \| \{ `Disburse`: [`Disburse`](../interfaces/Disburse.md); \}
+> **Command_2** = \{ `Spawn`: [`NeuronId`](../interfaces/NeuronId.md); \} \| \{ `Split`: [`Split`](../interfaces/Split.md); \} \| \{ `Configure`: [`Configure`](../interfaces/Configure.md); \} \| \{ `Merge`: [`Merge`](../interfaces/Merge.md); \} \| \{ `DisburseToNeuron`: [`DisburseToNeuron`](../interfaces/DisburseToNeuron.md); \} \| \{ `SyncCommand`: \{ \}; \} \| \{ `ClaimOrRefreshNeuron`: [`ClaimOrRefresh`](../interfaces/ClaimOrRefresh.md); \} \| \{ `MergeMaturity`: [`MergeMaturity`](../interfaces/MergeMaturity.md); \} \| \{ `Disburse`: [`Disburse`](../interfaces/Disburse.md); \}
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:122

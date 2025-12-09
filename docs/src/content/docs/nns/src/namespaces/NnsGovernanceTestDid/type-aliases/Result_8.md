@@ -5,6 +5,6 @@ next: true
 prev: true
 ---
 
-> **Result\_8** = \{ `Committed`: [`Committed`](../interfaces/Committed.md); \} \| \{ `Aborted`: \{ \}; \}
+> **Result_8** = \{ `Committed`: [`Committed`](../interfaces/Committed.md); \} \| \{ `Aborted`: \{ \}; \}
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1055
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1055

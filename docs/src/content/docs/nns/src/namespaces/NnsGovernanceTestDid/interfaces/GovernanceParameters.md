@@ -5,84 +5,84 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:358
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:358
 
 ## Properties
 
-### neuron\_maximum\_age\_bonus
+### neuron_maximum_age_bonus
 
-> **neuron\_maximum\_age\_bonus**: \[\] \| \[[`Percentage`](Percentage.md)\]
+> **neuron_maximum_age_bonus**: \[\] \| \[[`Percentage`](Percentage.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:363
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:363
 
-***
+---
 
-### neuron\_maximum\_age\_for\_age\_bonus
+### neuron_maximum_age_for_age_bonus
 
-> **neuron\_maximum\_age\_for\_age\_bonus**: \[\] \| \[[`Duration`](Duration.md)\]
+> **neuron_maximum_age_for_age_bonus**: \[\] \| \[[`Duration`](Duration.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:360
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:360
 
-***
+---
 
-### neuron\_maximum\_dissolve\_delay
+### neuron_maximum_dissolve_delay
 
-> **neuron\_maximum\_dissolve\_delay**: \[\] \| \[[`Duration`](Duration.md)\]
+> **neuron_maximum_dissolve_delay**: \[\] \| \[[`Duration`](Duration.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:361
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:361
 
-***
+---
 
-### neuron\_maximum\_dissolve\_delay\_bonus
+### neuron_maximum_dissolve_delay_bonus
 
-> **neuron\_maximum\_dissolve\_delay\_bonus**: \[\] \| \[[`Percentage`](Percentage.md)\]
+> **neuron_maximum_dissolve_delay_bonus**: \[\] \| \[[`Percentage`](Percentage.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:359
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:359
 
-***
+---
 
-### neuron\_minimum\_dissolve\_delay\_to\_vote
+### neuron_minimum_dissolve_delay_to_vote
 
-> **neuron\_minimum\_dissolve\_delay\_to\_vote**: \[\] \| \[[`Duration`](Duration.md)\]
+> **neuron_minimum_dissolve_delay_to_vote**: \[\] \| \[[`Duration`](Duration.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:362
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:362
 
-***
+---
 
-### neuron\_minimum\_stake
+### neuron_minimum_stake
 
-> **neuron\_minimum\_stake**: \[\] \| \[[`Tokens`](Tokens.md)\]
+> **neuron_minimum_stake**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:364
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:364
 
-***
+---
 
-### proposal\_initial\_voting\_period
+### proposal_initial_voting_period
 
-> **proposal\_initial\_voting\_period**: \[\] \| \[[`Duration`](Duration.md)\]
+> **proposal_initial_voting_period**: \[\] \| \[[`Duration`](Duration.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:366
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:366
 
-***
+---
 
-### proposal\_rejection\_fee
+### proposal_rejection_fee
 
-> **proposal\_rejection\_fee**: \[\] \| \[[`Tokens`](Tokens.md)\]
+> **proposal_rejection_fee**: \[\] \| \[[`Tokens`](Tokens.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:367
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:367
 
-***
+---
 
-### proposal\_wait\_for\_quiet\_deadline\_increase
+### proposal_wait_for_quiet_deadline_increase
 
-> **proposal\_wait\_for\_quiet\_deadline\_increase**: \[\] \| \[[`Duration`](Duration.md)\]
+> **proposal_wait_for_quiet_deadline_increase**: \[\] \| \[[`Duration`](Duration.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:365
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:365
 
-***
+---
 
-### voting\_reward\_parameters
+### voting_reward_parameters
 
-> **voting\_reward\_parameters**: \[\] \| \[[`VotingRewardParameters`](VotingRewardParameters.md)\]
+> **voting_reward_parameters**: \[\] \| \[[`VotingRewardParameters`](VotingRewardParameters.md)\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:368
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:368

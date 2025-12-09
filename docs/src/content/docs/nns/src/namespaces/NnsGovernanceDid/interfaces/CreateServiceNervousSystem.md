@@ -9,13 +9,13 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:151
 
 ## Properties
 
-### dapp\_canisters
+### dapp_canisters
 
-> **dapp\_canisters**: [`Canister`](Canister.md)[]
+> **dapp_canisters**: [`Canister`](Canister.md)[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:159
 
-***
+---
 
 ### description
 
@@ -23,39 +23,39 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:159
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:158
 
-***
+---
 
-### fallback\_controller\_principal\_ids
+### fallback_controller_principal_ids
 
-> **fallback\_controller\_principal\_ids**: `Principal`[]
+> **fallback_controller_principal_ids**: `Principal`[]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:154
 
-***
+---
 
-### governance\_parameters
+### governance_parameters
 
-> **governance\_parameters**: \[\] \| \[[`GovernanceParameters`](GovernanceParameters.md)\]
+> **governance_parameters**: \[\] \| \[[`GovernanceParameters`](GovernanceParameters.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:153
 
-***
+---
 
-### initial\_token\_distribution
+### initial_token_distribution
 
-> **initial\_token\_distribution**: \[\] \| \[[`InitialTokenDistribution`](InitialTokenDistribution.md)\]
+> **initial_token_distribution**: \[\] \| \[[`InitialTokenDistribution`](InitialTokenDistribution.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:161
 
-***
+---
 
-### ledger\_parameters
+### ledger_parameters
 
-> **ledger\_parameters**: \[\] \| \[[`LedgerParameters`](LedgerParameters.md)\]
+> **ledger_parameters**: \[\] \| \[[`LedgerParameters`](LedgerParameters.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:157
 
-***
+---
 
 ### logo
 
@@ -63,7 +63,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:157
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:155
 
-***
+---
 
 ### name
 
@@ -71,15 +71,15 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:155
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:156
 
-***
+---
 
-### swap\_parameters
+### swap_parameters
 
-> **swap\_parameters**: \[\] \| \[[`SwapParameters`](SwapParameters.md)\]
+> **swap_parameters**: \[\] \| \[[`SwapParameters`](SwapParameters.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:160
 
-***
+---
 
 ### url
 

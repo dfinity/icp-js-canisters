@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:18
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:18
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:18
 
 > **result**: \[\] \| \[[`Result`](../type-aliases/Result.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:19
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:19

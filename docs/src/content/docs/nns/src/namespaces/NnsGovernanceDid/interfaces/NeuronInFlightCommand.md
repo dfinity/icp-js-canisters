@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:767
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:768
 
-***
+---
 
 ### timestamp
 

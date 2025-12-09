@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:828
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:828
 
 ## Properties
 
@@ -13,108 +13,108 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:828
 
 > **count**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:833
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:833
 
-***
+---
 
-### count\_buckets
+### count_buckets
 
-> **count\_buckets**: \[`bigint`, `bigint`\][]
+> **count_buckets**: \[`bigint`, `bigint`\][]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:842
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:842
 
-***
+---
 
-### deciding\_voting\_power\_buckets
+### deciding_voting_power_buckets
 
-> **deciding\_voting\_power\_buckets**: \[`bigint`, `bigint`\][]
+> **deciding_voting_power_buckets**: \[`bigint`, `bigint`\][]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:834
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:834
 
-***
+---
 
-### maturity\_e8s\_equivalent\_buckets
+### maturity_e8s_equivalent_buckets
 
-> **maturity\_e8s\_equivalent\_buckets**: \[`bigint`, `bigint`\][]
+> **maturity_e8s_equivalent_buckets**: \[`bigint`, `bigint`\][]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:830
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:830
 
-***
+---
 
-### potential\_voting\_power\_buckets
+### potential_voting_power_buckets
 
-> **potential\_voting\_power\_buckets**: \[`bigint`, `bigint`\][]
+> **potential_voting_power_buckets**: \[`bigint`, `bigint`\][]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:841
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:841
 
-***
+---
 
-### staked\_e8s\_buckets
+### staked_e8s_buckets
 
-> **staked\_e8s\_buckets**: \[`bigint`, `bigint`\][]
+> **staked_e8s_buckets**: \[`bigint`, `bigint`\][]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:839
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:839
 
-***
+---
 
-### staked\_maturity\_e8s\_equivalent\_buckets
+### staked_maturity_e8s_equivalent_buckets
 
-> **staked\_maturity\_e8s\_equivalent\_buckets**: \[`bigint`, `bigint`\][]
+> **staked_maturity_e8s_equivalent_buckets**: \[`bigint`, `bigint`\][]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:838
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:838
 
-***
+---
 
-### total\_deciding\_voting\_power
+### total_deciding_voting_power
 
-> **total\_deciding\_voting\_power**: \[\] \| \[`bigint`\]
+> **total_deciding_voting_power**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:837
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:837
 
-***
+---
 
-### total\_maturity\_e8s\_equivalent
+### total_maturity_e8s_equivalent
 
-> **total\_maturity\_e8s\_equivalent**: \[\] \| \[`bigint`\]
+> **total_maturity_e8s_equivalent**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:829
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:829
 
-***
+---
 
-### total\_potential\_voting\_power
+### total_potential_voting_power
 
-> **total\_potential\_voting\_power**: \[\] \| \[`bigint`\]
+> **total_potential_voting_power**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:836
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:836
 
-***
+---
 
-### total\_staked\_e8s
+### total_staked_e8s
 
-> **total\_staked\_e8s**: \[\] \| \[`bigint`\]
+> **total_staked_e8s**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:832
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:832
 
-***
+---
 
-### total\_staked\_maturity\_e8s\_equivalent
+### total_staked_maturity_e8s_equivalent
 
-> **total\_staked\_maturity\_e8s\_equivalent**: \[\] \| \[`bigint`\]
+> **total_staked_maturity_e8s_equivalent**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:835
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:835
 
-***
+---
 
-### total\_voting\_power
+### total_voting_power
 
-> **total\_voting\_power**: \[\] \| \[`bigint`\]
+> **total_voting_power**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:840
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:840
 
-***
+---
 
-### voting\_power\_buckets
+### voting_power_buckets
 
-> **voting\_power\_buckets**: \[`bigint`, `bigint`\][]
+> **voting_power_buckets**: \[`bigint`, `bigint`\][]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:831
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:831

@@ -7,7 +7,7 @@ prev: true
 
 > `const` **init**: (`args`) => `IDL.Type`[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1364
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1364
 
 ## Parameters
 
@@ -15,7 +15,7 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1364
 
 #### IDL
 
-*typeof* `IDL`
+_typeof_ `IDL`
 
 ## Returns
 

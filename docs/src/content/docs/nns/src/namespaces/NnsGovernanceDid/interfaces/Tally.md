@@ -15,15 +15,15 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1187
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1188
 
-***
+---
 
-### timestamp\_seconds
+### timestamp_seconds
 
-> **timestamp\_seconds**: `bigint`
+> **timestamp_seconds**: `bigint`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1191
 
-***
+---
 
 ### total
 
@@ -31,7 +31,7 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1191
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1190
 
-***
+---
 
 ### yes
 

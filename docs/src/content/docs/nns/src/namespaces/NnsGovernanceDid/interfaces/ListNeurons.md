@@ -11,27 +11,27 @@ Parameters of the list_neurons method.
 
 ## Properties
 
-### include\_empty\_neurons\_readable\_by\_caller
+### include_empty_neurons_readable_by_caller
 
-> **include\_empty\_neurons\_readable\_by\_caller**: \[\] \| \[`boolean`\]
+> **include_empty_neurons_readable_by_caller**: \[\] \| \[`boolean`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:475
 
 Only has an effect when include_neurons_readable_by_caller.
 
-***
+---
 
-### include\_neurons\_readable\_by\_caller
+### include_neurons_readable_by_caller
 
-> **include\_neurons\_readable\_by\_caller**: `boolean`
+> **include_neurons_readable_by_caller**: `boolean`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:477
 
-***
+---
 
-### include\_public\_neurons\_in\_full\_neurons
+### include_public_neurons_in_full_neurons
 
-> **include\_public\_neurons\_in\_full\_neurons**: \[\] \| \[`boolean`\]
+> **include_public_neurons_in_full_neurons**: \[\] \| \[`boolean`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:466
 
@@ -39,36 +39,36 @@ When a public neuron is a member of the result set, include it in the
 full_neurons field (of ListNeuronsResponse). This does not affect which
 neurons are part of the result set.
 
-***
+---
 
-### neuron\_ids
+### neuron_ids
 
-> **neuron\_ids**: `BigUint64Array`
+> **neuron_ids**: `BigUint64Array`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:470
 
 These fields select neurons to be in the result set.
 
-***
+---
 
-### neuron\_subaccounts
+### neuron_subaccounts
 
-> **neuron\_subaccounts**: \[\] \| \[[`NeuronSubaccount`](NeuronSubaccount.md)[]\]
+> **neuron_subaccounts**: \[\] \| \[[`NeuronSubaccount`](NeuronSubaccount.md)[]\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:476
 
-***
+---
 
-### page\_number
+### page_number
 
-> **page\_number**: \[\] \| \[`bigint`\]
+> **page_number**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:471
 
-***
+---
 
-### page\_size
+### page_size
 
-> **page\_size**: \[\] \| \[`bigint`\]
+> **page_size**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:460

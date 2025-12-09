@@ -15,26 +15,26 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:1032
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1033
 
-***
+---
 
-### current\_total\_stake\_e8s
+### current_total_stake_e8s
 
-> **current\_total\_stake\_e8s**: \[\] \| \[`bigint`\]
+> **current_total_stake_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1035
 
-***
+---
 
-### group\_type
+### group_type
 
-> **group\_type**: `number`
+> **group_type**: `number`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1036
 
-***
+---
 
-### previous\_total\_stake\_e8s
+### previous_total_stake_e8s
 
-> **previous\_total\_stake\_e8s**: \[\] \| \[`bigint`\]
+> **previous_total_stake_e8s**: \[\] \| \[`bigint`\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:1034

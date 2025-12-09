@@ -64,7 +64,7 @@ prev: true
 - [GetDeployedSnsByProposalIdResult](type-aliases/GetDeployedSnsByProposalIdResult.md)
 - [InitialTokenDistribution](type-aliases/InitialTokenDistribution.md)
 - [Result](type-aliases/Result.md)
-- [Result\_1](type-aliases/Result_1.md)
+- [Result_1](type-aliases/Result_1.md)
 - [UpdateAllowedPrincipalsResult](type-aliases/UpdateAllowedPrincipalsResult.md)
 
 ## Variables

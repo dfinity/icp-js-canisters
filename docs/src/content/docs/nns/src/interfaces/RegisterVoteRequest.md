@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:591
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:591
 
 ## Properties
 
@@ -13,20 +13,20 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:591
 
 > **neuronId**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:592
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:592
 
-***
+---
 
 ### proposal
 
 > **proposal**: `bigint`
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:594
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:594
 
-***
+---
 
 ### vote
 
 > **vote**: [`Vote`](../enumerations/Vote.md)
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:593
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:593

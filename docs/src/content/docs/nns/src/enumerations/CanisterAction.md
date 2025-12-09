@@ -15,7 +15,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:123
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:126
 
-***
+---
 
 ### Stop
 
@@ -23,7 +23,7 @@ Defined in: packages/canisters/nns/enums/governance.enums.d.ts:126
 
 Defined in: packages/canisters/nns/enums/governance.enums.d.ts:125
 
-***
+---
 
 ### Unspecified
 

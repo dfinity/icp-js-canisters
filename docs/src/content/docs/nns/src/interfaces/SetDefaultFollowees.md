@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:551
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:551
 
 ## Properties
 
@@ -13,4 +13,4 @@ Defined in: packages/canisters/nns/types/governance\_converters.d.ts:551
 
 > **defaultFollowees**: [`Followees`](Followees.md)[]
 
-Defined in: packages/canisters/nns/types/governance\_converters.d.ts:552
+Defined in: packages/canisters/nns/types/governance_converters.d.ts:552

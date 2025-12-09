@@ -5,20 +5,20 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:124
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:124
 
 ## Properties
 
-### pretty\_version
+### pretty_version
 
-> **pretty\_version**: \[\] \| \[[`PrettySnsVersion`](PrettySnsVersion.md)\]
+> **pretty_version**: \[\] \| \[[`PrettySnsVersion`](PrettySnsVersion.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:125
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:125
 
-***
+---
 
 ### version
 
 > **version**: \[\] \| \[[`SnsVersion`](SnsVersion.md)\]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:126
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:126

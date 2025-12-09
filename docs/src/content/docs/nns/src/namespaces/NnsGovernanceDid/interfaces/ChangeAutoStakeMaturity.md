@@ -9,8 +9,8 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:89
 
 ## Properties
 
-### requested\_setting\_for\_auto\_stake\_maturity
+### requested_setting_for_auto_stake_maturity
 
-> **requested\_setting\_for\_auto\_stake\_maturity**: `boolean`
+> **requested_setting_for_auto_stake_maturity**: `boolean`
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:90

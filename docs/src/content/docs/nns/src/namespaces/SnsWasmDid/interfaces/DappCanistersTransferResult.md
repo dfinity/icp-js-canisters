@@ -5,28 +5,28 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:30
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:30
 
 ## Properties
 
-### nns\_controlled\_dapp\_canisters
+### nns_controlled_dapp_canisters
 
-> **nns\_controlled\_dapp\_canisters**: [`Canister`](Canister.md)[]
+> **nns_controlled_dapp_canisters**: [`Canister`](Canister.md)[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:32
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:32
 
-***
+---
 
-### restored\_dapp\_canisters
+### restored_dapp_canisters
 
-> **restored\_dapp\_canisters**: [`Canister`](Canister.md)[]
+> **restored_dapp_canisters**: [`Canister`](Canister.md)[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:31
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:31
 
-***
+---
 
-### sns\_controlled\_dapp\_canisters
+### sns_controlled_dapp_canisters
 
-> **sns\_controlled\_dapp\_canisters**: [`Canister`](Canister.md)[]
+> **sns_controlled_dapp_canisters**: [`Canister`](Canister.md)[]
 
-Defined in: packages/canisters/declarations/nns/sns\_wasm.d.ts:33
+Defined in: packages/canisters/declarations/nns/sns_wasm.d.ts:33

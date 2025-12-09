@@ -5,7 +5,7 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1038
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1038
 
 ## Properties
 
@@ -13,12 +13,12 @@ Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1038
 
 > **groups**: [`RestoreAgingNeuronGroup`](RestoreAgingNeuronGroup.md)[]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1039
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1039
 
-***
+---
 
-### timestamp\_seconds
+### timestamp_seconds
 
-> **timestamp\_seconds**: \[\] \| \[`bigint`\]
+> **timestamp_seconds**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:1040
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:1040

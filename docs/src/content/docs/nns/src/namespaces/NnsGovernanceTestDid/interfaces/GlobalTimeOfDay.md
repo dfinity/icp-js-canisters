@@ -5,12 +5,12 @@ next: true
 prev: true
 ---
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:280
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:280
 
 ## Properties
 
-### seconds\_after\_utc\_midnight
+### seconds_after_utc_midnight
 
-> **seconds\_after\_utc\_midnight**: \[\] \| \[`bigint`\]
+> **seconds_after_utc_midnight**: \[\] \| \[`bigint`\]
 
-Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:281
+Defined in: packages/canisters/declarations/nns/governance_test.d.ts:281

@@ -37,7 +37,7 @@ Add hotkey to neuron
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### autoStakeMaturity()
 
@@ -67,7 +67,7 @@ Changes auto-stake maturity for this Neuron. While on, auto-stake maturity will 
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### claimOrRefreshNeuron()
 
@@ -92,7 +92,7 @@ Uses query call only.
 
 [UnrecognizedTypeError](UnrecognizedTypeError.md)
 
-***
+---
 
 ### claimOrRefreshNeuronFromAccount()
 
@@ -118,7 +118,7 @@ Gets the NeuronID of a newly created neuron.
 
 `Promise`\<`bigint` \| `undefined`\>
 
-***
+---
 
 ### disburse()
 
@@ -156,7 +156,7 @@ Disburse neuron on Account
 
 InvalidAccountIDError
 
-***
+---
 
 ### disburseMaturity()
 
@@ -207,7 +207,7 @@ Optional. The account identifier to which the maturity will be disbursed. If not
 - The neuron's id is not yet in the list of neurons with ongoing operations
 - The e8s equivalent of the amount of maturity to disburse is more than the transaction fee.
 
-***
+---
 
 ### getLatestRewardEvent()
 
@@ -230,7 +230,7 @@ it's fetched using a query call.
 
 `Promise`\<[`RewardEvent`](../namespaces/NnsGovernanceDid/interfaces/RewardEvent.md)\>
 
-***
+---
 
 ### getMetrics()
 
@@ -250,7 +250,7 @@ Defined in: packages/canisters/nns/governance.canister.d.ts:358
 
 `Promise`\<[`GovernanceCachedMetrics`](../interfaces/GovernanceCachedMetrics.md)\>
 
-***
+---
 
 ### getNetworkEconomicsParameters()
 
@@ -272,7 +272,7 @@ Return the [Network Economics](https://github.com/dfinity/ic/blob/d90e934eb440c7
 
 `Promise`\<[`NetworkEconomics`](../interfaces/NetworkEconomics.md)\>
 
-***
+---
 
 ### getNeuron()
 
@@ -298,7 +298,7 @@ Return the data of the neuron provided as id.
 
 `Promise`\<[`NeuronInfo`](../interfaces/NeuronInfo.md) \| `undefined`\>
 
-***
+---
 
 ### getProposal()
 
@@ -327,7 +327,7 @@ it is fetched using a query call.
 
 `Promise`\<[`ProposalInfo`](../interfaces/ProposalInfo.md) \| `undefined`\>
 
-***
+---
 
 ### increaseDissolveDelay()
 
@@ -357,7 +357,7 @@ Increases dissolve delay of a neuron
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### joinCommunityFund()
 
@@ -381,7 +381,7 @@ Neuron joins the community fund
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### leaveCommunityFund()
 
@@ -405,7 +405,7 @@ Neuron leaves the community fund
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### listKnownNeurons()
 
@@ -429,7 +429,7 @@ it is fetched using a query call.
 
 `Promise`\<[`KnownNeuron`](../interfaces/KnownNeuron.md)[]\>
 
-***
+---
 
 ### listNeurons()
 
@@ -477,7 +477,7 @@ combined into a single return value.
 
 `Promise`\<[`NeuronInfo`](../interfaces/NeuronInfo.md)[]\>
 
-***
+---
 
 ### listProposals()
 
@@ -509,7 +509,7 @@ the options to list the proposals (limit number of results, topics to search for
 
 `Promise`\<[`ListProposalsResponse`](../interfaces/ListProposalsResponse.md)\>
 
-***
+---
 
 ### makeProposal()
 
@@ -535,7 +535,7 @@ The newly created proposal ID or undefined if the success response returned by t
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### mergeMaturity()
 
@@ -569,7 +569,7 @@ Merge Maturity of a neuron
 
 InvalidPercentageError
 
-***
+---
 
 ### mergeNeurons()
 
@@ -599,7 +599,7 @@ Merge two neurons
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### refreshVotingPower()
 
@@ -627,7 +627,7 @@ parameter of the neuron to the current time).
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### registerVote()
 
@@ -661,7 +661,7 @@ Registers vote for a proposal from the neuron passed.
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### removeHotkey()
 
@@ -691,7 +691,7 @@ Remove hotkey to neuron
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### setDissolveDelay()
 
@@ -722,7 +722,7 @@ The new date is now + dissolveDelaySeconds.
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### setFollowees()
 
@@ -746,7 +746,7 @@ Edit neuron followees per topic
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### setFollowing()
 
@@ -776,7 +776,7 @@ The topics and the followees for each topic that the neuron should follow.
 
 `Promise`\<`void`\>
 
-***
+---
 
 ### setNodeProviderAccount()
 
@@ -805,7 +805,7 @@ Where the reward is paid to.
 
 InvalidAccountIDError
 
-***
+---
 
 ### setVisibility()
 
@@ -833,7 +833,7 @@ Set visibility of a neuron
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### simulateMergeNeurons()
 
@@ -863,7 +863,7 @@ Simulate merging two neurons
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### spawnNeuron()
 
@@ -905,7 +905,7 @@ Merge Maturity of a neuron
 
 InvalidPercentageError
 
-***
+---
 
 ### splitNeuron()
 
@@ -941,7 +941,7 @@ newNeuronId
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### stakeMaturity()
 
@@ -975,7 +975,7 @@ Stake the maturity of a neuron.
 
 InvalidPercentageError
 
-***
+---
 
 ### stakeNeuron()
 
@@ -1031,7 +1031,7 @@ StakeNeuronTransferError
 
 TransferError
 
-***
+---
 
 ### startDissolving()
 
@@ -1055,7 +1055,7 @@ Start dissolving process of a neuron
 
 [GovernanceError](GovernanceError.md)
 
-***
+---
 
 ### stopDissolving()
 

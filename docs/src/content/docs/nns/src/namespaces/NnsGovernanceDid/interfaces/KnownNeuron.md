@@ -15,10 +15,10 @@ Defined in: packages/canisters/declarations/nns/governance.d.ts:398
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:399
 
-***
+---
 
-### known\_neuron\_data
+### known_neuron_data
 
-> **known\_neuron\_data**: \[\] \| \[[`KnownNeuronData`](KnownNeuronData.md)\]
+> **known_neuron_data**: \[\] \| \[[`KnownNeuronData`](KnownNeuronData.md)\]
 
 Defined in: packages/canisters/declarations/nns/governance.d.ts:400
