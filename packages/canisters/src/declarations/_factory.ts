@@ -31,6 +31,14 @@ import { idlFactory as idlFactoryCertifiedNnsGovernanceTest } from "./nns/govern
 import { idlFactory as idlFactoryNnsGovernanceTest } from "./nns/governance_test.idl";
 import { idlFactory as idlFactoryCertifiedSnsWasm } from "./nns/sns_wasm.certified.idl";
 import { idlFactory as idlFactorySnsWasm } from "./nns/sns_wasm.idl";
+import { idlFactory as idlFactoryCertifiedSnsGovernance } from "./sns/governance.certified.idl";
+import { idlFactory as idlFactorySnsGovernance } from "./sns/governance.idl";
+import { idlFactory as idlFactoryCertifiedSnsGovernanceTest } from "./sns/governance_test.certified.idl";
+import { idlFactory as idlFactorySnsGovernanceTest } from "./sns/governance_test.idl";
+import { idlFactory as idlFactoryCertifiedSnsRoot } from "./sns/root.certified.idl";
+import { idlFactory as idlFactorySnsRoot } from "./sns/root.idl";
+import { idlFactory as idlFactoryCertifiedSnsSwap } from "./sns/swap.certified.idl";
+import { idlFactory as idlFactorySnsSwap } from "./sns/swap.idl";
 
 import type { _SERVICE as AssetsService } from "./assets/assets_assetstorage";
 import type { _SERVICE as BitcoinService } from "./ckbtc/bitcoin";
@@ -50,6 +58,10 @@ import type { _SERVICE as NnsGenesisTokenService } from "./nns/genesis_token";
 import type { _SERVICE as NnsGovernanceService } from "./nns/governance";
 import type { _SERVICE as NnsGovernanceTestService } from "./nns/governance_test";
 import type { _SERVICE as SnsWasmService } from "./nns/sns_wasm";
+import type { _SERVICE as SnsGovernanceService } from "./sns/governance";
+import type { _SERVICE as SnsGovernanceTestService } from "./sns/governance_test";
+import type { _SERVICE as SnsRootService } from "./sns/root";
+import type { _SERVICE as SnsSwapService } from "./sns/swap";
 
 export {
   idlFactoryAssets,
@@ -69,6 +81,10 @@ export {
   idlFactoryCertifiedNnsGenesisToken,
   idlFactoryCertifiedNnsGovernance,
   idlFactoryCertifiedNnsGovernanceTest,
+  idlFactoryCertifiedSnsGovernance,
+  idlFactoryCertifiedSnsGovernanceTest,
+  idlFactoryCertifiedSnsRoot,
+  idlFactoryCertifiedSnsSwap,
   idlFactoryCertifiedSnsWasm,
   idlFactoryCkBtcMinter,
   idlFactoryCkEthMinter,
@@ -84,6 +100,10 @@ export {
   idlFactoryNnsGenesisToken,
   idlFactoryNnsGovernance,
   idlFactoryNnsGovernanceTest,
+  idlFactorySnsGovernance,
+  idlFactorySnsGovernanceTest,
+  idlFactorySnsRoot,
+  idlFactorySnsSwap,
   idlFactorySnsWasm,
   type AssetsService,
   type BitcoinService,
@@ -102,5 +122,9 @@ export {
   type NnsGenesisTokenService,
   type NnsGovernanceService,
   type NnsGovernanceTestService,
+  type SnsGovernanceService,
+  type SnsGovernanceTestService,
+  type SnsRootService,
+  type SnsSwapService,
   type SnsWasmService,
 };
