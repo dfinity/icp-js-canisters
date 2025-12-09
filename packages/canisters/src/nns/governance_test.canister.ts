@@ -5,9 +5,11 @@ import {
 } from "@dfinity/utils";
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import type { Principal } from "@icp-sdk/core/principal";
-import { idlFactory } from "../declarations/nns/governance.idl";
-import type { _SERVICE as GovernanceService } from "../declarations/nns/governance_test";
-import { idlFactory as certifiedIdlFactory } from "../declarations/nns/governance_test.certified.idl";
+import {
+  idlFactoryCertifiedNnsGovernanceTest,
+  idlFactoryNnsGovernanceTest,
+  type NnsGovernanceTestService,
+} from "../declarations";
 import { fromListNeurons } from "./canisters/governance/request.converters";
 import { toRawNeuron } from "./canisters/governance/response.converters";
 import { MAINNET_GOVERNANCE_CANISTER_ID } from "./constants/canister_ids";
@@ -17,23 +19,25 @@ import { principalToAccountIdentifier } from "./utils/account_identifier.utils";
 export class GovernanceTestCanister {
   private constructor(
     private readonly canisterId: Principal,
-    private readonly certifiedService: ActorSubclass<GovernanceService>,
+    private readonly certifiedService: ActorSubclass<NnsGovernanceTestService>,
   ) {
     this.canisterId = canisterId;
     this.certifiedService = certifiedService;
   }
 
-  public static create(options: CanisterOptions<GovernanceService> = {}) {
+  public static create(
+    options: CanisterOptions<NnsGovernanceTestService> = {},
+  ) {
     const canisterId: Principal =
       options.canisterId ?? MAINNET_GOVERNANCE_CANISTER_ID;
 
-    const { certifiedService } = createServices<GovernanceService>({
+    const { certifiedService } = createServices<NnsGovernanceTestService>({
       options: {
         ...options,
         canisterId,
       },
-      idlFactory,
-      certifiedIdlFactory,
+      idlFactory: idlFactoryNnsGovernanceTest,
+      certifiedIdlFactory: idlFactoryCertifiedNnsGovernanceTest,
     });
 
     return new GovernanceTestCanister(canisterId, certifiedService);

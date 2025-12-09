@@ -1,10 +1,8 @@
 import { isNullish } from "@dfinity/utils";
 import type {
-  Command_1,
-  _SERVICE as GovernanceService,
-  ManageNeuronRequest,
-  ManageNeuronResponse,
-} from "../../../declarations/nns/governance";
+  NnsGovernanceDid,
+  NnsGovernanceService,
+} from "../../../declarations";
 import { GovernanceError } from "../../errors/governance.errors";
 
 /**
@@ -13,8 +11,8 @@ import { GovernanceError } from "../../errors/governance.errors";
  * @throws {@link GovernanceError}
  */
 export const getSuccessfulCommandFromResponse = (
-  response: ManageNeuronResponse,
-): Command_1 => {
+  response: NnsGovernanceDid.ManageNeuronResponse,
+): NnsGovernanceDid.Command_1 => {
   const { command } = response;
   const [data] = command;
   if (isNullish(data)) {
@@ -37,9 +35,9 @@ export const manageNeuron = async ({
   request,
   service,
 }: {
-  request: ManageNeuronRequest;
-  service: GovernanceService;
-}): Promise<Command_1> => {
+  request: NnsGovernanceDid.ManageNeuronRequest;
+  service: NnsGovernanceService;
+}): Promise<NnsGovernanceDid.Command_1> => {
   const response = await service.manage_neuron(request);
   // We use it only to assert that there are no errors
   return getSuccessfulCommandFromResponse(response);
@@ -52,9 +50,9 @@ export const simulateManageNeuron = async ({
   request,
   service,
 }: {
-  request: ManageNeuronRequest;
-  service: GovernanceService;
-}): Promise<Command_1> => {
+  request: NnsGovernanceDid.ManageNeuronRequest;
+  service: NnsGovernanceService;
+}): Promise<NnsGovernanceDid.Command_1> => {
   const response = await service.simulate_manage_neuron(request);
   return getSuccessfulCommandFromResponse(response);
 };

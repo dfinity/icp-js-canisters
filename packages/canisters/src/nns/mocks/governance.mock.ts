@@ -1,13 +1,9 @@
 import { Principal } from "@icp-sdk/core/principal";
-import type {
-  ListNeuronsResponse,
-  Neuron,
-  NeuronInfo,
-} from "../../declarations/nns/governance";
+import type { NnsGovernanceDid } from "../../declarations";
 
 const one = BigInt(1);
 export const mockNeuronId = BigInt(14567);
-export const mockNeuronInfo: NeuronInfo = {
+export const mockNeuronInfo: NnsGovernanceDid.NeuronInfo = {
   id: [{ id: 678n }],
   dissolve_delay_seconds: one,
   recent_ballots: [],
@@ -25,7 +21,7 @@ export const mockNeuronInfo: NeuronInfo = {
   potential_voting_power: [one],
   deciding_voting_power: [one],
 };
-export const mockNeuron: Neuron = {
+export const mockNeuron: NnsGovernanceDid.Neuron = {
   id: [{ id: mockNeuronId }],
   staked_maturity_e8s_equivalent: [one],
   controller: [Principal.fromHex("1f")],
@@ -53,7 +49,7 @@ export const mockNeuron: Neuron = {
   potential_voting_power: [one],
   deciding_voting_power: [one],
 };
-export const mockListNeuronsResponse: ListNeuronsResponse = {
+export const mockListNeuronsResponse: NnsGovernanceDid.ListNeuronsResponse = {
   neuron_infos: [[mockNeuronId, mockNeuronInfo]],
   full_neurons: [mockNeuron],
   total_pages_available: [1n],
