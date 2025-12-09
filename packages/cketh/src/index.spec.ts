@@ -1,6 +1,6 @@
 import { CkETHMinterCanister, CkETHOrchestratorCanister } from "./index";
 
-describe("@icp-sdk/cketh", () => {
+describe("@dfinity/cketh", () => {
   it("should re-export CkETHMinterCanister", () => {
     expect(CkETHMinterCanister).not.toBeUndefined();
   });

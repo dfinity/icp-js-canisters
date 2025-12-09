@@ -2,18 +2,17 @@ import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
 import type {
-  _SERVICE as CkETHOrchestratorService,
-  ManagedCanisters,
-  OrchestratorInfo,
-} from "./candid/orchestrator";
+  CkEthOrchestratorDid,
+  CkEthOrchestratorService,
+} from "../declarations";
 import { minterCanisterIdMock } from "./mocks/minter.mock";
-import { CkETHOrchestratorCanister } from "./orchestrator.canister";
+import { CkEthOrchestratorCanister } from "./orchestrator.canister";
 
 describe("ckETH orchestrator canister", () => {
   const orchestrator = (
-    service: ActorSubclass<CkETHOrchestratorService>,
-  ): CkETHOrchestratorCanister =>
-    CkETHOrchestratorCanister.create({
+    service: ActorSubclass<CkEthOrchestratorService>,
+  ): CkEthOrchestratorCanister =>
+    CkEthOrchestratorCanister.create({
       // ckSepoliaETH Orchestrator Canister ID on mainnet
       canisterId: Principal.from("2s5qh-7aaaa-aaaar-qadya-cai"),
       certifiedServiceOverride: service,
@@ -21,7 +20,7 @@ describe("ckETH orchestrator canister", () => {
 
   describe("Get orchestrator info", () => {
     it("should return the info", async () => {
-      const ckSepoliaUSDCInfoMock: ManagedCanisters = {
+      const ckSepoliaUSDCInfoMock: CkEthOrchestratorDid.ManagedCanisters = {
         ledger: [
           {
             Installed: {
@@ -50,7 +49,7 @@ describe("ckETH orchestrator canister", () => {
 
       const mockCanisterId = Principal.from("yfumr-cyaaa-aaaar-qaela-cai");
 
-      const orchestratorInfoMock: OrchestratorInfo = {
+      const orchestratorInfoMock: CkEthOrchestratorDid.OrchestratorInfo = {
         minter_id: [minterCanisterIdMock],
         more_controller_ids: [],
         cycles_management: {
@@ -79,7 +78,7 @@ describe("ckETH orchestrator canister", () => {
         ],
       };
 
-      const service = mock<ActorSubclass<CkETHOrchestratorService>>();
+      const service = mock<ActorSubclass<CkEthOrchestratorService>>();
       service.get_orchestrator_info.mockResolvedValue(orchestratorInfoMock);
 
       const canister = orchestrator(service);
@@ -91,7 +90,7 @@ describe("ckETH orchestrator canister", () => {
     });
 
     it("should bubble errors", () => {
-      const service = mock<ActorSubclass<CkETHOrchestratorService>>();
+      const service = mock<ActorSubclass<CkEthOrchestratorService>>();
       service.get_orchestrator_info.mockImplementation(() => {
         throw new Error();
       });

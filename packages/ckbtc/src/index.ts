@@ -1,35 +1,34 @@
-/**
- * @module api/ckbtc
- */
+import type { BitcoinDid, CkBtcMinterDid } from "@icp-sdk/canisters/ckbtc";
 
-export { BitcoinCanister } from "./bitcoin.canister";
-export type {
-  block_hash,
-  block_height,
-  get_utxos_response,
-  outpoint,
-  satoshi,
-  utxo,
-} from "./candid/bitcoin";
-export type {
-  Account,
-  MinterInfo,
-  PendingUtxo,
-  ReimbursedDeposit,
-  ReimbursementRequest,
-  RetrieveBtcOk,
-  RetrieveBtcStatus,
-  RetrieveBtcStatusV2,
-  Utxo,
-  UtxoStatus,
-  Account as WithdrawalAccount,
-} from "./candid/minter";
-export * from "./enums/btc.enums";
-export * from "./errors/btc.errors";
-export * from "./errors/minter.errors";
-export { CkBTCMinterCanister } from "./minter.canister";
-export * from "./types/bitcoin.params";
-export * from "./types/btc";
-export * from "./types/minter.params";
-export * from "./types/minter.responses";
-export * from "./utils/btc.utils";
+export type block_hash = BitcoinDid.block_hash;
+export type block_height = BitcoinDid.block_height;
+export type get_utxos_response = BitcoinDid.get_utxos_response;
+export type outpoint = BitcoinDid.outpoint;
+export type satoshi = BitcoinDid.satoshi;
+export type utxo = BitcoinDid.utxo;
+
+export type Account = CkBtcMinterDid.Account;
+export type MinterInfo = CkBtcMinterDid.MinterInfo;
+export type PendingUtxo = CkBtcMinterDid.PendingUtxo;
+export type ReimbursedDeposit = CkBtcMinterDid.ReimbursedDeposit;
+export type ReimbursementRequest = CkBtcMinterDid.ReimbursementRequest;
+export type RetrieveBtcOk = CkBtcMinterDid.RetrieveBtcOk;
+export type RetrieveBtcStatus = CkBtcMinterDid.RetrieveBtcStatus;
+export type RetrieveBtcStatusV2 = CkBtcMinterDid.RetrieveBtcStatusV2;
+export type Utxo = CkBtcMinterDid.Utxo;
+export type UtxoStatus = CkBtcMinterDid.UtxoStatus;
+export type WithdrawalAccount = CkBtcMinterDid.Account;
+
+/**
+ * @deprecated Use "@icp-sdk/canisters/ckbtc" directly instead
+ */
+export * from "@icp-sdk/canisters/ckbtc";
+
+/**
+ * Legacy re-export for backward compatibility.
+ * @deprecated Use "@icp-sdk/canisters/ckbtc" directly instead
+ */
+export {
+  CkBtcMinterCanister as CkBTCMinterCanister,
+  type CkBtcCanisterOptions as CkBTCCanisterOptions,
+} from "@icp-sdk/canisters/ckbtc";
