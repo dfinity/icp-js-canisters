@@ -88,10 +88,6 @@
   ],
   "homepage": "https://js.icp.build/canisters/",
   "peerDependencies": {
-    "@dfinity/ledger-icp": "^8",
-    "@dfinity/ledger-icrc": "^6",
-    "@dfinity/nns": "^11",
-    "@dfinity/sns": "^6",
     "@dfinity/utils": "^4",
     "@icp-sdk/core": "^4"
   },
