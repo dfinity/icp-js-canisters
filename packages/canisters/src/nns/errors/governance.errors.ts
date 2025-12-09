@@ -1,4 +1,4 @@
-import type { GovernanceError as GovernanceErrorDetail } from "../../declarations/nns/governance";
+import type { NnsGovernanceDid } from "../../declarations";
 
 export abstract class StakeNeuronError extends Error {}
 
@@ -12,7 +12,7 @@ export class InsufficientAmountError extends StakeNeuronError {
 
 export class UnrecognizedTypeError extends Error {}
 export class GovernanceError extends Error {
-  constructor(public readonly detail: GovernanceErrorDetail) {
+  constructor(public readonly detail: NnsGovernanceDid.GovernanceError) {
     super();
   }
 }

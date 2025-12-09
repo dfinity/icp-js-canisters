@@ -1,24 +1,26 @@
 import { createServices, type CanisterOptions } from "@dfinity/utils";
 import type { ActorSubclass } from "@icp-sdk/core/agent";
-import type { _SERVICE as GenesisTokenService } from "../declarations/nns/genesis_token";
-import { idlFactory as certifiedIdlFactory } from "../declarations/nns/genesis_token.certified.idl";
-import { idlFactory } from "../declarations/nns/genesis_token.idl";
+import {
+  idlFactoryCertifiedNnsGenesisToken,
+  idlFactoryNnsGenesisToken,
+  type NnsGenesisTokenService,
+} from "../declarations";
 import { MAINNET_GENESIS_TOKEN_CANISTER_ID } from "./constants/canister_ids";
 import type { NeuronId } from "./types/common";
 
 export class GenesisTokenCanister {
   private constructor(
-    private readonly service: ActorSubclass<GenesisTokenService>,
+    private readonly service: ActorSubclass<NnsGenesisTokenService>,
   ) {}
 
-  public static create(options: CanisterOptions<GenesisTokenService> = {}) {
-    const { service } = createServices<GenesisTokenService>({
+  public static create(options: CanisterOptions<NnsGenesisTokenService> = {}) {
+    const { service } = createServices<NnsGenesisTokenService>({
       options: {
         ...options,
         canisterId: options.canisterId ?? MAINNET_GENESIS_TOKEN_CANISTER_ID,
       },
-      idlFactory,
-      certifiedIdlFactory,
+      idlFactory: idlFactoryNnsGenesisToken,
+      certifiedIdlFactory: idlFactoryCertifiedNnsGenesisToken,
     });
 
     return new GenesisTokenCanister(service);

@@ -1,9 +1,5 @@
 import { Principal } from "@icp-sdk/core/principal";
-import type {
-  MaturityDisbursement as RawMaturityDisbursement,
-  Neuron as RawNeuron,
-  NeuronInfo as RawNeuronInfo,
-} from "../../../declarations/nns/governance";
+import type { NnsGovernanceDid } from "../../../declarations";
 import { MAINNET_GOVERNANCE_CANISTER_ID } from "../../constants/canister_ids";
 import { NeuronState } from "../../enums/governance.enums";
 import type {
@@ -34,7 +30,7 @@ describe("response.converters", () => {
     hash: accountIdentifier.hash.subarray(4),
   };
 
-  const defaultCandidNeuron: RawNeuron = {
+  const defaultCandidNeuron: NnsGovernanceDid.Neuron = {
     id: [{ id: neuronId }],
     staked_maturity_e8s_equivalent: [0n],
     controller: [Principal.fromText(controlledIdText)],
@@ -91,7 +87,7 @@ describe("response.converters", () => {
     decidingVotingPower: undefined,
   };
 
-  const defaultCandidNeuronInfo: RawNeuronInfo = {
+  const defaultCandidNeuronInfo: NnsGovernanceDid.NeuronInfo = {
     id: [{ id: 987n }],
     dissolve_delay_seconds: dissolveDelaySeconds,
     recent_ballots: [],
@@ -128,19 +124,20 @@ describe("response.converters", () => {
     visibility: undefined,
   };
 
-  const testRawMaturityDisbursementWithSubaccount: RawMaturityDisbursement = {
-    timestamp_of_disbursement_seconds: [10n],
-    amount_e8s: [11n],
-    account_to_disburse_to: [
-      {
-        owner: [Principal.fromText("aaaaa-aa")],
-        subaccount: [Uint8Array.from([1, 2, 3])],
-      },
-    ],
-    account_identifier_to_disburse_to: [],
-    finalize_disbursement_timestamp_seconds: [12n],
-  };
-  const testRawMaturityDisbursementWithoutSubaccount: RawMaturityDisbursement =
+  const testRawMaturityDisbursementWithSubaccount: NnsGovernanceDid.MaturityDisbursement =
+    {
+      timestamp_of_disbursement_seconds: [10n],
+      amount_e8s: [11n],
+      account_to_disburse_to: [
+        {
+          owner: [Principal.fromText("aaaaa-aa")],
+          subaccount: [Uint8Array.from([1, 2, 3])],
+        },
+      ],
+      account_identifier_to_disburse_to: [],
+      finalize_disbursement_timestamp_seconds: [12n],
+    };
+  const testRawMaturityDisbursementWithoutSubaccount: NnsGovernanceDid.MaturityDisbursement =
     {
       timestamp_of_disbursement_seconds: [20n],
       amount_e8s: [21n],
@@ -153,7 +150,7 @@ describe("response.converters", () => {
       account_identifier_to_disburse_to: [],
       finalize_disbursement_timestamp_seconds: [22n],
     };
-  const testRawMaturityDisbursementWithAccountIdentifier: RawMaturityDisbursement =
+  const testRawMaturityDisbursementWithAccountIdentifier: NnsGovernanceDid.MaturityDisbursement =
     {
       timestamp_of_disbursement_seconds: [20n],
       amount_e8s: [21n],

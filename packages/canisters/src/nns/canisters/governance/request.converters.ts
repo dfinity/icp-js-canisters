@@ -11,46 +11,7 @@ import {
   type Nullable,
 } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
-import type {
-  Amount,
-  NeuronSubaccount,
-  Account as RawAccount,
-  AccountIdentifier as RawAccountIdentifier,
-  ProposalActionRequest as RawAction,
-  By as RawBy,
-  CanisterSettings as RawCanisterSettings,
-  Change as RawChange,
-  ManageNeuronCommandRequest as RawCommand,
-  Countries as RawCountries,
-  CreateServiceNervousSystem as RawCreateServiceNervousSystem,
-  Decimal as RawDecimal,
-  DeveloperDistribution as RawDeveloperDistribution,
-  Duration as RawDuration,
-  GlobalTimeOfDay as RawGlobalTimeOfDay,
-  GovernanceParameters as RawGovernanceParameters,
-  Image as RawImage,
-  InitialTokenDistribution as RawInitialTokenDistribution,
-  InstallCodeRequest as RawInstallCode,
-  LedgerParameters as RawLedgerParameters,
-  ListNeurons as RawListNeurons,
-  ListProposalInfoRequest as RawListProposalInfo,
-  ManageNeuronRequest as RawManageNeuron,
-  NeuronBasketConstructionParameters as RawNeuronBasketConstructionParameters,
-  NeuronDistribution as RawNeuronDistribution,
-  NeuronId as RawNeuronId,
-  NeuronIdOrSubaccount as RawNeuronIdOrSubaccount,
-  NeuronsFundEconomics as RawNeuronsFundEconomics,
-  NeuronsFundMatchedFundingCurveCoefficients as RawNeuronsFundMatchedFundingCurveCoefficients,
-  NodeProvider as RawNodeProvider,
-  Operation as RawOperation,
-  Percentage as RawPercentage,
-  RewardMode as RawRewardMode,
-  SwapDistribution as RawSwapDistribution,
-  SwapParameters as RawSwapParameters,
-  Tokens as RawTokens,
-  VotingPowerEconomics as RawVotingPowerEconomics,
-  VotingRewardParameters as RawVotingRewardParameters,
-} from "../../../declarations/nns/governance";
+import type { NnsGovernanceDid } from "../../../declarations";
 import type { NeuronVisibility, Vote } from "../../enums/governance.enums";
 import { UnsupportedValueError } from "../../errors/governance.errors";
 import type { E8s, NeuronId, Option } from "../../types/common";
@@ -97,17 +58,17 @@ import type {
 } from "../../types/governance_converters";
 import { accountIdentifierToBytes } from "../../utils/account_identifier.utils";
 
-const fromProposalId = (proposalId: ProposalId): RawNeuronId => ({
+const fromProposalId = (proposalId: ProposalId): NnsGovernanceDid.NeuronId => ({
   id: proposalId,
 });
 
-const fromNeuronId = (neuronId: NeuronId): RawNeuronId => ({
+const fromNeuronId = (neuronId: NeuronId): NnsGovernanceDid.NeuronId => ({
   id: neuronId,
 });
 
 const fromNeuronIdOrSubaccount = (
   neuronIdOrSubaccount: NeuronIdOrSubaccount,
-): RawNeuronIdOrSubaccount => {
+): NnsGovernanceDid.NeuronIdOrSubaccount => {
   if ("NeuronId" in neuronIdOrSubaccount) {
     return { NeuronId: { id: neuronIdOrSubaccount.NeuronId } };
   }
@@ -117,36 +78,38 @@ const fromNeuronIdOrSubaccount = (
   throw new UnsupportedValueError(neuronIdOrSubaccount);
 };
 
-const fromPercentage = (percentage: Percentage): RawPercentage =>
+const fromPercentage = (percentage: Percentage): NnsGovernanceDid.Percentage =>
   percentage.basisPoints !== undefined
     ? { basis_points: [percentage.basisPoints] }
     : { basis_points: [] };
 
-const fromDuration = (duration: Duration): RawDuration =>
+const fromDuration = (duration: Duration): NnsGovernanceDid.Duration =>
   duration.seconds !== undefined
     ? { seconds: [duration.seconds] }
     : { seconds: [] };
 
-const fromGlobalTimeOfDay = (time: GlobalTimeOfDay): RawGlobalTimeOfDay =>
+const fromGlobalTimeOfDay = (
+  time: GlobalTimeOfDay,
+): NnsGovernanceDid.GlobalTimeOfDay =>
   time.secondsAfterUtcMidnight !== undefined
     ? { seconds_after_utc_midnight: [time.secondsAfterUtcMidnight] }
     : { seconds_after_utc_midnight: [] };
 
-const fromCountries = (countries: Countries): RawCountries => ({
+const fromCountries = (countries: Countries): NnsGovernanceDid.Countries => ({
   iso_codes: countries.isoCodes,
 });
 
-const fromTokens = (tokens: Tokens): RawTokens =>
+const fromTokens = (tokens: Tokens): NnsGovernanceDid.Tokens =>
   tokens.e8s !== undefined ? { e8s: [tokens.e8s] } : { e8s: [] };
 
-const fromImage = (image: Image): RawImage =>
+const fromImage = (image: Image): NnsGovernanceDid.Image =>
   image.base64Encoding !== undefined
     ? { base64_encoding: [image.base64Encoding] }
     : { base64_encoding: [] };
 
 const fromVotingRewardParameters = (
   votingRewardParameters: VotingRewardParameters,
-): RawVotingRewardParameters => ({
+): NnsGovernanceDid.VotingRewardParameters => ({
   reward_rate_transition_duration:
     votingRewardParameters.rewardRateTransitionDuration !== undefined
       ? [fromDuration(votingRewardParameters.rewardRateTransitionDuration)]
@@ -163,7 +126,7 @@ const fromVotingRewardParameters = (
 
 const fromLedgerParameters = (
   ledgerParameters: LedgerParameters,
-): RawLedgerParameters => ({
+): NnsGovernanceDid.LedgerParameters => ({
   transaction_fee:
     ledgerParameters.transactionFee !== undefined
       ? [fromTokens(ledgerParameters.transactionFee)]
@@ -184,7 +147,7 @@ const fromLedgerParameters = (
 
 const fromSwapParameters = (
   swapParameters: SwapParameters,
-): RawSwapParameters => ({
+): NnsGovernanceDid.SwapParameters => ({
   minimum_participants:
     swapParameters.minimumParticipants !== undefined
       ? [swapParameters.minimumParticipants]
@@ -248,7 +211,7 @@ const fromSwapParameters = (
 
 const fromNeuronBasketConstructionParameters = (
   neuronBasketConstructionParameters: NeuronBasketConstructionParameters,
-): RawNeuronBasketConstructionParameters => ({
+): NnsGovernanceDid.NeuronBasketConstructionParameters => ({
   dissolve_delay_interval:
     neuronBasketConstructionParameters.dissolveDelayInterval !== undefined
       ? [fromDuration(neuronBasketConstructionParameters.dissolveDelayInterval)]
@@ -261,7 +224,7 @@ const fromNeuronBasketConstructionParameters = (
 
 const fromGovernanceParameters = (
   governanceParameters: GovernanceParameters,
-): RawGovernanceParameters => ({
+): NnsGovernanceDid.GovernanceParameters => ({
   neuron_maximum_dissolve_delay_bonus:
     governanceParameters.neuronMaximumDissolveDelayBonus !== undefined
       ? [fromPercentage(governanceParameters.neuronMaximumDissolveDelayBonus)]
@@ -314,7 +277,7 @@ const fromGovernanceParameters = (
 
 const fromSwapDistribution = (
   swapDistribution: SwapDistribution,
-): RawSwapDistribution => ({
+): NnsGovernanceDid.SwapDistribution => ({
   total:
     swapDistribution.total !== undefined
       ? [fromTokens(swapDistribution.total)]
@@ -323,7 +286,7 @@ const fromSwapDistribution = (
 
 const fromInitialTokenDistribution = (
   initialTokenDistribution: InitialTokenDistribution,
-): RawInitialTokenDistribution => ({
+): NnsGovernanceDid.InitialTokenDistribution => ({
   treasury_distribution:
     initialTokenDistribution.treasuryDistribution !== undefined
       ? [fromSwapDistribution(initialTokenDistribution.treasuryDistribution)]
@@ -344,7 +307,7 @@ const fromInitialTokenDistribution = (
 
 const fromNeuronDistribution = (
   neuronDistribution: NeuronDistribution,
-): RawNeuronDistribution => ({
+): NnsGovernanceDid.NeuronDistribution => ({
   controller:
     neuronDistribution.controller !== undefined
       ? [Principal.fromText(neuronDistribution.controller)]
@@ -366,7 +329,7 @@ const fromNeuronDistribution = (
 
 const fromDeveloperDistribution = (
   developerDistribution: DeveloperDistribution,
-): RawDeveloperDistribution => ({
+): NnsGovernanceDid.DeveloperDistribution => ({
   developer_neurons: developerDistribution.developerNeurons.map(
     fromNeuronDistribution,
   ),
@@ -374,7 +337,7 @@ const fromDeveloperDistribution = (
 
 const fromCreateServiceNervousSystem = (
   createServiceNervousSystem: CreateServiceNervousSystem,
-): RawCreateServiceNervousSystem => ({
+): NnsGovernanceDid.CreateServiceNervousSystem => ({
   url:
     createServiceNervousSystem.url !== undefined
       ? [createServiceNervousSystem.url]
@@ -426,7 +389,9 @@ const fromCreateServiceNervousSystem = (
       : [],
 });
 
-const fromInstallCode = (installCode: InstallCodeRequest): RawInstallCode => {
+const fromInstallCode = (
+  installCode: InstallCodeRequest,
+): NnsGovernanceDid.InstallCodeRequest => {
   if (installCode.wasmModule === undefined) {
     throw new Error("wasmModule not found");
   }
@@ -450,7 +415,7 @@ const fromInstallCode = (installCode: InstallCodeRequest): RawInstallCode => {
 
 const fromCanisterSettings = (
   canisterSettings: Option<CanisterSettings>,
-): Nullable<RawCanisterSettings> =>
+): Nullable<NnsGovernanceDid.CanisterSettings> =>
   toNullable(
     canisterSettings === undefined
       ? undefined
@@ -475,7 +440,9 @@ const fromCanisterSettings = (
         },
   );
 
-const fromAction = (action: ProposalActionRequest): RawAction => {
+const fromAction = (
+  action: ProposalActionRequest,
+): NnsGovernanceDid.ProposalActionRequest => {
   if ("ExecuteNnsFunction" in action) {
     const executeNnsFunction = action.ExecuteNnsFunction;
 
@@ -655,7 +622,9 @@ const fromAction = (action: ProposalActionRequest): RawAction => {
   throw new UnsupportedValueError(action);
 };
 
-const fromCommand = (command: ManageNeuronCommandRequest): RawCommand => {
+const fromCommand = (
+  command: ManageNeuronCommandRequest,
+): NnsGovernanceDid.ManageNeuronCommandRequest => {
   if ("Split" in command) {
     const split = command.Split;
     return {
@@ -814,7 +783,7 @@ const fromCommand = (command: ManageNeuronCommandRequest): RawCommand => {
   throw new UnsupportedValueError(command);
 };
 
-const fromOperation = (operation: Operation): RawOperation => {
+const fromOperation = (operation: Operation): NnsGovernanceDid.Operation => {
   if ("RemoveHotKey" in operation) {
     const removeHotKey = operation.RemoveHotKey;
     return {
@@ -892,14 +861,14 @@ const fromOperation = (operation: Operation): RawOperation => {
   throw new UnsupportedValueError(operation);
 };
 
-const fromAccount = (account: Account): RawAccount => ({
+const fromAccount = (account: Account): NnsGovernanceDid.Account => ({
   owner: toNullable(account.owner),
   subaccount: nonNullish(account.subaccount)
     ? [arrayOfNumberToUint8Array(account.subaccount)]
     : [],
 });
 
-const fromChange = (change: Change): RawChange => {
+const fromChange = (change: Change): NnsGovernanceDid.Change => {
   if ("ToRemove" in change) {
     return {
       ToRemove: fromNodeProvider(change.ToRemove),
@@ -914,7 +883,9 @@ const fromChange = (change: Change): RawChange => {
   throw new UnsupportedValueError(change);
 };
 
-const fromNodeProvider = (nodeProvider: NodeProvider): RawNodeProvider => ({
+const fromNodeProvider = (
+  nodeProvider: NodeProvider,
+): NnsGovernanceDid.NodeProvider => ({
   id: nodeProvider.id != null ? [Principal.fromText(nodeProvider.id)] : [],
   reward_account:
     nodeProvider.rewardAccount != null
@@ -922,19 +893,19 @@ const fromNodeProvider = (nodeProvider: NodeProvider): RawNodeProvider => ({
       : [],
 });
 
-const fromAmount = (amount: E8s): Amount => ({
+const fromAmount = (amount: E8s): NnsGovernanceDid.Amount => ({
   e8s: amount,
 });
 
 export const fromAccountIdentifier = (
   accountIdentifier: AccountIdentifierHex,
-): RawAccountIdentifier => ({
+): NnsGovernanceDid.AccountIdentifier => ({
   hash: accountIdentifierToBytes(accountIdentifier),
 });
 
 const fromNeuronsFundEconomics = (
   neuronsFundEconomics: Option<NeuronsFundEconomics>,
-): Nullable<RawNeuronsFundEconomics> => {
+): Nullable<NnsGovernanceDid.NeuronsFundEconomics> => {
   if (isNullish(neuronsFundEconomics)) {
     return [];
   }
@@ -948,7 +919,7 @@ const fromNeuronsFundEconomics = (
 
   const toRawPercentage = (
     percentage: Option<Percentage>,
-  ): Nullable<RawPercentage> =>
+  ): Nullable<NnsGovernanceDid.Percentage> =>
     isNullish(percentage)
       ? []
       : [
@@ -957,7 +928,9 @@ const fromNeuronsFundEconomics = (
           },
         ];
 
-  const toRawDecimals = (decimal: Option<Decimal>): Nullable<RawDecimal> =>
+  const toRawDecimals = (
+    decimal: Option<Decimal>,
+  ): Nullable<NnsGovernanceDid.Decimal> =>
     isNullish(decimal)
       ? []
       : [
@@ -968,7 +941,7 @@ const fromNeuronsFundEconomics = (
 
   const toRawNeuronsFundMatchedFundingCurveCoefficients = (
     neuronsFundMatchedFundingCurveCoefficients: Option<NeuronsFundMatchedFundingCurveCoefficients>,
-  ): Nullable<RawNeuronsFundMatchedFundingCurveCoefficients> =>
+  ): Nullable<NnsGovernanceDid.NeuronsFundMatchedFundingCurveCoefficients> =>
     isNullish(neuronsFundMatchedFundingCurveCoefficients)
       ? []
       : [
@@ -1002,7 +975,7 @@ const fromNeuronsFundEconomics = (
 
 const fromVotingPowerEconomics = (
   votingPowerEconomics: Option<VotingPowerEconomics>,
-): Nullable<RawVotingPowerEconomics> => {
+): Nullable<NnsGovernanceDid.VotingPowerEconomics> => {
   if (isNullish(votingPowerEconomics)) {
     return [];
   }
@@ -1021,7 +994,9 @@ const fromVotingPowerEconomics = (
   ];
 };
 
-const fromRewardMode = (rewardMode: RewardMode): RawRewardMode => {
+const fromRewardMode = (
+  rewardMode: RewardMode,
+): NnsGovernanceDid.RewardMode => {
   if ("RewardToNeuron" in rewardMode) {
     return {
       RewardToNeuron: {
@@ -1043,7 +1018,7 @@ const fromRewardMode = (rewardMode: RewardMode): RawRewardMode => {
   throw new UnsupportedValueError(rewardMode);
 };
 
-const fromClaimOrRefreshBy = (by: By): RawBy => {
+const fromClaimOrRefreshBy = (by: By): NnsGovernanceDid.By => {
   if ("NeuronIdOrSubaccount" in by) {
     return {
       NeuronIdOrSubaccount: {},
@@ -1079,10 +1054,10 @@ export const fromListNeurons = ({
   neuronIds?: NeuronId[];
   includeEmptyNeurons?: boolean;
   includePublicNeurons?: boolean;
-  neuronSubaccounts?: NeuronSubaccount[];
+  neuronSubaccounts?: NnsGovernanceDid.NeuronSubaccount[];
   pageNumber?: bigint;
   pageSize?: bigint;
-}): RawListNeurons => ({
+}): NnsGovernanceDid.ListNeurons => ({
   neuron_ids: BigUint64Array.from(neuronIds ?? []),
   include_neurons_readable_by_caller: neuronIds ? false : true,
   include_empty_neurons_readable_by_caller: toNullable(includeEmptyNeurons),
@@ -1096,7 +1071,7 @@ export const fromManageNeuron = ({
   id,
   command,
   neuronIdOrSubaccount,
-}: ManageNeuronRequest): RawManageNeuron => ({
+}: ManageNeuronRequest): NnsGovernanceDid.ManageNeuronRequest => ({
   id: id ? [fromNeuronId(id)] : [],
   command: command ? [fromCommand(command)] : [],
   neuron_id_or_subaccount: neuronIdOrSubaccount
@@ -1113,7 +1088,7 @@ export const fromListProposalsRequest = ({
   includeAllManageNeuronProposals,
   omitLargeFields,
   returnSelfDescribingAction,
-}: ListProposalsRequest): RawListProposalInfo => ({
+}: ListProposalsRequest): NnsGovernanceDid.ListProposalInfoRequest => ({
   include_reward_status: Int32Array.from(includeRewardStatus),
   before_proposal: beforeProposal ? [fromProposalId(beforeProposal)] : [],
   limit,
@@ -1152,8 +1127,8 @@ export const fromAddHotKeyRequest = (request: AddHotKeyRequest): PbManageNeuron 
 
 export const fromClaimOrRefreshNeuronRequest = (
   request: ClaimOrRefreshNeuronRequest,
-): RawManageNeuron => {
-  const rawCommand: RawCommand = {
+): NnsGovernanceDid.ManageNeuronRequest => {
+  const rawCommand: NnsGovernanceDid.ManageNeuronCommandRequest = {
     ClaimOrRefresh: { by: [{ NeuronIdOrSubaccount: {} }] },
   };
 
@@ -1170,8 +1145,8 @@ export const toClaimOrRefreshRequest = ({
 }: {
   memo: bigint;
   controller?: Principal;
-}): RawManageNeuron => {
-  const rawCommand: RawCommand = {
+}): NnsGovernanceDid.ManageNeuronRequest => {
+  const rawCommand: NnsGovernanceDid.ManageNeuronCommandRequest = {
     ClaimOrRefresh: {
       by: [
         {
@@ -1347,8 +1322,8 @@ export const toSplitRawRequest = ({
   neuronId: NeuronId;
   amount: E8s;
   memo?: bigint;
-}): RawManageNeuron => {
-  const rawCommand: RawCommand = {
+}): NnsGovernanceDid.ManageNeuronRequest => {
+  const rawCommand: NnsGovernanceDid.ManageNeuronCommandRequest = {
     Split: {
       amount_e8s: amount,
       memo: toNullable(memo),
@@ -1392,8 +1367,8 @@ export const fromDisburseRequest = (request: DisburseRequest): PbManageNeuron =>
 
 export const fromDisburseToNeuronRequest = (
   request: DisburseToNeuronRequest,
-): RawManageNeuron => {
-  const rawCommand: RawCommand = {
+): NnsGovernanceDid.ManageNeuronRequest => {
+  const rawCommand: NnsGovernanceDid.ManageNeuronCommandRequest = {
     DisburseToNeuron: {
       dissolve_delay_seconds: request.dissolveDelaySeconds,
       kyc_verified: request.kycVerified,
@@ -1415,8 +1390,8 @@ export const fromDisburseToNeuronRequest = (
 
 export const fromMakeProposalRequest = (
   request: MakeProposalRequest,
-): RawManageNeuron => {
-  const rawCommand: RawCommand = {
+): NnsGovernanceDid.ManageNeuronRequest => {
+  const rawCommand: NnsGovernanceDid.ManageNeuronCommandRequest = {
     MakeProposal: {
       url: request.url,
       title: request.title != null ? [request.title] : [],
@@ -1440,7 +1415,7 @@ export const toRegisterVoteRequest = ({
   neuronId: NeuronId;
   vote: Vote;
   proposalId: ProposalId;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toCommand({
     neuronId,
     command: {
@@ -1453,8 +1428,8 @@ export const toRegisterVoteRequest = ({
 
 export const toMakeProposalRawRequest = (
   request: MakeProposalRequest,
-): RawManageNeuron => {
-  const rawCommand: RawCommand = {
+): NnsGovernanceDid.ManageNeuronRequest => {
+  const rawCommand: NnsGovernanceDid.ManageNeuronCommandRequest = {
     MakeProposal: {
       url: request.url,
       title: request.title != null ? [request.title] : [],
@@ -1473,7 +1448,7 @@ export const toManageNeuronsFollowRequest = ({
   neuronId,
   topic,
   followees,
-}: FollowRequest): RawManageNeuron =>
+}: FollowRequest): NnsGovernanceDid.ManageNeuronRequest =>
   toCommand({
     neuronId,
     command: {
@@ -1492,7 +1467,7 @@ export const toDisburseNeuronRequest = ({
   neuronId: NeuronId;
   toAccountIdentifier?: AccountIdentifierClass;
   amount?: E8s;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toCommand({
     neuronId,
     command: {
@@ -1516,7 +1491,7 @@ export const toDisburseMaturityRequest = ({
   percentageToDisburse: number;
   toAccountIdentifier?: AccountIdentifierHex;
   toAccount?: Account;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toCommand({
     neuronId,
     command: {
@@ -1536,7 +1511,7 @@ export const toSetFollowingRequest = ({
 }: {
   neuronId: NeuronId;
   topicFollowing: Array<FolloweesForTopic>;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toCommand({
     neuronId,
     command: {
@@ -1557,7 +1532,7 @@ export const toRefreshVotingPowerRequest = ({
   neuronId,
 }: {
   neuronId: NeuronId;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toCommand({
     neuronId,
     command: {
@@ -1573,7 +1548,7 @@ export const toMergeMaturityRequest = ({
 }: {
   neuronId: NeuronId;
   percentageToMerge: number;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toCommand({
     neuronId,
     command: {
@@ -1589,7 +1564,7 @@ export const toStakeMaturityRequest = ({
 }: {
   neuronId: NeuronId;
   percentageToStake?: number;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toCommand({
     neuronId,
     command: {
@@ -1609,7 +1584,7 @@ export const toSpawnNeuronRequest = ({
   percentageToSpawn?: number;
   newController?: Principal;
   nonce?: bigint;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toCommand({
     neuronId,
     command: {
@@ -1628,7 +1603,7 @@ export const toAddHotkeyRequest = ({
 }: {
   neuronId: NeuronId;
   principal: Principal;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toConfigureOperation({
     neuronId,
     operation: {
@@ -1644,7 +1619,7 @@ export const toRemoveHotkeyRequest = ({
 }: {
   neuronId: NeuronId;
   principal: Principal;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toConfigureOperation({
     neuronId,
     operation: {
@@ -1660,7 +1635,7 @@ export const toIncreaseDissolveDelayRequest = ({
 }: {
   neuronId: NeuronId;
   additionalDissolveDelaySeconds: number;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toConfigureOperation({
     neuronId,
     operation: {
@@ -1676,7 +1651,7 @@ export const toSetDissolveDelayRequest = ({
 }: {
   neuronId: NeuronId;
   dissolveDelaySeconds: number;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toConfigureOperation({
     neuronId,
     operation: {
@@ -1688,7 +1663,7 @@ export const toSetDissolveDelayRequest = ({
 
 export const toJoinCommunityFundRequest = (
   neuronId: NeuronId,
-): RawManageNeuron =>
+): NnsGovernanceDid.ManageNeuronRequest =>
   toConfigureOperation({
     neuronId,
     operation: {
@@ -1702,7 +1677,7 @@ export const toAutoStakeMaturityRequest = ({
 }: {
   neuronId: NeuronId;
   autoStake: boolean;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toConfigureOperation({
     neuronId,
     operation: {
@@ -1714,7 +1689,7 @@ export const toAutoStakeMaturityRequest = ({
 
 export const toLeaveCommunityFundRequest = (
   neuronId: NeuronId,
-): RawManageNeuron =>
+): NnsGovernanceDid.ManageNeuronRequest =>
   toConfigureOperation({
     neuronId,
     operation: {
@@ -1728,7 +1703,7 @@ export const toSetVisibilityRequest = ({
 }: {
   neuronId: NeuronId;
   visibility: NeuronVisibility;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toConfigureOperation({
     neuronId,
     operation: {
@@ -1744,7 +1719,7 @@ export const toMergeRequest = ({
 }: {
   sourceNeuronId: NeuronId;
   targetNeuronId: NeuronId;
-}): RawManageNeuron =>
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toCommand({
     neuronId: targetNeuronId,
     command: {
@@ -1752,7 +1727,9 @@ export const toMergeRequest = ({
     },
   });
 
-export const toStartDissolvingRequest = (neuronId: NeuronId): RawManageNeuron =>
+export const toStartDissolvingRequest = (
+  neuronId: NeuronId,
+): NnsGovernanceDid.ManageNeuronRequest =>
   toConfigureOperation({
     neuronId,
     operation: {
@@ -1760,7 +1737,9 @@ export const toStartDissolvingRequest = (neuronId: NeuronId): RawManageNeuron =>
     },
   });
 
-export const toStopDissolvingRequest = (neuronId: NeuronId): RawManageNeuron =>
+export const toStopDissolvingRequest = (
+  neuronId: NeuronId,
+): NnsGovernanceDid.ManageNeuronRequest =>
   toConfigureOperation({
     neuronId,
     operation: {
@@ -1773,8 +1752,8 @@ export const toCommand = ({
   command,
 }: {
   neuronId: NeuronId;
-  command: RawCommand;
-}): RawManageNeuron => ({
+  command: NnsGovernanceDid.ManageNeuronCommandRequest;
+}): NnsGovernanceDid.ManageNeuronRequest => ({
   id: [{ id: neuronId }],
   command: [command],
   neuron_id_or_subaccount: [],
@@ -1785,8 +1764,8 @@ export const toConfigureOperation = ({
   operation,
 }: {
   neuronId: NeuronId;
-  operation: RawOperation;
-}): RawManageNeuron =>
+  operation: NnsGovernanceDid.Operation;
+}): NnsGovernanceDid.ManageNeuronRequest =>
   toCommand({
     neuronId,
     command: {
