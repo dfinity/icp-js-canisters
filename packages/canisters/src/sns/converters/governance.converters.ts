@@ -1,40 +1,11 @@
-import type { IcrcAccount } from "@dfinity/ledger-icrc";
 import {
   assertNever,
   fromNullable,
   jsonReplacer,
   toNullable,
 } from "@dfinity/utils";
-import type {
-  Account,
-  Action as ActionCandid,
-  AdvanceSnsTargetVersion as AdvanceSnsTargetVersionCandid,
-  ChunkedCanisterWasm as ChunkedCanisterWasmCandid,
-  Command,
-  ExecuteExtensionOperation as ExecuteExtensionOperationCandid,
-  ExtensionOperationArg as ExtensionOperationArgCandid,
-  ExtensionUpgradeArg as ExtensionUpgradeArgCandid,
-  FunctionType as FunctionTypeCandid,
-  GenericNervousSystemFunction as GenericNervousSystemFunctionCandid,
-  ListProposals,
-  ManageDappCanisterSettings as ManageDappCanisterSettingsCandid,
-  ManageLedgerParameters as ManageLedgerParametersCandid,
-  ManageNeuron,
-  ManageSnsMetadata as ManageSnsMetadataCandid,
-  MintSnsTokens as MintSnsTokensCandid,
-  NervousSystemFunction as NervousSystemFunctionCandid,
-  NervousSystemParameters as NervousSystemParametersCandid,
-  NeuronId,
-  Operation,
-  PreciseValue as PreciseValueCandid,
-  RegisterExtension as RegisterExtensionCandid,
-  SnsVersion as SnsVersionCandid,
-  TransferSnsTreasuryFunds as TransferSnsTreasuryFundsCandid,
-  UpgradeExtension as UpgradeExtensionCandid,
-  UpgradeSnsControlledCanister as UpgradeSnsControlledCanisterCandid,
-  VotingRewardsParameters as VotingRewardsParametersCandid,
-  Wasm as WasmCandid,
-} from "../../declarations/sns/governance";
+import type { SnsGovernanceDid } from "../../declarations";
+import type { IcrcAccount } from "../../ledger/icrc";
 import { DEFAULT_PROPOSALS_LIMIT } from "../constants/governance.constants";
 import type {
   Action,
@@ -81,9 +52,9 @@ const toManageNeuronCommand = ({
   neuronId: { id },
   command,
 }: {
-  neuronId: NeuronId;
-  command: Command;
-}): ManageNeuron => ({
+  neuronId: SnsGovernanceDid.NeuronId;
+  command: SnsGovernanceDid.Command;
+}): SnsGovernanceDid.ManageNeuron => ({
   subaccount: id,
   command: [command],
 });
@@ -93,9 +64,9 @@ const toManageNeuronConfigureCommand = ({
   neuronId,
   operation,
 }: {
-  neuronId: NeuronId;
-  operation: Operation;
-}): ManageNeuron =>
+  neuronId: SnsGovernanceDid.NeuronId;
+  operation: SnsGovernanceDid.Operation;
+}): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronCommand({
     neuronId,
     command: {
@@ -108,7 +79,7 @@ const toManageNeuronConfigureCommand = ({
 export const toCandidAccount = ({
   owner,
   subaccount,
-}: IcrcAccount): Account => ({
+}: IcrcAccount): SnsGovernanceDid.Account => ({
   owner: toNullable(owner),
   subaccount: subaccount === undefined ? [] : toNullable({ subaccount }),
 });
@@ -117,7 +88,7 @@ export const toAddPermissionsRequest = ({
   neuronId,
   permissions,
   principal,
-}: SnsNeuronPermissionsParams): ManageNeuron =>
+}: SnsNeuronPermissionsParams): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronCommand({
     neuronId,
     command: {
@@ -132,7 +103,7 @@ export const toRemovePermissionsRequest = ({
   neuronId,
   permissions,
   principal,
-}: SnsNeuronPermissionsParams): ManageNeuron =>
+}: SnsNeuronPermissionsParams): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronCommand({
     neuronId,
     command: {
@@ -147,7 +118,7 @@ export const toSplitNeuronRequest = ({
   neuronId,
   memo,
   amount: amount_e8s,
-}: SnsSplitNeuronParams): ManageNeuron =>
+}: SnsSplitNeuronParams): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronCommand({
     neuronId,
     command: {
@@ -162,7 +133,7 @@ export const toDisburseNeuronRequest = ({
   neuronId,
   amount,
   toAccount,
-}: SnsDisburseNeuronParams): ManageNeuron =>
+}: SnsDisburseNeuronParams): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronCommand({
     neuronId,
     command: {
@@ -183,16 +154,16 @@ export const toDisburseNeuronRequest = ({
   });
 
 export const toStartDissolvingNeuronRequest = (
-  neuronId: NeuronId,
-): ManageNeuron =>
+  neuronId: SnsGovernanceDid.NeuronId,
+): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronConfigureCommand({
     neuronId,
     operation: { StartDissolving: {} },
   });
 
 export const toStopDissolvingNeuronRequest = (
-  neuronId: NeuronId,
-): ManageNeuron =>
+  neuronId: SnsGovernanceDid.NeuronId,
+): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronConfigureCommand({
     neuronId,
     operation: { StopDissolving: {} },
@@ -201,7 +172,7 @@ export const toStopDissolvingNeuronRequest = (
 export const toStakeMaturityRequest = ({
   neuronId,
   percentageToStake,
-}: SnsNeuronStakeMaturityParams): ManageNeuron =>
+}: SnsNeuronStakeMaturityParams): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronCommand({
     neuronId,
     command: {
@@ -215,7 +186,7 @@ export const toDisburseMaturityRequest = ({
   neuronId,
   percentageToDisburse,
   toAccount,
-}: SnsNeuronDisburseMaturityParams): ManageNeuron =>
+}: SnsNeuronDisburseMaturityParams): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronCommand({
     neuronId,
     command: {
@@ -231,7 +202,7 @@ export const toDisburseMaturityRequest = ({
 export const toAutoStakeMaturityNeuronRequest = ({
   neuronId,
   autoStake: requested_setting_for_auto_stake_maturity,
-}: SnsNeuronAutoStakeMaturityParams): ManageNeuron =>
+}: SnsNeuronAutoStakeMaturityParams): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronConfigureCommand({
     neuronId,
     operation: {
@@ -244,7 +215,7 @@ export const toAutoStakeMaturityNeuronRequest = ({
 export const toSetDissolveTimestampRequest = ({
   neuronId,
   dissolveTimestampSeconds,
-}: SnsSetDissolveTimestampParams): ManageNeuron =>
+}: SnsSetDissolveTimestampParams): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronConfigureCommand({
     neuronId,
     operation: {
@@ -257,7 +228,7 @@ export const toSetDissolveTimestampRequest = ({
 export const toIncreaseDissolveDelayRequest = ({
   neuronId,
   additionalDissolveDelaySeconds,
-}: SnsIncreaseDissolveDelayParams): ManageNeuron =>
+}: SnsIncreaseDissolveDelayParams): SnsGovernanceDid.ManageNeuron =>
   toManageNeuronConfigureCommand({
     neuronId,
     operation: {
@@ -271,7 +242,7 @@ export const toFollowRequest = ({
   neuronId,
   functionId,
   followees,
-}: SnsSetTopicFollowees): ManageNeuron => ({
+}: SnsSetTopicFollowees): SnsGovernanceDid.ManageNeuron => ({
   subaccount: neuronId.id,
   command: [
     {
@@ -286,7 +257,7 @@ export const toFollowRequest = ({
 export const toSetFollowingRequest = ({
   neuronId,
   topicFollowing,
-}: SnsSetFollowingParams): ManageNeuron => ({
+}: SnsSetFollowingParams): SnsGovernanceDid.ManageNeuron => ({
   subaccount: neuronId.id,
   command: [
     {
@@ -307,7 +278,7 @@ export const toRegisterVoteRequest = ({
   neuronId,
   proposalId,
   vote,
-}: SnsRegisterVoteParams): ManageNeuron => ({
+}: SnsRegisterVoteParams): SnsGovernanceDid.ManageNeuron => ({
   subaccount: neuronId.id,
   command: [
     {
@@ -323,7 +294,7 @@ export const toClaimOrRefreshRequest = ({
   subaccount,
   memo,
   controller,
-}: SnsClaimOrRefreshArgs): ManageNeuron => ({
+}: SnsClaimOrRefreshArgs): SnsGovernanceDid.ManageNeuron => ({
   subaccount,
   command: [
     {
@@ -348,7 +319,7 @@ export const toListProposalRequest = ({
   includeStatus,
   limit,
   includeTopics,
-}: SnsListProposalsParams): ListProposals => ({
+}: SnsListProposalsParams): SnsGovernanceDid.ListProposals => ({
   exclude_type: BigUint64Array.from(excludeType ?? []),
   before_proposal: toNullable(beforeProposal),
   include_reward_status: Int32Array.from(includeRewardStatus ?? []),
@@ -361,7 +332,7 @@ export const toListProposalRequest = ({
   ),
 });
 
-export const fromCandidAction = (action: ActionCandid): Action => {
+export const fromCandidAction = (action: SnsGovernanceDid.Action): Action => {
   if ("ManageNervousSystemParameters" in action) {
     return {
       ManageNervousSystemParameters: convertNervousSystemParams(
@@ -494,7 +465,7 @@ export const fromCandidAction = (action: ActionCandid): Action => {
 };
 
 const convertManageSnsMetadata = (
-  params: ManageSnsMetadataCandid,
+  params: SnsGovernanceDid.ManageSnsMetadata,
 ): ManageSnsMetadata => ({
   url: fromNullable(params.url),
   logo: fromNullable(params.logo),
@@ -503,7 +474,7 @@ const convertManageSnsMetadata = (
 });
 
 const convertManageLedgerParameters = (
-  params: ManageLedgerParametersCandid,
+  params: SnsGovernanceDid.ManageLedgerParameters,
 ): ManageLedgerParameters => ({
   token_symbol: fromNullable(params.token_symbol),
   transfer_fee: fromNullable(params.transfer_fee),
@@ -512,13 +483,13 @@ const convertManageLedgerParameters = (
 });
 
 const convertAdvanceSnsTargetVersion = (
-  params: AdvanceSnsTargetVersionCandid,
+  params: SnsGovernanceDid.AdvanceSnsTargetVersion,
 ): AdvanceSnsTargetVersion => ({
   new_target: convertSnsVersion(fromNullable(params.new_target)),
 });
 
 const convertManageDappCanisterSettings = (
-  params: ManageDappCanisterSettingsCandid,
+  params: SnsGovernanceDid.ManageDappCanisterSettings,
 ): ManageDappCanisterSettings => ({
   freezing_threshold: fromNullable(params.freezing_threshold),
   wasm_memory_threshold: fromNullable(params.wasm_memory_threshold),
@@ -531,7 +502,7 @@ const convertManageDappCanisterSettings = (
 });
 
 const convertExecuteExtensionOperation = (
-  params: ExecuteExtensionOperationCandid,
+  params: SnsGovernanceDid.ExecuteExtensionOperation,
 ): ExecuteExtensionOperation => ({
   extension_canister_id: fromNullable(params.extension_canister_id),
   operation_name: fromNullable(params.operation_name),
@@ -541,7 +512,7 @@ const convertExecuteExtensionOperation = (
 });
 
 const convertUpgradeExtension = (
-  params: UpgradeExtensionCandid,
+  params: SnsGovernanceDid.UpgradeExtension,
 ): UpgradeExtension => ({
   extension_canister_id: fromNullable(params.extension_canister_id),
   wasm: convertWasm(fromNullable(params.wasm)),
@@ -551,7 +522,7 @@ const convertUpgradeExtension = (
 });
 
 const convertChunkedCanisterWasm = (
-  params: ChunkedCanisterWasmCandid,
+  params: SnsGovernanceDid.ChunkedCanisterWasm,
 ): ChunkedCanisterWasm => ({
   wasm_module_hash: params.wasm_module_hash,
   store_canister_id: fromNullable(params.store_canister_id),
@@ -559,17 +530,20 @@ const convertChunkedCanisterWasm = (
 });
 
 const convertExtensionOperationArg = (
-  params: ExtensionOperationArgCandid | undefined,
+  params: SnsGovernanceDid.ExtensionOperationArg | undefined,
 ): ExtensionOperationArg | undefined =>
   convertExtensionArg(params) as ExtensionOperationArg | undefined;
 
 const convertExtensionUpgradeArg = (
-  params: ExtensionUpgradeArgCandid | undefined,
+  params: SnsGovernanceDid.ExtensionUpgradeArg | undefined,
 ): ExtensionUpgradeArg | undefined =>
   convertExtensionArg(params) as ExtensionUpgradeArg | undefined;
 
 const convertExtensionArg = (
-  params: ExtensionOperationArgCandid | ExtensionUpgradeArgCandid | undefined,
+  params:
+    | SnsGovernanceDid.ExtensionOperationArg
+    | SnsGovernanceDid.ExtensionUpgradeArg
+    | undefined,
 ):
   | {
       value: PreciseValue | undefined;
@@ -589,7 +563,9 @@ const convertExtensionArg = (
   };
 };
 
-const convertPreciseValue = (value: PreciseValueCandid): PreciseValue => {
+const convertPreciseValue = (
+  value: SnsGovernanceDid.PreciseValue,
+): PreciseValue => {
   if ("Int" in value) {
     return { Int: value.Int };
   }
@@ -628,7 +604,9 @@ const convertPreciseValue = (value: PreciseValueCandid): PreciseValue => {
   );
 };
 
-const convertWasm = (params: WasmCandid | undefined): Wasm | undefined => {
+const convertWasm = (
+  params: SnsGovernanceDid.Wasm | undefined,
+): Wasm | undefined => {
   if (params === undefined) {
     return undefined;
   }
@@ -650,7 +628,7 @@ const convertWasm = (params: WasmCandid | undefined): Wasm | undefined => {
 };
 
 const convertUpgradeSnsControlledCanister = (
-  params: UpgradeSnsControlledCanisterCandid,
+  params: SnsGovernanceDid.UpgradeSnsControlledCanister,
 ): UpgradeSnsControlledCanister => ({
   new_canister_wasm: params.new_canister_wasm,
   chunked_canister_wasm:
@@ -663,7 +641,7 @@ const convertUpgradeSnsControlledCanister = (
 });
 
 const convertTransferSnsTreasuryFunds = (
-  params: TransferSnsTreasuryFundsCandid,
+  params: SnsGovernanceDid.TransferSnsTreasuryFunds,
 ): TransferSnsTreasuryFunds => ({
   from_treasury: params.from_treasury,
   to_principal: fromNullable(params.to_principal),
@@ -672,7 +650,9 @@ const convertTransferSnsTreasuryFunds = (
   amount_e8s: params.amount_e8s,
 });
 
-const convertMintSnsTokens = (params: MintSnsTokensCandid): MintSnsTokens => ({
+const convertMintSnsTokens = (
+  params: SnsGovernanceDid.MintSnsTokens,
+): MintSnsTokens => ({
   to_principal: fromNullable(params.to_principal),
   to_subaccount: fromNullable(params.to_subaccount),
   memo: fromNullable(params.memo),
@@ -680,7 +660,7 @@ const convertMintSnsTokens = (params: MintSnsTokensCandid): MintSnsTokens => ({
 });
 
 const convertSnsVersion = (
-  params: SnsVersionCandid | undefined,
+  params: SnsGovernanceDid.SnsVersion | undefined,
 ): SnsVersion | undefined => {
   if (params === undefined) {
     return undefined;
@@ -697,7 +677,7 @@ const convertSnsVersion = (
 };
 
 const convertGenericNervousSystemFunction = (
-  params: GenericNervousSystemFunctionCandid,
+  params: SnsGovernanceDid.GenericNervousSystemFunction,
 ): GenericNervousSystemFunction => ({
   validator_canister_id: fromNullable(params.validator_canister_id),
   target_canister_id: fromNullable(params.target_canister_id),
@@ -707,7 +687,7 @@ const convertGenericNervousSystemFunction = (
 });
 
 const convertFunctionType = (
-  params: FunctionTypeCandid | undefined,
+  params: SnsGovernanceDid.FunctionType | undefined,
 ): FunctionType | undefined => {
   if (params === undefined) {
     return undefined;
@@ -729,7 +709,7 @@ const convertFunctionType = (
 };
 
 const convertNervousSystemFunction = (
-  params: NervousSystemFunctionCandid,
+  params: SnsGovernanceDid.NervousSystemFunction,
 ): NervousSystemFunction => ({
   id: params.id,
   name: params.name,
@@ -738,7 +718,7 @@ const convertNervousSystemFunction = (
 });
 
 const convertVotingRewardsParameters = (
-  params: VotingRewardsParametersCandid | undefined,
+  params: SnsGovernanceDid.VotingRewardsParameters | undefined,
 ): VotingRewardsParameters | undefined =>
   params && {
     final_reward_rate_basis_points: fromNullable(
@@ -754,7 +734,7 @@ const convertVotingRewardsParameters = (
   };
 
 const convertNervousSystemParams = (
-  params: NervousSystemParametersCandid,
+  params: SnsGovernanceDid.NervousSystemParameters,
 ): NervousSystemParameters => ({
   default_followees: fromNullable(params.default_followees),
   max_dissolve_delay_seconds: fromNullable(params.max_dissolve_delay_seconds),
@@ -801,7 +781,7 @@ const convertNervousSystemParams = (
 });
 
 const convertRegisterExtension = (
-  params: RegisterExtensionCandid,
+  params: SnsGovernanceDid.RegisterExtension,
 ): RegisterExtension => ({
   chunked_canister_wasm:
     params.chunked_canister_wasm?.[0] !== undefined

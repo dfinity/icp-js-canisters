@@ -2,8 +2,12 @@
  * @module api/nns
  */
 
-export type { RewardEvent } from "../declarations/nns/governance";
-export type { DeployedSns } from "../declarations/nns/sns_wasm";
+export type {
+  NnsGenesisTokenDid,
+  NnsGovernanceDid,
+  NnsGovernanceTestDid,
+  SnsWasmDid,
+} from "../declarations";
 export * from "./enums/governance.enums";
 export * from "./errors/governance.errors";
 export { GenesisTokenCanister } from "./genesis_token.canister";

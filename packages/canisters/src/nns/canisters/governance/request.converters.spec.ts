@@ -1,6 +1,6 @@
 import { arrayBufferToUint8Array, toNullable } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
-import type { ManageNeuronRequest as RawManageNeuron } from "../../../declarations/nns/governance";
+import type { NnsGovernanceDid } from "../../../declarations";
 import {
   CanisterAction,
   CanisterInstallMode,
@@ -13,7 +13,7 @@ import type {
 import { toMakeProposalRawRequest } from "./request.converters";
 
 describe("request.converters", () => {
-  describe("should convert MakeProposalRequest to RawManageNeuron", () => {
+  describe("should convert MakeProposalRequest to NnsGovernanceDid.ManageNeuronRequest", () => {
     const url = "https://test.com";
     const title = "Example Proposal";
     const summary = "This is a summary of the proposal.";
@@ -192,7 +192,7 @@ describe("request.converters", () => {
         neuronId,
       };
 
-      const expectedOutput: RawManageNeuron = {
+      const expectedOutput: NnsGovernanceDid.ManageNeuronRequest = {
         id: [],
         command: [
           {
@@ -535,7 +535,7 @@ describe("request.converters", () => {
         neuronId,
       };
 
-      const expectedOutput: RawManageNeuron = {
+      const expectedOutput: NnsGovernanceDid.ManageNeuronRequest = {
         id: [],
         command: [
           {
@@ -587,7 +587,7 @@ describe("request.converters", () => {
         neuronId,
       };
 
-      const expectedOutput: RawManageNeuron = {
+      const expectedOutput: NnsGovernanceDid.ManageNeuronRequest = {
         id: [],
         command: [
           {
@@ -645,7 +645,7 @@ describe("request.converters", () => {
         neuronId,
       };
 
-      const expectedOutput: RawManageNeuron = {
+      const expectedOutput: NnsGovernanceDid.ManageNeuronRequest = {
         id: [],
         command: [
           {

@@ -1,4 +1,4 @@
-import type { InvalidUserAmount, Ticket } from "../../declarations/sns/swap";
+import type { SnsSwapDid } from "../../declarations";
 import type {
   GetOpenTicketErrorType,
   NewSaleTicketResponseErrorType,
@@ -6,8 +6,8 @@ import type {
 
 export class SnsSwapNewTicketError extends Error {
   public errorType: NewSaleTicketResponseErrorType;
-  public invalidUserAmount?: InvalidUserAmount;
-  public existingTicket?: Ticket;
+  public invalidUserAmount?: SnsSwapDid.InvalidUserAmount;
+  public existingTicket?: SnsSwapDid.Ticket;
 
   constructor({
     errorType,
@@ -15,8 +15,8 @@ export class SnsSwapNewTicketError extends Error {
     existingTicket,
   }: {
     errorType: NewSaleTicketResponseErrorType;
-    invalidUserAmount?: InvalidUserAmount;
-    existingTicket?: Ticket;
+    invalidUserAmount?: SnsSwapDid.InvalidUserAmount;
+    existingTicket?: SnsSwapDid.Ticket;
   }) {
     super();
     this.errorType = errorType;

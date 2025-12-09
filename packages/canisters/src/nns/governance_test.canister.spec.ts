@@ -1,6 +1,6 @@
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
-import type { _SERVICE as GovernanceService } from "../declarations/nns/governance_test";
+import type { NnsGovernanceTestService } from "../declarations";
 import { toNeuron } from "./canisters/governance/response.converters";
 import { MAINNET_GOVERNANCE_CANISTER_ID } from "./constants/canister_ids";
 import { GovernanceTestCanister } from "./governance_test.canister";
@@ -10,7 +10,7 @@ import type { Neuron } from "./types/governance_converters";
 describe("GovernanceTestCanister", () => {
   describe("updateNeuron", () => {
     it("should update maturity", async () => {
-      const service = mock<ActorSubclass<GovernanceService>>();
+      const service = mock<ActorSubclass<NnsGovernanceTestService>>();
       service.list_neurons.mockResolvedValue(mockListNeuronsResponse);
 
       const governance = GovernanceTestCanister.create({
@@ -40,7 +40,7 @@ describe("GovernanceTestCanister", () => {
     });
 
     it("should not update accountIdentifier", async () => {
-      const service = mock<ActorSubclass<GovernanceService>>();
+      const service = mock<ActorSubclass<NnsGovernanceTestService>>();
       service.list_neurons.mockResolvedValue(mockListNeuronsResponse);
 
       const governance = GovernanceTestCanister.create({
