@@ -49,11 +49,6 @@
     "sns"
   ],
   "peerDependencies": {
-    "@dfinity/ledger-icrc": "^6",
-    "@dfinity/utils": "^4",
-    "@icp-sdk/core": "^4"
-  },
-  "dependencies": {
-    "@noble/hashes": "^1.8.0"
+    "@icp-sdk/canisters": "^2"
   }
 }
