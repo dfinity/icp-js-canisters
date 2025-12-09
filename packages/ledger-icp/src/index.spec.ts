@@ -1,7 +1,11 @@
-import { CMCCanister } from "./index";
+import { IndexCanister, LedgerCanister } from "./index";
 
-describe("@dfinity/cmc", () => {
-  it("should re-export CMCCanister", () => {
-    expect(CMCCanister).not.toBeUndefined();
+describe("@dfinity/ledger-icp", () => {
+  it("should re-export LedgerCanister", () => {
+    expect(LedgerCanister).not.toBeUndefined();
+  });
+
+  it("should re-export IndexCanister", () => {
+    expect(IndexCanister).not.toBeUndefined();
   });
 });
