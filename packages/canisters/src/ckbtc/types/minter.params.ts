@@ -1,6 +1,6 @@
 import type { QueryParams } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
-import type { RetrieveBtcArgs } from "../candid/minter";
+import type { CkBtcMinterDid } from "../../declarations";
 
 export interface MinterAccount {
   owner: Principal;
@@ -23,7 +23,7 @@ export type UpdateBalanceParams = MinterParams;
 /**
  * Params to convert ckBTC to Bitcoin.
  */
-export type RetrieveBtcParams = RetrieveBtcArgs &
+export type RetrieveBtcParams = CkBtcMinterDid.RetrieveBtcArgs &
   Omit<QueryParams, "certified">;
 
 /**

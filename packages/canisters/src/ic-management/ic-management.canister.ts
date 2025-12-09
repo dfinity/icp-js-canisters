@@ -5,9 +5,12 @@ import {
   type QueryParams,
 } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
-import type { IcManagementDid, IcManagementService } from "../declarations";
-import { idlFactory as certifiedIdlFactory } from "../declarations/ic-management/ic-management.certified.idl";
-import { idlFactory } from "../declarations/ic-management/ic-management.idl";
+import {
+  idlFactoryCertifiedIcManagement,
+  idlFactoryIcManagement,
+  type IcManagementDid,
+  type IcManagementService,
+} from "../declarations";
 import type { IcManagementCanisterOptions } from "./types/canister.options";
 import {
   toCanisterSettings,
@@ -62,8 +65,8 @@ export class IcManagementCanister {
         callTransform: transform,
         queryTransform: transform,
       },
-      idlFactory,
-      certifiedIdlFactory,
+      idlFactory: idlFactoryIcManagement,
+      certifiedIdlFactory: idlFactoryCertifiedIcManagement,
     });
 
     return new IcManagementCanister(service, certifiedService);
