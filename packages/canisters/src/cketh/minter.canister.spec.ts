@@ -2,12 +2,7 @@ import { arrayOfNumberToUint8Array, toNullable } from "@dfinity/utils";
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import type {
-  _SERVICE as CkETHMinterService,
-  MinterInfo,
-  RetrieveErc20Request,
-  RetrieveEthRequest,
-} from "./candid/minter";
+import type { CkEthMinterDid, CkEthMinterService } from "../declarations";
 import {
   LedgerAmountTooLowError,
   LedgerInsufficientAllowanceError,
@@ -22,7 +17,7 @@ import {
   MinterTemporaryUnavailableError,
   MinterTokenNotSupported,
 } from "./errors/minter.errors";
-import { CkETHMinterCanister } from "./minter.canister";
+import { CkEthMinterCanister } from "./minter.canister";
 import {
   ckETHSmartContractAddressMock,
   ethAddressMock,
@@ -32,17 +27,17 @@ import {
 
 describe("ckETH minter canister", () => {
   const minter = (
-    service: ActorSubclass<CkETHMinterService>,
-  ): CkETHMinterCanister =>
-    CkETHMinterCanister.create({
+    service: ActorSubclass<CkEthMinterService>,
+  ): CkEthMinterCanister =>
+    CkEthMinterCanister.create({
       canisterId: minterCanisterIdMock,
       certifiedServiceOverride: service,
     });
 
   const nonCertifiedMinter = (
-    service: ActorSubclass<CkETHMinterService>,
-  ): CkETHMinterCanister =>
-    CkETHMinterCanister.create({
+    service: ActorSubclass<CkEthMinterService>,
+  ): CkEthMinterCanister =>
+    CkEthMinterCanister.create({
       canisterId: minterCanisterIdMock,
       serviceOverride: service,
     });
@@ -55,7 +50,7 @@ describe("ckETH minter canister", () => {
 
   describe("Smart contract address", () => {
     it("should return the helper smart contract address", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.smart_contract_address.mockResolvedValue(
         ckETHSmartContractAddressMock,
       );
@@ -69,7 +64,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should bubble errors", () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.smart_contract_address.mockImplementation(() => {
         throw new Error();
       });
@@ -81,7 +76,7 @@ describe("ckETH minter canister", () => {
   });
 
   describe("Withdraw ETH", () => {
-    const success: RetrieveEthRequest = {
+    const success: CkEthMinterDid.RetrieveEthRequest = {
       block_index: 1n,
     };
     const ok = { Ok: success };
@@ -92,7 +87,7 @@ describe("ckETH minter canister", () => {
     };
 
     it("should return Ok", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.withdraw_eth.mockResolvedValue(ok);
 
       const canister = minter(service);
@@ -111,7 +106,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should call with subaccount numbers", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.withdraw_eth.mockResolvedValue(ok);
 
       const canister = minter(service);
@@ -133,7 +128,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should call with subaccount uintarray", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.withdraw_eth.mockResolvedValue(ok);
 
       const canister = minter(service);
@@ -155,7 +150,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should throw MinterTemporarilyUnavailable", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
 
       const error = { Err: { TemporarilyUnavailable: "unavailable" } };
       service.withdraw_eth.mockResolvedValue(error);
@@ -170,7 +165,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should throw MinterAmountTooLowError", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
 
       const error = { Err: { AmountTooLow: { min_withdrawal_amount: 123n } } };
       service.withdraw_eth.mockResolvedValue(error);
@@ -187,7 +182,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should throw MinterRecipientAddressBlockedError", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
 
       const error = {
         Err: { RecipientAddressBlocked: { address: ethAddressMock } },
@@ -206,7 +201,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should throw MinterInsufficientFundsError", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
 
       const error = { Err: { InsufficientFunds: { balance: 123n } } };
       service.withdraw_eth.mockResolvedValue(error);
@@ -223,7 +218,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should throw MinterInsufficientAllowanceError", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
 
       const error = { Err: { InsufficientAllowance: { allowance: 123n } } };
       service.withdraw_eth.mockResolvedValue(error);
@@ -240,7 +235,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should throw unsupported response", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
 
       const error = { Err: { Test: null } as unknown };
       // @ts-expect-error we explicity want the results to throw some error type
@@ -260,7 +255,7 @@ describe("ckETH minter canister", () => {
   });
 
   describe("Withdraw Erc20", () => {
-    const success: RetrieveErc20Request = {
+    const success: CkEthMinterDid.RetrieveErc20Request = {
       ckerc20_block_index: 1n,
       cketh_block_index: 2n,
     };
@@ -275,7 +270,7 @@ describe("ckETH minter canister", () => {
     const account = arrayOfNumberToUint8Array([7, 8, 9]);
 
     it("should return Ok", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.withdraw_erc20.mockResolvedValue(ok);
 
       const canister = minter(service);
@@ -296,7 +291,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should call with ckEth subaccount", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.withdraw_erc20.mockResolvedValue(ok);
 
       const canister = minter(service);
@@ -318,7 +313,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should call with ckErc20 subaccount", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.withdraw_erc20.mockResolvedValue(ok);
 
       const canister = minter(service);
@@ -340,7 +335,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should call with ckEth and ckErc20 subaccount", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.withdraw_erc20.mockResolvedValue(ok);
 
       const canister = minter(service);
@@ -363,7 +358,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should throw MinterTemporarilyUnavailable", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
 
       const error = { Err: { TemporarilyUnavailable: "unavailable" } };
       service.withdraw_erc20.mockResolvedValue(error);
@@ -378,7 +373,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should throw MinterRecipientAddressBlockedError", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
 
       const error = {
         Err: { RecipientAddressBlocked: { address: ethAddressMock } },
@@ -397,7 +392,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should throw MinterTokenNotSupported", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
 
       const error = {
         Err: {
@@ -433,7 +428,7 @@ describe("ckETH minter canister", () => {
     describe("Ledger error", () => {
       describe("CkErc20LedgerError", () => {
         it("should throw TemporarilyUnavailable", async () => {
-          const service = mock<ActorSubclass<CkETHMinterService>>();
+          const service = mock<ActorSubclass<CkEthMinterService>>();
 
           const error = {
             Err: {
@@ -462,7 +457,7 @@ describe("ckETH minter canister", () => {
         });
 
         it("should throw InsufficientAllowance", async () => {
-          const service = mock<ActorSubclass<CkETHMinterService>>();
+          const service = mock<ActorSubclass<CkEthMinterService>>();
 
           const error = {
             Err: {
@@ -496,7 +491,7 @@ describe("ckETH minter canister", () => {
         });
 
         it("should throw AmountTooLow", async () => {
-          const service = mock<ActorSubclass<CkETHMinterService>>();
+          const service = mock<ActorSubclass<CkEthMinterService>>();
 
           const error = {
             Err: {
@@ -530,7 +525,7 @@ describe("ckETH minter canister", () => {
         });
 
         it("should throw InsufficientFunds", async () => {
-          const service = mock<ActorSubclass<CkETHMinterService>>();
+          const service = mock<ActorSubclass<CkEthMinterService>>();
 
           const error = {
             Err: {
@@ -564,7 +559,7 @@ describe("ckETH minter canister", () => {
         });
 
         it("should throw unsupported response", async () => {
-          const service = mock<ActorSubclass<CkETHMinterService>>();
+          const service = mock<ActorSubclass<CkEthMinterService>>();
 
           const error = {
             Err: {
@@ -596,7 +591,7 @@ describe("ckETH minter canister", () => {
 
       describe("CkEthLedgerError", () => {
         it("should throw TemporarilyUnavailable", async () => {
-          const service = mock<ActorSubclass<CkETHMinterService>>();
+          const service = mock<ActorSubclass<CkEthMinterService>>();
 
           const error = {
             Err: {
@@ -621,7 +616,7 @@ describe("ckETH minter canister", () => {
         });
 
         it("should throw InsufficientAllowance", async () => {
-          const service = mock<ActorSubclass<CkETHMinterService>>();
+          const service = mock<ActorSubclass<CkEthMinterService>>();
 
           const error = {
             Err: {
@@ -653,7 +648,7 @@ describe("ckETH minter canister", () => {
         });
 
         it("should throw AmountTooLow", async () => {
-          const service = mock<ActorSubclass<CkETHMinterService>>();
+          const service = mock<ActorSubclass<CkEthMinterService>>();
 
           const error = {
             Err: {
@@ -685,7 +680,7 @@ describe("ckETH minter canister", () => {
         });
 
         it("should throw InsufficientFunds", async () => {
-          const service = mock<ActorSubclass<CkETHMinterService>>();
+          const service = mock<ActorSubclass<CkEthMinterService>>();
 
           const error = {
             Err: {
@@ -717,7 +712,7 @@ describe("ckETH minter canister", () => {
         });
 
         it("should throw unsupported response", async () => {
-          const service = mock<ActorSubclass<CkETHMinterService>>();
+          const service = mock<ActorSubclass<CkEthMinterService>>();
 
           const error = {
             Err: {
@@ -747,7 +742,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should throw unsupported response", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
 
       const error = { Err: { Test: null } as unknown };
       // @ts-expect-error we explicity want the results to throw some error type
@@ -774,7 +769,7 @@ describe("ckETH minter canister", () => {
     };
 
     it("should return estimated fee", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.eip_1559_transaction_price.mockResolvedValue(eip1559Result);
 
       const canister = minter(service);
@@ -786,7 +781,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should return estimated fee for a particular Erc20 ledger ID", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.eip_1559_transaction_price.mockResolvedValue(eip1559Result);
 
       const canister = minter(service);
@@ -802,7 +797,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should bubble errors", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.eip_1559_transaction_price.mockRejectedValue(new Error());
 
       const canister = minter(service);
@@ -813,7 +808,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should bubble errors non-certified", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.eip_1559_transaction_price.mockRejectedValue(new Error());
 
       const canister = nonCertifiedMinter(service);
@@ -830,7 +825,7 @@ describe("ckETH minter canister", () => {
         TxCreated: null,
       };
 
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.retrieve_eth_status.mockResolvedValue(result);
 
       const canister = minter(service);
@@ -844,7 +839,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should bubble errors", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.retrieve_eth_status.mockRejectedValue(new Error());
 
       const canister = minter(service);
@@ -857,7 +852,7 @@ describe("ckETH minter canister", () => {
 
   describe("Minter Info", () => {
     it("should return minter info", async () => {
-      const result: MinterInfo = {
+      const result: CkEthMinterDid.MinterInfo = {
         eth_balance: toNullable(1n),
         last_observed_block_number: toNullable(2n),
         last_gas_fee_estimate: toNullable({
@@ -891,7 +886,7 @@ describe("ckETH minter canister", () => {
         last_deposit_with_subaccount_scraped_block_number: [123n],
       };
 
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.get_minter_info.mockResolvedValue(result);
 
       const canister = minter(service);
@@ -905,7 +900,7 @@ describe("ckETH minter canister", () => {
     });
 
     it("should bubble errors", async () => {
-      const service = mock<ActorSubclass<CkETHMinterService>>();
+      const service = mock<ActorSubclass<CkEthMinterService>>();
       service.get_minter_info.mockImplementation(() => {
         throw new Error();
       });

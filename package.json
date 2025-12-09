@@ -10,10 +10,10 @@
     "packages/ledger-icrc",
     "packages/nns",
     "packages/sns",
-    "packages/ckbtc",
-    "packages/cketh",
     "packages/zod-schemas",
     "packages/canisters",
+    "packages/ckbtc",
+    "packages/cketh",
     "packages/cmc",
     "packages/ic-management",
     "docs"

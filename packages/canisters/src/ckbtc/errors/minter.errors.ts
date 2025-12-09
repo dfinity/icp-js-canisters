@@ -1,10 +1,5 @@
 import { fromNullable, nonNullish } from "@dfinity/utils";
-import type {
-  PendingUtxo,
-  RetrieveBtcError,
-  RetrieveBtcWithApprovalError,
-  UpdateBalanceError,
-} from "../candid/minter";
+import type { CkBtcMinterDid } from "../../declarations";
 
 export class MinterGenericError extends Error {}
 export class MinterTemporaryUnavailableError extends MinterGenericError {}
@@ -12,13 +7,13 @@ export class MinterAlreadyProcessingError extends MinterGenericError {}
 
 export class MinterUpdateBalanceError extends MinterGenericError {}
 export class MinterNoNewUtxosError extends MinterUpdateBalanceError {
-  readonly pendingUtxos: PendingUtxo[];
+  readonly pendingUtxos: CkBtcMinterDid.PendingUtxo[];
   readonly requiredConfirmations: number;
   constructor({
     pending_utxos,
     required_confirmations,
   }: {
-    pending_utxos: [] | [PendingUtxo[]];
+    pending_utxos: [] | [CkBtcMinterDid.PendingUtxo[]];
     required_confirmations: number;
   }) {
     super();
@@ -34,7 +29,10 @@ export class MinterInsufficientFundsError extends MinterRetrieveBtcError {}
 export class MinterInsufficientAllowanceError extends MinterRetrieveBtcError {}
 
 const mapGenericError = (
-  Err: UpdateBalanceError | RetrieveBtcError | RetrieveBtcWithApprovalError,
+  Err:
+    | CkBtcMinterDid.UpdateBalanceError
+    | CkBtcMinterDid.RetrieveBtcError
+    | CkBtcMinterDid.RetrieveBtcWithApprovalError,
 ): MinterGenericError | undefined => {
   if ("GenericError" in Err) {
     const {
@@ -55,7 +53,7 @@ const mapGenericError = (
 };
 
 export const createUpdateBalanceError = (
-  Err: UpdateBalanceError,
+  Err: CkBtcMinterDid.UpdateBalanceError,
 ): MinterGenericError => {
   const error = mapGenericError(Err);
 
@@ -74,7 +72,7 @@ export const createUpdateBalanceError = (
 };
 
 export const createRetrieveBtcError = (
-  Err: RetrieveBtcError,
+  Err: CkBtcMinterDid.RetrieveBtcError,
 ): MinterGenericError => {
   const error = mapGenericError(Err);
 
@@ -101,7 +99,7 @@ export const createRetrieveBtcError = (
 };
 
 export const createRetrieveBtcWithApprovalError = (
-  Err: RetrieveBtcWithApprovalError,
+  Err: CkBtcMinterDid.RetrieveBtcWithApprovalError,
 ): MinterGenericError => {
   const error = mapGenericError(Err);
 
