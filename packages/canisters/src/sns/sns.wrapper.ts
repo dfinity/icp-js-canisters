@@ -16,27 +16,7 @@ import {
   type QueryParams,
 } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  GetMetadataResponse,
-  ListNervousSystemFunctionsResponse,
-  ListProposalsResponse,
-  NervousSystemParameters,
-  Neuron,
-  NeuronId,
-  ProposalData,
-} from "../declarations/sns/governance";
-import type {
-  BuyerState,
-  GetAutoFinalizationStatusResponse,
-  GetBuyerStateRequest,
-  GetDerivedStateResponse,
-  GetLifecycleResponse,
-  GetSaleParametersResponse,
-  GetStateResponse,
-  RefreshBuyerTokensRequest,
-  RefreshBuyerTokensResponse,
-  Ticket,
-} from "../declarations/sns/swap";
+import type { SnsGovernanceDid, SnsSwapDid } from "../declarations";
 import { MAX_NEURONS_SUBACCOUNTS } from "./constants/governance.constants";
 import { SnsGovernanceError } from "./errors/governance.errors";
 import type { SnsGovernanceCanister } from "./governance.canister";
@@ -134,26 +114,29 @@ export class SnsWrapper {
 
   listNeurons = (
     params: Omit<SnsListNeuronsParams, "certified">,
-  ): Promise<Neuron[]> => this.governance.listNeurons(this.mergeParams(params));
+  ): Promise<SnsGovernanceDid.Neuron[]> =>
+    this.governance.listNeurons(this.mergeParams(params));
 
   listProposals = (
     params: Omit<SnsListProposalsParams, "certified">,
-  ): Promise<ListProposalsResponse> =>
+  ): Promise<SnsGovernanceDid.ListProposalsResponse> =>
     this.governance.listProposals(this.mergeParams(params));
 
   getProposal = (
     params: Omit<SnsGetProposalParams, "certified">,
-  ): Promise<ProposalData> =>
+  ): Promise<SnsGovernanceDid.ProposalData> =>
     this.governance.getProposal(this.mergeParams(params));
 
   listNervousSystemFunctions = (
     params: Omit<QueryParams, "certified">,
-  ): Promise<ListNervousSystemFunctionsResponse> =>
+  ): Promise<SnsGovernanceDid.ListNervousSystemFunctionsResponse> =>
     this.governance.listNervousSystemFunctions(this.mergeParams(params));
 
   metadata = (
     params: Omit<QueryParams, "certified">,
-  ): Promise<[GetMetadataResponse, IcrcTokenMetadataResponse]> =>
+  ): Promise<
+    [SnsGovernanceDid.GetMetadataResponse, IcrcTokenMetadataResponse]
+  > =>
     Promise.all([
       this.governance.metadata(this.mergeParams(params)),
       this.ledger.metadata(this.mergeParams(params)),
@@ -161,7 +144,7 @@ export class SnsWrapper {
 
   nervousSystemParameters = (
     params: Omit<QueryParams, "certified">,
-  ): Promise<NervousSystemParameters> =>
+  ): Promise<SnsGovernanceDid.NervousSystemParameters> =>
     this.governance.nervousSystemParameters(this.mergeParams(params));
 
   ledgerMetadata = (
@@ -188,11 +171,12 @@ export class SnsWrapper {
 
   getNeuron = (
     params: Omit<SnsGetNeuronParams, "certified">,
-  ): Promise<Neuron> => this.governance.getNeuron(this.mergeParams(params));
+  ): Promise<SnsGovernanceDid.Neuron> =>
+    this.governance.getNeuron(this.mergeParams(params));
 
   queryNeuron = (
     params: Omit<SnsGetNeuronParams, "certified">,
-  ): Promise<Neuron | undefined> =>
+  ): Promise<SnsGovernanceDid.Neuron | undefined> =>
     this.governance.queryNeuron(this.mergeParams(params));
 
   /**
@@ -219,7 +203,7 @@ export class SnsWrapper {
     for (let index = 0; index < MAX_NEURONS_SUBACCOUNTS; index++) {
       const subaccount = neuronSubaccount({ index, controller });
 
-      const neuronId: NeuronId = { id: subaccount };
+      const neuronId: SnsGovernanceDid.NeuronId = { id: subaccount };
       let neuron = await this.governance.queryNeuron({
         neuronId,
         certified: false,
@@ -264,7 +248,7 @@ export class SnsWrapper {
     controller,
     createdAt,
     fee,
-  }: SnsStakeNeuronParams): Promise<NeuronId> => {
+  }: SnsStakeNeuronParams): Promise<SnsGovernanceDid.NeuronId> => {
     this.assertCertified("stakeNeuron");
     const { account: neuronAccount, index } =
       await this.nextNeuronAccount(controller);
@@ -324,7 +308,9 @@ export class SnsWrapper {
     return this.governance.refreshNeuron(neuronId);
   };
 
-  getNeuronBalance = (neuronId: NeuronId): Promise<IcrcTokens> => {
+  getNeuronBalance = (
+    neuronId: SnsGovernanceDid.NeuronId,
+  ): Promise<IcrcTokens> => {
     const account = {
       ...this.owner,
       subaccount: Uint8Array.from(neuronId.id),
@@ -337,12 +323,13 @@ export class SnsWrapper {
     this.governance.addNeuronPermissions(params);
 
   // Always certified
-  refreshNeuron = (neuronId: NeuronId): Promise<void> =>
+  refreshNeuron = (neuronId: SnsGovernanceDid.NeuronId): Promise<void> =>
     this.governance.refreshNeuron(neuronId);
 
   // Always certified
-  claimNeuron = (params: SnsClaimNeuronParams): Promise<NeuronId> =>
-    this.governance.claimNeuron(params);
+  claimNeuron = (
+    params: SnsClaimNeuronParams,
+  ): Promise<SnsGovernanceDid.NeuronId> => this.governance.claimNeuron(params);
 
   // Always certified
   removeNeuronPermissions = (
@@ -350,7 +337,9 @@ export class SnsWrapper {
   ): Promise<void> => this.governance.removeNeuronPermissions(params);
 
   // Always certified
-  splitNeuron = (params: SnsSplitNeuronParams): Promise<NeuronId | undefined> =>
+  splitNeuron = (
+    params: SnsSplitNeuronParams,
+  ): Promise<SnsGovernanceDid.NeuronId | undefined> =>
     this.governance.splitNeuron(params);
 
   // Always certified
@@ -358,11 +347,11 @@ export class SnsWrapper {
     this.governance.disburse(params);
 
   // Always certified
-  startDissolving = (neuronId: NeuronId): Promise<void> =>
+  startDissolving = (neuronId: SnsGovernanceDid.NeuronId): Promise<void> =>
     this.governance.startDissolving(neuronId);
 
   // Always certified
-  stopDissolving = (neuronId: NeuronId): Promise<void> =>
+  stopDissolving = (neuronId: SnsGovernanceDid.NeuronId): Promise<void> =>
     this.governance.stopDissolving(neuronId);
 
   // Always certified
@@ -389,7 +378,8 @@ export class SnsWrapper {
 
   swapState = (
     params: Omit<QueryParams, "certified">,
-  ): Promise<GetStateResponse> => this.swap.state(this.mergeParams(params));
+  ): Promise<SnsSwapDid.GetStateResponse> =>
+    this.swap.state(this.mergeParams(params));
 
   /**
    * Returns the ticket if a ticket was found for the caller and the ticket
@@ -400,47 +390,47 @@ export class SnsWrapper {
    *
    * @param params
    */
-  notifyPaymentFailure = (): Promise<Ticket | undefined> =>
+  notifyPaymentFailure = (): Promise<SnsSwapDid.Ticket | undefined> =>
     this.swap.notifyPaymentFailure();
 
   // Always certified
   notifyParticipation = (
-    params: RefreshBuyerTokensRequest,
-  ): Promise<RefreshBuyerTokensResponse> =>
+    params: SnsSwapDid.RefreshBuyerTokensRequest,
+  ): Promise<SnsSwapDid.RefreshBuyerTokensResponse> =>
     this.swap.notifyParticipation(params);
 
   getUserCommitment = (
-    params: GetBuyerStateRequest,
-  ): Promise<BuyerState | undefined> =>
+    params: SnsSwapDid.GetBuyerStateRequest,
+  ): Promise<SnsSwapDid.BuyerState | undefined> =>
     this.swap.getUserCommitment(this.mergeParams(params));
 
   getOpenTicket = (
     params: Omit<QueryParams, "certified">,
-  ): Promise<Ticket | undefined> =>
+  ): Promise<SnsSwapDid.Ticket | undefined> =>
     this.swap.getOpenTicket(this.mergeParams(params));
 
   // Always certified
-  newSaleTicket = (params: NewSaleTicketParams): Promise<Ticket> =>
+  newSaleTicket = (params: NewSaleTicketParams): Promise<SnsSwapDid.Ticket> =>
     this.swap.newSaleTicket(params);
 
   getLifecycle = (
     params: Omit<QueryParams, "certified">,
-  ): Promise<GetLifecycleResponse | undefined> =>
+  ): Promise<SnsSwapDid.GetLifecycleResponse | undefined> =>
     this.swap.getLifecycle(this.mergeParams(params));
 
   getFinalizationStatus = (
     params: Omit<QueryParams, "certified">,
-  ): Promise<GetAutoFinalizationStatusResponse | undefined> =>
+  ): Promise<SnsSwapDid.GetAutoFinalizationStatusResponse | undefined> =>
     this.swap.getFinalizationStatus(this.mergeParams(params));
 
   getSaleParameters = (
     params: Omit<QueryParams, "certified">,
-  ): Promise<GetSaleParametersResponse | undefined> =>
+  ): Promise<SnsSwapDid.GetSaleParametersResponse | undefined> =>
     this.swap.getSaleParameters(this.mergeParams(params));
 
   getDerivedState = (
     params: Omit<QueryParams, "certified">,
-  ): Promise<GetDerivedStateResponse | undefined> =>
+  ): Promise<SnsSwapDid.GetDerivedStateResponse | undefined> =>
     this.swap.getDerivedState(this.mergeParams(params));
 
   // Always certified

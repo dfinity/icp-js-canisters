@@ -1,10 +1,10 @@
 import { Canister, createServices } from "@dfinity/utils";
-import type {
-  ListSnsCanistersResponse,
-  _SERVICE as SnsRootService,
-} from "../declarations/sns/root";
-import { idlFactory as certifiedIdlFactory } from "../declarations/sns/root.certified.idl";
-import { idlFactory } from "../declarations/sns/root.idl";
+import {
+  type SnsRootDid,
+  type SnsRootService,
+  idlFactoryCertifiedSnsRoot,
+  idlFactorySnsRoot,
+} from "../declarations";
 import type { SnsCanisterOptions } from "./types/canister.options";
 
 export class SnsRootCanister extends Canister<SnsRootService> {
@@ -12,8 +12,8 @@ export class SnsRootCanister extends Canister<SnsRootService> {
     const { service, certifiedService, canisterId } =
       createServices<SnsRootService>({
         options,
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactorySnsRoot,
+        certifiedIdlFactory: idlFactoryCertifiedSnsRoot,
       });
 
     return new SnsRootCanister(canisterId, service, certifiedService);
@@ -33,6 +33,6 @@ export class SnsRootCanister extends Canister<SnsRootService> {
     certified = true,
   }: {
     certified?: boolean;
-  }): Promise<ListSnsCanistersResponse> =>
+  }): Promise<SnsRootDid.ListSnsCanistersResponse> =>
     this.caller({ certified }).list_sns_canisters({});
 }

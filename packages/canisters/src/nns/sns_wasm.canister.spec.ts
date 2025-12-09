@@ -1,6 +1,6 @@
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
-import type { _SERVICE as SnsWasmService } from "../declarations/nns/sns_wasm";
+import type { SnsWasmService } from "../declarations";
 import { deployedSnsMock } from "./mocks/sns_wasm.mock";
 import { SnsWasmCanister } from "./sns_wasm.canister";
 

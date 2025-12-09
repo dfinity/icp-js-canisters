@@ -5,12 +5,12 @@ import {
   isNullish,
   toNullable,
 } from "@dfinity/utils";
-import type {
-  NeuronId,
-  _SERVICE as SnsGovernanceTestService,
-} from "../declarations/sns/governance_test";
-import { idlFactory as certifiedIdlFactory } from "../declarations/sns/governance_test.certified.idl";
-import { idlFactory } from "../declarations/sns/governance_test.idl";
+import {
+  type SnsGovernanceTestDid,
+  type SnsGovernanceTestService,
+  idlFactoryCertifiedSnsGovernanceTest,
+  idlFactorySnsGovernanceTest,
+} from "../declarations";
 import { SnsGovernanceError } from "./errors/governance.errors";
 import type { SnsCanisterOptions } from "./types/canister.options";
 import type { SnsAddMaturityParams } from "./types/governance_test.params";
@@ -25,8 +25,8 @@ export class SnsGovernanceTestCanister extends Canister<SnsGovernanceTestService
     const { service, certifiedService, canisterId } =
       createServices<SnsGovernanceTestService>({
         options,
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactorySnsGovernanceTest,
+        certifiedIdlFactory: idlFactoryCertifiedSnsGovernanceTest,
       });
 
     return new SnsGovernanceTestCanister(canisterId, service, certifiedService);
@@ -39,7 +39,7 @@ export class SnsGovernanceTestCanister extends Canister<SnsGovernanceTestService
     const { id, amountE8s } = params;
 
     const { new_maturity_e8s } = await this.caller(params).add_maturity({
-      id: toNullable<NeuronId>(id),
+      id: toNullable<SnsGovernanceTestDid.NeuronId>(id),
       amount_e8s: toNullable(amountE8s),
     });
     const newMaturity = fromNullable(new_maturity_e8s);
