@@ -4,18 +4,12 @@ import {
   type QueryParams,
 } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  Account,
-  Allowance,
-  BlockIndex,
-  GetBlocksResult,
-  icrc21_consent_info,
-  _SERVICE as IcrcLedgerService,
-  StandardRecord,
-  Tokens,
-} from "../../declarations/ledger-icrc/icrc_ledger";
-import { idlFactory as certifiedIdlFactory } from "../../declarations/ledger-icrc/icrc_ledger.certified.idl";
-import { idlFactory } from "../../declarations/ledger-icrc/icrc_ledger.idl";
+import {
+  type IcrcLedgerDid,
+  type IcrcLedgerService,
+  idlFactoryCertifiedIcrcLedger,
+  idlFactoryIcrcLedger,
+} from "../../declarations";
 import { IcrcCanister } from "./canister";
 import {
   toApproveArgs,
@@ -44,8 +38,8 @@ export class IcrcLedgerCanister extends IcrcCanister<IcrcLedgerService> {
     const { service, certifiedService, canisterId } =
       createServices<IcrcLedgerService>({
         options,
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactoryIcrcLedger,
+        certifiedIdlFactory: idlFactoryCertifiedIcrcLedger,
       });
 
     return new IcrcLedgerCanister(canisterId, service, certifiedService);
@@ -62,7 +56,7 @@ export class IcrcLedgerCanister extends IcrcCanister<IcrcLedgerService> {
    *
    * @returns {Tokens} The ledger transaction fees in Tokens
    */
-  transactionFee = (params: QueryParams): Promise<Tokens> =>
+  transactionFee = (params: QueryParams): Promise<IcrcLedgerDid.Tokens> =>
     this.caller(params).icrc1_fee();
 
   /**
@@ -72,7 +66,9 @@ export class IcrcLedgerCanister extends IcrcCanister<IcrcLedgerService> {
    *
    * @throws {IcrcTransferError} If the transfer fails.
    */
-  transfer = async (params: TransferParams): Promise<BlockIndex> => {
+  transfer = async (
+    params: TransferParams,
+  ): Promise<IcrcLedgerDid.BlockIndex> => {
     const response = await this.caller({ certified: true }).icrc1_transfer(
       toTransferArg(params),
     );
@@ -88,7 +84,7 @@ export class IcrcLedgerCanister extends IcrcCanister<IcrcLedgerService> {
   /**
    * Returns the total supply of tokens.
    */
-  totalTokensSupply = (params: QueryParams): Promise<Tokens> =>
+  totalTokensSupply = (params: QueryParams): Promise<IcrcLedgerDid.Tokens> =>
     this.caller(params).icrc1_total_supply();
 
   /**
@@ -100,7 +96,9 @@ export class IcrcLedgerCanister extends IcrcCanister<IcrcLedgerService> {
    *
    * @throws {IcrcTransferError} If the transfer from fails.
    */
-  transferFrom = async (params: TransferFromParams): Promise<BlockIndex> => {
+  transferFrom = async (
+    params: TransferFromParams,
+  ): Promise<IcrcLedgerDid.BlockIndex> => {
     const response = await this.caller({ certified: true }).icrc2_transfer_from(
       toTransferFromArgs(params),
     );
@@ -122,7 +120,9 @@ export class IcrcLedgerCanister extends IcrcCanister<IcrcLedgerService> {
    *
    * @throws {IcrcTransferError} If the approval fails.
    */
-  approve = async (params: ApproveParams): Promise<BlockIndex> => {
+  approve = async (
+    params: ApproveParams,
+  ): Promise<IcrcLedgerDid.BlockIndex> => {
     const response = await this.caller({ certified: true }).icrc2_approve(
       toApproveArgs(params),
     );
@@ -144,7 +144,7 @@ export class IcrcLedgerCanister extends IcrcCanister<IcrcLedgerService> {
    *
    * @returns {Allowance} The token allowance. If there is no active approval, the ledger MUST return `{ allowance = 0; expires_at = null }`.
    */
-  allowance = (params: AllowanceParams): Promise<Allowance> => {
+  allowance = (params: AllowanceParams): Promise<IcrcLedgerDid.Allowance> => {
     const { certified, ...rest } = params;
     return this.caller({ certified }).icrc2_allowance({ ...rest });
   };
@@ -164,7 +164,7 @@ export class IcrcLedgerCanister extends IcrcCanister<IcrcLedgerService> {
    */
   consentMessage = async (
     params: Icrc21ConsentMessageParams,
-  ): Promise<icrc21_consent_info> => {
+  ): Promise<IcrcLedgerDid.icrc21_consent_info> => {
     const { icrc21_canister_call_consent_message } = this.caller({
       certified: true,
     });
@@ -186,7 +186,9 @@ export class IcrcLedgerCanister extends IcrcCanister<IcrcLedgerService> {
    * @param {GetBlocksParams} params The parameters to get the blocks.
    * @returns {Promise<GetBlocksResult>} The list of blocks.
    */
-  getBlocks = (params: GetBlocksParams): Promise<GetBlocksResult> =>
+  getBlocks = (
+    params: GetBlocksParams,
+  ): Promise<IcrcLedgerDid.GetBlocksResult> =>
     this.caller({ certified: params.certified }).icrc3_get_blocks(params.args);
 
   /**
@@ -218,7 +220,9 @@ export class IcrcLedgerCanister extends IcrcCanister<IcrcLedgerService> {
    *
    * @returns {Promise<StandardRecord[]>} The list of standards.
    */
-  icrc1SupportedStandards = (params: QueryParams): Promise<StandardRecord[]> =>
+  icrc1SupportedStandards = (
+    params: QueryParams,
+  ): Promise<IcrcLedgerDid.StandardRecord[]> =>
     this.caller(params).icrc1_supported_standards();
 
   /**
@@ -240,6 +244,8 @@ export class IcrcLedgerCanister extends IcrcCanister<IcrcLedgerService> {
    *
    * @returns {Promise<Nullable<Account>>} The minting account as a Nullable object.
    */
-  getMintingAccount = (params: QueryParams): Promise<Nullable<Account>> =>
+  getMintingAccount = (
+    params: QueryParams,
+  ): Promise<Nullable<IcrcLedgerDid.Account>> =>
     this.caller(params).icrc1_minting_account();
 }

@@ -1,5 +1,5 @@
 import { fromNullable, nonNullish, toNullable } from "@dfinity/utils";
-import type { Account } from "../../../declarations/ledger-icrc/icrc_ledger";
+import type { IcrcLedgerDid } from "../../../declarations";
 import type { IcrcAccount } from "../types/ledger.responses";
 
 /**
@@ -11,7 +11,7 @@ import type { IcrcAccount } from "../types/ledger.responses";
 export const fromCandidAccount = ({
   owner,
   subaccount: nullableSubaccount,
-}: Account): IcrcAccount => {
+}: IcrcLedgerDid.Account): IcrcAccount => {
   const subaccount = fromNullable(nullableSubaccount);
 
   return {
@@ -29,7 +29,7 @@ export const fromCandidAccount = ({
 export const toCandidAccount = ({
   owner,
   subaccount,
-}: IcrcAccount): Account => ({
+}: IcrcAccount): IcrcLedgerDid.Account => ({
   owner,
   subaccount: toNullable(subaccount),
 });

@@ -1,10 +1,5 @@
 import { isNullish, toNullable } from "@dfinity/utils";
-import type {
-  ApproveArgs,
-  icrc21_consent_message_request as ConsentMessageArgs,
-  TransferArg,
-  TransferFromArgs,
-} from "../../../declarations/ledger-icrc/icrc_ledger";
+import type { IcrcLedgerDid } from "../../../declarations";
 import type {
   ApproveParams,
   Icrc21ConsentMessageParams,
@@ -23,7 +18,7 @@ export const toTransferArg = ({
   created_at_time,
   memo,
   ...rest
-}: TransferParams): TransferArg => ({
+}: TransferParams): IcrcLedgerDid.TransferArg => ({
   ...rest,
   fee: toNullable(fee),
   memo: toNullable(memo),
@@ -37,7 +32,7 @@ export const toTransferFromArgs = ({
   created_at_time,
   memo,
   ...rest
-}: TransferFromParams): TransferFromArgs => ({
+}: TransferFromParams): IcrcLedgerDid.TransferFromArgs => ({
   ...rest,
   fee: toNullable(fee),
   memo: toNullable(memo),
@@ -53,7 +48,7 @@ export const toApproveArgs = ({
   expected_allowance,
   expires_at,
   ...rest
-}: ApproveParams): ApproveArgs => ({
+}: ApproveParams): IcrcLedgerDid.ApproveArgs => ({
   ...rest,
   fee: toNullable(fee),
   memo: toNullable(memo),
@@ -69,7 +64,7 @@ export const toIcrc21ConsentMessageArgs = ({
     deriveSpec,
   },
   ...rest
-}: Icrc21ConsentMessageParams): ConsentMessageArgs => ({
+}: Icrc21ConsentMessageParams): IcrcLedgerDid.icrc21_consent_message_request => ({
   ...rest,
   user_preferences: {
     metadata: {

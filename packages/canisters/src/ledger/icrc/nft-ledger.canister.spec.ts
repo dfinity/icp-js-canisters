@@ -1,6 +1,6 @@
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
-import type { _SERVICE as IcrcNftLedgerService } from "../../declarations/ledger-icrc/icrc_nft-ledger";
+import type { IcrcNftLedgerService } from "../../declarations";
 import {
   ledgerCanisterIdMock,
   tokenMetadataResponseMock,
