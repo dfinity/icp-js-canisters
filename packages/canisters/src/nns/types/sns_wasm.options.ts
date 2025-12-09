@@ -1,4 +1,4 @@
 import type { CanisterOptions } from "@dfinity/utils";
-import type { _SERVICE as SnsWasmService } from "../../declarations/nns/sns_wasm";
+import type { SnsWasmService } from "../../declarations";
 
 export type SnsWasmCanisterOptions = CanisterOptions<SnsWasmService>;

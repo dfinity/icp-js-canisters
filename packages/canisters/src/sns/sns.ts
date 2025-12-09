@@ -5,10 +5,7 @@ import {
 } from "@dfinity/utils";
 import type { Agent } from "@icp-sdk/core/agent";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  ListSnsCanistersResponse,
-  _SERVICE as SnsRootService,
-} from "../declarations/sns/root";
+import type { SnsRootDid, SnsRootService } from "../declarations";
 import { IcrcIndexCanister, IcrcLedgerCanister } from "../ledger/icrc";
 import { SnsGovernanceCanister } from "./governance.canister";
 import { SnsRootCanister } from "./root.canister";
@@ -43,8 +40,14 @@ export const initSnsWrapper: InitSnsWrapper = async ({
     agent,
   });
 
-  const { ledger, swap, governance, index }: ListSnsCanistersResponse =
-    await rootCanister.listSnsCanisters({ certified });
+  const {
+    ledger,
+    swap,
+    governance,
+    index,
+  }: SnsRootDid.ListSnsCanistersResponse = await rootCanister.listSnsCanisters({
+    certified,
+  });
 
   const governanceCanisterId: Principal | undefined = fromNullable(governance);
   const ledgerCanisterId: Principal | undefined = fromNullable(ledger);

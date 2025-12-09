@@ -1,6 +1,6 @@
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
-import type { _SERVICE as SnsRootService } from "../declarations/sns/root";
+import type { SnsRootService } from "../declarations";
 import { rootCanisterIdMock, snsMock } from "./mocks/sns.mock";
 import { SnsRootCanister } from "./root.canister";
 

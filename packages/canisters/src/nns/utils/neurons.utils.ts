@@ -1,4 +1,3 @@
-import { AccountIdentifier, SubAccount } from "@dfinity/ledger-icp";
 import {
   arrayOfNumberToUint8Array,
   asciiStringToByteArray,
@@ -6,6 +5,7 @@ import {
 } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
 import { sha256 } from "@noble/hashes/sha2";
+import { AccountIdentifier, SubAccount } from "../../ledger/icp";
 import { Vote } from "../enums/governance.enums";
 import type {
   Ballot,

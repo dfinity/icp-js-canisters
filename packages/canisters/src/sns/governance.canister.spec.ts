@@ -6,17 +6,7 @@ import {
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import type {
-  ListNervousSystemFunctionsResponse,
-  ListProposalsResponse,
-  ManageNeuron,
-  ManageNeuronResponse,
-  NervousSystemFunction,
-  NervousSystemParameters,
-  NeuronId,
-  _SERVICE as SnsGovernanceService,
-  Topic,
-} from "../declarations/sns/governance";
+import type { SnsGovernanceDid, SnsGovernanceService } from "../declarations";
 import {
   DEFAULT_PROPOSALS_LIMIT,
   MAX_LIST_NEURONS_RESULTS,
@@ -49,7 +39,7 @@ import type {
 } from "./types/governance.params";
 
 describe("Governance canister", () => {
-  const mockErrorCommand: ManageNeuronResponse = {
+  const mockErrorCommand: SnsGovernanceDid.ManageNeuronResponse = {
     command: [{ Error: { error_message: "test", error_type: 2 } }],
   };
 
@@ -68,16 +58,17 @@ describe("Governance canister", () => {
 
   it("should return the list of nervous system functionsof the sns", async () => {
     const service = mock<ActorSubclass<SnsGovernanceService>>();
-    const nervousSysttemFunctionMock: NervousSystemFunction = {
+    const nervousSysttemFunctionMock: SnsGovernanceDid.NervousSystemFunction = {
       id: BigInt(30),
       name: "Governance",
       description: ["This is a description"],
       function_type: [{ NativeNervousSystemFunction: {} }],
     };
-    const nervousSystemFunctionsMock: ListNervousSystemFunctionsResponse = {
-      reserved_ids: new BigUint64Array(),
-      functions: [nervousSysttemFunctionMock],
-    };
+    const nervousSystemFunctionsMock: SnsGovernanceDid.ListNervousSystemFunctionsResponse =
+      {
+        reserved_ids: new BigUint64Array(),
+        functions: [nervousSysttemFunctionMock],
+      };
     service.list_nervous_system_functions.mockResolvedValue(
       nervousSystemFunctionsMock,
     );
@@ -134,7 +125,7 @@ describe("Governance canister", () => {
       const service = mock<ActorSubclass<SnsGovernanceService>>();
       const mockListProposals = service.list_proposals.mockResolvedValue({
         proposals: proposalsMock,
-      } as ListProposalsResponse);
+      } as SnsGovernanceDid.ListProposalsResponse);
 
       const canister = SnsGovernanceCanister.create({
         canisterId: rootCanisterIdMock,
@@ -491,7 +482,7 @@ describe("Governance canister", () => {
     };
 
     it("should splitNeuron the neuron", async () => {
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: params.neuronId.id,
         command: [
           {
@@ -544,7 +535,7 @@ describe("Governance canister", () => {
     it("should manage the neuron", async () => {
       const principal = Principal.fromText("aaaaa-aa");
       const permissions = [SnsNeuronPermissionType.NEURON_PERMISSION_TYPE_VOTE];
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: arrayOfNumberToUint8Array([1, 2, 3]),
         command: [
           {
@@ -574,7 +565,7 @@ describe("Governance canister", () => {
     it("should raise an error", async () => {
       const principal = Principal.fromText("aaaaa-aa");
       const permissions = [SnsNeuronPermissionType.NEURON_PERMISSION_TYPE_VOTE];
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: arrayOfNumberToUint8Array([1, 2, 3]),
         command: [
           {
@@ -622,7 +613,7 @@ describe("Governance canister", () => {
       const mockParams = { test: true };
       const service = mock<ActorSubclass<SnsGovernanceService>>();
       service.get_nervous_system_parameters.mockResolvedValue(
-        mockParams as unknown as NervousSystemParameters,
+        mockParams as unknown as SnsGovernanceDid.NervousSystemParameters,
       );
 
       const canister = SnsGovernanceCanister.create({
@@ -650,7 +641,7 @@ describe("Governance canister", () => {
     };
 
     it("should disburse the neuron", async () => {
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: params.neuronId.id,
         command: [
           {
@@ -698,12 +689,12 @@ describe("Governance canister", () => {
   });
 
   describe("startDissolving", () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
 
     it("should call manageNeuron", async () => {
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: neuronId.id,
         command: [
           {
@@ -746,12 +737,12 @@ describe("Governance canister", () => {
   });
 
   describe("stopDissolving", () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
 
     it("should call manageNeuron", async () => {
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: neuronId.id,
         command: [
           {
@@ -794,12 +785,12 @@ describe("Governance canister", () => {
   });
 
   describe("setDissolveTimestamp", () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
 
     it("should call manageNeuron", async () => {
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: neuronId.id,
         command: [
           {
@@ -855,12 +846,12 @@ describe("Governance canister", () => {
   });
 
   describe("increaseDissolveDelay", () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
 
     it("should call manageNeuron", async () => {
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: neuronId.id,
         command: [
           {
@@ -916,7 +907,7 @@ describe("Governance canister", () => {
   });
 
   describe("setTopicFollowees", () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
     const functionId = BigInt(222);
@@ -926,7 +917,7 @@ describe("Governance canister", () => {
     ];
 
     it("should call manageNeuron", async () => {
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: neuronId.id,
         command: [
           {
@@ -979,21 +970,21 @@ describe("Governance canister", () => {
   });
 
   describe("setFollowing", () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([0, 1, 2]),
     };
-    const neuronId1: NeuronId = {
+    const neuronId1: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
-    const neuronId2: NeuronId = {
+    const neuronId2: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([2, 3, 4]),
     };
-    const topic1: Topic = { DappCanisterManagement: null };
-    const topic2: Topic = { Governance: null };
+    const topic1: SnsGovernanceDid.Topic = { DappCanisterManagement: null };
+    const topic2: SnsGovernanceDid.Topic = { Governance: null };
     const alias = "alias";
 
     it("should call manageNeuron", async () => {
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: neuronId.id,
         command: [
           {
@@ -1098,7 +1089,7 @@ describe("Governance canister", () => {
     };
 
     it("should register the vote", async () => {
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: neuronIdMock.id,
         command: [
           {
@@ -1380,7 +1371,7 @@ describe("Governance canister", () => {
     };
 
     it("should disburse maturity of the neuron", async () => {
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: params.neuronId.id,
         command: [
           {
@@ -1452,7 +1443,7 @@ describe("Governance canister", () => {
     const testAutoStakeMaturitySuccess = async (
       requested_setting_for_auto_stake_maturity: boolean,
     ) => {
-      const request: ManageNeuron = {
+      const request: SnsGovernanceDid.ManageNeuron = {
         subaccount: neuronIdMock.id,
         command: [
           {

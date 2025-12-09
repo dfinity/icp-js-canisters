@@ -1,18 +1,7 @@
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import type {
-  BuyerState,
-  GetAutoFinalizationStatusResponse,
-  GetDerivedStateResponse,
-  GetLifecycleResponse,
-  GetOpenTicketResponse,
-  GetSaleParametersResponse,
-  GetStateResponse,
-  NewSaleTicketResponse,
-  _SERVICE as SnsSwapService,
-  Swap,
-} from "../declarations/sns/swap";
+import type { SnsSwapDid, SnsSwapService } from "../declarations";
 import {
   GetOpenTicketErrorType,
   NewSaleTicketResponseErrorType,
@@ -30,7 +19,7 @@ describe("Swap canister", () => {
   afterEach(() => vi.clearAllMocks());
 
   it("should return the state of the swap canister", async () => {
-    const mockSwap: Swap = {
+    const mockSwap: SnsSwapDid.Swap = {
       swap: [
         {
           init: {
@@ -38,9 +27,9 @@ describe("Swap canister", () => {
           },
         },
       ],
-    } as unknown as Swap;
+    } as unknown as SnsSwapDid.Swap;
 
-    const mockResponse: GetStateResponse = {
+    const mockResponse: SnsSwapDid.GetStateResponse = {
       swap: [mockSwap],
       derived: [],
     };
@@ -58,7 +47,7 @@ describe("Swap canister", () => {
   });
 
   it("should return open sale ticket", async () => {
-    const mockResponse: GetOpenTicketResponse = {
+    const mockResponse: SnsSwapDid.GetOpenTicketResponse = {
       result: [
         {
           Ok: {
@@ -81,7 +70,7 @@ describe("Swap canister", () => {
   });
 
   it("should throw open sale ticket", async () => {
-    const mockResponse: GetOpenTicketResponse = {
+    const mockResponse: SnsSwapDid.GetOpenTicketResponse = {
       result: [
         {
           Err: {
@@ -106,7 +95,7 @@ describe("Swap canister", () => {
   });
 
   it("should return new sale ticket", async () => {
-    const mockResponse: NewSaleTicketResponse = {
+    const mockResponse: SnsSwapDid.NewSaleTicketResponse = {
       result: [
         {
           Ok: {
@@ -135,7 +124,7 @@ describe("Swap canister", () => {
     const min_amount_icp_e8s_included = 123n;
     const max_amount_icp_e8s_included = 321n;
 
-    const mockResponse: NewSaleTicketResponse = {
+    const mockResponse: SnsSwapDid.NewSaleTicketResponse = {
       result: [
         {
           Err: {
@@ -178,7 +167,7 @@ describe("Swap canister", () => {
   });
 
   it("should return the derived state of the swap canister", async () => {
-    const testResponse: GetDerivedStateResponse = {
+    const testResponse: SnsSwapDid.GetDerivedStateResponse = {
       sns_tokens_per_icp: [2],
       buyer_total_icp_e8s: [BigInt(100_000_000)],
       cf_participant_count: [BigInt(3)],
@@ -201,7 +190,7 @@ describe("Swap canister", () => {
   });
 
   it("should return sale parameters", async () => {
-    const testResponse: GetSaleParametersResponse = {
+    const testResponse: SnsSwapDid.GetSaleParametersResponse = {
       params: [
         {
           min_participant_icp_e8s: BigInt(100_000_000),
@@ -232,7 +221,7 @@ describe("Swap canister", () => {
   });
 
   it("should return the lifecycle state of the swap canister", async () => {
-    const mockResponse: GetLifecycleResponse = {
+    const mockResponse: SnsSwapDid.GetLifecycleResponse = {
       decentralization_sale_open_timestamp_seconds: [BigInt(2)],
       lifecycle: [SnsSwapLifecycle.Adopted],
       decentralization_swap_termination_timestamp_seconds: [],
@@ -252,7 +241,7 @@ describe("Swap canister", () => {
 
   describe("getFinalizationStatus", () => {
     it("should return the finalization status of the swap canister", async () => {
-      const mockResponse: GetAutoFinalizationStatusResponse = {
+      const mockResponse: SnsSwapDid.GetAutoFinalizationStatusResponse = {
         auto_finalize_swap_response: [],
         has_auto_finalize_been_attempted: [false],
         is_auto_finalize_enabled: [false],
@@ -329,7 +318,7 @@ describe("Swap canister", () => {
   });
 
   it("should return the user commitment", async () => {
-    const buyerState: BuyerState = {
+    const buyerState: SnsSwapDid.BuyerState = {
       icp: [
         {
           amount_e8s: BigInt(100000000),

@@ -1,10 +1,4 @@
 import {
-  AccountIdentifier,
-  checkAccountId,
-  type AccountIdentifierHex,
-  type LedgerCanister,
-} from "@dfinity/ledger-icp";
-import {
   assertPercentageNumber,
   createServices,
   fromNullable,
@@ -15,19 +9,20 @@ import {
 } from "@dfinity/utils";
 import { Actor, type ActorSubclass, type Agent } from "@icp-sdk/core/agent";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  Command_1,
-  _SERVICE as GovernanceService,
-  MergeResponse,
-  NeuronSubaccount,
-  Neuron as RawNeuron,
-  NeuronInfo as RawNeuronInfo,
-  ProposalInfo as RawProposalInfo,
-  RewardEvent,
-} from "../declarations/nns/governance";
-import { idlFactory as certifiedIdlFactory } from "../declarations/nns/governance.certified.idl";
-import { idlFactory } from "../declarations/nns/governance.idl";
+import {
+  idlFactoryCertifiedNnsGovernance,
+  idlFactoryNnsGovernance,
+  type NnsGovernanceDid,
+  type NnsGovernanceService,
+} from "../declarations";
+// This seems rather like a specific workaround that a proper common service therefore it's import points directly to the IDL
 import { idlFactory as oldListNeuronsCertifiedIdlFactory } from "../declarations/nns/old_list_neurons_service.certified.idl";
+import {
+  AccountIdentifier,
+  checkAccountId,
+  type AccountIdentifierHex,
+  type LedgerCanister,
+} from "../ledger/icp";
 import {
   fromClaimOrRefreshNeuronRequest,
   fromListNeurons,
@@ -100,9 +95,9 @@ import { memoToNeuronAccountIdentifier } from "./utils/neurons.utils";
 export class GovernanceCanister {
   private constructor(
     private readonly canisterId: Principal,
-    private readonly service: ActorSubclass<GovernanceService>,
-    private readonly certifiedService: ActorSubclass<GovernanceService>,
-    private readonly oldListNeuronsCertifiedService: ActorSubclass<GovernanceService>,
+    private readonly service: ActorSubclass<NnsGovernanceService>,
+    private readonly certifiedService: ActorSubclass<NnsGovernanceService>,
+    private readonly oldListNeuronsCertifiedService: ActorSubclass<NnsGovernanceService>,
     private readonly agent: Agent,
   ) {
     this.canisterId = canisterId;
@@ -117,21 +112,24 @@ export class GovernanceCanister {
       options.canisterId ?? MAINNET_GOVERNANCE_CANISTER_ID;
 
     const { service, certifiedService, agent } =
-      createServices<GovernanceService>({
+      createServices<NnsGovernanceService>({
         options: {
           ...options,
           canisterId,
         },
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactoryNnsGovernance,
+        certifiedIdlFactory: idlFactoryCertifiedNnsGovernance,
       });
 
     const oldListNeuronsCertifiedService =
       options.oldListNeuronsServiceOverride ??
-      Actor.createActor<GovernanceService>(oldListNeuronsCertifiedIdlFactory, {
-        agent,
-        canisterId,
-      });
+      Actor.createActor<NnsGovernanceService>(
+        oldListNeuronsCertifiedIdlFactory,
+        {
+          agent,
+          canisterId,
+        },
+      );
 
     return new GovernanceCanister(
       canisterId,
@@ -166,7 +164,7 @@ export class GovernanceCanister {
     neuronIds?: NeuronId[];
     includeEmptyNeurons?: boolean;
     includePublicNeurons?: boolean;
-    neuronSubaccounts?: NeuronSubaccount[];
+    neuronSubaccounts?: NnsGovernanceDid.NeuronSubaccount[];
   }): Promise<NeuronInfo[]> => {
     const useOldMethod =
       isNullish(includeEmptyNeurons) &&
@@ -255,7 +253,7 @@ export class GovernanceCanister {
     includeEmptyNeurons?: boolean;
     includePublicNeurons?: boolean;
     pageNumber: bigint;
-    neuronSubaccounts?: NeuronSubaccount[];
+    neuronSubaccounts?: NnsGovernanceDid.NeuronSubaccount[];
   }): Promise<{ neurons: NeuronInfo[]; totalPages: bigint }> => {
     // https://github.com/dfinity/ic/blob/59c4b87a337f1bd52a076c0f3e99acf155b79803/rs/nns/governance/src/governance.rs#L223
     const PAGE_SIZE = 500n;
@@ -269,7 +267,7 @@ export class GovernanceCanister {
       pageSize: PAGE_SIZE,
     });
 
-    const service = this.getGovernanceService(certified);
+    const service = this.getNnsGovernanceService(certified);
     const rawResponse = await service.list_neurons(rawRequest);
     const neurons = toArrayOfNeuronInfo({
       response: rawResponse,
@@ -292,7 +290,7 @@ export class GovernanceCanister {
     certified = true,
   ): Promise<KnownNeuron[]> => {
     const response =
-      await this.getGovernanceService(certified).list_known_neurons();
+      await this.getNnsGovernanceService(certified).list_known_neurons();
 
     return response.known_neurons.map((n) => {
       const knownNeuronData = fromNullable(n.known_neuron_data);
@@ -315,8 +313,10 @@ export class GovernanceCanister {
    * it's fetched using a query call.
    *
    */
-  public getLatestRewardEvent = (certified = true): Promise<RewardEvent> =>
-    this.getGovernanceService(certified).get_latest_reward_event();
+  public getLatestRewardEvent = (
+    certified = true,
+  ): Promise<NnsGovernanceDid.RewardEvent> =>
+    this.getNnsGovernanceService(certified).get_latest_reward_event();
 
   /**
    * Returns the list of proposals made for the community to vote on,
@@ -337,7 +337,7 @@ export class GovernanceCanister {
   }): Promise<ListProposalsResponse> => {
     const rawRequest = fromListProposalsRequest(request);
     const rawResponse =
-      await this.getGovernanceService(certified).list_proposals(rawRequest);
+      await this.getNnsGovernanceService(certified).list_proposals(rawRequest);
     return toListProposalsResponse(rawResponse);
   };
 
@@ -601,9 +601,9 @@ export class GovernanceCanister {
       service: this.certifiedService,
     });
 
-    let merge: MergeResponse | undefined;
-    let neuronInfo: RawNeuronInfo | undefined;
-    let rawNeuron: RawNeuron | undefined;
+    let merge: NnsGovernanceDid.MergeResponse | undefined;
+    let neuronInfo: NnsGovernanceDid.NeuronInfo | undefined;
+    let rawNeuron: NnsGovernanceDid.Neuron | undefined;
     let neuronId: NeuronId | undefined;
 
     if (
@@ -685,8 +685,10 @@ export class GovernanceCanister {
     proposalId: bigint;
     certified?: boolean;
   }): Promise<ProposalInfo | undefined> => {
-    const [proposalInfo]: Nullable<RawProposalInfo> =
-      await this.getGovernanceService(certified).get_proposal_info(proposalId);
+    const [proposalInfo]: Nullable<NnsGovernanceDid.ProposalInfo> =
+      await this.getNnsGovernanceService(certified).get_proposal_info(
+        proposalId,
+      );
     return proposalInfo ? toProposalInfo(proposalInfo) : undefined;
   };
 
@@ -960,7 +962,7 @@ export class GovernanceCanister {
       controller,
     });
     const rawResponse = await this.certifiedService.manage_neuron(rawRequest);
-    let command: Command_1 | undefined;
+    let command: NnsGovernanceDid.Command_1 | undefined;
     if (
       nonNullish((command = fromNullable(rawResponse.command))) &&
       "ClaimOrRefresh" in command
@@ -984,7 +986,7 @@ export class GovernanceCanister {
   ): Promise<NeuronId | undefined> => {
     const rawRequest = fromClaimOrRefreshNeuronRequest(request);
     const rawResponse = await this.service.manage_neuron(rawRequest);
-    let command: Command_1 | undefined;
+    let command: NnsGovernanceDid.Command_1 | undefined;
     if (
       nonNullish((command = fromNullable(rawResponse.command))) &&
       "ClaimOrRefresh" in command
@@ -997,7 +999,7 @@ export class GovernanceCanister {
     );
   };
 
-  private getGovernanceService(certified: boolean): GovernanceService {
+  private getNnsGovernanceService(certified: boolean): NnsGovernanceService {
     return certified ? this.certifiedService : this.service;
   }
 
@@ -1031,7 +1033,7 @@ export class GovernanceCanister {
     certified: boolean;
   }): Promise<NetworkEconomics> => {
     const rawResponse =
-      await this.getGovernanceService(
+      await this.getNnsGovernanceService(
         certified,
       ).get_network_economics_parameters();
     return toNetworkEconomics(rawResponse);
@@ -1105,7 +1107,8 @@ export class GovernanceCanister {
   }: {
     certified: boolean;
   }): Promise<GovernanceCachedMetrics> => {
-    const response = await this.getGovernanceService(certified).get_metrics();
+    const response =
+      await this.getNnsGovernanceService(certified).get_metrics();
     if ("Err" in response) {
       throw new GovernanceError(response.Err);
     }

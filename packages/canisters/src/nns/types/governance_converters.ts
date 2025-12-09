@@ -1,7 +1,7 @@
-import type { AccountIdentifierHex } from "@dfinity/ledger-icp";
 import type { DerEncodedPublicKey } from "@icp-sdk/core/agent";
 import type { Principal } from "@icp-sdk/core/principal";
-import type { TopicToFollow } from "../../declarations/nns/governance";
+import type { NnsGovernanceDid } from "../../declarations";
+import type { AccountIdentifierHex } from "../../ledger/icp";
 import type {
   CanisterAction,
   CanisterInstallMode,
@@ -202,7 +202,7 @@ export interface KnownNeuron {
   name: string;
   description: Option<string>;
   links: Option<Array<string>>;
-  committed_topics: Option<Array<[] | [TopicToFollow]>>;
+  committed_topics: Option<Array<[] | [NnsGovernanceDid.TopicToFollow]>>;
 }
 export interface DeregisterKnownNeuron {
   id: Option<NeuronId>;

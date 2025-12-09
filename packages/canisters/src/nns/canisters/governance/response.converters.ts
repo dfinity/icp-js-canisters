@@ -1,4 +1,3 @@
-import type { AccountIdentifierHex } from "@dfinity/ledger-icp";
 import {
   fromDefinedNullable,
   fromNullable,
@@ -10,59 +9,9 @@ import {
   type Nullable,
 } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
+import type { AccountIdentifierHex } from "../../../ledger/icp";
 
-import type {
-  Params,
-  Account as RawAccount,
-  AccountIdentifier as RawAccountIdentifier,
-  Action as RawAction,
-  Amount as RawAmount,
-  Ballot as RawBallot,
-  BallotInfo as RawBallotInfo,
-  By as RawBy,
-  Canister as RawCanister,
-  CanisterSettings as RawCanisterSettings,
-  Change as RawChange,
-  ManageNeuronProposalCommand as RawCommand,
-  Countries as RawCountries,
-  Decimal as RawDecimal,
-  DeveloperDistribution as RawDeveloperDistribution,
-  DissolveState as RawDissolveState,
-  Duration as RawDuration,
-  Followees as RawFollowees,
-  GlobalTimeOfDay as RawGlobalTimeOfDay,
-  GovernanceCachedMetrics as RawGovernanceCachedMetrics,
-  GovernanceParameters as RawGovernanceParameters,
-  Image as RawImage,
-  InitialTokenDistribution as RawInitialTokenDistribution,
-  KnownNeuron as RawKnownNeuron,
-  LedgerParameters as RawLedgerParameters,
-  ListNeuronsResponse as RawListNeuronsResponse,
-  ListProposalInfoResponse as RawListProposalInfoResponse,
-  MaturityDisbursement as RawMaturityDisbursement,
-  NetworkEconomics as RawNetworkEconomics,
-  Neuron as RawNeuron,
-  NeuronBasketConstructionParameters as RawNeuronBasketConstructionParameters,
-  NeuronDistribution as RawNeuronDistribution,
-  NeuronId as RawNeuronId,
-  NeuronIdOrSubaccount as RawNeuronIdOrSubaccount,
-  NeuronInfo as RawNeuronInfo,
-  NeuronSubsetMetrics as RawNeuronSubsetMetrics,
-  NeuronsFundEconomics as RawNeuronsFundEconomics,
-  NeuronsFundMatchedFundingCurveCoefficients as RawNeuronsFundMatchedFundingCurveCoefficients,
-  NodeProvider as RawNodeProvider,
-  Operation as RawOperation,
-  Percentage as RawPercentage,
-  Proposal as RawProposal,
-  ProposalInfo as RawProposalInfo,
-  RewardMode as RawRewardMode,
-  SwapDistribution as RawSwapDistribution,
-  SwapParameters as RawSwapParameters,
-  Tally as RawTally,
-  Tokens as RawTokens,
-  VotingPowerEconomics as RawVotingPowerEconomics,
-  VotingRewardParameters as RawVotingRewardParameters,
-} from "../../../declarations/nns/governance";
+import type { NnsGovernanceDid } from "../../../declarations";
 import type {
   CanisterAction,
   CanisterInstallMode,
@@ -136,8 +85,8 @@ export const toNeuronInfo = ({
   canisterId,
 }: {
   neuronId: bigint;
-  neuronInfo: RawNeuronInfo;
-  rawNeuron?: RawNeuron;
+  neuronInfo: NnsGovernanceDid.NeuronInfo;
+  rawNeuron?: NnsGovernanceDid.Neuron;
   canisterId: Principal;
 }): NeuronInfo => {
   const fullNeuron = rawNeuron
@@ -174,7 +123,7 @@ export const toNeuron = ({
   neuron,
   canisterId,
 }: {
-  neuron: RawNeuron;
+  neuron: NnsGovernanceDid.Neuron;
   canisterId: Principal;
 }): Neuron => ({
   id: neuron.id.length ? toNeuronId(neuron.id[0]) : undefined,
@@ -227,7 +176,7 @@ export const toRawNeuron = ({
 }: {
   neuron: Neuron;
   account: Uint8Array;
-}): RawNeuron => ({
+}): NnsGovernanceDid.Neuron => ({
   id: nonNullish(neuron.id) ? toNullable({ id: neuron.id }) : [],
   staked_maturity_e8s_equivalent: toNullable(
     neuron.stakedMaturityE8sEquivalent,
@@ -282,12 +231,17 @@ export const toRawNeuron = ({
   deciding_voting_power: toNullable(neuron.decidingVotingPower),
 });
 
-const toBallotInfo = ({ vote, proposal_id }: RawBallotInfo): BallotInfo => ({
+const toBallotInfo = ({
+  vote,
+  proposal_id,
+}: NnsGovernanceDid.BallotInfo): BallotInfo => ({
   vote,
   proposalId: proposal_id.length ? toNeuronId(proposal_id[0]) : undefined,
 });
 
-const toDissolveState = (dissolveState: RawDissolveState): DissolveState => {
+const toDissolveState = (
+  dissolveState: NnsGovernanceDid.DissolveState,
+): DissolveState => {
   if ("DissolveDelaySeconds" in dissolveState) {
     return {
       DissolveDelaySeconds: dissolveState.DissolveDelaySeconds,
@@ -299,7 +253,7 @@ const toDissolveState = (dissolveState: RawDissolveState): DissolveState => {
 };
 
 const toMaturityDisbursementInProgress = (
-  maturityDisbursement: RawMaturityDisbursement,
+  maturityDisbursement: NnsGovernanceDid.MaturityDisbursement,
 ): MaturityDisbursement => {
   const accountToDisburseTo = fromNullable(
     maturityDisbursement.account_to_disburse_to,
@@ -326,7 +280,7 @@ const toMaturityDisbursementInProgress = (
 
 const toRawMaturityDisbursementInProgress = (
   maturityDisbursement: MaturityDisbursement,
-): RawMaturityDisbursement => ({
+): NnsGovernanceDid.MaturityDisbursement => ({
   timestamp_of_disbursement_seconds: toNullable(
     maturityDisbursement.timestampOfDisbursementSeconds,
   ),
@@ -353,16 +307,16 @@ const toFollowees = ({
   followees,
 }: {
   topic: number;
-  followees: RawFollowees;
+  followees: NnsGovernanceDid.Followees;
 }): Followees => ({
   topic,
   followees: followees.followees.map(toNeuronId),
 });
 
-const toNeuronId = ({ id }: RawNeuronId): NeuronId => id;
+const toNeuronId = ({ id }: NnsGovernanceDid.NeuronId): NeuronId => id;
 
 const toNeuronIdOrSubaccount = (
-  neuronIdOrSubaccount: RawNeuronIdOrSubaccount,
+  neuronIdOrSubaccount: NnsGovernanceDid.NeuronIdOrSubaccount,
 ): NeuronIdOrSubaccount => {
   if ("NeuronId" in neuronIdOrSubaccount) {
     return { NeuronId: neuronIdOrSubaccount.NeuronId.id };
@@ -382,7 +336,7 @@ const toBallot = ({
   ballot,
 }: {
   neuronId: bigint;
-  ballot: RawBallot;
+  ballot: NnsGovernanceDid.Ballot;
 }): Ballot => {
   const { vote, voting_power: votingPower } = ballot;
 
@@ -393,7 +347,10 @@ const toBallot = ({
   };
 };
 
-const toAccount = ({ subaccount, owner }: RawAccount): Account => {
+const toAccount = ({
+  subaccount,
+  owner,
+}: NnsGovernanceDid.Account): Account => {
   const unwrappedSubaccount = fromNullable(subaccount);
   return {
     owner: fromNullable(owner),
@@ -403,7 +360,10 @@ const toAccount = ({ subaccount, owner }: RawAccount): Account => {
   };
 };
 
-const toRawAccount = ({ owner, subaccount }: Account): RawAccount => ({
+const toRawAccount = ({
+  owner,
+  subaccount,
+}: Account): NnsGovernanceDid.Account => ({
   owner: toNullable(owner),
   subaccount: nonNullish(subaccount)
     ? toNullable(Uint8Array.from(subaccount))
@@ -415,14 +375,14 @@ const toProposal = ({
   url,
   action,
   summary,
-}: RawProposal): Proposal => ({
+}: NnsGovernanceDid.Proposal): Proposal => ({
   title: title.length ? title[0] : undefined,
   url,
   action: action.length ? toAction(action[0]) : undefined,
   summary,
 });
 
-const toAction = (action: RawAction): Action => {
+const toAction = (action: NnsGovernanceDid.Action): Action => {
   if ("ExecuteNnsFunction" in action) {
     const executeNnsFunction = action.ExecuteNnsFunction;
 
@@ -571,7 +531,9 @@ const toAction = (action: RawAction): Action => {
 
   if ("OpenSnsTokenSwap" in action) {
     const { OpenSnsTokenSwap } = action;
-    const params: Params | undefined = fromNullable(OpenSnsTokenSwap.params);
+    const params: NnsGovernanceDid.Params | undefined = fromNullable(
+      OpenSnsTokenSwap.params,
+    );
 
     return {
       OpenSnsTokenSwap: {
@@ -701,14 +663,16 @@ const toAction = (action: RawAction): Action => {
   throw new UnsupportedValueError(action);
 };
 
-const toTally = (tally: RawTally): Tally => ({
+const toTally = (tally: NnsGovernanceDid.Tally): Tally => ({
   no: tally.no,
   yes: tally.yes,
   total: tally.total,
   timestampSeconds: tally.timestamp_seconds,
 });
 
-const toCommand = (command: RawCommand): Command => {
+const toCommand = (
+  command: NnsGovernanceDid.ManageNeuronProposalCommand,
+): Command => {
   if ("Spawn" in command) {
     const spawn = command.Spawn;
     return {
@@ -877,7 +841,7 @@ const toCommand = (command: RawCommand): Command => {
   throw new UnsupportedValueError(command);
 };
 
-const toOperation = (operation: RawOperation): Operation => {
+const toOperation = (operation: NnsGovernanceDid.Operation): Operation => {
   if ("RemoveHotKey" in operation) {
     const removeHotKey = operation.RemoveHotKey;
     return {
@@ -956,7 +920,7 @@ const toOperation = (operation: RawOperation): Operation => {
   throw new UnsupportedValueError(operation);
 };
 
-const toChange = (change: RawChange): Change => {
+const toChange = (change: NnsGovernanceDid.Change): Change => {
   if ("ToRemove" in change) {
     return {
       ToRemove: toNodeProvider(change.ToRemove),
@@ -971,7 +935,7 @@ const toChange = (change: RawChange): Change => {
 };
 
 const toNeuronsFundEconomics = (
-  neuronsFundEconomics: Nullable<RawNeuronsFundEconomics>,
+  neuronsFundEconomics: Nullable<NnsGovernanceDid.NeuronsFundEconomics>,
 ): Option<NeuronsFundEconomics> => {
   const rawNeuronsFundEconomics = fromNullable(neuronsFundEconomics);
 
@@ -987,7 +951,7 @@ const toNeuronsFundEconomics = (
   } = rawNeuronsFundEconomics;
 
   const toPercentage = (
-    percentage: Nullable<RawPercentage>,
+    percentage: Nullable<NnsGovernanceDid.Percentage>,
   ): Option<Percentage> => {
     const rawPercentage = fromNullable(percentage);
 
@@ -1004,7 +968,9 @@ const toNeuronsFundEconomics = (
       : undefined;
   };
 
-  const toDecimal = (decimal: Nullable<RawDecimal>): Option<Decimal> => {
+  const toDecimal = (
+    decimal: Nullable<NnsGovernanceDid.Decimal>,
+  ): Option<Decimal> => {
     const rawDecimal = fromNullable(decimal);
 
     if (isNullish(rawDecimal)) {
@@ -1023,7 +989,7 @@ const toNeuronsFundEconomics = (
   const toNeuronsFundMatchedFundingCurveCoefficients = (
     neurons_fund_matched_funding_curve_coefficients:
       | []
-      | [RawNeuronsFundMatchedFundingCurveCoefficients],
+      | [NnsGovernanceDid.NeuronsFundMatchedFundingCurveCoefficients],
   ): Option<NeuronsFundMatchedFundingCurveCoefficients> => {
     const rawNeuronsFundMatchedFundingCurveCoefficients = fromNullable(
       neurons_fund_matched_funding_curve_coefficients,
@@ -1064,7 +1030,7 @@ const toNeuronsFundEconomics = (
 };
 
 const toVotingPowerEconomics = (
-  votingPowerEconomics: Nullable<RawVotingPowerEconomics>,
+  votingPowerEconomics: Nullable<NnsGovernanceDid.VotingPowerEconomics>,
 ): Option<VotingPowerEconomics> => {
   const rawVotingPowerEconomics = fromNullable(votingPowerEconomics);
 
@@ -1086,7 +1052,7 @@ const toVotingPowerEconomics = (
 };
 
 export const toNetworkEconomics = (
-  networkEconomics: RawNetworkEconomics,
+  networkEconomics: NnsGovernanceDid.NetworkEconomics,
 ): NetworkEconomics => ({
   neuronMinimumStake: networkEconomics.neuron_minimum_stake_e8s,
   maxProposalsToKeepPerTopic: networkEconomics.max_proposals_to_keep_per_topic,
@@ -1108,7 +1074,7 @@ export const toNetworkEconomics = (
 });
 
 const toNeuronSubsetMetrics = (
-  rawNeuronSubsetMetrics: Nullable<RawNeuronSubsetMetrics>,
+  rawNeuronSubsetMetrics: Nullable<NnsGovernanceDid.NeuronSubsetMetrics>,
 ): Option<NeuronSubsetMetrics> => {
   const neuronSubsetMetrics = fromNullable(rawNeuronSubsetMetrics);
 
@@ -1147,7 +1113,7 @@ const toNeuronSubsetMetrics = (
 };
 
 export const toMetrics = (
-  metrics: RawGovernanceCachedMetrics,
+  metrics: NnsGovernanceDid.GovernanceCachedMetrics,
 ): GovernanceCachedMetrics => ({
   totalMaturityE8sEquivalent: metrics.total_maturity_e8s_equivalent,
   notDissolvingNeuronsE8sBuckets: metrics.not_dissolving_neurons_e8s_buckets,
@@ -1218,21 +1184,23 @@ export const toMetrics = (
   seedNeuronCount: metrics.seed_neuron_count,
 });
 
-const toNodeProvider = (nodeProvider: RawNodeProvider): NodeProvider => ({
+const toNodeProvider = (
+  nodeProvider: NnsGovernanceDid.NodeProvider,
+): NodeProvider => ({
   id: nodeProvider.id.length ? nodeProvider.id[0].toString() : undefined,
   rewardAccount: nodeProvider.reward_account.length
     ? toAccountIdentifier(nodeProvider.reward_account[0])
     : undefined,
 });
 
-const toAmount = (amount: RawAmount): E8s => amount.e8s;
+const toAmount = (amount: NnsGovernanceDid.Amount): E8s => amount.e8s;
 
 const toAccountIdentifier = (
-  accountIdentifier: RawAccountIdentifier,
+  accountIdentifier: NnsGovernanceDid.AccountIdentifier,
 ): AccountIdentifierHex =>
   accountIdentifierFromBytes(new Uint8Array(accountIdentifier.hash));
 
-const toRewardMode = (rewardMode: RawRewardMode): RewardMode => {
+const toRewardMode = (rewardMode: NnsGovernanceDid.RewardMode): RewardMode => {
   if ("RewardToNeuron" in rewardMode) {
     return {
       RewardToNeuron: {
@@ -1255,7 +1223,7 @@ const toRewardMode = (rewardMode: RawRewardMode): RewardMode => {
   throw new UnsupportedValueError(rewardMode);
 };
 
-const toClaimOrRefreshBy = (by: RawBy): By => {
+const toClaimOrRefreshBy = (by: NnsGovernanceDid.By): By => {
   if ("NeuronIdOrSubaccount" in by) {
     return {
       NeuronIdOrSubaccount: {},
@@ -1281,7 +1249,7 @@ const toClaimOrRefreshBy = (by: RawBy): By => {
 };
 
 export const toProposalInfo = (
-  proposalInfo: RawProposalInfo,
+  proposalInfo: NnsGovernanceDid.ProposalInfo,
 ): ProposalInfo => ({
   id: proposalInfo.id.length ? toNeuronId(proposalInfo.id[0]) : undefined,
   ballots: proposalInfo.ballots.map((b) =>
@@ -1317,7 +1285,7 @@ export const toArrayOfNeuronInfo = ({
   response: { neuron_infos, full_neurons },
   canisterId,
 }: {
-  response: RawListNeuronsResponse;
+  response: NnsGovernanceDid.ListNeuronsResponse;
   canisterId: Principal;
 }): Array<NeuronInfo> =>
   neuron_infos.map(([id, neuronInfo]) =>
@@ -1333,14 +1301,14 @@ export const toArrayOfNeuronInfo = ({
 
 export const toListProposalsResponse = ({
   proposal_info,
-}: RawListProposalInfoResponse): ListProposalsResponse => ({
+}: NnsGovernanceDid.ListProposalInfoResponse): ListProposalsResponse => ({
   proposals: proposal_info.map(toProposalInfo),
 });
 
 export const toKnownNeuron = ({
   id,
   known_neuron_data,
-}: RawKnownNeuron): KnownNeuron => ({
+}: NnsGovernanceDid.KnownNeuron): KnownNeuron => ({
   id: id[0]?.id ?? BigInt(0),
   name: known_neuron_data[0]?.name ?? "",
   description: known_neuron_data[0]?.description[0] ?? "",
@@ -1349,7 +1317,7 @@ export const toKnownNeuron = ({
 });
 
 const toPercentage = (
-  percentage: RawPercentage | undefined,
+  percentage: NnsGovernanceDid.Percentage | undefined,
 ): Percentage | undefined =>
   percentage === undefined
     ? undefined
@@ -1357,7 +1325,9 @@ const toPercentage = (
         basisPoints: fromNullable(percentage.basis_points),
       };
 
-const toDuration = (duration: RawDuration | undefined): Duration | undefined =>
+const toDuration = (
+  duration: NnsGovernanceDid.Duration | undefined,
+): Duration | undefined =>
   duration === undefined
     ? undefined
     : {
@@ -1365,7 +1335,7 @@ const toDuration = (duration: RawDuration | undefined): Duration | undefined =>
       };
 
 const toGlobalTimeOfDay = (
-  time: RawGlobalTimeOfDay | undefined,
+  time: NnsGovernanceDid.GlobalTimeOfDay | undefined,
 ): GlobalTimeOfDay | undefined =>
   time === undefined
     ? undefined
@@ -1374,7 +1344,7 @@ const toGlobalTimeOfDay = (
       };
 
 const toCountries = (
-  countries: RawCountries | undefined,
+  countries: NnsGovernanceDid.Countries | undefined,
 ): Countries | undefined =>
   countries === undefined
     ? undefined
@@ -1382,7 +1352,9 @@ const toCountries = (
         isoCodes: countries.iso_codes,
       } as Countries);
 
-const toTokens = (tokens: RawTokens | undefined): Tokens | undefined =>
+const toTokens = (
+  tokens: NnsGovernanceDid.Tokens | undefined,
+): Tokens | undefined =>
   tokens === undefined
     ? undefined
     : {
@@ -1390,7 +1362,7 @@ const toTokens = (tokens: RawTokens | undefined): Tokens | undefined =>
       };
 
 const toCanisterIdString = (
-  canister: RawCanister | undefined,
+  canister: NnsGovernanceDid.Canister | undefined,
 ): CanisterIdString | undefined =>
   canister === undefined
     ? undefined
@@ -1398,7 +1370,9 @@ const toCanisterIdString = (
       ? undefined
       : fromDefinedNullable(canister.id).toString();
 
-const toImage = (image: RawImage | undefined): Image | undefined =>
+const toImage = (
+  image: NnsGovernanceDid.Image | undefined,
+): Image | undefined =>
   image === undefined
     ? undefined
     : {
@@ -1406,7 +1380,7 @@ const toImage = (image: RawImage | undefined): Image | undefined =>
       };
 
 const toLedgerParameters = (
-  ledgerParameters: RawLedgerParameters | undefined,
+  ledgerParameters: NnsGovernanceDid.LedgerParameters | undefined,
 ): LedgerParameters | undefined =>
   ledgerParameters === undefined
     ? undefined
@@ -1420,7 +1394,7 @@ const toLedgerParameters = (
       };
 
 const toVotingRewardParameters = (
-  votingRewardParameters: RawVotingRewardParameters | undefined,
+  votingRewardParameters: NnsGovernanceDid.VotingRewardParameters | undefined,
 ): VotingRewardParameters | undefined =>
   votingRewardParameters === undefined
     ? undefined
@@ -1437,7 +1411,7 @@ const toVotingRewardParameters = (
       };
 
 const toGovernanceParameters = (
-  governanceParameters: RawGovernanceParameters | undefined,
+  governanceParameters: NnsGovernanceDid.GovernanceParameters | undefined,
 ): GovernanceParameters | undefined =>
   governanceParameters === undefined
     ? undefined
@@ -1482,7 +1456,7 @@ const toGovernanceParameters = (
 
 const toNeuronBasketConstructionParameters = (
   neuronBasketConstructionParameters:
-    | RawNeuronBasketConstructionParameters
+    | NnsGovernanceDid.NeuronBasketConstructionParameters
     | undefined,
 ): NeuronBasketConstructionParameters | undefined =>
   neuronBasketConstructionParameters === undefined
@@ -1497,7 +1471,7 @@ const toNeuronBasketConstructionParameters = (
       };
 
 const toSwapParameters = (
-  swapParameters: RawSwapParameters | undefined,
+  swapParameters: NnsGovernanceDid.SwapParameters | undefined,
 ): SwapParameters | undefined =>
   swapParameters === undefined
     ? undefined
@@ -1536,7 +1510,7 @@ const toSwapParameters = (
       };
 
 const toSwapDistribution = (
-  swapDistribution: RawSwapDistribution | undefined,
+  swapDistribution: NnsGovernanceDid.SwapDistribution | undefined,
 ): SwapDistribution | undefined =>
   swapDistribution === undefined
     ? undefined
@@ -1545,7 +1519,7 @@ const toSwapDistribution = (
       };
 
 const toNeuronDistribution = (
-  neuronDistribution: RawNeuronDistribution | undefined,
+  neuronDistribution: NnsGovernanceDid.NeuronDistribution | undefined,
 ): NeuronDistribution | undefined =>
   neuronDistribution === undefined
     ? undefined
@@ -1565,7 +1539,7 @@ const toNeuronDistribution = (
       };
 
 const toDeveloperDistribution = (
-  developerDistribution: RawDeveloperDistribution | undefined,
+  developerDistribution: NnsGovernanceDid.DeveloperDistribution | undefined,
 ): DeveloperDistribution | undefined =>
   developerDistribution === undefined
     ? undefined
@@ -1576,7 +1550,9 @@ const toDeveloperDistribution = (
       };
 
 const toInitialTokenDistribution = (
-  initialTokenDistribution: RawInitialTokenDistribution | undefined,
+  initialTokenDistribution:
+    | NnsGovernanceDid.InitialTokenDistribution
+    | undefined,
 ): InitialTokenDistribution | undefined =>
   initialTokenDistribution === undefined
     ? undefined
@@ -1593,7 +1569,7 @@ const toInitialTokenDistribution = (
       };
 
 const toCanisterSettings = (
-  canisterSettings: RawCanisterSettings | undefined,
+  canisterSettings: NnsGovernanceDid.CanisterSettings | undefined,
 ): CanisterSettings | undefined =>
   canisterSettings === undefined
     ? undefined
