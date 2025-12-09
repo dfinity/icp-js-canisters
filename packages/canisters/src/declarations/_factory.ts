@@ -23,6 +23,14 @@ import { idlFactory as idlFactoryCertifiedIcrcLedger } from "./ledger-icrc/icrc_
 import { idlFactory as idlFactoryIcrcLedger } from "./ledger-icrc/icrc_ledger.idl";
 import { idlFactory as idlFactoryCertifiedIcrcNftLedger } from "./ledger-icrc/icrc_nft-ledger.certified.idl";
 import { idlFactory as idlFactoryIcrcNftLedger } from "./ledger-icrc/icrc_nft-ledger.idl";
+import { idlFactory as idlFactoryCertifiedNnsGenesisToken } from "./nns/genesis_token.certified.idl";
+import { idlFactory as idlFactoryNnsGenesisToken } from "./nns/genesis_token.idl";
+import { idlFactory as idlFactoryCertifiedNnsGovernance } from "./nns/governance.certified.idl";
+import { idlFactory as idlFactoryNnsGovernance } from "./nns/governance.idl";
+import { idlFactory as idlFactoryCertifiedNnsGovernanceTest } from "./nns/governance_test.certified.idl";
+import { idlFactory as idlFactoryNnsGovernanceTest } from "./nns/governance_test.idl";
+import { idlFactory as idlFactoryCertifiedSnsWasm } from "./nns/sns_wasm.certified.idl";
+import { idlFactory as idlFactorySnsWasm } from "./nns/sns_wasm.idl";
 
 import type { _SERVICE as AssetsService } from "./assets/assets_assetstorage";
 import type { _SERVICE as BitcoinService } from "./ckbtc/bitcoin";
@@ -38,6 +46,10 @@ import type { _SERVICE as IcrcIndexService } from "./ledger-icrc/icrc_index";
 import type { _SERVICE as IcrcIndexNgService } from "./ledger-icrc/icrc_index-ng";
 import type { _SERVICE as IcrcLedgerService } from "./ledger-icrc/icrc_ledger";
 import type { _SERVICE as IcrcNftLedgerService } from "./ledger-icrc/icrc_nft-ledger";
+import type { _SERVICE as NnsGenesisTokenService } from "./nns/genesis_token";
+import type { _SERVICE as NnsGovernanceService } from "./nns/governance";
+import type { _SERVICE as NnsGovernanceTestService } from "./nns/governance_test";
+import type { _SERVICE as SnsWasmService } from "./nns/sns_wasm";
 
 export {
   idlFactoryAssets,
@@ -54,6 +66,10 @@ export {
   idlFactoryCertifiedIcrcIndexNg,
   idlFactoryCertifiedIcrcLedger,
   idlFactoryCertifiedIcrcNftLedger,
+  idlFactoryCertifiedNnsGenesisToken,
+  idlFactoryCertifiedNnsGovernance,
+  idlFactoryCertifiedNnsGovernanceTest,
+  idlFactoryCertifiedSnsWasm,
   idlFactoryCkBtcMinter,
   idlFactoryCkEthMinter,
   idlFactoryCkEthOrchestrator,
@@ -65,6 +81,10 @@ export {
   idlFactoryIcrcIndexNg,
   idlFactoryIcrcLedger,
   idlFactoryIcrcNftLedger,
+  idlFactoryNnsGenesisToken,
+  idlFactoryNnsGovernance,
+  idlFactoryNnsGovernanceTest,
+  idlFactorySnsWasm,
   type AssetsService,
   type BitcoinService,
   type CkBtcMinterService,
@@ -79,4 +99,8 @@ export {
   type IcrcIndexService,
   type IcrcLedgerService,
   type IcrcNftLedgerService,
+  type NnsGenesisTokenService,
+  type NnsGovernanceService,
+  type NnsGovernanceTestService,
+  type SnsWasmService,
 };

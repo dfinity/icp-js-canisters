@@ -11,6 +11,10 @@ import type * as IcrcIndexDid from "./ledger-icrc/icrc_index";
 import type * as IcrcIndexNgDid from "./ledger-icrc/icrc_index-ng";
 import type * as IcrcLedgerDid from "./ledger-icrc/icrc_ledger";
 import type * as IcrcNftLedgerDid from "./ledger-icrc/icrc_nft-ledger";
+import type * as NnsGenesisTokenDid from "./nns/genesis_token";
+import type * as NnsGovernanceDid from "./nns/governance";
+import type * as NnsGovernanceTestDid from "./nns/governance_test";
+import type * as SnsWasmDid from "./nns/sns_wasm";
 
 export type {
   AssetsDid,
@@ -26,4 +30,8 @@ export type {
   IcrcIndexNgDid,
   IcrcLedgerDid,
   IcrcNftLedgerDid,
+  NnsGenesisTokenDid,
+  NnsGovernanceDid,
+  NnsGovernanceTestDid,
+  SnsWasmDid,
 };
