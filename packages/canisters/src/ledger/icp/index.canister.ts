@@ -4,31 +4,31 @@ import {
   toNullable,
   type CanisterOptions,
 } from "@dfinity/utils";
-import type {
-  GetAccountIdentifierTransactionsResponse,
-  _SERVICE as IndexService,
-} from "../../declarations/ledger-icp/index";
-import { idlFactory as certifiedIdlFactory } from "../../declarations/ledger-icp/index.certified.idl";
-import { idlFactory } from "../../declarations/ledger-icp/index.idl";
+import {
+  idlFactoryCertifiedIcpIndex,
+  idlFactoryIcpIndex,
+  type IcpIndexDid,
+  type IcpIndexService,
+} from "../../declarations";
 import { MAINNET_INDEX_CANISTER_ID } from "./constants/canister_ids";
 import { IndexError } from "./errors/index.errors";
 import type { GetTransactionsParams } from "./types/index.params";
 import type { AccountBalanceParams } from "./types/ledger.params";
 import { paramToAccountIdentifierHex } from "./utils/params.utils";
 
-export class IndexCanister extends Canister<IndexService> {
+export class IndexCanister extends Canister<IcpIndexService> {
   static create({
     canisterId: optionsCanisterId,
     ...options
-  }: CanisterOptions<IndexService>) {
+  }: CanisterOptions<IcpIndexService>) {
     const { service, certifiedService, canisterId } =
-      createServices<IndexService>({
+      createServices<IcpIndexService>({
         options: {
           ...options,
           canisterId: optionsCanisterId ?? MAINNET_INDEX_CANISTER_ID,
         },
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactoryIcpIndex,
+        certifiedIdlFactory: idlFactoryCertifiedIcpIndex,
       });
 
     return new IndexCanister(canisterId, service, certifiedService);
@@ -66,7 +66,7 @@ export class IndexCanister extends Canister<IndexService> {
     accountIdentifier,
     start,
     maxResults: max_results,
-  }: GetTransactionsParams): Promise<GetAccountIdentifierTransactionsResponse> => {
+  }: GetTransactionsParams): Promise<IcpIndexDid.GetAccountIdentifierTransactionsResponse> => {
     const response = await this.caller({
       certified,
     }).get_account_identifier_transactions({

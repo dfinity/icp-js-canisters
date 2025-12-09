@@ -1,10 +1,4 @@
-import type {
-  Account,
-  Icrc1Timestamp,
-  Icrc1Tokens,
-  icrc21_consent_message_request,
-  SubAccount,
-} from "../../../declarations/ledger-icp/ledger";
+import type { IcpLedgerDid } from "../../../declarations";
 import type { AccountIdentifier } from "../account_identifier";
 import type { E8s } from "./common";
 
@@ -27,15 +21,15 @@ export interface TransferRequest {
 // cannot set the icrc1Memo field, even though the icrc1Memo field is called
 // just "memo" in canister method params.
 export interface Icrc1TransferRequest {
-  to: Account;
-  amount: Icrc1Tokens;
+  to: IcpLedgerDid.Account;
+  amount: IcpLedgerDid.Icrc1Tokens;
   icrc1Memo?: Uint8Array;
-  fee?: Icrc1Tokens;
-  fromSubAccount?: SubAccount;
+  fee?: IcpLedgerDid.Icrc1Tokens;
+  fromSubAccount?: IcpLedgerDid.SubAccount;
   // Nanoseconds since unix epoc to trigger deduplication and avoid other issues
   // See the link for more details on deduplication
   // https://github.com/dfinity/ICRC-1/blob/main/standards/ICRC-1/README.md#transaction_deduplication
-  createdAt?: Icrc1Timestamp;
+  createdAt?: IcpLedgerDid.Icrc1Timestamp;
 }
 
 /**
@@ -51,9 +45,9 @@ export interface Icrc1TransferRequest {
  * @param {Icrc1Timestamp?} expires_at When the approval expires. If the field is set, it's greater than the current ledger time.
  */
 export type Icrc2ApproveRequest = Omit<Icrc1TransferRequest, "to"> & {
-  expected_allowance?: Icrc1Tokens;
-  expires_at?: Icrc1Timestamp;
-  spender: Account;
+  expected_allowance?: IcpLedgerDid.Icrc1Tokens;
+  expires_at?: IcpLedgerDid.Icrc1Timestamp;
+  spender: IcpLedgerDid.Account;
 };
 /**
  * Metadata for the consent message in ICRC-21 specification.
@@ -96,7 +90,7 @@ export interface Icrc21ConsentMessageSpec {
  * @param {Icrc21ConsentMessageSpec} userPreferences - User preferences with regards to the consent message presented to the end-user.
  */
 export type Icrc21ConsentMessageRequest = Omit<
-  icrc21_consent_message_request,
+  IcpLedgerDid.icrc21_consent_message_request,
   "user_preferences"
 > & {
   userPreferences: Icrc21ConsentMessageSpec;
