@@ -1,74 +1,72 @@
-/**
- * @module api/sns
- */
+import type {
+  SnsGovernanceDid,
+  SnsRootDid,
+  SnsSwapDid,
+} from "@icp-sdk/canisters/sns";
 
-export type {
-  Account as SnsAccount,
-  Action as SnsAction,
-  Ballot as SnsBallot,
-  DefaultFollowees as SnsDefaultFollowees,
-  DisburseMaturityInProgress as SnsDisburseMaturityInProgress,
-  Followee as SnsFollowee,
-  FolloweesForTopic as SnsFolloweesForTopic,
-  FunctionType as SnsFunctionType,
-  GetMetadataResponse as SnsGetMetadataResponse,
-  GetMetricsResponse as SnsGetMetricsResponse,
-  ListNervousSystemFunctionsResponse as SnsListNervousSystemFunctionsResponse,
-  ListProposalsResponse as SnsListProposalsResponse,
-  ListTopicsResponse as SnsListTopicsResponse,
-  ManageNeuron as SnsManageNeuron,
-  ManageNeuronResponse as SnsManageNeuronResponse,
-  NervousSystemFunction as SnsNervousSystemFunction,
-  NervousSystemParameters as SnsNervousSystemParameters,
-  Neuron as SnsNeuron,
-  NeuronId as SnsNeuronId,
-  NeuronPermission as SnsNeuronPermission,
-  NeuronPermissionList as SnsNeuronPermissionList,
-  Percentage as SnsPercentage,
-  ProposalData as SnsProposalData,
-  ProposalId as SnsProposalId,
-  RewardEvent as SnsRewardEvent,
-  Tally as SnsTally,
-  Topic as SnsTopic,
-  TopicInfo as SnsTopicInfo,
-  VotingRewardsParameters as SnsVotingRewardsParameters,
-  TransferSnsTreasuryFunds,
-} from "./candid/sns_governance";
-export type { CanisterStatusResultV2 as SnsCanisterStatus } from "./candid/sns_root";
-export type {
-  CfParticipant,
-  FinalizeSwapResponse as SnsFinalizeSwapResponse,
-  GetAutoFinalizationStatusResponse as SnsGetAutoFinalizationStatusResponse,
-  GetBuyerStateRequest as SnsGetBuyerStateRequest,
-  GetBuyerStateResponse as SnsGetBuyerStateResponse,
-  GetDerivedStateResponse as SnsGetDerivedStateResponse,
-  GetInitResponse as SnsGetInitResponse,
-  GetLifecycleResponse as SnsGetLifecycleResponse,
-  GetSaleParametersResponse as SnsGetSaleParametersResponse,
-  InvalidUserAmount as SnsInvalidUserAmount,
-  SnsNeuronRecipe,
-  NeuronsFundParticipationConstraints as SnsNeuronsFundParticipationConstraints,
-  Params as SnsParams,
-  RefreshBuyerTokensResponse as SnsRefreshBuyerTokensResponse,
-  Swap as SnsSwap,
-  BuyerState as SnsSwapBuyerState,
-  DerivedState as SnsSwapDerivedState,
-  Init as SnsSwapInit,
-  Ticket as SnsSwapTicket,
-  TransferableAmount as SnsTransferableAmount,
-} from "./candid/sns_swap";
-export { fromCandidAction } from "./converters/governance.converters";
-export * from "./enums/governance.enums";
-export * from "./enums/swap.enums";
-export * from "./errors/common.errors";
-export * from "./errors/governance.errors";
-export * from "./errors/swap.errors";
-export { SnsGovernanceCanister } from "./governance.canister";
-export { SnsGovernanceTestCanister } from "./governance_test.canister";
-export { SnsRootCanister } from "./root.canister";
-export * from "./sns";
-export * from "./sns.wrapper";
-export { SnsSwapCanister } from "./swap.canister";
-export type { SnsCanisterOptions } from "./types/canister.options";
-export * from "./types/governance.params";
-export * from "./utils/governance.utils";
+export type SnsAccount = SnsGovernanceDid.Account;
+export type SnsAction = SnsGovernanceDid.Action;
+export type SnsBallot = SnsGovernanceDid.Ballot;
+export type SnsDefaultFollowees = SnsGovernanceDid.DefaultFollowees;
+export type SnsDisburseMaturityInProgress =
+  SnsGovernanceDid.DisburseMaturityInProgress;
+export type SnsFollowee = SnsGovernanceDid.Followee;
+export type SnsFolloweesForTopic = SnsGovernanceDid.FolloweesForTopic;
+export type SnsFunctionType = SnsGovernanceDid.FunctionType;
+export type SnsGetMetadataResponse = SnsGovernanceDid.GetMetadataResponse;
+export type SnsGetMetricsResponse = SnsGovernanceDid.GetMetricsResponse;
+export type SnsListNervousSystemFunctionsResponse =
+  SnsGovernanceDid.ListNervousSystemFunctionsResponse;
+export type SnsListProposalsResponse = SnsGovernanceDid.ListProposalsResponse;
+export type SnsListTopicsResponse = SnsGovernanceDid.ListTopicsResponse;
+export type SnsManageNeuron = SnsGovernanceDid.ManageNeuron;
+export type SnsManageNeuronResponse = SnsGovernanceDid.ManageNeuronResponse;
+export type SnsNervousSystemFunction = SnsGovernanceDid.NervousSystemFunction;
+export type SnsNervousSystemParameters =
+  SnsGovernanceDid.NervousSystemParameters;
+export type SnsNeuron = SnsGovernanceDid.Neuron;
+export type SnsNeuronId = SnsGovernanceDid.NeuronId;
+export type SnsNeuronPermission = SnsGovernanceDid.NeuronPermission;
+export type SnsNeuronPermissionList = SnsGovernanceDid.NeuronPermissionList;
+export type SnsPercentage = SnsGovernanceDid.Percentage;
+export type SnsProposalData = SnsGovernanceDid.ProposalData;
+export type SnsProposalId = SnsGovernanceDid.ProposalId;
+export type SnsRewardEvent = SnsGovernanceDid.RewardEvent;
+export type SnsTally = SnsGovernanceDid.Tally;
+export type SnsTopic = SnsGovernanceDid.Topic;
+export type SnsTopicInfo = SnsGovernanceDid.TopicInfo;
+export type SnsVotingRewardsParameters =
+  SnsGovernanceDid.VotingRewardsParameters;
+export type TransferSnsTreasuryFunds =
+  SnsGovernanceDid.TransferSnsTreasuryFunds;
+
+export type SnsCanisterStatus = SnsRootDid.CanisterStatusResultV2;
+
+export type CfParticipant = SnsSwapDid.CfParticipant;
+export type SnsFinalizeSwapResponse = SnsSwapDid.FinalizeSwapResponse;
+export type SnsGetAutoFinalizationStatusResponse =
+  SnsSwapDid.GetAutoFinalizationStatusResponse;
+export type SnsGetBuyerStateRequest = SnsSwapDid.GetBuyerStateRequest;
+export type SnsGetBuyerStateResponse = SnsSwapDid.GetBuyerStateResponse;
+export type SnsGetDerivedStateResponse = SnsSwapDid.GetDerivedStateResponse;
+export type SnsGetInitResponse = SnsSwapDid.GetInitResponse;
+export type SnsGetLifecycleResponse = SnsSwapDid.GetLifecycleResponse;
+export type SnsGetSaleParametersResponse = SnsSwapDid.GetSaleParametersResponse;
+export type SnsInvalidUserAmount = SnsSwapDid.InvalidUserAmount;
+export type SnsNeuronRecipe = SnsSwapDid.SnsNeuronRecipe;
+export type SnsNeuronsFundParticipationConstraints =
+  SnsSwapDid.NeuronsFundParticipationConstraints;
+export type SnsParams = SnsSwapDid.Params;
+export type SnsRefreshBuyerTokensResponse =
+  SnsSwapDid.RefreshBuyerTokensResponse;
+export type SnsSwap = SnsSwapDid.Swap;
+export type SnsSwapBuyerState = SnsSwapDid.BuyerState;
+export type SnsSwapDerivedState = SnsSwapDid.DerivedState;
+export type SnsSwapInit = SnsSwapDid.Init;
+export type SnsSwapTicket = SnsSwapDid.Ticket;
+export type SnsTransferableAmount = SnsSwapDid.TransferableAmount;
+
+/**
+ * @deprecated Use "@icp-sdk/canisters/sns" directly instead
+ */
+export * from "@icp-sdk/canisters/sns";
