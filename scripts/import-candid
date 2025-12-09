@@ -143,6 +143,12 @@ patch_import_did "rs/nns/governance/canister/governance.did" "rs/nns/governance/
 import_did "rs/nns/gtc/canister/gtc.did" "genesis_token.did" "nns" "modern"
 import_did "rs/nns/sns-wasm/canister/sns-wasm.did" "sns_wasm.did" "nns" "modern"
 
+mkdir -p packages/canisters/src/declarations/sns
+import_did "rs/sns/swap/canister/swap.did" "swap.did" "sns" "modern"
+import_did "rs/sns/root/canister/root.did" "root.did" "sns" "modern"
+import_did "rs/sns/governance/canister/governance.did" "governance.did" "sns" "modern"
+patch_import_did "rs/sns/governance/canister/governance.did" "rs/sns/governance/canister/governance_test.did.patch" "governance_test.did" "sns" "modern"
+
 mkdir -p packages/canisters/src/declarations/cmc
 import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc" "modern"
 
