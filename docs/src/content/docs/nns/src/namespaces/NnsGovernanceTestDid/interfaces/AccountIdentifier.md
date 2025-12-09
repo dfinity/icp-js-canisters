@@ -1,0 +1,16 @@
+---
+title: AccountIdentifier
+editUrl: false
+next: true
+prev: true
+---
+
+Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:17
+
+## Properties
+
+### hash
+
+> **hash**: `Uint8Array`
+
+Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:18

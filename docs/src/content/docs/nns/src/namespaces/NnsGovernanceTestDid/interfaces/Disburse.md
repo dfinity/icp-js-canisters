@@ -1,0 +1,24 @@
+---
+title: Disburse
+editUrl: false
+next: true
+prev: true
+---
+
+Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:184
+
+## Properties
+
+### amount
+
+> **amount**: \[\] \| \[[`Amount`](Amount.md)\]
+
+Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:186
+
+***
+
+### to\_account
+
+> **to\_account**: \[\] \| \[[`AccountIdentifier`](AccountIdentifier.md)\]
+
+Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:185

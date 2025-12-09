@@ -1,0 +1,24 @@
+---
+title: Ballot
+editUrl: false
+next: true
+prev: true
+---
+
+Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:51
+
+## Properties
+
+### vote
+
+> **vote**: `number`
+
+Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:52
+
+***
+
+### voting\_power
+
+> **voting\_power**: `bigint`
+
+Defined in: packages/canisters/declarations/nns/governance\_test.d.ts:53
