@@ -1,11 +1,4 @@
-import type {
-  Icrc1BlockIndex,
-  Icrc1Tokens,
-  icrc21_error as Icrc21RawError,
-  ApproveError as RawApproveError,
-  Icrc1TransferError as RawIcrc1TransferError,
-  TransferError as RawTransferError,
-} from "../../../declarations/ledger-icp/ledger";
+import type { IcpLedgerDid } from "../../../declarations";
 import type { BlockHeight } from "../types/common";
 
 export class IcrcError extends Error {}
@@ -56,13 +49,13 @@ export class GenericError extends ApproveError {
 export class TemporarilyUnavailableError extends ApproveError {}
 
 export class DuplicateError extends ApproveError {
-  constructor(public readonly duplicateOf: Icrc1BlockIndex) {
+  constructor(public readonly duplicateOf: IcpLedgerDid.Icrc1BlockIndex) {
     super();
   }
 }
 
 export class AllowanceChangedError extends ApproveError {
-  constructor(public readonly currentAllowance: Icrc1Tokens) {
+  constructor(public readonly currentAllowance: IcpLedgerDid.Icrc1Tokens) {
     super();
   }
 }
@@ -81,7 +74,7 @@ export class UnsupportedCanisterCallError extends ConsentMessageError {}
 export class ConsentMessageUnavailableError extends ConsentMessageError {}
 
 export const mapTransferError = (
-  rawTransferError: RawTransferError,
+  rawTransferError: IcpLedgerDid.TransferError,
 ): TransferError => {
   if ("TxDuplicate" in rawTransferError) {
     return new TxDuplicateError(rawTransferError.TxDuplicate.duplicate_of);
@@ -109,7 +102,7 @@ export const mapTransferError = (
 };
 
 export const mapIcrc1TransferError = (
-  rawTransferError: RawIcrc1TransferError,
+  rawTransferError: IcpLedgerDid.Icrc1TransferError,
 ): TransferError => {
   if ("Duplicate" in rawTransferError) {
     return new TxDuplicateError(rawTransferError.Duplicate.duplicate_of);
@@ -135,7 +128,7 @@ export const mapIcrc1TransferError = (
 };
 
 export const mapIcrc2ApproveError = (
-  rawApproveError: RawApproveError,
+  rawApproveError: IcpLedgerDid.ApproveError,
 ): ApproveError => {
   /**
    * export type ApproveError =
@@ -192,7 +185,7 @@ export const mapIcrc2ApproveError = (
 };
 
 export const mapIcrc21ConsentMessageError = (
-  rawError: Icrc21RawError,
+  rawError: IcpLedgerDid.icrc21_error,
 ): ConsentMessageError => {
   if ("GenericError" in rawError) {
     return new GenericError(

@@ -3,13 +3,7 @@ import {
   isNullish,
   toNullable,
 } from "@dfinity/utils";
-import type {
-  TransferArg as Icrc1TransferRawRequest,
-  icrc21_consent_message_request as Icrc21ConsentMessageRawRequest,
-  ApproveArgs as Icrc2ApproveRawRequest,
-  Tokens,
-  TransferArgs as TransferRawRequest,
-} from "../../../../declarations/ledger-icp/ledger";
+import type { IcpLedgerDid } from "../../../../declarations";
 import { TRANSACTION_FEE } from "../../constants/constants";
 import type {
   Icrc1TransferRequest,
@@ -18,7 +12,7 @@ import type {
   TransferRequest,
 } from "../../types/ledger_converters";
 
-const e8sToTokens = (e8s: bigint): Tokens => ({ e8s });
+const e8sToTokens = (e8s: bigint): IcpLedgerDid.Tokens => ({ e8s });
 
 export const toTransferRawRequest = ({
   to,
@@ -27,7 +21,7 @@ export const toTransferRawRequest = ({
   fee,
   fromSubAccount,
   createdAt,
-}: TransferRequest): TransferRawRequest => ({
+}: TransferRequest): IcpLedgerDid.TransferArgs => ({
   to: to.toUint8Array(),
   fee: e8sToTokens(fee ?? TRANSACTION_FEE),
   amount: e8sToTokens(amount),
@@ -53,7 +47,7 @@ export const toIcrc1TransferRawRequest = ({
   fee,
   icrc1Memo,
   createdAt,
-}: Icrc1TransferRequest): Icrc1TransferRawRequest => ({
+}: Icrc1TransferRequest): IcpLedgerDid.TransferArg => ({
   to,
   fee: toNullable(fee ?? TRANSACTION_FEE),
   amount,
@@ -71,7 +65,7 @@ export const toIcrc2ApproveRawRequest = ({
   expires_at,
   amount,
   ...rest
-}: Icrc2ApproveRequest): Icrc2ApproveRawRequest => ({
+}: Icrc2ApproveRequest): IcpLedgerDid.ApproveArgs => ({
   ...rest,
   fee: toNullable(fee ?? TRANSACTION_FEE),
   memo: toNullable(icrc1Memo),
@@ -88,7 +82,7 @@ export const toIcrc21ConsentMessageRawRequest = ({
     deriveSpec,
   },
   ...rest
-}: Icrc21ConsentMessageRequest): Icrc21ConsentMessageRawRequest => ({
+}: Icrc21ConsentMessageRequest): IcpLedgerDid.icrc21_consent_message_request => ({
   ...rest,
   user_preferences: {
     metadata: {
