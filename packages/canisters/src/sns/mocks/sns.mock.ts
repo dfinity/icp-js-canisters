@@ -1,6 +1,5 @@
 import { Principal } from "@icp-sdk/core/principal";
-import type { ListSnsCanistersResponse } from "../../declarations/sns/root";
-import type { Ticket } from "../../declarations/sns/swap";
+import type { SnsRootDid, SnsSwapDid } from "../../declarations";
 
 export const rootCanisterIdMock: Principal = Principal.fromText(
   "pin7y-wyaaa-aaaaa-aacpa-cai",
@@ -22,7 +21,7 @@ export const indexCanisterIdMock: Principal = Principal.fromText(
   "qjdve-lqaaa-aaaaa-aaaeq-cai",
 );
 
-export const snsMock: ListSnsCanistersResponse = {
+export const snsMock: SnsRootDid.ListSnsCanistersResponse = {
   root: [rootCanisterIdMock],
   ledger: [ledgerCanisterIdMock],
   governance: [governanceCanisterIdMock],
@@ -33,7 +32,7 @@ export const snsMock: ListSnsCanistersResponse = {
   extensions: [],
 };
 
-export const saleTicketMock: Ticket = {
+export const saleTicketMock: SnsSwapDid.Ticket = {
   creation_time: 1n,
   ticket_id: 2n,
   account: [
