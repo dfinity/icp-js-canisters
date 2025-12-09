@@ -131,44 +131,41 @@ import_did "rs/sns/root/canister/root.did" "sns_root.did" "sns"
 import_did "rs/sns/governance/canister/governance.did" "sns_governance.did" "sns"
 patch_import_did "rs/sns/governance/canister/governance.did" "rs/sns/governance/canister/governance_test.did.patch" "sns_governance_test.did" "sns"
 
-mkdir -p packages/cmc/src/candid
-import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc"
-
-mkdir -p packages/ledger-icp/src/candid
-import_did "rs/ledger_suite/icp/ledger.did" "ledger.did" "ledger-icp"
-import_did "rs/ledger_suite/icp/index/index.did" "index.did" "ledger-icp"
-
-mkdir -p packages/ledger-icrc/src/candid
-import_did "rs/ledger_suite/icrc1/ledger/ledger.did" "icrc_ledger.did" "ledger-icrc"
-import_did "rs/ledger_suite/icrc1/index-ng/index-ng.did" "icrc_index-ng.did" "ledger-icrc"
-download_did "https://raw.githubusercontent.com/dfinity/ICRC-1/main/standards/ICRC-1/ICRC-1.did" "icrc_icrc-1.did" "ledger-icrc"
-download_did "https://raw.githubusercontent.com/dfinity/ICRC/main/ICRCs/ICRC-10/ICRC-10.did" "icrc_icrc-10.did" "ledger-icrc"
-# This is actually the candid file for ICRC-7 standard that is not the "complete" NFT standard in IC.
-# For example, some NFTs may implement the ICRC-37 standard too.
-# However, there is no centralized .did file (similar to ICRC-1) that includes all possible methods of IC NFTs
-download_did "https://raw.githubusercontent.com/dfinity/ICRC/main/ICRCs/ICRC-7/ICRC-7.did" "icrc_nft-ledger.did" "ledger-icrc"
-
-mkdir -p packages/ckbtc/src/candid
-import_did "rs/bitcoin/ckbtc/minter/ckbtc_minter.did" "minter.did" "ckbtc"
-download_did https://raw.githubusercontent.com/dfinity/bitcoin-canister/master/canister/candid.did "bitcoin.did" "ckbtc"
-
-mkdir -p packages/cketh/src/candid
-import_did "rs/ethereum/cketh/minter/cketh_minter.did" "minter.did" "cketh"
-import_did "rs/ethereum/ledger-suite-orchestrator/ledger_suite_orchestrator.did" "orchestrator.did" "cketh"
-
 mkdir -p packages/canisters/src/declarations/ic-management
 download_did https://raw.githubusercontent.com/dfinity/portal/master/docs/references/_attachments/ic.did "ic-management.did" "canisters" "src/declarations/ic-management"
 
 mkdir -p packages/canisters/src/declarations/assets
 download_did https://raw.githubusercontent.com/dfinity/sdk/master/src/distributed/assetstorage.did "assets_assetstorage.did" "canisters" "src/declarations/assets"
 
-mkdir -p packages/canisters/src/declarations/cmc
-import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc" "modern"
-
 mkdir -p packages/canisters/src/declarations/nns
 import_did "rs/nns/governance/canister/governance.did" "governance.did" "nns" "modern"
 patch_import_did "rs/nns/governance/canister/governance.did" "rs/nns/governance/canister/governance_test.did.patch" "governance_test.did" "nns" "modern"
 import_did "rs/nns/gtc/canister/gtc.did" "genesis_token.did" "nns" "modern"
 import_did "rs/nns/sns-wasm/canister/sns-wasm.did" "sns_wasm.did" "nns" "modern"
+
+mkdir -p packages/canisters/src/declarations/cmc
+import_did "rs/nns/cmc/cmc.did" "cmc.did" "cmc" "modern"
+
+mkdir -p packages/canisters/src/declarations/cketh
+import_did "rs/ethereum/cketh/minter/cketh_minter.did" "minter.did" "cketh" "modern"
+import_did "rs/ethereum/ledger-suite-orchestrator/ledger_suite_orchestrator.did" "orchestrator.did" "cketh" "modern"
+
+mkdir -p packages/canisters/src/declarations/ckbtc
+import_did "rs/bitcoin/ckbtc/minter/ckbtc_minter.did" "minter.did" "ckbtc" "modern"
+download_did https://raw.githubusercontent.com/dfinity/bitcoin-canister/master/canister/candid.did "bitcoin.did" "canisters" "src/declarations/ckbtc"
+
+mkdir -p packages/canisters/src/declarations/ledger-icp
+import_did "rs/ledger_suite/icp/ledger.did" "ledger.did" "ledger-icp" "modern"
+import_did "rs/ledger_suite/icp/index/index.did" "index.did" "ledger-icp" "modern"
+
+mkdir -p packages/canisters/src/declarations/ledger-icrc
+import_did "rs/ledger_suite/icrc1/ledger/ledger.did" "icrc_ledger.did" "ledger-icrc" "modern"
+import_did "rs/ledger_suite/icrc1/index-ng/index-ng.did" "icrc_index-ng.did" "ledger-icrc" "modern"
+download_did "https://raw.githubusercontent.com/dfinity/ICRC-1/main/standards/ICRC-1/ICRC-1.did" "icrc_icrc-1.did" "canisters" "src/declarations/ledger-icrc"
+download_did "https://raw.githubusercontent.com/dfinity/ICRC/main/ICRCs/ICRC-10/ICRC-10.did" "icrc_icrc-10.did" "canisters" "src/declarations/ledger-icrc"
+# This is actually the candid file for ICRC-7 standard that is not the "complete" NFT standard in IC.
+# For example, some NFTs may implement the ICRC-37 standard too.
+# However, there is no centralized .did file (similar to ICRC-1) that includes all possible methods of IC NFTs
+download_did "https://raw.githubusercontent.com/dfinity/ICRC/main/ICRCs/ICRC-7/ICRC-7.did" "icrc_nft-ledger.did" "canisters" "src/declarations/ledger-icrc"
 
 : Fin

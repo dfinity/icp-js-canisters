@@ -19,8 +19,6 @@ did_files_to_compile() {
   did_files_to_compile_for_pkg "sns"
   did_files_to_compile_for_pkg "ledger-icrc"
   did_files_to_compile_for_pkg "ledger-icp"
-  did_files_to_compile_for_pkg "ckbtc"
-  did_files_to_compile_for_pkg "cketh"
   did_files_to_compile_for_pkg "canisters" "declarations"
 }
 
