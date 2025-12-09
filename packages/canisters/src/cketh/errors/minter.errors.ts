@@ -1,9 +1,5 @@
 import { nonNullish } from "@dfinity/utils";
-import type {
-  LedgerError as LedgerErrorType,
-  WithdrawErc20Error,
-  WithdrawalError,
-} from "../candid/minter";
+import type { CkEthMinterDid } from "../../declarations";
 
 export class DetailedError<T> extends Error {
   public details: T | undefined;
@@ -35,7 +31,7 @@ export class LedgerAmountTooLowError<T> extends LedgerError<T> {}
 export class LedgerInsufficientFundsError<T> extends LedgerError<T> {}
 
 export const createWithdrawEthError = (
-  Err: WithdrawalError,
+  Err: CkEthMinterDid.WithdrawalError,
 ): MinterGenericError => {
   if ("TemporarilyUnavailable" in Err) {
     return new MinterTemporaryUnavailableError(Err.TemporarilyUnavailable);
@@ -73,7 +69,7 @@ export const createWithdrawEthError = (
 };
 
 export const createWithdrawErc20Error = (
-  Err: WithdrawErc20Error,
+  Err: CkEthMinterDid.WithdrawErc20Error,
 ): MinterGenericError => {
   if ("TemporarilyUnavailable" in Err) {
     return new MinterTemporaryUnavailableError(Err.TemporarilyUnavailable);
@@ -95,7 +91,7 @@ export const createWithdrawErc20Error = (
     Err,
     ckEthBlockIndex,
   }: {
-    Err: LedgerErrorType;
+    Err: CkEthMinterDid.LedgerError;
     ckEthBlockIndex?: bigint;
   }): LedgerGenericError => {
     const createDetailsError = <T>(

@@ -1,7 +1,7 @@
 import type { CanisterOptions } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
 
-export interface CkETHMinterCanisterOptions<T> extends Omit<
+export interface CkEthMinterCanisterOptions<T> extends Omit<
   CanisterOptions<T>,
   "canisterId"
 > {
@@ -9,4 +9,4 @@ export interface CkETHMinterCanisterOptions<T> extends Omit<
   canisterId: Principal;
 }
 
-export type CkETHOrchestratorCanisterOptions<T> = CkETHMinterCanisterOptions<T>;
+export type CkEthOrchestratorCanisterOptions<T> = CkEthMinterCanisterOptions<T>;
