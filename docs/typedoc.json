@@ -1,8 +1,8 @@
 {
   "$schema": "https://typedoc-plugin-markdown.org/schema.json",
   "entryPoints": [
-    "../packages/ckbtc/src/index.ts",
-    "../packages/cketh/src/index.ts",
+    "../packages/canisters/src/ckbtc/index.ts",
+    "../packages/canisters/src/cketh/index.ts",
     "../packages/canisters/src/cmc/index.ts",
     "../packages/canisters/src/ic-management/index.ts",
     "../packages/ledger-icp/src/index.ts",
