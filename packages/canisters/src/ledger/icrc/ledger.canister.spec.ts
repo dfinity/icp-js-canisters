@@ -2,17 +2,7 @@ import { toNullable } from "@dfinity/utils";
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import type { Account } from "../../declarations/ledger-icrc/icrc_index";
-import type {
-  Allowance,
-  ApproveArgs,
-  GetBlocksResult,
-  GetIndexPrincipalResult,
-  _SERVICE as IcrcLedgerService,
-  TransferArg,
-  TransferFromArgs,
-  icrc21_consent_message_response,
-} from "../../declarations/ledger-icrc/icrc_ledger";
+import type { IcrcLedgerDid, IcrcLedgerService } from "../../declarations";
 import {
   ConsentMessageError,
   ConsentMessageUnavailableError,
@@ -95,7 +85,7 @@ describe("Ledger canister", () => {
       },
       amount: BigInt(100_000_000),
     };
-    const transferArg: TransferArg = {
+    const transferArg: IcrcLedgerDid.TransferArg = {
       to: {
         owner: Principal.fromText("aaaaa-aa"),
         subaccount: [],
@@ -157,7 +147,7 @@ describe("Ledger canister", () => {
       },
       amount: BigInt(100_000_000),
     };
-    const transferArg: TransferFromArgs = {
+    const transferArg: IcrcLedgerDid.TransferFromArgs = {
       from: {
         owner: mockPrincipal,
         subaccount: [],
@@ -220,7 +210,7 @@ describe("Ledger canister", () => {
       amount: BigInt(100_000_000),
       expires_at: 123n,
     };
-    const approveArg: ApproveArgs = {
+    const approveArg: IcrcLedgerDid.ApproveArgs = {
       expected_allowance: [],
       expires_at: [123n],
       from_subaccount: [],
@@ -273,7 +263,7 @@ describe("Ledger canister", () => {
   });
 
   describe("allowance", () => {
-    const allowance: Allowance = {
+    const allowance: IcrcLedgerDid.Allowance = {
       allowance: 123n,
       expires_at: [456n],
     };
@@ -322,19 +312,20 @@ describe("Ledger canister", () => {
       },
     };
 
-    const consentMessageResponse: icrc21_consent_message_response = {
-      Ok: {
-        consent_message: {
-          GenericDisplayMessage: "Transfer 1 ICP to account abcd",
+    const consentMessageResponse: IcrcLedgerDid.icrc21_consent_message_response =
+      {
+        Ok: {
+          consent_message: {
+            GenericDisplayMessage: "Transfer 1 ICP to account abcd",
+          },
+          metadata: {
+            language: "en-US",
+            utc_offset_minutes: [],
+          },
         },
-        metadata: {
-          language: "en-US",
-          utc_offset_minutes: [],
-        },
-      },
-    };
+      };
 
-    const consentMessageFieldsDisplayResponse: icrc21_consent_message_response =
+    const consentMessageFieldsDisplayResponse: IcrcLedgerDid.icrc21_consent_message_response =
       {
         Ok: {
           consent_message: {
@@ -489,7 +480,7 @@ describe("Ledger canister", () => {
       const service = mock<ActorSubclass<IcrcLedgerService>>();
 
       const errorDescription = "An error occurred";
-      const errorResponse: icrc21_consent_message_response = {
+      const errorResponse: IcrcLedgerDid.icrc21_consent_message_response = {
         Err: {
           GenericError: {
             description: errorDescription,
@@ -516,7 +507,7 @@ describe("Ledger canister", () => {
       const service = mock<ActorSubclass<IcrcLedgerService>>();
 
       const insufficientPaymentDescription = "Payment is insufficient";
-      const insufficientPaymentErrorResponse: icrc21_consent_message_response =
+      const insufficientPaymentErrorResponse: IcrcLedgerDid.icrc21_consent_message_response =
         {
           Err: {
             InsufficientPayment: {
@@ -546,7 +537,7 @@ describe("Ledger canister", () => {
 
       const unsupportedCanisterCallDescription =
         "This canister call is not supported";
-      const unsupportedCanisterCallErrorResponse: icrc21_consent_message_response =
+      const unsupportedCanisterCallErrorResponse: IcrcLedgerDid.icrc21_consent_message_response =
         {
           Err: {
             UnsupportedCanisterCall: {
@@ -576,7 +567,7 @@ describe("Ledger canister", () => {
 
       const consentMessageUnavailableDescription =
         "Consent message is unavailable";
-      const consentMessageUnavailableErrorResponse: icrc21_consent_message_response =
+      const consentMessageUnavailableErrorResponse: IcrcLedgerDid.icrc21_consent_message_response =
         {
           Err: {
             ConsentMessageUnavailable: {
@@ -612,10 +603,11 @@ describe("Ledger canister", () => {
         },
       };
 
-      const unknownErrorResponse: icrc21_consent_message_response = {
-        // @ts-expect-error: we are testing this on purpose
-        Err,
-      };
+      const unknownErrorResponse: IcrcLedgerDid.icrc21_consent_message_response =
+        {
+          // @ts-expect-error: we are testing this on purpose
+          Err,
+        };
 
       service.icrc21_canister_call_consent_message.mockResolvedValue(
         unknownErrorResponse,
@@ -637,7 +629,7 @@ describe("Ledger canister", () => {
   describe("getBlocks", () => {
     it("should return the blocks of the ledger canister", async () => {
       const service = mock<ActorSubclass<IcrcLedgerService>>();
-      const blocks: GetBlocksResult = {
+      const blocks: IcrcLedgerDid.GetBlocksResult = {
         log_length: 1234n,
         blocks: [],
         archived_blocks: [
@@ -667,7 +659,7 @@ describe("Ledger canister", () => {
 
     it("should accept empty options", async () => {
       const service = mock<ActorSubclass<IcrcLedgerService>>();
-      const blocks: GetBlocksResult = {
+      const blocks: IcrcLedgerDid.GetBlocksResult = {
         log_length: 1234n,
         blocks: [],
         archived_blocks: [],
@@ -694,7 +686,7 @@ describe("Ledger canister", () => {
       "pd4vj-oqaaa-aaaar-qahwq-cai",
     );
 
-    const indexPrincipalResponse: GetIndexPrincipalResult = {
+    const indexPrincipalResponse: IcrcLedgerDid.GetIndexPrincipalResult = {
       Ok: mockIndexPrincipal,
     };
 
@@ -721,7 +713,7 @@ describe("Ledger canister", () => {
       const service = mock<ActorSubclass<IcrcLedgerService>>();
 
       const errorDescription = "An error occurred";
-      const errorResponse: GetIndexPrincipalResult = {
+      const errorResponse: IcrcLedgerDid.GetIndexPrincipalResult = {
         Err: {
           GenericError: {
             description: errorDescription,
@@ -745,11 +737,12 @@ describe("Ledger canister", () => {
     it("should throw IndexPrincipalNotSetError when the canister returns an IndexPrincipalNotSet error", async () => {
       const service = mock<ActorSubclass<IcrcLedgerService>>();
 
-      const indexPrincipalNotSetErrorResponse: GetIndexPrincipalResult = {
-        Err: {
-          IndexPrincipalNotSet: null,
-        },
-      };
+      const indexPrincipalNotSetErrorResponse: IcrcLedgerDid.GetIndexPrincipalResult =
+        {
+          Err: {
+            IndexPrincipalNotSet: null,
+          },
+        };
 
       service.icrc106_get_index_principal.mockResolvedValue(
         indexPrincipalNotSetErrorResponse,
@@ -814,7 +807,7 @@ describe("Ledger canister", () => {
   describe("getMintingAccount", () => {
     it("should return the account of the minting account", async () => {
       const service = mock<ActorSubclass<IcrcLedgerService>>();
-      const account: Account = {
+      const account: IcrcLedgerDid.Account = {
         owner: mockPrincipal,
         subaccount: toNullable(new Uint8Array([1, 2, 3])),
       };

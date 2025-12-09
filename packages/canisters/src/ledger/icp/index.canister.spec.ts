@@ -1,10 +1,6 @@
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
-import type {
-  GetAccountIdentifierTransactionsError,
-  GetAccountIdentifierTransactionsResponse,
-  _SERVICE as IndexService,
-} from "../../declarations/ledger-icp/index";
+import type { IcpIndexDid, IcpIndexService } from "../../declarations";
 import { IndexCanister } from "./index.canister";
 import { mockAccountIdentifier } from "./mocks/ledger.mock";
 
@@ -13,7 +9,7 @@ describe("IndexCanister", () => {
     const balanceMock = 30_000_000n;
 
     it("returns account balance with query call", async () => {
-      const service = mock<ActorSubclass<IndexService>>();
+      const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_balance.mockResolvedValue(balanceMock);
       const index = IndexCanister.create({
         serviceOverride: service,
@@ -29,7 +25,7 @@ describe("IndexCanister", () => {
     });
 
     it("returns account balance with update call", async () => {
-      const service = mock<ActorSubclass<IndexService>>();
+      const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_balance.mockResolvedValue(balanceMock);
       const index = IndexCanister.create({
         certifiedServiceOverride: service,
@@ -45,7 +41,7 @@ describe("IndexCanister", () => {
     });
 
     it("returns account balance with account identifier as hex", async () => {
-      const service = mock<ActorSubclass<IndexService>>();
+      const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_balance.mockResolvedValue(balanceMock);
       const index = IndexCanister.create({
         serviceOverride: service,
@@ -61,7 +57,7 @@ describe("IndexCanister", () => {
     });
 
     it("should bubble errors", () => {
-      const service = mock<ActorSubclass<IndexService>>();
+      const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_balance.mockImplementation(() => {
         throw new Error();
       });
@@ -120,11 +116,11 @@ describe("IndexCanister", () => {
           },
         ],
         oldest_tx_id: [],
-      } as GetAccountIdentifierTransactionsResponse,
+      } as IcpIndexDid.GetAccountIdentifierTransactionsResponse,
     };
 
     it("returns transactions with query call", async () => {
-      const service = mock<ActorSubclass<IndexService>>();
+      const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_transactions.mockResolvedValue(
         transactionsMock,
       );
@@ -147,7 +143,7 @@ describe("IndexCanister", () => {
     });
 
     it("returns transactions with update call", async () => {
-      const service = mock<ActorSubclass<IndexService>>();
+      const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_transactions.mockResolvedValue(
         transactionsMock,
       );
@@ -170,7 +166,7 @@ describe("IndexCanister", () => {
     });
 
     it("returns transactions with account identifier as hex", async () => {
-      const service = mock<ActorSubclass<IndexService>>();
+      const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_transactions.mockResolvedValue(
         transactionsMock,
       );
@@ -193,7 +189,7 @@ describe("IndexCanister", () => {
     });
 
     it("query transactions from start", async () => {
-      const service = mock<ActorSubclass<IndexService>>();
+      const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_transactions.mockResolvedValue(
         transactionsMock,
       );
@@ -220,10 +216,10 @@ describe("IndexCanister", () => {
       const transactionsErrorMock = {
         Err: {
           message: "Test error",
-        } as GetAccountIdentifierTransactionsError,
+        } as IcpIndexDid.GetAccountIdentifierTransactionsError,
       };
 
-      const service = mock<ActorSubclass<IndexService>>();
+      const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_transactions.mockResolvedValue(
         transactionsErrorMock,
       );
@@ -241,7 +237,7 @@ describe("IndexCanister", () => {
     });
 
     it("should bubble errors", async () => {
-      const service = mock<ActorSubclass<IndexService>>();
+      const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_transactions.mockImplementation(() => {
         throw new Error();
       });

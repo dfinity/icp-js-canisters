@@ -1,13 +1,11 @@
 import { Canister, createServices, type QueryParams } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  Icrc1BlockIndex,
-  _SERVICE as LedgerService,
-  Value,
-  icrc21_consent_info,
-} from "../../declarations/ledger-icp/ledger";
-import { idlFactory as certifiedIdlFactory } from "../../declarations/ledger-icp/ledger.certified.idl";
-import { idlFactory } from "../../declarations/ledger-icp/ledger.idl";
+import {
+  type IcpLedgerDid,
+  type IcpLedgerService,
+  idlFactoryCertifiedIcpLedger,
+  idlFactoryIcpLedger,
+} from "../../declarations";
 import {
   toIcrc1TransferRawRequest,
   toIcrc21ConsentMessageRawRequest,
@@ -32,18 +30,18 @@ import type {
 } from "./types/ledger_converters";
 import { paramToAccountIdentifier } from "./utils/params.utils";
 
-export class LedgerCanister extends Canister<LedgerService> {
+export class LedgerCanister extends Canister<IcpLedgerService> {
   public static create(options: LedgerCanisterOptions = {}) {
     const canisterId: Principal =
       options.canisterId ?? MAINNET_LEDGER_CANISTER_ID;
 
-    const { service, certifiedService } = createServices<LedgerService>({
+    const { service, certifiedService } = createServices<IcpLedgerService>({
       options: {
         ...options,
         canisterId,
       },
-      idlFactory,
-      certifiedIdlFactory,
+      idlFactory: idlFactoryIcpLedger,
+      certifiedIdlFactory: idlFactoryCertifiedIcpLedger,
     });
 
     return new LedgerCanister(canisterId, service, certifiedService);
@@ -80,7 +78,9 @@ export class LedgerCanister extends Canister<LedgerService> {
    * @param {QueryParams} params - The parameters used to fetch the metadata, notably query or certified call.
    * @returns {Promise<Array<[string, Value]>>} The metadata of the ICP ledger. A promise that resolves to an array of metadata entries, where each entry is a tuple consisting of a string and a value.
    */
-  metadata = (params: QueryParams): Promise<Array<[string, Value]>> => {
+  metadata = (
+    params: QueryParams,
+  ): Promise<Array<[string, IcpLedgerDid.Value]>> => {
     const { icrc1_metadata } = this.caller(params);
     return icrc1_metadata();
   };
@@ -151,7 +151,7 @@ export class LedgerCanister extends Canister<LedgerService> {
    */
   icrc2Approve = async (
     params: Icrc2ApproveRequest,
-  ): Promise<Icrc1BlockIndex> => {
+  ): Promise<IcpLedgerDid.Icrc1BlockIndex> => {
     const { icrc2_approve } = this.caller({ certified: true });
 
     const response = await icrc2_approve(toIcrc2ApproveRawRequest(params));
@@ -178,7 +178,7 @@ export class LedgerCanister extends Canister<LedgerService> {
    */
   icrc21ConsentMessage = async (
     params: Icrc21ConsentMessageRequest,
-  ): Promise<icrc21_consent_info> => {
+  ): Promise<IcpLedgerDid.icrc21_consent_info> => {
     const { icrc21_canister_call_consent_message } = this.caller({
       certified: true,
     });

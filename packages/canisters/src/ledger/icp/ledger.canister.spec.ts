@@ -2,13 +2,7 @@ import { arrayOfNumberToUint8Array } from "@dfinity/utils";
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import type {
-  Account,
-  ApproveArgs as Icrc2ApproveRawRequest,
-  _SERVICE as LedgerService,
-  Value,
-  icrc21_consent_message_response,
-} from "../../declarations/ledger-icp/ledger";
+import type { IcpLedgerDid, IcpLedgerService } from "../../declarations";
 import { TRANSACTION_FEE } from "./constants/constants";
 import {
   AllowanceChangedError,
@@ -44,7 +38,7 @@ describe("LedgerCanister", () => {
       };
 
       it("returns account balance with query call", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.account_balance.mockResolvedValue(tokens);
         const ledger = LedgerCanister.create({
           serviceOverride: service,
@@ -60,7 +54,7 @@ describe("LedgerCanister", () => {
       });
 
       it("returns account balance with update call", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.account_balance.mockResolvedValue(tokens);
         const ledger = LedgerCanister.create({
           certifiedServiceOverride: service,
@@ -76,7 +70,7 @@ describe("LedgerCanister", () => {
       });
 
       it("returns account balance with account identifier as hex", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.account_balance.mockResolvedValue(tokens);
         const ledger = LedgerCanister.create({
           serviceOverride: service,
@@ -94,14 +88,14 @@ describe("LedgerCanister", () => {
 
     describe("metadata", () => {
       it("should return the token metadata", async () => {
-        const tokeMetadataResponseMock: Array<[string, Value]> = [
+        const tokeMetadataResponseMock: Array<[string, IcpLedgerDid.Value]> = [
           ["icrc1:decimals", { Nat: BigInt(8) }],
           ["icrc1:name", { Text: "Beta Test" }],
           ["icrc1:symbol", { Text: "ICP" }],
           ["icrc1:fee", { Nat: BigInt(1000) }],
         ];
 
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_metadata.mockResolvedValue(tokeMetadataResponseMock);
 
         const canister = LedgerCanister.create({
@@ -117,7 +111,7 @@ describe("LedgerCanister", () => {
     describe("transactionFee", () => {
       it("returns the transaction fee in e8s", async () => {
         const fee = BigInt(10_000);
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.transfer_fee.mockResolvedValue({
           transfer_fee: {
             e8s: fee,
@@ -141,7 +135,7 @@ describe("LedgerCanister", () => {
       const amount = BigInt(100000);
 
       it("uses default transaction fee if not present", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
@@ -166,7 +160,7 @@ describe("LedgerCanister", () => {
       });
 
       it("calls transfer certified service with data", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
@@ -197,7 +191,7 @@ describe("LedgerCanister", () => {
       });
 
       it("sets a default memo if not passed", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
@@ -227,7 +221,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles createdAt parameter", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
@@ -260,7 +254,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles subaccount", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
@@ -296,7 +290,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles duplicate transaction", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.transfer.mockResolvedValue({
           Err: {
             TxDuplicate: {
@@ -319,7 +313,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles insufficient balance", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.transfer.mockResolvedValue({
           Err: {
             InsufficientFunds: {
@@ -344,7 +338,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles old tx", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.transfer.mockResolvedValue({
           Err: {
             TxTooOld: {
@@ -367,7 +361,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles bad fee", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.transfer.mockResolvedValue({
           Err: {
             BadFee: {
@@ -392,7 +386,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles transaction created in the future", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.transfer.mockResolvedValue({
           Err: {
             TxCreatedInFuture: null,
@@ -423,7 +417,7 @@ describe("LedgerCanister", () => {
       const amount = BigInt(100000);
 
       it("uses default transaction fee if not present", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
@@ -448,7 +442,7 @@ describe("LedgerCanister", () => {
       });
 
       it("calls transfer certified service with data", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
@@ -475,7 +469,7 @@ describe("LedgerCanister", () => {
       });
 
       it("sets a default memo if not passed", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
@@ -500,7 +494,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles createdAt parameter", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
@@ -529,7 +523,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles from subaccount", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
@@ -561,7 +555,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles to subaccount", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
@@ -598,7 +592,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles duplicate transaction", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_transfer.mockResolvedValue({
           Err: {
             Duplicate: {
@@ -621,7 +615,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles insufficient balance", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_transfer.mockResolvedValue({
           Err: {
             InsufficientFunds: {
@@ -644,7 +638,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles old tx", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_transfer.mockResolvedValue({
           Err: {
             TooOld: null,
@@ -665,7 +659,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles bad fee", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_transfer.mockResolvedValue({
           Err: {
             BadFee: {
@@ -688,7 +682,7 @@ describe("LedgerCanister", () => {
       });
 
       it("handles transaction created in the future", async () => {
-        const service = mock<ActorSubclass<LedgerService>>();
+        const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_transfer.mockResolvedValue({
           Err: {
             CreatedInFuture: { ledger_time: BigInt(1234) },
@@ -720,7 +714,7 @@ describe("LedgerCanister", () => {
       expires_at: 123n,
     };
 
-    const approveRawRequest: Icrc2ApproveRawRequest = {
+    const approveRawRequest: IcpLedgerDid.ApproveArgs = {
       expected_allowance: [],
       expires_at: [123n],
       from_subaccount: [],
@@ -735,7 +729,7 @@ describe("LedgerCanister", () => {
     };
 
     it("should return the block height successfully", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
@@ -753,7 +747,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should call approve with default fee", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
@@ -771,7 +765,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should call approve with custom fee", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
@@ -792,7 +786,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should call approve with memo", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
@@ -816,7 +810,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should call approve with created at", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
@@ -838,7 +832,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should call approve with expected allowance", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
@@ -860,7 +854,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should call approve with a from subaccount", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
@@ -882,7 +876,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should call approve with a spender with subaccount", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
@@ -890,7 +884,7 @@ describe("LedgerCanister", () => {
         certifiedServiceOverride: service,
       });
 
-      const spender: Account = {
+      const spender: IcpLedgerDid.Account = {
         owner: mockPrincipal,
         subaccount: [arrayOfNumberToUint8Array([9, 8, 7, 6])],
       };
@@ -909,7 +903,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should raise GenericError", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc2_approve.mockResolvedValue({
         Err: {
           GenericError: { message: "This is a test", error_code: 123n },
@@ -927,7 +921,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should raise TemporarilyUnavailableError", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc2_approve.mockResolvedValue({
         Err: {
           TemporarilyUnavailable: null,
@@ -945,7 +939,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should raise DuplicateError", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc2_approve.mockResolvedValue({
         Err: {
           Duplicate: { duplicate_of: 888n },
@@ -963,7 +957,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should raise BadFeeError", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc2_approve.mockResolvedValue({
         Err: {
           BadFee: { expected_fee: 666n },
@@ -981,7 +975,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should raise AllowanceChangedError", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc2_approve.mockResolvedValue({
         Err: {
           AllowanceChanged: { current_allowance: 444n },
@@ -999,7 +993,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should raise CreatedInFutureError", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc2_approve.mockResolvedValue({
         Err: {
           CreatedInFuture: { ledger_time: BigInt(1234) },
@@ -1017,7 +1011,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should raise TooOldError", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc2_approve.mockResolvedValue({
         Err: {
           TooOld: null,
@@ -1035,7 +1029,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should raise ExpiredError", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc2_approve.mockResolvedValue({
         Err: {
           Expired: { ledger_time: BigInt(1234) },
@@ -1053,7 +1047,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should raise InsufficientFundsError", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc2_approve.mockResolvedValue({
         Err: {
           InsufficientFunds: { balance: 333888n },
@@ -1072,19 +1066,20 @@ describe("LedgerCanister", () => {
   });
 
   describe("icrc21ConsentMessage", () => {
-    const consentMessageResponse: icrc21_consent_message_response = {
-      Ok: {
-        consent_message: {
-          GenericDisplayMessage: "Transfer 1 ICP to account abcd",
+    const consentMessageResponse: IcpLedgerDid.icrc21_consent_message_response =
+      {
+        Ok: {
+          consent_message: {
+            GenericDisplayMessage: "Transfer 1 ICP to account abcd",
+          },
+          metadata: {
+            language: "en-US",
+            utc_offset_minutes: [],
+          },
         },
-        metadata: {
-          language: "en-US",
-          utc_offset_minutes: [],
-        },
-      },
-    };
+      };
 
-    const consentMessageFieldsDisplayResponse: icrc21_consent_message_response =
+    const consentMessageFieldsDisplayResponse: IcpLedgerDid.icrc21_consent_message_response =
       {
         Ok: {
           consent_message: {
@@ -1112,7 +1107,7 @@ describe("LedgerCanister", () => {
       };
 
     it("should fetch consent message successfully with GenericDisplayMessage", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc21_canister_call_consent_message.mockResolvedValue(
         consentMessageResponse,
       );
@@ -1146,7 +1141,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should fetch consent message successfully with FieldsDisplayMessage", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc21_canister_call_consent_message.mockResolvedValue(
         consentMessageFieldsDisplayResponse,
       );
@@ -1192,7 +1187,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should handle UTC offset in the request", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
       service.icrc21_canister_call_consent_message.mockResolvedValue(
         consentMessageResponse,
       );
@@ -1237,10 +1232,10 @@ describe("LedgerCanister", () => {
     });
 
     it("should throw GenericError when the canister returns a GenericError", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
 
       const errorDescription = "An error occurred";
-      const errorResponse: icrc21_consent_message_response = {
+      const errorResponse: IcpLedgerDid.icrc21_consent_message_response = {
         Err: {
           GenericError: {
             description: errorDescription,
@@ -1263,10 +1258,10 @@ describe("LedgerCanister", () => {
     });
 
     it("should throw InsufficientPaymentError when the canister returns an InsufficientPayment error", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
 
       const insufficientPaymentDescription = "Payment is insufficient";
-      const insufficientPaymentErrorResponse: icrc21_consent_message_response =
+      const insufficientPaymentErrorResponse: IcpLedgerDid.icrc21_consent_message_response =
         {
           Err: {
             InsufficientPayment: {
@@ -1291,11 +1286,11 @@ describe("LedgerCanister", () => {
     });
 
     it("should throw UnsupportedCanisterCallError when the canister returns an UnsupportedCanisterCallError error", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
 
       const unsupportedCanisterCallDescription =
         "This canister call is not supported";
-      const unsupportedCanisterCallErrorResponse: icrc21_consent_message_response =
+      const unsupportedCanisterCallErrorResponse: IcpLedgerDid.icrc21_consent_message_response =
         {
           Err: {
             UnsupportedCanisterCall: {
@@ -1320,11 +1315,11 @@ describe("LedgerCanister", () => {
     });
 
     it("should throw ConsentMessageUnavailableError when the canister returns an ConsentMessageUnavailableError error", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
 
       const consentMessageUnavailableDescription =
         "Consent message is unavailable";
-      const consentMessageUnavailableErrorResponse: icrc21_consent_message_response =
+      const consentMessageUnavailableErrorResponse: IcpLedgerDid.icrc21_consent_message_response =
         {
           Err: {
             ConsentMessageUnavailable: {
@@ -1351,7 +1346,7 @@ describe("LedgerCanister", () => {
     });
 
     it("should throw ConsentMessageError with correct message for an unknown error type", async () => {
-      const service = mock<ActorSubclass<LedgerService>>();
+      const service = mock<ActorSubclass<IcpLedgerService>>();
 
       const Err = {
         UnknownErrorType: {
@@ -1359,10 +1354,11 @@ describe("LedgerCanister", () => {
         },
       };
 
-      const unknownErrorResponse: icrc21_consent_message_response = {
-        // @ts-expect-error: we are testing this on purpose
-        Err,
-      };
+      const unknownErrorResponse: IcpLedgerDid.icrc21_consent_message_response =
+        {
+          // @ts-expect-error: we are testing this on purpose
+          Err,
+        };
 
       service.icrc21_canister_call_consent_message.mockResolvedValue(
         unknownErrorResponse,

@@ -2,8 +2,10 @@ import { arrayOfNumberToUint8Array, createServices } from "@dfinity/utils";
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import { idlFactory as certifiedIdlFactory } from "../../declarations/ledger-icrc/icrc_ledger.certified.idl";
-import { idlFactory } from "../../declarations/ledger-icrc/icrc_ledger.idl";
+import {
+  idlFactoryCertifiedIcpLedger,
+  idlFactoryIcrcLedger,
+} from "../../declarations";
 import { IcrcCanister } from "./canister";
 import { ledgerCanisterIdMock } from "./mocks/ledger.mock";
 import type { IcrcLedgerCanisterOptions } from "./types/canister.options";
@@ -15,8 +17,8 @@ describe("ICRC canister", () => {
       const { service, certifiedService, canisterId } =
         createServices<IcrcCanisterService>({
           options,
-          idlFactory,
-          certifiedIdlFactory,
+          idlFactory: idlFactoryIcrcLedger,
+          certifiedIdlFactory: idlFactoryCertifiedIcpLedger,
         });
 
       return new MockCanister(canisterId, service, certifiedService);
