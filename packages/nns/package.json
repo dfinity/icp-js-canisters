@@ -27,7 +27,7 @@
   "scripts": {
     "rmdir": "node ../../scripts/rmdir.mjs",
     "ts-declaration": "tsc --emitDeclarationOnly --outDir dist",
-    "build": "npm run rmdir && mkdir -p dist && cp -R src/candid dist && node esbuild.mjs && npm run ts-declaration",
+    "build": "npm run rmdir && mkdir -p dist && node esbuild.mjs && npm run ts-declaration",
     "prepack": "npm run build",
     "test": "vitest"
   },
@@ -60,8 +60,6 @@
     "network-nervous-system"
   ],
   "peerDependencies": {
-    "@dfinity/ledger-icp": ">=7",
-    "@dfinity/utils": "^4",
-    "@icp-sdk/core": "^4"
+    "@icp-sdk/canisters": "^2"
   }
 }
