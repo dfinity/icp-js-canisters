@@ -5,21 +5,12 @@ import {
   fromNullable,
   type QueryParams,
 } from "@dfinity/utils";
-import type {
-  BuyerState,
-  GetAutoFinalizationStatusResponse,
-  GetBuyerStateRequest,
-  GetDerivedStateResponse,
-  GetLifecycleResponse,
-  GetSaleParametersResponse,
-  GetStateResponse,
-  RefreshBuyerTokensRequest,
-  RefreshBuyerTokensResponse,
-  _SERVICE as SnsSwapService,
-  Ticket,
-} from "../declarations/sns/swap";
-import { idlFactory as certifiedIdlFactory } from "../declarations/sns/swap.certified.idl";
-import { idlFactory } from "../declarations/sns/swap.idl";
+import {
+  type SnsSwapDid,
+  idlFactorySnsSwap,
+  idlFactoryCertifiedSnsSwap,
+  type SnsSwapService,
+} from "../declarations";
 import { toNewSaleTicketRequest } from "./converters/swap.converters";
 import { UnsupportedMethodError } from "./errors/common.errors";
 import {
@@ -35,8 +26,8 @@ export class SnsSwapCanister extends Canister<SnsSwapService> {
     const { service, certifiedService, canisterId } =
       createServices<SnsSwapService>({
         options,
-        idlFactory,
-        certifiedIdlFactory,
+        idlFactory: idlFactorySnsSwap,
+        certifiedIdlFactory: idlFactoryCertifiedSnsSwap,
       });
 
     return new SnsSwapCanister(canisterId, service, certifiedService);
@@ -45,13 +36,13 @@ export class SnsSwapCanister extends Canister<SnsSwapService> {
   /**
    * Get the state of the swap
    */
-  state = (params: QueryParams): Promise<GetStateResponse> =>
+  state = (params: QueryParams): Promise<SnsSwapDid.GetStateResponse> =>
     this.caller(params).get_state({});
 
   /**
    * Notify of the payment failure to remove the ticket
    */
-  notifyPaymentFailure = async (): Promise<Ticket | undefined> => {
+  notifyPaymentFailure = async (): Promise<SnsSwapDid.Ticket | undefined> => {
     const { ticket } = await this.caller({
       certified: true,
     }).notify_payment_failure({});
@@ -62,16 +53,16 @@ export class SnsSwapCanister extends Canister<SnsSwapService> {
    * Notify of the user participating in the swap
    */
   notifyParticipation = async (
-    params: RefreshBuyerTokensRequest,
-  ): Promise<RefreshBuyerTokensResponse> =>
+    params: SnsSwapDid.RefreshBuyerTokensRequest,
+  ): Promise<SnsSwapDid.RefreshBuyerTokensResponse> =>
     await this.caller({ certified: true }).refresh_buyer_tokens(params);
 
   /**
    * Get user commitment
    */
   getUserCommitment = async (
-    params: GetBuyerStateRequest & QueryParams,
-  ): Promise<BuyerState | undefined> => {
+    params: SnsSwapDid.GetBuyerStateRequest & QueryParams,
+  ): Promise<SnsSwapDid.BuyerState | undefined> => {
     const { buyer_state } = await this.caller({
       certified: params.certified,
     }).get_buyer_state({ principal_id: params.principal_id });
@@ -83,7 +74,7 @@ export class SnsSwapCanister extends Canister<SnsSwapService> {
    */
   getDerivedState = ({
     certified,
-  }: QueryParams): Promise<GetDerivedStateResponse> =>
+  }: QueryParams): Promise<SnsSwapDid.GetDerivedStateResponse> =>
     this.caller({ certified }).get_derived_state({});
 
   /**
@@ -91,13 +82,15 @@ export class SnsSwapCanister extends Canister<SnsSwapService> {
    */
   getSaleParameters = ({
     certified,
-  }: QueryParams): Promise<GetSaleParametersResponse> =>
+  }: QueryParams): Promise<SnsSwapDid.GetSaleParametersResponse> =>
     this.caller({ certified }).get_sale_parameters({});
 
   /**
    * Return a sale ticket if created and not yet removed (payment flow)
    */
-  getOpenTicket = async (params: QueryParams): Promise<Ticket | undefined> => {
+  getOpenTicket = async (
+    params: QueryParams,
+  ): Promise<SnsSwapDid.Ticket | undefined> => {
     const { result: response } = await this.caller({
       certified: params.certified,
     }).get_open_ticket({});
@@ -114,7 +107,9 @@ export class SnsSwapCanister extends Canister<SnsSwapService> {
   /**
    * Create a sale ticket (payment flow)
    */
-  newSaleTicket = async (params: NewSaleTicketParams): Promise<Ticket> => {
+  newSaleTicket = async (
+    params: NewSaleTicketParams,
+  ): Promise<SnsSwapDid.Ticket> => {
     const request = toNewSaleTicketRequest(params);
     const { result: response } = await this.caller({
       certified: true,
@@ -139,7 +134,9 @@ export class SnsSwapCanister extends Canister<SnsSwapService> {
   /**
    * Get sale lifecycle state
    */
-  getLifecycle = (params: QueryParams): Promise<GetLifecycleResponse> =>
+  getLifecycle = (
+    params: QueryParams,
+  ): Promise<SnsSwapDid.GetLifecycleResponse> =>
     this.caller(params).get_lifecycle({});
 
   /**
@@ -147,7 +144,7 @@ export class SnsSwapCanister extends Canister<SnsSwapService> {
    */
   getFinalizationStatus = async (
     params: QueryParams,
-  ): Promise<GetAutoFinalizationStatusResponse> => {
+  ): Promise<SnsSwapDid.GetAutoFinalizationStatusResponse> => {
     try {
       return await this.caller(params).get_auto_finalization_status({});
     } catch (error) {

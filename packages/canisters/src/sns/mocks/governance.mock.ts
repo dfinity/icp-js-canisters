@@ -1,22 +1,19 @@
 import { arrayOfNumberToUint8Array } from "@dfinity/utils";
 import type {
-  GetMetadataResponse,
-  Neuron,
-  NeuronId,
-  ProposalData,
-  Topic,
-  TopicInfo,
-} from "../../declarations/sns/governance";
+  SnsGovernanceDid
+} from "../../declarations";
 
-export const neuronIdMock: NeuronId = { id: arrayOfNumberToUint8Array([1]) };
+export const neuronIdMock: SnsGovernanceDid.NeuronId = {
+  id: arrayOfNumberToUint8Array([1]),
+};
 
 export const neuronMock = {
   id: [neuronIdMock],
-} as Neuron;
+} as SnsGovernanceDid.Neuron;
 
-export const neuronsMock: Neuron[] = [neuronMock];
+export const neuronsMock: SnsGovernanceDid.Neuron[] = [neuronMock];
 
-export const metadataMock: GetMetadataResponse = {
+export const metadataMock: SnsGovernanceDid.GetMetadataResponse = {
   url: ["https://my.url/"],
   logo: [],
   name: ["My project"],
@@ -27,15 +24,15 @@ export const proposalIdMock = { id: BigInt(12) };
 
 export const proposalMock = {
   id: [proposalIdMock],
-} as ProposalData;
+} as SnsGovernanceDid.ProposalData;
 
-export const proposalsMock: ProposalData[] = [proposalMock];
+export const proposalsMock: SnsGovernanceDid.ProposalData[] = [proposalMock];
 
-export const topicMock: Topic = {
+export const topicMock: SnsGovernanceDid.Topic = {
   ApplicationBusinessLogic: null,
 };
 
-export const topicInfoMock: TopicInfo = {
+export const topicInfoMock: SnsGovernanceDid.TopicInfo = {
   custom_functions: [],
   description: ["Description"],
   is_critical: [false],
@@ -45,4 +42,4 @@ export const topicInfoMock: TopicInfo = {
   extension_operations: [],
 };
 
-export const topicsMock: TopicInfo[] = [topicInfoMock];
+export const topicsMock: SnsGovernanceDid.TopicInfo[] = [topicInfoMock];

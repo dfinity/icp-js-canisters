@@ -7,9 +7,8 @@ import { arrayOfNumberToUint8Array } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
 import type {
-  ManageNeuronResponse,
-  NeuronId,
-} from "../declarations/sns/governance";
+  SnsGovernanceDid,
+} from "../declarations";
 import { SnsNeuronPermissionType, SnsVote } from "./enums/governance.enums";
 import { SnsGovernanceError } from "./errors/governance.errors";
 import type { SnsGovernanceCanister } from "./governance.canister";
@@ -203,7 +202,7 @@ describe("SnsWrapper", () => {
   });
 
   it("should call splitNeuron", async () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
 
@@ -493,7 +492,7 @@ describe("SnsWrapper", () => {
   });
 
   it("should call startDissolving", async () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
 
@@ -505,7 +504,7 @@ describe("SnsWrapper", () => {
   });
 
   it("should call stopDissolving", async () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
 
@@ -517,7 +516,7 @@ describe("SnsWrapper", () => {
   });
 
   it("should call setDissolveTimestamp", async () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
 
@@ -533,7 +532,7 @@ describe("SnsWrapper", () => {
   });
 
   it("should call increaseDissolveDelay", async () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
 
@@ -549,7 +548,7 @@ describe("SnsWrapper", () => {
   });
 
   it("should call setTopicFollowees", async () => {
-    const neuronId: NeuronId = {
+    const neuronId: SnsGovernanceDid.NeuronId = {
       id: arrayOfNumberToUint8Array([1, 2, 3]),
     };
     const functionId = BigInt(222);
@@ -724,7 +723,7 @@ describe("SnsWrapper", () => {
           },
         },
       ],
-    } as ManageNeuronResponse;
+    } as SnsGovernanceDid.ManageNeuronResponse;
 
     const stakeE8s = BigInt(10);
 

@@ -1,15 +1,7 @@
 import type { Principal } from "@icp-sdk/core/principal";
 import type {
-  DefaultFollowees,
-  DeregisterDappCanisters,
-  ExecuteGenericNervousSystemFunction,
-  ExtensionInit,
-  Motion,
-  NeuronPermissionList,
-  RegisterDappCanisters,
-  Subaccount,
-  Topic,
-} from "../../declarations/sns/governance";
+  SnsGovernanceDid
+} from "../../declarations";
 import type { Option } from "./common";
 
 export type Action =
@@ -26,24 +18,24 @@ export type Action =
   | { SetTopicsForCustomProposals: SetTopicsForCustomProposals }
   | { RemoveGenericNervousSystemFunction: bigint }
   | { UpgradeSnsToNextVersion: Record<string, never> }
-  | { RegisterDappCanisters: RegisterDappCanisters }
+  | { RegisterDappCanisters: SnsGovernanceDid.RegisterDappCanisters }
   | { RegisterExtension: RegisterExtension }
   | { TransferSnsTreasuryFunds: TransferSnsTreasuryFunds }
   | { UpgradeSnsControlledCanister: UpgradeSnsControlledCanister }
-  | { DeregisterDappCanisters: DeregisterDappCanisters }
+  | { DeregisterDappCanisters: SnsGovernanceDid.DeregisterDappCanisters }
   | { Unspecified: Record<string, never> }
   | { ManageSnsMetadata: ManageSnsMetadata }
   | {
-      ExecuteGenericNervousSystemFunction: ExecuteGenericNervousSystemFunction;
+      ExecuteGenericNervousSystemFunction: SnsGovernanceDid.ExecuteGenericNervousSystemFunction;
     }
-  | { Motion: Motion };
+  | { Motion: SnsGovernanceDid.Motion };
 
 export interface NervousSystemParameters {
-  default_followees: Option<DefaultFollowees>;
+  default_followees: Option<SnsGovernanceDid.DefaultFollowees>;
   max_dissolve_delay_seconds: Option<bigint>;
   max_dissolve_delay_bonus_percentage: Option<bigint>;
   max_followees_per_function: Option<bigint>;
-  neuron_claimer_permissions: Option<NeuronPermissionList>;
+  neuron_claimer_permissions: Option<SnsGovernanceDid.NeuronPermissionList>;
   neuron_minimum_stake_e8s: Option<bigint>;
   max_neuron_age_for_age_bonus: Option<bigint>;
   initial_voting_period_seconds: Option<bigint>;
@@ -55,7 +47,7 @@ export interface NervousSystemParameters {
   transaction_fee_e8s: Option<bigint>;
   max_number_of_proposals_with_ballots: Option<bigint>;
   max_age_bonus_percentage: Option<bigint>;
-  neuron_grantable_permissions: Option<NeuronPermissionList>;
+  neuron_grantable_permissions: Option<SnsGovernanceDid.NeuronPermissionList>;
   voting_rewards_parameters: Option<VotingRewardsParameters>;
   max_number_of_principals_per_neuron: Option<bigint>;
   automatically_advance_target_version: Option<boolean>;
@@ -76,7 +68,7 @@ export interface NervousSystemFunction {
 }
 
 export interface SetTopicsForCustomProposals {
-  custom_function_id_to_topic: Array<[bigint, Topic]>;
+  custom_function_id_to_topic: Array<[bigint, SnsGovernanceDid.Topic]>;
 }
 
 export type FunctionType =
@@ -88,7 +80,7 @@ export interface GenericNervousSystemFunction {
   target_canister_id: Option<Principal>;
   validator_method_name: Option<string>;
   target_method_name: Option<string>;
-  topic: Option<Topic>;
+  topic: Option<SnsGovernanceDid.Topic>;
 }
 
 export interface ExecuteExtensionOperation {
@@ -112,7 +104,7 @@ export interface SnsVersion {
 
 export interface MintSnsTokens {
   to_principal: Option<Principal>;
-  to_subaccount: Option<Subaccount>;
+  to_subaccount: Option<SnsGovernanceDid.Subaccount>;
   memo: Option<bigint>;
   amount_e8s: Option<bigint>;
 }
@@ -165,7 +157,7 @@ export interface ManageLedgerParameters {
 export interface TransferSnsTreasuryFunds {
   from_treasury: number;
   to_principal: Option<Principal>;
-  to_subaccount: Option<Subaccount>;
+  to_subaccount: Option<SnsGovernanceDid.Subaccount>;
   memo: Option<bigint>;
   amount_e8s: bigint;
 }
@@ -192,5 +184,5 @@ export interface ManageSnsMetadata {
 
 export interface RegisterExtension {
   chunked_canister_wasm: Option<ChunkedCanisterWasm>;
-  extension_init: Option<ExtensionInit>;
+  extension_init: Option<SnsGovernanceDid.ExtensionInit>;
 }
