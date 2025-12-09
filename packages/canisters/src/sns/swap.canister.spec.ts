@@ -1,9 +1,7 @@
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import type {
-  SnsSwapDid, SnsSwapService
-} from "../declarations";
+import type { SnsSwapDid, SnsSwapService } from "../declarations";
 import {
   GetOpenTicketErrorType,
   NewSaleTicketResponseErrorType,

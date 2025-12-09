@@ -6,10 +6,7 @@ import {
 } from "@dfinity/utils";
 import type { Agent } from "@icp-sdk/core/agent";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  SnsRootDid,
-  SnsRootService,
-} from "../declarations";
+import type { SnsRootDid, SnsRootService } from "../declarations";
 import { SnsGovernanceCanister } from "./governance.canister";
 import { SnsRootCanister } from "./root.canister";
 import { SnsWrapper } from "./sns.wrapper";

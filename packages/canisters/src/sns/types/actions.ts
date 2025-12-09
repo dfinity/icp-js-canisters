@@ -1,7 +1,5 @@
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  SnsGovernanceDid
-} from "../../declarations";
+import type { SnsGovernanceDid } from "../../declarations";
 import type { Option } from "./common";
 
 export type Action =

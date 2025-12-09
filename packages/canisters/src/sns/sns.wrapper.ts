@@ -16,9 +16,7 @@ import {
   type QueryParams,
 } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  SnsGovernanceDid, SnsSwapDid
-} from "../declarations";
+import type { SnsGovernanceDid, SnsSwapDid } from "../declarations";
 import { MAX_NEURONS_SUBACCOUNTS } from "./constants/governance.constants";
 import { SnsGovernanceError } from "./errors/governance.errors";
 import type { SnsGovernanceCanister } from "./governance.canister";

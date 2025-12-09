@@ -6,9 +6,9 @@ import {
   type QueryParams,
 } from "@dfinity/utils";
 import {
-  type SnsSwapDid,
-  idlFactorySnsSwap,
   idlFactoryCertifiedSnsSwap,
+  idlFactorySnsSwap,
+  type SnsSwapDid,
   type SnsSwapService,
 } from "../declarations";
 import { toNewSaleTicketRequest } from "./converters/swap.converters";

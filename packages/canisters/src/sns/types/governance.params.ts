@@ -5,9 +5,7 @@ import type {
 } from "@dfinity/ledger-icrc";
 import type { QueryParams } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
-import type {
-  SnsGovernanceDid
-} from "../../declarations";
+import type { SnsGovernanceDid } from "../../declarations";
 import type {
   SnsNeuronPermissionType,
   SnsProposalDecisionStatus,
@@ -87,7 +85,10 @@ export interface SnsStakeNeuronParams extends Omit<QueryParams, "certified"> {
   fee?: bigint;
 }
 
-export interface SnsIncreaseStakeNeuronParams extends Omit<QueryParams, "certified"> {
+export interface SnsIncreaseStakeNeuronParams extends Omit<
+  QueryParams,
+  "certified"
+> {
   stakeE8s: IcrcTokens;
   source: IcrcAccount;
   neuronId: SnsGovernanceDid.NeuronId;

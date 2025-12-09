@@ -1,7 +1,5 @@
 import { arrayOfNumberToUint8Array } from "@dfinity/utils";
-import type {
-  SnsGovernanceDid
-} from "../../declarations";
+import type { SnsGovernanceDid } from "../../declarations";
 
 export const neuronIdMock: SnsGovernanceDid.NeuronId = {
   id: arrayOfNumberToUint8Array([1]),
