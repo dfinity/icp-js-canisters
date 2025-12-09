@@ -1,12 +1,12 @@
-import type {
-  IcrcIndexCanister,
-  IcrcLedgerCanister,
-  TransferParams,
-} from "@dfinity/ledger-icrc";
 import { arrayOfNumberToUint8Array } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
 import type { SnsGovernanceDid } from "../declarations";
+import type {
+  IcrcIndexCanister,
+  IcrcLedgerCanister,
+  TransferParams,
+} from "../ledger/icrc";
 import { SnsNeuronPermissionType, SnsVote } from "./enums/governance.enums";
 import { SnsGovernanceError } from "./errors/governance.errors";
 import type { SnsGovernanceCanister } from "./governance.canister";

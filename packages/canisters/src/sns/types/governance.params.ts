@@ -1,11 +1,7 @@
-import type {
-  IcrcAccount,
-  IcrcSubaccount,
-  IcrcTokens,
-} from "@dfinity/ledger-icrc";
 import type { QueryParams } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
 import type { SnsGovernanceDid } from "../../declarations";
+import type { IcrcAccount, IcrcLedgerDid } from "../../ledger/icrc";
 import type {
   SnsNeuronPermissionType,
   SnsProposalDecisionStatus,
@@ -77,7 +73,7 @@ export interface SnsGetNeuronParams extends QueryParams {
 }
 
 export interface SnsStakeNeuronParams extends Omit<QueryParams, "certified"> {
-  stakeE8s: IcrcTokens;
+  stakeE8s: IcrcLedgerDid.Tokens;
   source: IcrcAccount;
   controller: Principal;
   // Same as createdAt from ledger's TransferParams
@@ -89,7 +85,7 @@ export interface SnsIncreaseStakeNeuronParams extends Omit<
   QueryParams,
   "certified"
 > {
-  stakeE8s: IcrcTokens;
+  stakeE8s: IcrcLedgerDid.Tokens;
   source: IcrcAccount;
   neuronId: SnsGovernanceDid.NeuronId;
 }
@@ -181,7 +177,7 @@ export interface SnsRegisterVoteParams extends SnsNeuronManagementParams {
 export interface SnsClaimNeuronParams {
   memo: bigint;
   controller: Principal;
-  subaccount: IcrcSubaccount;
+  subaccount: IcrcLedgerDid.Subaccount;
 }
 
 /**

@@ -1,12 +1,12 @@
+import { Principal } from "@icp-sdk/core/principal";
 import {
   IcrcMetadataResponseEntries,
-  type IcrcValue,
-} from "@dfinity/ledger-icrc";
-import { Principal } from "@icp-sdk/core/principal";
+  type IcrcLedgerDid,
+} from "../../ledger/icrc";
 
 export const tokenMetadataResponseMock: [
   string | IcrcMetadataResponseEntries,
-  IcrcValue,
+  IcrcLedgerDid.Value,
 ][] = [
   [IcrcMetadataResponseEntries.DECIMALS, { Nat: BigInt(8) }],
   [IcrcMetadataResponseEntries.NAME, { Text: "Beta Test" }],

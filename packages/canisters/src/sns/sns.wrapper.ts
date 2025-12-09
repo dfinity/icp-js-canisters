@@ -1,15 +1,3 @@
-import type {
-  BalanceParams,
-  GetAccountTransactionsParams,
-  IcrcAccount,
-  IcrcBlockIndex,
-  IcrcGetTransactions,
-  IcrcIndexCanister,
-  IcrcLedgerCanister,
-  IcrcTokenMetadataResponse,
-  IcrcTokens,
-  TransferParams,
-} from "@dfinity/ledger-icrc";
 import {
   bigIntToUint8Array,
   toNullable,
@@ -17,6 +5,17 @@ import {
 } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
 import type { SnsGovernanceDid, SnsSwapDid } from "../declarations";
+import type {
+  BalanceParams,
+  GetAccountTransactionsParams,
+  IcrcAccount,
+  IcrcIndexCanister,
+  IcrcIndexDid,
+  IcrcLedgerCanister,
+  IcrcLedgerDid,
+  IcrcTokenMetadataResponse,
+  TransferParams,
+} from "../ledger/icrc";
 import { MAX_NEURONS_SUBACCOUNTS } from "./constants/governance.constants";
 import { SnsGovernanceError } from "./errors/governance.errors";
 import type { SnsGovernanceCanister } from "./governance.canister";
@@ -154,19 +153,21 @@ export class SnsWrapper {
 
   transactionFee = (
     params: Omit<QueryParams, "certified">,
-  ): Promise<IcrcTokens> =>
+  ): Promise<IcrcLedgerDid.Tokens> =>
     this.ledger.transactionFee(this.mergeParams(params));
 
   totalTokensSupply = (
     params: Omit<QueryParams, "certified">,
-  ): Promise<IcrcTokens> =>
+  ): Promise<IcrcLedgerDid.Tokens> =>
     this.ledger.totalTokensSupply(this.mergeParams(params));
 
-  balance = (params: Omit<BalanceParams, "certified">): Promise<IcrcTokens> =>
+  balance = (
+    params: Omit<BalanceParams, "certified">,
+  ): Promise<IcrcLedgerDid.Tokens> =>
     this.ledger.balance(this.mergeParams(params));
 
   // Always certified
-  transfer = (params: TransferParams): Promise<IcrcBlockIndex> =>
+  transfer = (params: TransferParams): Promise<IcrcLedgerDid.BlockIndex> =>
     this.ledger.transfer(params);
 
   getNeuron = (
@@ -310,7 +311,7 @@ export class SnsWrapper {
 
   getNeuronBalance = (
     neuronId: SnsGovernanceDid.NeuronId,
-  ): Promise<IcrcTokens> => {
+  ): Promise<IcrcLedgerDid.Tokens> => {
     const account = {
       ...this.owner,
       subaccount: Uint8Array.from(neuronId.id),
@@ -436,7 +437,8 @@ export class SnsWrapper {
   // Always certified
   getTransactions = (
     params: GetAccountTransactionsParams,
-  ): Promise<IcrcGetTransactions> => this.index.getTransactions(params);
+  ): Promise<IcrcIndexDid.GetTransactions> =>
+    this.index.getTransactions(params);
 
   // Always certified
   stakeMaturity = (params: SnsNeuronStakeMaturityParams): Promise<void> =>

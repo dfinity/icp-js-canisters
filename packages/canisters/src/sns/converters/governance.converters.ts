@@ -1,4 +1,3 @@
-import type { IcrcAccount } from "@dfinity/ledger-icrc";
 import {
   assertNever,
   fromNullable,
@@ -6,6 +5,7 @@ import {
   toNullable,
 } from "@dfinity/utils";
 import type { SnsGovernanceDid } from "../../declarations";
+import type { IcrcAccount } from "../../ledger/icrc";
 import { DEFAULT_PROPOSALS_LIMIT } from "../constants/governance.constants";
 import type {
   Action,

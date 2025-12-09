@@ -1,4 +1,3 @@
-import { IcrcIndexCanister, IcrcLedgerCanister } from "@dfinity/ledger-icrc";
 import {
   assertNonNullish,
   fromNullable,
@@ -7,6 +6,7 @@ import {
 import type { Agent } from "@icp-sdk/core/agent";
 import type { Principal } from "@icp-sdk/core/principal";
 import type { SnsRootDid, SnsRootService } from "../declarations";
+import { IcrcIndexCanister, IcrcLedgerCanister } from "../ledger/icrc";
 import { SnsGovernanceCanister } from "./governance.canister";
 import { SnsRootCanister } from "./root.canister";
 import { SnsWrapper } from "./sns.wrapper";
