@@ -1,10 +1,4 @@
 import {
-  AccountIdentifier,
-  checkAccountId,
-  type AccountIdentifierHex,
-  type LedgerCanister,
-} from "@dfinity/ledger-icp";
-import {
   assertPercentageNumber,
   createServices,
   fromNullable,
@@ -28,6 +22,12 @@ import type {
 import { idlFactory as certifiedIdlFactory } from "../declarations/nns/governance.certified.idl";
 import { idlFactory } from "../declarations/nns/governance.idl";
 import { idlFactory as oldListNeuronsCertifiedIdlFactory } from "../declarations/nns/old_list_neurons_service.certified.idl";
+import {
+  AccountIdentifier,
+  checkAccountId,
+  type AccountIdentifierHex,
+  type LedgerCanister,
+} from "../ledger/icp";
 import {
   fromClaimOrRefreshNeuronRequest,
   fromListNeurons,

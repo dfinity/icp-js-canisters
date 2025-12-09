@@ -1,4 +1,3 @@
-import type { AccountIdentifierHex } from "@dfinity/ledger-icp";
 import {
   fromDefinedNullable,
   fromNullable,
@@ -10,6 +9,7 @@ import {
   type Nullable,
 } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
+import type { AccountIdentifierHex } from "../../../ledger/icp";
 
 import type {
   Params,

@@ -1,7 +1,3 @@
-import type {
-  AccountIdentifier as AccountIdentifierClass,
-  AccountIdentifierHex,
-} from "@dfinity/ledger-icp";
 import {
   arrayBufferToUint8Array,
   arrayOfNumberToUint8Array,
@@ -51,6 +47,10 @@ import type {
   VotingPowerEconomics as RawVotingPowerEconomics,
   VotingRewardParameters as RawVotingRewardParameters,
 } from "../../../declarations/nns/governance";
+import type {
+  AccountIdentifier as AccountIdentifierClass,
+  AccountIdentifierHex,
+} from "../../../ledger/icp";
 import type { NeuronVisibility, Vote } from "../../enums/governance.enums";
 import { UnsupportedValueError } from "../../errors/governance.errors";
 import type { E8s, NeuronId, Option } from "../../types/common";

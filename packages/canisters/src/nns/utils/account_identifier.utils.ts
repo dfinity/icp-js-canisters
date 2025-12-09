@@ -1,4 +1,3 @@
-import type { AccountIdentifierHex } from "@dfinity/ledger-icp";
 import {
   arrayOfNumberToUint8Array,
   asciiStringToByteArray,
@@ -8,6 +7,7 @@ import {
 } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
 import { sha224 } from "@noble/hashes/sha2";
+import type { AccountIdentifierHex } from "../../ledger/icp";
 
 // The following functions were originally made available in @dfinity/ledger-icp for domain alignment reasons.
 // Since they are only used by @dfinity/nns and potentially the NNS dapp, they have been moved to this package instead.

@@ -1,8 +1,3 @@
-import {
-  AccountIdentifier,
-  InvalidAccountIDError,
-  type LedgerCanister,
-} from "@dfinity/ledger-icp";
 import { InvalidPercentageError } from "@dfinity/utils";
 import { AnonymousIdentity, type ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
@@ -27,6 +22,11 @@ import type {
   RewardEvent,
   SetFollowingResponse,
 } from "../declarations/nns/governance";
+import {
+  AccountIdentifier,
+  InvalidAccountIDError,
+  type LedgerCanister,
+} from "../ledger/icp";
 import {
   CanisterAction,
   CanisterInstallMode,
