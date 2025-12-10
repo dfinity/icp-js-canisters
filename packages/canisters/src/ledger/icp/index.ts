@@ -6,8 +6,8 @@ export type { IcpIndexDid, IcpLedgerDid } from "../../declarations";
 export { AccountIdentifier, SubAccount } from "./account_identifier";
 export * from "./canisters/ledger/ledger.request.converts";
 export * from "./errors/ledger.errors";
-export { IndexCanister } from "./index.canister";
-export { LedgerCanister } from "./ledger.canister";
+export { IcpIndexCanister } from "./index.canister";
+export { IcpLedgerCanister } from "./ledger.canister";
 export type * from "./types/common";
 export * from "./types/ledger.options";
 export type {

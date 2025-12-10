@@ -22,7 +22,7 @@ import {
   TxTooOldError,
   UnsupportedCanisterCallError,
 } from "./errors/ledger.errors";
-import { LedgerCanister } from "./ledger.canister";
+import { IcpLedgerCanister } from "./ledger.canister";
 import { mockAccountIdentifier, mockPrincipal } from "./mocks/ledger.mock";
 import { mockConsentMessageRequest } from "./mocks/ledger.request.mock";
 import type {
@@ -40,7 +40,7 @@ describe("LedgerCanister", () => {
       it("returns account balance with query call", async () => {
         const service = mock<ActorSubclass<IcpLedgerService>>();
         service.account_balance.mockResolvedValue(tokens);
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           serviceOverride: service,
         });
 
@@ -56,7 +56,7 @@ describe("LedgerCanister", () => {
       it("returns account balance with update call", async () => {
         const service = mock<ActorSubclass<IcpLedgerService>>();
         service.account_balance.mockResolvedValue(tokens);
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
         });
 
@@ -72,7 +72,7 @@ describe("LedgerCanister", () => {
       it("returns account balance with account identifier as hex", async () => {
         const service = mock<ActorSubclass<IcpLedgerService>>();
         service.account_balance.mockResolvedValue(tokens);
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           serviceOverride: service,
         });
 
@@ -98,7 +98,7 @@ describe("LedgerCanister", () => {
         const service = mock<ActorSubclass<IcpLedgerService>>();
         service.icrc1_metadata.mockResolvedValue(tokeMetadataResponseMock);
 
-        const canister = LedgerCanister.create({
+        const canister = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
         });
 
@@ -117,7 +117,7 @@ describe("LedgerCanister", () => {
             e8s: fee,
           },
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           serviceOverride: service,
         });
 
@@ -139,7 +139,7 @@ describe("LedgerCanister", () => {
         service.transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -166,7 +166,7 @@ describe("LedgerCanister", () => {
         });
         const fee = BigInt(10_000);
         const memo = BigInt(3456);
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
         });
         await ledger.transfer({
@@ -197,7 +197,7 @@ describe("LedgerCanister", () => {
         });
         const fee = BigInt(10_000);
         const defaultMemo = BigInt(0);
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
         });
         await ledger.transfer({
@@ -227,7 +227,7 @@ describe("LedgerCanister", () => {
         });
         const fee = BigInt(10_000);
         const memo = BigInt(3456);
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
         });
         const createdAt = BigInt(123132223);
@@ -264,7 +264,7 @@ describe("LedgerCanister", () => {
           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
           0, 0, 0, 0, 0, 0, 0, 0, 1,
         ];
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
         });
         await ledger.transfer({
@@ -298,7 +298,7 @@ describe("LedgerCanister", () => {
             },
           },
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -323,7 +323,7 @@ describe("LedgerCanister", () => {
             },
           },
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -346,7 +346,7 @@ describe("LedgerCanister", () => {
             },
           },
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -371,7 +371,7 @@ describe("LedgerCanister", () => {
             },
           },
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -392,7 +392,7 @@ describe("LedgerCanister", () => {
             TxCreatedInFuture: null,
           },
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -421,7 +421,7 @@ describe("LedgerCanister", () => {
         service.icrc1_transfer.mockResolvedValue({
           Ok: BigInt(1234),
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -448,7 +448,7 @@ describe("LedgerCanister", () => {
         });
         const fee = BigInt(10_000);
         const icrc1Memo = new Uint8Array([3, 4, 5, 6]);
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
         });
         await ledger.icrc1Transfer({
@@ -474,7 +474,7 @@ describe("LedgerCanister", () => {
           Ok: BigInt(1234),
         });
         const fee = BigInt(10_000);
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
         });
         await ledger.icrc1Transfer({
@@ -500,7 +500,7 @@ describe("LedgerCanister", () => {
         });
         const fee = BigInt(10_000);
         const icrc1Memo = new Uint8Array([3, 4, 5, 6]);
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
         });
         const createdAt = BigInt(123132223);
@@ -533,7 +533,7 @@ describe("LedgerCanister", () => {
           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
           0, 0, 0, 0, 0, 0, 0, 0, 1,
         ]);
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
         });
         await ledger.icrc1Transfer({
@@ -565,7 +565,7 @@ describe("LedgerCanister", () => {
           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
           0, 0, 0, 0, 0, 0, 0, 0, 1,
         ]);
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
         });
         await ledger.icrc1Transfer({
@@ -600,7 +600,7 @@ describe("LedgerCanister", () => {
             },
           },
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -623,7 +623,7 @@ describe("LedgerCanister", () => {
             },
           },
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -644,7 +644,7 @@ describe("LedgerCanister", () => {
             TooOld: null,
           },
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -667,7 +667,7 @@ describe("LedgerCanister", () => {
             },
           },
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -688,7 +688,7 @@ describe("LedgerCanister", () => {
             CreatedInFuture: { ledger_time: BigInt(1234) },
           },
         });
-        const ledger = LedgerCanister.create({
+        const ledger = IcpLedgerCanister.create({
           certifiedServiceOverride: service,
           serviceOverride: service,
         });
@@ -733,7 +733,7 @@ describe("LedgerCanister", () => {
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -751,7 +751,7 @@ describe("LedgerCanister", () => {
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -769,7 +769,7 @@ describe("LedgerCanister", () => {
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -790,7 +790,7 @@ describe("LedgerCanister", () => {
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -814,7 +814,7 @@ describe("LedgerCanister", () => {
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -836,7 +836,7 @@ describe("LedgerCanister", () => {
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -858,7 +858,7 @@ describe("LedgerCanister", () => {
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -880,7 +880,7 @@ describe("LedgerCanister", () => {
       const blockHeight = BigInt(100);
       service.icrc2_approve.mockResolvedValue({ Ok: blockHeight });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -910,7 +910,7 @@ describe("LedgerCanister", () => {
         },
       });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -928,7 +928,7 @@ describe("LedgerCanister", () => {
         },
       });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -946,7 +946,7 @@ describe("LedgerCanister", () => {
         },
       });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -964,7 +964,7 @@ describe("LedgerCanister", () => {
         },
       });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -982,7 +982,7 @@ describe("LedgerCanister", () => {
         },
       });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -1000,7 +1000,7 @@ describe("LedgerCanister", () => {
         },
       });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -1018,7 +1018,7 @@ describe("LedgerCanister", () => {
         },
       });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -1036,7 +1036,7 @@ describe("LedgerCanister", () => {
         },
       });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -1054,7 +1054,7 @@ describe("LedgerCanister", () => {
         },
       });
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -1112,7 +1112,7 @@ describe("LedgerCanister", () => {
         consentMessageResponse,
       );
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1146,7 +1146,7 @@ describe("LedgerCanister", () => {
         consentMessageFieldsDisplayResponse,
       );
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1192,7 +1192,7 @@ describe("LedgerCanister", () => {
         consentMessageResponse,
       );
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1248,7 +1248,7 @@ describe("LedgerCanister", () => {
         errorResponse,
       );
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1274,7 +1274,7 @@ describe("LedgerCanister", () => {
         insufficientPaymentErrorResponse,
       );
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1303,7 +1303,7 @@ describe("LedgerCanister", () => {
         unsupportedCanisterCallErrorResponse,
       );
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1332,7 +1332,7 @@ describe("LedgerCanister", () => {
         consentMessageUnavailableErrorResponse,
       );
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1364,7 +1364,7 @@ describe("LedgerCanister", () => {
         unknownErrorResponse,
       );
 
-      const ledger = LedgerCanister.create({
+      const ledger = IcpLedgerCanister.create({
         certifiedServiceOverride: service,
       });
 

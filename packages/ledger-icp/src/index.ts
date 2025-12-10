@@ -25,3 +25,13 @@ export type TimeStamp = IcpIndexDid.TimeStamp;
  * @deprecated Use "@icp-sdk/canisters/ledger/icp" directly instead
  */
 export * from "@icp-sdk/canisters/ledger/icp";
+
+/**
+ * Legacy re-export for backward compatibility.
+ * @deprecated Use "@icp-sdk/canisters/ledger/icp" directly instead
+ */
+export {
+  IcpIndexCanister as IndexCanister,
+  IcpLedgerCanister as LedgerCanister,
+  type IcpLedgerCanisterOptions as LedgerCanisterOptions,
+} from "@icp-sdk/canisters/ledger/icp";
