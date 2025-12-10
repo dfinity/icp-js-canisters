@@ -28,5 +28,5 @@ export * from "@icp-sdk/canisters/ledger/icp";
 export {
   IcpIndexCanister as IndexCanister,
   IcpLedgerCanister as LedgerCanister,
-  IcpLedgerCanisterOptions as LedgerCanisterOptions,
+  type IcpLedgerCanisterOptions as LedgerCanisterOptions,
 } from "@icp-sdk/canisters/ledger/icp";
