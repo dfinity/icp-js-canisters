@@ -20,3 +20,13 @@ export type Value = IcpLedgerDid.Value;
  * @deprecated Use "@icp-sdk/canisters/ledger/icp" directly instead
  */
 export * from "@icp-sdk/canisters/ledger/icp";
+
+/**
+ * Legacy re-export for backward compatibility.
+ * @deprecated Use "@icp-sdk/canisters/ledger/icp" directly instead
+ */
+export {
+  IcpIndexCanister as IndexCanister,
+  IcpLedgerCanister as LedgerCanister,
+  IcpLedgerCanisterOptions as LedgerCanisterOptions,
+} from "@icp-sdk/canisters/ledger/icp";

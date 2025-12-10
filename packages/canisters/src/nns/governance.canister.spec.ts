@@ -6,7 +6,7 @@ import type { NnsGovernanceDid, NnsGovernanceService } from "../declarations";
 import {
   AccountIdentifier,
   InvalidAccountIDError,
-  type LedgerCanister,
+  type IcpLedgerCanister,
 } from "../ledger/icp";
 import {
   CanisterAction,
@@ -302,7 +302,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const mockLedger = mock<LedgerCanister>();
+      const mockLedger = mock<IcpLedgerCanister>();
       mockLedger.transfer.mockImplementation(
         vi.fn().mockResolvedValue(BigInt(1)),
       );
@@ -364,7 +364,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const mockLedger = mock<LedgerCanister>();
+      const mockLedger = mock<IcpLedgerCanister>();
       mockLedger.transfer.mockImplementation(
         vi.fn().mockResolvedValue(BigInt(1)),
       );
@@ -395,7 +395,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const mockLedger = mock<LedgerCanister>();
+      const mockLedger = mock<IcpLedgerCanister>();
       mockLedger.transfer.mockImplementation(
         vi.fn().mockResolvedValue(BigInt(1)),
       );
@@ -429,7 +429,7 @@ describe("GovernanceCanister", () => {
         clainNeuronResponse,
       );
 
-      const mockLedger = mock<LedgerCanister>();
+      const mockLedger = mock<IcpLedgerCanister>();
       mockLedger.transfer.mockImplementation(vi.fn());
 
       const governance = GovernanceCanister.create({
