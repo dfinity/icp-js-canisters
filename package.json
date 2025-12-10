@@ -130,8 +130,7 @@
         "@dfinity/candid",
         "@dfinity/principal",
         "@icp-sdk/core",
-        "@dfinity/utils",
-        "@dfinity/ledger-icp"
+        "@dfinity/utils"
       ]
     },
     {
@@ -150,8 +149,7 @@
         "@dfinity/candid",
         "@dfinity/principal",
         "@icp-sdk/core",
-        "@dfinity/utils",
-        "@dfinity/ledger-icrc"
+        "@dfinity/utils"
       ]
     },
     {
@@ -265,8 +263,7 @@
         "@dfinity/candid",
         "@dfinity/principal",
         "@icp-sdk/core",
-        "@dfinity/utils",
-        "@dfinity/ledger-icp"
+        "@dfinity/utils"
       ]
     },
     {
@@ -279,8 +276,7 @@
         "@dfinity/candid",
         "@dfinity/principal",
         "@icp-sdk/core",
-        "@dfinity/utils",
-        "@dfinity/ledger-icrc"
+        "@dfinity/utils"
       ]
     },
     {
