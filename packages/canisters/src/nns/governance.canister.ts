@@ -21,7 +21,7 @@ import {
   AccountIdentifier,
   checkAccountId,
   type AccountIdentifierHex,
-  type LedgerCanister,
+  type IcpLedgerCanister,
 } from "../ledger/icp";
 import {
   fromClaimOrRefreshNeuronRequest,
@@ -358,7 +358,7 @@ export class NnsGovernanceCanister {
     stake: bigint;
     principal: Principal;
     fromSubAccount?: number[];
-    ledgerCanister: LedgerCanister;
+    ledgerCanister: IcpLedgerCanister;
     // Used for the TransferRequest parameters.
     // Check the TransferRequest type for more information.
     createdAt?: bigint;

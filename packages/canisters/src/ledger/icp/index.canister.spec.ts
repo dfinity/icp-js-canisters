@@ -1,7 +1,7 @@
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
 import type { IcpIndexDid, IcpIndexService } from "../../declarations";
-import { IndexCanister } from "./index.canister";
+import { IcpIndexCanister } from "./index.canister";
 import { mockAccountIdentifier } from "./mocks/ledger.mock";
 
 describe("IndexCanister", () => {
@@ -11,7 +11,7 @@ describe("IndexCanister", () => {
     it("returns account balance with query call", async () => {
       const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_balance.mockResolvedValue(balanceMock);
-      const index = IndexCanister.create({
+      const index = IcpIndexCanister.create({
         serviceOverride: service,
       });
 
@@ -27,7 +27,7 @@ describe("IndexCanister", () => {
     it("returns account balance with update call", async () => {
       const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_balance.mockResolvedValue(balanceMock);
-      const index = IndexCanister.create({
+      const index = IcpIndexCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -43,7 +43,7 @@ describe("IndexCanister", () => {
     it("returns account balance with account identifier as hex", async () => {
       const service = mock<ActorSubclass<IcpIndexService>>();
       service.get_account_identifier_balance.mockResolvedValue(balanceMock);
-      const index = IndexCanister.create({
+      const index = IcpIndexCanister.create({
         serviceOverride: service,
       });
 
@@ -62,7 +62,7 @@ describe("IndexCanister", () => {
         throw new Error();
       });
 
-      const index = IndexCanister.create({
+      const index = IcpIndexCanister.create({
         serviceOverride: service,
       });
 
@@ -124,7 +124,7 @@ describe("IndexCanister", () => {
       service.get_account_identifier_transactions.mockResolvedValue(
         transactionsMock,
       );
-      const index = IndexCanister.create({
+      const index = IcpIndexCanister.create({
         serviceOverride: service,
       });
 
@@ -147,7 +147,7 @@ describe("IndexCanister", () => {
       service.get_account_identifier_transactions.mockResolvedValue(
         transactionsMock,
       );
-      const index = IndexCanister.create({
+      const index = IcpIndexCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -170,7 +170,7 @@ describe("IndexCanister", () => {
       service.get_account_identifier_transactions.mockResolvedValue(
         transactionsMock,
       );
-      const index = IndexCanister.create({
+      const index = IcpIndexCanister.create({
         serviceOverride: service,
       });
 
@@ -193,7 +193,7 @@ describe("IndexCanister", () => {
       service.get_account_identifier_transactions.mockResolvedValue(
         transactionsMock,
       );
-      const index = IndexCanister.create({
+      const index = IcpIndexCanister.create({
         serviceOverride: service,
       });
 
@@ -223,7 +223,7 @@ describe("IndexCanister", () => {
       service.get_account_identifier_transactions.mockResolvedValue(
         transactionsErrorMock,
       );
-      const index = IndexCanister.create({
+      const index = IcpIndexCanister.create({
         serviceOverride: service,
       });
 
@@ -242,7 +242,7 @@ describe("IndexCanister", () => {
         throw new Error();
       });
 
-      const index = IndexCanister.create({
+      const index = IcpIndexCanister.create({
         serviceOverride: service,
       });
 

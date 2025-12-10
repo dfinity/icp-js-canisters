@@ -16,7 +16,7 @@ import type { GetTransactionsParams } from "./types/index.params";
 import type { AccountBalanceParams } from "./types/ledger.params";
 import { paramToAccountIdentifierHex } from "./utils/params.utils";
 
-export class IndexCanister extends Canister<IcpIndexService> {
+export class IcpIndexCanister extends Canister<IcpIndexService> {
   static create({
     canisterId: optionsCanisterId,
     ...options
@@ -31,7 +31,7 @@ export class IndexCanister extends Canister<IcpIndexService> {
         certifiedIdlFactory: idlFactoryCertifiedIcpIndex,
       });
 
-    return new IndexCanister(canisterId, service, certifiedService);
+    return new IcpIndexCanister(canisterId, service, certifiedService);
   }
 
   /**
