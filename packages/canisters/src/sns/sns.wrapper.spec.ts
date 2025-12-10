@@ -3,7 +3,7 @@ import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
 import type { SnsGovernanceDid } from "../declarations";
 import type {
-  IcrcIndexNgCanister,
+  IcrcIndexCanister,
   IcrcLedgerCanister,
   TransferParams,
 } from "../ledger/icrc";
@@ -53,7 +53,7 @@ describe("SnsWrapper", () => {
     tokenMetadataResponseMock,
   );
 
-  const mockIndexCanister = mock<IcrcIndexNgCanister>();
+  const mockIndexCanister = mock<IcrcIndexCanister>();
   mockIndexCanister.getTransactions.mockResolvedValue({
     transactions: [],
     oldest_tx_id: [BigInt(2)],

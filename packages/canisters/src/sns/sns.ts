@@ -6,7 +6,7 @@ import {
 import type { Agent } from "@icp-sdk/core/agent";
 import type { Principal } from "@icp-sdk/core/principal";
 import type { SnsRootDid, SnsRootService } from "../declarations";
-import { IcrcIndexNgCanister, IcrcLedgerCanister } from "../ledger/icrc";
+import { IcrcIndexCanister, IcrcLedgerCanister } from "../ledger/icrc";
 import { SnsGovernanceCanister } from "./governance.canister";
 import { SnsRootCanister } from "./root.canister";
 import { SnsWrapper } from "./sns.wrapper";
@@ -67,7 +67,7 @@ export const initSnsWrapper: InitSnsWrapper = async ({
     }),
     ledger: IcrcLedgerCanister.create({ canisterId: ledgerCanisterId, agent }),
     swap: SnsSwapCanister.create({ canisterId: swapCanisterId, agent }),
-    index: IcrcIndexNgCanister.create({ canisterId: indexCanisterId, agent }),
+    index: IcrcIndexCanister.create({ canisterId: indexCanisterId, agent }),
     certified,
   });
 };

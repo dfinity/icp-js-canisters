@@ -7,10 +7,10 @@ import type { Principal } from "@icp-sdk/core/principal";
 import type { SnsGovernanceDid, SnsSwapDid } from "../declarations";
 import type {
   BalanceParams,
-  GetIndexNgAccountTransactionsParams,
+  GetIndexAccountTransactionsParams,
   IcrcAccount,
-  IcrcIndexNgCanister,
-  IcrcIndexNgDid,
+  IcrcIndexCanister,
+  IcrcIndexDid,
   IcrcLedgerCanister,
   IcrcLedgerDid,
   IcrcTokenMetadataResponse,
@@ -54,7 +54,7 @@ interface SnsWrapperOptions {
   /** The wrapper for the "swap" canister of the particular Sns */
   swap: SnsSwapCanister;
   /** The wrapper for the "index" canister of the particular Sns */
-  index: IcrcIndexNgCanister;
+  index: IcrcIndexCanister;
 
   /** The wrapper has been instantiated and should perform query or update calls */
   certified: boolean;
@@ -70,7 +70,7 @@ export class SnsWrapper {
   private readonly governance: SnsGovernanceCanister;
   private readonly ledger: IcrcLedgerCanister;
   private readonly swap: SnsSwapCanister;
-  private readonly index: IcrcIndexNgCanister;
+  private readonly index: IcrcIndexCanister;
   private readonly certified: boolean;
 
   /**
@@ -435,8 +435,8 @@ export class SnsWrapper {
     this.swap.getDerivedState(this.mergeParams(params));
 
   getTransactions = (
-    params: GetIndexNgAccountTransactionsParams,
-  ): Promise<IcrcIndexNgDid.GetTransactions> =>
+    params: GetIndexAccountTransactionsParams,
+  ): Promise<IcrcIndexDid.GetTransactions> =>
     this.index.getTransactions(params);
 
   // Always certified
