@@ -20,7 +20,7 @@ import {
   mapTransferError,
 } from "./errors/ledger.errors";
 import type { BlockHeight } from "./types/common";
-import type { LedgerCanisterOptions } from "./types/ledger.options";
+import type { IcpLedgerCanisterOptions } from "./types/ledger.options";
 import type { AccountBalanceParams } from "./types/ledger.params";
 import type {
   Icrc1TransferRequest,
@@ -30,8 +30,8 @@ import type {
 } from "./types/ledger_converters";
 import { paramToAccountIdentifier } from "./utils/params.utils";
 
-export class LedgerCanister extends Canister<IcpLedgerService> {
-  public static create(options: LedgerCanisterOptions = {}) {
+export class IcpLedgerCanister extends Canister<IcpLedgerService> {
+  public static create(options: IcpLedgerCanisterOptions = {}) {
     const canisterId: Principal =
       options.canisterId ?? MAINNET_LEDGER_CANISTER_ID;
 
@@ -44,7 +44,7 @@ export class LedgerCanister extends Canister<IcpLedgerService> {
       certifiedIdlFactory: idlFactoryCertifiedIcpLedger,
     });
 
-    return new LedgerCanister(canisterId, service, certifiedService);
+    return new IcpLedgerCanister(canisterId, service, certifiedService);
   }
 
   /**

@@ -1,7 +1,4 @@
-// Reexport * because we cannot do otherwise for backwards compatibility as the all DID types of the index were exposed
-export type * from "@icp-sdk/canisters/ledger/icp";
-
-import type { IcpLedgerDid } from "@icp-sdk/canisters/ledger/icp";
+import type { IcpIndexDid, IcpLedgerDid } from "@icp-sdk/canisters/ledger/icp";
 
 export type Icrc1Account = IcpLedgerDid.Account;
 export type Icrc1ApproveError = IcpLedgerDid.ApproveError;
@@ -16,7 +13,25 @@ export type Icrc2TransferFromError = IcpLedgerDid.TransferFromError;
 export type Icrc2TransferFromResult = IcpLedgerDid.TransferFromResult;
 export type Value = IcpLedgerDid.Value;
 
+export type GetAccountIdentifierTransactionsResponse =
+  IcpIndexDid.GetAccountIdentifierTransactionsResponse;
+export type TransactionWithId = IcpIndexDid.TransactionWithId;
+export type Transaction = IcpIndexDid.Transaction;
+export type Operation = IcpIndexDid.Operation;
+export type Tokens = IcpIndexDid.Tokens;
+export type TimeStamp = IcpIndexDid.TimeStamp;
+
 /**
  * @deprecated Use "@icp-sdk/canisters/ledger/icp" directly instead
  */
 export * from "@icp-sdk/canisters/ledger/icp";
+
+/**
+ * Legacy re-export for backward compatibility.
+ * @deprecated Use "@icp-sdk/canisters/ledger/icp" directly instead
+ */
+export {
+  IcpIndexCanister as IndexCanister,
+  IcpLedgerCanister as LedgerCanister,
+  type IcpLedgerCanisterOptions as LedgerCanisterOptions,
+} from "@icp-sdk/canisters/ledger/icp";
