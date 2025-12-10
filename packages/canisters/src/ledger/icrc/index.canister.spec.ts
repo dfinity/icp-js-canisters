@@ -2,9 +2,9 @@ import { arrayOfNumberToUint8Array } from "@dfinity/utils";
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
-import type { IcrcIndexNgDid, IcrcIndexNgService } from "../../declarations";
+import type { IcrcIndexDid, IcrcIndexService } from "../../declarations";
 import { IndexError } from "./errors/index.errors";
-import { IcrcIndexNgCanister } from "./index-ng.canister";
+import { IcrcIndexCanister } from "./index.canister";
 import {
   indexCanisterIdMock,
   ledgerCanisterIdMock,
@@ -19,14 +19,14 @@ describe("Index canister", () => {
     owner: Principal.fromText("aaaaa-aa"),
   };
 
-  const fakeCandidAccount: IcrcIndexNgDid.Account = {
+  const fakeCandidAccount: IcrcIndexDid.Account = {
     owner: Principal.fromText("aaaaa-aa"),
     subaccount: [],
   };
 
   describe("getTransactions", () => {
     it("returns transactions", async () => {
-      const transaction: IcrcIndexNgDid.Transaction = {
+      const transaction: IcrcIndexDid.Transaction = {
         kind: "transfer",
         timestamp: BigInt(12354),
         burn: [],
@@ -54,7 +54,7 @@ describe("Index canister", () => {
         id: BigInt(1),
         transaction,
       };
-      const service = mock<ActorSubclass<IcrcIndexNgService>>();
+      const service = mock<ActorSubclass<IcrcIndexService>>();
       service.get_account_transactions.mockResolvedValue({
         Ok: {
           transactions: [transactionWithId],
@@ -63,7 +63,7 @@ describe("Index canister", () => {
         },
       });
 
-      const canister = IcrcIndexNgCanister.create({
+      const canister = IcrcIndexCanister.create({
         canisterId: indexCanisterIdMock,
         certifiedServiceOverride: service,
       });
@@ -76,14 +76,14 @@ describe("Index canister", () => {
     });
 
     it("raises error when Err in response", async () => {
-      const service = mock<ActorSubclass<IcrcIndexNgService>>();
+      const service = mock<ActorSubclass<IcrcIndexService>>();
       service.get_account_transactions.mockResolvedValue({
         Err: {
           message: "Test error",
         },
       });
 
-      const canister = IcrcIndexNgCanister.create({
+      const canister = IcrcIndexCanister.create({
         canisterId: indexCanisterIdMock,
         certifiedServiceOverride: service,
       });
@@ -99,11 +99,11 @@ describe("Index canister", () => {
 
   describe("balance", () => {
     it("should return the balance of main account", async () => {
-      const service = mock<ActorSubclass<IcrcIndexNgService>>();
+      const service = mock<ActorSubclass<IcrcIndexService>>();
       const balance = BigInt(100);
       service.icrc1_balance_of.mockResolvedValue(balance);
 
-      const canister = IcrcIndexNgCanister.create({
+      const canister = IcrcIndexCanister.create({
         canisterId: indexCanisterIdMock,
         certifiedServiceOverride: service,
       });
@@ -118,11 +118,11 @@ describe("Index canister", () => {
     });
 
     it("should return the balance of subaccount", async () => {
-      const service = mock<ActorSubclass<IcrcIndexNgService>>();
+      const service = mock<ActorSubclass<IcrcIndexService>>();
       const balance = BigInt(100);
       service.icrc1_balance_of.mockResolvedValue(balance);
 
-      const canister = IcrcIndexNgCanister.create({
+      const canister = IcrcIndexCanister.create({
         canisterId: indexCanisterIdMock,
         certifiedServiceOverride: service,
       });
@@ -140,10 +140,10 @@ describe("Index canister", () => {
 
   describe("ledger_id", () => {
     it("should return the ledger ID associated with the index canister", async () => {
-      const service = mock<ActorSubclass<IcrcIndexNgService>>();
+      const service = mock<ActorSubclass<IcrcIndexService>>();
       service.ledger_id.mockResolvedValue(ledgerCanisterIdMock);
 
-      const canister = IcrcIndexNgCanister.create({
+      const canister = IcrcIndexCanister.create({
         canisterId: indexCanisterIdMock,
         certifiedServiceOverride: service,
       });
@@ -156,14 +156,14 @@ describe("Index canister", () => {
 
   describe("status", () => {
     it("should return the status of the index canister", async () => {
-      const mockStatus: IcrcIndexNgDid.Status = {
+      const mockStatus: IcrcIndexDid.Status = {
         num_blocks_synced: 12_345n,
       };
 
-      const service = mock<ActorSubclass<IcrcIndexNgService>>();
+      const service = mock<ActorSubclass<IcrcIndexService>>();
       service.status.mockResolvedValue(mockStatus);
 
-      const canister = IcrcIndexNgCanister.create({
+      const canister = IcrcIndexCanister.create({
         canisterId: indexCanisterIdMock,
         certifiedServiceOverride: service,
       });
@@ -175,16 +175,16 @@ describe("Index canister", () => {
   });
 
   describe("listSubaccounts", () => {
-    const mockSubaccounts: IcrcIndexNgDid.SubAccount[] = [
+    const mockSubaccounts: IcrcIndexDid.SubAccount[] = [
       new Uint8Array([1, 2, 3, 4]),
       new Uint8Array([5, 6, 7, 8]),
     ];
 
     it("should return the list of subaccounts for an owner", async () => {
-      const service = mock<ActorSubclass<IcrcIndexNgService>>();
+      const service = mock<ActorSubclass<IcrcIndexService>>();
       service.list_subaccounts.mockResolvedValue(mockSubaccounts);
 
-      const canister = IcrcIndexNgCanister.create({
+      const canister = IcrcIndexCanister.create({
         canisterId: indexCanisterIdMock,
         certifiedServiceOverride: service,
       });
@@ -202,10 +202,10 @@ describe("Index canister", () => {
     });
 
     it("should pass the start parameter when provided", async () => {
-      const service = mock<ActorSubclass<IcrcIndexNgService>>();
+      const service = mock<ActorSubclass<IcrcIndexService>>();
       service.list_subaccounts.mockResolvedValue(mockSubaccounts);
 
-      const canister = IcrcIndexNgCanister.create({
+      const canister = IcrcIndexCanister.create({
         canisterId: indexCanisterIdMock,
         certifiedServiceOverride: service,
       });

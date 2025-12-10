@@ -1,7 +1,7 @@
 import { toNullable } from "@dfinity/utils";
-import type { IcrcIndexNgDid } from "../../../declarations";
+import type { IcrcIndexDid } from "../../../declarations";
 import type {
-  GetIndexNgAccountTransactionsParams,
+  GetIndexAccountTransactionsParams,
   ListSubaccountsParams,
 } from "../types/index-ng.params";
 import { toCandidAccount } from "./converters";
@@ -11,9 +11,9 @@ export const toGetTransactionsArgs = ({
   max_results,
   start,
 }: Omit<
-  GetIndexNgAccountTransactionsParams,
+  GetIndexAccountTransactionsParams,
   "certified"
->): IcrcIndexNgDid.GetAccountTransactionsArgs => ({
+>): IcrcIndexDid.GetAccountTransactionsArgs => ({
   account: toCandidAccount(account),
   max_results,
   start: toNullable(start),
@@ -22,7 +22,7 @@ export const toGetTransactionsArgs = ({
 export const toListSubaccountsParams = ({
   owner,
   start,
-}: ListSubaccountsParams): IcrcIndexNgDid.ListSubaccountsArgs => ({
+}: ListSubaccountsParams): IcrcIndexDid.ListSubaccountsArgs => ({
   owner,
   start: toNullable(start),
 });

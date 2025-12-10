@@ -539,7 +539,7 @@ Since that behavior was **incorrect**, we decided to proceed with the change any
 
 ### Features
 
-- Expose method `listSubaccounts` in class `IcrcIndexNgCanister`.
+- Expose method `listSubaccounts` in class `IcrcIndexCanister`.
 - Extend the `transform` function to support `provisional_create_canister_with_cycles` when used with PocketIC.
 - Add validation to `decodeIcrcAccount` to reject account strings with more than one `.` separator.
 
@@ -596,7 +596,7 @@ Since that behavior was **incorrect**, we decided to proceed with the change any
 - Support `disburseMaturity` in `@dfinity/nns`.
 - Update `@dfinity/ic-management` to support optional new setting `wasm_memory_threshold` and return the new `memory_metrics`.
 - Add `neuronMinimumDissolveDelayToVoteSeconds` to nns `VotingPowerEconomics`.
-- Expose method `status` in class `IcrcIndexNgCanister`.
+- Expose method `status` in class `IcrcIndexCanister`.
 - Expose method `icrc3_get_blocks` in class `IcrcLedgerCanister`.
 - Add `setFollowing` to sns governance canister.
 - New service util `queryAndUpdate` that aids in executing a request and handling the results, for both type of calls.
