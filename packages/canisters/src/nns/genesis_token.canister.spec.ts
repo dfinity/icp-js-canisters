@@ -1,7 +1,7 @@
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { mock } from "vitest-mock-extended";
 import type { NnsGenesisTokenService } from "../declarations";
-import { GenesisTokenCanister } from "./genesis_token.canister";
+import { NnsGenesisTokenCanister } from "./genesis_token.canister";
 
 describe("GenesisTokenCanister", () => {
   it("claimNeurons returns a list of neuron ids", async () => {
@@ -18,7 +18,7 @@ describe("GenesisTokenCanister", () => {
     const service = mock<ActorSubclass<NnsGenesisTokenService>>();
     service.claim_neurons.mockResolvedValue(response);
 
-    const gtc = GenesisTokenCanister.create({ serviceOverride: service });
+    const gtc = NnsGenesisTokenCanister.create({ serviceOverride: service });
     const res = await gtc.claimNeurons({
       hexPubKey: "",
     });
@@ -33,7 +33,7 @@ describe("GenesisTokenCanister", () => {
     const service = mock<ActorSubclass<NnsGenesisTokenService>>();
     service.claim_neurons.mockResolvedValue(response);
 
-    const gtc = GenesisTokenCanister.create({ serviceOverride: service });
+    const gtc = NnsGenesisTokenCanister.create({ serviceOverride: service });
     const call = async () => {
       await gtc.claimNeurons({ hexPubKey: "" });
     };

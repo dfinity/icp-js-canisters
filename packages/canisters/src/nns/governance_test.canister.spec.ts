@@ -3,7 +3,7 @@ import { mock } from "vitest-mock-extended";
 import type { NnsGovernanceTestService } from "../declarations";
 import { toNeuron } from "./canisters/governance/response.converters";
 import { MAINNET_GOVERNANCE_CANISTER_ID } from "./constants/canister_ids";
-import { GovernanceTestCanister } from "./governance_test.canister";
+import { NnsGovernanceTestCanister } from "./governance_test.canister";
 import { mockListNeuronsResponse, mockNeuron } from "./mocks/governance.mock";
 import type { Neuron } from "./types/governance_converters";
 
@@ -13,7 +13,7 @@ describe("GovernanceTestCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceTestService>>();
       service.list_neurons.mockResolvedValue(mockListNeuronsResponse);
 
-      const governance = GovernanceTestCanister.create({
+      const governance = NnsGovernanceTestCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -43,7 +43,7 @@ describe("GovernanceTestCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceTestService>>();
       service.list_neurons.mockResolvedValue(mockListNeuronsResponse);
 
-      const governance = GovernanceTestCanister.create({
+      const governance = NnsGovernanceTestCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });

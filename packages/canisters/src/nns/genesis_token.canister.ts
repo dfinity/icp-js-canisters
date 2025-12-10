@@ -8,7 +8,7 @@ import {
 import { MAINNET_GENESIS_TOKEN_CANISTER_ID } from "./constants/canister_ids";
 import type { NeuronId } from "./types/common";
 
-export class GenesisTokenCanister {
+export class NnsGenesisTokenCanister {
   private constructor(
     private readonly service: ActorSubclass<NnsGenesisTokenService>,
   ) {}
@@ -23,7 +23,7 @@ export class GenesisTokenCanister {
       certifiedIdlFactory: idlFactoryCertifiedNnsGenesisToken,
     });
 
-    return new GenesisTokenCanister(service);
+    return new NnsGenesisTokenCanister(service);
   }
 
   public claimNeurons = async ({

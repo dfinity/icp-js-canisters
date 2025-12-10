@@ -21,7 +21,7 @@ import {
   AccountIdentifier,
   checkAccountId,
   type AccountIdentifierHex,
-  type LedgerCanister,
+  type IcpLedgerCanister,
 } from "../ledger/icp";
 import {
   fromClaimOrRefreshNeuronRequest,
@@ -74,7 +74,7 @@ import {
   UnrecognizedTypeError,
 } from "./errors/governance.errors";
 import type { E8s, NeuronId } from "./types/common";
-import type { GovernanceCanisterOptions } from "./types/governance.options";
+import type { NnsGovernanceCanisterOptions } from "./types/governance.options";
 import type {
   Account,
   ClaimOrRefreshNeuronRequest,
@@ -92,7 +92,7 @@ import type {
 } from "./types/governance_converters";
 import { memoToNeuronAccountIdentifier } from "./utils/neurons.utils";
 
-export class GovernanceCanister {
+export class NnsGovernanceCanister {
   private constructor(
     private readonly canisterId: Principal,
     private readonly service: ActorSubclass<NnsGovernanceService>,
@@ -107,7 +107,7 @@ export class GovernanceCanister {
     this.agent = agent;
   }
 
-  public static create(options: GovernanceCanisterOptions = {}) {
+  public static create(options: NnsGovernanceCanisterOptions = {}) {
     const canisterId: Principal =
       options.canisterId ?? MAINNET_GOVERNANCE_CANISTER_ID;
 
@@ -131,7 +131,7 @@ export class GovernanceCanister {
         },
       );
 
-    return new GovernanceCanister(
+    return new NnsGovernanceCanister(
       canisterId,
       service,
       certifiedService,
@@ -358,7 +358,7 @@ export class GovernanceCanister {
     stake: bigint;
     principal: Principal;
     fromSubAccount?: number[];
-    ledgerCanister: LedgerCanister;
+    ledgerCanister: IcpLedgerCanister;
     // Used for the TransferRequest parameters.
     // Check the TransferRequest type for more information.
     createdAt?: bigint;

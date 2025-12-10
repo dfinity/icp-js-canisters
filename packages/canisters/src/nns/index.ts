@@ -10,9 +10,9 @@ export type {
 } from "../declarations";
 export * from "./enums/governance.enums";
 export * from "./errors/governance.errors";
-export { GenesisTokenCanister } from "./genesis_token.canister";
-export { GovernanceCanister } from "./governance.canister";
-export { GovernanceTestCanister } from "./governance_test.canister";
+export { NnsGenesisTokenCanister } from "./genesis_token.canister";
+export { NnsGovernanceCanister } from "./governance.canister";
+export { NnsGovernanceTestCanister } from "./governance_test.canister";
 export { SnsWasmCanister } from "./sns_wasm.canister";
 export * from "./types/common";
 export * from "./types/governance.options";
