@@ -9,6 +9,9 @@ packages/**/*.d.ts
 !packages/**/candid/**/*.js
 !packages/**/candid/**/*.mjs
 !packages/**/candid/**/*.d.ts
+!packages/**/declarations/**/*.js
+!packages/**/declarations/**/*.mjs
+!packages/**/declarations/**/*.d.ts
 !packages/**/esbuild.mjs
 
 docs/src/content/tmp/
