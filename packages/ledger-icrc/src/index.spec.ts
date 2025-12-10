@@ -1,5 +1,4 @@
 import {
-  IcrcIndexCanister,
   IcrcIndexNgCanister,
   IcrcLedgerCanister,
   IcrcNftLedgerCanister,
@@ -8,10 +7,6 @@ import {
 describe("@dfinity/ledger-icrc", () => {
   it("should re-export IcrcIndexNgCanister", () => {
     expect(IcrcIndexNgCanister).not.toBeUndefined();
-  });
-
-  it("should re-export IcrcIndexCanister", () => {
-    expect(IcrcIndexCanister).not.toBeUndefined();
   });
 
   it("should re-export IcrcLedgerCanister", () => {
