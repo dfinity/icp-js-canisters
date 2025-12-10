@@ -1,4 +1,4 @@
-// Generated from IC repo commit 724ae41 (2025-11-27 tags: release-2025-11-28_03-22-base) 'rs/nns/governance/canister/governance.did' by import-candid
+// Generated from IC repo commit d2a13f0 (2025-12-03 tags: release-2025-12-04_03-28-base) 'rs/nns/governance/canister/governance.did' by import-candid
 
 type AccountIdentifier = record {
   hash : blob;
@@ -450,10 +450,12 @@ type DeregisterKnownNeuron = record {
 type KnownNeuronData = record {
   name : text;
   description : opt text;
+  // Links related to the known neuron. Can be links to social URLs (OpenChat, X, etc.), or a homepage.
   links : opt vec text;
-  // The first `opt` makes it so that the field can be renamed/deprecated in the future, and
-  // the second `opt` makes it so that an older client not recognizing a new variant can still
-  // get the rest of the `vec`.
+  // Topics that the known neuron is committed to always vote on.
+  // Note regarding the type: the first `opt` makes it so that the field can be renamed/deprecated
+  // in the future, and the second `opt` makes it so that an older client not recognizing a new
+  // variant can still get the rest of the `vec`.
   committed_topics : opt vec opt TopicToFollow;
 };
 

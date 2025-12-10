@@ -1,4 +1,4 @@
-// Generated from IC repo commit 724ae41 (2025-11-27 tags: release-2025-11-28_03-22-base) 'rs/nns/cmc/cmc.did' by import-candid
+// Generated from IC repo commit d2a13f0 (2025-12-03 tags: release-2025-12-04_03-28-base) 'rs/nns/cmc/cmc.did' by import-candid
 
 type Cycles = nat;
 type BlockIndex = nat64;

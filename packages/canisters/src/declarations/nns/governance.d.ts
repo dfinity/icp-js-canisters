@@ -402,12 +402,16 @@ export interface KnownNeuron {
 export interface KnownNeuronData {
   name: string;
   /**
-   * The first `opt` makes it so that the field can be renamed/deprecated in the future, and
-   * the second `opt` makes it so that an older client not recognizing a new variant can still
-   * get the rest of the `vec`.
+   * Topics that the known neuron is committed to always vote on.
+   * Note regarding the type: the first `opt` makes it so that the field can be renamed/deprecated
+   * in the future, and the second `opt` makes it so that an older client not recognizing a new
+   * variant can still get the rest of the `vec`.
    */
   committed_topics: [] | [Array<[] | [TopicToFollow]>];
   description: [] | [string];
+  /**
+   * Links related to the known neuron. Can be links to social URLs (OpenChat, X, etc.), or a homepage.
+   */
   links: [] | [Array<string>];
 }
 export interface LedgerParameters {

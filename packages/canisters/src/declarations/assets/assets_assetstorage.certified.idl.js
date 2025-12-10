@@ -83,6 +83,10 @@ export const idlFactory = ({ IDL }) => {
     max_bytes: IDL.Opt(IDL.Nat64),
     max_chunks: IDL.Opt(IDL.Nat64),
   });
+  const StateInfo = IDL.Record({
+    last_state_update_timestamp: IDL.Nat64,
+    state_hash: IDL.Opt(IDL.Text),
+  });
   const Permission = IDL.Variant({
     Prepare: IDL.Null,
     ManagePermissions: IDL.Null,
@@ -155,6 +159,7 @@ export const idlFactory = ({ IDL }) => {
       [IDL.Opt(IDL.Vec(IDL.Nat8))],
       [],
     ),
+    compute_state_hash: IDL.Func([], [IDL.Opt(IDL.Text)], []),
     configure: IDL.Func([ConfigureArguments], [], []),
     create_asset: IDL.Func([CreateAssetArguments], [], []),
     create_batch: IDL.Func(
@@ -218,6 +223,7 @@ export const idlFactory = ({ IDL }) => {
       [],
     ),
     get_configuration: IDL.Func([], [ConfigurationResponse], []),
+    get_state_info: IDL.Func([], [StateInfo], []),
     grant_permission: IDL.Func([GrantPermission], [], []),
     http_request: IDL.Func([HttpRequest], [HttpResponse], []),
     http_request_streaming_callback: IDL.Func(
@@ -226,7 +232,12 @@ export const idlFactory = ({ IDL }) => {
       [],
     ),
     list: IDL.Func(
-      [IDL.Record({})],
+      [
+        IDL.Record({
+          start: IDL.Opt(IDL.Nat),
+          length: IDL.Opt(IDL.Nat),
+        }),
+      ],
       [
         IDL.Vec(
           IDL.Record({
@@ -240,6 +251,10 @@ export const idlFactory = ({ IDL }) => {
               }),
             ),
             content_type: IDL.Text,
+            headers: IDL.Opt(IDL.Vec(HeaderField)),
+            is_aliased: IDL.Opt(IDL.Bool),
+            allow_raw_access: IDL.Opt(IDL.Bool),
+            max_age: IDL.Opt(IDL.Nat64),
           }),
         ),
       ],
