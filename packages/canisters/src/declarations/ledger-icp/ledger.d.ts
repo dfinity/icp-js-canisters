@@ -6,80 +6,73 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import type { ActorMethod } from "@icp-sdk/core/agent";
-import type { IDL } from "@icp-sdk/core/candid";
-import type { Principal } from "@icp-sdk/core/principal";
+import type { ActorMethod } from '@icp-sdk/core/agent';
+import type { IDL } from '@icp-sdk/core/candid';
+import type { Principal } from '@icp-sdk/core/principal';
 
 export interface Account {
-  owner: Principal;
-  subaccount: [] | [SubAccount];
+  'owner' : Principal,
+  'subaccount' : [] | [SubAccount],
 }
 /**
  * Arguments for the `account_balance` call.
  */
-export interface AccountBalanceArgs {
-  account: AccountIdentifier;
-}
-export interface AccountBalanceArgsDfx {
-  account: TextAccountIdentifier;
-}
+export interface AccountBalanceArgs { 'account' : AccountIdentifier }
+export interface AccountBalanceArgsDfx { 'account' : TextAccountIdentifier }
 /**
  * AccountIdentifier is a 32-byte array.
  * The first 4 bytes is big-endian encoding of a CRC32 checksum of the last 28 bytes.
  */
 export type AccountIdentifier = Uint8Array;
 export interface Allowance {
-  allowance: Icrc1Tokens;
-  expires_at: [] | [Icrc1Timestamp];
+  'allowance' : Icrc1Tokens,
+  'expires_at' : [] | [Icrc1Timestamp],
 }
-export interface AllowanceArgs {
-  account: Account;
-  spender: Account;
-}
+export interface AllowanceArgs { 'account' : Account, 'spender' : Account }
 /**
  * The allowances returned by the `get_allowances` endpoint.
  */
-export type Allowances = Array<{
-  from_account_id: TextAccountIdentifier;
-  to_spender_id: TextAccountIdentifier;
-  allowance: Tokens;
-  expires_at: [] | [bigint];
-}>;
+export type Allowances = Array<
+  {
+    'from_account_id' : TextAccountIdentifier,
+    'to_spender_id' : TextAccountIdentifier,
+    'allowance' : Tokens,
+    'expires_at' : [] | [bigint],
+  }
+>;
 export interface ApproveArgs {
-  fee: [] | [Icrc1Tokens];
-  memo: [] | [Uint8Array];
-  from_subaccount: [] | [SubAccount];
-  created_at_time: [] | [Icrc1Timestamp];
-  amount: Icrc1Tokens;
-  expected_allowance: [] | [Icrc1Tokens];
-  expires_at: [] | [Icrc1Timestamp];
-  spender: Account;
+  'fee' : [] | [Icrc1Tokens],
+  'memo' : [] | [Uint8Array],
+  'from_subaccount' : [] | [SubAccount],
+  'created_at_time' : [] | [Icrc1Timestamp],
+  'amount' : Icrc1Tokens,
+  'expected_allowance' : [] | [Icrc1Tokens],
+  'expires_at' : [] | [Icrc1Timestamp],
+  'spender' : Account,
 }
-export type ApproveError =
-  | {
-      GenericError: { message: string; error_code: bigint };
-    }
-  | { TemporarilyUnavailable: null }
-  | { Duplicate: { duplicate_of: Icrc1BlockIndex } }
-  | { BadFee: { expected_fee: Icrc1Tokens } }
-  | { AllowanceChanged: { current_allowance: Icrc1Tokens } }
-  | { CreatedInFuture: { ledger_time: bigint } }
-  | { TooOld: null }
-  | { Expired: { ledger_time: bigint } }
-  | { InsufficientFunds: { balance: Icrc1Tokens } };
-export type ApproveResult = { Ok: Icrc1BlockIndex } | { Err: ApproveError };
-export interface Archive {
-  canister_id: Principal;
-}
+export type ApproveError = {
+    'GenericError' : { 'message' : string, 'error_code' : bigint }
+  } |
+  { 'TemporarilyUnavailable' : null } |
+  { 'Duplicate' : { 'duplicate_of' : Icrc1BlockIndex } } |
+  { 'BadFee' : { 'expected_fee' : Icrc1Tokens } } |
+  { 'AllowanceChanged' : { 'current_allowance' : Icrc1Tokens } } |
+  { 'CreatedInFuture' : { 'ledger_time' : bigint } } |
+  { 'TooOld' : null } |
+  { 'Expired' : { 'ledger_time' : bigint } } |
+  { 'InsufficientFunds' : { 'balance' : Icrc1Tokens } };
+export type ApproveResult = { 'Ok' : Icrc1BlockIndex } |
+  { 'Err' : ApproveError };
+export interface Archive { 'canister_id' : Principal }
 export interface ArchiveOptions {
-  num_blocks_to_archive: bigint;
-  max_transactions_per_response: [] | [bigint];
-  trigger_threshold: bigint;
-  more_controller_ids: [] | [Array<Principal>];
-  max_message_size_bytes: [] | [bigint];
-  cycles_for_archive_creation: [] | [bigint];
-  node_max_memory_size_bytes: [] | [bigint];
-  controller_id: Principal;
+  'num_blocks_to_archive' : bigint,
+  'max_transactions_per_response' : [] | [bigint],
+  'trigger_threshold' : bigint,
+  'more_controller_ids' : [] | [Array<Principal>],
+  'max_message_size_bytes' : [] | [bigint],
+  'cycles_for_archive_creation' : [] | [bigint],
+  'node_max_memory_size_bytes' : [] | [bigint],
+  'controller_id' : Principal,
 }
 export interface ArchivedBlocksRange {
   /**
@@ -87,28 +80,26 @@ export interface ArchivedBlocksRange {
    * The range of the blocks accessible using this function is given by [from]
    * and [len] fields above.
    */
-  callback: [Principal, string];
+  'callback' : [Principal, string],
   /**
    * The index of the first archived block that can be fetched using the callback.
    */
-  start: BlockIndex;
+  'start' : BlockIndex,
   /**
    * The number of blocks that can be fetch using the callback.
    */
-  length: bigint;
+  'length' : bigint,
 }
 export interface ArchivedEncodedBlocksRange {
-  callback: [Principal, string];
-  start: bigint;
-  length: bigint;
+  'callback' : [Principal, string],
+  'start' : bigint,
+  'length' : bigint,
 }
-export interface Archives {
-  archives: Array<Archive>;
-}
+export interface Archives { 'archives' : Array<Archive> }
 export interface Block {
-  transaction: Transaction;
-  timestamp: TimeStamp;
-  parent_hash: [] | [Uint8Array];
+  'transaction' : Transaction,
+  'timestamp' : TimeStamp,
+  'parent_hash' : [] | [Uint8Array],
 }
 /**
  * Sequence number of a block produced by the ledger.
@@ -121,30 +112,25 @@ export interface BlockRange {
   /**
    * A prefix of the requested block range.
    * The index of the first block is equal to [GetBlocksArgs.from].
-   *
+   * 
    * Note that the number of blocks might be less than the requested
    * [GetBlocksArgs.len] for various reasons, for example:
-   *
+   * 
    * 1. The query might have hit the replica with an outdated state
    * that doesn't have the full block range yet.
    * 2. The requested range is too large to fit into a single reply.
-   *
+   * 
    * NOTE: the list of blocks can be empty if:
    * 1. [GetBlocksArgs.len] was zero.
    * 2. [GetBlocksArgs.from] was larger than the last block known to the canister.
    */
-  blocks: Array<Block>;
+  'blocks' : Array<Block>,
 }
-export interface Duration {
-  secs: bigint;
-  nanos: number;
-}
-export interface FeatureFlags {
-  icrc2: boolean;
-}
+export interface Duration { 'secs' : bigint, 'nanos' : number }
+export interface FeatureFlags { 'icrc2' : boolean }
 export interface FieldsDisplay {
-  fields: Array<[string, Icrc21Value]>;
-  intent: string;
+  'fields' : Array<[string, Icrc21Value]>,
+  'intent' : string,
 }
 /**
  * The arguments for the `get_allowances` endpoint.
@@ -153,19 +139,19 @@ export interface FieldsDisplay {
  * (`from_account_id`, `prev_spender_id`) - start with spender after `prev_spender_id`.
  */
 export interface GetAllowancesArgs {
-  prev_spender_id: [] | [TextAccountIdentifier];
-  from_account_id: TextAccountIdentifier;
-  take: [] | [bigint];
+  'prev_spender_id' : [] | [TextAccountIdentifier],
+  'from_account_id' : TextAccountIdentifier,
+  'take' : [] | [bigint],
 }
 export interface GetBlocksArgs {
   /**
    * The index of the first block to fetch.
    */
-  start: BlockIndex;
+  'start' : BlockIndex,
   /**
    * Max number of blocks to fetch.
    */
-  length: bigint;
+  'length' : bigint,
 }
 export type Icrc1BlockIndex = bigint;
 /**
@@ -173,128 +159,121 @@ export type Icrc1BlockIndex = bigint;
  */
 export type Icrc1Timestamp = bigint;
 export type Icrc1Tokens = bigint;
-export type Icrc1TransferError =
-  | {
-      GenericError: { message: string; error_code: bigint };
+export type Icrc1TransferError = {
+    'GenericError' : { 'message' : string, 'error_code' : bigint }
+  } |
+  { 'TemporarilyUnavailable' : null } |
+  { 'BadBurn' : { 'min_burn_amount' : Icrc1Tokens } } |
+  { 'Duplicate' : { 'duplicate_of' : Icrc1BlockIndex } } |
+  { 'BadFee' : { 'expected_fee' : Icrc1Tokens } } |
+  { 'CreatedInFuture' : { 'ledger_time' : bigint } } |
+  { 'TooOld' : null } |
+  { 'InsufficientFunds' : { 'balance' : Icrc1Tokens } };
+export type Icrc1TransferResult = { 'Ok' : Icrc1BlockIndex } |
+  { 'Err' : Icrc1TransferError };
+export type Icrc21Value = { 'Text' : { 'content' : string } } |
+  {
+    'TokenAmount' : {
+      'decimals' : number,
+      'amount' : bigint,
+      'symbol' : string,
     }
-  | { TemporarilyUnavailable: null }
-  | { BadBurn: { min_burn_amount: Icrc1Tokens } }
-  | { Duplicate: { duplicate_of: Icrc1BlockIndex } }
-  | { BadFee: { expected_fee: Icrc1Tokens } }
-  | { CreatedInFuture: { ledger_time: bigint } }
-  | { TooOld: null }
-  | { InsufficientFunds: { balance: Icrc1Tokens } };
-export type Icrc1TransferResult =
-  | { Ok: Icrc1BlockIndex }
-  | { Err: Icrc1TransferError };
-export type Icrc21Value =
-  | { Text: { content: string } }
-  | {
-      TokenAmount: {
-        decimals: number;
-        amount: bigint;
-        symbol: string;
-      };
-    }
-  | { TimestampSeconds: { amount: bigint } }
-  | { DurationSeconds: { amount: bigint } };
+  } |
+  { 'TimestampSeconds' : { 'amount' : bigint } } |
+  { 'DurationSeconds' : { 'amount' : bigint } };
 export interface InitArgs {
-  send_whitelist: Array<Principal>;
-  token_symbol: [] | [string];
-  transfer_fee: [] | [Tokens];
-  minting_account: TextAccountIdentifier;
-  transaction_window: [] | [Duration];
-  max_message_size_bytes: [] | [bigint];
-  icrc1_minting_account: [] | [Account];
-  archive_options: [] | [ArchiveOptions];
-  initial_values: Array<[TextAccountIdentifier, Tokens]>;
-  token_name: [] | [string];
-  feature_flags: [] | [FeatureFlags];
+  'send_whitelist' : Array<Principal>,
+  'token_symbol' : [] | [string],
+  'transfer_fee' : [] | [Tokens],
+  'minting_account' : TextAccountIdentifier,
+  'transaction_window' : [] | [Duration],
+  'max_message_size_bytes' : [] | [bigint],
+  'icrc1_minting_account' : [] | [Account],
+  'archive_options' : [] | [ArchiveOptions],
+  'initial_values' : Array<[TextAccountIdentifier, Tokens]>,
+  'token_name' : [] | [string],
+  'feature_flags' : [] | [FeatureFlags],
 }
-export type LedgerCanisterPayload =
-  | { Upgrade: [] | [UpgradeArgs] }
-  | { Init: InitArgs };
+export type LedgerCanisterPayload = { 'Upgrade' : [] | [UpgradeArgs] } |
+  { 'Init' : InitArgs };
 /**
  * An arbitrary number associated with a transaction.
  * The caller can set it in a `transfer` call as a correlation identifier.
  */
 export type Memo = bigint;
-export type Operation =
-  | {
-      Approve: {
-        fee: Tokens;
-        from: AccountIdentifier;
-        /**
-         * This field is deprecated and should not be used.
-         */
-        allowance_e8s: bigint;
-        allowance: Tokens;
-        expected_allowance: [] | [Tokens];
-        expires_at: [] | [TimeStamp];
-        spender: AccountIdentifier;
-      };
+export type Operation = {
+    'Approve' : {
+      'fee' : Tokens,
+      'from' : AccountIdentifier,
+      /**
+       * This field is deprecated and should not be used.
+       */
+      'allowance_e8s' : bigint,
+      'allowance' : Tokens,
+      'expected_allowance' : [] | [Tokens],
+      'expires_at' : [] | [TimeStamp],
+      'spender' : AccountIdentifier,
     }
-  | {
-      Burn: {
-        from: AccountIdentifier;
-        amount: Tokens;
-        spender: [] | [AccountIdentifier];
-      };
+  } |
+  {
+    'Burn' : {
+      'from' : AccountIdentifier,
+      'amount' : Tokens,
+      'spender' : [] | [AccountIdentifier],
     }
-  | { Mint: { to: AccountIdentifier; amount: Tokens } }
-  | {
-      Transfer: {
-        to: AccountIdentifier;
-        fee: Tokens;
-        from: AccountIdentifier;
-        amount: Tokens;
-        spender: [] | [Uint8Array];
-      };
-    };
+  } |
+  { 'Mint' : { 'to' : AccountIdentifier, 'amount' : Tokens } } |
+  {
+    'Transfer' : {
+      'to' : AccountIdentifier,
+      'fee' : Tokens,
+      'from' : AccountIdentifier,
+      'amount' : Tokens,
+      'spender' : [] | [Uint8Array],
+    }
+  };
 /**
  * An error indicating that the arguments passed to [QueryArchiveFn] were invalid.
  */
-export type QueryArchiveError =
-  | {
-      /**
-       * [GetBlocksArgs.from] argument was smaller than the first block
-       * served by the canister that received the request.
-       */
-      BadFirstBlockIndex: {
-        requested_index: BlockIndex;
-        first_valid_index: BlockIndex;
-      };
+export type QueryArchiveError = {
+    /**
+     * [GetBlocksArgs.from] argument was smaller than the first block
+     * served by the canister that received the request.
+     */
+    'BadFirstBlockIndex' : {
+      'requested_index' : BlockIndex,
+      'first_valid_index' : BlockIndex,
     }
-  | {
-      /**
-       * Reserved for future use.
-       */
-      Other: { error_message: string; error_code: bigint };
-    };
+  } |
+  {
+    /**
+     * Reserved for future use.
+     */
+    'Other' : { 'error_message' : string, 'error_code' : bigint }
+  };
 /**
  * A function that is used for fetching archived ledger blocks.
  */
 export type QueryArchiveFn = ActorMethod<[GetBlocksArgs], QueryArchiveResult>;
-export type QueryArchiveResult =
-  | {
-      /**
-       * Successfully fetched zero or more blocks.
-       */
-      Ok: BlockRange;
-    }
-  | {
-      /**
-       * The [GetBlocksArgs] request was invalid.
-       */
-      Err: QueryArchiveError;
-    };
+export type QueryArchiveResult = {
+    /**
+     * Successfully fetched zero or more blocks.
+     */
+    'Ok' : BlockRange
+  } |
+  {
+    /**
+     * The [GetBlocksArgs] request was invalid.
+     */
+    'Err' : QueryArchiveError
+  };
 /**
  * The result of a "query_blocks" call.
- *
+ * 
  * The structure of the result is somewhat complicated because the main ledger canister might
  * not have all the blocks that the caller requested: One or more "archive" canisters might
  * store some of the requested blocks.
- *
+ * 
  * Note: as of Q4 2021 when this interface is authored, the IC doesn't support making nested
  * query calls within a query call.
  */
@@ -303,58 +282,58 @@ export interface QueryBlocksResponse {
    * System certificate for the hash of the latest block in the chain.
    * Only present if `query_blocks` is called in a non-replicated query context.
    */
-  certificate: [] | [Uint8Array];
+  'certificate' : [] | [Uint8Array],
   /**
    * List of blocks that were available in the ledger when it processed the call.
-   *
+   * 
    * The blocks form a contiguous range, with the first block having index
    * [first_block_index] (see below), and the last block having index
    * [first_block_index] + len(blocks) - 1.
-   *
+   * 
    * The block range can be an arbitrary sub-range of the originally requested range.
    */
-  blocks: Array<Block>;
+  'blocks' : Array<Block>,
   /**
    * The total number of blocks in the chain.
    * If the chain length is positive, the index of the last block is `chain_len - 1`.
    */
-  chain_length: bigint;
+  'chain_length' : bigint,
   /**
    * The index of the first block in "blocks".
    * If the blocks vector is empty, the exact value of this field is not specified.
    */
-  first_block_index: BlockIndex;
+  'first_block_index' : BlockIndex,
   /**
    * Encoding of instructions for fetching archived blocks whose indices fall into the
    * requested range.
-   *
+   * 
    * For each entry `e` in [archived_blocks], `[e.from, e.from + len)` is a sub-range
    * of the originally requested block range.
    */
-  archived_blocks: Array<ArchivedBlocksRange>;
+  'archived_blocks' : Array<ArchivedBlocksRange>,
 }
 export interface QueryEncodedBlocksResponse {
-  certificate: [] | [Uint8Array];
-  blocks: Array<Uint8Array>;
-  chain_length: bigint;
-  first_block_index: bigint;
-  archived_blocks: Array<ArchivedEncodedBlocksRange>;
+  'certificate' : [] | [Uint8Array],
+  'blocks' : Array<Uint8Array>,
+  'chain_length' : bigint,
+  'first_block_index' : bigint,
+  'archived_blocks' : Array<ArchivedEncodedBlocksRange>,
 }
 export interface RemoveApprovalArgs {
-  fee: [] | [Icrc1Tokens];
-  from_subaccount: [] | [SubAccount];
-  spender: AccountIdentifier;
+  'fee' : [] | [Icrc1Tokens],
+  'from_subaccount' : [] | [SubAccount],
+  'spender' : AccountIdentifier,
 }
 /**
  * Arguments for the `send_dfx` call.
  */
 export interface SendArgs {
-  to: TextAccountIdentifier;
-  fee: Tokens;
-  memo: Memo;
-  from_subaccount: [] | [SubAccount];
-  created_at_time: [] | [TimeStamp];
-  amount: Tokens;
+  'to' : TextAccountIdentifier,
+  'fee' : Tokens,
+  'memo' : Memo,
+  'from_subaccount' : [] | [SubAccount],
+  'created_at_time' : [] | [TimeStamp],
+  'amount' : Tokens,
 }
 /**
  * Subaccount is an arbitrary 32-byte byte array.
@@ -369,32 +348,28 @@ export type TextAccountIdentifier = string;
 /**
  * Number of nanoseconds from the UNIX epoch in UTC timezone.
  */
-export interface TimeStamp {
-  timestamp_nanos: bigint;
-}
+export interface TimeStamp { 'timestamp_nanos' : bigint }
 export interface TipOfChainRes {
-  certification: [] | [Uint8Array];
-  tip_index: BlockIndex;
+  'certification' : [] | [Uint8Array],
+  'tip_index' : BlockIndex,
 }
 /**
  * Amount of tokens, measured in 10^-8 of a token.
  */
-export interface Tokens {
-  e8s: bigint;
-}
+export interface Tokens { 'e8s' : bigint }
 export interface Transaction {
-  memo: Memo;
-  icrc1_memo: [] | [Uint8Array];
-  operation: [] | [Operation];
-  created_at_time: TimeStamp;
+  'memo' : Memo,
+  'icrc1_memo' : [] | [Uint8Array],
+  'operation' : [] | [Operation],
+  'created_at_time' : TimeStamp,
 }
 export interface TransferArg {
-  to: Account;
-  fee: [] | [Icrc1Tokens];
-  memo: [] | [Uint8Array];
-  from_subaccount: [] | [SubAccount];
-  created_at_time: [] | [Icrc1Timestamp];
-  amount: Icrc1Tokens;
+  'to' : Account,
+  'fee' : [] | [Icrc1Tokens],
+  'memo' : [] | [Uint8Array],
+  'from_subaccount' : [] | [SubAccount],
+  'created_at_time' : [] | [Icrc1Timestamp],
+  'amount' : Icrc1Tokens,
 }
 /**
  * Arguments for the `transfer` call.
@@ -404,231 +379,226 @@ export interface TransferArgs {
    * The destination account.
    * If the transfer is successful, the balance of this address increases by `amount`.
    */
-  to: AccountIdentifier;
+  'to' : AccountIdentifier,
   /**
    * The amount that the caller pays for the transaction.
    * Must be 10000 e8s.
    */
-  fee: Tokens;
+  'fee' : Tokens,
   /**
    * Transaction memo.
    * See comments for the `Memo` type.
    */
-  memo: Memo;
+  'memo' : Memo,
   /**
    * The subaccount from which the caller wants to transfer funds.
    * If null, the ledger uses the default (all zeros) subaccount to compute the source address.
    * See comments for the `SubAccount` type.
    */
-  from_subaccount: [] | [SubAccount];
+  'from_subaccount' : [] | [SubAccount],
   /**
    * The point in time when the caller created this request.
    * If null, the ledger uses current IC time as the timestamp.
    */
-  created_at_time: [] | [TimeStamp];
+  'created_at_time' : [] | [TimeStamp],
   /**
    * The amount that the caller wants to transfer to the destination address.
    */
-  amount: Tokens;
+  'amount' : Tokens,
 }
-export type TransferError =
-  | {
-      /**
-       * The request is too old.
-       * The ledger only accepts requests created within 24 hours window.
-       * This is a non-recoverable error.
-       */
-      TxTooOld: { allowed_window_nanos: bigint };
-    }
-  | {
-      /**
-       * The fee that the caller specified in the transfer request was not the one that ledger expects.
-       * The caller can change the transfer fee to the `expected_fee` and retry the request.
-       */
-      BadFee: { expected_fee: Tokens };
-    }
-  | {
-      /**
-       * The ledger has already executed the request.
-       * `duplicate_of` field is equal to the index of the block containing the original transaction.
-       */
-      TxDuplicate: { duplicate_of: BlockIndex };
-    }
-  | {
-      /**
-       * The caller specified `created_at_time` that is too far in future.
-       * The caller can retry the request later.
-       */
-      TxCreatedInFuture: null;
-    }
-  | {
-      /**
-       * The account specified by the caller doesn't have enough funds.
-       */
-      InsufficientFunds: { balance: Tokens };
-    };
+export type TransferError = {
+    /**
+     * The request is too old.
+     * The ledger only accepts requests created within 24 hours window.
+     * This is a non-recoverable error.
+     */
+    'TxTooOld' : { 'allowed_window_nanos' : bigint }
+  } |
+  {
+    /**
+     * The fee that the caller specified in the transfer request was not the one that ledger expects.
+     * The caller can change the transfer fee to the `expected_fee` and retry the request.
+     */
+    'BadFee' : { 'expected_fee' : Tokens }
+  } |
+  {
+    /**
+     * The ledger has already executed the request.
+     * `duplicate_of` field is equal to the index of the block containing the original transaction.
+     */
+    'TxDuplicate' : { 'duplicate_of' : BlockIndex }
+  } |
+  {
+    /**
+     * The caller specified `created_at_time` that is too far in future.
+     * The caller can retry the request later.
+     */
+    'TxCreatedInFuture' : null
+  } |
+  {
+    /**
+     * The account specified by the caller doesn't have enough funds.
+     */
+    'InsufficientFunds' : { 'balance' : Tokens }
+  };
 export interface TransferFee {
   /**
    * The fee to pay to perform a transfer
    */
-  transfer_fee: Tokens;
+  'transfer_fee' : Tokens,
 }
 export type TransferFeeArg = {};
 export interface TransferFromArgs {
-  to: Account;
-  fee: [] | [Icrc1Tokens];
-  spender_subaccount: [] | [SubAccount];
-  from: Account;
-  memo: [] | [Uint8Array];
-  created_at_time: [] | [Icrc1Timestamp];
-  amount: Icrc1Tokens;
+  'to' : Account,
+  'fee' : [] | [Icrc1Tokens],
+  'spender_subaccount' : [] | [SubAccount],
+  'from' : Account,
+  'memo' : [] | [Uint8Array],
+  'created_at_time' : [] | [Icrc1Timestamp],
+  'amount' : Icrc1Tokens,
 }
-export type TransferFromError =
-  | {
-      GenericError: { message: string; error_code: bigint };
-    }
-  | { TemporarilyUnavailable: null }
-  | { InsufficientAllowance: { allowance: Icrc1Tokens } }
-  | { BadBurn: { min_burn_amount: Icrc1Tokens } }
-  | { Duplicate: { duplicate_of: Icrc1BlockIndex } }
-  | { BadFee: { expected_fee: Icrc1Tokens } }
-  | { CreatedInFuture: { ledger_time: Icrc1Timestamp } }
-  | { TooOld: null }
-  | { InsufficientFunds: { balance: Icrc1Tokens } };
-export type TransferFromResult =
-  | { Ok: Icrc1BlockIndex }
-  | { Err: TransferFromError };
-export type TransferResult = { Ok: BlockIndex } | { Err: TransferError };
+export type TransferFromError = {
+    'GenericError' : { 'message' : string, 'error_code' : bigint }
+  } |
+  { 'TemporarilyUnavailable' : null } |
+  { 'InsufficientAllowance' : { 'allowance' : Icrc1Tokens } } |
+  { 'BadBurn' : { 'min_burn_amount' : Icrc1Tokens } } |
+  { 'Duplicate' : { 'duplicate_of' : Icrc1BlockIndex } } |
+  { 'BadFee' : { 'expected_fee' : Icrc1Tokens } } |
+  { 'CreatedInFuture' : { 'ledger_time' : Icrc1Timestamp } } |
+  { 'TooOld' : null } |
+  { 'InsufficientFunds' : { 'balance' : Icrc1Tokens } };
+export type TransferFromResult = { 'Ok' : Icrc1BlockIndex } |
+  { 'Err' : TransferFromError };
+export type TransferResult = { 'Ok' : BlockIndex } |
+  { 'Err' : TransferError };
 export interface UpgradeArgs {
-  icrc1_minting_account: [] | [Account];
-  feature_flags: [] | [FeatureFlags];
+  'icrc1_minting_account' : [] | [Account],
+  'feature_flags' : [] | [FeatureFlags],
 }
 /**
  * The value returned from the [icrc1_metadata] endpoint.
  */
-export type Value =
-  | { Int: bigint }
-  | { Nat: bigint }
-  | { Blob: Uint8Array }
-  | { Text: string };
+export type Value = { 'Int' : bigint } |
+  { 'Nat' : bigint } |
+  { 'Blob' : Uint8Array } |
+  { 'Text' : string };
 export interface icrc21_consent_info {
-  metadata: icrc21_consent_message_metadata;
-  consent_message: icrc21_consent_message;
+  'metadata' : icrc21_consent_message_metadata,
+  'consent_message' : icrc21_consent_message,
 }
-export type icrc21_consent_message =
-  | {
-      FieldsDisplayMessage: FieldsDisplay;
-    }
-  | { GenericDisplayMessage: string };
+export type icrc21_consent_message = {
+    'FieldsDisplayMessage' : FieldsDisplay
+  } |
+  { 'GenericDisplayMessage' : string };
 export interface icrc21_consent_message_metadata {
-  utc_offset_minutes: [] | [number];
-  language: string;
+  'utc_offset_minutes' : [] | [number],
+  'language' : string,
 }
 export interface icrc21_consent_message_request {
-  arg: Uint8Array;
-  method: string;
-  user_preferences: icrc21_consent_message_spec;
+  'arg' : Uint8Array,
+  'method' : string,
+  'user_preferences' : icrc21_consent_message_spec,
 }
-export type icrc21_consent_message_response =
-  | { Ok: icrc21_consent_info }
-  | { Err: icrc21_error };
+export type icrc21_consent_message_response = { 'Ok' : icrc21_consent_info } |
+  { 'Err' : icrc21_error };
 export interface icrc21_consent_message_spec {
-  metadata: icrc21_consent_message_metadata;
-  device_spec: [] | [{ GenericDisplay: null } | { FieldsDisplay: null }];
+  'metadata' : icrc21_consent_message_metadata,
+  'device_spec' : [] | [
+    { 'GenericDisplay' : null } |
+      { 'FieldsDisplay' : null }
+  ],
 }
-export type icrc21_error =
-  | {
-      /**
-       * Any error not covered by the above variants.
-       */
-      GenericError: { description: string; error_code: bigint };
-    }
-  | { InsufficientPayment: icrc21_error_info }
-  | { UnsupportedCanisterCall: icrc21_error_info }
-  | { ConsentMessageUnavailable: icrc21_error_info };
-export interface icrc21_error_info {
-  description: string;
-}
+export type icrc21_error = {
+    /**
+     * Any error not covered by the above variants.
+     */
+    'GenericError' : { 'description' : string, 'error_code' : bigint }
+  } |
+  { 'InsufficientPayment' : icrc21_error_info } |
+  { 'UnsupportedCanisterCall' : icrc21_error_info } |
+  { 'ConsentMessageUnavailable' : icrc21_error_info };
+export interface icrc21_error_info { 'description' : string }
 export interface _SERVICE {
   /**
    * Returns the amount of Tokens on the specified account.
    */
-  account_balance: ActorMethod<[AccountBalanceArgs], Tokens>;
-  account_balance_dfx: ActorMethod<[AccountBalanceArgsDfx], Tokens>;
+  'account_balance' : ActorMethod<[AccountBalanceArgs], Tokens>,
+  'account_balance_dfx' : ActorMethod<[AccountBalanceArgsDfx], Tokens>,
   /**
    * Returns the account identifier for the given Principal and subaccount.
    */
-  account_identifier: ActorMethod<[Account], AccountIdentifier>;
+  'account_identifier' : ActorMethod<[Account], AccountIdentifier>,
   /**
    * Returns the existing archive canisters information.
    */
-  archives: ActorMethod<[], Archives>;
+  'archives' : ActorMethod<[], Archives>,
   /**
    * Returns token decimals.
    */
-  decimals: ActorMethod<[], { decimals: number }>;
-  get_allowances: ActorMethod<[GetAllowancesArgs], Allowances>;
-  icrc10_supported_standards: ActorMethod<
+  'decimals' : ActorMethod<[], { 'decimals' : number }>,
+  'get_allowances' : ActorMethod<[GetAllowancesArgs], Allowances>,
+  'icrc10_supported_standards' : ActorMethod<
     [],
-    Array<{ url: string; name: string }>
-  >;
-  icrc1_balance_of: ActorMethod<[Account], Icrc1Tokens>;
-  icrc1_decimals: ActorMethod<[], number>;
-  icrc1_fee: ActorMethod<[], Icrc1Tokens>;
-  icrc1_metadata: ActorMethod<[], Array<[string, Value]>>;
-  icrc1_minting_account: ActorMethod<[], [] | [Account]>;
+    Array<{ 'url' : string, 'name' : string }>
+  >,
+  'icrc1_balance_of' : ActorMethod<[Account], Icrc1Tokens>,
+  'icrc1_decimals' : ActorMethod<[], number>,
+  'icrc1_fee' : ActorMethod<[], Icrc1Tokens>,
+  'icrc1_metadata' : ActorMethod<[], Array<[string, Value]>>,
+  'icrc1_minting_account' : ActorMethod<[], [] | [Account]>,
   /**
    * The following methods implement the ICRC-1 Token Standard.
    * https://github.com/dfinity/ICRC-1/tree/main/standards/ICRC-1
    */
-  icrc1_name: ActorMethod<[], string>;
-  icrc1_supported_standards: ActorMethod<
+  'icrc1_name' : ActorMethod<[], string>,
+  'icrc1_supported_standards' : ActorMethod<
     [],
-    Array<{ url: string; name: string }>
-  >;
-  icrc1_symbol: ActorMethod<[], string>;
-  icrc1_total_supply: ActorMethod<[], Icrc1Tokens>;
-  icrc1_transfer: ActorMethod<[TransferArg], Icrc1TransferResult>;
-  icrc21_canister_call_consent_message: ActorMethod<
+    Array<{ 'url' : string, 'name' : string }>
+  >,
+  'icrc1_symbol' : ActorMethod<[], string>,
+  'icrc1_total_supply' : ActorMethod<[], Icrc1Tokens>,
+  'icrc1_transfer' : ActorMethod<[TransferArg], Icrc1TransferResult>,
+  'icrc21_canister_call_consent_message' : ActorMethod<
     [icrc21_consent_message_request],
     icrc21_consent_message_response
-  >;
-  icrc2_allowance: ActorMethod<[AllowanceArgs], Allowance>;
-  icrc2_approve: ActorMethod<[ApproveArgs], ApproveResult>;
-  icrc2_transfer_from: ActorMethod<[TransferFromArgs], TransferFromResult>;
-  is_ledger_ready: ActorMethod<[], boolean>;
+  >,
+  'icrc2_allowance' : ActorMethod<[AllowanceArgs], Allowance>,
+  'icrc2_approve' : ActorMethod<[ApproveArgs], ApproveResult>,
+  'icrc2_transfer_from' : ActorMethod<[TransferFromArgs], TransferFromResult>,
+  'is_ledger_ready' : ActorMethod<[], boolean>,
   /**
    * Returns token name.
    */
-  name: ActorMethod<[], { name: string }>;
+  'name' : ActorMethod<[], { 'name' : string }>,
   /**
    * Queries blocks in the specified range.
    */
-  query_blocks: ActorMethod<[GetBlocksArgs], QueryBlocksResponse>;
+  'query_blocks' : ActorMethod<[GetBlocksArgs], QueryBlocksResponse>,
   /**
    * Queries encoded blocks in the specified range
    */
-  query_encoded_blocks: ActorMethod<
+  'query_encoded_blocks' : ActorMethod<
     [GetBlocksArgs],
     QueryEncodedBlocksResponse
-  >;
-  remove_approval: ActorMethod<[RemoveApprovalArgs], ApproveResult>;
-  send_dfx: ActorMethod<[SendArgs], BlockIndex>;
+  >,
+  'remove_approval' : ActorMethod<[RemoveApprovalArgs], ApproveResult>,
+  'send_dfx' : ActorMethod<[SendArgs], BlockIndex>,
   /**
    * Returns token symbol.
    */
-  symbol: ActorMethod<[], { symbol: string }>;
-  tip_of_chain: ActorMethod<[], TipOfChainRes>;
+  'symbol' : ActorMethod<[], { 'symbol' : string }>,
+  'tip_of_chain' : ActorMethod<[], TipOfChainRes>,
   /**
    * Transfers tokens from a subaccount of the caller to the destination address.
    * The source address is computed from the principal of the caller and the specified subaccount.
    * When successful, returns the index of the block containing the transaction.
    */
-  transfer: ActorMethod<[TransferArgs], TransferResult>;
+  'transfer' : ActorMethod<[TransferArgs], TransferResult>,
   /**
    * Returns the current transfer_fee.
    */
-  transfer_fee: ActorMethod<[TransferFeeArg], TransferFee>;
+  'transfer_fee' : ActorMethod<[TransferFeeArg], TransferFee>,
 }
 export declare const idlFactory: IDL.InterfaceFactory;
 export declare const init: (args: { IDL: typeof IDL }) => IDL.Type[];

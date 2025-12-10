@@ -6,15 +6,19 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-export const idlFactory = ({ IDL }) => {
-  const SupportedStandard = IDL.Record({ url: IDL.Text, name: IDL.Text });
-  const SupportedStandardsResponse = IDL.Vec(SupportedStandard);
+import { IDL } from '@icp-sdk/core/candid';
 
+export const idlFactory = ({ IDL }) => {
+  const SupportedStandard = IDL.Record({ 'url' : IDL.Text, 'name' : IDL.Text });
+  const SupportedStandardsResponse = IDL.Vec(SupportedStandard);
+  
   return IDL.Service({
-    icrc10_supported_standards: IDL.Func([], [SupportedStandardsResponse], []),
+    'icrc10_supported_standards' : IDL.Func(
+        [],
+        [SupportedStandardsResponse],
+        [],
+      ),
   });
 };
 
-export const init = ({ IDL }) => {
-  return [];
-};
+export const init = ({ IDL }) => { return []; };

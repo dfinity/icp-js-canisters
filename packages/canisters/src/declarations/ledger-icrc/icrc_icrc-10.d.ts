@@ -6,16 +6,14 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import type { ActorMethod } from "@icp-sdk/core/agent";
-import type { IDL } from "@icp-sdk/core/candid";
+import type { ActorMethod } from '@icp-sdk/core/agent';
+import type { IDL } from '@icp-sdk/core/candid';
+import type { Principal } from '@icp-sdk/core/principal';
 
-export interface SupportedStandard {
-  url: string;
-  name: string;
-}
+export interface SupportedStandard { 'url' : string, 'name' : string }
 export type SupportedStandardsResponse = Array<SupportedStandard>;
 export interface _SERVICE {
-  icrc10_supported_standards: ActorMethod<[], SupportedStandardsResponse>;
+  'icrc10_supported_standards' : ActorMethod<[], SupportedStandardsResponse>,
 }
 export declare const idlFactory: IDL.InterfaceFactory;
 export declare const init: (args: { IDL: typeof IDL }) => IDL.Type[];
