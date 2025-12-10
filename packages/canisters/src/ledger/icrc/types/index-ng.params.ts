@@ -1,10 +1,10 @@
 import type { QueryParams } from "@dfinity/utils";
-import type { IcrcIndexNgDid, IcrcLedgerDid } from "../../../declarations";
+import type { IcrcIndexDid, IcrcLedgerDid } from "../../../declarations";
 import type { IcrcAccount } from "./ledger.responses";
 
-export type GetIndexNgAccountTransactionsParams = {
+export type GetIndexAccountTransactionsParams = {
   max_results: bigint;
-  start?: IcrcIndexNgDid.BlockIndex;
+  start?: IcrcIndexDid.BlockIndex;
   account: IcrcAccount;
 } & QueryParams;
 

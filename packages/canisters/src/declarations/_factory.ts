@@ -15,8 +15,8 @@ import { idlFactory as idlFactoryCertifiedIcpIndex } from "./ledger-icp/index.ce
 import { idlFactory as idlFactoryIcpIndex } from "./ledger-icp/index.idl";
 import { idlFactory as idlFactoryCertifiedIcpLedger } from "./ledger-icp/ledger.certified.idl";
 import { idlFactory as idlFactoryIcpLedger } from "./ledger-icp/ledger.idl";
-import { idlFactory as idlFactoryCertifiedIcrcIndexNg } from "./ledger-icrc/icrc_index-ng.certified.idl";
-import { idlFactory as idlFactoryIcrcIndexNg } from "./ledger-icrc/icrc_index-ng.idl";
+import { idlFactory as idlFactoryCertifiedIcrcIndex } from "./ledger-icrc/icrc_index-ng.certified.idl";
+import { idlFactory as idlFactoryIcrcIndex } from "./ledger-icrc/icrc_index-ng.idl";
 import { idlFactory as idlFactoryCertifiedIcrcLedger } from "./ledger-icrc/icrc_ledger.certified.idl";
 import { idlFactory as idlFactoryIcrcLedger } from "./ledger-icrc/icrc_ledger.idl";
 import { idlFactory as idlFactoryCertifiedIcrcNftLedger } from "./ledger-icrc/icrc_nft-ledger.certified.idl";
@@ -48,7 +48,7 @@ import type { _SERVICE as IcManagementService } from "./ic-management/ic-managem
 import type { _SERVICE as IcpIndexService } from "./ledger-icp/index";
 import type { _SERVICE as IcpLedgerService } from "./ledger-icp/ledger";
 import type { _SERVICE as IcrcIcrc1Service } from "./ledger-icrc/icrc_icrc-1";
-import type { _SERVICE as IcrcIndexNgService } from "./ledger-icrc/icrc_index-ng";
+import type { _SERVICE as IcrcIndexService } from "./ledger-icrc/icrc_index-ng";
 import type { _SERVICE as IcrcLedgerService } from "./ledger-icrc/icrc_ledger";
 import type { _SERVICE as IcrcNftLedgerService } from "./ledger-icrc/icrc_nft-ledger";
 import type { _SERVICE as NnsGenesisTokenService } from "./nns/genesis_token";
@@ -71,7 +71,7 @@ export {
   idlFactoryCertifiedIcManagement,
   idlFactoryCertifiedIcpIndex,
   idlFactoryCertifiedIcpLedger,
-  idlFactoryCertifiedIcrcIndexNg,
+  idlFactoryCertifiedIcrcIndex,
   idlFactoryCertifiedIcrcLedger,
   idlFactoryCertifiedIcrcNftLedger,
   idlFactoryCertifiedNnsGenesisToken,
@@ -89,7 +89,7 @@ export {
   idlFactoryIcManagement,
   idlFactoryIcpIndex,
   idlFactoryIcpLedger,
-  idlFactoryIcrcIndexNg,
+  idlFactoryIcrcIndex,
   idlFactoryIcrcLedger,
   idlFactoryIcrcNftLedger,
   idlFactoryNnsGenesisToken,
@@ -110,7 +110,7 @@ export {
   type IcpIndexService,
   type IcpLedgerService,
   type IcrcIcrc1Service,
-  type IcrcIndexNgService,
+  type IcrcIndexService,
   type IcrcLedgerService,
   type IcrcNftLedgerService,
   type NnsGenesisTokenService,

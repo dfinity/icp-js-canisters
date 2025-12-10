@@ -3,7 +3,7 @@
  */
 
 export type {
-  IcrcIndexNgDid,
+  IcrcIndexDid,
   IcrcLedgerDid,
   IcrcNftLedgerDid,
 } from "../../declarations";
@@ -11,7 +11,7 @@ export * from "./converters/converters";
 export * from "./converters/ledger.converters";
 export * from "./errors/index.errors";
 export * from "./errors/ledger.errors";
-export { IcrcIndexNgCanister } from "./index-ng.canister";
+export { IcrcIndexCanister } from "./index.canister";
 export { IcrcLedgerCanister } from "./ledger.canister";
 export { IcrcNftLedgerCanister } from "./nft-ledger.canister";
 export type * from "./types/index-ng.params";

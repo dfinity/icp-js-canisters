@@ -1,10 +1,10 @@
 import { createServices, type QueryParams } from "@dfinity/utils";
 import type { Principal } from "@icp-sdk/core/principal";
 import {
-  type IcrcIndexNgDid,
-  type IcrcIndexNgService,
-  idlFactoryCertifiedIcrcIndexNg,
-  idlFactoryIcrcIndexNg,
+  type IcrcIndexDid,
+  type IcrcIndexService,
+  idlFactoryCertifiedIcrcIndex,
+  idlFactoryIcrcIndex,
 } from "../../declarations";
 import { IcrcCanister } from "./canister";
 import {
@@ -14,20 +14,20 @@ import {
 import { IndexError } from "./errors/index.errors";
 import type { IcrcLedgerCanisterOptions } from "./types/canister.options";
 import type {
-  GetIndexNgAccountTransactionsParams,
+  GetIndexAccountTransactionsParams,
   ListSubaccountsParams,
 } from "./types/index-ng.params";
 
-export class IcrcIndexNgCanister extends IcrcCanister<IcrcIndexNgService> {
-  static create(options: IcrcLedgerCanisterOptions<IcrcIndexNgService>) {
+export class IcrcIndexCanister extends IcrcCanister<IcrcIndexService> {
+  static create(options: IcrcLedgerCanisterOptions<IcrcIndexService>) {
     const { service, certifiedService, canisterId } =
-      createServices<IcrcIndexNgService>({
+      createServices<IcrcIndexService>({
         options,
-        idlFactory: idlFactoryIcrcIndexNg,
-        certifiedIdlFactory: idlFactoryCertifiedIcrcIndexNg,
+        idlFactory: idlFactoryIcrcIndex,
+        certifiedIdlFactory: idlFactoryCertifiedIcrcIndex,
       });
 
-    return new IcrcIndexNgCanister(canisterId, service, certifiedService);
+    return new IcrcIndexCanister(canisterId, service, certifiedService);
   }
 
   /**
@@ -47,7 +47,7 @@ export class IcrcIndexNgCanister extends IcrcCanister<IcrcIndexNgService> {
   getTransactions = async ({
     certified,
     ...rest
-  }: GetIndexNgAccountTransactionsParams): Promise<IcrcIndexNgDid.GetTransactions> => {
+  }: GetIndexAccountTransactionsParams): Promise<IcrcIndexDid.GetTransactions> => {
     const response = await this.caller({
       certified,
     }).get_account_transactions(toGetTransactionsArgs(rest));
@@ -73,7 +73,7 @@ export class IcrcIndexNgCanister extends IcrcCanister<IcrcIndexNgService> {
    * @param {QueryParams} params The parameters to get the status of the index canister.
    * @returns {Promise<Status>} The status of the index canister.
    */
-  status = (params: QueryParams): Promise<IcrcIndexNgDid.Status> =>
+  status = (params: QueryParams): Promise<IcrcIndexDid.Status> =>
     this.caller(params).status();
 
   /**
@@ -85,6 +85,6 @@ export class IcrcIndexNgCanister extends IcrcCanister<IcrcIndexNgService> {
   listSubaccounts = ({
     certified,
     ...rest
-  }: ListSubaccountsParams): Promise<Array<IcrcIndexNgDid.SubAccount>> =>
+  }: ListSubaccountsParams): Promise<Array<IcrcIndexDid.SubAccount>> =>
     this.caller({ certified }).list_subaccounts(toListSubaccountsParams(rest));
 }
