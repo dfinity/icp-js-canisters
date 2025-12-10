@@ -21,7 +21,7 @@ import {
   InsufficientAmountError,
   UnrecognizedTypeError,
 } from "./errors/governance.errors";
-import { GovernanceCanister } from "./governance.canister";
+import { NnsGovernanceCanister } from "./governance.canister";
 import {
   mockListNeuronsResponse,
   mockNeuron,
@@ -208,7 +208,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.list_known_neurons.mockResolvedValue(response);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         serviceOverride: service,
       });
       const res = await governance.listKnownNeurons(false);
@@ -236,7 +236,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.list_known_neurons.mockResolvedValue(response);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         serviceOverride: service,
       });
       const res = await governance.listKnownNeurons(false);
@@ -282,7 +282,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.list_known_neurons.mockResolvedValue(response);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         serviceOverride: service,
       });
       const res = await governance.listKnownNeurons(false);
@@ -319,7 +319,7 @@ describe("GovernanceCanister", () => {
       expect(mockLedger.transfer).toHaveBeenCalledTimes(0);
       expect(service.manage_neuron).toHaveBeenCalledTimes(0);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const response = await governance.stakeNeuron({
@@ -370,7 +370,7 @@ describe("GovernanceCanister", () => {
       );
       const fee = BigInt(10_000);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.stakeNeuron({
@@ -400,7 +400,7 @@ describe("GovernanceCanister", () => {
         vi.fn().mockResolvedValue(BigInt(1)),
       );
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const response = await governance.stakeNeuron({
@@ -432,7 +432,7 @@ describe("GovernanceCanister", () => {
       const mockLedger = mock<IcpLedgerCanister>();
       mockLedger.transfer.mockImplementation(vi.fn());
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -465,7 +465,7 @@ describe("GovernanceCanister", () => {
         total_pages_available: [1n],
       });
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: certifiedService,
         serviceOverride: service,
         oldListNeuronsServiceOverride: oldService,
@@ -507,7 +507,7 @@ describe("GovernanceCanister", () => {
         total_pages_available: [2n],
       });
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: certifiedService,
         serviceOverride: service,
         oldListNeuronsServiceOverride: oldService,
@@ -554,7 +554,7 @@ describe("GovernanceCanister", () => {
       const oldService = mock<ActorSubclass<NnsGovernanceService>>();
       service.list_neurons.mockResolvedValue(mockListNeuronsResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
         oldListNeuronsServiceOverride: oldService,
@@ -581,7 +581,7 @@ describe("GovernanceCanister", () => {
       const oldService = mock<ActorSubclass<NnsGovernanceService>>();
       service.list_neurons.mockResolvedValue(mockListNeuronsResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
         oldListNeuronsServiceOverride: oldService,
@@ -608,7 +608,7 @@ describe("GovernanceCanister", () => {
       const oldService = mock<ActorSubclass<NnsGovernanceService>>();
       service.list_neurons.mockResolvedValue(mockListNeuronsResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
         oldListNeuronsServiceOverride: oldService,
@@ -645,7 +645,7 @@ describe("GovernanceCanister", () => {
       const oldService = mock<ActorSubclass<NnsGovernanceService>>();
       oldService.list_neurons.mockResolvedValue(mockListNeuronsResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
         oldListNeuronsServiceOverride: oldService,
@@ -678,7 +678,7 @@ describe("GovernanceCanister", () => {
       const oldService = mock<ActorSubclass<NnsGovernanceService>>();
       service.list_neurons.mockResolvedValue(mockListNeuronsResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: certifiedService,
         serviceOverride: service,
         oldListNeuronsServiceOverride: oldService,
@@ -717,7 +717,7 @@ describe("GovernanceCanister", () => {
         proposal_info: [rawProposal],
       });
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -754,7 +754,7 @@ describe("GovernanceCanister", () => {
         proposal_info: [rawProposal],
       });
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -792,7 +792,7 @@ describe("GovernanceCanister", () => {
         proposal_info: [rawProposal],
       });
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -833,7 +833,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.registerVote({
@@ -849,7 +849,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(errorServiceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -870,7 +870,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -890,7 +890,7 @@ describe("GovernanceCanister", () => {
   describe("GovernanceCanister.getNeuron", () => {
     it("should fetch and convert a neuron", async () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
         oldListNeuronsServiceOverride: service,
@@ -913,7 +913,7 @@ describe("GovernanceCanister", () => {
   describe("GovernanceCanister.getProposal", () => {
     it("should fetch and convert single ProposalInfo", async () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -936,7 +936,7 @@ describe("GovernanceCanister", () => {
 
     it("should fetch and convert ManageNetworkEconomics on ProposalInfo", async () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -979,7 +979,7 @@ describe("GovernanceCanister", () => {
 
     it("should fetch and convert InstallCode on ProposalInfo", async () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -1039,7 +1039,7 @@ describe("GovernanceCanister", () => {
 
     it("should fetch and convert StopOrStartCanister on ProposalInfo", async () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -1095,7 +1095,7 @@ describe("GovernanceCanister", () => {
       const wasmMemoryThreshold = 222222n;
 
       const service = mock<ActorSubclass<NnsGovernanceService>>();
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -1179,7 +1179,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const principal = Principal.fromText("aaaaa-aa");
@@ -1199,7 +1199,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const principal = Principal.fromText("aaaaa-aa");
@@ -1221,7 +1221,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.increaseDissolveDelay({
@@ -1236,7 +1236,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(errorServiceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1256,7 +1256,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1280,7 +1280,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.setDissolveDelay({
@@ -1295,7 +1295,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(errorServiceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1315,7 +1315,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1342,7 +1342,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.update_node_provider.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.setNodeProviderAccount(validAccount);
@@ -1357,7 +1357,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.update_node_provider.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1374,7 +1374,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.update_node_provider.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1393,7 +1393,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.setFollowees({
@@ -1412,7 +1412,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1433,7 +1433,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1461,7 +1461,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         serviceOverride: service,
       });
       await governance.claimOrRefreshNeuron({
@@ -1480,7 +1480,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         serviceOverride: service,
       });
       const call = () =>
@@ -1502,7 +1502,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.joinCommunityFund(neuronId);
@@ -1518,7 +1518,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () => governance.joinCommunityFund(neuronId);
@@ -1536,7 +1536,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.leaveCommunityFund(neuronId);
@@ -1552,7 +1552,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () => governance.leaveCommunityFund(neuronId);
@@ -1570,7 +1570,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const { autoStakeMaturity } = GovernanceCanister.create({
+      const { autoStakeMaturity } = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await autoStakeMaturity({ neuronId, autoStake: true });
@@ -1586,7 +1586,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const { autoStakeMaturity } = GovernanceCanister.create({
+      const { autoStakeMaturity } = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1625,7 +1625,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const { autoStakeMaturity } = GovernanceCanister.create({
+      const { autoStakeMaturity } = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () => autoStakeMaturity({ neuronId, autoStake: true });
@@ -1643,7 +1643,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const principal = Principal.fromText("kb4lg-bqaaa-aaaab-qabfq-cai");
@@ -1660,7 +1660,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const principal = Principal.fromText("kb4lg-bqaaa-aaaab-qabfq-cai");
@@ -1680,7 +1680,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const principal = Principal.fromText("kb4lg-bqaaa-aaaab-qabfq-cai");
@@ -1697,7 +1697,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const principal = Principal.fromText("kb4lg-bqaaa-aaaab-qabfq-cai");
@@ -1717,7 +1717,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.setVisibility(neuronId, NeuronVisibility.Public);
@@ -1749,7 +1749,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1779,7 +1779,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.mergeNeurons({
@@ -1799,7 +1799,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () =>
@@ -1831,7 +1831,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.simulate_manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const mergedNeuron = await governance.simulateMergeNeurons({
@@ -1854,7 +1854,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.simulate_manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () =>
@@ -1882,7 +1882,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.mergeMaturity({
@@ -1896,7 +1896,7 @@ describe("GovernanceCanister", () => {
     it("throws error if percentage not valid", async () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () =>
@@ -1916,7 +1916,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () =>
@@ -1945,7 +1945,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const { stakeMaturity } = GovernanceCanister.create({
+      const { stakeMaturity } = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1961,7 +1961,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const { stakeMaturity } = GovernanceCanister.create({
+      const { stakeMaturity } = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -1989,7 +1989,7 @@ describe("GovernanceCanister", () => {
     it("throws error if percentage not valid", async () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
 
-      const { stakeMaturity } = GovernanceCanister.create({
+      const { stakeMaturity } = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -2011,7 +2011,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const { stakeMaturity } = GovernanceCanister.create({
+      const { stakeMaturity } = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
 
@@ -2040,7 +2040,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const response = await governance.spawnNeuron({
@@ -2055,7 +2055,7 @@ describe("GovernanceCanister", () => {
     it("throws error if percentage not valid", async () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () =>
@@ -2075,7 +2075,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () =>
@@ -2097,7 +2097,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.disburse({
@@ -2115,7 +2115,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () =>
@@ -2131,7 +2131,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockImplementation(vi.fn());
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () =>
@@ -2154,7 +2154,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.refreshVotingPower({
@@ -2172,7 +2172,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () =>
@@ -2195,7 +2195,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.splitNeuron({
@@ -2233,7 +2233,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () =>
@@ -2255,7 +2255,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.startDissolving(neuronId);
@@ -2271,7 +2271,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () => governance.startDissolving(neuronId);
@@ -2289,7 +2289,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.stopDissolving(neuronId);
@@ -2305,7 +2305,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () => governance.stopDissolving(neuronId);
@@ -2334,7 +2334,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const response = await governance.makeProposal(makeProposalRequest);
@@ -2350,7 +2350,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const response = await governance.makeProposal(makeProposalRequest);
@@ -2366,7 +2366,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const call = () => governance.makeProposal(makeProposalRequest);
@@ -2390,7 +2390,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.get_latest_reward_event.mockResolvedValue(mockRewardEvent);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -2408,7 +2408,7 @@ describe("GovernanceCanister", () => {
         rawNetworkEconomics,
       );
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -2431,7 +2431,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.disburseMaturity({
@@ -2467,7 +2467,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       const owner = Principal.fromText("kb4lg-bqaaa-aaaab-qabfq-cai");
@@ -2528,7 +2528,7 @@ describe("GovernanceCanister", () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       service.manage_neuron.mockResolvedValue(serviceResponse);
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
       });
       await governance.setFollowing({
@@ -2741,7 +2741,7 @@ describe("GovernanceCanister", () => {
         Ok: rawMetrics,
       });
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -2759,7 +2759,7 @@ describe("GovernanceCanister", () => {
         Ok: { ...rawMetrics, public_neuron_subset_metrics: [] },
       });
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });
@@ -2781,7 +2781,7 @@ describe("GovernanceCanister", () => {
         Err: error,
       });
 
-      const governance = GovernanceCanister.create({
+      const governance = NnsGovernanceCanister.create({
         certifiedServiceOverride: service,
         serviceOverride: service,
       });

@@ -16,7 +16,7 @@ import { MAINNET_GOVERNANCE_CANISTER_ID } from "./constants/canister_ids";
 import type { Neuron } from "./types/governance_converters";
 import { principalToAccountIdentifier } from "./utils/account_identifier.utils";
 
-export class GovernanceTestCanister {
+export class NnsGovernanceTestCanister {
   private constructor(
     private readonly canisterId: Principal,
     private readonly certifiedService: ActorSubclass<NnsGovernanceTestService>,
@@ -40,7 +40,7 @@ export class GovernanceTestCanister {
       certifiedIdlFactory: idlFactoryCertifiedNnsGovernanceTest,
     });
 
-    return new GovernanceTestCanister(canisterId, certifiedService);
+    return new NnsGovernanceTestCanister(canisterId, certifiedService);
   }
 
   /**
