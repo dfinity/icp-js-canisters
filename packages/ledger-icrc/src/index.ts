@@ -1,4 +1,7 @@
-import type { IcrcLedgerDid } from "@icp-sdk/canisters/ledger/icrc";
+import type {
+  IcrcIndexNgDid,
+  IcrcLedgerDid,
+} from "@icp-sdk/canisters/ledger/icrc";
 
 export type Icrc3Value = IcrcLedgerDid.ICRC3Value;
 export type IcrcAllowance = IcrcLedgerDid.Allowance;
@@ -15,6 +18,12 @@ export type IcrcTransferArg = IcrcLedgerDid.TransferArg;
 export type IcrcTransferFromError = IcrcLedgerDid.TransferFromError;
 export type IcrcTransferVariantError = IcrcLedgerDid.TransferError;
 export type IcrcValue = IcrcLedgerDid.Value;
+
+export type IcrcIndexNgGetTransactions = IcrcIndexNgDid.GetTransactions;
+export type IcrcIndexNgTransaction = IcrcIndexNgDid.Transaction;
+export type IcrcIndexNgTransactionWithId = IcrcIndexNgDid.TransactionWithId;
+export type IcrcNgStatus = IcrcIndexNgDid.Status;
+export type IcrcNgTxId = IcrcIndexNgDid.BlockIndex;
 
 /**
  * @deprecated Use "@icp-sdk/canisters/ledger/icrc" directly instead
