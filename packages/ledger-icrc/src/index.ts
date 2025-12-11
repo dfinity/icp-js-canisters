@@ -1,37 +1,31 @@
-/**
- * @module api/ledger/icrc
- */
+import type {
+  IcrcIndexDid,
+  IcrcLedgerDid,
+} from "@icp-sdk/canisters/ledger/icrc";
 
-export type {
-  ICRC3Value as Icrc3Value,
-  Allowance as IcrcAllowance,
-  ApproveError as IcrcApproveError,
-  BlockIndex as IcrcBlockIndex,
-  Account as IcrcCandidAccount,
-  GetBlocksArgs as IcrcGetBlocksArgs,
-  GetBlocksResult as IcrcGetBlocksResult,
-  StandardRecord as IcrcStandardRecord,
-  Subaccount as IcrcSubaccount,
-  Timestamp as IcrcTimestamp,
-  Tokens as IcrcTokens,
-  TransferArg as IcrcTransferArg,
-  TransferFromError as IcrcTransferFromError,
-  TransferError as IcrcTransferVariantError,
-  Value as IcrcValue,
-} from "./candid/icrc_ledger";
-export * from "./converters/converters";
-export * from "./converters/ledger.converters";
-export * from "./errors/index.errors";
-export * from "./errors/ledger.errors";
-export { IcrcIndexNgCanister } from "./index-ng.canister";
-export { IcrcIndexCanister } from "./index.canister";
-export { IcrcLedgerCanister } from "./ledger.canister";
-export { IcrcNftLedgerCanister } from "./nft-ledger.canister";
-export type * from "./types/index-ng.params";
-export type * from "./types/index-ng.types";
-export type * from "./types/index.params";
-export type * from "./types/index.types";
-export * from "./types/ledger.params";
-export * from "./types/ledger.responses";
-export * from "./utils/ledger.utils";
-export * from "./utils/payment.utils";
+export type Icrc3Value = IcrcLedgerDid.ICRC3Value;
+export type IcrcAllowance = IcrcLedgerDid.Allowance;
+export type IcrcApproveError = IcrcLedgerDid.ApproveError;
+export type IcrcBlockIndex = IcrcLedgerDid.BlockIndex;
+export type IcrcCandidAccount = IcrcLedgerDid.Account;
+export type IcrcGetBlocksArgs = IcrcLedgerDid.GetBlocksArgs;
+export type IcrcGetBlocksResult = IcrcLedgerDid.GetBlocksResult;
+export type IcrcStandardRecord = IcrcLedgerDid.StandardRecord;
+export type IcrcSubaccount = IcrcLedgerDid.Subaccount;
+export type IcrcTimestamp = IcrcLedgerDid.Timestamp;
+export type IcrcTokens = IcrcLedgerDid.Tokens;
+export type IcrcTransferArg = IcrcLedgerDid.TransferArg;
+export type IcrcTransferFromError = IcrcLedgerDid.TransferFromError;
+export type IcrcTransferVariantError = IcrcLedgerDid.TransferError;
+export type IcrcValue = IcrcLedgerDid.Value;
+
+export type IcrcIndexNgGetTransactions = IcrcIndexDid.GetTransactions;
+export type IcrcIndexNgTransaction = IcrcIndexDid.Transaction;
+export type IcrcIndexNgTransactionWithId = IcrcIndexDid.TransactionWithId;
+export type IcrcNgStatus = IcrcIndexDid.Status;
+export type IcrcNgTxId = IcrcIndexDid.BlockIndex;
+
+/**
+ * @deprecated Use "@icp-sdk/canisters/ledger/icrc" directly instead
+ */
+export * from "@icp-sdk/canisters/ledger/icrc";

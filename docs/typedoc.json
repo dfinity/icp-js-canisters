@@ -1,14 +1,14 @@
 {
   "$schema": "https://typedoc-plugin-markdown.org/schema.json",
   "entryPoints": [
-    "../packages/ckbtc/src/index.ts",
-    "../packages/cketh/src/index.ts",
-    "../packages/cmc/src/index.ts",
-    "../packages/ic-management/src/index.ts",
-    "../packages/ledger-icp/src/index.ts",
-    "../packages/ledger-icrc/src/index.ts",
-    "../packages/nns/src/index.ts",
-    "../packages/sns/src/index.ts"
+    "../packages/canisters/src/ckbtc/index.ts",
+    "../packages/canisters/src/cketh/index.ts",
+    "../packages/canisters/src/cmc/index.ts",
+    "../packages/canisters/src/ic-management/index.ts",
+    "../packages/canisters/src/ledger/icp/index.ts",
+    "../packages/canisters/src/ledger/icrc/index.ts",
+    "../packages/canisters/src/nns/index.ts",
+    "../packages/canisters/src/sns/index.ts"
   ],
   "tsconfig": "../tsconfig.json",
   "readme": "none",

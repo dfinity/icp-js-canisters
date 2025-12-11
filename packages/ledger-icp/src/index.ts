@@ -1,32 +1,37 @@
-/**
- * @module api/ledger/icp
- */
+import type { IcpIndexDid, IcpLedgerDid } from "@icp-sdk/canisters/ledger/icp";
 
-export { AccountIdentifier, SubAccount } from "./account_identifier";
-export type * from "./candid/index";
-export type {
-  Account as Icrc1Account,
-  ApproveError as Icrc1ApproveError,
-  Icrc1BlockIndex,
-  SubAccount as Icrc1SubAccount,
-  Icrc1Timestamp,
-  Icrc1Tokens,
-  Icrc1TransferError,
-  Icrc1TransferResult,
-  ApproveResult as Icrc2ApproveResult,
-  TransferFromError as Icrc2TransferFromError,
-  TransferFromResult as Icrc2TransferFromResult,
-  Value,
-} from "./candid/ledger";
-export * from "./canisters/ledger/ledger.request.converts";
-export * from "./errors/ledger.errors";
-export { IndexCanister } from "./index.canister";
-export { LedgerCanister } from "./ledger.canister";
-export type * from "./types/common";
-export * from "./types/ledger.options";
-export type {
-  Icrc1TransferRequest,
-  Icrc2ApproveRequest,
-  TransferRequest,
-} from "./types/ledger_converters";
-export * from "./utils/accounts.utils";
+export type Icrc1Account = IcpLedgerDid.Account;
+export type Icrc1ApproveError = IcpLedgerDid.ApproveError;
+export type Icrc1BlockIndex = IcpLedgerDid.Icrc1BlockIndex;
+export type Icrc1SubAccount = IcpLedgerDid.SubAccount;
+export type Icrc1Timestamp = IcpLedgerDid.Icrc1Timestamp;
+export type Icrc1Tokens = IcpLedgerDid.Icrc1Tokens;
+export type Icrc1TransferError = IcpLedgerDid.Icrc1TransferError;
+export type Icrc1TransferResult = IcpLedgerDid.Icrc1TransferResult;
+export type Icrc2ApproveResult = IcpLedgerDid.ApproveResult;
+export type Icrc2TransferFromError = IcpLedgerDid.TransferFromError;
+export type Icrc2TransferFromResult = IcpLedgerDid.TransferFromResult;
+export type Value = IcpLedgerDid.Value;
+
+export type GetAccountIdentifierTransactionsResponse =
+  IcpIndexDid.GetAccountIdentifierTransactionsResponse;
+export type TransactionWithId = IcpIndexDid.TransactionWithId;
+export type Transaction = IcpIndexDid.Transaction;
+export type Operation = IcpIndexDid.Operation;
+export type Tokens = IcpIndexDid.Tokens;
+export type TimeStamp = IcpIndexDid.TimeStamp;
+
+/**
+ * @deprecated Use "@icp-sdk/canisters/ledger/icp" directly instead
+ */
+export * from "@icp-sdk/canisters/ledger/icp";
+
+/**
+ * Legacy re-export for backward compatibility.
+ * @deprecated Use "@icp-sdk/canisters/ledger/icp" directly instead
+ */
+export {
+  IcpIndexCanister as IndexCanister,
+  IcpLedgerCanister as LedgerCanister,
+  type IcpLedgerCanisterOptions as LedgerCanisterOptions,
+} from "@icp-sdk/canisters/ledger/icp";

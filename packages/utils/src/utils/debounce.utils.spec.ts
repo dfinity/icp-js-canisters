@@ -31,7 +31,7 @@ describe("debounce-utils", () => {
 
     vi.runAllTimers();
 
-    expect(callback).toHaveBeenCalledTimes(1);
+    expect(callback).toHaveBeenCalledOnce();
   });
 
   it("should debounce one function call", () => {
@@ -42,7 +42,7 @@ describe("debounce-utils", () => {
     vi.runAllTimers();
 
     expect(callback).toHaveBeenCalled();
-    expect(callback).toHaveBeenCalledTimes(1);
+    expect(callback).toHaveBeenCalledOnce();
   });
 
   it("should debounce multiple functions call", () => {
@@ -59,6 +59,6 @@ describe("debounce-utils", () => {
     vi.runAllTimers();
 
     expect(anotherCallback).toHaveBeenCalled();
-    expect(anotherCallback).toHaveBeenCalledTimes(1);
+    expect(anotherCallback).toHaveBeenCalledOnce();
   });
 });

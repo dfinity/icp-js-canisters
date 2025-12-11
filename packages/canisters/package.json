@@ -1,6 +1,6 @@
 {
   "name": "@icp-sdk/canisters",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "A modular library for interacting with canisters on the Internet Computer.",
   "license": "Apache-2.0",
   "type": "module",
@@ -56,7 +56,7 @@
   },
   "scripts": {
     "clean": "git ls-files --others --ignored --exclude-standard | grep -v \"LICENSE\" | xargs rm -rf",
-    "ts-declaration": "tsc --emitDeclarationOnly --outDir .",
+    "ts-declaration": "tsc --emitDeclarationOnly --outDir . && ../../scripts/copy-declarations",
     "build": "npm run clean && node esbuild.mjs && npm run ts-declaration",
     "prepack": "npm run build",
     "pretest": "npm run build",
@@ -88,15 +88,12 @@
   ],
   "homepage": "https://js.icp.build/canisters/",
   "peerDependencies": {
-    "@dfinity/ckbtc": "^6",
-    "@dfinity/cketh": "^6",
-    "@dfinity/cmc": "^8",
-    "@dfinity/ic-management": "^9",
-    "@dfinity/ledger-icp": "^8",
-    "@dfinity/ledger-icrc": "^6",
-    "@dfinity/nns": "^11",
-    "@dfinity/sns": "^6",
     "@dfinity/utils": "^4",
-    "@icp-sdk/core": "5.0.0-beta.0"
+    "@icp-sdk/core": "^4"
+  },
+  "dependencies": {
+    "@noble/hashes": "^1.8.0",
+    "base58-js": "^3.0.3",
+    "bech32": "^2.0.0"
   }
 }

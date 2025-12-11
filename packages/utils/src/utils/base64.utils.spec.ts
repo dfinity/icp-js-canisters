@@ -45,7 +45,7 @@ describe("Base64 Encoding and Decoding", () => {
 
       expect(() => {
         base64ToUint8Array(invalidBase64String);
-      }).toThrow();
+      }).toThrowError();
     });
 
     it("should not encode non-Uint8Array values properly", () => {

@@ -1,6 +1,6 @@
 {
   "name": "@dfinity/zod-schemas",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A collection of reusable Zod schemas and validators for common data patterns in ICP applications",
   "license": "Apache-2.0",
   "type": "module",

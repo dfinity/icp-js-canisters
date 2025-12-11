@@ -1,18 +1,20 @@
-/**
- * @module api/nns
- */
+import type { NnsGovernanceDid, SnsWasmDid } from "@icp-sdk/canisters/nns";
 
-export type { RewardEvent } from "./candid/governance";
-export type { DeployedSns } from "./candid/sns_wasm";
-export * from "./enums/governance.enums";
-export * from "./errors/governance.errors";
-export { GenesisTokenCanister } from "./genesis_token.canister";
-export { GovernanceCanister } from "./governance.canister";
-export { GovernanceTestCanister } from "./governance_test.canister";
-export { SnsWasmCanister } from "./sns_wasm.canister";
-export * from "./types/common";
-export * from "./types/governance.options";
-export * from "./types/governance_converters";
-export type { SnsWasmCanisterOptions } from "./types/sns_wasm.options";
-export * from "./utils/account_identifier.utils";
-export * from "./utils/neurons.utils";
+export type RewardEvent = NnsGovernanceDid.RewardEvent;
+export type DeployedSns = SnsWasmDid.DeployedSns;
+
+/**
+ * @deprecated Use "@icp-sdk/canisters/nns" directly instead
+ */
+export * from "@icp-sdk/canisters/nns";
+
+/**
+ * Legacy re-export for backward compatibility.
+ * @deprecated Use "@icp-sdk/canisters/nns" directly instead
+ */
+export {
+  NnsGenesisTokenCanister as GenesisTokenCanister,
+  NnsGovernanceCanister as GovernanceCanister,
+  NnsGovernanceTestCanister as GovernanceTestCanister,
+  type NnsGovernanceCanisterOptions as GovernanceCanisterOptions,
+} from "@icp-sdk/canisters/nns";

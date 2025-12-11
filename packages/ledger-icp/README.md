@@ -32,20 +32,20 @@ npm i @icp-sdk/core @dfinity/utils
 
 ## Usage
 
-The features are available through the class `LedgerCanister`. It has to be instantiated with a canister ID.
+The features are available through the class `IcpLedgerCanister`. It has to be instantiated with a canister ID.
 
 e.g. fetching a token metadata.
 
 ```ts
 import { createAgent } from "@dfinity/utils";
-import { LedgerCanister } from "@dfinity/ledger-icp";
+import { IcpLedgerCanister } from "@dfinity/ledger-icp";
 
 const agent = await createAgent({
   identity,
   host: HOST,
 });
 
-const { metadata } = LedgerCanister.create({
+const { metadata } = IcpLedgerCanister.create({
   agent,
   canisterId: MY_LEDGER_CANISTER_ID,
 });

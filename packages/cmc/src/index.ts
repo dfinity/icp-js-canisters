@@ -1,12 +1,21 @@
-/**
- * @module api/cmc
- */
+import type { CmcDid } from "@icp-sdk/canisters/cmc";
 
-export type {
-  Cycles,
-  NotifyCreateCanisterArg,
-  NotifyTopUpArg,
-  SubnetTypesToSubnetsResponse,
-} from "./candid/cmc";
-export { CMCCanister } from "./cmc.canister";
-export * from "./cmc.errors";
+export type Cycles = CmcDid.Cycles;
+export type NotifyCreateCanisterArg = CmcDid.NotifyCreateCanisterArg;
+export type NotifyTopUpArg = CmcDid.NotifyTopUpArg;
+export type SubnetTypesToSubnetsResponse = CmcDid.SubnetTypesToSubnetsResponse;
+
+/**
+ * @deprecated Use "@icp-sdk/canisters/cmc" directly instead
+ */
+export * from "@icp-sdk/canisters/cmc";
+
+/**
+ * Legacy re-export for backward compatibility.
+ * @deprecated Use "@icp-sdk/canisters/cmc" directly instead
+ */
+export {
+  CmcCanister as CMCCanister,
+  CmcError as CMCError,
+  type CmcCanisterOptions as CMCCanisterOptions,
+} from "@icp-sdk/canisters/cmc";

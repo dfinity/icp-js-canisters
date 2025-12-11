@@ -228,8 +228,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledTimes(1);
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: false,
                 response: queryResponse,
               });
@@ -250,8 +249,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledTimes(1);
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: false,
                 response: queryResponse,
               });
@@ -304,7 +302,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onQueryErrorMock).toHaveBeenCalledTimes(1);
+              expect(onQueryErrorMock).toHaveBeenCalledOnce();
               expect(onQueryErrorMock).toHaveBeenNthCalledWith(1, {
                 error: queryErrorObj,
                 identity: mockIdentity,
@@ -316,7 +314,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledTimes(1);
+              expect(console.error).toHaveBeenCalledOnce();
               expect(console.error).toHaveBeenNthCalledWith(1, queryErrorObj);
             });
 
@@ -347,7 +345,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onQueryErrorMock).toHaveBeenCalledTimes(1);
+              expect(onQueryErrorMock).toHaveBeenCalledOnce();
               expect(onQueryErrorMock).toHaveBeenNthCalledWith(1, {
                 error: queryErrorObj,
                 identity: mockIdentity,
@@ -367,7 +365,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledTimes(1);
+              expect(console.error).toHaveBeenCalledOnce();
               expect(console.error).toHaveBeenNthCalledWith(1, queryErrorObj);
             });
 
@@ -421,8 +419,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledTimes(1);
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: false,
                 response: queryResponse,
               });
@@ -441,7 +438,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onUpdateErrorMock).toHaveBeenCalledTimes(1);
+              expect(onUpdateErrorMock).toHaveBeenCalledOnce();
               expect(onUpdateErrorMock).toHaveBeenNthCalledWith(1, {
                 error: updateErrorObj,
                 identity: mockIdentity,
@@ -453,7 +450,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledTimes(1);
+              expect(console.error).toHaveBeenCalledOnce();
               expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
             });
 
@@ -483,8 +480,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledTimes(1);
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: true,
                 response: updateResponse,
               });
@@ -495,7 +491,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onQueryErrorMock).toHaveBeenCalledTimes(1);
+              expect(onQueryErrorMock).toHaveBeenCalledOnce();
               expect(onQueryErrorMock).toHaveBeenNthCalledWith(1, {
                 error: queryErrorObj,
                 identity: mockIdentity,
@@ -515,7 +511,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledTimes(1);
+              expect(console.error).toHaveBeenCalledOnce();
               expect(console.error).toHaveBeenNthCalledWith(1, queryErrorObj);
             });
 
@@ -546,7 +542,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onQueryErrorMock).toHaveBeenCalledTimes(1);
+              expect(onQueryErrorMock).toHaveBeenCalledOnce();
               expect(onQueryErrorMock).toHaveBeenNthCalledWith(1, {
                 error: queryErrorObj,
                 identity: mockIdentity,
@@ -558,7 +554,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onUpdateErrorMock).toHaveBeenCalledTimes(1);
+              expect(onUpdateErrorMock).toHaveBeenCalledOnce();
               expect(onUpdateErrorMock).toHaveBeenNthCalledWith(1, {
                 error: updateErrorObj,
                 identity: mockIdentity,
@@ -601,8 +597,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledTimes(1);
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: true,
                 response: updateResponse,
               });
@@ -639,7 +634,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onUpdateErrorMock).toHaveBeenCalledTimes(1);
+              expect(onUpdateErrorMock).toHaveBeenCalledOnce();
               expect(onUpdateErrorMock).toHaveBeenNthCalledWith(1, {
                 error: updateErrorObj,
                 identity: mockIdentity,
@@ -651,7 +646,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledTimes(1);
+              expect(console.error).toHaveBeenCalledOnce();
               expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
             });
 
@@ -681,8 +676,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledTimes(1);
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: true,
                 response: updateResponse,
               });
@@ -728,7 +722,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onUpdateErrorMock).toHaveBeenCalledTimes(1);
+              expect(onUpdateErrorMock).toHaveBeenCalledOnce();
               expect(onUpdateErrorMock).toHaveBeenNthCalledWith(1, {
                 error: updateErrorObj,
                 identity: mockIdentity,
@@ -740,7 +734,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledTimes(1);
+              expect(console.error).toHaveBeenCalledOnce();
               expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
             });
 
@@ -768,8 +762,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledTimes(1);
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: true,
                 response: updateResponse,
               });
@@ -806,7 +799,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onUpdateErrorMock).toHaveBeenCalledTimes(1);
+              expect(onUpdateErrorMock).toHaveBeenCalledOnce();
               expect(onUpdateErrorMock).toHaveBeenNthCalledWith(1, {
                 error: updateErrorObj,
                 identity: mockIdentity,
@@ -818,7 +811,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledTimes(1);
+              expect(console.error).toHaveBeenCalledOnce();
               expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
             });
 
@@ -848,8 +841,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onLoadMock).toHaveBeenCalledTimes(1);
-              expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+              expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
                 certified: true,
                 response: updateResponse,
               });
@@ -860,7 +852,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onQueryErrorMock).toHaveBeenCalledTimes(1);
+              expect(onQueryErrorMock).toHaveBeenCalledOnce();
               expect(onQueryErrorMock).toHaveBeenNthCalledWith(1, {
                 error: queryErrorObj,
                 identity: mockIdentity,
@@ -899,7 +891,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onQueryErrorMock).toHaveBeenCalledTimes(1);
+              expect(onQueryErrorMock).toHaveBeenCalledOnce();
               expect(onQueryErrorMock).toHaveBeenNthCalledWith(1, {
                 error: queryErrorObj,
                 identity: mockIdentity,
@@ -911,7 +903,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(onUpdateErrorMock).toHaveBeenCalledTimes(1);
+              expect(onUpdateErrorMock).toHaveBeenCalledOnce();
               expect(onUpdateErrorMock).toHaveBeenNthCalledWith(1, {
                 error: updateErrorObj,
                 identity: mockIdentity,
@@ -923,7 +915,7 @@ describe("query", () => {
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledTimes(1);
+              expect(console.error).toHaveBeenCalledOnce();
               expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
             });
 
@@ -954,7 +946,7 @@ describe("query", () => {
 
         await queryAndUpdate(mockParams);
 
-        expect(requestMock).toHaveBeenCalledTimes(1);
+        expect(requestMock).toHaveBeenCalledOnce();
         expect(requestMock).toHaveBeenNthCalledWith(1, {
           certified: false,
           identity: mockIdentity,
@@ -966,8 +958,7 @@ describe("query", () => {
 
         await queryAndUpdate(mockParams);
 
-        expect(onLoadMock).toHaveBeenCalledTimes(1);
-        expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+        expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
           certified: false,
           response: requestResponse,
         });
@@ -980,7 +971,7 @@ describe("query", () => {
 
         await queryAndUpdate(mockParams);
 
-        expect(onQueryErrorMock).toHaveBeenCalledTimes(1);
+        expect(onQueryErrorMock).toHaveBeenCalledOnce();
         expect(onQueryErrorMock).toHaveBeenNthCalledWith(1, {
           error: requestErrorObj,
           identity: mockIdentity,
@@ -1004,7 +995,7 @@ describe("query", () => {
 
         await queryAndUpdate(mockParams);
 
-        expect(console.error).toHaveBeenCalledTimes(1);
+        expect(console.error).toHaveBeenCalledOnce();
         expect(console.error).toHaveBeenNthCalledWith(1, requestErrorObj);
       });
 
@@ -1034,7 +1025,7 @@ describe("query", () => {
 
         await queryAndUpdate(mockParams);
 
-        expect(requestMock).toHaveBeenCalledTimes(1);
+        expect(requestMock).toHaveBeenCalledOnce();
         expect(requestMock).toHaveBeenNthCalledWith(1, {
           certified: true,
           identity: mockIdentity,
@@ -1046,8 +1037,7 @@ describe("query", () => {
 
         await queryAndUpdate(mockParams);
 
-        expect(onLoadMock).toHaveBeenCalledTimes(1);
-        expect(onLoadMock).toHaveBeenNthCalledWith(1, {
+        expect(onLoadMock).toHaveBeenCalledExactlyOnceWith({
           certified: true,
           response: requestResponse,
         });
@@ -1070,7 +1060,7 @@ describe("query", () => {
 
         await queryAndUpdate(mockParams);
 
-        expect(onUpdateErrorMock).toHaveBeenCalledTimes(1);
+        expect(onUpdateErrorMock).toHaveBeenCalledOnce();
         expect(onUpdateErrorMock).toHaveBeenNthCalledWith(1, {
           error: requestErrorObj,
           identity: mockIdentity,
@@ -1084,7 +1074,7 @@ describe("query", () => {
 
         await queryAndUpdate(mockParams);
 
-        expect(console.error).toHaveBeenCalledTimes(1);
+        expect(console.error).toHaveBeenCalledOnce();
         expect(console.error).toHaveBeenNthCalledWith(1, requestErrorObj);
       });
 

@@ -1,21 +1,21 @@
 {
   "name": "@dfinity/icp-js-canisters",
-  "version": "87",
+  "version": "88",
   "description": "A collection of library for interfacing with the Internet Computer.",
   "license": "Apache-2.0",
   "workspaces": [
     "packages/utils",
     "packages/nns-proto",
+    "packages/zod-schemas",
+    "packages/canisters",
+    "packages/ckbtc",
+    "packages/cketh",
+    "packages/cmc",
+    "packages/ic-management",
     "packages/ledger-icp",
     "packages/ledger-icrc",
     "packages/nns",
     "packages/sns",
-    "packages/cmc",
-    "packages/ckbtc",
-    "packages/ic-management",
-    "packages/cketh",
-    "packages/zod-schemas",
-    "packages/canisters",
     "docs"
   ],
   "scripts": {
@@ -39,19 +39,19 @@
     "url": "https://github.com/dfinity/icp-js-canisters"
   },
   "devDependencies": {
-    "@dfinity/eslint-config-oisy-wallet": "^0.2.0",
+    "@dfinity/eslint-config-oisy-wallet": "^0.2.3",
     "@icp-sdk/bindgen": "^0.2.0",
-    "@size-limit/esbuild": "^11.2.0",
-    "@size-limit/preset-small-lib": "^11.2.0",
-    "@types/node": "^24.0.14",
+    "@size-limit/esbuild": "^12.0.0",
+    "@size-limit/preset-small-lib": "^12.0.0",
+    "@types/node": "^24.10.1",
     "esbuild": "^0.27.0",
-    "prettier": "^3.6.2",
-    "prettier-plugin-organize-imports": "^4.1.0",
-    "size-limit": "^11.2.0",
+    "prettier": "^3.7.3",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "size-limit": "^12.0.0",
     "ts-protoc-gen": "^0.15.0",
     "tsdoc-markdown": "^1.4.1",
-    "typescript": "^5.8.3",
-    "vitest": "^3.2.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14",
     "vitest-mock-extended": "^3.1.0"
   },
   "size-limit": [
@@ -130,8 +130,7 @@
         "@dfinity/candid",
         "@dfinity/principal",
         "@icp-sdk/core",
-        "@dfinity/utils",
-        "@dfinity/ledger-icp"
+        "@dfinity/utils"
       ]
     },
     {
@@ -150,8 +149,7 @@
         "@dfinity/candid",
         "@dfinity/principal",
         "@icp-sdk/core",
-        "@dfinity/utils",
-        "@dfinity/ledger-icrc"
+        "@dfinity/utils"
       ]
     },
     {
@@ -265,8 +263,7 @@
         "@dfinity/candid",
         "@dfinity/principal",
         "@icp-sdk/core",
-        "@dfinity/utils",
-        "@dfinity/ledger-icp"
+        "@dfinity/utils"
       ]
     },
     {
@@ -279,8 +276,7 @@
         "@dfinity/candid",
         "@dfinity/principal",
         "@icp-sdk/core",
-        "@dfinity/utils",
-        "@dfinity/ledger-icrc"
+        "@dfinity/utils"
       ]
     },
     {
