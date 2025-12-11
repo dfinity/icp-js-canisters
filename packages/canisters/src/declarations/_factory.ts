@@ -1,3 +1,4 @@
+import { idlFactory as idlFactoryCertifiedAssets } from "./assets/assets_assetstorage.certified.idl";
 import { idlFactory as idlFactoryAssets } from "./assets/assets_assetstorage.idl";
 import { idlFactory as idlFactoryCertifiedBitcoin } from "./ckbtc/bitcoin.certified.idl";
 import { idlFactory as idlFactoryBitcoin } from "./ckbtc/bitcoin.idl";
@@ -63,6 +64,7 @@ import type { _SERVICE as SnsSwapService } from "./sns/swap";
 export {
   idlFactoryAssets,
   idlFactoryBitcoin,
+  idlFactoryCertifiedAssets,
   idlFactoryCertifiedBitcoin,
   idlFactoryCertifiedCkBtcMinter,
   idlFactoryCertifiedCkEthMinter,
