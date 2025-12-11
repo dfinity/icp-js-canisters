@@ -1,9 +1,9 @@
 /* eslint-disable local-rules/prefer-object-params */
 
 import { uint8FromBufLike } from "@icp-sdk/core/agent";
-import fs from "fs";
 import mime from "mime/lite.js";
-import path from "path";
+import fs from "../utils/fs-polyfill";
+import path from "../utils/path-polyfill";
 import type { Readable } from "./readable";
 
 export class ReadablePath implements Readable {

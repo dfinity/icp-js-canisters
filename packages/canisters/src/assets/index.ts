@@ -16,7 +16,6 @@ import {
 } from "@icp-sdk/core/agent";
 import { compare, lebDecode, PipeArrayBuffer } from "@icp-sdk/core/candid";
 import { sha256 } from "@noble/hashes/sha2";
-import fs from "fs";
 import type { AssetsDid, AssetsService } from "../declarations";
 import { getAssetsCanister } from "./assets.canister";
 import { isReadable, type Readable } from "./readable/readable";
@@ -24,6 +23,7 @@ import { ReadableBlob } from "./readable/readableBlob";
 import { ReadableBytes } from "./readable/readableBytes";
 import { ReadableFile } from "./readable/readableFile";
 import { ReadablePath } from "./readable/readablePath";
+import fs from "./utils/fs-polyfill";
 import { limit, type LimitFn } from "./utils/limit";
 
 /**

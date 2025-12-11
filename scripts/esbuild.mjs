@@ -92,7 +92,7 @@ const buildBrowser = ({ multi } = { multi: false }) => {
       target: ["esnext"],
       platform: "browser",
       conditions: ["worker", "browser"],
-      external: externalPeerDependencies,
+      external: [...externalPeerDependencies, "fs", "path"],
     })
     .catch(() => process.exit(1));
 };
