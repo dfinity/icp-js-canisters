@@ -1,4 +1,4 @@
-import { ReadableFile } from "./readableFile";
+import { ReadableFile } from "./readable-file";
 
 describe("ReadableFile", () => {
   test("ReadableFile from File", async () => {

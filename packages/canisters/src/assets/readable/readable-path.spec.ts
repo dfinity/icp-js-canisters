@@ -1,6 +1,6 @@
 import { readFileSync, statSync } from "fs";
 import { basename, resolve } from "path";
-import { ReadablePath } from "./readablePath";
+import { ReadablePath } from "./readable-path";
 
 describe("ReadablePath", () => {
   test("ReadablePath from path", async () => {

@@ -1,4 +1,4 @@
-import { ReadableBlob } from "./readableBlob";
+import { ReadableBlob } from "./readable-blob";
 
 describe("ReadableBlob", () => {
   test("ReadableBlob from Blob", async () => {
