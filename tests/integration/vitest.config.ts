@@ -5,6 +5,7 @@ export default defineConfig({
   ...baseConfig,
   test: {
     ...baseConfig.test,
+    exclude: ["node_modules/**"],
     testTimeout: 100_000,
     typecheck: {
       enabled: true,
