@@ -24,7 +24,7 @@
     "lint": "eslint --max-warnings 0 .",
     "format": "prettier --write .",
     "protoc": "bash ./scripts/update_proto.sh",
-    "pretest": "npm run pretest --workspaces --if-present",
+    "pretest": "npm run pretest --workspace=packages/** --if-present",
     "test": "tsc --project tsconfig.spec.json --noEmit && vitest",
     "test:integration": "npm run test --workspace=tests/integration",
     "docs": "npm run docs --workspace=docs && node scripts/docs.js && prettier --write packages/**/README.md",
