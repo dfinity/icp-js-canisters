@@ -32,7 +32,7 @@ npm i @icp-sdk/core @dfinity/utils
 Most features are provided through the use of classes. For example, querying the list of neurons controlled by the caller with the `governance` canister:
 
 ```ts
-import { GovernanceCanister } from "@dfinity/nns";
+import { NnsGovernanceCanister } from "@dfinity/nns";
 import { createAgent } from "@dfinity/utils";
 
 const agent = await createAgent({
@@ -40,7 +40,7 @@ const agent = await createAgent({
   host: HOST,
 });
 
-const { listNeurons } = GovernanceCanister.create({
+const { listNeurons } = NnsGovernanceCanister.create({
   agent,
   canisterId: MY_GOVERNANCE_CANISTER_ID,
 });
@@ -51,7 +51,7 @@ const myNeurons = await listNeurons({ certified: false });
 To execute this on a local environment, you will need to fetch the root key when initializing the agent. Additionally, you might need to adapt the port. The following snippet also demonstrates how you can inline a canister ID as well.
 
 ```typescript
-import { GovernanceCanister } from "@dfinity/nns";
+import { NnsGovernanceCanister } from "@dfinity/nns";
 import { Principal } from "@icp-sdk/core/principal";
 import { createAgent } from "@dfinity/utils";
 
@@ -61,7 +61,7 @@ const agent = await createAgent({
   fetchRootKey: true,
 });
 
-const { listNeurons } = GovernanceCanister.create({
+const { listNeurons } = NnsGovernanceCanister.create({
   agent,
   canisterId: Principal.fromText("rrkah-fqaaa-aaaaa-aaaaq-cai"),
 });
