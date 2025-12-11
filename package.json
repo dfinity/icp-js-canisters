@@ -189,6 +189,19 @@
       ]
     },
     {
+      "name": "@icp-sdk/canisters/assets",
+      "path": "./packages/canisters/assets/index.js",
+      "limit": "11 kB",
+      "gzip": true,
+      "ignore": [
+        "@dfinity/agent",
+        "@dfinity/candid",
+        "@dfinity/principal",
+        "@icp-sdk/core",
+        "@dfinity/utils"
+      ]
+    },
+    {
       "name": "@icp-sdk/canisters/ckbtc",
       "path": "./packages/canisters/ckbtc/index.js",
       "limit": "9 kB",
