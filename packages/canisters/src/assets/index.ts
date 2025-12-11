@@ -378,11 +378,11 @@ class AssetManagerBatch {
             key,
             content_type: config?.contentType ?? readable.contentType,
             headers,
+            allow_raw_access: [],
+            max_age: [],
+            enable_aliasing: [],
           },
-        } as Extract<
-          AssetsDid.BatchOperationKind,
-          { CreateAsset: AssetsDid.CreateAssetArguments }
-        >,
+        },
         {
           SetAssetContent: {
             key,
@@ -393,10 +393,7 @@ class AssetManagerBatch {
             content_encoding: config?.contentEncoding ?? "identity",
             last_chunk: [],
           },
-        } as Extract<
-          AssetsDid.BatchOperationKind,
-          { SetAssetContent: AssetsDid.SetAssetContentArguments }
-        >,
+        },
       ];
     });
     return key;
