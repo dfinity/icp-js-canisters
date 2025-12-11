@@ -89,7 +89,7 @@
   "homepage": "https://js.icp.build/canisters/",
   "peerDependencies": {
     "@dfinity/utils": "^4",
-    "@icp-sdk/core": "^4"
+    "@icp-sdk/core": "5.0.0-beta.1"
   },
   "dependencies": {
     "@noble/hashes": "^1.8.0",
