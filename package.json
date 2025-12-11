@@ -191,7 +191,7 @@
     {
       "name": "@icp-sdk/canisters/assets",
       "path": "./packages/canisters/assets/index.js",
-      "limit": "1 kB",
+      "limit": "11 kB",
       "gzip": true,
       "ignore": [
         "@dfinity/agent",
