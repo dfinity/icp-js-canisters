@@ -114,3 +114,6 @@ dist
 
 # IC if checked out, e.g. in CI
 /ic/
+
+# dfx related
+.dfx/

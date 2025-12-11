@@ -1,0 +1,15 @@
+{
+  "name": "@dfinity/icp-js-canisters-tests-integration",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pretest": "bash ../../scripts/prepare-integration-tests",
+    "test": "vitest",
+    "posttest": "bash ../../scripts/finish-integration-tests"
+  },
+  "dependencies": {
+    "@dfinity/utils": "*",
+    "@icp-sdk/canisters": "*",
+    "@icp-sdk/core": "^4"
+  }
+}
