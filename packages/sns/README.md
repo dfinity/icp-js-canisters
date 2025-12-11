@@ -44,7 +44,7 @@ const agent = await createAgent({
   host: HOST,
 });
 
-const snsWrapper = await initSnsWrapper({
+const wrapper = await initSnsWrapper({
   rootOptions: {
     canisterId: rootCanisterId,
   },
