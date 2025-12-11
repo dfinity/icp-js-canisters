@@ -12,7 +12,7 @@
 | `@dfinity/cmc`           | v9.0.0  | Enhanced 🔧️         |
 | `@dfinity/ic-management` | v10.0.0 | Enhanced 🔧️         |
 | `@dfinity/ledger-icp`    | v9.0.0  | Enhanced 🔧️         |
-| `@dfinity/ledger-icrc`   | v7.0.0  | Enhanced 🔧️         |
+| `@dfinity/ledger-icrc`   | v7.0.0  | Breaking Changes ⚠️ |
 | `@dfinity/nns`           | v12.0.0 | Enhanced 🔧️         |
 | `@dfinity/nns-proto`     | v2.0.4  | Unchanged️           |
 | `@dfinity/sns`           | v7.0.0  | Enhanced 🔧️         |
