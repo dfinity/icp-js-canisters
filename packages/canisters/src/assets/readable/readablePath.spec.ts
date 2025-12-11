@@ -4,7 +4,7 @@ import { ReadablePath } from "./readablePath";
 
 describe("ReadablePath", () => {
   test("ReadablePath from path", async () => {
-    const path = resolve(__dirname, "../../package.json");
+    const path = resolve(__dirname, "../../../package.json");
     const readable = await ReadablePath.create(path);
 
     expect(readable.fileName).toEqual(basename(path));
