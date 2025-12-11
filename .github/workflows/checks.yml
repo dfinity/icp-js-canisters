@@ -142,6 +142,21 @@ jobs:
       - name: Test
         run: npm run test
 
+  test-integration:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: dfinity/setup-dfx@main
+        with: 
+          dfx-version: "0.30.1-beta.1"
+      - name: Prepare
+        uses: ./.github/actions/prepare
+      - name: Build
+        run: npm run build
+      - name: Test integration
+        run: npm run test:integration
+
   size:
     runs-on: ubuntu-24.04
     # The size checker should run and provide metrics only on PRs
@@ -157,7 +172,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
   may-merge:
-    needs: ["formatting", "build", "lint", "test", "size"]
+    needs: ["formatting", "build", "lint", "test", "test-integration", "size"]
     runs-on: ubuntu-24.04
     steps:
       - name: Cleared for merging
