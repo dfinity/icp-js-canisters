@@ -19,10 +19,10 @@ import { sha256 } from "@noble/hashes/sha2";
 import type { AssetsDid, AssetsService } from "../declarations";
 import { getAssetsCanister } from "./assets.canister";
 import { isReadable, type Readable } from "./readable/readable";
-import { ReadableBlob } from "./readable/readableBlob";
-import { ReadableBytes } from "./readable/readableBytes";
-import { ReadableFile } from "./readable/readableFile";
-import { ReadablePath } from "./readable/readablePath";
+import { ReadableBlob } from "./readable/readable-blob";
+import { ReadableBytes } from "./readable/readable-bytes";
+import { ReadableFile } from "./readable/readable-file";
+import { ReadablePath } from "./readable/readable-path";
 import fs from "./utils/fs-polyfill";
 import { limit, type LimitFn } from "./utils/limit";
 
