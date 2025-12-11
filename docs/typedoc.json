@@ -10,7 +10,7 @@
     "../packages/canisters/src/nns/index.ts",
     "../packages/canisters/src/sns/index.ts"
   ],
-  "tsconfig": "../tsconfig.json",
+  "tsconfig": "./tsconfig.json",
   "readme": "none",
   "out": "src/content/tmp",
   "plugin": [
