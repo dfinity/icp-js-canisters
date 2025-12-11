@@ -1,6 +1,7 @@
 {
   "$schema": "https://typedoc-plugin-markdown.org/schema.json",
   "entryPoints": [
+    "../packages/canisters/src/assets/index.ts",
     "../packages/canisters/src/ckbtc/index.ts",
     "../packages/canisters/src/cketh/index.ts",
     "../packages/canisters/src/cmc/index.ts",
