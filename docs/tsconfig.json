@@ -1,4 +1,4 @@
 {
-    "extends": "../tsconfig.json",
-    "include": ["../packages/canisters/src/**/*"]
+  "extends": "../tsconfig.json",
+  "include": ["../packages/canisters/src/**/*"]
 }
