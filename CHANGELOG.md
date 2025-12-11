@@ -1,6 +1,67 @@
 # Changelog
 
-## Next
+## v88
+
+### Overview
+
+| Library                  | Version | Status              |
+| ------------------------ | ------- | ------------------- |
+| `@icp-sdk/canisters`     | v3.0.0  | Breaking Changes ⚠️ |
+| `@dfinity/ckbtc`         | v7.0.0  | Enhanced 🔧️         |
+| `@dfinity/cketh`         | v7.0.0  | Enhanced 🔧️         |
+| `@dfinity/cmc`           | v9.0.0  | Enhanced 🔧️         |
+| `@dfinity/ic-management` | v10.0.0 | Enhanced 🔧️         |
+| `@dfinity/ledger-icp`    | v9.0.0  | Enhanced 🔧️         |
+| `@dfinity/ledger-icrc`   | v7.0.0  | Breaking Changes ⚠️ |
+| `@dfinity/nns`           | v12.0.0 | Enhanced 🔧️         |
+| `@dfinity/nns-proto`     | v2.0.4  | Unchanged️           |
+| `@dfinity/sns`           | v7.0.0  | Enhanced 🔧️         |
+| `@dfinity/utils`         | v4.0.2  | Maintained ⚙        |
+| `@dfinity/zod-schemas`   | v3.0.2  | Maintained ⚙        |
+
+### Breaking Changes
+
+- The types for declarations of the canisters generated to describe the interfaces on the Internet Computer (Candid) are now re-exported through namespaces.
+
+For example, the `Tokens` type of the `IcrcCanister` is available within the related namespace `IcrcLedgerDid`.
+
+```typescript
+import {
+  type IcrcLedgerDid,
+  IcrcLedgerCanister,
+} from "@icp-sdk/canisters/ledger/icrc";
+
+const { balance } = IcrcLedgerCanister.create({
+  agent,
+  canisterId,
+});
+
+const data: IcrcLedgerDid.Tokens = await balance({ owner });
+```
+
+- The following canisters have been renamed for consistency and readability:
+
+| Old                         | New 🆕                      |
+| --------------------------- | --------------------------- |
+| `CkBTCMinterCanister`       | `CkBtcMinterCanister`       |
+| `CkETHMinterCanister`       | `CkEthMinterCanister`       |
+| `CkETHOrchestratorCanister` | `CkEthOrchestratorCanister` |
+| `CMCCanister`               | `CmcCanister`               |
+| `ICManagementCanister`      | `IcManagementCanister`      |
+| `LedgerCanister`            | `IcpLedgerCanister`         |
+| `IndexCanister`             | `IcpIndexCanister`          |
+| `GenesisTokenCanister`      | `NnsGenesisTokenCanister`   |
+| `GovernanceCanister`        | `NnsGovernanceCanister`     |
+| `GovernanceTestCanister`    | `NnsGovernanceTestCanister` |
+
+- The deprecated implementation of the ICRC Index canister has been deleted, and its common implementation becomes the new standard.
+
+In other words, `IcrcIndexNgCanister` becomes `IcrcIndexCanister`.
+
+| Old                   | New 🆕              |
+| --------------------- | ------------------- |
+| `IcrcIndexCanister`   | ---                 |
+| `IcrcIndexNgCanister` | `IcrcIndexCanister` |
 
 ### Features
 
