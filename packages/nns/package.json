@@ -31,9 +31,6 @@
     "prepack": "npm run build",
     "test": "vitest"
   },
-  "dependencies": {
-    "@noble/hashes": "^1.8.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dfinity/icp-js-canisters.git",
