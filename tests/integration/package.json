@@ -8,8 +8,8 @@
     "posttest": "bash ../../scripts/finish-integration-tests"
   },
   "dependencies": {
-    "@dfinity/utils": "^4",
-    "@icp-sdk/canisters": "^3",
+    "@dfinity/utils": "*",
+    "@icp-sdk/canisters": "*",
     "@icp-sdk/core": "^4"
   }
 }
