@@ -16,7 +16,7 @@ describe("ReadableBytes", () => {
 
     expect(readable.fileName).toEqual(fileName);
     expect(readable.contentType).toEqual("image/gif");
-    expect(readable.length).toHaveLength(uint8Array.length);
+    expect(readable).toHaveLength(uint8Array.length);
 
     await readable.open();
 
@@ -33,7 +33,7 @@ describe("ReadableBytes", () => {
 
     expect(readable.fileName).toEqual(fileName);
     expect(readable.contentType).toEqual("image/gif");
-    expect(readable.length).toHaveLength(transparentPixelGif.length);
+    expect(readable).toHaveLength(transparentPixelGif.length);
 
     await readable.open();
 

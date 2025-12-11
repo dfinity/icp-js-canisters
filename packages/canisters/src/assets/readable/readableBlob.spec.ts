@@ -8,7 +8,7 @@ describe("ReadableBlob", () => {
 
     expect(readable.fileName).toEqual(fileName);
     expect(readable.contentType).toEqual("text/plain");
-    expect(readable.length).toHaveLength(blob.size);
+    expect(readable).toHaveLength(blob.size);
 
     await readable.open();
 

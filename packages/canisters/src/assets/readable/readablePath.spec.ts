@@ -9,7 +9,7 @@ describe("ReadablePath", () => {
 
     expect(readable.fileName).toEqual(basename(path));
     expect(readable.contentType).toEqual("application/json");
-    expect(readable.length).toHaveLength(statSync(path).size);
+    expect(readable).toHaveLength(statSync(path).size);
 
     await readable.open();
 
