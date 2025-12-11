@@ -92,7 +92,9 @@ const buildBrowser = ({ multi } = { multi: false }) => {
       target: ["esnext"],
       platform: "browser",
       conditions: ["worker", "browser"],
-      external: externalPeerDependencies,
+      // TODO: remove the extra external dependencies once we have a better way
+      // to handle the conditional imports in the assets submodule
+      external: [...externalPeerDependencies, "fs", "path"],
     })
     .catch(() => process.exit(1));
 };
