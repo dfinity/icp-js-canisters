@@ -11,6 +11,14 @@
     "label": "Modules",
     "items": [
       {
+        "label": "Assets",
+        "collapsed": true,
+        "autogenerate": {
+          "collapsed": true,
+          "directory": "api/assets/"
+        }
+      },
+      {
         "label": "ckBTC",
         "collapsed": true,
         "autogenerate": {

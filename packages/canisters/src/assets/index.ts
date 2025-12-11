@@ -1,5 +1,95 @@
 /* eslint-disable local-rules/prefer-object-params */
 
+/**
+ * ## Quick Start
+ *
+ * The `AssetManager` supports the (chunked) upload of `File`, `Blob`, `ArrayBuffer`, `Uint8Array` and `number[]`.
+ *
+ * Create an asset manager instance:
+ *
+ * ```ts
+ * import { AssetManager } from "@icp-sdk/canisters/assets";
+ *
+ * const assetManager = new AssetManager({
+ *     canisterId: ..., // Principal of assets canister
+ *     agent: ..., // Identity in agent must be authorized by the assets canister to make any changes
+ * });
+ * ```
+ *
+ * Select file and upload to asset canister from the browser:
+ *
+ * ```ts
+ * const input = document.createElement('input');
+ * input.type = 'file';
+ * input.addEventListener('change', async e => {
+ *   const file = e.target.files[0];
+ *   const key = await assetManager.store(file);
+ * });
+ * input.click();
+ * ```
+ *
+ * A config argument can be optionally passed as second argument in the `store` method.
+ * The `fileName` property is required when the data passed in the first argument
+ * is not a `File`, file path or custom `Readable` implementation.
+ *
+ * List files stored in the asset canister:
+ *
+ * ```ts
+ * const files = await assetManager.list();
+ * ```
+ *
+ * Upload multiple files and delete an existing file as batch in Node.js:
+ *
+ * ```ts
+ * import fs from 'fs';
+ *
+ * const banana = fs.readFileSync('./banana.png');
+ * const apple = fs.readFileSync('./apple.png');
+ * const strawberry = fs.readFileSync('./strawberry.png');
+ * const batch = assetManager.batch();
+ * const keys = [
+ *   await batch.store(banana, { fileName: 'banana.png' }),
+ *   await batch.store(apple, { fileName: 'apple.png', path: '/directory/with/apples' }),
+ *   await batch.store(strawberry, { fileName: 'strawberry.png' }),
+ * ];
+ * await batch.delete('/path/to/old/file.csv');
+ * await batch.commit();
+ * ```
+ *
+ * Read file from disk, compress with gzip and upload to asset canister in Node.js,
+ * GZIP compression is recommended for HTML and JS files:
+ *
+ * ```ts
+ * import fs from 'fs';
+ *
+ * const file = fs.readFileSync('./index.html');
+ * const gzippedFile = // gzip the file here
+ * const key = await assetManager.insert(gzippedFile, {
+ *   fileName: 'index.html',
+ *   contentEncoding: 'gzip',
+ * });
+ * ```
+ *
+ * Download image asset to blob and open in new browser tab:
+ *
+ * ```ts
+ * const asset = await assetManager.get('/path/to/file/on/asset/canister/motoko.png');
+ * const blob = await asset.toBlob();
+ * const url = URL.createObjectURL(blob);
+ *
+ * window.open(URL.createObjectURL(blob, '_blank'));
+ * ```
+ *
+ * Download and write asset to path in Node.js:
+ *
+ * ```ts
+ * const asset = await assetManager.get('/large_dataset.csv');
+ * asset.write('/large_dataset.csv');
+ * ```
+ *
+ * @module api/assets
+ */
+
 import { base64ToUint8Array } from "@dfinity/utils";
 import {
   Actor,
