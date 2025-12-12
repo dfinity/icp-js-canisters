@@ -23,7 +23,7 @@
 
 - The types for declarations of the canisters generated to describe the interfaces on the Internet Computer (Candid) are now re-exported through namespaces.
 
-For example, the `Tokens` type of the `IcrcCanister` is available within the related namespace `IcrcLedgerDid`.
+For example, the `Tokens` type of the `IcrcLedgerCanister` is available within the related namespace `IcrcLedgerDid`.
 
 ```typescript
 import {
