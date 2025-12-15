@@ -1,6 +1,6 @@
 {
   "name": "@dfinity/icp-js-canisters",
-  "version": "88",
+  "version": "89",
   "description": "A collection of library for interfacing with the Internet Computer.",
   "license": "Apache-2.0",
   "workspaces": [
