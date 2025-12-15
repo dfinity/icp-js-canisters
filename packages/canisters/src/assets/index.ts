@@ -291,51 +291,52 @@ export class AssetManager {
    * @returns All files in asset canister
    */
   public async list(): ReturnType<AssetsService["list"]> {
-    return await this.fetchAssets({
+    const fetchAssets = async ({
+      start,
+      accumulated,
+      prevPageSize,
+    }: {
+      start: bigint;
+      accumulated: Array<AssetDetails>;
+      prevPageSize: number | undefined;
+    }): Promise<Array<AssetDetails>> => {
+      const { list } = this._actor;
+      const entries = await list({
+        start: [start],
+        length: [DEFAULT_LIST_ASSETS_PAGE_SIZE],
+      });
+
+      const numEntries = entries.length;
+
+      // No more entries
+      if (numEntries === 0) {
+        return accumulated;
+      }
+
+      // If we're on a subsequent page but got the same data as the first page,
+      // the canister doesn't support pagination and is returning all entries every time
+      if (start > BigInt(0) && entriesEqual({ a: entries, b: accumulated })) {
+        return accumulated;
+      }
+
+      const newAccumulated = [...accumulated, ...entries];
+
+      // If we got fewer items than the previous page, we've reached the end
+      if (prevPageSize !== undefined && numEntries < prevPageSize) {
+        return newAccumulated;
+      }
+
+      return await fetchAssets({
+        start: start + BigInt(numEntries),
+        accumulated: newAccumulated,
+        prevPageSize: numEntries,
+      });
+    };
+
+    return await fetchAssets({
       start: BigInt(0),
       accumulated: [],
       prevPageSize: undefined,
-    });
-  }
-
-  private async fetchAssets({
-    start,
-    accumulated,
-    prevPageSize,
-  }: {
-    start: bigint;
-    accumulated: Array<AssetDetails>;
-    prevPageSize: number | undefined;
-  }): Promise<Array<AssetDetails>> {
-    const entries = await this._actor.list({
-      start: [start],
-      length: [DEFAULT_LIST_ASSETS_PAGE_SIZE],
-    });
-
-    const numEntries = entries.length;
-
-    // No more entries
-    if (numEntries === 0) {
-      return accumulated;
-    }
-
-    // If we're on a subsequent page but got the same data as the first page,
-    // the canister doesn't support pagination and is returning all entries every time
-    if (start > BigInt(0) && entriesEqual({ a: entries, b: accumulated })) {
-      return accumulated;
-    }
-
-    const newAccumulated = [...accumulated, ...entries];
-
-    // If we got fewer items than the previous page, we've reached the end
-    if (prevPageSize !== undefined && numEntries < prevPageSize) {
-      return newAccumulated;
-    }
-
-    return await this.fetchAssets({
-      start: start + BigInt(numEntries),
-      accumulated: newAccumulated,
-      prevPageSize: numEntries,
     });
   }
 
