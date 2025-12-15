@@ -113,8 +113,11 @@ import { ReadableBlob } from "./readable/readable-blob";
 import { ReadableBytes } from "./readable/readable-bytes";
 import { ReadableFile } from "./readable/readable-file";
 import { ReadablePath } from "./readable/readable-path";
+import { type AssetDetails, entriesEqual } from "./utils/assets";
 import fs from "./utils/fs-polyfill";
 import { limit, type LimitFn } from "./utils/limit";
+
+const DEFAULT_LIST_ASSETS_PAGE_SIZE = BigInt(100);
 
 /**
  * Supported content encodings by asset canister
@@ -284,14 +287,43 @@ export class AssetManager {
   }
 
   /**
-   * Get list of all files in assets canister
+   * Get list of all files in assets canister.
    * @returns All files in asset canister
    */
   public async list(): ReturnType<AssetsService["list"]> {
-    return await this._actor.list({
-      start: [],
-      length: [],
-    });
+    const allEntries: Array<AssetDetails> = [];
+    let start = BigInt(0);
+    let prevPageSize: number | undefined;
+
+    // Fetch assets in pages until we get 0 items or fewer items than the previous page
+    while (true) {
+      const entries = await this._actor.list({
+        start: [start],
+        length: [DEFAULT_LIST_ASSETS_PAGE_SIZE],
+      });
+
+      const numEntries = entries.length;
+      if (numEntries === 0) {
+        break;
+      }
+
+      // If we're on a subsequent page but got the same data as the first page,
+      // the canister doesn't support pagination and is returning all entries every time
+      if (start > 0n && entriesEqual({ a: entries, b: allEntries })) {
+        break;
+      }
+
+      start += BigInt(numEntries);
+      allEntries.push(...entries);
+
+      // If we got fewer items than the previous page, we've reached the end
+      if (prevPageSize !== undefined && numEntries < prevPageSize) {
+        break;
+      }
+      prevPageSize = numEntries;
+    }
+
+    return allEntries;
   }
 
   /**
