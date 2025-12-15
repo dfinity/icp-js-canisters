@@ -113,8 +113,11 @@ import { ReadableBlob } from "./readable/readable-blob";
 import { ReadableBytes } from "./readable/readable-bytes";
 import { ReadableFile } from "./readable/readable-file";
 import { ReadablePath } from "./readable/readable-path";
+import { type AssetDetails, entriesEqual } from "./utils/assets";
 import fs from "./utils/fs-polyfill";
 import { limit, type LimitFn } from "./utils/limit";
+
+const DEFAULT_LIST_ASSETS_PAGE_SIZE = BigInt(100);
 
 /**
  * Supported content encodings by asset canister
@@ -284,13 +287,51 @@ export class AssetManager {
   }
 
   /**
-   * Get list of all files in assets canister
+   * Get list of all files in assets canister.
    * @returns All files in asset canister
    */
   public async list(): ReturnType<AssetsService["list"]> {
-    return await this._actor.list({
-      start: [],
-      length: [],
+    const fetchAssets = async ({
+      start,
+      accumulated,
+    }: {
+      start: bigint;
+      accumulated: Array<AssetDetails>;
+    }): Promise<Array<AssetDetails>> => {
+      const { list } = this._actor;
+
+      const entries = await list({
+        start: [start],
+        length: [DEFAULT_LIST_ASSETS_PAGE_SIZE],
+      });
+
+      if (entries.length === 0) {
+        return accumulated;
+      }
+
+      // If we're on a subsequent page but got the same data as the first page,
+      // the canister doesn't support pagination and is returning all entries every time
+      if (start > BigInt(0) && entriesEqual({ a: entries, b: accumulated })) {
+        return accumulated;
+      }
+
+      const entriesCount = BigInt(entries.length);
+      const newAccumulated = [...accumulated, ...entries];
+
+      if (entriesCount === DEFAULT_LIST_ASSETS_PAGE_SIZE) {
+        // If we got the full page, fetch the next page
+        return await fetchAssets({
+          start: start + entriesCount,
+          accumulated: newAccumulated,
+        });
+      }
+
+      return newAccumulated;
+    };
+
+    return await fetchAssets({
+      start: BigInt(0),
+      accumulated: [],
     });
   }
 
