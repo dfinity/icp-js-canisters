@@ -291,39 +291,52 @@ export class AssetManager {
    * @returns All files in asset canister
    */
   public async list(): ReturnType<AssetsService["list"]> {
-    const allEntries: Array<AssetDetails> = [];
-    let start = BigInt(0);
-    let prevPageSize: number | undefined;
+    return await this.fetchAssets({
+      start: BigInt(0),
+      accumulated: [],
+      prevPageSize: undefined,
+    });
+  }
 
-    // Fetch assets in pages until we get 0 items or fewer items than the previous page
-    while (true) {
-      const entries = await this._actor.list({
-        start: [start],
-        length: [DEFAULT_LIST_ASSETS_PAGE_SIZE],
-      });
+  private async fetchAssets({
+    start,
+    accumulated,
+    prevPageSize,
+  }: {
+    start: bigint;
+    accumulated: Array<AssetDetails>;
+    prevPageSize: number | undefined;
+  }): Promise<Array<AssetDetails>> {
+    const entries = await this._actor.list({
+      start: [start],
+      length: [DEFAULT_LIST_ASSETS_PAGE_SIZE],
+    });
 
-      const numEntries = entries.length;
-      if (numEntries === 0) {
-        break;
-      }
+    const numEntries = entries.length;
 
-      // If we're on a subsequent page but got the same data as the first page,
-      // the canister doesn't support pagination and is returning all entries every time
-      if (start > 0n && entriesEqual({ a: entries, b: allEntries })) {
-        break;
-      }
-
-      start += BigInt(numEntries);
-      allEntries.push(...entries);
-
-      // If we got fewer items than the previous page, we've reached the end
-      if (prevPageSize !== undefined && numEntries < prevPageSize) {
-        break;
-      }
-      prevPageSize = numEntries;
+    // No more entries
+    if (numEntries === 0) {
+      return accumulated;
     }
 
-    return allEntries;
+    // If we're on a subsequent page but got the same data as the first page,
+    // the canister doesn't support pagination and is returning all entries every time
+    if (start > BigInt(0) && entriesEqual({ a: entries, b: accumulated })) {
+      return accumulated;
+    }
+
+    const newAccumulated = [...accumulated, ...entries];
+
+    // If we got fewer items than the previous page, we've reached the end
+    if (prevPageSize !== undefined && numEntries < prevPageSize) {
+      return newAccumulated;
+    }
+
+    return this.fetchAssets({
+      start: start + BigInt(numEntries),
+      accumulated: newAccumulated,
+      prevPageSize: numEntries,
+    });
   }
 
   /**
