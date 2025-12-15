@@ -332,7 +332,7 @@ export class AssetManager {
       return newAccumulated;
     }
 
-    return this.fetchAssets({
+    return await this.fetchAssets({
       start: start + BigInt(numEntries),
       accumulated: newAccumulated,
       prevPageSize: numEntries,
