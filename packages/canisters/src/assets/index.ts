@@ -294,22 +294,18 @@ export class AssetManager {
     const fetchAssets = async ({
       start,
       accumulated,
-      prevPageSize,
     }: {
       start: bigint;
       accumulated: Array<AssetDetails>;
-      prevPageSize: number | undefined;
     }): Promise<Array<AssetDetails>> => {
       const { list } = this._actor;
+
       const entries = await list({
         start: [start],
         length: [DEFAULT_LIST_ASSETS_PAGE_SIZE],
       });
 
-      const numEntries = entries.length;
-
-      // No more entries
-      if (numEntries === 0) {
+      if (entries.length === 0) {
         return accumulated;
       }
 
@@ -319,24 +315,23 @@ export class AssetManager {
         return accumulated;
       }
 
+      const entriesCount = BigInt(entries.length);
       const newAccumulated = [...accumulated, ...entries];
 
-      // If we got fewer items than the previous page, we've reached the end
-      if (prevPageSize !== undefined && numEntries < prevPageSize) {
-        return newAccumulated;
+      if (entriesCount === DEFAULT_LIST_ASSETS_PAGE_SIZE) {
+        // If we got the full page, fetch the next page
+        return await fetchAssets({
+          start: start + entriesCount,
+          accumulated: newAccumulated,
+        });
       }
 
-      return await fetchAssets({
-        start: start + BigInt(numEntries),
-        accumulated: newAccumulated,
-        prevPageSize: numEntries,
-      });
+      return newAccumulated;
     };
 
     return await fetchAssets({
       start: BigInt(0),
       accumulated: [],
-      prevPageSize: undefined,
     });
   }
 
