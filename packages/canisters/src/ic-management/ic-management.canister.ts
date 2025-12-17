@@ -368,7 +368,7 @@ export class IcManagementCanister {
    * @param {SnapshotIdText | snapshot_id} [params.snapshotId] - The ID of the snapshot to replace, if applicable.
    * Can be provided as a `string` or a `Uint8Array`.
    * If not provided, a new snapshot will be created.
-   * @param {boolean} [params.uninstallCode] - Optionally uninstall the code of the canister.
+   * @param {boolean} [params.uninstallCode] - If true, automatically uninstalls the canister's code and state after the snapshot is successfully created.
    * @param {BigInt} [params.senderCanisterVersion] - The optional sender canister version. If provided, its value must be equal to ic0.canister_version.
    *
    * @returns {Promise<take_canister_snapshot_result>} A promise that resolves with the snapshot details,
