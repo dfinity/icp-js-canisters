@@ -1,5 +1,11 @@
 # Changelog
 
+## Next
+
+### Features
+
+- Add new optional parameters `uninstallCode` and `senderCanisterVersion` to `takeCanisterSnapshot`.
+
 ## v89
 
 ### Overview
