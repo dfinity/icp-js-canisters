@@ -395,6 +395,8 @@ export interface subnet_info_result {
 export interface take_canister_snapshot_args {
   replace_snapshot: [] | [snapshot_id];
   canister_id: canister_id;
+  uninstall_code: [] | [boolean];
+  sender_canister_version: [] | [bigint];
 }
 export type take_canister_snapshot_result = snapshot;
 export interface uninstall_code_args {

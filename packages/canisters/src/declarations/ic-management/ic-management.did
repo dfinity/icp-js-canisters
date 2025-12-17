@@ -1,4 +1,4 @@
-// Generated from dfinity/portal commit 4ce51f5fc81a468e99a957acc788400a6b67b9c3 for file 'docs/references/_attachments/ic.did'
+// Generated from dfinity/portal commit cd0a86bd01966041fea1723688ee70d16c8f058e for file 'docs/references/_attachments/ic.did'
 
 type canister_id = principal;
 type wasm_module = blob;
@@ -458,6 +458,8 @@ type snapshot = record {
 type take_canister_snapshot_args = record {
     canister_id : canister_id;
     replace_snapshot : opt snapshot_id;
+    uninstall_code : opt bool;
+    sender_canister_version : opt nat64;
 };
 
 type take_canister_snapshot_result = snapshot;
