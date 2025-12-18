@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "pretest": "bash ../../scripts/prepare-integration-tests",
-    "test": "vitest",
+    "test": "npm run pretest && vitest && npm run posttest",
     "posttest": "bash ../../scripts/finish-integration-tests"
   }
 }
