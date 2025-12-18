@@ -6,10 +6,5 @@
     "pretest": "bash ../../scripts/prepare-integration-tests",
     "test": "vitest",
     "posttest": "bash ../../scripts/finish-integration-tests"
-  },
-  "dependencies": {
-    "@dfinity/utils": "*",
-    "@icp-sdk/canisters": "*",
-    "@icp-sdk/core": "^4"
   }
 }
