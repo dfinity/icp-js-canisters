@@ -150,6 +150,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Prepare
+        uses: ./.github/actions/prepare
       - name: Size check
         # The limits are defined in package.json.
         uses: andresz1/size-limit-action@v1
