@@ -1,0 +1,32 @@
+name: Integration Tests
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/canisters/src/assets/**'
+  pull_request:
+    paths:
+      - 'packages/canisters/src/assets/**'
+
+jobs:
+  test-assets-integration:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: dfinity/setup-dfx@main
+      - name: Prepare
+        uses: ./.github/actions/prepare
+      - name: Build
+        run: npm run build
+      - name: Test integration
+        run: npm run test:integration
+
+  may-merge:
+    needs: ["test-assets-integration"]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Cleared for merging
+        run: echo OK
