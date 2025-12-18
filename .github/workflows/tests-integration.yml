@@ -1,14 +1,17 @@
 name: Integration Tests
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - 'packages/canisters/src/assets/**'
+      - 'tests/integration/**'
   pull_request:
     paths:
       - 'packages/canisters/src/assets/**'
+      - 'tests/integration/**'
 
 jobs:
   test-assets-integration:
