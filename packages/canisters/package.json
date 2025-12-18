@@ -1,6 +1,6 @@
 {
   "name": "@icp-sdk/canisters",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A modular library for interacting with canisters on the Internet Computer.",
   "license": "Apache-2.0",
   "type": "module",
@@ -12,6 +12,11 @@
       "types": "./index.d.ts",
       "import": "./index.js",
       "require": "./index.mjs"
+    },
+    "./assets": {
+      "types": "./assets/index.d.ts",
+      "import": "./assets/index.js",
+      "require": "./assets/index.mjs"
     },
     "./ckbtc": {
       "types": "./ckbtc/index.d.ts",
@@ -94,6 +99,10 @@
   "dependencies": {
     "@noble/hashes": "^1.8.0",
     "base58-js": "^3.0.3",
-    "bech32": "^2.0.0"
+    "bech32": "^2.0.0",
+    "mime": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/mime": "^3.0.4"
   }
 }

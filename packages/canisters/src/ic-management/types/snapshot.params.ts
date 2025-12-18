@@ -27,7 +27,10 @@ export const toSnapshotArgs = ({
 export const toReplaceSnapshotArgs = ({
   canisterId: canister_id,
   snapshotId,
-}: OptionSnapshotParams): IcManagementDid.take_canister_snapshot_args => ({
+}: OptionSnapshotParams): Pick<
+  IcManagementDid.take_canister_snapshot_args,
+  "canister_id" | "replace_snapshot"
+> => ({
   canister_id,
   replace_snapshot: toNullable(
     nonNullish(snapshotId) ? mapSnapshotId(snapshotId) : undefined,

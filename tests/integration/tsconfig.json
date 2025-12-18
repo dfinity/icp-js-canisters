@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.spec.json",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", ".dfx"]
+}

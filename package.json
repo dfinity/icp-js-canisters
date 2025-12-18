@@ -1,6 +1,6 @@
 {
   "name": "@dfinity/icp-js-canisters",
-  "version": "88",
+  "version": "89",
   "description": "A collection of library for interfacing with the Internet Computer.",
   "license": "Apache-2.0",
   "workspaces": [
@@ -16,6 +16,7 @@
     "packages/ledger-icrc",
     "packages/nns",
     "packages/sns",
+    "tests/integration",
     "docs"
   ],
   "scripts": {
@@ -23,8 +24,9 @@
     "lint": "eslint --max-warnings 0 .",
     "format": "prettier --write .",
     "protoc": "bash ./scripts/update_proto.sh",
-    "pretest": "npm run pretest --workspaces --if-present",
+    "pretest": "npm run pretest --workspace=packages/** --if-present",
     "test": "tsc --project tsconfig.spec.json --noEmit && vitest",
+    "test:integration": "npm run test --workspace=tests/integration",
     "docs": "npm run docs --workspace=docs && node scripts/docs.js && prettier --write packages/**/README.md",
     "build": "npm run build --workspaces --if-present",
     "size": "size-limit --json",
@@ -40,7 +42,7 @@
   },
   "devDependencies": {
     "@dfinity/eslint-config-oisy-wallet": "^0.2.3",
-    "@icp-sdk/bindgen": "^0.2.0",
+    "@icp-sdk/bindgen": "^0.2.1",
     "@size-limit/esbuild": "^12.0.0",
     "@size-limit/preset-small-lib": "^12.0.0",
     "@types/node": "^24.10.1",
@@ -179,6 +181,19 @@
       "name": "@dfinity/ic-management",
       "path": "./packages/ic-management/dist/index.js",
       "limit": "10 kB",
+      "gzip": true,
+      "ignore": [
+        "@dfinity/agent",
+        "@dfinity/candid",
+        "@dfinity/principal",
+        "@icp-sdk/core",
+        "@dfinity/utils"
+      ]
+    },
+    {
+      "name": "@icp-sdk/canisters/assets",
+      "path": "./packages/canisters/assets/index.js",
+      "limit": "11 kB",
       "gzip": true,
       "ignore": [
         "@dfinity/agent",

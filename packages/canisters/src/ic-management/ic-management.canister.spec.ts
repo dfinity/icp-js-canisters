@@ -892,6 +892,8 @@ describe("IcManagementCanister", () => {
       expect(service.take_canister_snapshot).toHaveBeenCalledWith({
         canister_id: params.canisterId,
         replace_snapshot: [],
+        sender_canister_version: [],
+        uninstall_code: [],
       });
     });
 
@@ -913,6 +915,8 @@ describe("IcManagementCanister", () => {
       expect(service.take_canister_snapshot).toHaveBeenCalledWith({
         canister_id: params.canisterId,
         replace_snapshot: [params.snapshotId],
+        sender_canister_version: [],
+        uninstall_code: [],
       });
     });
 
@@ -934,6 +938,54 @@ describe("IcManagementCanister", () => {
       expect(service.take_canister_snapshot).toHaveBeenCalledWith({
         canister_id: params.canisterId,
         replace_snapshot: [decodeSnapshotId(params.snapshotId)],
+        sender_canister_version: [],
+        uninstall_code: [],
+      });
+    });
+
+    it("should call take_canister_snapshot with a sender canister version", async () => {
+      const service = mock<IcManagementService>();
+      service.take_canister_snapshot.mockResolvedValue(mockResponse);
+
+      const icManagement = await createIcManagement(service);
+
+      const params = {
+        canisterId: mockCanisterId,
+        senderCanisterVersion: 123456n,
+      };
+
+      const res = await icManagement.takeCanisterSnapshot(params);
+
+      expect(res).toEqual(mockResponse);
+
+      expect(service.take_canister_snapshot).toHaveBeenCalledWith({
+        canister_id: params.canisterId,
+        replace_snapshot: [],
+        sender_canister_version: [123456n],
+        uninstall_code: [],
+      });
+    });
+
+    it("should call take_canister_snapshot with the uninstall code flag", async () => {
+      const service = mock<IcManagementService>();
+      service.take_canister_snapshot.mockResolvedValue(mockResponse);
+
+      const icManagement = await createIcManagement(service);
+
+      const params = {
+        canisterId: mockCanisterId,
+        uninstallCode: true,
+      };
+
+      const res = await icManagement.takeCanisterSnapshot(params);
+
+      expect(res).toEqual(mockResponse);
+
+      expect(service.take_canister_snapshot).toHaveBeenCalledWith({
+        canister_id: params.canisterId,
+        replace_snapshot: [],
+        sender_canister_version: [],
+        uninstall_code: [true],
       });
     });
 

@@ -1,5 +1,34 @@
 # Changelog
 
+## Next
+
+### Features
+
+- Add new optional parameters `uninstallCode` and `senderCanisterVersion` to `takeCanisterSnapshot`.
+
+## v89
+
+### Overview
+
+| Library                  | Version | Status      |
+| ------------------------ | ------- | ----------- |
+| `@icp-sdk/canisters`     | v3.1.0  | Enhanced 🔧️ |
+| `@dfinity/ckbtc`         | v7.0.0  | Unchanged️   |
+| `@dfinity/cketh`         | v7.0.0  | Unchanged️   |
+| `@dfinity/cmc`           | v9.0.0  | Unchanged️   |
+| `@dfinity/ic-management` | v10.0.0 | Unchanged️   |
+| `@dfinity/ledger-icp`    | v9.0.0  | Unchanged️   |
+| `@dfinity/ledger-icrc`   | v7.0.0  | Unchanged️   |
+| `@dfinity/nns`           | v12.0.0 | Unchanged️   |
+| `@dfinity/nns-proto`     | v2.0.4  | Unchanged️   |
+| `@dfinity/sns`           | v7.0.0  | Unchanged️   |
+| `@dfinity/utils`         | v4.0.2  | Unchanged️   |
+| `@dfinity/zod-schemas`   | v3.0.2  | Unchanged️   |
+
+### Features
+
+- The `@dfinity/assets` library has been deprecated. Its functionality has been integrated into `@icp-sdk/canisters`.
+
 ## v88
 
 ### Overview
@@ -23,7 +52,7 @@
 
 - The types for declarations of the canisters generated to describe the interfaces on the Internet Computer (Candid) are now re-exported through namespaces.
 
-For example, the `Tokens` type of the `IcrcCanister` is available within the related namespace `IcrcLedgerDid`.
+For example, the `Tokens` type of the `IcrcLedgerCanister` is available within the related namespace `IcrcLedgerDid`.
 
 ```typescript
 import {

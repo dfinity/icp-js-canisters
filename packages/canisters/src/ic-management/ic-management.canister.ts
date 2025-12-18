@@ -368,18 +368,29 @@ export class IcManagementCanister {
    * @param {SnapshotIdText | snapshot_id} [params.snapshotId] - The ID of the snapshot to replace, if applicable.
    * Can be provided as a `string` or a `Uint8Array`.
    * If not provided, a new snapshot will be created.
+   * @param {boolean} [params.uninstallCode] - If true, automatically uninstalls the canister's code and state after the snapshot is successfully created.
+   * @param {BigInt} [params.senderCanisterVersion] - The optional sender canister version. If provided, its value must be equal to ic0.canister_version.
    *
    * @returns {Promise<take_canister_snapshot_result>} A promise that resolves with the snapshot details,
    * including the snapshot ID, total size, and timestamp.
    *
    * @throws {Error} If the snapshot operation fails.
    */
-  takeCanisterSnapshot = (
-    params: OptionSnapshotParams,
-  ): Promise<IcManagementDid.take_canister_snapshot_result> => {
+  takeCanisterSnapshot = ({
+    senderCanisterVersion,
+    uninstallCode,
+    ...params
+  }: OptionSnapshotParams & {
+    uninstallCode?: boolean;
+    senderCanisterVersion?: bigint;
+  }): Promise<IcManagementDid.take_canister_snapshot_result> => {
     const { take_canister_snapshot } = this.certifiedService;
 
-    return take_canister_snapshot(toReplaceSnapshotArgs(params));
+    return take_canister_snapshot({
+      ...toReplaceSnapshotArgs(params),
+      sender_canister_version: toNullable(senderCanisterVersion),
+      uninstall_code: toNullable(uninstallCode),
+    });
   };
 
   /**
