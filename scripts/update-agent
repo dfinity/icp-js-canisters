@@ -12,7 +12,7 @@ function rm_agent() {
 function install_agent() {
   local package=$1
 
-  npm i @icp-sdk/core@latest --workspace=packages/"$package" --save-peer
+  npm i @icp-sdk/core@5.0.0-beta.2 --workspace=packages/"$package" --save-peer
 }
 
 PACKAGES=utils,zod-schemas,canisters
