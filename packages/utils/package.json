@@ -60,6 +60,6 @@
     "service-nervous-system"
   ],
   "peerDependencies": {
-    "@icp-sdk/core": "^4"
+    "@icp-sdk/core": "^5"
   }
 }

@@ -6,6 +6,10 @@
 
 - Add new optional parameters `uninstallCode` and `senderCanisterVersion` to `takeCanisterSnapshot`.
 
+### Build
+
+- Upgrade [@icp-sdk/core](https://github.com/dfinity/icp-js-core/releases/tag/v5.0.0) and [@icp-sdk/auth](https://github.com/dfinity/icp-js-auth/blob/main/CHANGELOG.md#500-2025-12-18) to v5.
+
 ## v89
 
 ### Overview
