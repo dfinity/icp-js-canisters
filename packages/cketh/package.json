@@ -1,6 +1,6 @@
 {
   "name": "@dfinity/cketh",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "description": "A library for interfacing with ckETH.",
   "license": "Apache-2.0",
   "type": "module",
@@ -51,6 +51,6 @@
   ],
   "homepage": "https://github.com/dfinity/icp-js-canisters#readme",
   "peerDependencies": {
-    "@icp-sdk/canisters": "^3"
+    "@icp-sdk/canisters": "^3.2"
   }
 }

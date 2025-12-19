@@ -1,6 +1,6 @@
 {
   "name": "@icp-sdk/canisters",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "A modular library for interacting with canisters on the Internet Computer.",
   "license": "Apache-2.0",
   "type": "module",
@@ -93,7 +93,7 @@
   ],
   "homepage": "https://js.icp.build/canisters/",
   "peerDependencies": {
-    "@dfinity/utils": "^4",
+    "@dfinity/utils": "^4.1",
     "@icp-sdk/core": "^4"
   },
   "dependencies": {

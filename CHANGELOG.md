@@ -1,6 +1,23 @@
 # Changelog
 
-## Next
+## 90
+
+### Overview
+
+| Library                  | Version | Status      |
+| ------------------------ |---------| ----------- |
+| `@icp-sdk/canisters`     | v3.2.0  | Maintained ⚙  |
+| `@dfinity/ckbtc`         | v7.1.0  | Maintained ⚙    |
+| `@dfinity/cketh`         | v7.1.0  | Maintained ⚙    |
+| `@dfinity/cmc`           | v9.1.0  | Maintained ⚙    |
+| `@dfinity/ic-management` | v10.1.0 | Enhanced 🔧️    |
+| `@dfinity/ledger-icp`    | v9.1.0  | Maintained ⚙    |
+| `@dfinity/ledger-icrc`   | v7.1.0  | Maintained ⚙    |
+| `@dfinity/nns`           | v12.1.0 | Maintained ⚙    |
+| `@dfinity/nns-proto`     | v2.0.4  | Unchanged️   |
+| `@dfinity/sns`           | v7.1.0  | Maintained ⚙    |
+| `@dfinity/utils`         | v4.1.0  | Maintained ⚙    |
+| `@dfinity/zod-schemas`   | v3.0.2  | Unchanged️   |
 
 ### Features
 
