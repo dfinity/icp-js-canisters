@@ -26,7 +26,7 @@
 
 ### Build
 
-- Upgrade [@icp-sdk/core](https://github.com/dfinity/icp-js-core/releases/tag/v5.0.0) and [@icp-sdk/auth](https://github.com/dfinity/icp-js-auth/blob/main/CHANGELOG.md#500-2025-12-18) to v5.
+- Upgrade [@icp-sdk/core](https://github.com/dfinity/icp-js-core/releases/tag/v5.0.0) to v5.
 
 ## Chore
 
