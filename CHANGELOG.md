@@ -1,14 +1,38 @@
 # Changelog
 
-## Next
+## 90
+
+### Overview
+
+| Library                  | Version | Status       |
+| ------------------------ | ------- | ------------ |
+| `@icp-sdk/canisters`     | v3.2.0  | Maintained ⚙ |
+| `@dfinity/ckbtc`         | v7.1.0  | Maintained ⚙ |
+| `@dfinity/cketh`         | v7.1.0  | Maintained ⚙ |
+| `@dfinity/cmc`           | v9.1.0  | Maintained ⚙ |
+| `@dfinity/ic-management` | v10.1.0 | Enhanced 🔧️  |
+| `@dfinity/ledger-icp`    | v9.1.0  | Maintained ⚙ |
+| `@dfinity/ledger-icrc`   | v7.1.0  | Maintained ⚙ |
+| `@dfinity/nns`           | v12.1.0 | Maintained ⚙ |
+| `@dfinity/nns-proto`     | v2.0.4  | Unchanged️    |
+| `@dfinity/sns`           | v7.1.0  | Maintained ⚙ |
+| `@dfinity/utils`         | v4.1.0  | Maintained ⚙ |
+| `@dfinity/zod-schemas`   | v3.0.2  | Unchanged️    |
 
 ### Features
 
 - Add new optional parameters `uninstallCode` and `senderCanisterVersion` to `takeCanisterSnapshot`.
+- Update to the latest Candid files.
 
 ### Build
 
 - Upgrade [@icp-sdk/core](https://github.com/dfinity/icp-js-core/releases/tag/v5.0.0) and [@icp-sdk/auth](https://github.com/dfinity/icp-js-auth/blob/main/CHANGELOG.md#500-2025-12-18) to v5.
+
+## Chore
+
+- Bump `@icp-sdk/bindgen` for generating IDL files.
+- Set the workspace to `ignore-scripts=true` to disallow npm from running scripts.
+- Remove explicit dependencies from integration tests and run those only on asset changes.
 
 ## v89
 
