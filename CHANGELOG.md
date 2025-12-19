@@ -24,6 +24,10 @@
 - Add new optional parameters `uninstallCode` and `senderCanisterVersion` to `takeCanisterSnapshot`.
 - Update to the latest Candid files.
 
+### Build
+
+- Upgrade [@icp-sdk/core](https://github.com/dfinity/icp-js-core/releases/tag/v5.0.0) to v5.
+
 ## Chore
 
 - Bump `@icp-sdk/bindgen` for generating IDL files.
