@@ -1,5 +1,11 @@
 # Changelog
 
+## Next
+
+### Features
+
+- Add new `CyclesLedgerCanister` to `@icp-sdk/canisters` with `withdraw` method to transfer cycles from the ledger to a target canister.
+
 ## 90
 
 ### Overview
