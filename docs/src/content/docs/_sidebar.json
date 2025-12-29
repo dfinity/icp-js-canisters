@@ -68,6 +68,14 @@
               "collapsed": true,
               "directory": "api/ledger/icrc/"
             }
+          },
+          {
+            "label": "Cycles",
+            "collapsed": true,
+            "autogenerate": {
+              "collapsed": true,
+              "directory": "api/ledger/cycles/"
+            }
           }
         ]
       },

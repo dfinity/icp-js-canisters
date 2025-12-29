@@ -155,6 +155,9 @@ download_did "https://raw.githubusercontent.com/dfinity/ICRC/main/ICRCs/ICRC-10/
 # However, there is no centralized .did file (similar to ICRC-1) that includes all possible methods of IC NFTs
 download_did "https://raw.githubusercontent.com/dfinity/ICRC/main/ICRCs/ICRC-7/ICRC-7.did" "icrc_nft-ledger.did" "canisters" "src/declarations/ledger-icrc"
 
+mkdir -p packages/canisters/src/declarations/ledger-cycles
+download_did https://github.com/dfinity/cycles-ledger/releases/download/cycles-ledger-v1.0.6/cycles-ledger.did "cycles_ledger.did" "canisters" "src/declarations/ledger-cycles"
+
 mkdir -p packages/canisters/src/declarations/ic-management
 download_did https://raw.githubusercontent.com/dfinity/portal/master/docs/references/_attachments/ic.did "ic-management.did" "canisters" "src/declarations/ic-management"
 
