@@ -269,6 +269,19 @@
       ]
     },
     {
+      "name": "@icp-sdk/canisters/ledger/cycles",
+      "path": "./packages/canisters/ledger/cycles/index.js",
+      "limit": "5 kB",
+      "gzip": true,
+      "ignore": [
+        "@dfinity/agent",
+        "@dfinity/candid",
+        "@dfinity/principal",
+        "@icp-sdk/core",
+        "@dfinity/utils"
+      ]
+    },
+    {
       "name": "@icp-sdk/canisters/nns",
       "path": "./packages/canisters/nns/index.js",
       "limit": "40 kB",
