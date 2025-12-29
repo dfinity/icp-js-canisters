@@ -1,5 +1,6 @@
 import { Canister, type CanisterOptions, createServices } from "@dfinity/utils";
-import { type CyclesLedgerDid ,
+import {
+  type CyclesLedgerDid,
   type CyclesLedgerService,
   idlFactoryCertifiedCyclesLedger,
   idlFactoryCyclesLedger,
