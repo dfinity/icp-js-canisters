@@ -14,6 +14,7 @@ export * from "./errors/ledger.errors";
 export { IcrcIndexCanister } from "./index.canister";
 export { IcrcLedgerCanister } from "./ledger.canister";
 export { IcrcNftLedgerCanister } from "./nft-ledger.canister";
+export type * from "./types/canister.options";
 export type * from "./types/index-ng.params";
 export * from "./types/ledger.params";
 export * from "./types/ledger.responses";
