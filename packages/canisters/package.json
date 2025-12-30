@@ -48,6 +48,11 @@
       "import": "./ledger/icrc/index.js",
       "require": "./ledger/icrc/index.mjs"
     },
+    "./ledger/cycles": {
+      "types": "./ledger/cycles/index.d.ts",
+      "import": "./ledger/cycles/index.js",
+      "require": "./ledger/cycles/index.mjs"
+    },
     "./nns": {
       "types": "./nns/index.d.ts",
       "import": "./nns/index.js",

@@ -40,6 +40,7 @@ Import the desired module directly from its entry point and refer to its individ
 | IC Management | `@icp-sdk/canisters/ic-management` | [Docs](https://js.icp.build/canisters/latest/api/ic-management/) |
 | Ledger ICP    | `@icp-sdk/canisters/ledger/icp`    | [Docs](https://js.icp.build/canisters/latest/api/ledger/icp/)    |
 | Ledger ICRC   | `@icp-sdk/canisters/ledger/icrc`   | [Docs](https://js.icp.build/canisters/latest/api/ledger/icrc/)   |
+| Ledger Cycles | `@icp-sdk/canisters/ledger/cycles` | [Docs](https://js.icp.build/canisters/latest/api/ledger/cycles/) |
 | NNS           | `@icp-sdk/canisters/nns`           | [Docs](https://js.icp.build/canisters/latest/api/nns/)           |
 | SNS           | `@icp-sdk/canisters/sns`           | [Docs](https://js.icp.build/canisters/latest/api/sns/)           |
 

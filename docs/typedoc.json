@@ -8,6 +8,7 @@
     "../packages/canisters/src/ic-management/index.ts",
     "../packages/canisters/src/ledger/icp/index.ts",
     "../packages/canisters/src/ledger/icrc/index.ts",
+    "../packages/canisters/src/ledger/cycles/index.ts",
     "../packages/canisters/src/nns/index.ts",
     "../packages/canisters/src/sns/index.ts"
   ],

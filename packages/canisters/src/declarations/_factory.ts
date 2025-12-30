@@ -10,6 +10,8 @@ import { idlFactory as idlFactoryCertifiedCkEthOrchestrator } from "./cketh/orch
 import { idlFactory as idlFactoryCkEthOrchestrator } from "./cketh/orchestrator.idl";
 import { idlFactory as idlFactoryCertifiedCmc } from "./cmc/cmc.certified.idl";
 import { idlFactory as idlFactoryCmc } from "./cmc/cmc.idl";
+import { idlFactory as idlFactoryCertifiedCyclesLedger } from "./cycles-ledger/cycles-ledger.certified.idl";
+import { idlFactory as idlFactoryCyclesLedger } from "./cycles-ledger/cycles-ledger.idl";
 import { idlFactory as idlFactoryCertifiedIcManagement } from "./ic-management/ic-management.certified.idl";
 import { idlFactory as idlFactoryIcManagement } from "./ic-management/ic-management.idl";
 import { idlFactory as idlFactoryCertifiedIcpIndex } from "./ledger-icp/index.certified.idl";
@@ -45,6 +47,7 @@ import type { _SERVICE as CkBtcMinterService } from "./ckbtc/minter";
 import type { _SERVICE as CkEthMinterService } from "./cketh/minter";
 import type { _SERVICE as CkEthOrchestratorService } from "./cketh/orchestrator";
 import type { _SERVICE as CmcService } from "./cmc/cmc";
+import type { _SERVICE as CyclesLedgerService } from "./cycles-ledger/cycles-ledger";
 import type { _SERVICE as IcManagementService } from "./ic-management/ic-management";
 import type { _SERVICE as IcpIndexService } from "./ledger-icp/index";
 import type { _SERVICE as IcpLedgerService } from "./ledger-icp/ledger";
@@ -70,6 +73,7 @@ export {
   idlFactoryCertifiedCkEthMinter,
   idlFactoryCertifiedCkEthOrchestrator,
   idlFactoryCertifiedCmc,
+  idlFactoryCertifiedCyclesLedger,
   idlFactoryCertifiedIcManagement,
   idlFactoryCertifiedIcpIndex,
   idlFactoryCertifiedIcpLedger,
@@ -88,6 +92,7 @@ export {
   idlFactoryCkEthMinter,
   idlFactoryCkEthOrchestrator,
   idlFactoryCmc,
+  idlFactoryCyclesLedger,
   idlFactoryIcManagement,
   idlFactoryIcpIndex,
   idlFactoryIcpLedger,
@@ -108,6 +113,7 @@ export {
   type CkEthMinterService,
   type CkEthOrchestratorService,
   type CmcService,
+  type CyclesLedgerService,
   type IcManagementService,
   type IcpIndexService,
   type IcpLedgerService,

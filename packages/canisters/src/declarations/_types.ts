@@ -4,6 +4,7 @@ import type * as CkBtcMinterDid from "./ckbtc/minter";
 import type * as CkEthMinterDid from "./cketh/minter";
 import type * as CkEthOrchestratorDid from "./cketh/orchestrator";
 import type * as CmcDid from "./cmc/cmc";
+import type * as CyclesLedgerDid from "./cycles-ledger/cycles-ledger";
 import type * as IcManagementDid from "./ic-management/ic-management";
 import type * as IcpIndexDid from "./ledger-icp/index";
 import type * as IcpLedgerDid from "./ledger-icp/ledger";
@@ -26,6 +27,7 @@ export type {
   CkEthMinterDid,
   CkEthOrchestratorDid,
   CmcDid,
+  CyclesLedgerDid,
   IcManagementDid,
   IcpIndexDid,
   IcpLedgerDid,
