@@ -1,8 +1,10 @@
+import { toNullable } from "@dfinity/utils";
 import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
 import type { CyclesLedgerDid, CyclesLedgerService } from "../../declarations";
 import { CyclesLedgerCanister } from "./cycles-ledger.canister";
+import type { WithdrawParams } from "./types/cycles-ledger.params";
 import type { WithdrawResult } from "./types/cycles-ledger.responses";
 
 describe("CyclesLedgerCanister", () => {
@@ -20,9 +22,13 @@ describe("CyclesLedgerCanister", () => {
       Ok: 12367934n,
     };
 
-    const args: CyclesLedgerDid.WithdrawArgs = {
+    const args: WithdrawParams = {
       amount: 1_000_000n,
       to: mockCanisterId,
+    };
+
+    const requestArgs: CyclesLedgerDid.WithdrawArgs = {
+      ...args,
       from_subaccount: [],
       created_at_time: [],
     };
@@ -33,16 +39,16 @@ describe("CyclesLedgerCanister", () => {
 
       const { withdraw } = createCertifiedCyclesLedger(service);
 
-      const result = await withdraw({ args });
+      const result = await withdraw(args);
 
-      expect(service.withdraw).toHaveBeenCalledWith(args);
+      expect(service.withdraw).toHaveBeenCalledWith(requestArgs);
       expect(result).toEqual(success);
     });
 
     it("should return Ok with from_subaccount", async () => {
-      const argsWithSubaccount: CyclesLedgerDid.WithdrawArgs = {
+      const argsWithSubaccount: WithdrawParams = {
         ...args,
-        from_subaccount: [new Uint8Array([0, 0, 1])],
+        fromSubaccount: new Uint8Array([0, 0, 1]),
       };
 
       const service = mock<ActorSubclass<CyclesLedgerService>>();
@@ -50,16 +56,19 @@ describe("CyclesLedgerCanister", () => {
 
       const { withdraw } = createCertifiedCyclesLedger(service);
 
-      const result = await withdraw({ args: argsWithSubaccount });
+      const result = await withdraw(argsWithSubaccount);
 
-      expect(service.withdraw).toHaveBeenCalledWith(argsWithSubaccount);
+      expect(service.withdraw).toHaveBeenCalledWith({
+        ...requestArgs,
+        from_subaccount: toNullable(argsWithSubaccount.fromSubaccount),
+      });
       expect(result).toEqual(success);
     });
 
     it("should return Ok with created_at_time", async () => {
-      const argsWithTimestamp: CyclesLedgerDid.WithdrawArgs = {
+      const argsWithTimestamp: WithdrawParams = {
         ...args,
-        created_at_time: [1234567890n],
+        createdAtTime: 1234567890n,
       };
 
       const service = mock<ActorSubclass<CyclesLedgerService>>();
@@ -67,9 +76,12 @@ describe("CyclesLedgerCanister", () => {
 
       const { withdraw } = createCertifiedCyclesLedger(service);
 
-      const result = await withdraw({ args: argsWithTimestamp });
+      const result = await withdraw(argsWithTimestamp);
 
-      expect(service.withdraw).toHaveBeenCalledWith(argsWithTimestamp);
+      expect(service.withdraw).toHaveBeenCalledWith({
+        ...requestArgs,
+        created_at_time: toNullable(argsWithTimestamp.createdAtTime),
+      });
       expect(result).toEqual(success);
     });
 
@@ -81,7 +93,7 @@ describe("CyclesLedgerCanister", () => {
 
       const { withdraw } = createCertifiedCyclesLedger(service);
 
-      const call = async () => await withdraw({ args });
+      const call = async () => await withdraw(args);
 
       await expect(call).rejects.toThrowError();
     });
@@ -141,9 +153,9 @@ describe("CyclesLedgerCanister", () => {
 
       const { withdraw } = createCertifiedCyclesLedger(service);
 
-      const result = await withdraw({ args });
+      const result = await withdraw(args);
 
-      expect(service.withdraw).toHaveBeenCalledWith(args);
+      expect(service.withdraw).toHaveBeenCalledWith(requestArgs);
       expect(result).toEqual(error);
     });
   });

@@ -1,11 +1,16 @@
-import { Canister, type CanisterOptions, createServices } from "@dfinity/utils";
 import {
-  type CyclesLedgerDid,
+  Canister,
+  type CanisterOptions,
+  createServices,
+  toNullable,
+} from "@dfinity/utils";
+import {
   type CyclesLedgerService,
   idlFactoryCertifiedCyclesLedger,
   idlFactoryCyclesLedger,
 } from "../../declarations";
 import { MAINNET_CYCLES_LEDGER_CANISTER_ID } from "./constants/canister_ids";
+import type { WithdrawParams } from "./types/cycles-ledger.params";
 import type { WithdrawResult } from "./types/cycles-ledger.responses";
 
 export class CyclesLedgerCanister extends Canister<CyclesLedgerService> {
@@ -29,23 +34,26 @@ export class CyclesLedgerCanister extends Canister<CyclesLedgerService> {
   /**
    * Withdraws cycles from the ledger to a target canister.
    *
-   * @param {Object} params - The withdrawal parameters.
-   * @param {CyclesLedgerDid.WithdrawArgs} params.args - The withdrawal arguments containing:
-   *   - `amount`: The number of cycles to withdraw.
-   *   - `to`: The principal ID of the target canister.
-   *   - `from_subaccount` (optional): The subaccount from which cycles are deducted.
-   *   - `created_at_time` (optional): The timestamp when the transaction is created.
+   * @param {WithdrawParams} params - The withdrawal parameters.
+   * @param {bigint} params.amount - The number of cycles to withdraw.
+   * @param {Principal} params.to - The principal ID of the target canister.
+   * @param {Uint8Array} [params.fromSubaccount] - Optional. The subaccount from which cycles are deducted.
+   * @param {bigint} [params.createdAtTime] - Optional. The timestamp when the transaction is created.
    *
    * @returns {Promise<WithdrawResult>} The result of the withdrawal operation.
    *
    * @see https://github.com/dfinity/cycles-ledger#withdrawing-cycles
    */
   withdraw = async ({
-    args,
-  }: {
-    args: CyclesLedgerDid.WithdrawArgs;
-  }): Promise<WithdrawResult> => {
+    fromSubaccount,
+    createdAtTime,
+    ...rest
+  }: WithdrawParams): Promise<WithdrawResult> => {
     const { withdraw } = this.caller({ certified: true });
-    return await withdraw(args);
+    return await withdraw({
+      from_subaccount: toNullable(fromSubaccount),
+      created_at_time: toNullable(createdAtTime),
+      ...rest,
+    });
   };
 }
