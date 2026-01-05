@@ -14,6 +14,9 @@ export type address = string;
 export type block_hash = Uint8Array;
 export type block_header = Uint8Array;
 export type block_height = number;
+export type canister_arg =
+  | { init: init_config }
+  | { upgrade: [] | [set_config_request] };
 export interface config {
   api_access: flag;
   lazily_evaluate_fee_percentiles: flag;

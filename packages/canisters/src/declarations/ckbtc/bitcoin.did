@@ -1,4 +1,4 @@
-// Generated from dfinity/bitcoin-canister commit 47c5d1f14eff39282245ea6aec6e9f821571b024 for file 'canister/candid.did'
+// Generated from dfinity/bitcoin-canister commit a47b80e70f26e282ae7d7feaa08ab643d19ac748 for file 'canister/candid.did'
 
 type network = variant {
   mainnet;
@@ -30,19 +30,6 @@ type utxo = record {
 type flag = variant {
   enabled;
   disabled;
-};
-
-type init_config = record {
-  stability_threshold : opt nat;
-  network : opt network;
-  blocks_source : opt principal;
-  syncing : opt flag;
-  fees : opt fees;
-  api_access : opt flag;
-  disable_api_if_not_fully_synced : opt flag;
-  watchdog_canister : opt opt principal;
-  burn_cycles : opt flag;
-  lazily_evaluate_fee_percentiles : opt flag;
 };
 
 type config = record {
@@ -128,7 +115,25 @@ type get_block_headers_response = record {
   block_headers : vec block_header;
 };
 
-service bitcoin : (init_config) -> {
+type init_config = record {
+  stability_threshold : opt nat;
+  network : opt network;
+  blocks_source : opt principal;
+  syncing : opt flag;
+  fees : opt fees;
+  api_access : opt flag;
+  disable_api_if_not_fully_synced : opt flag;
+  watchdog_canister : opt opt principal;
+  burn_cycles : opt flag;
+  lazily_evaluate_fee_percentiles : opt flag;
+};
+
+type canister_arg = variant {
+  init : init_config;
+  upgrade : opt set_config_request;
+};
+
+service bitcoin : (canister_arg) -> {
   bitcoin_get_balance : (get_balance_request) -> (satoshi);
 
   bitcoin_get_balance_query : (get_balance_request) -> (satoshi) query;

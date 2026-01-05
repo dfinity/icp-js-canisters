@@ -39,6 +39,20 @@ export const idlFactory = ({ IDL }) => {
     burn_cycles: IDL.Opt(flag),
     disable_api_if_not_fully_synced: IDL.Opt(flag),
   });
+  const set_config_request = IDL.Record({
+    api_access: IDL.Opt(flag),
+    lazily_evaluate_fee_percentiles: IDL.Opt(flag),
+    fees: IDL.Opt(fees),
+    watchdog_canister: IDL.Opt(IDL.Opt(IDL.Principal)),
+    stability_threshold: IDL.Opt(IDL.Nat),
+    syncing: IDL.Opt(flag),
+    burn_cycles: IDL.Opt(flag),
+    disable_api_if_not_fully_synced: IDL.Opt(flag),
+  });
+  const canister_arg = IDL.Variant({
+    init: init_config,
+    upgrade: IDL.Opt(set_config_request),
+  });
   const address = IDL.Text;
   const get_balance_request = IDL.Record({
     network: network,
@@ -103,16 +117,6 @@ export const idlFactory = ({ IDL }) => {
     burn_cycles: flag,
     disable_api_if_not_fully_synced: flag,
   });
-  const set_config_request = IDL.Record({
-    api_access: IDL.Opt(flag),
-    lazily_evaluate_fee_percentiles: IDL.Opt(flag),
-    fees: IDL.Opt(fees),
-    watchdog_canister: IDL.Opt(IDL.Opt(IDL.Principal)),
-    stability_threshold: IDL.Opt(IDL.Nat),
-    syncing: IDL.Opt(flag),
-    burn_cycles: IDL.Opt(flag),
-    disable_api_if_not_fully_synced: IDL.Opt(flag),
-  });
 
   return IDL.Service({
     bitcoin_get_balance: IDL.Func([get_balance_request], [satoshi], []),
@@ -176,6 +180,20 @@ export const init = ({ IDL }) => {
     burn_cycles: IDL.Opt(flag),
     disable_api_if_not_fully_synced: IDL.Opt(flag),
   });
+  const set_config_request = IDL.Record({
+    api_access: IDL.Opt(flag),
+    lazily_evaluate_fee_percentiles: IDL.Opt(flag),
+    fees: IDL.Opt(fees),
+    watchdog_canister: IDL.Opt(IDL.Opt(IDL.Principal)),
+    stability_threshold: IDL.Opt(IDL.Nat),
+    syncing: IDL.Opt(flag),
+    burn_cycles: IDL.Opt(flag),
+    disable_api_if_not_fully_synced: IDL.Opt(flag),
+  });
+  const canister_arg = IDL.Variant({
+    init: init_config,
+    upgrade: IDL.Opt(set_config_request),
+  });
 
-  return [init_config];
+  return [canister_arg];
 };
