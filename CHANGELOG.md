@@ -1,10 +1,28 @@
 # Changelog
 
-## Next
+## 91
+
+### Overview
+
+| Library                  | Version | Status      |
+| ------------------------ | ------- | ----------- |
+| `@icp-sdk/canisters`     | v3.3.0  | Enhanced 🔧️ |
+| `@dfinity/ckbtc`         | v7.1.0  | Unchanged️   |
+| `@dfinity/cketh`         | v7.1.0  | Unchanged️   |
+| `@dfinity/cmc`           | v9.1.0  | Unchanged️   |
+| `@dfinity/ic-management` | v10.1.0 | Unchanged️   |
+| `@dfinity/ledger-icp`    | v9.1.0  | Unchanged️   |
+| `@dfinity/ledger-icrc`   | v7.1.0  | Unchanged️   |
+| `@dfinity/nns`           | v12.1.0 | Unchanged️   |
+| `@dfinity/nns-proto`     | v2.0.4  | Unchanged️   |
+| `@dfinity/sns`           | v7.1.0  | Unchanged️   |
+| `@dfinity/utils`         | v4.1.0  | Unchanged️   |
+| `@dfinity/zod-schemas`   | v3.0.2  | Unchanged️   |
 
 ### Features
 
 - Add new `CyclesLedgerCanister` to `@icp-sdk/canisters` with `withdraw` method to transfer cycles from the ledger to a target canister.
+- Update to the latest Candid files.
 
 ## 90
 
