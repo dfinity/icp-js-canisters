@@ -55,6 +55,7 @@ export type ProposalActionRequest =
   | { InstallCode: InstallCodeRequest }
   | { StopOrStartCanister: StopOrStartCanister }
   | { UpdateCanisterSettings: UpdateCanisterSettings }
+  | { BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion }
   | { ApproveGenesisKyc: ApproveGenesisKyc }
   | { ManageNetworkEconomics: NetworkEconomics }
   | { RewardNodeProvider: RewardNodeProvider }
