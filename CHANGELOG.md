@@ -1,5 +1,9 @@
 # Changelog
 
+## Next Version
+
+- Update to the latet Candid file for the nns package to introduce support for the new proposal type `BlessAlternativeGuestOsVersion`
+
 ## 91
 
 ### Overview
