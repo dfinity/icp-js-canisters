@@ -549,6 +549,7 @@ describe("response.converters", () => {
       });
     });
   });
+
   describe("toProposalInfo", () => {
     it("should convert BlessAlternativeGuestOsVersion action", () => {
       const chipIds = [Uint8Array.from([1, 2, 3])];

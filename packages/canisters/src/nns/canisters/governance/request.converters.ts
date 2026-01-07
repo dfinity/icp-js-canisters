@@ -631,20 +631,18 @@ const fromAction = (
             ? {
                 guest_launch_measurements: toNullable(
                   baseGuestLaunchMeasurements.guestLaunchMeasurements?.map(
-                    (m) => {
-                      return {
-                        measurement: toNullable(m.measurement),
-                        metadata: toNullable(
-                          nonNullish(m.metadata)
-                            ? {
-                                kernel_cmdline: toNullable(
-                                  m.metadata.kernelCmdline,
-                                ),
-                              }
-                            : undefined,
-                        ),
-                      };
-                    },
+                    (m) => ({
+                      measurement: toNullable(m.measurement),
+                      metadata: toNullable(
+                        nonNullish(m.metadata)
+                          ? {
+                              kernel_cmdline: toNullable(
+                                m.metadata.kernelCmdline,
+                              ),
+                            }
+                          : undefined,
+                      ),
+                    }),
                   ),
                 ),
               }
