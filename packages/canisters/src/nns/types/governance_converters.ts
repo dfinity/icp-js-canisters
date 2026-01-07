@@ -34,6 +34,7 @@ export type Action =
   | { StopOrStartCanister: StopOrStartCanister }
   | { UpdateCanisterSettings: UpdateCanisterSettings }
   | { FulfillSubnetRentalRequest: FulfillSubnetRentalRequest }
+  | { BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion }
   | { ApproveGenesisKyc: ApproveGenesisKyc }
   | { ManageNetworkEconomics: NetworkEconomics }
   | { RewardNodeProvider: RewardNodeProvider }
@@ -311,6 +312,24 @@ export interface FulfillSubnetRentalRequest {
   user: Option<Principal>;
   replicaVersionId: Option<string>;
   nodeIds: Array<Principal> | undefined;
+}
+export interface GuestLaunchMeasurementMetadata {
+  kernelCmdline: Option<string>;
+}
+export interface GuestLaunchMeasurement {
+  metadata: Option<GuestLaunchMeasurementMetadata>;
+  /**
+   * SEV-SNP measurement (48 bytes).
+   */
+  measurement: Option<Uint8Array>;
+}
+export interface GuestLaunchMeasurements {
+  guestLaunchMeasurements: Option<Array<GuestLaunchMeasurement>>;
+}
+export interface BlessAlternativeGuestOsVersion {
+  rootfsHash: Option<string>;
+  chipIds: Option<Array<Uint8Array>>;
+  baseGuestLaunchMeasurements: Option<GuestLaunchMeasurements>;
 }
 export interface Merge {
   sourceNeuronId: Option<NeuronId>;

@@ -660,6 +660,38 @@ const toAction = (action: NnsGovernanceDid.Action): Action => {
     };
   }
 
+  if ("BlessAlternativeGuestOsVersion" in action) {
+    const { base_guest_launch_measurements, chip_ids, rootfs_hash } =
+      action.BlessAlternativeGuestOsVersion;
+
+    const baseGuestLaunchMeasurements = fromNullable(
+      base_guest_launch_measurements,
+    );
+    const guestLaunchMeasurements = fromNullable(
+      baseGuestLaunchMeasurements?.guest_launch_measurements ?? [],
+    );
+
+    return {
+      BlessAlternativeGuestOsVersion: {
+        rootfsHash: fromNullable(rootfs_hash),
+        chipIds: fromNullable(chip_ids),
+        baseGuestLaunchMeasurements: nonNullish(baseGuestLaunchMeasurements)
+          ? {
+              guestLaunchMeasurements: guestLaunchMeasurements?.map((m) => {
+                const metadata = fromNullable(m.metadata);
+                return {
+                  measurement: fromNullable(m.measurement),
+                  metadata: nonNullish(metadata)
+                    ? { kernelCmdline: fromNullable(metadata.kernel_cmdline) }
+                    : undefined,
+                };
+              }),
+            }
+          : undefined,
+      },
+    };
+  }
+
   throw new UnsupportedValueError(action);
 };
 
