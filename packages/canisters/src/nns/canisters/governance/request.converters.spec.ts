@@ -691,5 +691,83 @@ describe("request.converters", () => {
 
       expect(result).toEqual(expectedOutput);
     });
+
+    it("BlessAlternativeGuestOsVersion", () => {
+      const summary = "Proposal summary";
+      const chipIds = [Uint8Array.from([1, 2, 3])];
+      const rootfsHash = "rootfs_hash";
+      const baseGuestLaunchMeasurements = {
+        guestLaunchMeasurements: [
+          {
+            measurement: Uint8Array.from([4, 5, 6]),
+            metadata: {
+              kernelCmdline: "kernel_cmdline",
+            },
+          },
+        ],
+      };
+
+      const mockRequest: MakeProposalRequest = {
+        url,
+        title,
+        summary,
+        action: {
+          BlessAlternativeGuestOsVersion: {
+            chipIds,
+            rootfsHash,
+            baseGuestLaunchMeasurements,
+          },
+        },
+        neuronId,
+      };
+
+      const expectedOutput: NnsGovernanceDid.ManageNeuronRequest = {
+        id: [],
+        command: [
+          {
+            MakeProposal: {
+              url,
+              title: toNullable(title),
+              summary,
+              action: [
+                {
+                  BlessAlternativeGuestOsVersion: {
+                    chip_ids: [chipIds],
+                    rootfs_hash: [rootfsHash],
+                    base_guest_launch_measurements: [
+                      {
+                        guest_launch_measurements: [
+                          [
+                            {
+                              measurement: [Uint8Array.from([4, 5, 6])],
+                              metadata: [
+                                {
+                                  kernel_cmdline: ["kernel_cmdline"],
+                                },
+                              ],
+                            },
+                          ],
+                        ],
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+        neuron_id_or_subaccount: [
+          {
+            NeuronId: {
+              id: neuronId,
+            },
+          },
+        ],
+      };
+
+      const result = toMakeProposalRawRequest(mockRequest);
+
+      expect(result).toEqual(expectedOutput);
+    });
   });
 });

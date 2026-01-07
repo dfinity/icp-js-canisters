@@ -8,7 +8,12 @@ import type {
   NeuronInfo,
 } from "../../types/governance_converters";
 import { fromAccountIdentifier } from "./request.converters";
-import { toNeuron, toNeuronInfo, toRawNeuron } from "./response.converters";
+import {
+  toNeuron,
+  toNeuronInfo,
+  toProposalInfo,
+  toRawNeuron,
+} from "./response.converters";
 
 describe("response.converters", () => {
   const neuronId = 123n;
@@ -125,39 +130,39 @@ describe("response.converters", () => {
   };
 
   const testRawMaturityDisbursementWithSubaccount: NnsGovernanceDid.MaturityDisbursement =
-    {
-      timestamp_of_disbursement_seconds: [10n],
-      amount_e8s: [11n],
-      account_to_disburse_to: [
-        {
-          owner: [Principal.fromText("aaaaa-aa")],
-          subaccount: [Uint8Array.from([1, 2, 3])],
-        },
-      ],
-      account_identifier_to_disburse_to: [],
-      finalize_disbursement_timestamp_seconds: [12n],
-    };
+  {
+    timestamp_of_disbursement_seconds: [10n],
+    amount_e8s: [11n],
+    account_to_disburse_to: [
+      {
+        owner: [Principal.fromText("aaaaa-aa")],
+        subaccount: [Uint8Array.from([1, 2, 3])],
+      },
+    ],
+    account_identifier_to_disburse_to: [],
+    finalize_disbursement_timestamp_seconds: [12n],
+  };
   const testRawMaturityDisbursementWithoutSubaccount: NnsGovernanceDid.MaturityDisbursement =
-    {
-      timestamp_of_disbursement_seconds: [20n],
-      amount_e8s: [21n],
-      account_to_disburse_to: [
-        {
-          owner: [Principal.fromText("aaaaa-aa")],
-          subaccount: [],
-        },
-      ],
-      account_identifier_to_disburse_to: [],
-      finalize_disbursement_timestamp_seconds: [22n],
-    };
+  {
+    timestamp_of_disbursement_seconds: [20n],
+    amount_e8s: [21n],
+    account_to_disburse_to: [
+      {
+        owner: [Principal.fromText("aaaaa-aa")],
+        subaccount: [],
+      },
+    ],
+    account_identifier_to_disburse_to: [],
+    finalize_disbursement_timestamp_seconds: [22n],
+  };
   const testRawMaturityDisbursementWithAccountIdentifier: NnsGovernanceDid.MaturityDisbursement =
-    {
-      timestamp_of_disbursement_seconds: [20n],
-      amount_e8s: [21n],
-      account_to_disburse_to: [],
-      account_identifier_to_disburse_to: [accountIdentifier],
-      finalize_disbursement_timestamp_seconds: [22n],
-    };
+  {
+    timestamp_of_disbursement_seconds: [20n],
+    amount_e8s: [21n],
+    account_to_disburse_to: [],
+    account_identifier_to_disburse_to: [accountIdentifier],
+    finalize_disbursement_timestamp_seconds: [22n],
+  };
   const testMaturityDisbursementWithSubaccount: MaturityDisbursement = {
     timestampOfDisbursementSeconds: 10n,
     amountE8s: 11n,
@@ -542,6 +547,109 @@ describe("response.converters", () => {
           ],
         ],
       });
+    });
+  });
+  describe("toProposalInfo", () => {
+    it("should convert BlessAlternativeGuestOsVersion action", () => {
+      const chipIds = [Uint8Array.from([1, 2, 3])];
+      const rootfsHash = "rootfs_hash";
+      const measurement = Uint8Array.from([4, 5, 6]);
+      const kernelCmdline = "kernel_cmdline";
+
+      const candidProposalInfo: NnsGovernanceDid.ProposalInfo = {
+        id: [{ id: 100n }],
+        ballots: [],
+        reject_cost_e8s: 100n,
+        proposal_timestamp_seconds: 1234567890n,
+        reward_event_round: 1n,
+        failed_timestamp_seconds: 0n,
+        deadline_timestamp_seconds: [],
+        decided_timestamp_seconds: 0n,
+        proposal: [
+          {
+            title: ["Proposal Title"],
+            url: "https://example.com",
+            action: [
+              {
+                BlessAlternativeGuestOsVersion: {
+                  chip_ids: [chipIds],
+                  rootfs_hash: [rootfsHash],
+                  base_guest_launch_measurements: [
+                    {
+                      guest_launch_measurements: [
+                        [
+                          {
+                            measurement: [measurement],
+                            metadata: [
+                              {
+                                kernel_cmdline: [kernelCmdline],
+                              },
+                            ],
+                          },
+                        ],
+                      ],
+                    },
+                  ],
+                },
+              },
+            ],
+            summary: "Proposal Summary",
+            self_describing_action: [],
+          },
+        ],
+        proposer: [{ id: 101n }],
+        latest_tally: [],
+        executed_timestamp_seconds: 0n,
+        topic: 1,
+        status: 1,
+        reward_status: 1,
+        total_potential_voting_power: [],
+        failure_reason: [],
+        derived_proposal_information: [],
+      };
+
+      const expectedProposalInfo = {
+        id: 100n,
+        ballots: [],
+        rejectCost: 100n,
+        proposalTimestampSeconds: 1234567890n,
+        rewardEventRound: 1n,
+        failedTimestampSeconds: 0n,
+        deadlineTimestampSeconds: undefined,
+        decidedTimestampSeconds: 0n,
+        proposal: {
+          title: "Proposal Title",
+          url: "https://example.com",
+          action: {
+            BlessAlternativeGuestOsVersion: {
+              chipIds,
+              rootfsHash,
+              baseGuestLaunchMeasurements: {
+                guestLaunchMeasurements: [
+                  {
+                    measurement,
+                    metadata: {
+                      kernelCmdline,
+                    },
+                  },
+                ],
+              },
+            },
+          },
+          summary: "Proposal Summary",
+        },
+        proposer: 101n,
+        latestTally: undefined,
+        executedTimestampSeconds: 0n,
+        topic: 1,
+        status: 1,
+        rewardStatus: 1,
+        totalPotentialVotingPower: undefined,
+      };
+
+      const result = toProposalInfo(candidProposalInfo);
+
+      expect(result).toEqual(expectedProposalInfo);
     });
   });
 });
