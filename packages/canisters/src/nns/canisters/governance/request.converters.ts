@@ -159,10 +159,10 @@ const fromSwapParameters = (
   neuron_basket_construction_parameters:
     swapParameters.neuronBasketConstructionParameters !== undefined
       ? [
-        fromNeuronBasketConstructionParameters(
-          swapParameters.neuronBasketConstructionParameters,
-        ),
-      ]
+          fromNeuronBasketConstructionParameters(
+            swapParameters.neuronBasketConstructionParameters,
+          ),
+        ]
       : [],
   confirmation_text:
     swapParameters.confirmationText !== undefined
@@ -252,10 +252,10 @@ const fromGovernanceParameters = (
   proposal_wait_for_quiet_deadline_increase:
     governanceParameters.proposalWaitForQuietDeadlineIncrease !== undefined
       ? [
-        fromDuration(
-          governanceParameters.proposalWaitForQuietDeadlineIncrease,
-        ),
-      ]
+          fromDuration(
+            governanceParameters.proposalWaitForQuietDeadlineIncrease,
+          ),
+        ]
       : [],
   proposal_initial_voting_period:
     governanceParameters.proposalInitialVotingPeriod !== undefined
@@ -268,10 +268,10 @@ const fromGovernanceParameters = (
   voting_reward_parameters:
     governanceParameters.votingRewardParameters !== undefined
       ? [
-        fromVotingRewardParameters(
-          governanceParameters.votingRewardParameters,
-        ),
-      ]
+          fromVotingRewardParameters(
+            governanceParameters.votingRewardParameters,
+          ),
+        ]
       : [],
 });
 
@@ -294,10 +294,10 @@ const fromInitialTokenDistribution = (
   developer_distribution:
     initialTokenDistribution.developerDistribution !== undefined
       ? [
-        fromDeveloperDistribution(
-          initialTokenDistribution.developerDistribution,
-        ),
-      ]
+          fromDeveloperDistribution(
+            initialTokenDistribution.developerDistribution,
+          ),
+        ]
       : [],
   swap_distribution:
     initialTokenDistribution.swapDistribution !== undefined
@@ -345,10 +345,10 @@ const fromCreateServiceNervousSystem = (
   governance_parameters:
     createServiceNervousSystem.governanceParameters !== undefined
       ? [
-        fromGovernanceParameters(
-          createServiceNervousSystem.governanceParameters,
-        ),
-      ]
+          fromGovernanceParameters(
+            createServiceNervousSystem.governanceParameters,
+          ),
+        ]
       : [],
   fallback_controller_principal_ids:
     createServiceNervousSystem.fallbackControllerPrincipalIds.map((id) =>
@@ -382,10 +382,10 @@ const fromCreateServiceNervousSystem = (
   initial_token_distribution:
     createServiceNervousSystem.initialTokenDistribution !== undefined
       ? [
-        fromInitialTokenDistribution(
-          createServiceNervousSystem.initialTokenDistribution,
-        ),
-      ]
+          fromInitialTokenDistribution(
+            createServiceNervousSystem.initialTokenDistribution,
+          ),
+        ]
       : [],
 });
 
@@ -420,24 +420,24 @@ const fromCanisterSettings = (
     canisterSettings === undefined
       ? undefined
       : {
-        freezing_threshold: toNullable(canisterSettings.freezingThreshold),
-        controllers: canisterSettings.controllers
-          ? [
-            {
-              controllers: canisterSettings.controllers.map((controller) =>
-                Principal.fromText(controller),
-              ),
-            },
-          ]
-          : [],
-        log_visibility: toNullable(canisterSettings.logVisibility as number),
-        wasm_memory_limit: toNullable(canisterSettings.wasmMemoryLimit),
-        compute_allocation: toNullable(canisterSettings.computeAllocation),
-        memory_allocation: toNullable(canisterSettings.memoryAllocation),
-        wasm_memory_threshold: toNullable(
-          canisterSettings.wasmMemoryThreshold,
-        ),
-      },
+          freezing_threshold: toNullable(canisterSettings.freezingThreshold),
+          controllers: canisterSettings.controllers
+            ? [
+                {
+                  controllers: canisterSettings.controllers.map((controller) =>
+                    Principal.fromText(controller),
+                  ),
+                },
+              ]
+            : [],
+          log_visibility: toNullable(canisterSettings.logVisibility as number),
+          wasm_memory_limit: toNullable(canisterSettings.wasmMemoryLimit),
+          compute_allocation: toNullable(canisterSettings.computeAllocation),
+          memory_allocation: toNullable(canisterSettings.memoryAllocation),
+          wasm_memory_threshold: toNullable(
+            canisterSettings.wasmMemoryThreshold,
+          ),
+        },
   );
 
 const fromAction = (
@@ -629,21 +629,25 @@ const fromAction = (
         base_guest_launch_measurements: toNullable(
           nonNullish(baseGuestLaunchMeasurements)
             ? {
-              guest_launch_measurements: toNullable(
-                baseGuestLaunchMeasurements.guestLaunchMeasurements?.map((m) => {
-                  return {
-                    measurement: toNullable(m.measurement),
-                    metadata: toNullable(
-                      nonNullish(m.metadata)
-                        ? {
-                          kernel_cmdline: toNullable(m.metadata.kernelCmdline),
-                        }
-                        : undefined,
-                    ),
-                  };
-                }),
-              ),
-            }
+                guest_launch_measurements: toNullable(
+                  baseGuestLaunchMeasurements.guestLaunchMeasurements?.map(
+                    (m) => {
+                      return {
+                        measurement: toNullable(m.measurement),
+                        metadata: toNullable(
+                          nonNullish(m.metadata)
+                            ? {
+                                kernel_cmdline: toNullable(
+                                  m.metadata.kernelCmdline,
+                                ),
+                              }
+                            : undefined,
+                        ),
+                      };
+                    },
+                  ),
+                ),
+              }
             : undefined,
         ),
       },
@@ -738,11 +742,11 @@ const fromCommand = (
       SetFollowing: {
         topic_following: topicFollowing.length
           ? toNullable(
-            topicFollowing.map(({ topic, followees }) => ({
-              topic: toNullable(topic),
-              followees: toNullable(followees.map(fromNeuronId)),
-            })),
-          )
+              topicFollowing.map(({ topic, followees }) => ({
+                topic: toNullable(topic),
+                followees: toNullable(followees.map(fromNeuronId)),
+              })),
+            )
           : [],
       },
     };
@@ -955,10 +959,10 @@ const fromNeuronsFundEconomics = (
     isNullish(percentage)
       ? []
       : [
-        {
-          basis_points: toNullable(percentage.basisPoints),
-        },
-      ];
+          {
+            basis_points: toNullable(percentage.basisPoints),
+          },
+        ];
 
   const toRawDecimals = (
     decimal: Option<Decimal>,
@@ -966,10 +970,10 @@ const fromNeuronsFundEconomics = (
     isNullish(decimal)
       ? []
       : [
-        {
-          human_readable: toNullable(decimal.humanReadable),
-        },
-      ];
+          {
+            human_readable: toNullable(decimal.humanReadable),
+          },
+        ];
 
   const toRawNeuronsFundMatchedFundingCurveCoefficients = (
     neuronsFundMatchedFundingCurveCoefficients: Option<NeuronsFundMatchedFundingCurveCoefficients>,
@@ -977,18 +981,18 @@ const fromNeuronsFundEconomics = (
     isNullish(neuronsFundMatchedFundingCurveCoefficients)
       ? []
       : [
-        {
-          contribution_threshold_xdr: toRawDecimals(
-            neuronsFundMatchedFundingCurveCoefficients.contributionThresholdXdr,
-          ),
-          full_participation_milestone_xdr: toRawDecimals(
-            neuronsFundMatchedFundingCurveCoefficients.fullParticipationMilestoneXdr,
-          ),
-          one_third_participation_milestone_xdr: toRawDecimals(
-            neuronsFundMatchedFundingCurveCoefficients.oneThirdParticipationMilestoneXdr,
-          ),
-        },
-      ];
+          {
+            contribution_threshold_xdr: toRawDecimals(
+              neuronsFundMatchedFundingCurveCoefficients.contributionThresholdXdr,
+            ),
+            full_participation_milestone_xdr: toRawDecimals(
+              neuronsFundMatchedFundingCurveCoefficients.fullParticipationMilestoneXdr,
+            ),
+            one_third_participation_milestone_xdr: toRawDecimals(
+              neuronsFundMatchedFundingCurveCoefficients.oneThirdParticipationMilestoneXdr,
+            ),
+          },
+        ];
 
   return [
     {
@@ -1550,11 +1554,11 @@ export const toSetFollowingRequest = ({
       SetFollowing: {
         topic_following: topicFollowing.length
           ? toNullable(
-            topicFollowing.map(({ topic, followees }) => ({
-              topic: toNullable(topic),
-              followees: toNullable(followees.map(fromNeuronId)),
-            })),
-          )
+              topicFollowing.map(({ topic, followees }) => ({
+                topic: toNullable(topic),
+                followees: toNullable(followees.map(fromNeuronId)),
+              })),
+            )
           : [],
       },
     },
