@@ -21,6 +21,7 @@ export type Action =
   | { RegisterKnownNeuron: KnownNeuron }
   | { FulfillSubnetRentalRequest: FulfillSubnetRentalRequest }
   | { ManageNeuron: ManageNeuronProposal }
+  | { BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion }
   | { UpdateCanisterSettings: UpdateCanisterSettings }
   | { InstallCode: InstallCode }
   | { DeregisterKnownNeuron: DeregisterKnownNeuron }
@@ -55,6 +56,29 @@ export interface Ballot {
 export interface BallotInfo {
   vote: number;
   proposal_id: [] | [ProposalId];
+}
+/**
+ * Declares an approved set of alternative replica virtual machine software for
+ * disaster recovery purposes.
+ */
+export interface BlessAlternativeGuestOsVersion {
+  /**
+   * Hexadecimal fingerprint of the recovery rootfs.
+   * Must contain only hexadecimal characters (0-9, A-F, a-f).
+   */
+  rootfs_hash: [] | [string];
+  /**
+   * AMD Secure Processor chip IDs that are allowed to run this software.
+   * Each chip ID must be exactly 64 bytes.
+   */
+  chip_ids: [] | [Array<Uint8Array>];
+  /**
+   * The version being replaced by this (alternative version) must match this
+   * field (or one of the possibilities therein).
+   *
+   * (Here, we refer to the version being replaced as the "base" version.)
+   */
+  base_guest_launch_measurements: [] | [GuestLaunchMeasurements];
 }
 export type By =
   | { NeuronIdOrSubaccount: {} }
@@ -366,6 +390,25 @@ export interface GovernanceParameters {
   proposal_initial_voting_period: [] | [Duration];
   proposal_rejection_fee: [] | [Tokens];
   voting_reward_parameters: [] | [VotingRewardParameters];
+}
+export interface GuestLaunchMeasurement {
+  /**
+   * Metadata associated with the measurement.
+   */
+  metadata: [] | [GuestLaunchMeasurementMetadata];
+  /**
+   * SEV-SNP measurement (48 bytes).
+   */
+  measurement: [] | [Uint8Array];
+}
+export interface GuestLaunchMeasurementMetadata {
+  /**
+   * Kernel command line used for this measurement.
+   */
+  kernel_cmdline: [] | [string];
+}
+export interface GuestLaunchMeasurements {
+  guest_launch_measurements: [] | [Array<GuestLaunchMeasurement>];
 }
 export interface IdealMatchedParticipationFunction {
   serialized_representation: [] | [string];
@@ -963,6 +1006,7 @@ export type ProposalActionRequest =
   | { RegisterKnownNeuron: KnownNeuron }
   | { FulfillSubnetRentalRequest: FulfillSubnetRentalRequest }
   | { ManageNeuron: ManageNeuronRequest }
+  | { BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion }
   | { UpdateCanisterSettings: UpdateCanisterSettings }
   | { InstallCode: InstallCodeRequest }
   | { DeregisterKnownNeuron: DeregisterKnownNeuron }

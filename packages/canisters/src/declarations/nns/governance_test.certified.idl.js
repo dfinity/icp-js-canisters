@@ -414,6 +414,21 @@ export const idlFactory = ({ IDL }) => {
     command: IDL.Opt(ManageNeuronProposalCommand),
     neuron_id_or_subaccount: IDL.Opt(NeuronIdOrSubaccount),
   });
+  const GuestLaunchMeasurementMetadata = IDL.Record({
+    kernel_cmdline: IDL.Opt(IDL.Text),
+  });
+  const GuestLaunchMeasurement = IDL.Record({
+    metadata: IDL.Opt(GuestLaunchMeasurementMetadata),
+    measurement: IDL.Opt(IDL.Vec(IDL.Nat8)),
+  });
+  const GuestLaunchMeasurements = IDL.Record({
+    guest_launch_measurements: IDL.Opt(IDL.Vec(GuestLaunchMeasurement)),
+  });
+  const BlessAlternativeGuestOsVersion = IDL.Record({
+    rootfs_hash: IDL.Opt(IDL.Text),
+    chip_ids: IDL.Opt(IDL.Vec(IDL.Vec(IDL.Nat8))),
+    base_guest_launch_measurements: IDL.Opt(GuestLaunchMeasurements),
+  });
   const Controllers = IDL.Record({ controllers: IDL.Vec(IDL.Principal) });
   const CanisterSettings = IDL.Record({
     freezing_threshold: IDL.Opt(IDL.Nat64),
@@ -578,6 +593,7 @@ export const idlFactory = ({ IDL }) => {
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronProposal,
+    BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion,
     UpdateCanisterSettings: UpdateCanisterSettings,
     InstallCode: InstallCode,
     DeregisterKnownNeuron: DeregisterKnownNeuron,
@@ -886,6 +902,7 @@ export const idlFactory = ({ IDL }) => {
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronRequest,
+    BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion,
     UpdateCanisterSettings: UpdateCanisterSettings,
     InstallCode: InstallCodeRequest,
     DeregisterKnownNeuron: DeregisterKnownNeuron,
@@ -1519,6 +1536,21 @@ export const init = ({ IDL }) => {
     command: IDL.Opt(ManageNeuronProposalCommand),
     neuron_id_or_subaccount: IDL.Opt(NeuronIdOrSubaccount),
   });
+  const GuestLaunchMeasurementMetadata = IDL.Record({
+    kernel_cmdline: IDL.Opt(IDL.Text),
+  });
+  const GuestLaunchMeasurement = IDL.Record({
+    metadata: IDL.Opt(GuestLaunchMeasurementMetadata),
+    measurement: IDL.Opt(IDL.Vec(IDL.Nat8)),
+  });
+  const GuestLaunchMeasurements = IDL.Record({
+    guest_launch_measurements: IDL.Opt(IDL.Vec(GuestLaunchMeasurement)),
+  });
+  const BlessAlternativeGuestOsVersion = IDL.Record({
+    rootfs_hash: IDL.Opt(IDL.Text),
+    chip_ids: IDL.Opt(IDL.Vec(IDL.Vec(IDL.Nat8))),
+    base_guest_launch_measurements: IDL.Opt(GuestLaunchMeasurements),
+  });
   const Controllers = IDL.Record({ controllers: IDL.Vec(IDL.Principal) });
   const CanisterSettings = IDL.Record({
     freezing_threshold: IDL.Opt(IDL.Nat64),
@@ -1683,6 +1715,7 @@ export const init = ({ IDL }) => {
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronProposal,
+    BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion,
     UpdateCanisterSettings: UpdateCanisterSettings,
     InstallCode: InstallCode,
     DeregisterKnownNeuron: DeregisterKnownNeuron,

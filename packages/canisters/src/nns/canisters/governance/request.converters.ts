@@ -618,6 +618,40 @@ const fromAction = (
     };
   }
 
+  if ("BlessAlternativeGuestOsVersion" in action) {
+    const { baseGuestLaunchMeasurements, chipIds, rootfsHash } =
+      action.BlessAlternativeGuestOsVersion;
+
+    return {
+      BlessAlternativeGuestOsVersion: {
+        chip_ids: toNullable(chipIds),
+        rootfs_hash: toNullable(rootfsHash),
+        base_guest_launch_measurements: toNullable(
+          nonNullish(baseGuestLaunchMeasurements)
+            ? {
+                guest_launch_measurements: toNullable(
+                  baseGuestLaunchMeasurements.guestLaunchMeasurements?.map(
+                    (m) => ({
+                      measurement: toNullable(m.measurement),
+                      metadata: toNullable(
+                        nonNullish(m.metadata)
+                          ? {
+                              kernel_cmdline: toNullable(
+                                m.metadata.kernelCmdline,
+                              ),
+                            }
+                          : undefined,
+                      ),
+                    }),
+                  ),
+                ),
+              }
+            : undefined,
+        ),
+      },
+    };
+  }
+
   // If there's a missing action, this line will cause a compiler error.
   throw new UnsupportedValueError(action);
 };
