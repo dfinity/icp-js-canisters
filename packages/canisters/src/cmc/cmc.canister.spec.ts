@@ -348,13 +348,17 @@ describe("CyclesMintingCanister", () => {
 
       const cmc = await createCmc(service);
 
-      await cmc.notifyMintCycles({
-        block_index: BigInt(10),
+      const payload: CmcDid.NotifyMintCyclesArg = {
+        ...args,
         deposit_memo: toNullable(Uint8Array.from([1, 2, 3])),
         to_subaccount: toNullable(Uint8Array.from([4, 5, 6])),
-      });
+      };
 
-      expect(service.notify_top_up).toHaveBeenCalled();
+      await cmc.notifyMintCycles(payload);
+
+      expect(service.notify_mint_cycles).toHaveBeenCalledExactlyOnceWith(
+        payload,
+      );
     });
 
     it("throws Refunded error", async () => {
