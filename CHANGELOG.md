@@ -2,6 +2,7 @@
 
 ## Next Version
 
+- Add support for `notifyMintCycles` to mint cycles and deposit them to a cycles ledger account via the CMC.
 - Update to the latet Candid file for the nns package to introduce support for the new proposal type `BlessAlternativeGuestOsVersion`
 
 ## 91

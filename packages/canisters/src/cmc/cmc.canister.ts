@@ -108,6 +108,38 @@ export class CmcCanister extends Canister<CmcService> {
   };
 
   /**
+   * Notifies the CMC (Cycles Minting Canister) to mint cycles and deposit them to a cycles ledger account owned by the caller.
+   * This function is commonly used to finalize the process of converting ICP to cycles.
+   *
+   * @param {Object} request
+   * @param {BlockIndex} request.block_index - The block index of the ICP transaction on the ICP ledger
+   * @param {Memo} request.deposit_memo - Optional memo for the deposit transaction
+   * @param {Subaccount} request.to_subaccount - Optional Cycles ledger subaccount to which the cycles are minted to
+   * @returns Promise<Cycles> The new cycles of the canister
+   * @throws RefundedError, InvalidTransactionError, ProcessingError, TransactionTooOldError, CmcError
+   */
+  public notifyMintCycles = async (
+    request: CmcDid.NotifyMintCyclesArg,
+  ): Promise<CmcDid.NotifyMintCyclesSuccess> => {
+    const { notify_mint_cycles } = this.service;
+
+    const response = await notify_mint_cycles(request);
+
+    if ("Err" in response) {
+      throwNotifyError(response);
+    }
+
+    if ("Ok" in response) {
+      return response.Ok;
+    }
+
+    // Edge case
+    throw new Error(
+      `Unsupported response type in notifyMintCycles ${JSON.stringify(response)}`,
+    );
+  };
+
+  /**
    * This function calls the `get_default_subnets` method of the CMC canister, which returns a list of
    * default subnets as `Principal` objects. It can be called as query or update.
    *
