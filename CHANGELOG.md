@@ -4,9 +4,9 @@
 
 ### Overview
 
-| Library                  | Version | Status      |
-| ------------------------ |---------| ----------- |
-| `@icp-sdk/canisters`     | v3.4.0  | Enhanced 🔧️ |
+| Library              | Version | Status      |
+| -------------------- | ------- | ----------- |
+| `@icp-sdk/canisters` | v3.4.0  | Enhanced 🔧️ |
 
 ## Next Version
 
