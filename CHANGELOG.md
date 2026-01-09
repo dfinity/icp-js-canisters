@@ -1,8 +1,16 @@
 # Changelog
 
+## 92
+
+### Overview
+
+| Library                  | Version | Status      |
+| ------------------------ |---------| ----------- |
+| `@icp-sdk/canisters`     | v3.4.0  | Enhanced 🔧️ |
+
 ## Next Version
 
-- Update to the latet Candid file for the nns package to introduce support for the new proposal type `BlessAlternativeGuestOsVersion`
+- Update to the latest Candid file for the nns package to introduce support for the new proposal type `BlessAlternativeGuestOsVersion`.
 
 ## 91
 

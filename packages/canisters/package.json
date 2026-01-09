@@ -1,6 +1,6 @@
 {
   "name": "@icp-sdk/canisters",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "A modular library for interacting with canisters on the Internet Computer.",
   "license": "Apache-2.0",
   "type": "module",
