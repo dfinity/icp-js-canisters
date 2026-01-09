@@ -96,31 +96,13 @@ export class CmcCanister extends Canister<CmcService> {
   };
 
   /**
-   * This function calls the `get_default_subnets` method of the CMC canister, which returns a list of
-   * default subnets as `Principal` objects. It can be called as query or update.
-   *
-   * @param {Object} [params] - The query parameters for the call.
-   * @param {boolean} [params.certified] - Determines whether the response should be certified
-   * (default: non-certified if not specified).
-   *
-   * @returns {Promise<Principal[]>} - A promise that resolves to an array of `Principal` objects
-   * representing the default subnets.
-   */
-  public getDefaultSubnets = ({ certified }: QueryParams = {}): Promise<
-    Principal[]
-  > => {
-    const { get_default_subnets } = this.caller({ certified });
-    return get_default_subnets();
-  };
-
-  /**
-   * Notifies the CMC (Cycles Minting Canister) to mint cycles and deposit them to a cycles ledger account.
+   * Notifies the CMC (Cycles Minting Canister) to mint cycles and deposit them to a cycles ledger account owned by the caller.
    * This function is commonly used to finalize the process of converting ICP to cycles.
    *
    * @param {Object} request
    * @param {BlockIndex} request.block_index - The block index of the ICP transaction on the ICP ledger
    * @param {Memo} request.deposit_memo - Optional memo for the deposit transaction
-   * @param {Subaccount} request.to_subaccount - Optional target subaccount on the cycles ledger
+   * @param {Subaccount} request.to_subaccount - Optional Cycles ledger subaccount to which the cycles are minted to
    * @returns Promise<Cycles> The new cycles of the canister
    * @throws RefundedError, InvalidTransactionError, ProcessingError, TransactionTooOldError, CmcError
    */
@@ -143,6 +125,24 @@ export class CmcCanister extends Canister<CmcService> {
     throw new Error(
       `Unsupported response type in notifyMintCycles ${JSON.stringify(response)}`,
     );
+  };
+
+  /**
+   * This function calls the `get_default_subnets` method of the CMC canister, which returns a list of
+   * default subnets as `Principal` objects. It can be called as query or update.
+   *
+   * @param {Object} [params] - The query parameters for the call.
+   * @param {boolean} [params.certified] - Determines whether the response should be certified
+   * (default: non-certified if not specified).
+   *
+   * @returns {Promise<Principal[]>} - A promise that resolves to an array of `Principal` objects
+   * representing the default subnets.
+   */
+  public getDefaultSubnets = ({ certified }: QueryParams = {}): Promise<
+    Principal[]
+  > => {
+    const { get_default_subnets } = this.caller({ certified });
+    return get_default_subnets();
   };
 
   /**

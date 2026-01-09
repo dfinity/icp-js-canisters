@@ -1,4 +1,8 @@
-import { arrayOfNumberToUint8Array, type QueryParams } from "@dfinity/utils";
+import {
+  arrayOfNumberToUint8Array,
+  type QueryParams,
+  toNullable,
+} from "@dfinity/utils";
 import type { ActorSubclass, HttpAgent } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
@@ -319,6 +323,106 @@ describe("CyclesMintingCanister", () => {
           canister_id: Principal.fromText("aaaaa-aa"),
           block_index: BigInt(10),
         });
+
+      await expect(call).rejects.toThrowError(CmcError);
+    });
+  });
+
+  describe("CmcCanister.notifyMintCycles", () => {
+    const args: CmcDid.NotifyMintCyclesArg = {
+      block_index: BigInt(10),
+      deposit_memo: toNullable(),
+      to_subaccount: toNullable(),
+    };
+
+    it("successfully notifies mint cycles", async () => {
+      const response: CmcDid.NotifyMintCyclesResult = {
+        Ok: {
+          block_index: 123n,
+          balance: 456n,
+          minted: 789n,
+        },
+      };
+      const service = mock<CmcService>();
+      service.notify_mint_cycles.mockResolvedValue(response);
+
+      const cmc = await createCmc(service);
+
+      await cmc.notifyMintCycles({
+        block_index: BigInt(10),
+        deposit_memo: toNullable(Uint8Array.from([1, 2, 3])),
+        to_subaccount: toNullable(Uint8Array.from([4, 5, 6])),
+      });
+
+      expect(service.notify_top_up).toHaveBeenCalled();
+    });
+
+    it("throws Refunded error", async () => {
+      const response: CmcDid.NotifyMintCyclesResult = {
+        Err: { Refunded: { block_index: [], reason: "test" } },
+      };
+      const service = mock<CmcService>();
+      service.notify_mint_cycles.mockResolvedValue(response);
+
+      const cmc = await createCmc(service);
+
+      const call = () => cmc.notifyMintCycles(args);
+
+      await expect(call).rejects.toThrowError(RefundedError);
+    });
+
+    it("throws InvalidaTransactionError error", async () => {
+      const response: CmcDid.NotifyMintCyclesResult = {
+        Err: { InvalidTransaction: "test" },
+      };
+      const service = mock<CmcService>();
+      service.notify_mint_cycles.mockResolvedValue(response);
+
+      const cmc = await createCmc(service);
+
+      const call = () => cmc.notifyMintCycles(args);
+
+      await expect(call).rejects.toThrowError(InvalidaTransactionError);
+    });
+
+    it("throws ProcessingError error", async () => {
+      const response: CmcDid.NotifyMintCyclesResult = {
+        Err: { Processing: null },
+      };
+      const service = mock<CmcService>();
+      service.notify_mint_cycles.mockResolvedValue(response);
+
+      const cmc = await createCmc(service);
+
+      const call = () => cmc.notifyMintCycles(args);
+
+      await expect(call).rejects.toThrowError(ProcessingError);
+    });
+
+    it("throws TransactionTooOldError error", async () => {
+      const response: CmcDid.NotifyMintCyclesResult = {
+        Err: { TransactionTooOld: BigInt(10) },
+      };
+      const service = mock<CmcService>();
+      service.notify_mint_cycles.mockResolvedValue(response);
+
+      const cmc = await createCmc(service);
+
+      const call = () => cmc.notifyMintCycles(args);
+
+      await expect(call).rejects.toThrowError(TransactionTooOldError);
+    });
+
+    it("throws CMCError error", async () => {
+      const response: CmcDid.NotifyMintCyclesResult = {
+        Err: { Other: { error_code: BigInt(10), error_message: "test" } },
+      };
+      const service = mock<CmcService>();
+      service.notify_mint_cycles.mockResolvedValue(response);
+
+      const cmc = await createCmc(service);
+
+      const call = () => cmc.notifyMintCycles(args);
 
       await expect(call).rejects.toThrowError(CmcError);
     });
