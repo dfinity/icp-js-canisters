@@ -42,25 +42,32 @@ export class CmcCanister extends Canister<CmcService> {
   };
 
   /**
-   * Notifies Cycles Minting Canister of the creation of a new canister.
-   * It returns the new canister principal.
+   * Notifies CMC (Cycles Minting Canister) of the creation of a new canister.
    *
    * @param {Object} request
-   * @param {Principal} request.controller
-   * @param {BlockIndex} request.block_index
-   * @returns Promise<Principal>
+   * @param {Principal} request.controller - The controller of the canister to create
+   * @param {BlockIndex} request.block_index - The block index of the ICP transaction on the ICP ledger
+   * @param {SubnetSelection} [request.subnet_selection] - Optional instructions to select on which subnet the canister will be created
+   * @param {CanisterSettings} [request.settings] - Optional canister settings to apply to the newly created canister
+   * @param {string} [request.subnet_type] - (Deprecated) Optional subnet type. Use subnet_selection instead
+   * @returns Promise<Principal> The principal of the newly created canister
    * @throws RefundedError, InvalidaTransactionError, ProcessingError, TransactionTooOldError, CmcError
    */
   public notifyCreateCanister = async (
     request: CmcDid.NotifyCreateCanisterArg,
   ): Promise<Principal> => {
-    const response = await this.service.notify_create_canister(request);
+    const { notify_create_canister } = this.service;
+
+    const response = await notify_create_canister(request);
+
     if ("Err" in response) {
       throwNotifyError(response);
     }
+
     if ("Ok" in response) {
       return response.Ok;
     }
+
     // Edge case
     throw new Error(
       `Unsupported response type in notifyCreateCanister ${JSON.stringify(
