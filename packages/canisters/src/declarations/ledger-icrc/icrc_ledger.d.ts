@@ -126,6 +126,7 @@ export interface FeatureFlags {
 }
 export interface FeeCollector {
   ts: [] | [bigint];
+  mthd: [] | [string];
   fee_collector: [] | [Account];
   caller: [] | [Principal];
 }

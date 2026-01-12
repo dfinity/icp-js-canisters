@@ -1139,6 +1139,7 @@ export type SelfDescribingValue =
   | { Map: Array<[string, SelfDescribingValue]> }
   | { Nat: bigint }
   | { Blob: Uint8Array }
+  | { Null: null }
   | { Text: string }
   | { Array: Array<SelfDescribingValue> };
 export interface SetDefaultFollowees {
