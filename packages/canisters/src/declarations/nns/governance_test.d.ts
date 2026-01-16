@@ -21,10 +21,12 @@ export type Action =
   | { RegisterKnownNeuron: KnownNeuron }
   | { FulfillSubnetRentalRequest: FulfillSubnetRentalRequest }
   | { ManageNeuron: ManageNeuronProposal }
+  | { LoadCanisterSnapshot: LoadCanisterSnapshot }
   | { BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion }
   | { UpdateCanisterSettings: UpdateCanisterSettings }
   | { InstallCode: InstallCode }
   | { DeregisterKnownNeuron: DeregisterKnownNeuron }
+  | { TakeCanisterSnapshot: TakeCanisterSnapshot }
   | { StopOrStartCanister: StopOrStartCanister }
   | { CreateServiceNervousSystem: CreateServiceNervousSystem }
   | { ExecuteNnsFunction: ExecuteNnsFunction }
@@ -564,6 +566,10 @@ export interface ListProposalInfoRequest {
 export interface ListProposalInfoResponse {
   proposal_info: Array<ProposalInfo>;
 }
+export interface LoadCanisterSnapshot {
+  canister_id: [] | [Principal];
+  snapshot_id: [] | [Uint8Array];
+}
 export interface MakeProposalRequest {
   url: string;
   title: [] | [string];
@@ -1006,10 +1012,12 @@ export type ProposalActionRequest =
   | { RegisterKnownNeuron: KnownNeuron }
   | { FulfillSubnetRentalRequest: FulfillSubnetRentalRequest }
   | { ManageNeuron: ManageNeuronRequest }
+  | { LoadCanisterSnapshot: LoadCanisterSnapshot }
   | { BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion }
   | { UpdateCanisterSettings: UpdateCanisterSettings }
   | { InstallCode: InstallCodeRequest }
   | { DeregisterKnownNeuron: DeregisterKnownNeuron }
+  | { TakeCanisterSnapshot: TakeCanisterSnapshot }
   | { StopOrStartCanister: StopOrStartCanister }
   | { CreateServiceNervousSystem: CreateServiceNervousSystem }
   | { ExecuteNnsFunction: ExecuteNnsFunction }
@@ -1232,6 +1240,10 @@ export interface SwapParticipationLimits {
   max_participant_icp_e8s: [] | [bigint];
   min_direct_participation_icp_e8s: [] | [bigint];
   max_direct_participation_icp_e8s: [] | [bigint];
+}
+export interface TakeCanisterSnapshot {
+  replace_snapshot: [] | [Uint8Array];
+  canister_id: [] | [Principal];
 }
 export interface Tally {
   no: bigint;

@@ -692,6 +692,26 @@ const toAction = (action: NnsGovernanceDid.Action): Action => {
     };
   }
 
+  if ("TakeCanisterSnapshot" in action) {
+    const { replace_snapshot, canister_id } = action.TakeCanisterSnapshot;
+    return {
+      TakeCanisterSnapshot: {
+        replaceSnapshot: fromNullable(replace_snapshot),
+        canisterId: canister_id.length ? canister_id[0].toString() : undefined,
+      },
+    };
+  }
+
+  if ("LoadCanisterSnapshot" in action) {
+    const { snapshot_id, canister_id } = action.LoadCanisterSnapshot;
+    return {
+      LoadCanisterSnapshot: {
+        snapshotId: fromNullable(snapshot_id),
+        canisterId: canister_id.length ? canister_id[0].toString() : undefined,
+      },
+    };
+  }
+
   throw new UnsupportedValueError(action);
 };
 

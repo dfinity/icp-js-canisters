@@ -769,5 +769,107 @@ describe("request.converters", () => {
 
       expect(result).toEqual(expectedOutput);
     });
+
+    it("TakeCanisterSnapshot", () => {
+      const summary = "Proposal summary";
+      const replaceSnapshot = Uint8Array.from([1, 2, 3]);
+      const canisterId = "miw6j-knlcl-xq";
+
+      const mockRequest: MakeProposalRequest = {
+        url,
+        title,
+        summary,
+        action: {
+          TakeCanisterSnapshot: {
+            replaceSnapshot,
+            canisterId,
+          },
+        },
+        neuronId,
+      };
+
+      const expectedOutput: NnsGovernanceDid.ManageNeuronRequest = {
+        id: [],
+        command: [
+          {
+            MakeProposal: {
+              url,
+              title: toNullable(title),
+              summary,
+              action: [
+                {
+                  TakeCanisterSnapshot: {
+                    canister_id: [Principal.fromText(canisterId)],
+                    replace_snapshot: [replaceSnapshot],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+        neuron_id_or_subaccount: [
+          {
+            NeuronId: {
+              id: neuronId,
+            },
+          },
+        ],
+      };
+
+      const result = toMakeProposalRawRequest(mockRequest);
+
+      expect(result).toEqual(expectedOutput);
+    });
+
+    it("LoadCanisterSnapshot", () => {
+      const summary = "Proposal summary";
+      const snapshotId = Uint8Array.from([1, 2, 3]);
+      const canisterId = "miw6j-knlcl-xq";
+
+      const mockRequest: MakeProposalRequest = {
+        url,
+        title,
+        summary,
+        action: {
+          LoadCanisterSnapshot: {
+            snapshotId,
+            canisterId,
+          },
+        },
+        neuronId,
+      };
+
+      const expectedOutput: NnsGovernanceDid.ManageNeuronRequest = {
+        id: [],
+        command: [
+          {
+            MakeProposal: {
+              url,
+              title: toNullable(title),
+              summary,
+              action: [
+                {
+                  LoadCanisterSnapshot: {
+                    canister_id: [Principal.fromText(canisterId)],
+                    snapshot_id: [snapshotId],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+        neuron_id_or_subaccount: [
+          {
+            NeuronId: {
+              id: neuronId,
+            },
+          },
+        ],
+      };
+
+      const result = toMakeProposalRawRequest(mockRequest);
+
+      expect(result).toEqual(expectedOutput);
+    });
   });
 });

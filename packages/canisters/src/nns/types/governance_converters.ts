@@ -43,7 +43,11 @@ export type Action =
   | { SetDefaultFollowees: SetDefaultFollowees }
   | { Motion: Motion }
   | { SetSnsTokenSwapOpenTimeWindow: SetSnsTokenSwapOpenTimeWindow }
-  | { OpenSnsTokenSwap: OpenSnsTokenSwap };
+  | { Motion: Motion }
+  | { SetSnsTokenSwapOpenTimeWindow: SetSnsTokenSwapOpenTimeWindow }
+  | { OpenSnsTokenSwap: OpenSnsTokenSwap }
+  | { TakeCanisterSnapshot: TakeCanisterSnapshot }
+  | { LoadCanisterSnapshot: LoadCanisterSnapshot };
 export type ProposalActionRequest =
   | { RegisterKnownNeuron: KnownNeuron }
   | { DeregisterKnownNeuron: DeregisterKnownNeuron }
@@ -61,7 +65,10 @@ export type ProposalActionRequest =
   | { RewardNodeProvider: RewardNodeProvider }
   | { RewardNodeProviders: RewardNodeProviders }
   | { AddOrRemoveNodeProvider: AddOrRemoveNodeProvider }
-  | { Motion: Motion };
+  | { AddOrRemoveNodeProvider: AddOrRemoveNodeProvider }
+  | { Motion: Motion }
+  | { TakeCanisterSnapshot: TakeCanisterSnapshot }
+  | { LoadCanisterSnapshot: LoadCanisterSnapshot };
 export interface AddHotKey {
   newHotKey: Option<PrincipalString>;
 }
@@ -331,6 +338,16 @@ export interface BlessAlternativeGuestOsVersion {
   rootfsHash: Option<string>;
   chipIds: Option<Array<Uint8Array>>;
   baseGuestLaunchMeasurements: Option<GuestLaunchMeasurements>;
+}
+
+export interface TakeCanisterSnapshot {
+  replaceSnapshot: Option<Uint8Array>;
+  canisterId: Option<PrincipalString>;
+}
+
+export interface LoadCanisterSnapshot {
+  canisterId: Option<PrincipalString>;
+  snapshotId: Option<Uint8Array>;
 }
 export interface Merge {
   sourceNeuronId: Option<NeuronId>;
