@@ -36,6 +36,7 @@ export interface Burn {
 }
 export interface FeeCollector {
   ts: [] | [bigint];
+  mthd: [] | [string];
   fee_collector: [] | [Account];
   caller: [] | [Principal];
 }

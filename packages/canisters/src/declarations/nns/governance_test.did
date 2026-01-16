@@ -1,4 +1,4 @@
-// Generated from IC repo commit 2a1f5c16 (2026-01-05 tags: v91) 'packages/canisters/src/declarations/nns/governance_test.did.tmp' by import-candid
+// Generated from IC repo commit eb9ab89 (2026-01-09) 'packages/canisters/src/declarations/nns/governance_test.did.tmp' by import-candid
 
 type AccountIdentifier = record {
   hash : blob;
@@ -1482,6 +1482,7 @@ type SelfDescribingValue = variant {
   Int : int;
   Array : vec SelfDescribingValue;
   Map : vec record { text; SelfDescribingValue };
+  Null;
 };
 
 type GetPendingProposalsRequest = record {

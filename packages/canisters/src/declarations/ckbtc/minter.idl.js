@@ -20,6 +20,8 @@ export const idlFactory = ({ IDL }) => {
     retrieve_btc_min_amount: IDL.Opt(IDL.Nat64),
     max_time_in_queue_nanos: IDL.Opt(IDL.Nat64),
     check_fee: IDL.Opt(IDL.Nat64),
+    max_num_inputs_in_transaction: IDL.Opt(IDL.Nat64),
+    utxo_consolidation_threshold: IDL.Opt(IDL.Nat64),
     btc_checker_principal: IDL.Opt(IDL.Principal),
     min_confirmations: IDL.Opt(IDL.Nat32),
     kyt_fee: IDL.Opt(IDL.Nat64),
@@ -39,6 +41,8 @@ export const idlFactory = ({ IDL }) => {
     max_time_in_queue_nanos: IDL.Nat64,
     btc_network: BtcNetwork,
     check_fee: IDL.Opt(IDL.Nat64),
+    max_num_inputs_in_transaction: IDL.Opt(IDL.Nat64),
+    utxo_consolidation_threshold: IDL.Opt(IDL.Nat64),
     btc_checker_principal: IDL.Opt(IDL.Principal),
     min_confirmations: IDL.Opt(IDL.Nat32),
     kyt_fee: IDL.Opt(IDL.Nat64),
@@ -46,6 +50,47 @@ export const idlFactory = ({ IDL }) => {
   const MinterArg = IDL.Variant({
     Upgrade: IDL.Opt(UpgradeArgs),
     Init: InitArgs,
+  });
+  const MemoType = IDL.Variant({ Burn: IDL.Null, Mint: IDL.Null });
+  const DecodeLedgerMemoArgs = IDL.Record({
+    memo_type: MemoType,
+    encoded_memo: IDL.Vec(IDL.Nat8),
+  });
+  const Status = IDL.Variant({
+    CallFailed: IDL.Null,
+    Rejected: IDL.Null,
+    Accepted: IDL.Null,
+  });
+  const BurnMemo = IDL.Variant({
+    Consolidate: IDL.Record({ value: IDL.Nat64, inputs: IDL.Nat64 }),
+    Convert: IDL.Record({
+      status: IDL.Opt(Status),
+      address: IDL.Opt(IDL.Text),
+      kyt_fee: IDL.Opt(IDL.Nat64),
+    }),
+  });
+  const MintMemo = IDL.Variant({
+    Kyt: IDL.Null,
+    ReimburseWithdrawal: IDL.Record({ withdrawal_id: IDL.Nat64 }),
+    KytFail: IDL.Record({
+      status: IDL.Opt(Status),
+      associated_burn_index: IDL.Opt(IDL.Nat64),
+      kyt_fee: IDL.Opt(IDL.Nat64),
+    }),
+    Convert: IDL.Record({
+      txid: IDL.Opt(IDL.Vec(IDL.Nat8)),
+      vout: IDL.Opt(IDL.Nat32),
+      kyt_fee: IDL.Opt(IDL.Nat64),
+    }),
+  });
+  const DecodedMemo = IDL.Variant({
+    Burn: IDL.Opt(BurnMemo),
+    Mint: IDL.Opt(MintMemo),
+  });
+  const DecodeLedgerMemoError = IDL.Variant({ InvalidMemo: IDL.Text });
+  const DecodeLedgerMemoResult = IDL.Variant({
+    Ok: IDL.Opt(DecodedMemo),
+    Err: IDL.Opt(DecodeLedgerMemoError),
   });
   const MemoryMetrics = IDL.Record({
     wasm_binary_size: IDL.Nat,
@@ -161,6 +206,7 @@ export const idlFactory = ({ IDL }) => {
       fee: IDL.Opt(IDL.Nat64),
       change_output: IDL.Opt(IDL.Record({ value: IDL.Nat64, vout: IDL.Nat32 })),
       txid: IDL.Vec(IDL.Nat8),
+      signed_tx: IDL.Opt(IDL.Vec(IDL.Nat8)),
       withdrawal_fee: IDL.Opt(WithdrawalFee),
       utxos: IDL.Vec(Utxo),
       requests: IDL.Vec(IDL.Nat64),
@@ -226,6 +272,12 @@ export const idlFactory = ({ IDL }) => {
     checked_utxo_mint_unknown: IDL.Record({
       utxo: Utxo,
       account: Account,
+    }),
+    created_consolidate_utxos_request: IDL.Record({
+      received_at: IDL.Nat64,
+      block_index: IDL.Nat64,
+      address: BitcoinAddress,
+      amount: IDL.Nat64,
     }),
     reimbursed_failed_deposit: IDL.Record({
       burn_block_index: IDL.Nat64,
@@ -346,6 +398,11 @@ export const idlFactory = ({ IDL }) => {
   });
 
   return IDL.Service({
+    decode_ledger_memo: IDL.Func(
+      [DecodeLedgerMemoArgs],
+      [DecodeLedgerMemoResult],
+      ["query"],
+    ),
     estimate_withdrawal_fee: IDL.Func(
       [IDL.Record({ amount: IDL.Opt(IDL.Nat64) })],
       [IDL.Record({ minter_fee: IDL.Nat64, bitcoin_fee: IDL.Nat64 })],
@@ -449,6 +506,8 @@ export const init = ({ IDL }) => {
     retrieve_btc_min_amount: IDL.Opt(IDL.Nat64),
     max_time_in_queue_nanos: IDL.Opt(IDL.Nat64),
     check_fee: IDL.Opt(IDL.Nat64),
+    max_num_inputs_in_transaction: IDL.Opt(IDL.Nat64),
+    utxo_consolidation_threshold: IDL.Opt(IDL.Nat64),
     btc_checker_principal: IDL.Opt(IDL.Principal),
     min_confirmations: IDL.Opt(IDL.Nat32),
     kyt_fee: IDL.Opt(IDL.Nat64),
@@ -468,6 +527,8 @@ export const init = ({ IDL }) => {
     max_time_in_queue_nanos: IDL.Nat64,
     btc_network: BtcNetwork,
     check_fee: IDL.Opt(IDL.Nat64),
+    max_num_inputs_in_transaction: IDL.Opt(IDL.Nat64),
+    utxo_consolidation_threshold: IDL.Opt(IDL.Nat64),
     btc_checker_principal: IDL.Opt(IDL.Principal),
     min_confirmations: IDL.Opt(IDL.Nat32),
     kyt_fee: IDL.Opt(IDL.Nat64),

@@ -1,4 +1,4 @@
-// Generated from IC repo commit d2a13f0 (2025-12-03 tags: release-2025-12-04_03-28-base) 'rs/ledger_suite/icrc1/index-ng/index-ng.did' by import-candid
+// Generated from IC repo commit 035a2c7 (2026-01-07 tags: release-2026-01-08_03-31-base) 'rs/ledger_suite/icrc1/index-ng/index-ng.did' by import-candid
 
 type Tokens = nat;
 
@@ -66,7 +66,8 @@ type Transaction = record {
 type FeeCollector = record {
   caller : opt principal;
   fee_collector : opt Account;
-  ts : opt nat64
+  ts : opt nat64;
+  mthd : opt text
 };
 
 type Approve = record {
