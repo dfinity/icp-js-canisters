@@ -1,4 +1,4 @@
-// Generated from IC repo commit 035a2c7 (2026-01-07 tags: release-2026-01-08_03-31-base) 'rs/nns/governance/canister/governance.did' by import-candid
+// Generated from IC repo commit 998f2c7195 (2026-01-16) 'rs/nns/governance/canister/governance.did' by import-candid
 
 type AccountIdentifier = record {
   hash : blob;
@@ -24,6 +24,8 @@ type Action = variant {
   Motion : Motion;
   FulfillSubnetRentalRequest : FulfillSubnetRentalRequest;
   BlessAlternativeGuestOsVersion : BlessAlternativeGuestOsVersion;
+  TakeCanisterSnapshot : TakeCanisterSnapshot;
+  LoadCanisterSnapshot : LoadCanisterSnapshot;
 };
 
 type AddHotKey = record {
@@ -469,6 +471,11 @@ type LedgerParameters = record {
 
 type ListKnownNeuronsResponse = record {
   known_neurons : vec KnownNeuron;
+};
+
+type LoadCanisterSnapshot = record {
+  canister_id : opt principal;
+  snapshot_id : opt blob;
 };
 
 // Parameters of the list_neurons method.
@@ -1033,6 +1040,8 @@ type ProposalActionRequest = variant {
   Motion : Motion;
   FulfillSubnetRentalRequest : FulfillSubnetRentalRequest;
   BlessAlternativeGuestOsVersion : BlessAlternativeGuestOsVersion;
+  TakeCanisterSnapshot : TakeCanisterSnapshot;
+  LoadCanisterSnapshot : LoadCanisterSnapshot;
 };
 
 // Creates a rented subnet from a rental request (in the Subnet Rental
@@ -1101,6 +1110,10 @@ type GuestLaunchMeasurementMetadata = record {
   kernel_cmdline : opt text;
 };
 
+type TakeCanisterSnapshot = record {
+  canister_id : opt principal;
+  replace_snapshot : opt blob;
+};
 
 type ProposalData = record {
   id : opt ProposalId;
