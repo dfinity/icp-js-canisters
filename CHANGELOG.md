@@ -1,5 +1,11 @@
 # Changelog
 
+## Future
+
+### Features
+
+- Update to the latest Candid file for the nns package to introduce support for the new proposal types `TakeCanisterSnapshot` and `LoadCanisterSnapshot`.
+
 ## 92
 
 ### Overview
