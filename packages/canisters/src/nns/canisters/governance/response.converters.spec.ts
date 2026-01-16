@@ -652,5 +652,153 @@ describe("response.converters", () => {
 
       expect(result).toEqual(expectedProposalInfo);
     });
+
+    it("should convert TakeCanisterSnapshot action", () => {
+      const replaceSnapshot = Uint8Array.from([1, 2, 3]);
+      const canisterIdText = "miw6j-knlcl-xq";
+
+      const candidProposalInfo: NnsGovernanceDid.ProposalInfo = {
+        id: [{ id: 100n }],
+        ballots: [],
+        reject_cost_e8s: 100n,
+        proposal_timestamp_seconds: 1234567890n,
+        reward_event_round: 1n,
+        failed_timestamp_seconds: 0n,
+        deadline_timestamp_seconds: [],
+        decided_timestamp_seconds: 0n,
+        proposal: [
+          {
+            title: ["Proposal Title"],
+            url: "https://example.com",
+            action: [
+              {
+                TakeCanisterSnapshot: {
+                  replace_snapshot: [replaceSnapshot],
+                  canister_id: [Principal.fromText(canisterIdText)],
+                },
+              },
+            ],
+            summary: "Proposal Summary",
+            self_describing_action: [],
+          },
+        ],
+        proposer: [{ id: 101n }],
+        latest_tally: [],
+        executed_timestamp_seconds: 0n,
+        topic: 1,
+        status: 1,
+        reward_status: 1,
+        total_potential_voting_power: [],
+        failure_reason: [],
+        derived_proposal_information: [],
+      };
+
+      const expectedProposalInfo = {
+        id: 100n,
+        ballots: [],
+        rejectCost: 100n,
+        proposalTimestampSeconds: 1234567890n,
+        rewardEventRound: 1n,
+        failedTimestampSeconds: 0n,
+        deadlineTimestampSeconds: undefined,
+        decidedTimestampSeconds: 0n,
+        proposal: {
+          title: "Proposal Title",
+          url: "https://example.com",
+          action: {
+            TakeCanisterSnapshot: {
+              replaceSnapshot,
+              canisterId: canisterIdText,
+            },
+          },
+          summary: "Proposal Summary",
+        },
+        proposer: 101n,
+        latestTally: undefined,
+        executedTimestampSeconds: 0n,
+        topic: 1,
+        status: 1,
+        rewardStatus: 1,
+        totalPotentialVotingPower: undefined,
+      };
+
+      const result = toProposalInfo(candidProposalInfo);
+
+      expect(result).toEqual(expectedProposalInfo);
+    });
+
+    it("should convert LoadCanisterSnapshot action", () => {
+      const snapshotId = Uint8Array.from([1, 2, 3]);
+      const canisterIdText = "miw6j-knlcl-xq";
+
+      const candidProposalInfo: NnsGovernanceDid.ProposalInfo = {
+        id: [{ id: 100n }],
+        ballots: [],
+        reject_cost_e8s: 100n,
+        proposal_timestamp_seconds: 1234567890n,
+        reward_event_round: 1n,
+        failed_timestamp_seconds: 0n,
+        deadline_timestamp_seconds: [],
+        decided_timestamp_seconds: 0n,
+        proposal: [
+          {
+            title: ["Proposal Title"],
+            url: "https://example.com",
+            action: [
+              {
+                LoadCanisterSnapshot: {
+                  snapshot_id: [snapshotId],
+                  canister_id: [Principal.fromText(canisterIdText)],
+                },
+              },
+            ],
+            summary: "Proposal Summary",
+            self_describing_action: [],
+          },
+        ],
+        proposer: [{ id: 101n }],
+        latest_tally: [],
+        executed_timestamp_seconds: 0n,
+        topic: 1,
+        status: 1,
+        reward_status: 1,
+        total_potential_voting_power: [],
+        failure_reason: [],
+        derived_proposal_information: [],
+      };
+
+      const expectedProposalInfo = {
+        id: 100n,
+        ballots: [],
+        rejectCost: 100n,
+        proposalTimestampSeconds: 1234567890n,
+        rewardEventRound: 1n,
+        failedTimestampSeconds: 0n,
+        deadlineTimestampSeconds: undefined,
+        decidedTimestampSeconds: 0n,
+        proposal: {
+          title: "Proposal Title",
+          url: "https://example.com",
+          action: {
+            LoadCanisterSnapshot: {
+              snapshotId,
+              canisterId: canisterIdText,
+            },
+          },
+          summary: "Proposal Summary",
+        },
+        proposer: 101n,
+        latestTally: undefined,
+        executedTimestampSeconds: 0n,
+        topic: 1,
+        status: 1,
+        rewardStatus: 1,
+        totalPotentialVotingPower: undefined,
+      };
+
+      const result = toProposalInfo(candidProposalInfo);
+
+      expect(result).toEqual(expectedProposalInfo);
+    });
   });
 });

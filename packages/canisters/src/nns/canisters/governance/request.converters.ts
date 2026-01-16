@@ -652,6 +652,30 @@ const fromAction = (
     };
   }
 
+  if ("TakeCanisterSnapshot" in action) {
+    const takeCanisterSnapshot = action.TakeCanisterSnapshot;
+    return {
+      TakeCanisterSnapshot: {
+        canister_id: takeCanisterSnapshot.canisterId
+          ? [Principal.fromText(takeCanisterSnapshot.canisterId)]
+          : [],
+        replace_snapshot: toNullable(takeCanisterSnapshot.replaceSnapshot),
+      },
+    };
+  }
+
+  if ("LoadCanisterSnapshot" in action) {
+    const loadCanisterSnapshot = action.LoadCanisterSnapshot;
+    return {
+      LoadCanisterSnapshot: {
+        canister_id: loadCanisterSnapshot.canisterId
+          ? [Principal.fromText(loadCanisterSnapshot.canisterId)]
+          : [],
+        snapshot_id: toNullable(loadCanisterSnapshot.snapshotId),
+      },
+    };
+  }
+
   // If there's a missing action, this line will cause a compiler error.
   throw new UnsupportedValueError(action);
 };
