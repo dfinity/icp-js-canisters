@@ -43,8 +43,6 @@ export type Action =
   | { SetDefaultFollowees: SetDefaultFollowees }
   | { Motion: Motion }
   | { SetSnsTokenSwapOpenTimeWindow: SetSnsTokenSwapOpenTimeWindow }
-  | { Motion: Motion }
-  | { SetSnsTokenSwapOpenTimeWindow: SetSnsTokenSwapOpenTimeWindow }
   | { OpenSnsTokenSwap: OpenSnsTokenSwap }
   | { TakeCanisterSnapshot: TakeCanisterSnapshot }
   | { LoadCanisterSnapshot: LoadCanisterSnapshot };
@@ -64,7 +62,6 @@ export type ProposalActionRequest =
   | { ManageNetworkEconomics: NetworkEconomics }
   | { RewardNodeProvider: RewardNodeProvider }
   | { RewardNodeProviders: RewardNodeProviders }
-  | { AddOrRemoveNodeProvider: AddOrRemoveNodeProvider }
   | { AddOrRemoveNodeProvider: AddOrRemoveNodeProvider }
   | { Motion: Motion }
   | { TakeCanisterSnapshot: TakeCanisterSnapshot }
