@@ -1,4 +1,4 @@
-// Generated from IC repo commit 998f2c7195 (2026-01-16) 'rs/nns/sns-wasm/canister/sns-wasm.did' by import-candid
+// Generated from IC repo commit 035a2c7 (2026-01-07 tags: release-2026-01-08_03-31-base) 'rs/nns/sns-wasm/canister/sns-wasm.did' by import-candid
 
 type AddWasmRequest = record {
   hash : blob;

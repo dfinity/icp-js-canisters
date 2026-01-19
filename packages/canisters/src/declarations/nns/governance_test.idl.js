@@ -414,10 +414,6 @@ export const idlFactory = ({ IDL }) => {
     command: IDL.Opt(ManageNeuronProposalCommand),
     neuron_id_or_subaccount: IDL.Opt(NeuronIdOrSubaccount),
   });
-  const LoadCanisterSnapshot = IDL.Record({
-    canister_id: IDL.Opt(IDL.Principal),
-    snapshot_id: IDL.Opt(IDL.Vec(IDL.Nat8)),
-  });
   const GuestLaunchMeasurementMetadata = IDL.Record({
     kernel_cmdline: IDL.Opt(IDL.Text),
   });
@@ -455,10 +451,6 @@ export const idlFactory = ({ IDL }) => {
     install_mode: IDL.Opt(IDL.Int32),
   });
   const DeregisterKnownNeuron = IDL.Record({ id: IDL.Opt(NeuronId) });
-  const TakeCanisterSnapshot = IDL.Record({
-    replace_snapshot: IDL.Opt(IDL.Vec(IDL.Nat8)),
-    canister_id: IDL.Opt(IDL.Principal),
-  });
   const StopOrStartCanister = IDL.Record({
     action: IDL.Opt(IDL.Int32),
     canister_id: IDL.Opt(IDL.Principal),
@@ -601,12 +593,10 @@ export const idlFactory = ({ IDL }) => {
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronProposal,
-    LoadCanisterSnapshot: LoadCanisterSnapshot,
     BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion,
     UpdateCanisterSettings: UpdateCanisterSettings,
     InstallCode: InstallCode,
     DeregisterKnownNeuron: DeregisterKnownNeuron,
-    TakeCanisterSnapshot: TakeCanisterSnapshot,
     StopOrStartCanister: StopOrStartCanister,
     CreateServiceNervousSystem: CreateServiceNervousSystem,
     ExecuteNnsFunction: ExecuteNnsFunction,
@@ -913,12 +903,10 @@ export const idlFactory = ({ IDL }) => {
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronRequest,
-    LoadCanisterSnapshot: LoadCanisterSnapshot,
     BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion,
     UpdateCanisterSettings: UpdateCanisterSettings,
     InstallCode: InstallCodeRequest,
     DeregisterKnownNeuron: DeregisterKnownNeuron,
-    TakeCanisterSnapshot: TakeCanisterSnapshot,
     StopOrStartCanister: StopOrStartCanister,
     CreateServiceNervousSystem: CreateServiceNervousSystem,
     ExecuteNnsFunction: ExecuteNnsFunction,
@@ -1557,10 +1545,6 @@ export const init = ({ IDL }) => {
     command: IDL.Opt(ManageNeuronProposalCommand),
     neuron_id_or_subaccount: IDL.Opt(NeuronIdOrSubaccount),
   });
-  const LoadCanisterSnapshot = IDL.Record({
-    canister_id: IDL.Opt(IDL.Principal),
-    snapshot_id: IDL.Opt(IDL.Vec(IDL.Nat8)),
-  });
   const GuestLaunchMeasurementMetadata = IDL.Record({
     kernel_cmdline: IDL.Opt(IDL.Text),
   });
@@ -1598,10 +1582,6 @@ export const init = ({ IDL }) => {
     install_mode: IDL.Opt(IDL.Int32),
   });
   const DeregisterKnownNeuron = IDL.Record({ id: IDL.Opt(NeuronId) });
-  const TakeCanisterSnapshot = IDL.Record({
-    replace_snapshot: IDL.Opt(IDL.Vec(IDL.Nat8)),
-    canister_id: IDL.Opt(IDL.Principal),
-  });
   const StopOrStartCanister = IDL.Record({
     action: IDL.Opt(IDL.Int32),
     canister_id: IDL.Opt(IDL.Principal),
@@ -1744,12 +1724,10 @@ export const init = ({ IDL }) => {
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronProposal,
-    LoadCanisterSnapshot: LoadCanisterSnapshot,
     BlessAlternativeGuestOsVersion: BlessAlternativeGuestOsVersion,
     UpdateCanisterSettings: UpdateCanisterSettings,
     InstallCode: InstallCode,
     DeregisterKnownNeuron: DeregisterKnownNeuron,
-    TakeCanisterSnapshot: TakeCanisterSnapshot,
     StopOrStartCanister: StopOrStartCanister,
     CreateServiceNervousSystem: CreateServiceNervousSystem,
     ExecuteNnsFunction: ExecuteNnsFunction,
