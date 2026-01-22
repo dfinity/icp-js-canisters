@@ -1147,6 +1147,7 @@ export type SelfDescribingValue =
   | { Map: Array<[string, SelfDescribingValue]> }
   | { Nat: bigint }
   | { Blob: Uint8Array }
+  | { Bool: boolean }
   | { Null: null }
   | { Text: string }
   | { Array: Array<SelfDescribingValue> };

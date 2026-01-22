@@ -1,4 +1,4 @@
-// Generated from IC repo commit 998f2c7195 (2026-01-16) 'rs/nns/governance/canister/governance.did' by import-candid
+// Generated from IC repo commit b0a37d0 (2026-01-22 tags: release-2026-01-22_03-33-base) 'rs/nns/governance/canister/governance.did' by import-candid
 
 type AccountIdentifier = record {
   hash : blob;
@@ -1491,6 +1491,7 @@ type SelfDescribingProposalAction = record {
 type SelfDescribingValue = variant {
   Blob : blob;
   Text : text;
+  Bool : bool;
   Nat : nat;
   Int : int;
   Array : vec SelfDescribingValue;
