@@ -1,4 +1,4 @@
-// Generated from IC repo commit 035a2c7 (2026-01-07 tags: release-2026-01-08_03-31-base) 'rs/ledger_suite/icp/index/index.did' by import-candid
+// Generated from IC repo commit b0a37d0 (2026-01-22 tags: release-2026-01-22_03-33-base) 'rs/ledger_suite/icp/index/index.did' by import-candid
 
 type Account = record { owner : principal; subaccount : opt vec nat8 };
 type GetAccountIdentifierTransactionsArgs = record {

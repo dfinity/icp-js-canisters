@@ -1,4 +1,4 @@
-// Generated from IC repo commit eb9ab89 (2026-01-09) 'packages/canisters/src/declarations/sns/governance_test.did.tmp' by import-candid
+// Generated from IC repo commit f128a9e (2026-01-18) 'packages/canisters/src/declarations/sns/governance_test.did.tmp' by import-candid
 
 type Account = record {
   owner : opt principal;
