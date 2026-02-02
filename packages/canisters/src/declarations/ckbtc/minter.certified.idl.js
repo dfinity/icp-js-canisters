@@ -18,6 +18,7 @@ export const idlFactory = ({ IDL }) => {
     kyt_principal: IDL.Opt(IDL.Principal),
     mode: IDL.Opt(Mode),
     retrieve_btc_min_amount: IDL.Opt(IDL.Nat64),
+    deposit_btc_min_amount: IDL.Opt(IDL.Nat64),
     max_time_in_queue_nanos: IDL.Opt(IDL.Nat64),
     check_fee: IDL.Opt(IDL.Nat64),
     max_num_inputs_in_transaction: IDL.Opt(IDL.Nat64),
@@ -37,6 +38,7 @@ export const idlFactory = ({ IDL }) => {
     ecdsa_key_name: IDL.Text,
     mode: Mode,
     retrieve_btc_min_amount: IDL.Nat64,
+    deposit_btc_min_amount: IDL.Opt(IDL.Nat64),
     ledger_id: IDL.Principal,
     max_time_in_queue_nanos: IDL.Nat64,
     btc_network: BtcNetwork,
@@ -294,6 +296,7 @@ export const idlFactory = ({ IDL }) => {
   });
   const MinterInfo = IDL.Record({
     retrieve_btc_min_amount: IDL.Nat64,
+    deposit_btc_min_amount: IDL.Opt(IDL.Nat64),
     min_confirmations: IDL.Nat32,
     kyt_fee: IDL.Nat64,
   });
@@ -504,6 +507,7 @@ export const init = ({ IDL }) => {
     kyt_principal: IDL.Opt(IDL.Principal),
     mode: IDL.Opt(Mode),
     retrieve_btc_min_amount: IDL.Opt(IDL.Nat64),
+    deposit_btc_min_amount: IDL.Opt(IDL.Nat64),
     max_time_in_queue_nanos: IDL.Opt(IDL.Nat64),
     check_fee: IDL.Opt(IDL.Nat64),
     max_num_inputs_in_transaction: IDL.Opt(IDL.Nat64),
@@ -523,6 +527,7 @@ export const init = ({ IDL }) => {
     ecdsa_key_name: IDL.Text,
     mode: Mode,
     retrieve_btc_min_amount: IDL.Nat64,
+    deposit_btc_min_amount: IDL.Opt(IDL.Nat64),
     ledger_id: IDL.Principal,
     max_time_in_queue_nanos: IDL.Nat64,
     btc_network: BtcNetwork,

@@ -156,6 +156,18 @@ export type change_details =
         snapshot_id: snapshot_id;
       };
     }
+  | {
+      rename_canister: {
+        rename_to: {
+          canister_id: Principal;
+          version: bigint;
+          total_num_changes: bigint;
+        };
+        canister_id: Principal;
+        requested_by: Principal;
+        total_num_changes: bigint;
+      };
+    }
   | { controllers_change: { controllers: Array<Principal> } }
   | { code_uninstall: null };
 export type change_origin =

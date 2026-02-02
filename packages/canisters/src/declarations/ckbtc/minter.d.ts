@@ -297,6 +297,11 @@ export interface InitArgs {
    */
   retrieve_btc_min_amount: bigint;
   /**
+   * The minimal amount of BTC that can be converted to ckBTC.
+   * UTXOs with lower values will be ignored.
+   */
+  deposit_btc_min_amount: [] | [bigint];
+  /**
    * The principal of the ledger that handles ckBTC transfers.
    * The default account of the ckBTC minter must be configured as
    * the minting account of the ledger.
@@ -414,6 +419,11 @@ export interface MinterInfo {
    * initialization or upgrades, but may vary according to current network fees.
    */
   retrieve_btc_min_amount: bigint;
+  /**
+   * Minimal amount of BTC that can be deposited to be converted into ckBTC.
+   * UTXOs with lower values will be ignored.
+   */
+  deposit_btc_min_amount: [] | [bigint];
   min_confirmations: number;
   /**
    * The same as `check_fee`, but the old name is kept here to be backward compatible.
@@ -797,6 +807,11 @@ export interface UpgradeArgs {
    * The minimal amount of ckBTC that the minter converts to BTC.
    */
   retrieve_btc_min_amount: [] | [bigint];
+  /**
+   * The minimal amount of BTC that can be converted to ckBTC.
+   * UTXOs with lower values will be ignored.
+   */
+  deposit_btc_min_amount: [] | [bigint];
   /**
    * / Maximum time in nanoseconds that a transaction should spend in the queue
    * / before being sent.
