@@ -3,7 +3,7 @@ import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
 import type { CkBtcMinterDid, CkBtcMinterService } from "../declarations";
-import { MinterInfo } from "../declarations/ckbtc/minter";
+import type { MinterInfo } from "../declarations/ckbtc/minter";
 import {
   MinterAlreadyProcessingError,
   MinterAmountTooLowError,
