@@ -1,4 +1,4 @@
-// Generated from dfinity/portal commit cd0a86bd01966041fea1723688ee70d16c8f058e for file 'docs/references/_attachments/ic.did'
+// Generated from dfinity/portal commit 969a3c81aee395038a02d1f5244d3b4f2d0b45ce for file 'docs/references/_attachments/ic.did'
 
 type canister_id = principal;
 type wasm_module = blob;
@@ -71,6 +71,16 @@ type change_details = variant {
     };
     controllers_change : record {
         controllers : vec principal;
+    };
+    rename_canister : record {
+        canister_id : principal;
+        total_num_changes : nat64;
+        rename_to : record {
+            canister_id : principal;
+            version : nat64;
+            total_num_changes : nat64;
+        };
+        requested_by : principal;
     };
 };
 

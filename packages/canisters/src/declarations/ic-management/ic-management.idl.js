@@ -103,6 +103,16 @@ export const idlFactory = ({ IDL }) => {
       taken_at_timestamp: IDL.Nat64,
       snapshot_id: snapshot_id,
     }),
+    rename_canister: IDL.Record({
+      rename_to: IDL.Record({
+        canister_id: IDL.Principal,
+        version: IDL.Nat64,
+        total_num_changes: IDL.Nat64,
+      }),
+      canister_id: IDL.Principal,
+      requested_by: IDL.Principal,
+      total_num_changes: IDL.Nat64,
+    }),
     controllers_change: IDL.Record({
       controllers: IDL.Vec(IDL.Principal),
     }),
