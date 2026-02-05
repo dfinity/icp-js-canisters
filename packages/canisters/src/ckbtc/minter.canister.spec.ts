@@ -3,6 +3,7 @@ import type { ActorSubclass } from "@icp-sdk/core/agent";
 import { Principal } from "@icp-sdk/core/principal";
 import { mock } from "vitest-mock-extended";
 import type { CkBtcMinterDid, CkBtcMinterService } from "../declarations";
+import type { MinterInfo } from "../declarations/ckbtc/minter";
 import {
   MinterAlreadyProcessingError,
   MinterAmountTooLowError,
@@ -864,10 +865,11 @@ describe("ckBTC minter canister", () => {
 
   describe("Minter Info", () => {
     it("should return minter info", async () => {
-      const result = {
+      const result: MinterInfo = {
         retrieve_btc_min_amount: 1n,
         min_confirmations: 12,
         kyt_fee: 3n,
+        deposit_btc_min_amount: [77n],
       };
 
       const service = mock<ActorSubclass<CkBtcMinterService>>();

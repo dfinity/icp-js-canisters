@@ -1,4 +1,4 @@
-// Generated from IC repo commit 998f2c7195 (2026-01-16) 'rs/nns/gtc/canister/gtc.did' by import-candid
+// Generated from IC repo commit 6f1ce3b (2026-01-29 tags: release-2026-01-29_23-28-base) 'rs/nns/gtc/canister/gtc.did' by import-candid
 
 type AccountState = record {
   authenticated_principal_id : opt principal;

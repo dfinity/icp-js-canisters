@@ -54,6 +54,53 @@ export type BlockTag =
        */
       Latest: null;
     };
+export type BurnMemo =
+  | {
+      /**
+       * The minter processed a ckERC20 withdrawal request.
+       */
+      Erc20Convert: {
+        /**
+         * ckETH ledger burn index identifying the burn to pay for the transaction fee.
+         */
+        ckerc20_withdrawal_id: bigint;
+        /**
+         * The destination of the withdrawal request.
+         */
+        to_address: string;
+      };
+    }
+  | {
+      /**
+       * The minter processed a ckERC20 withdrawal request
+       * and that burn pays the transaction fee.
+       */
+      Erc20GasFee: {
+        /**
+         * The destination of the withdrawal request.
+         */
+        to_address: string;
+        /**
+         * The amount of the ckERC20 withdrawal request.
+         */
+        ckerc20_withdrawal_amount: bigint;
+        /**
+         * ckERC20 token symbol of the withdrawal request.
+         */
+        ckerc20_token_symbol: string;
+      };
+    }
+  | {
+      /**
+       * The minter processed a withdrawal request.
+       */
+      Convert: {
+        /**
+         * The destination of the withdrawal request.
+         */
+        to_address: string;
+      };
+    };
 export interface CanisterStatusResponse {
   status: CanisterStatusType;
   memory_size: bigint;
@@ -73,6 +120,50 @@ export interface CkErc20Token {
   ledger_canister_id: Principal;
   ckerc20_token_symbol: string;
 }
+export interface DecodeLedgerMemoArgs {
+  /**
+   * The encoded memo type
+   */
+  memo_type: MemoType;
+  /**
+   * The encoded memo from a minter transaction on the ledger
+   */
+  encoded_memo: Uint8Array;
+}
+export type DecodeLedgerMemoError = {
+  /**
+   * The provided memo could not be decoded.
+   */
+  InvalidMemo: string;
+};
+export type DecodeLedgerMemoResult =
+  | {
+      /**
+       * The decoded memo, if the minter was able to decode it. This field is `opt`, so that other memo types can be
+       * added in the future.
+       */
+      Ok: [] | [DecodedMemo];
+    }
+  | {
+      /**
+       * An error in case the minter was not able to decode the provided memo. This field is `opt`, so that other error
+       * types can be added in the future.
+       */
+      Err: [] | [DecodeLedgerMemoError];
+    };
+export type DecodedMemo =
+  | {
+      /**
+       * The decoded BurnMemo - `opt` since other variants of `BurnMemo` could be added in the future.
+       */
+      Burn: [] | [BurnMemo];
+    }
+  | {
+      /**
+       * The decoded MintMemo - `opt` since other variants of `MintMemo` could be added in the future.
+       */
+      Mint: [] | [MintMemo];
+    };
 export interface DefiniteCanisterSettings {
   freezing_threshold: bigint;
   controllers: Array<Principal>;
@@ -390,6 +481,51 @@ export type LogVisibility =
   | { controllers: null }
   | { public: null }
   | { allowed_viewers: Array<Principal> };
+export type MemoType = { Burn: null } | { Mint: null };
+export type MintMemo =
+  | {
+      /**
+       * The minter failed to process a withdrawal request,
+       * so no transaction was issued, but some reimbursement was made.
+       */
+      ReimburseWithdrawal: {
+        /**
+         * The id corresponding to the withdrawal request.
+         */
+        withdrawal_id: bigint;
+      };
+    }
+  | {
+      ReimburseTransaction: {
+        /**
+         * The id corresponding to the withdrawal request.
+         */
+        withdrawal_id: bigint;
+        /**
+         * Hash of the failed transaction.
+         */
+        tx_hash: string;
+      };
+    }
+  | {
+      /**
+       * The minter received some ETH or ERC20 token.
+       */
+      Convert: {
+        /**
+         * Integer of the log index position in the block.
+         */
+        log_index: bigint;
+        /**
+         * The sender of the ETH or ERC20 token.
+         */
+        from_address: string;
+        /**
+         * Hash of the transaction.
+         */
+        tx_hash: string;
+      };
+    };
 export type MinterArg = { UpgradeArg: UpgradeArg } | { InitArg: InitArg };
 export interface MinterInfo {
   /**
@@ -826,6 +962,13 @@ export interface _SERVICE {
    * This call is restricted to the orchestrator ID.
    */
   add_ckerc20_token: ActorMethod<[AddCkErc20Token], undefined>;
+  /**
+   * Decode ledger memos produced by the minter when minting (deposits) or burning (withdrawals).
+   */
+  decode_ledger_memo: ActorMethod<
+    [DecodeLedgerMemoArgs],
+    DecodeLedgerMemoResult
+  >;
   /**
    * Estimate the price of a transaction issued by the minter when converting ckETH to ETH.
    */

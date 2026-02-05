@@ -49,6 +49,44 @@ export const idlFactory = ({ IDL }) => {
     address: IDL.Text,
     ckerc20_token_symbol: IDL.Text,
   });
+  const MemoType = IDL.Variant({ Burn: IDL.Null, Mint: IDL.Null });
+  const DecodeLedgerMemoArgs = IDL.Record({
+    memo_type: MemoType,
+    encoded_memo: IDL.Vec(IDL.Nat8),
+  });
+  const BurnMemo = IDL.Variant({
+    Erc20Convert: IDL.Record({
+      ckerc20_withdrawal_id: IDL.Nat64,
+      to_address: IDL.Text,
+    }),
+    Erc20GasFee: IDL.Record({
+      to_address: IDL.Text,
+      ckerc20_withdrawal_amount: IDL.Nat,
+      ckerc20_token_symbol: IDL.Text,
+    }),
+    Convert: IDL.Record({ to_address: IDL.Text }),
+  });
+  const MintMemo = IDL.Variant({
+    ReimburseWithdrawal: IDL.Record({ withdrawal_id: IDL.Nat64 }),
+    ReimburseTransaction: IDL.Record({
+      withdrawal_id: IDL.Nat64,
+      tx_hash: IDL.Text,
+    }),
+    Convert: IDL.Record({
+      log_index: IDL.Nat,
+      from_address: IDL.Text,
+      tx_hash: IDL.Text,
+    }),
+  });
+  const DecodedMemo = IDL.Variant({
+    Burn: IDL.Opt(BurnMemo),
+    Mint: IDL.Opt(MintMemo),
+  });
+  const DecodeLedgerMemoError = IDL.Variant({ InvalidMemo: IDL.Text });
+  const DecodeLedgerMemoResult = IDL.Variant({
+    Ok: IDL.Opt(DecodedMemo),
+    Err: IDL.Opt(DecodeLedgerMemoError),
+  });
   const Eip1559TransactionPriceArg = IDL.Record({
     ckerc20_ledger_id: IDL.Principal,
   });
@@ -382,6 +420,11 @@ export const idlFactory = ({ IDL }) => {
 
   return IDL.Service({
     add_ckerc20_token: IDL.Func([AddCkErc20Token], [], []),
+    decode_ledger_memo: IDL.Func(
+      [DecodeLedgerMemoArgs],
+      [DecodeLedgerMemoResult],
+      ["query"],
+    ),
     eip_1559_transaction_price: IDL.Func(
       [IDL.Opt(Eip1559TransactionPriceArg)],
       [Eip1559TransactionPrice],
