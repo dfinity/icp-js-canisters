@@ -18,6 +18,7 @@ import { isNullish } from "../utils/nullish.utils";
  *
  * Once the call(s) are done, the response is handled by the `onLoad` callback.
  * However, if an error occurs, it is handled by the error callbacks, if provided: one for the query call and one for the update call.
+ * If no error callback is provided for the update call, the error is logged to the console.
  *
  * @param {QueryAndUpdateParams<R, E>} params The parameters to perform the request.
  * @param {QueryAndUpdateRequest<R>} params.request The request to perform.
@@ -63,10 +64,10 @@ export const queryAndUpdate = async <R, E = unknown>({
         }
 
         if (isNullish(onUpdateError)) {
+          console.error(error);
+
           return;
         }
-
-        console.error(error);
 
         if (!certified) {
           return;
