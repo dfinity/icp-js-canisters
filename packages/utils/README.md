@@ -185,6 +185,7 @@ The resolution can be:
 
 Once the call(s) are done, the response is handled by the `onLoad` callback.
 However, if an error occurs, it is handled by the error callbacks, if provided: one for the query call and one for the update call.
+If no error callback is provided for the update call, the error is logged to the console.
 
 | Function         | Type                                                                                                                                               |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -205,7 +206,7 @@ Returns:
 
 A promise that resolves when the request is done.
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/utils/src/services/query.ts#L36)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/utils/src/services/query.ts#L37)
 
 #### :gear: defaultAgent
 
