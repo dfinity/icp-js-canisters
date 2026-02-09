@@ -40,7 +40,7 @@ import { createAgent } from "@dfinity/utils";
 
 const agent = await createAgent({
   identity,
-  host: HOST,
+  host: HOST, // "https://icp-api.io" for mainnet
 });
 
 const { metadata } = IcrcLedgerCanister.create({

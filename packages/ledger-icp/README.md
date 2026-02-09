@@ -42,7 +42,7 @@ import { IcpLedgerCanister } from "@dfinity/ledger-icp";
 
 const agent = await createAgent({
   identity,
-  host: HOST,
+  host: HOST, // "https://icp-api.io" for mainnet
 });
 
 const { metadata } = IcpLedgerCanister.create({

@@ -41,7 +41,7 @@ import { initSnsWrapper } from "@dfinity/sns";
 
 const agent = await createAgent({
   identity,
-  host: HOST,
+  host: HOST, // "https://icp-api.io" for mainnet
 });
 
 const wrapper = await initSnsWrapper({
@@ -68,7 +68,7 @@ import { SnsGovernanceCanister } from "@dfinity/sns";
 
 const agent = await createAgent({
   identity,
-  host: HOST,
+  host: HOST, // "https://icp-api.io" for mainnet
 });
 
 const { metadata } = SnsGovernanceCanister.create({
