@@ -10,6 +10,7 @@ A modular library for interacting with canisters on the Internet Computer.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Examples](#examples)
+- [Local Development](#local-development)
 
 ## Features
 
@@ -54,12 +55,10 @@ import { createAgent } from "@dfinity/utils";
 
 const agent = await createAgent({
   identity,
-  host: HOST, // "https://icp-api.io" for mainnet
 });
 
 const { getSmartContractAddress } = CkEthMinterCanister.create({
   agent,
-  canisterId: MY_CKETH_MINTER_CANISTER_ID,
 });
 
 const address = await getSmartContractAddress({});
@@ -73,12 +72,31 @@ import { createAgent } from "@dfinity/utils";
 
 const agent = await createAgent({
   identity,
-  host: HOST, // "https://icp-api.io" for mainnet
 });
 
 const { metadata } = IcrcLedgerCanister.create({
   agent,
-  canisterId: MY_LEDGER_CANISTER_ID,
+});
+
+const data = await metadata({});
+```
+
+## Local Development
+
+When developing locally, you need to configure the agent to connect to your local replica instead of mainnet. You can also specify custom canister IDs deployed on your local environment.
+
+```typescript
+import { IcrcLedgerCanister } from "@icp-sdk/canisters/ledger/icrc";
+import { createAgent } from "@dfinity/utils";
+
+const agent = await createAgent({
+  identity,
+  host: "http://localhost:4943",
+});
+
+const { metadata } = IcrcLedgerCanister.create({
+  agent,
+  canisterId: MY_CANISTER_ID,
 });
 
 const data = await metadata({});
