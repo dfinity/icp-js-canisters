@@ -92,6 +92,7 @@ import { createAgent } from "@dfinity/utils";
 const agent = await createAgent({
   identity,
   host: "http://localhost:4943",
+  fetchRootKey: true,
 });
 
 const { metadata } = IcrcLedgerCanister.create({
