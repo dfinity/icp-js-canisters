@@ -65,6 +65,7 @@ jobs:
           else
             echo "docs_needed=true" >> $GITHUB_OUTPUT
           fi
+
       - name: Commit docs changes
         if: steps.check_can_add_commit.outputs.can_add_commit == 'true' && steps.check_docs.outputs.docs_needed == 'true'
         uses: EndBug/add-and-commit@v9.1.4
