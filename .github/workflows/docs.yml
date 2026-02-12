@@ -17,7 +17,7 @@ jobs:
       - name: Check if commits can be added
         id: check_can_add_commit
         run: |
-          echo "can_add_commit=${{ secrets.PR_AUTOMATION_BOT_PUBLIC_PRIVATE_KEY != '' && github.event_name == 'pull_request' }}" >> $GITHUB_OUTPUT
+          echo "can_add_commit=${{ secrets.PR_AUTOMATION_BOT_PUBLIC_PRIVATE_KEY != '' && vars.PR_AUTOMATION_BOT_PUBLIC_APP_ID != '' && github.event_name == 'pull_request' }}" >> $GITHUB_OUTPUT
 
       - name: Create GitHub App Token
         if: steps.check_can_add_commit.outputs.can_add_commit == 'true'
