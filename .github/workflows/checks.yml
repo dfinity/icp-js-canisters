@@ -35,12 +35,14 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
           token: ${{ steps.app-token.outputs.token }}
+
       - name: Checkout
         if: steps.check_can_add_commit.outputs.can_add_commit == 'false'
         uses: actions/checkout@v4
 
       - name: Install shfmt
         run: sudo snap install --classic shfmt
+
       - name: Format shell scripts
         run: ./scripts/fmt-sh
 
@@ -58,6 +60,7 @@ jobs:
           else
             echo "formatting_needed=true" >> $GITHUB_OUTPUT
           fi
+
       - name: Commit Formatting changes
         if: steps.check_can_add_commit.outputs.can_add_commit == 'true' && steps.check_format.outputs.formatting_needed == 'true'
         uses: EndBug/add-and-commit@v9.1.4
