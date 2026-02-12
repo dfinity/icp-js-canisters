@@ -309,16 +309,15 @@ describe("query", () => {
               });
             });
 
-            it("should ignore `update` response and log the console error with `query` error", async () => {
+            it("should ignore `update` response and not log the console error with `query` error", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledOnce();
-              expect(console.error).toHaveBeenNthCalledWith(1, queryErrorObj);
+              expect(console.error).not.toHaveBeenCalledOnce();
             });
 
-            it("should not log the console error when `onUpdateError` is nullish", async () => {
+            it("should log the console error when `onUpdateError` is nullish", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate({
@@ -326,7 +325,8 @@ describe("query", () => {
                 onUpdateError: undefined,
               });
 
-              expect(console.error).not.toHaveBeenCalled();
+              expect(console.error).toHaveBeenCalledOnce();
+              expect(console.error).toHaveBeenNthCalledWith(1, queryErrorObj);
             });
           });
 
@@ -360,16 +360,15 @@ describe("query", () => {
               expect(onUpdateErrorMock).not.toHaveBeenCalled();
             });
 
-            it("should log the console error only with `query` error", async () => {
+            it("should not log the console error only with `query` error", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledOnce();
-              expect(console.error).toHaveBeenNthCalledWith(1, queryErrorObj);
+              expect(console.error).not.toHaveBeenCalled();
             });
 
-            it("should not log the console error when `onUpdateError` is nullish", async () => {
+            it("should log the console error when `onUpdateError` is nullish", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate({
@@ -377,7 +376,8 @@ describe("query", () => {
                 onUpdateError: undefined,
               });
 
-              expect(console.error).not.toHaveBeenCalled();
+              expect(console.error).toHaveBeenCalledOnce();
+              expect(console.error).toHaveBeenNthCalledWith(1, queryErrorObj);
             });
           });
         });
@@ -445,16 +445,15 @@ describe("query", () => {
               });
             });
 
-            it("should log the console error with `update` error", async () => {
+            it("should not log the console error with `update` error", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledOnce();
-              expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
+              expect(console.error).not.toHaveBeenCalled();
             });
 
-            it("should not log the console error when `onUpdateError` is nullish", async () => {
+            it("should log the console error when `onUpdateError` is nullish", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate({
@@ -462,7 +461,8 @@ describe("query", () => {
                 onUpdateError: undefined,
               });
 
-              expect(console.error).not.toHaveBeenCalled();
+              expect(console.error).toHaveBeenCalledOnce();
+              expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
             });
           });
 
@@ -506,16 +506,15 @@ describe("query", () => {
               expect(onUpdateErrorMock).not.toHaveBeenCalled();
             });
 
-            it("should log the console error with `query` error", async () => {
+            it("should not log the console error with `query` error", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledOnce();
-              expect(console.error).toHaveBeenNthCalledWith(1, queryErrorObj);
+              expect(console.error).not.toHaveBeenCalled();
             });
 
-            it("should not log the console error when `onUpdateError` is nullish", async () => {
+            it("should log the console error when `onUpdateError` is nullish", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate({
@@ -523,7 +522,8 @@ describe("query", () => {
                 onUpdateError: undefined,
               });
 
-              expect(console.error).not.toHaveBeenCalled();
+              expect(console.error).toHaveBeenCalledOnce();
+              expect(console.error).toHaveBeenNthCalledWith(1, queryErrorObj);
             });
           });
 
@@ -561,17 +561,15 @@ describe("query", () => {
               });
             });
 
-            it("should log the console error with both errors", async () => {
+            it("should not log the console error", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledTimes(2);
-              expect(console.error).toHaveBeenNthCalledWith(1, queryErrorObj);
-              expect(console.error).toHaveBeenNthCalledWith(2, updateErrorObj);
+              expect(console.error).not.toHaveBeenCalled();
             });
 
-            it("should not log the console error when `onUpdateError` is nullish", async () => {
+            it("should log the console error with both errors when `onUpdateError` is nullish", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate({
@@ -579,7 +577,9 @@ describe("query", () => {
                 onUpdateError: undefined,
               });
 
-              expect(console.error).not.toHaveBeenCalled();
+              expect(console.error).toHaveBeenCalledTimes(2);
+              expect(console.error).toHaveBeenNthCalledWith(1, queryErrorObj);
+              expect(console.error).toHaveBeenNthCalledWith(2, updateErrorObj);
             });
           });
         });
@@ -641,16 +641,15 @@ describe("query", () => {
               });
             });
 
-            it("should ignore `query` response and log the console error with `update` error", async () => {
+            it("should ignore `query` response and not log the console error with `update` error", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledOnce();
-              expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
+              expect(console.error).not.toHaveBeenCalled();
             });
 
-            it("should not log the console error when `onUpdateError` is nullish", async () => {
+            it("should log the console error when `onUpdateError` is nullish", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate({
@@ -658,7 +657,8 @@ describe("query", () => {
                 onUpdateError: undefined,
               });
 
-              expect(console.error).not.toHaveBeenCalled();
+              expect(console.error).toHaveBeenCalledOnce();
+              expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
             });
           });
 
@@ -729,16 +729,15 @@ describe("query", () => {
               });
             });
 
-            it("should log the console error only with `update` error", async () => {
+            it("should not log the console error only with `update` error", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledOnce();
-              expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
+              expect(console.error).not.toHaveBeenCalled();
             });
 
-            it("should not log the console error when `onUpdateError` is nullish", async () => {
+            it("should log the console error when `onUpdateError` is nullish", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate({
@@ -746,7 +745,8 @@ describe("query", () => {
                 onUpdateError: undefined,
               });
 
-              expect(console.error).not.toHaveBeenCalled();
+              expect(console.error).toHaveBeenCalledOnce();
+              expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
             });
           });
         });
@@ -806,16 +806,15 @@ describe("query", () => {
               });
             });
 
-            it("should log the console error with `update` error", async () => {
+            it("should not log the console error with `update` error", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledOnce();
-              expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
+              expect(console.error).not.toHaveBeenCalled();
             });
 
-            it("should not log the console error when `onUpdateError` is nullish", async () => {
+            it("should log the console error when `onUpdateError` is nullish", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate({
@@ -823,7 +822,8 @@ describe("query", () => {
                 onUpdateError: undefined,
               });
 
-              expect(console.error).not.toHaveBeenCalled();
+              expect(console.error).toHaveBeenCalledOnce();
+              expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
             });
           });
 
@@ -910,16 +910,15 @@ describe("query", () => {
               });
             });
 
-            it("should log the console error only with `update` error", async () => {
+            it("should not log the console error only with `update` error", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate(mockParams);
 
-              expect(console.error).toHaveBeenCalledOnce();
-              expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
+              expect(console.error).not.toHaveBeenCalled();
             });
 
-            it("should not log the console error when `onUpdateError` is nullish", async () => {
+            it("should log the console error when `onUpdateError` is nullish", async () => {
               const { mockParams } = createMockParams();
 
               await queryAndUpdate({
@@ -927,7 +926,8 @@ describe("query", () => {
                 onUpdateError: undefined,
               });
 
-              expect(console.error).not.toHaveBeenCalled();
+              expect(console.error).toHaveBeenCalledOnce();
+              expect(console.error).toHaveBeenNthCalledWith(1, updateErrorObj);
             });
           });
         });
@@ -988,18 +988,17 @@ describe("query", () => {
         expect(onUpdateErrorMock).not.toHaveBeenCalled();
       });
 
-      it("should log the console error if `query` fails", async () => {
+      it("should not log the console error if `query` fails", async () => {
         params = { ...params, requestError: true };
 
         const { mockParams } = createMockParams();
 
         await queryAndUpdate(mockParams);
 
-        expect(console.error).toHaveBeenCalledOnce();
-        expect(console.error).toHaveBeenNthCalledWith(1, requestErrorObj);
+        expect(console.error).not.toHaveBeenCalled();
       });
 
-      it("should not log the console error when `onUpdateError` is nullish", async () => {
+      it("should log the console error when `onUpdateError` is nullish", async () => {
         params = { ...params, requestError: true };
 
         const { mockParams } = createMockParams();
@@ -1009,7 +1008,8 @@ describe("query", () => {
           onUpdateError: undefined,
         });
 
-        expect(console.error).not.toHaveBeenCalled();
+        expect(console.error).toHaveBeenCalledOnce();
+        expect(console.error).toHaveBeenNthCalledWith(1, requestErrorObj);
       });
     });
 
@@ -1067,18 +1067,17 @@ describe("query", () => {
         });
       });
 
-      it("should log the console error if `update` fails", async () => {
+      it("should not log the console error if `update` fails", async () => {
         params = { ...params, requestError: true };
 
         const { mockParams } = createMockParams();
 
         await queryAndUpdate(mockParams);
 
-        expect(console.error).toHaveBeenCalledOnce();
-        expect(console.error).toHaveBeenNthCalledWith(1, requestErrorObj);
+        expect(console.error).not.toHaveBeenCalled();
       });
 
-      it("should not log the console error when `onUpdateError` is nullish", async () => {
+      it("should log the console error when `onUpdateError` is nullish", async () => {
         params = { ...params, requestError: true };
 
         const { mockParams } = createMockParams();
@@ -1088,7 +1087,8 @@ describe("query", () => {
           onUpdateError: undefined,
         });
 
-        expect(console.error).not.toHaveBeenCalled();
+        expect(console.error).toHaveBeenCalledOnce();
+        expect(console.error).toHaveBeenNthCalledWith(1, requestErrorObj);
       });
     });
 

@@ -17,9 +17,10 @@ jobs:
       - name: Check if commits can be added
         id: check_can_add_commit
         run: |
-          echo "can_add_commit=${{ secrets.PR_AUTOMATION_BOT_PUBLIC_PRIVATE_KEY != '' && github.event_name == 'pull_request' }}" >> $GITHUB_OUTPUT
+          echo "can_add_commit=${{ secrets.PR_AUTOMATION_BOT_PUBLIC_PRIVATE_KEY != '' && vars.PR_AUTOMATION_BOT_PUBLIC_APP_ID != '' && github.event_name == 'pull_request' }}" >> $GITHUB_OUTPUT
 
       - name: Create GitHub App Token
+        if: steps.check_can_add_commit.outputs.can_add_commit == 'true'
         uses: actions/create-github-app-token@v1
         id: app-token
         with:
@@ -33,6 +34,7 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
           token: ${{ steps.app-token.outputs.token }}
+
       - name: Checkout without token
         if: steps.check_can_add_commit.outputs.can_add_commit == 'false'
         uses: actions/checkout@v4
@@ -63,6 +65,7 @@ jobs:
           else
             echo "docs_needed=true" >> $GITHUB_OUTPUT
           fi
+
       - name: Commit docs changes
         if: steps.check_can_add_commit.outputs.can_add_commit == 'true' && steps.check_docs.outputs.docs_needed == 'true'
         uses: EndBug/add-and-commit@v9.1.4
