@@ -49,6 +49,7 @@ export interface NervousSystemParameters {
   voting_rewards_parameters: Option<VotingRewardsParameters>;
   max_number_of_principals_per_neuron: Option<bigint>;
   automatically_advance_target_version: Option<boolean>;
+  custom_proposal_criticality: Option<SnsGovernanceDid.CustomProposalCriticality>;
 }
 
 export interface VotingRewardsParameters {
