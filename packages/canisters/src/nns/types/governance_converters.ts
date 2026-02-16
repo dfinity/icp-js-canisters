@@ -749,6 +749,11 @@ export interface GovernanceParameters {
   proposalInitialVotingPeriod: Option<Duration>;
   proposalRejectionFee: Option<Tokens>;
   votingRewardParameters: Option<VotingRewardParameters>;
+  customProposalCriticality: Option<CustomProposalCriticality>;
+}
+
+export interface CustomProposalCriticality {
+  additionalCriticalNativeActionIds: Option<Array<bigint>>;
 }
 
 export interface NeuronBasketConstructionParameters {
