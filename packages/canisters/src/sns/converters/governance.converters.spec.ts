@@ -72,6 +72,15 @@ describe("governance converters", () => {
           ],
           maturity_modulation_disabled: [false],
           automatically_advance_target_version: [true],
+          custom_proposal_criticality: [
+            {
+              additional_critical_native_action_ids: BigUint64Array.from([
+                1n,
+                2n,
+                3n,
+              ]),
+            },
+          ],
         },
       };
       const expectedAction: Action = {
@@ -101,6 +110,13 @@ describe("governance converters", () => {
           },
           max_number_of_principals_per_neuron,
           automatically_advance_target_version: true,
+          custom_proposal_criticality: {
+            additional_critical_native_action_ids: BigUint64Array.from([
+              1n,
+              2n,
+              3n,
+            ]),
+          },
         },
       };
 

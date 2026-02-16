@@ -24,6 +24,9 @@ export interface Canister {
 export interface Countries {
   iso_codes: Array<string>;
 }
+export interface CustomProposalCriticality {
+  additional_critical_native_action_ids: BigUint64Array;
+}
 export interface DappCanisters {
   canisters: Array<Canister>;
 }
@@ -206,6 +209,7 @@ export interface SnsInitPayload {
   wait_for_quiet_deadline_increase_seconds: [] | [bigint];
   transaction_fee_e8s: [] | [bigint];
   dapp_canisters: [] | [DappCanisters];
+  custom_proposal_criticality: [] | [CustomProposalCriticality];
   neurons_fund_participation_constraints:
     | []
     | [NeuronsFundParticipationConstraints];

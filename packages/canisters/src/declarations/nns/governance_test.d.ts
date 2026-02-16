@@ -186,6 +186,9 @@ export interface CreateServiceNervousSystem {
   swap_parameters: [] | [SwapParameters];
   initial_token_distribution: [] | [InitialTokenDistribution];
 }
+export interface CustomProposalCriticality {
+  additional_critical_native_action_ids: [] | [BigUint64Array];
+}
 export interface DateRangeFilter {
   start_timestamp_seconds: [] | [bigint];
   end_timestamp_seconds: [] | [bigint];
@@ -390,6 +393,7 @@ export interface GovernanceParameters {
   neuron_minimum_stake: [] | [Tokens];
   proposal_wait_for_quiet_deadline_increase: [] | [Duration];
   proposal_initial_voting_period: [] | [Duration];
+  custom_proposal_criticality: [] | [CustomProposalCriticality];
   proposal_rejection_fee: [] | [Tokens];
   voting_reward_parameters: [] | [VotingRewardParameters];
 }

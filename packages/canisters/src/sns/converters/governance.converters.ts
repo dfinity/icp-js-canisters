@@ -778,6 +778,7 @@ const convertNervousSystemParams = (
   automatically_advance_target_version: fromNullable(
     params.automatically_advance_target_version,
   ),
+  custom_proposal_criticality: fromNullable(params.custom_proposal_criticality),
 });
 
 const convertRegisterExtension = (

@@ -23,6 +23,7 @@ import type {
   ClaimOrRefreshNeuronRequest,
   Countries,
   CreateServiceNervousSystem,
+  CustomProposalCriticality,
   Decimal,
   DeveloperDistribution,
   DisburseToNeuronRequest,
@@ -270,6 +271,27 @@ const fromGovernanceParameters = (
       ? [
           fromVotingRewardParameters(
             governanceParameters.votingRewardParameters,
+          ),
+        ]
+      : [],
+  custom_proposal_criticality:
+    governanceParameters.customProposalCriticality !== undefined
+      ? [
+          fromCustomProposalCriticality(
+            governanceParameters.customProposalCriticality,
+          ),
+        ]
+      : [],
+});
+
+const fromCustomProposalCriticality = (
+  customProposalCriticality: CustomProposalCriticality,
+): NnsGovernanceDid.CustomProposalCriticality => ({
+  additional_critical_native_action_ids:
+    customProposalCriticality.additionalCriticalNativeActionIds !== undefined
+      ? [
+          BigUint64Array.from(
+            customProposalCriticality.additionalCriticalNativeActionIds,
           ),
         ]
       : [],

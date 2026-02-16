@@ -1,4 +1,4 @@
-// Generated from IC repo commit 6f1ce3b (2026-01-29 tags: release-2026-01-29_23-28-base) 'rs/ledger_suite/icp/index/index.did' by import-candid
+// Generated from IC repo commit c016162 (2026-02-12 tags: release-2026-02-12_20-24-base) 'rs/ledger_suite/icp/index/index.did' by import-candid
 
 type Account = record { owner : principal; subaccount : opt vec nat8 };
 type GetAccountIdentifierTransactionsArgs = record {
@@ -35,14 +35,28 @@ type HttpResponse = record {
   headers : vec record { text; text };
   status_code : nat16
 };
-type InitArg = record { ledger_id : principal };
 
-type UpgradeArg = record {
+type InitArg = record {
+  ledger_id : principal;
   // The interval in seconds in which to retrieve blocks from the ledger. A lower value makes the index more
   // responsive in showing new blocks, but increases the consumption of cycles of both the index and ledger canisters.
   // A higher values means that it takes longer for new blocks to show up in the index.
   retrieve_blocks_from_ledger_interval_seconds : opt nat64
 };
+
+type UpgradeArg = record {
+  ledger_id : opt principal;
+  // The interval in seconds in which to retrieve blocks from the ledger. A lower value makes the index more
+  // responsive in showing new blocks, but increases the consumption of cycles of both the index and ledger canisters.
+  // A higher values means that it takes longer for new blocks to show up in the index.
+  retrieve_blocks_from_ledger_interval_seconds : opt nat64
+};
+
+type IndexArg = variant {
+  Init : InitArg;
+  Upgrade : UpgradeArg
+};
+
 type Operation = variant {
   Approve : record {
     fee : Tokens;
@@ -77,7 +91,7 @@ type Transaction = record {
   timestamp : opt TimeStamp
 };
 type TransactionWithId = record { id : nat64; transaction : Transaction };
-service : (InitArg) -> {
+service : (index_arg : opt IndexArg) -> {
   get_account_identifier_balance : (text) -> (nat64) query;
   get_account_identifier_transactions : (
     GetAccountIdentifierTransactionsArgs

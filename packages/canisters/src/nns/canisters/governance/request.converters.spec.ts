@@ -89,6 +89,9 @@ describe("request.converters", () => {
           initialRewardRate: { basisPoints: 1n },
           finalRewardRate: { basisPoints: 2n },
         },
+        customProposalCriticality: {
+          additionalCriticalNativeActionIds: [1n, 2n, 3n],
+        },
       };
       const logo = {
         base64Encoding: "base64string",
@@ -301,6 +304,13 @@ describe("request.converters", () => {
                                     ?.finalRewardRate?.basisPoints,
                                 ),
                               },
+                            ],
+                          },
+                        ],
+                        custom_proposal_criticality: [
+                          {
+                            additional_critical_native_action_ids: [
+                              BigUint64Array.from([1n, 2n, 3n]),
                             ],
                           },
                         ],

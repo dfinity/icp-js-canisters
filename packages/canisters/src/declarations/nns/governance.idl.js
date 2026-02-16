@@ -465,6 +465,9 @@ export const idlFactory = ({ IDL }) => {
   });
   const Duration = IDL.Record({ seconds: IDL.Opt(IDL.Nat64) });
   const Tokens = IDL.Record({ e8s: IDL.Opt(IDL.Nat64) });
+  const CustomProposalCriticality = IDL.Record({
+    additional_critical_native_action_ids: IDL.Opt(IDL.Vec(IDL.Nat64)),
+  });
   const VotingRewardParameters = IDL.Record({
     reward_rate_transition_duration: IDL.Opt(Duration),
     initial_reward_rate: IDL.Opt(Percentage),
@@ -479,6 +482,7 @@ export const idlFactory = ({ IDL }) => {
     neuron_minimum_stake: IDL.Opt(Tokens),
     proposal_wait_for_quiet_deadline_increase: IDL.Opt(Duration),
     proposal_initial_voting_period: IDL.Opt(Duration),
+    custom_proposal_criticality: IDL.Opt(CustomProposalCriticality),
     proposal_rejection_fee: IDL.Opt(Tokens),
     voting_reward_parameters: IDL.Opt(VotingRewardParameters),
   });
@@ -1608,6 +1612,9 @@ export const init = ({ IDL }) => {
   });
   const Duration = IDL.Record({ seconds: IDL.Opt(IDL.Nat64) });
   const Tokens = IDL.Record({ e8s: IDL.Opt(IDL.Nat64) });
+  const CustomProposalCriticality = IDL.Record({
+    additional_critical_native_action_ids: IDL.Opt(IDL.Vec(IDL.Nat64)),
+  });
   const VotingRewardParameters = IDL.Record({
     reward_rate_transition_duration: IDL.Opt(Duration),
     initial_reward_rate: IDL.Opt(Percentage),
@@ -1622,6 +1629,7 @@ export const init = ({ IDL }) => {
     neuron_minimum_stake: IDL.Opt(Tokens),
     proposal_wait_for_quiet_deadline_increase: IDL.Opt(Duration),
     proposal_initial_voting_period: IDL.Opt(Duration),
+    custom_proposal_criticality: IDL.Opt(CustomProposalCriticality),
     proposal_rejection_fee: IDL.Opt(Tokens),
     voting_reward_parameters: IDL.Opt(VotingRewardParameters),
   });

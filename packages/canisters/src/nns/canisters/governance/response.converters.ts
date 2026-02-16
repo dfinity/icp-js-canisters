@@ -1504,6 +1504,27 @@ const toGovernanceParameters = (
         votingRewardParameters: toVotingRewardParameters(
           fromNullable(governanceParameters.voting_reward_parameters),
         ),
+        customProposalCriticality: toCustomProposalCriticality(
+          fromNullable(governanceParameters.custom_proposal_criticality),
+        ),
+      };
+
+const toCustomProposalCriticality = (
+  customProposalCriticality:
+    | NnsGovernanceDid.CustomProposalCriticality
+    | undefined,
+):
+  | { additionalCriticalNativeActionIds: Array<bigint> | undefined }
+  | undefined =>
+  customProposalCriticality === undefined
+    ? undefined
+    : {
+        additionalCriticalNativeActionIds: (() => {
+          const raw = fromNullable(
+            customProposalCriticality.additional_critical_native_action_ids,
+          );
+          return raw === undefined ? undefined : Array.from(raw);
+        })(),
       };
 
 const toNeuronBasketConstructionParameters = (

@@ -1,4 +1,4 @@
-// Generated from IC repo commit 6f1ce3b (2026-01-29 tags: release-2026-01-29_23-28-base) 'rs/ledger_suite/icrc1/index-ng/index-ng.did' by import-candid
+// Generated from IC repo commit c016162 (2026-02-12 tags: release-2026-02-12_20-24-base) 'rs/ledger_suite/icrc1/index-ng/index-ng.did' by import-candid
 
 type Tokens = nat;
 

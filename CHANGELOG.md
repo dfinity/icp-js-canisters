@@ -6,6 +6,7 @@
 
 - Update to the latest Candid file for the nns package to introduce support for the new proposal types `TakeCanisterSnapshot` and `LoadCanisterSnapshot`.
 - Service `queryAndUpdate` will print the `update` error to console only when `onUpdateError` callback is nullish.
+- Update to the latest Candid file.
 
 ## 92
 
