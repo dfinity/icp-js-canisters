@@ -7,7 +7,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 export const idlFactory = ({ IDL }) => {
-  const InitArg = IDL.Record({ ledger_id: IDL.Principal });
+  const UpgradeArg = IDL.Record({
+    ledger_id: IDL.Opt(IDL.Principal),
+    retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+  });
+  const InitArg = IDL.Record({
+    ledger_id: IDL.Principal,
+    retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+  });
+  const IndexArg = IDL.Variant({ Upgrade: UpgradeArg, Init: InitArg });
   const GetAccountIdentifierTransactionsArgs = IDL.Record({
     max_results: IDL.Nat64,
     start: IDL.Opt(IDL.Nat64),
@@ -112,7 +120,15 @@ export const idlFactory = ({ IDL }) => {
 };
 
 export const init = ({ IDL }) => {
-  const InitArg = IDL.Record({ ledger_id: IDL.Principal });
+  const UpgradeArg = IDL.Record({
+    ledger_id: IDL.Opt(IDL.Principal),
+    retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+  });
+  const InitArg = IDL.Record({
+    ledger_id: IDL.Principal,
+    retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+  });
+  const IndexArg = IDL.Variant({ Upgrade: UpgradeArg, Init: InitArg });
 
-  return [InitArg];
+  return [IDL.Opt(IndexArg)];
 };

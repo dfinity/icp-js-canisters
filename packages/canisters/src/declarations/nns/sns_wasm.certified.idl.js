@@ -34,6 +34,9 @@ export const idlFactory = ({ IDL }) => {
   });
   const Canister = IDL.Record({ id: IDL.Opt(IDL.Principal) });
   const DappCanisters = IDL.Record({ canisters: IDL.Vec(Canister) });
+  const CustomProposalCriticality = IDL.Record({
+    additional_critical_native_action_ids: IDL.Vec(IDL.Nat64),
+  });
   const LinearScalingCoefficient = IDL.Record({
     slope_numerator: IDL.Opt(IDL.Nat64),
     intercept_icp_e8s: IDL.Opt(IDL.Nat64),
@@ -105,6 +108,7 @@ export const idlFactory = ({ IDL }) => {
     wait_for_quiet_deadline_increase_seconds: IDL.Opt(IDL.Nat64),
     transaction_fee_e8s: IDL.Opt(IDL.Nat64),
     dapp_canisters: IDL.Opt(DappCanisters),
+    custom_proposal_criticality: IDL.Opt(CustomProposalCriticality),
     neurons_fund_participation_constraints: IDL.Opt(
       NeuronsFundParticipationConstraints,
     ),

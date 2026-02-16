@@ -161,6 +161,9 @@ export const idlFactory = ({ IDL }) => {
   const NeuronPermissionList = IDL.Record({
     permissions: IDL.Vec(IDL.Int32),
   });
+  const CustomProposalCriticality = IDL.Record({
+    additional_critical_native_action_ids: IDL.Vec(IDL.Nat64),
+  });
   const VotingRewardsParameters = IDL.Record({
     final_reward_rate_basis_points: IDL.Opt(IDL.Nat64),
     initial_reward_rate_basis_points: IDL.Opt(IDL.Nat64),
@@ -183,6 +186,7 @@ export const idlFactory = ({ IDL }) => {
     wait_for_quiet_deadline_increase_seconds: IDL.Opt(IDL.Nat64),
     max_number_of_neurons: IDL.Opt(IDL.Nat64),
     transaction_fee_e8s: IDL.Opt(IDL.Nat64),
+    custom_proposal_criticality: IDL.Opt(CustomProposalCriticality),
     max_number_of_proposals_with_ballots: IDL.Opt(IDL.Nat64),
     max_age_bonus_percentage: IDL.Opt(IDL.Nat64),
     neuron_grantable_permissions: IDL.Opt(NeuronPermissionList),
@@ -1040,6 +1044,9 @@ export const init = ({ IDL }) => {
   const NeuronPermissionList = IDL.Record({
     permissions: IDL.Vec(IDL.Int32),
   });
+  const CustomProposalCriticality = IDL.Record({
+    additional_critical_native_action_ids: IDL.Vec(IDL.Nat64),
+  });
   const VotingRewardsParameters = IDL.Record({
     final_reward_rate_basis_points: IDL.Opt(IDL.Nat64),
     initial_reward_rate_basis_points: IDL.Opt(IDL.Nat64),
@@ -1062,6 +1069,7 @@ export const init = ({ IDL }) => {
     wait_for_quiet_deadline_increase_seconds: IDL.Opt(IDL.Nat64),
     max_number_of_neurons: IDL.Opt(IDL.Nat64),
     transaction_fee_e8s: IDL.Opt(IDL.Nat64),
+    custom_proposal_criticality: IDL.Opt(CustomProposalCriticality),
     max_number_of_proposals_with_ballots: IDL.Opt(IDL.Nat64),
     max_age_bonus_percentage: IDL.Opt(IDL.Nat64),
     neuron_grantable_permissions: IDL.Opt(NeuronPermissionList),

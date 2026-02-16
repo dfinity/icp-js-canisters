@@ -1,4 +1,4 @@
-// Generated from IC repo commit 6f1ce3b (2026-01-29 tags: release-2026-01-29_23-28-base) 'rs/sns/governance/canister/governance.did' by import-candid
+// Generated from IC repo commit c016162 (2026-02-12 tags: release-2026-02-12_20-24-base) 'rs/sns/governance/canister/governance.did' by import-candid
 
 type Account = record {
   owner : opt principal;
@@ -551,6 +551,10 @@ type NervousSystemFunction = record {
   function_type : opt FunctionType;
 };
 
+type CustomProposalCriticality = record {
+  additional_critical_native_action_ids : vec nat64;
+};
+
 type NervousSystemParameters = record {
   default_followees : opt DefaultFollowees;
   max_dissolve_delay_seconds : opt nat64;
@@ -573,6 +577,7 @@ type NervousSystemParameters = record {
   maturity_modulation_disabled : opt bool;
   max_number_of_principals_per_neuron : opt nat64;
   automatically_advance_target_version : opt bool;
+  custom_proposal_criticality : opt CustomProposalCriticality;
 };
 
 type FolloweesForTopic = record {

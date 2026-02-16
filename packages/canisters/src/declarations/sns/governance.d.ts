@@ -156,6 +156,9 @@ export type Command_2 =
 export interface Configure {
   operation: [] | [Operation];
 }
+export interface CustomProposalCriticality {
+  additional_critical_native_action_ids: BigUint64Array;
+}
 export interface Decimal {
   human_readable: [] | [string];
 }
@@ -496,6 +499,7 @@ export interface NervousSystemParameters {
   wait_for_quiet_deadline_increase_seconds: [] | [bigint];
   max_number_of_neurons: [] | [bigint];
   transaction_fee_e8s: [] | [bigint];
+  custom_proposal_criticality: [] | [CustomProposalCriticality];
   max_number_of_proposals_with_ballots: [] | [bigint];
   max_age_bonus_percentage: [] | [bigint];
   neuron_grantable_permissions: [] | [NeuronPermissionList];
