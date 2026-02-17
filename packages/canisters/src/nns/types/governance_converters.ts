@@ -503,21 +503,12 @@ export type Operation =
   | { SetDissolveTimestamp: SetDissolveTimestamp }
   | { ChangeAutoStakeMaturity: ChangeAutoStakeMaturity }
   | { SetVisibility: SetVisibility };
+
 export interface SelfDescribingProposalAction {
   typeDescription: Option<string>;
   typeName: Option<string>;
-  value: Option<SelfDescribingValue>;
+  value: Option<NnsGovernanceDid.SelfDescribingValue>;
 }
-
-export type SelfDescribingValue =
-  | { Int: bigint }
-  | { Map: Array<[string, SelfDescribingValue]> }
-  | { Nat: bigint }
-  | { Blob: Uint8Array }
-  | { Bool: boolean }
-  | { Null: null }
-  | { Text: string }
-  | { Array: Array<SelfDescribingValue> };
 
 export interface Proposal {
   title: Option<string>;
