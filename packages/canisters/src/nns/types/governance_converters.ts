@@ -503,11 +503,19 @@ export type Operation =
   | { SetDissolveTimestamp: SetDissolveTimestamp }
   | { ChangeAutoStakeMaturity: ChangeAutoStakeMaturity }
   | { SetVisibility: SetVisibility };
+
+export interface SelfDescribingProposalAction {
+  typeDescription: Option<string>;
+  typeName: Option<string>;
+  value: Option<NnsGovernanceDid.SelfDescribingValue>;
+}
+
 export interface Proposal {
   title: Option<string>;
   url: string;
   action: Option<Action>;
   summary: string;
+  selfDescribingAction: Option<SelfDescribingProposalAction>;
 }
 export type ProposalId = bigint;
 

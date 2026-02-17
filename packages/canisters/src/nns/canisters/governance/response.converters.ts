@@ -65,6 +65,7 @@ import type {
   Proposal,
   ProposalInfo,
   RewardMode,
+  SelfDescribingProposalAction,
   SwapDistribution,
   SwapParameters,
   Tally,
@@ -370,17 +371,35 @@ const toRawAccount = ({
     : [],
 });
 
+const toSelfDescribingProposalAction = ({
+  type_description,
+  type_name,
+  value,
+}: NnsGovernanceDid.SelfDescribingProposalAction): SelfDescribingProposalAction => ({
+  typeDescription: fromNullable(type_description),
+  typeName: fromNullable(type_name),
+  value: fromNullable(value),
+});
+
 const toProposal = ({
   title,
   url,
   action,
   summary,
-}: NnsGovernanceDid.Proposal): Proposal => ({
-  title: title.length ? title[0] : undefined,
-  url,
-  action: action.length ? toAction(action[0]) : undefined,
-  summary,
-});
+  self_describing_action,
+}: NnsGovernanceDid.Proposal): Proposal => {
+  const selfDescribingAction = fromNullable(self_describing_action);
+  return {
+    title: title.length ? title[0] : undefined,
+    url,
+    action: action.length ? toAction(action[0]) : undefined,
+    summary,
+    selfDescribingAction:
+      selfDescribingAction !== undefined
+        ? toSelfDescribingProposalAction(selfDescribingAction)
+        : undefined,
+  };
+};
 
 const toAction = (action: NnsGovernanceDid.Action): Action => {
   if ("ExecuteNnsFunction" in action) {
@@ -848,6 +867,9 @@ const toCommand = (
   }
   if ("MakeProposal" in command) {
     const makeProposal = command.MakeProposal;
+    const selfDescribingAction = fromNullable(
+      makeProposal.self_describing_action,
+    );
     return {
       MakeProposal: {
         title: makeProposal.title.length ? makeProposal.title[0] : undefined,
@@ -856,6 +878,10 @@ const toCommand = (
           ? toAction(makeProposal.action[0])
           : undefined,
         summary: makeProposal.summary,
+        selfDescribingAction:
+          selfDescribingAction !== undefined
+            ? toSelfDescribingProposalAction(selfDescribingAction)
+            : undefined,
       },
     };
   }
