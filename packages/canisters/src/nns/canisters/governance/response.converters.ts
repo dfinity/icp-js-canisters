@@ -387,16 +387,19 @@ const toProposal = ({
   action,
   summary,
   self_describing_action,
-}: NnsGovernanceDid.Proposal): Proposal => ({
-  title: title.length ? title[0] : undefined,
-  url,
-  action: action.length ? toAction(action[0]) : undefined,
-  summary,
-  selfDescribingAction:
-    fromNullable(self_describing_action) !== undefined
-      ? toSelfDescribingProposalAction(fromNullable(self_describing_action)!)
-      : undefined,
-});
+}: NnsGovernanceDid.Proposal): Proposal => {
+  const selfDescribingAction = fromNullable(self_describing_action);
+  return {
+    title: title.length ? title[0] : undefined,
+    url,
+    action: action.length ? toAction(action[0]) : undefined,
+    summary,
+    selfDescribingAction:
+      selfDescribingAction !== undefined
+        ? toSelfDescribingProposalAction(selfDescribingAction)
+        : undefined,
+  };
+};
 
 const toAction = (action: NnsGovernanceDid.Action): Action => {
   if ("ExecuteNnsFunction" in action) {
@@ -864,6 +867,9 @@ const toCommand = (
   }
   if ("MakeProposal" in command) {
     const makeProposal = command.MakeProposal;
+    const selfDescribingAction = fromNullable(
+      makeProposal.self_describing_action,
+    );
     return {
       MakeProposal: {
         title: makeProposal.title.length ? makeProposal.title[0] : undefined,
@@ -873,10 +879,8 @@ const toCommand = (
           : undefined,
         summary: makeProposal.summary,
         selfDescribingAction:
-          fromNullable(makeProposal.self_describing_action) !== undefined
-            ? toSelfDescribingProposalAction(
-                fromNullable(makeProposal.self_describing_action)!,
-              )
+          selfDescribingAction !== undefined
+            ? toSelfDescribingProposalAction(selfDescribingAction)
             : undefined,
       },
     };
