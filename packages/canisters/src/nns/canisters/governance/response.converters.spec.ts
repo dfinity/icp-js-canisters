@@ -638,6 +638,7 @@ describe("response.converters", () => {
             },
           },
           summary: "Proposal Summary",
+          selfDescribingAction: undefined,
         },
         proposer: 101n,
         latestTally: undefined,
@@ -712,6 +713,7 @@ describe("response.converters", () => {
             },
           },
           summary: "Proposal Summary",
+          selfDescribingAction: undefined,
         },
         proposer: 101n,
         latestTally: undefined,
@@ -786,6 +788,7 @@ describe("response.converters", () => {
             },
           },
           summary: "Proposal Summary",
+          selfDescribingAction: undefined,
         },
         proposer: 101n,
         latestTally: undefined,
@@ -799,6 +802,126 @@ describe("response.converters", () => {
       const result = toProposalInfo(candidProposalInfo);
 
       expect(result).toEqual(expectedProposalInfo);
+    });
+
+    it("should convert self_describing_action", () => {
+      const candidProposalInfo: NnsGovernanceDid.ProposalInfo = {
+        id: [{ id: 200n }],
+        ballots: [],
+        reject_cost_e8s: 100n,
+        proposal_timestamp_seconds: 1234567890n,
+        reward_event_round: 1n,
+        failed_timestamp_seconds: 0n,
+        deadline_timestamp_seconds: [],
+        decided_timestamp_seconds: 0n,
+        proposal: [
+          {
+            title: ["Self Describing Proposal"],
+            url: "https://example.com",
+            action: [
+              {
+                Motion: {
+                  motion_text: "Some motion",
+                },
+              },
+            ],
+            summary: "Proposal with self describing action",
+            self_describing_action: [
+              {
+                type_name: ["ExecuteNnsFunction"],
+                type_description: ["Executes an NNS function"],
+                value: [
+                  {
+                    Map: [
+                      ["nns_function_id", { Nat: 42n }],
+                      ["payload", { Blob: Uint8Array.from([10, 20, 30]) }],
+                      [
+                        "nested",
+                        {
+                          Array: [
+                            { Text: "a" },
+                            { Bool: true },
+                            { Null: null },
+                          ],
+                        },
+                      ],
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        proposer: [{ id: 201n }],
+        latest_tally: [],
+        executed_timestamp_seconds: 0n,
+        topic: 1,
+        status: 1,
+        reward_status: 1,
+        total_potential_voting_power: [],
+        failure_reason: [],
+        derived_proposal_information: [],
+      };
+
+      const result = toProposalInfo(candidProposalInfo);
+
+      expect(result.proposal?.selfDescribingAction).toEqual({
+        typeName: "ExecuteNnsFunction",
+        typeDescription: "Executes an NNS function",
+        value: {
+          Map: [
+            ["nns_function_id", { Nat: 42n }],
+            ["payload", { Blob: Uint8Array.from([10, 20, 30]) }],
+            [
+              "nested",
+              {
+                Array: [{ Text: "a" }, { Bool: true }, { Null: null }],
+              },
+            ],
+          ],
+        },
+      });
+    });
+
+    it("should convert empty self_describing_action to undefined", () => {
+      const candidProposalInfo: NnsGovernanceDid.ProposalInfo = {
+        id: [{ id: 300n }],
+        ballots: [],
+        reject_cost_e8s: 100n,
+        proposal_timestamp_seconds: 1234567890n,
+        reward_event_round: 1n,
+        failed_timestamp_seconds: 0n,
+        deadline_timestamp_seconds: [],
+        decided_timestamp_seconds: 0n,
+        proposal: [
+          {
+            title: ["No Self Describing"],
+            url: "https://example.com",
+            action: [
+              {
+                Motion: {
+                  motion_text: "Some motion",
+                },
+              },
+            ],
+            summary: "Proposal without self describing action",
+            self_describing_action: [],
+          },
+        ],
+        proposer: [{ id: 301n }],
+        latest_tally: [],
+        executed_timestamp_seconds: 0n,
+        topic: 1,
+        status: 1,
+        reward_status: 1,
+        total_potential_voting_power: [],
+        failure_reason: [],
+        derived_proposal_information: [],
+      };
+
+      const result = toProposalInfo(candidProposalInfo);
+
+      expect(result.proposal?.selfDescribingAction).toBeUndefined();
     });
   });
 });

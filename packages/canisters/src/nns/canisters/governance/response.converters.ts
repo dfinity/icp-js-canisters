@@ -65,6 +65,7 @@ import type {
   Proposal,
   ProposalInfo,
   RewardMode,
+  SelfDescribingProposalAction,
   SwapDistribution,
   SwapParameters,
   Tally,
@@ -370,16 +371,31 @@ const toRawAccount = ({
     : [],
 });
 
+const toSelfDescribingProposalAction = ({
+  type_description,
+  type_name,
+  value,
+}: NnsGovernanceDid.SelfDescribingProposalAction): SelfDescribingProposalAction => ({
+  typeDescription: fromNullable(type_description),
+  typeName: fromNullable(type_name),
+  value: fromNullable(value),
+});
+
 const toProposal = ({
   title,
   url,
   action,
   summary,
+  self_describing_action,
 }: NnsGovernanceDid.Proposal): Proposal => ({
   title: title.length ? title[0] : undefined,
   url,
   action: action.length ? toAction(action[0]) : undefined,
   summary,
+  selfDescribingAction:
+    fromNullable(self_describing_action) !== undefined
+      ? toSelfDescribingProposalAction(fromNullable(self_describing_action)!)
+      : undefined,
 });
 
 const toAction = (action: NnsGovernanceDid.Action): Action => {
@@ -856,6 +872,12 @@ const toCommand = (
           ? toAction(makeProposal.action[0])
           : undefined,
         summary: makeProposal.summary,
+        selfDescribingAction:
+          fromNullable(makeProposal.self_describing_action) !== undefined
+            ? toSelfDescribingProposalAction(
+                fromNullable(makeProposal.self_describing_action)!,
+              )
+            : undefined,
       },
     };
   }
