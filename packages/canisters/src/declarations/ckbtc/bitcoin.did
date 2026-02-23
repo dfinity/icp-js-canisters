@@ -1,4 +1,4 @@
-// Generated from dfinity/bitcoin-canister commit a47b80e70f26e282ae7d7feaa08ab643d19ac748 for file 'canister/candid.did'
+// Generated from dfinity/bitcoin-canister commit 6829527780535d9f18a900cc20bd3792ea3d4f12 for file 'canister/candid.did'
 
 type network = variant {
   mainnet;
@@ -128,6 +128,14 @@ type init_config = record {
   lazily_evaluate_fee_percentiles : opt flag;
 };
 
+type blockchain_info = record {
+  height : block_height;
+  block_hash : block_hash;
+  timestamp : nat32;
+  difficulty : nat;
+  utxos_length : nat64;
+};
+
 type canister_arg = variant {
   init : init_config;
   upgrade : opt set_config_request;
@@ -151,4 +159,6 @@ service bitcoin : (canister_arg) -> {
   get_config : () -> (config) query;
 
   set_config : (set_config_request) -> ();
+
+  get_blockchain_info : () -> (blockchain_info) query;
 };
