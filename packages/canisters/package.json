@@ -23,6 +23,11 @@
       "import": "./ckbtc/index.js",
       "require": "./ckbtc/index.mjs"
     },
+    "./ckdoge": {
+      "types": "./ckdoge/index.d.ts",
+      "import": "./ckdoge/index.js",
+      "require": "./ckdoge/index.mjs"
+    },
     "./cketh": {
       "types": "./cketh/index.d.ts",
       "import": "./cketh/index.js",

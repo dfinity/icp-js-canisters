@@ -3,6 +3,7 @@
   "entryPoints": [
     "../packages/canisters/src/assets/index.ts",
     "../packages/canisters/src/ckbtc/index.ts",
+    "../packages/canisters/src/ckdoge/index.ts",
     "../packages/canisters/src/cketh/index.ts",
     "../packages/canisters/src/cmc/index.ts",
     "../packages/canisters/src/ic-management/index.ts",

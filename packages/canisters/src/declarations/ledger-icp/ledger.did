@@ -1,4 +1,4 @@
-// Generated from IC repo commit 007c473 (2026-02-20 tags: release-2026-02-20_12-29-base) 'rs/ledger_suite/icp/ledger.did' by import-candid
+// Generated from IC repo commit e361a68e67 (2026-02-26) 'rs/ledger_suite/icp/ledger.did' by import-candid
 
 // This is the official Ledger interface that is guaranteed to be backward compatible.
 

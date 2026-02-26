@@ -4,6 +4,10 @@ import { idlFactory as idlFactoryCertifiedBitcoin } from "./ckbtc/bitcoin.certif
 import { idlFactory as idlFactoryBitcoin } from "./ckbtc/bitcoin.idl";
 import { idlFactory as idlFactoryCertifiedCkBtcMinter } from "./ckbtc/minter.certified.idl";
 import { idlFactory as idlFactoryCkBtcMinter } from "./ckbtc/minter.idl";
+import { idlFactory as idlFactoryCertifiedDogecoin } from "./ckdoge/dogecoin.certified.idl";
+import { idlFactory as idlFactoryDogecoin } from "./ckdoge/dogecoin.idl";
+import { idlFactory as idlFactoryCertifiedCkDogeMinter } from "./ckdoge/minter.certified.idl";
+import { idlFactory as idlFactoryCkDogeMinter } from "./ckdoge/minter.idl";
 import { idlFactory as idlFactoryCertifiedCkEthMinter } from "./cketh/minter.certified.idl";
 import { idlFactory as idlFactoryCkEthMinter } from "./cketh/minter.idl";
 import { idlFactory as idlFactoryCertifiedCkEthOrchestrator } from "./cketh/orchestrator.certified.idl";
@@ -44,6 +48,8 @@ import { idlFactory as idlFactorySnsSwap } from "./sns/swap.idl";
 import type { _SERVICE as AssetsService } from "./assets/assets_assetstorage";
 import type { _SERVICE as BitcoinService } from "./ckbtc/bitcoin";
 import type { _SERVICE as CkBtcMinterService } from "./ckbtc/minter";
+import type { _SERVICE as DogecoinService } from "./ckdoge/dogecoin";
+import type { _SERVICE as CkDogeMinterService } from "./ckdoge/minter";
 import type { _SERVICE as CkEthMinterService } from "./cketh/minter";
 import type { _SERVICE as CkEthOrchestratorService } from "./cketh/orchestrator";
 import type { _SERVICE as CmcService } from "./cmc/cmc";
@@ -70,10 +76,12 @@ export {
   idlFactoryCertifiedAssets,
   idlFactoryCertifiedBitcoin,
   idlFactoryCertifiedCkBtcMinter,
+  idlFactoryCertifiedCkDogeMinter,
   idlFactoryCertifiedCkEthMinter,
   idlFactoryCertifiedCkEthOrchestrator,
   idlFactoryCertifiedCmc,
   idlFactoryCertifiedCyclesLedger,
+  idlFactoryCertifiedDogecoin,
   idlFactoryCertifiedIcManagement,
   idlFactoryCertifiedIcpIndex,
   idlFactoryCertifiedIcpLedger,
@@ -89,10 +97,12 @@ export {
   idlFactoryCertifiedSnsSwap,
   idlFactoryCertifiedSnsWasm,
   idlFactoryCkBtcMinter,
+  idlFactoryCkDogeMinter,
   idlFactoryCkEthMinter,
   idlFactoryCkEthOrchestrator,
   idlFactoryCmc,
   idlFactoryCyclesLedger,
+  idlFactoryDogecoin,
   idlFactoryIcManagement,
   idlFactoryIcpIndex,
   idlFactoryIcpLedger,
@@ -110,10 +120,12 @@ export {
   type AssetsService,
   type BitcoinService,
   type CkBtcMinterService,
+  type CkDogeMinterService,
   type CkEthMinterService,
   type CkEthOrchestratorService,
   type CmcService,
   type CyclesLedgerService,
+  type DogecoinService,
   type IcManagementService,
   type IcpIndexService,
   type IcpLedgerService,

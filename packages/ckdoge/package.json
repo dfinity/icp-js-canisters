@@ -1,0 +1,56 @@
+{
+  "name": "@dfinity/ckdoge",
+  "version": "1.0.0",
+  "description": "A library for interfacing with ckDOGE.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "rmdir": "node ../../scripts/rmdir.mjs",
+    "ts-declaration": "tsc --emitDeclarationOnly --outDir dist",
+    "build": "npm run rmdir && mkdir -p dist && node esbuild.mjs && npm run ts-declaration",
+    "prepack": "npm run build",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfinity/icp-js-canisters.git",
+    "directory": "packages/ckdoge"
+  },
+  "bugs": {
+    "url": "https://github.com/dfinity/icp-js-canisters"
+  },
+  "keywords": [
+    "internet computer",
+    "internet-computer",
+    "ic",
+    "dfinity",
+    "ckdoge",
+    "dogecoin",
+    "minter",
+    "token"
+  ],
+  "homepage": "https://github.com/dfinity/icp-js-canisters#readme",
+  "peerDependencies": {
+    "@icp-sdk/canisters": "^3.2"
+  }
+}
