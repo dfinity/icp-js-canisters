@@ -4,7 +4,7 @@
 
 ### Features
 
-- Add `PrincipalSchema` to Zod custom schemas.
+- Add `PrincipalSchema` and `Uint8ArraySchema` to Zod custom schemas.
 
 ## 93
 

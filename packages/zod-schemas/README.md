@@ -66,9 +66,27 @@ schema.parse("http://localhost"); // Invalid if allowHttpLocally is false
 
 ### :wrench: Constants
 
+- [Uint8ArraySchema](#gear-uint8arrayschema)
 - [PrincipalTextSchema](#gear-principaltextschema)
 - [PrincipalSchema](#gear-principalschema)
 - [UrlSchema](#gear-urlschema)
+
+#### :gear: Uint8ArraySchema
+
+Zod schema to validate a value is a `Uint8Array` instance.
+
+| Constant           | Type                                                          |
+| ------------------ | ------------------------------------------------------------- |
+| `Uint8ArraySchema` | `ZodCustom<Uint8Array<ArrayBuffer>, Uint8Array<ArrayBuffer>>` |
+
+Examples:
+
+```typescript
+const result = Uint8ArraySchema.safeParse(new Uint8Array([1, 2, 3]));
+console.log(result.success); // true or false
+```
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/arrays.ts#L12)
 
 #### :gear: PrincipalTextSchema
 
