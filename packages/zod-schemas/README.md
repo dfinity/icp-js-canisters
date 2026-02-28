@@ -87,7 +87,7 @@ const result = PrincipalTextSchema.safeParse("aaaaa-aa");
 console.log(result.success); // true or false
 ```
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L16)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L17)
 
 #### :gear: UrlSchema
 
@@ -103,5 +103,19 @@ UrlSchema.parse("https://example.com"); // Valid
 UrlSchema.parse("http://127.0.0.1"); // Valid (localhost exception)
 
 [:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L64)
+
+### :nut_and_bolt: Enum
+
+- [ZodSchemaId](#gear-zodschemaid)
+
+#### :gear: ZodSchemaId
+
+| Property        | Type              | Description |
+| --------------- | ----------------- | ----------- |
+| `PrincipalText` | `"PrincipalText"` |             |
+| `Principal`     | `"Principal"`     |             |
+| `Uint8Array`    | `"Uint8Array"`    |             |
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/schema-id.ts#L1)
 
 <!-- TSDOC_END -->
