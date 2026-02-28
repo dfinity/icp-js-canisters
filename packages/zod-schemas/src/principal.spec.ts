@@ -1,5 +1,6 @@
 import { Principal } from "@icp-sdk/core/principal";
 import { PrincipalTextSchema } from "./principal";
+import { ZodSchemaId } from "./schema-id";
 
 describe("PrincipalText", () => {
   const mockPrincipalText =
@@ -61,5 +62,11 @@ describe("PrincipalText", () => {
     }
 
     expect(true).toBeFalsy();
+  });
+
+  it("should have the correct schema id", () => {
+    expect(PrincipalTextSchema.meta()).toEqual({
+      id: ZodSchemaId.PrincipalText,
+    });
   });
 });
