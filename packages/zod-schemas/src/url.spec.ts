@@ -1,4 +1,3 @@
-import { PrincipalSchema } from "./principal";
 import { ZodSchemaId } from "./schema-id";
 import { createUrlSchema, UrlSchema } from "./url";
 
@@ -71,7 +70,7 @@ describe("UrlSchema", () => {
     });
 
     it("should have the correct schema id", () => {
-      expect(PrincipalSchema.meta()).toEqual({
+      expect(UrlSchema.meta()).toEqual({
         id: ZodSchemaId.Url,
       });
     });
