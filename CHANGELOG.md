@@ -8,6 +8,7 @@
 - Service `queryAndUpdate` will print the `update` error to console only when `onUpdateError` callback is nullish.
 - Update to the latest Candid file.
 - Support `selfDescribingAction` field in Governance proposals.
+- Add `PrincipalSchema` to Zod custom schemas.
 
 ## 92
 
