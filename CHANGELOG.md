@@ -1,6 +1,13 @@
 # Changelog
 
-## Future
+## 94
+
+### Overview
+
+| Library                | Version | Status       |
+| ---------------------- | ------- | ------------ |
+| `@icp-sdk/canisters`   | v3.5.1  | Maintained ⚙ |
+| `@dfinity/zod-schemas` | v3.1.0  | Enhanced 🔧️  |
 
 ## 93
 
