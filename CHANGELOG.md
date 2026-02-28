@@ -2,6 +2,10 @@
 
 ## Future
 
+### Features
+
+- Add `PrincipalSchema` to Zod custom schemas.
+
 ## 93
 
 ### Overview
@@ -15,7 +19,6 @@
 - Update to the latest Candid file for the nns package to introduce support for the new proposal types `TakeCanisterSnapshot` and `LoadCanisterSnapshot`.
 - Service `queryAndUpdate` will print the `update` error to console only when `onUpdateError` callback is nullish.
 - Support `selfDescribingAction` field in Governance proposals.
-- Add `PrincipalSchema` to Zod custom schemas.
 
 ## 92
 
