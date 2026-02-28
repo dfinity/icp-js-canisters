@@ -126,7 +126,7 @@ const result = PrincipalSchema.safeParse(Principal.fromText("aaaaa-aa"));
 console.log(result.success); // true or false
 ```
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L44)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L48)
 
 #### :gear: UrlSchema
 
