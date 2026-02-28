@@ -149,13 +149,15 @@ UrlSchema.parse("http://127.0.0.1"); // Valid (localhost exception)
 
 #### :gear: ZodSchemaId
 
-| Property        | Type              | Description |
-| --------------- | ----------------- | ----------- |
-| `PrincipalText` | `"PrincipalText"` |             |
-| `Principal`     | `"Principal"`     |             |
-| `Uint8Array`    | `"Uint8Array"`    |             |
-| `Url`           | `"Url"`           |             |
+Enum of metadata `id` values assigned to Zod schemas in this library.
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/schema-id.ts#L1)
+| Property        | Type              | Description                                   |
+| --------------- | ----------------- | --------------------------------------------- |
+| `PrincipalText` | `"PrincipalText"` | Metadata id for {@link PrincipalTextSchema }. |
+| `Principal`     | `"Principal"`     | Metadata id for {@link PrincipalSchema }.     |
+| `Uint8Array`    | `"Uint8Array"`    | Metadata id for {@link Uint8ArraySchema }.    |
+| `Url`           | `"Url"`           | Metadata id for {@link UrlSchema }.           |
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/schema-id.ts#L4)
 
 <!-- TSDOC_END -->
