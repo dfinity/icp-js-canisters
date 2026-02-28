@@ -51,4 +51,5 @@ export const PrincipalSchema = z
     error: "Invalid Principal.",
     abort: true,
   })
-  .transform((value) => Principal.from(value));
+  .transform((value) => Principal.from(value))
+  .meta({ id: ZodSchemaId.Principal });

@@ -165,5 +165,11 @@ describe("Principal", () => {
 
       expect(result.success).toBeFalsy();
     });
+
+    it("should have the correct schema id", () => {
+      expect(PrincipalSchema.meta()).toEqual({
+        id: ZodSchemaId.Principal,
+      });
+    });
   });
 });
