@@ -68,6 +68,7 @@ schema.parse("http://localhost"); // Invalid if allowHttpLocally is false
 
 - [Uint8ArraySchema](#gear-uint8arrayschema)
 - [PrincipalTextSchema](#gear-principaltextschema)
+- [PrincipalSchema](#gear-principalschema)
 - [UrlSchema](#gear-urlschema)
 
 #### :gear: Uint8ArraySchema
@@ -106,6 +107,26 @@ console.log(result.success); // true or false
 ```
 
 [:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L16)
+
+#### :gear: PrincipalSchema
+
+Zod schema to validate and transform a value into a `Principal` instance.
+
+This schema checks if the provided value is an instance or an object representing
+a `Principal` and transforms it into a valid `Principal` instance.
+
+| Constant          | Type                                                                     |
+| ----------------- | ------------------------------------------------------------------------ |
+| `PrincipalSchema` | `ZodPipe<ZodCustom<Principal, Principal>, ZodTransform<any, Principal>>` |
+
+Examples:
+
+```typescript
+const result = PrincipalSchema.safeParse(Principal.fromText("aaaaa-aa"));
+console.log(result.success); // true or false
+```
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L44)
 
 #### :gear: UrlSchema
 
