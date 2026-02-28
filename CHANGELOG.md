@@ -2,6 +2,10 @@
 
 ## Future
 
+### Features
+
+- Add `PrincipalSchema` to Zod custom schemas.
+
 ## 93
 
 ### Overview
