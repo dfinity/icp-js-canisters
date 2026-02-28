@@ -32,3 +32,23 @@ export const PrincipalTextSchema = z
   .meta({ id: ZodSchemaId.PrincipalText });
 
 export type PrincipalText = z.infer<typeof PrincipalTextSchema>;
+
+/**
+ * Zod schema to validate and transform a value into a `Principal` instance.
+ *
+ * This schema checks if the provided value is an instance or an object representing
+ * a `Principal` and transforms it into a valid `Principal` instance.
+ *
+ * @example
+ * ```typescript
+ * const result = PrincipalSchema.safeParse(Principal.fromText('aaaaa-aa'));
+ * console.log(result.success); // true or false
+ * ```
+ */
+export const PrincipalSchema = z
+  .custom<Principal>()
+  .refine((principal) => Principal.isPrincipal(principal), {
+    error: "Invalid Principal.",
+    abort: true,
+  })
+  .transform((value) => Principal.from(value));
