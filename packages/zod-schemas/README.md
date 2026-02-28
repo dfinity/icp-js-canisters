@@ -62,7 +62,7 @@ schema.parse("https://example.com"); // Valid
 schema.parse("wss://example.com"); // Valid
 schema.parse("http://localhost"); // Invalid if allowHttpLocally is false
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L27)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L28)
 
 ### :wrench: Constants
 
@@ -86,7 +86,7 @@ const result = Uint8ArraySchema.safeParse(new Uint8Array([1, 2, 3]));
 console.log(result.success); // true or false
 ```
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/arrays.ts#L12)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/arrays.ts#L13)
 
 #### :gear: PrincipalTextSchema
 
@@ -141,7 +141,7 @@ Examples:
 UrlSchema.parse("https://example.com"); // Valid
 UrlSchema.parse("http://127.0.0.1"); // Valid (localhost exception)
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L64)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L65)
 
 ### :nut_and_bolt: Enum
 
@@ -154,6 +154,7 @@ UrlSchema.parse("http://127.0.0.1"); // Valid (localhost exception)
 | `PrincipalText` | `"PrincipalText"` |             |
 | `Principal`     | `"Principal"`     |             |
 | `Uint8Array`    | `"Uint8Array"`    |             |
+| `Url`           | `"Url"`           |             |
 
 [:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/schema-id.ts#L1)
 
