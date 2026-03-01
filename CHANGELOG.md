@@ -14,6 +14,7 @@
 - Add `PrincipalSchema` and `Uint8ArraySchema` to Zod custom schemas.
 - Identify schemas with a metadata `id` corresponding to the enum `ZodSchemaId`.
 - Update latest Candid files.
+- Service `queryAndUpdate` will print the `update` error to console only when `onUpdateError` callback is nullish.
 
 ## 93
 
@@ -26,7 +27,6 @@
 ### Features
 
 - Update to the latest Candid file for the nns package to introduce support for the new proposal types `TakeCanisterSnapshot` and `LoadCanisterSnapshot`.
-- Service `queryAndUpdate` will print the `update` error to console only when `onUpdateError` callback is nullish.
 - Support `selfDescribingAction` field in Governance proposals.
 
 ## 92
