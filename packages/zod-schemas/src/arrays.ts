@@ -1,4 +1,5 @@
 import * as z from "zod";
+import { ZodSchemaId } from "./schema-id";
 
 /**
  * Zod schema to validate a value is a `Uint8Array` instance.
@@ -9,4 +10,6 @@ import * as z from "zod";
  * console.log(result.success); // true or false
  * ```
  */
-export const Uint8ArraySchema = z.instanceof(Uint8Array);
+export const Uint8ArraySchema = z
+  .instanceof(Uint8Array)
+  .meta({ id: ZodSchemaId.Uint8Array });

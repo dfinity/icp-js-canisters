@@ -62,7 +62,7 @@ schema.parse("https://example.com"); // Valid
 schema.parse("wss://example.com"); // Valid
 schema.parse("http://localhost"); // Invalid if allowHttpLocally is false
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L27)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L28)
 
 ### :wrench: Constants
 
@@ -86,7 +86,7 @@ const result = Uint8ArraySchema.safeParse(new Uint8Array([1, 2, 3]));
 console.log(result.success); // true or false
 ```
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/arrays.ts#L12)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/arrays.ts#L13)
 
 #### :gear: PrincipalTextSchema
 
@@ -106,7 +106,7 @@ const result = PrincipalTextSchema.safeParse("aaaaa-aa");
 console.log(result.success); // true or false
 ```
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L16)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L17)
 
 #### :gear: PrincipalSchema
 
@@ -126,7 +126,7 @@ const result = PrincipalSchema.safeParse(Principal.fromText("aaaaa-aa"));
 console.log(result.success); // true or false
 ```
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L44)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L48)
 
 #### :gear: UrlSchema
 
@@ -141,6 +141,23 @@ Examples:
 UrlSchema.parse("https://example.com"); // Valid
 UrlSchema.parse("http://127.0.0.1"); // Valid (localhost exception)
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L64)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L65)
+
+### :nut_and_bolt: Enum
+
+- [ZodSchemaId](#gear-zodschemaid)
+
+#### :gear: ZodSchemaId
+
+Enum of metadata `id` values assigned to Zod schemas in this library.
+
+| Property        | Type              | Description                                   |
+| --------------- | ----------------- | --------------------------------------------- |
+| `PrincipalText` | `"PrincipalText"` | Metadata id for {@link PrincipalTextSchema }. |
+| `Principal`     | `"Principal"`     | Metadata id for {@link PrincipalSchema }.     |
+| `Uint8Array`    | `"Uint8Array"`    | Metadata id for {@link Uint8ArraySchema }.    |
+| `Url`           | `"Url"`           | Metadata id for {@link UrlSchema }.           |
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/schema-id.ts#L4)
 
 <!-- TSDOC_END -->

@@ -5,6 +5,7 @@
 ### Features
 
 - Add `PrincipalSchema` and `Uint8ArraySchema` to Zod custom schemas.
+- Identify schemas with a metadata `id` corresponding to the enum `ZodSchemaId`.
 
 ## 93
 

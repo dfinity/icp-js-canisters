@@ -1,4 +1,5 @@
 import { Uint8ArraySchema } from "./arrays";
+import { ZodSchemaId } from "./schema-id";
 
 describe("Uint8ArraySchema", () => {
   it("should pass validation with a valid Uint8Array", () => {
@@ -29,5 +30,11 @@ describe("Uint8ArraySchema", () => {
     const result = Uint8ArraySchema.safeParse(null);
 
     expect(result.success).toBeFalsy();
+  });
+
+  it("should have the correct schema id", () => {
+    expect(Uint8ArraySchema.meta()).toEqual({
+      id: ZodSchemaId.Uint8Array,
+    });
   });
 });

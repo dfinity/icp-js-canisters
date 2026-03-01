@@ -1,4 +1,5 @@
 import * as z from "zod";
+import { ZodSchemaId } from "./schema-id";
 
 /**
  * A URL protocol as template literal type.
@@ -61,4 +62,4 @@ export const createUrlSchema = ({
  * UrlSchema.parse("https://example.com"); // Valid
  * UrlSchema.parse("http://127.0.0.1");   // Valid (localhost exception)
  */
-export const UrlSchema = createUrlSchema({});
+export const UrlSchema = createUrlSchema({}).meta({ id: ZodSchemaId.Url });

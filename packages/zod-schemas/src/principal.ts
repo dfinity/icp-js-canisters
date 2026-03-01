@@ -1,5 +1,6 @@
 import { Principal } from "@icp-sdk/core/principal";
 import * as z from "zod";
+import { ZodSchemaId } from "./schema-id";
 
 /**
  * Zod schema to validate a string as a valid textual representation of a Principal.
@@ -13,19 +14,22 @@ import * as z from "zod";
  * console.log(result.success); // true or false
  * ```
  */
-export const PrincipalTextSchema = z.string().refine(
-  (principal) => {
-    try {
-      Principal.fromText(principal);
-      return true;
-    } catch (_err: unknown) {
-      return false;
-    }
-  },
-  {
-    error: "Invalid textual representation of a Principal.",
-  },
-);
+export const PrincipalTextSchema = z
+  .string()
+  .refine(
+    (principal) => {
+      try {
+        Principal.fromText(principal);
+        return true;
+      } catch (_err: unknown) {
+        return false;
+      }
+    },
+    {
+      error: "Invalid textual representation of a Principal.",
+    },
+  )
+  .meta({ id: ZodSchemaId.PrincipalText });
 
 export type PrincipalText = z.infer<typeof PrincipalTextSchema>;
 
@@ -47,4 +51,5 @@ export const PrincipalSchema = z
     error: "Invalid Principal.",
     abort: true,
   })
-  .transform((value) => Principal.from(value));
+  .transform((value) => Principal.from(value))
+  .meta({ id: ZodSchemaId.Principal });
