@@ -62,12 +62,31 @@ schema.parse("https://example.com"); // Valid
 schema.parse("wss://example.com"); // Valid
 schema.parse("http://localhost"); // Invalid if allowHttpLocally is false
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L27)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L28)
 
 ### :wrench: Constants
 
+- [Uint8ArraySchema](#gear-uint8arrayschema)
 - [PrincipalTextSchema](#gear-principaltextschema)
+- [PrincipalSchema](#gear-principalschema)
 - [UrlSchema](#gear-urlschema)
+
+#### :gear: Uint8ArraySchema
+
+Zod schema to validate a value is a `Uint8Array` instance.
+
+| Constant           | Type                                                          |
+| ------------------ | ------------------------------------------------------------- |
+| `Uint8ArraySchema` | `ZodCustom<Uint8Array<ArrayBuffer>, Uint8Array<ArrayBuffer>>` |
+
+Examples:
+
+```typescript
+const result = Uint8ArraySchema.safeParse(new Uint8Array([1, 2, 3]));
+console.log(result.success); // true or false
+```
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/arrays.ts#L13)
 
 #### :gear: PrincipalTextSchema
 
@@ -87,7 +106,27 @@ const result = PrincipalTextSchema.safeParse("aaaaa-aa");
 console.log(result.success); // true or false
 ```
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L16)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L17)
+
+#### :gear: PrincipalSchema
+
+Zod schema to validate and transform a value into a `Principal` instance.
+
+This schema checks if the provided value is an instance or an object representing
+a `Principal` and transforms it into a valid `Principal` instance.
+
+| Constant          | Type                                                                     |
+| ----------------- | ------------------------------------------------------------------------ |
+| `PrincipalSchema` | `ZodPipe<ZodCustom<Principal, Principal>, ZodTransform<any, Principal>>` |
+
+Examples:
+
+```typescript
+const result = PrincipalSchema.safeParse(Principal.fromText("aaaaa-aa"));
+console.log(result.success); // true or false
+```
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/principal.ts#L48)
 
 #### :gear: UrlSchema
 
@@ -102,6 +141,23 @@ Examples:
 UrlSchema.parse("https://example.com"); // Valid
 UrlSchema.parse("http://127.0.0.1"); // Valid (localhost exception)
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L64)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L65)
+
+### :nut_and_bolt: Enum
+
+- [ZodSchemaId](#gear-zodschemaid)
+
+#### :gear: ZodSchemaId
+
+Enum of metadata `id` values assigned to Zod schemas in this library.
+
+| Property        | Type              | Description                                   |
+| --------------- | ----------------- | --------------------------------------------- |
+| `PrincipalText` | `"PrincipalText"` | Metadata id for {@link PrincipalTextSchema }. |
+| `Principal`     | `"Principal"`     | Metadata id for {@link PrincipalSchema }.     |
+| `Uint8Array`    | `"Uint8Array"`    | Metadata id for {@link Uint8ArraySchema }.    |
+| `Url`           | `"Url"`           | Metadata id for {@link UrlSchema }.           |
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/schema-id.ts#L4)
 
 <!-- TSDOC_END -->
