@@ -1,11 +1,19 @@
 # Changelog
 
-## Future
+## 94
+
+### Overview
+
+| Library                | Version | Status       |
+| ---------------------- | ------- | ------------ |
+| `@icp-sdk/canisters`   | v3.5.1  | Maintained ⚙ |
+| `@dfinity/zod-schemas` | v3.1.0  | Enhanced 🔧️  |
 
 ### Features
 
 - Add `PrincipalSchema` and `Uint8ArraySchema` to Zod custom schemas.
 - Identify schemas with a metadata `id` corresponding to the enum `ZodSchemaId`.
+- Update latest Candid files.
 
 ## 93
 
