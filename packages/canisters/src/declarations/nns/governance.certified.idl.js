@@ -763,6 +763,20 @@ export const idlFactory = ({ IDL }) => {
   const ClaimOrRefreshNeuronFromAccountResponse = IDL.Record({
     result: IDL.Opt(Result_1),
   });
+  const CreateNeuronRequest = IDL.Record({
+    controller: IDL.Opt(IDL.Principal),
+    source_subaccount: IDL.Opt(IDL.Vec(IDL.Nat8)),
+    dissolve_delay_seconds: IDL.Opt(IDL.Nat64),
+    auto_stake_maturity: IDL.Opt(IDL.Bool),
+    amount_e8s: IDL.Opt(IDL.Nat64),
+    followees: IDL.Opt(SetFollowing),
+    dissolving: IDL.Opt(IDL.Bool),
+  });
+  const CreatedNeuron = IDL.Record({ neuron_id: IDL.Opt(NeuronId) });
+  const CreateNeuronResponse = IDL.Variant({
+    Ok: CreatedNeuron,
+    Err: GovernanceError,
+  });
   const Result_2 = IDL.Variant({ Ok: Neuron, Err: GovernanceError });
   const Result_3 = IDL.Variant({
     Ok: GovernanceCachedMetrics,
@@ -1066,6 +1080,7 @@ export const idlFactory = ({ IDL }) => {
       [ClaimOrRefreshNeuronFromAccountResponse],
       [],
     ),
+    create_neuron: IDL.Func([CreateNeuronRequest], [CreateNeuronResponse], []),
     get_build_metadata: IDL.Func([], [IDL.Text], []),
     get_full_neuron: IDL.Func([IDL.Nat64], [Result_2], []),
     get_full_neuron_by_id_or_subaccount: IDL.Func(

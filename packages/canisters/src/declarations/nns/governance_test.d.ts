@@ -174,6 +174,43 @@ export interface Controllers {
 export interface Countries {
   iso_codes: Array<string>;
 }
+/**
+ * Request to create a new neuron using ICRC-2 transfer_from.
+ * The caller must have previously approved the governance canister to spend the specified amount.
+ */
+export interface CreateNeuronRequest {
+  /**
+   * The controller of the new neuron. Defaults to the caller.
+   */
+  controller: [] | [Principal];
+  /**
+   * The subaccount of the caller to transfer ICP from. Defaults to the default subaccount.
+   */
+  source_subaccount: [] | [Uint8Array];
+  /**
+   * The dissolve delay in seconds. Defaults to 7 days. Clamped to [0, 8 years].
+   */
+  dissolve_delay_seconds: [] | [bigint];
+  /**
+   * Whether to automatically stake maturity. Defaults to false.
+   */
+  auto_stake_maturity: [] | [boolean];
+  /**
+   * Required. The amount of ICP to stake in e8s.
+   */
+  amount_e8s: [] | [bigint];
+  /**
+   * The followees to set for the new neuron. Defaults to the network's default followees.
+   */
+  followees: [] | [SetFollowing];
+  /**
+   * Whether the neuron should start dissolving immediately. Defaults to false.
+   */
+  dissolving: [] | [boolean];
+}
+export type CreateNeuronResponse =
+  | { Ok: CreatedNeuron }
+  | { Err: GovernanceError };
 export interface CreateServiceNervousSystem {
   url: [] | [string];
   governance_parameters: [] | [GovernanceParameters];
@@ -185,6 +222,9 @@ export interface CreateServiceNervousSystem {
   dapp_canisters: Array<Canister>;
   swap_parameters: [] | [SwapParameters];
   initial_token_distribution: [] | [InitialTokenDistribution];
+}
+export interface CreatedNeuron {
+  neuron_id: [] | [NeuronId];
 }
 export interface CustomProposalCriticality {
   additional_critical_native_action_ids: [] | [BigUint64Array];
@@ -1359,6 +1399,7 @@ export interface _SERVICE {
     [ClaimOrRefreshNeuronFromAccount],
     ClaimOrRefreshNeuronFromAccountResponse
   >;
+  create_neuron: ActorMethod<[CreateNeuronRequest], CreateNeuronResponse>;
   get_build_metadata: ActorMethod<[], string>;
   get_full_neuron: ActorMethod<[bigint], Result_2>;
   get_full_neuron_by_id_or_subaccount: ActorMethod<

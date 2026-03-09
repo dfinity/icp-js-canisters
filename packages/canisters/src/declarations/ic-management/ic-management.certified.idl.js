@@ -76,7 +76,7 @@ export const idlFactory = ({ IDL }) => {
     from_user: IDL.Record({ user_id: IDL.Principal }),
     from_canister: IDL.Record({
       canister_version: IDL.Opt(IDL.Nat64),
-      canister_id: IDL.Principal,
+      canister_id: canister_id,
     }),
   });
   const snapshot_id = IDL.Vec(IDL.Nat8);
@@ -105,11 +105,11 @@ export const idlFactory = ({ IDL }) => {
     }),
     rename_canister: IDL.Record({
       rename_to: IDL.Record({
-        canister_id: IDL.Principal,
+        canister_id: canister_id,
         version: IDL.Nat64,
         total_num_changes: IDL.Nat64,
       }),
-      canister_id: IDL.Principal,
+      canister_id: canister_id,
       requested_by: IDL.Principal,
       total_num_changes: IDL.Nat64,
     }),
@@ -447,7 +447,7 @@ export const idlFactory = ({ IDL }) => {
     sender_canister_version: IDL.Opt(IDL.Nat64),
   });
   const update_settings_args = IDL.Record({
-    canister_id: IDL.Principal,
+    canister_id: canister_id,
     settings: canister_settings,
     sender_canister_version: IDL.Opt(IDL.Nat64),
   });
@@ -494,7 +494,7 @@ export const idlFactory = ({ IDL }) => {
   });
   const upload_chunk_args = IDL.Record({
     chunk: IDL.Vec(IDL.Nat8),
-    canister_id: IDL.Principal,
+    canister_id: canister_id,
   });
   const upload_chunk_result = chunk_hash;
   const vetkd_curve = IDL.Variant({ bls12_381_g2: IDL.Null });
