@@ -11,11 +11,7 @@ on:
       ic_ref:
         description: "The IC commit or tag to update to."
         required: false
-  # TODO: Remove this trigger before merging.  It is currently here to make testing easier.
-  push:
-    branches:
-      # Runs if there is a change to the development branch for this workflow
-      - "lwshang/fix_ci_update-ic"
+
 jobs:
   update-ic:
     runs-on: ubuntu-24.04
