@@ -159,11 +159,11 @@ export type change_details =
   | {
       rename_canister: {
         rename_to: {
-          canister_id: Principal;
+          canister_id: canister_id;
           version: bigint;
           total_num_changes: bigint;
         };
-        canister_id: Principal;
+        canister_id: canister_id;
         requested_by: Principal;
         total_num_changes: bigint;
       };
@@ -175,7 +175,7 @@ export type change_origin =
   | {
       from_canister: {
         canister_version: [] | [bigint];
-        canister_id: Principal;
+        canister_id: canister_id;
       };
     };
 export interface chunk_hash {
@@ -416,7 +416,7 @@ export interface uninstall_code_args {
   sender_canister_version: [] | [bigint];
 }
 export interface update_settings_args {
-  canister_id: Principal;
+  canister_id: canister_id;
   settings: canister_settings;
   sender_canister_version: [] | [bigint];
 }
@@ -458,7 +458,7 @@ export interface upload_canister_snapshot_metadata_response {
 }
 export interface upload_chunk_args {
   chunk: Uint8Array;
-  canister_id: Principal;
+  canister_id: canister_id;
 }
 export type upload_chunk_result = chunk_hash;
 export interface utxo {

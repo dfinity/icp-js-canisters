@@ -141,6 +141,10 @@ mkdir -p packages/canisters/src/declarations/ckbtc
 import_did "rs/bitcoin/ckbtc/minter/ckbtc_minter.did" "minter.did" "ckbtc"
 download_did https://raw.githubusercontent.com/dfinity/bitcoin-canister/master/canister/candid.did "bitcoin.did" "canisters" "src/declarations/ckbtc"
 
+mkdir -p packages/canisters/src/declarations/ckdoge
+import_did "rs/dogecoin/ckdoge/minter/ckdoge_minter.did" "minter.did" "ckdoge"
+download_did https://raw.githubusercontent.com/dfinity/dogecoin-canister/master/canister/candid.did "dogecoin.did" "canisters" "src/declarations/ckdoge"
+
 mkdir -p packages/canisters/src/declarations/ledger-icp
 import_did "rs/ledger_suite/icp/ledger.did" "ledger.did" "ledger-icp"
 import_did "rs/ledger_suite/icp/index/index.did" "index.did" "ledger-icp"

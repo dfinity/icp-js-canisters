@@ -9,6 +9,7 @@
     "packages/zod-schemas",
     "packages/canisters",
     "packages/ckbtc",
+    "packages/ckdoge",
     "packages/cketh",
     "packages/cmc",
     "packages/ic-management",
@@ -60,6 +61,19 @@
     {
       "name": "@dfinity/ckbtc",
       "path": "./packages/ckbtc/dist/index.js",
+      "limit": "9 kB",
+      "gzip": true,
+      "ignore": [
+        "@dfinity/agent",
+        "@dfinity/candid",
+        "@dfinity/principal",
+        "@icp-sdk/core",
+        "@dfinity/utils"
+      ]
+    },
+    {
+      "name": "@dfinity/ckdoge",
+      "path": "./packages/ckdoge/dist/index.js",
       "limit": "9 kB",
       "gzip": true,
       "ignore": [

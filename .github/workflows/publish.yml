@@ -85,6 +85,9 @@ jobs:
       - name: Publish ckBTC
         run: npm publish --provenance --tag ${{ inputs.tag }} --workspace=packages/ckbtc
 
+      - name: Publish ckDOGE
+        run: npm publish --provenance --tag ${{ inputs.tag }} --workspace=packages/ckdoge
+
       - name: Publish ckETH
         run: npm publish --provenance --tag ${{ inputs.tag }} --workspace=packages/cketh
 

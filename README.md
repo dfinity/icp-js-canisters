@@ -24,6 +24,7 @@ The following libraries are exposed by the modular subpath-only library above, b
 - [`@dfinity/ledger-icp`](/packages/ledger-icp): interfacing with the **ICP** ledger
 - [`@dfinity/ledger-icrc`](/packages/ledger-icrc): interacting with **ICRC**-compatible ledgers
 - [`@dfinity/ckbtc`](/packages/ckbtc): interfacing with **ckBTC**
+- [`@dfinity/ckdoge`](/packages/ckdoge): interfacing with **ckDOGE**
 - [`@dfinity/cketh`](/packages/cketh): interfacing with **ckETH**
 - [`@dfinity/ic-management`](/packages/ic-management): interfacing with the **IC management canister**
 

@@ -1,4 +1,4 @@
-// Generated from dfinity/portal commit 969a3c81aee395038a02d1f5244d3b4f2d0b45ce for file 'docs/references/_attachments/ic.did'
+// Generated from dfinity/portal commit 213049c18b016b7df9ce0663331a0b0606f6e492 for file 'docs/references/_attachments/ic.did'
 
 type canister_id = principal;
 type wasm_module = blob;
@@ -44,7 +44,7 @@ type change_origin = variant {
         user_id : principal;
     };
     from_canister : record {
-        canister_id : principal;
+        canister_id : canister_id;
         canister_version : opt nat64;
     };
 };
@@ -73,10 +73,10 @@ type change_details = variant {
         controllers : vec principal;
     };
     rename_canister : record {
-        canister_id : principal;
+        canister_id : canister_id;
         total_num_changes : nat64;
         rename_to : record {
-            canister_id : principal;
+            canister_id : canister_id;
             version : nat64;
             total_num_changes : nat64;
         };
@@ -209,13 +209,13 @@ type create_canister_result = record {
 };
 
 type update_settings_args = record {
-    canister_id : principal;
+    canister_id : canister_id;
     settings : canister_settings;
     sender_canister_version : opt nat64;
 };
 
 type upload_chunk_args = record {
-    canister_id : principal;
+    canister_id : canister_id;
     chunk : blob;
 };
 
