@@ -1,5 +1,11 @@
 # Changelog
 
+## Next
+
+### Features
+
+- Add `Result` schema and type to Zod library which allows for representing type with a success or error state.
+
 ## 94
 
 ### Overview
