@@ -7,13 +7,11 @@ on:
     - cron: '30 3 * * MON'
   workflow_dispatch:
     # Provides an option to run this manually
-    ic_ref:
-      description: "The IC commit or tag to update to."
-      required: false
-  push:
-    branches:
-      # Runs if there is a change to the development branch for this workflow
-      - "update-ic"
+    inputs:
+      ic_ref:
+        description: "The IC commit or tag to update to."
+        required: false
+
 jobs:
   update-ic:
     runs-on: ubuntu-24.04
@@ -69,7 +67,7 @@ jobs:
           fi
       - name: Create Pull Request
         if: ${{ steps.update.outputs.updated == '1' }}
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ steps.app-token.outputs.token }}
           base: main
