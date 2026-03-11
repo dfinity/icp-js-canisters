@@ -31,7 +31,20 @@ The library implements following features:
 
 ### :toolbox: Functions
 
+- [inferResultSchema](#gear-inferresultschema)
 - [createUrlSchema](#gear-createurlschema)
+
+#### :gear: inferResultSchema
+
+| Function            | Type                                                                                                                                                                                                      |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inferResultSchema` | `<T extends z.ZodType>(schema: T) => ZodUnion<readonly [ZodObject<{ status: ZodLiteral<"success">; result: T; }, $strict>, ZodObject<{ status: ZodLiteral<"error">; err: ZodOptional<...>; }, $strict>]>` |
+
+References:
+
+- `Result`
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/result.ts#L4)
 
 #### :gear: createUrlSchema
 
