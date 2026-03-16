@@ -239,8 +239,10 @@ export const idlFactory = ({ IDL }) => {
     url: IDL.Text,
     method: IDL.Variant({
       get: IDL.Null,
+      put: IDL.Null,
       head: IDL.Null,
       post: IDL.Null,
+      delete: IDL.Null,
     }),
     max_response_bytes: IDL.Opt(IDL.Nat64),
     body: IDL.Opt(IDL.Vec(IDL.Nat8)),
