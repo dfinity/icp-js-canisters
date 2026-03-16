@@ -2,7 +2,7 @@ import * as z from "zod";
 
 /** @see {@link Result} */
 export const inferResultSchema = <T extends z.ZodType>(schema: T) =>
-  z.union([
+  z.discriminatedUnion("status", [
     z.strictObject({
       status: z.literal("success"),
       result: schema,
