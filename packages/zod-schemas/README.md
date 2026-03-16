@@ -36,9 +36,9 @@ The library implements following features:
 
 #### :gear: inferResultSchema
 
-| Function            | Type                                                                                                                                                                                                      |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inferResultSchema` | `<T extends z.ZodType>(schema: T) => ZodUnion<readonly [ZodObject<{ status: ZodLiteral<"success">; result: T; }, $strict>, ZodObject<{ status: ZodLiteral<"error">; err: ZodOptional<...>; }, $strict>]>` |
+| Function            | Type                                                                                                                                                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inferResultSchema` | `<T extends z.ZodType>(schema: T) => ZodDiscriminatedUnion<[ZodObject<{ status: ZodLiteral<"success">; result: T; }, $strict>, ZodObject<{ status: ZodLiteral<"error">; err: ZodOptional<...>; }, $strict>]>` |
 
 References:
 
