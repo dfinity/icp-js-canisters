@@ -238,7 +238,12 @@ export interface http_header {
 }
 export interface http_request_args {
   url: string;
-  method: { get: null } | { head: null } | { post: null };
+  method:
+    | { get: null }
+    | { put: null }
+    | { head: null }
+    | { post: null }
+    | { delete: null };
   max_response_bytes: [] | [bigint];
   body: [] | [Uint8Array];
   transform: [] | [{ function: [Principal, string]; context: Uint8Array }];
