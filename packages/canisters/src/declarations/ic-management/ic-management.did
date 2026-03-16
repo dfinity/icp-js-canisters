@@ -1,4 +1,4 @@
-// Generated from dfinity/portal commit 213049c18b016b7df9ce0663331a0b0606f6e492 for file 'docs/references/_attachments/ic.did'
+// Generated from dfinity/portal commit 2cc3d2a572c70234c046c66da1b0a294e5a64a15 for file 'docs/references/_attachments/ic.did'
 
 type canister_id = principal;
 type wasm_module = blob;
@@ -338,7 +338,7 @@ type deposit_cycles_args = record {
 type http_request_args = record {
     url : text;
     max_response_bytes : opt nat64;
-    method : variant { get; head; post };
+    method : variant { get; head; post; put; delete };
     headers : vec http_header;
     body : opt blob;
     transform : opt record {
