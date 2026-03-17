@@ -1,11 +1,25 @@
 # Changelog
 
-## Next
+## 95
+
+### Overview
+
+| Library                | Version | Status       |
+| ---------------------- | ------- | ------------ |
+| `@icp-sdk/canisters`   | v3.5.2  | Maintained ⚙ |
+| `@dfinity/zod-schemas` | v3.2.0  | Enhanced 🔧️  |
 
 ### Features
 
 - Add `Option`, `Nullable` and `Nullish` types to Zod library.
 - Add `Result` schema and type to Zod library which allows for representing type with a success or error state.
+- Update latest Candid files.
+
+### Chore
+
+- Bump Node version to v25 to use npm@11.10.
+- Update `actions/checkout@6.0.2`.
+- Update weekly IC workflow ref.
 
 ## 94
 
