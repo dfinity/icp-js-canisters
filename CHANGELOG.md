@@ -1,5 +1,11 @@
 # Changelog
 
+## Next
+
+### Features
+
+- Add `Option`, `Nullable` and `Nullish` types to Zod library.
+
 ## 94
 
 ### Overview
