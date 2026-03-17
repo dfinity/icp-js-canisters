@@ -5,6 +5,7 @@
 ### Features
 
 - Add `Option`, `Nullable` and `Nullish` types to Zod library.
+- Add `Result` schema and type to Zod library which allows for representing type with a success or error state.
 
 ## 94
 
