@@ -31,46 +31,20 @@ The library implements following features:
 
 ### :toolbox: Functions
 
-- [inferOptionSchema](#gear-inferoptionschema)
-- [inferNullishSchema](#gear-infernullishschema)
-- [inferNullableSchema](#gear-infernullableschema)
+- [inferResultSchema](#gear-inferresultschema)
 - [createUrlSchema](#gear-createurlschema)
 
-#### :gear: inferOptionSchema
+#### :gear: inferResultSchema
 
-| Function            | Type                                                 |
-| ------------------- | ---------------------------------------------------- |
-| `inferOptionSchema` | `<T extends z.ZodType>(schema: T) => ZodOptional<T>` |
-
-References:
-
-- `Option`
-
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/option.ts#L4)
-
-#### :gear: inferNullishSchema
-
-| Function             | Type                                                              |
-| -------------------- | ----------------------------------------------------------------- |
-| `inferNullishSchema` | `<T extends z.ZodType>(schema: T) => ZodOptional<ZodNullable<T>>` |
+| Function            | Type                                                                                                                                                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inferResultSchema` | `<T extends z.ZodType>(schema: T) => ZodDiscriminatedUnion<[ZodObject<{ status: ZodLiteral<"success">; result: T; }, $strict>, ZodObject<{ status: ZodLiteral<"error">; err: ZodOptional<...>; }, $strict>]>` |
 
 References:
 
-- `Nullable`
+- `Result`
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/option.ts#L8)
-
-#### :gear: inferNullableSchema
-
-| Function              | Type                                                 |
-| --------------------- | ---------------------------------------------------- |
-| `inferNullableSchema` | `<T extends z.ZodType>(schema: T) => ZodNullable<T>` |
-
-References:
-
-- `Nullish`
-
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/option.ts#L12)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/result.ts#L4)
 
 #### :gear: createUrlSchema
 
