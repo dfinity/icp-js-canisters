@@ -31,7 +31,46 @@ The library implements following features:
 
 ### :toolbox: Functions
 
+- [inferOptionSchema](#gear-inferoptionschema)
+- [inferNullishSchema](#gear-infernullishschema)
+- [inferNullableSchema](#gear-infernullableschema)
 - [createUrlSchema](#gear-createurlschema)
+
+#### :gear: inferOptionSchema
+
+| Function            | Type                                                 |
+| ------------------- | ---------------------------------------------------- |
+| `inferOptionSchema` | `<T extends z.ZodType>(schema: T) => ZodOptional<T>` |
+
+References:
+
+- `Option`
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/option.ts#L4)
+
+#### :gear: inferNullishSchema
+
+| Function             | Type                                                              |
+| -------------------- | ----------------------------------------------------------------- |
+| `inferNullishSchema` | `<T extends z.ZodType>(schema: T) => ZodOptional<ZodNullable<T>>` |
+
+References:
+
+- `Nullable`
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/option.ts#L8)
+
+#### :gear: inferNullableSchema
+
+| Function              | Type                                                 |
+| --------------------- | ---------------------------------------------------- |
+| `inferNullableSchema` | `<T extends z.ZodType>(schema: T) => ZodNullable<T>` |
+
+References:
+
+- `Nullish`
+
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/option.ts#L12)
 
 #### :gear: createUrlSchema
 
