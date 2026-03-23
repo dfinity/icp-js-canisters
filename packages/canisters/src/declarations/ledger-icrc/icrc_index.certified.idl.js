@@ -11,10 +11,14 @@ export const idlFactory = ({ IDL }) => {
   const UpgradeArg = IDL.Record({
     ledger_id: IDL.Opt(IDL.Principal),
     retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+    min_retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+    max_retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
   });
   const InitArg = IDL.Record({
     ledger_id: IDL.Principal,
     retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+    min_retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+    max_retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
   });
   const IndexArg = IDL.Variant({ Upgrade: UpgradeArg, Init: InitArg });
   const BlockIndex = IDL.Nat;
@@ -147,10 +151,14 @@ export const init = ({ IDL }) => {
   const UpgradeArg = IDL.Record({
     ledger_id: IDL.Opt(IDL.Principal),
     retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+    min_retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+    max_retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
   });
   const InitArg = IDL.Record({
     ledger_id: IDL.Principal,
     retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+    min_retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
+    max_retrieve_blocks_from_ledger_interval_seconds: IDL.Opt(IDL.Nat64),
   });
   const IndexArg = IDL.Variant({ Upgrade: UpgradeArg, Init: InitArg });
 

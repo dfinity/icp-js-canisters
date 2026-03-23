@@ -1,4 +1,4 @@
-// Generated from IC repo commit 0d3e699 (2026-03-11) 'packages/canisters/src/declarations/nns/governance_test.did.tmp' by import-candid
+// Generated from IC repo commit 21b8ab4 (2026-03-17) 'packages/canisters/src/declarations/nns/governance_test.did.tmp' by import-candid
 
 type AccountIdentifier = record {
   hash : blob;
@@ -382,6 +382,7 @@ type GovernanceCachedMetrics = record {
   timestamp_seconds : nat64;
   seed_neuron_count : nat64;
   spawning_neurons_count : nat64;
+  total_maturity_disbursements_in_progress_e8s_equivalent : nat64;
 
   non_self_authenticating_controller_neuron_subset_metrics : opt NeuronSubsetMetrics;
   public_neuron_subset_metrics : opt NeuronSubsetMetrics;
