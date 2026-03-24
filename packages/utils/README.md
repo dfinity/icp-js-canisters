@@ -460,7 +460,7 @@ Returns:
 
 - The Uint8Array representation of the decoded binary data.
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/utils/src/utils/base64.utils.ts#L23)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/utils/src/utils/base64.utils.ts#L25)
 
 #### :gear: bigEndianCrc32
 
