@@ -6,12 +6,14 @@
  */
 export const uint8ArrayToBase64 = (uint8Array: Uint8Array): string => {
   // Spreading large Uint8Arrays or using Array.from loses precision when used together with String.fromCharCode.
-  // Therefore, we use a for loop, which also performs better than a reducer in this case.
-  let binary = "";
-  for (const uint8 of uint8Array) {
-    binary += String.fromCharCode(uint8);
+  // Therefore, we use a chunked loop, which better than a reducer or iterating on every value.
+  // Spreading a small chunk - such as 32kb - works as expected.
+  const chunkSize = 0x8000; // 32 kb
+  const chunks: string[] = [];
+  for (let i = 0; i < uint8Array.length; i += chunkSize) {
+    chunks.push(String.fromCharCode(...uint8Array.subarray(i, i + chunkSize)));
   }
-  return btoa(binary);
+  return btoa(chunks.join(""));
 };
 
 /**
