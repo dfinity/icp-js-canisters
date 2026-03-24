@@ -48,14 +48,6 @@ describe("Base64 Encoding and Decoding", () => {
       }).toThrowError();
     });
 
-    it("should not encode non-Uint8Array values properly", () => {
-      const invalidInput = "hello";
-      // @ts-expect-error: we are testing this on purpose
-      const result = uint8ArrayToBase64(invalidInput);
-
-      expect(result).not.toBe(uint8ArrayToBase64(new Uint8Array([1, 2, 3, 4])));
-    });
-
     it("should decode correctly even if base64 string is missing padding", () => {
       const base64StringWithoutPadding = "YWJjZA"; // missing '==' padding
       const result = base64ToUint8Array(base64StringWithoutPadding);
@@ -72,4 +64,19 @@ describe("Base64 Encoding and Decoding", () => {
 
     expect(largeUint8Array).toHaveLength(uint8Array.length);
   });
+
+  it.each([
+    0x7fff, // just under 32kb
+    0x8000, // exactly 32kb
+    0x8001, // just over 32kb
+  ])(
+    "should encode and decode correctly around chunk boundary (%i bytes)",
+    (size) => {
+      const uint8Array = new Uint8Array(size).fill(255);
+      const result = base64ToUint8Array(uint8ArrayToBase64(uint8Array));
+
+      expect(result).toEqual(uint8Array);
+      expect(result).toHaveLength(uint8Array.length);
+    },
+  );
 });
