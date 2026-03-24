@@ -40,6 +40,7 @@
 | Library                | Version | Status       |
 | ---------------------- | ------- | ------------ |
 | `@icp-sdk/canisters`   | v3.5.1  | Maintained ⚙ |
+| `@dfinity/utils`       | v4.2.0  | Enhanced 🔧️  |
 | `@dfinity/zod-schemas` | v3.1.0  | Enhanced 🔧️  |
 
 ### Features
