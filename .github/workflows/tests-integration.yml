@@ -26,7 +26,7 @@ jobs:
       - name: Test integration
         run: npm run test:integration
 
-  may-merge:
+  tests-integration-pass:
     needs: ["test-assets-integration"]
     runs-on: ubuntu-24.04
     steps:
