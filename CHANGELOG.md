@@ -1,5 +1,17 @@
 # Changelog
 
+## 96
+
+### Overview
+
+| Library          | Version | Status       |
+| ---------------- | ------- | ------------ |
+| `@dfinity/utils` | v4.2.1  | Maintained ⚙ |
+
+### Fix
+
+- Avoid loss of chunks in util `toBase64` of `@dfinity/utils` when the input is a large `Uint8Array`.
+
 ## 95
 
 ### Overview
