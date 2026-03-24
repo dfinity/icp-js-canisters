@@ -48,6 +48,13 @@ describe("Base64 Encoding and Decoding", () => {
       }).toThrowError();
     });
 
+    it("should throw for non-Uint8Array input", () => {
+      const invalidInput = "hello";
+
+      // @ts-expect-error: we are using uint8Array.subarray
+      expect(() => uint8ArrayToBase64(invalidInput)).toThrowError();
+    });
+
     it("should decode correctly even if base64 string is missing padding", () => {
       const base64StringWithoutPadding = "YWJjZA"; // missing '==' padding
       const result = base64ToUint8Array(base64StringWithoutPadding);
