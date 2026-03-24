@@ -63,4 +63,13 @@ describe("Base64 Encoding and Decoding", () => {
       expect(result).toEqual(new Uint8Array([97, 98, 99, 100])); // 'abcd'
     });
   });
+
+  it("should encode to base64 without losing any chunks", () => {
+    const largeUint8Array = new Uint8Array(2 * 1024 * 1024);
+
+    const base64String = uint8ArrayToBase64(largeUint8Array);
+    const uint8Array = base64ToUint8Array(base64String);
+
+    expect(largeUint8Array).toHaveLength(uint8Array.length);
+  });
 });
