@@ -5,8 +5,8 @@
  * @returns {string} - The base64 encoded string representation of the binary data.
  */
 export const uint8ArrayToBase64 = (uint8Array: Uint8Array): string => {
-  // Spreading large uint8Array or using Array.from looses precision when used together with String.fromCharCode.
-  // Therefore, the for loop which performs better than a reducer in this case.
+  // Spreading large Uint8Arrays or using Array.from loses precision when used together with String.fromCharCode.
+  // Therefore, we use a for loop, which also performs better than a reducer in this case.
   let binary = "";
   for (const uint8 of uint8Array) {
     binary += String.fromCharCode(uint8);
