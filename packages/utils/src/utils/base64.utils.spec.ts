@@ -1,3 +1,4 @@
+import { readFile } from "node:fs/promises";
 import { base64ToUint8Array, uint8ArrayToBase64 } from "./base64.utils";
 
 describe("Base64 Encoding and Decoding", () => {
@@ -62,5 +63,24 @@ describe("Base64 Encoding and Decoding", () => {
 
       expect(result).toEqual(new Uint8Array([97, 98, 99, 100])); // 'abcd'
     });
+  });
+
+  it("succeed with small file", async () => {
+    const img = await readFile("packages/utils/src/utils/tmp.txt");
+
+    const base64String = uint8ArrayToBase64(img);
+    const uint8Array = base64ToUint8Array(base64String);
+
+    expect(img).toHaveLength(uint8Array.length);
+  });
+
+  it("succeed with large file", async () => {
+    const img = await readFile("packages/utils/src/utils/img.png");
+
+    const base64String = uint8ArrayToBase64(img);
+    const uint8Array = base64ToUint8Array(base64String);
+
+    // TODO: fixme
+    expect(img).toHaveLength(uint8Array.length);
   });
 });
