@@ -130,12 +130,7 @@ git push -u origin fix/backport-toBase64
 
 ### 4. Bump the version
 
-Open a PR targeting the patch branch that updates `version` in both `packages/<lib>/package.json` and `package-lock.json`:
-
-```bash
-# packages/<lib>/package.json: "version": "4.0.2" -> "4.0.3"
-# package-lock.json: update the entry under "packages/<lib>" only
-```
+Open a PR targeting the patch branch that updates `version` in both `packages/<lib>/package.json` and `package-lock.json`.
 
 ### 5. Create a tracking PR
 
@@ -146,6 +141,10 @@ Once the patch branch is ready, create a **draft PR** targeting `main` for visib
 Go to **Actions > Publish Release > Run workflow**, select the patch branch (e.g. `release/v89/patch-1`), choose tag **`patch`**, and run it.
 
 The [`publish-patch.sh`](./scripts/publish-patch.sh) script checks if each package's exact version already exists on npm. Only packages with a new version are published, and they are tagged as `patch` (never moves the `latest` pointer).
+
+### 7. Create release notes
+
+After publishing, create a GitHub release for the tag. Use a tag name that identifies the package and version (e.g. `@dfinity/utils@4.0.3`). The publish workflow only auto-triggers on `v*` tags (monorepo releases), so patch release notes won't re-trigger a publish.
 
 ### Example: `@dfinity/utils` v4.0.3
 
