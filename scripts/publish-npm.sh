@@ -14,7 +14,7 @@ function publish_npm() {
     echo "@$org/$lib@$LOCAL_VERSION already published to NPM. Skipping."
   else
     echo "Publishing @$org/$lib@$LOCAL_VERSION..."
-    npm publish --workspace=packages/"$lib" --provenance --access public
+    npm publish --workspace=packages/"$lib" --provenance --access public --tag patch
   fi
 }
 
