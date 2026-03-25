@@ -6,21 +6,15 @@ function publish_npm() {
   local lib=$1
   local org=$2
 
-  LOCAL_SHASUM=$(npm --silent pack -w packages/"$lib" --json | jq '.[] | .shasum' | sed -r 's/^"|"$//g')
+  LOCAL_VERSION=$(npm --silent pack -w packages/"$lib" --json | jq -r '.[] | .version')
 
-  NPM_TARBALL=$(npm show "@$org/$lib" dist.tarball 2>/dev/null || true)
+  NPM_VERSION_EXISTS=$(npm show "@$org/$lib@$LOCAL_VERSION" version 2>/dev/null || true)
 
-  if [ -z "$NPM_TARBALL" ]; then
-    echo "@"$org"/$lib not found on NPM. Publishing new package..."
-    npm publish --workspace="packages/$lib" --provenance --access public
+  if [ -n "$NPM_VERSION_EXISTS" ]; then
+    echo "@$org/$lib@$LOCAL_VERSION already published to NPM. Skipping."
   else
-    NPM_SHASUM=$(curl -s "$NPM_TARBALL" 2>&1 | shasum | cut -f1 -d' ')
-
-    if [ "$LOCAL_SHASUM" == "$NPM_SHASUM" ]; then
-      echo "No changes in @$org/$lib need to be published to NPM."
-    else
-      npm publish --workspace=packages/"$lib" --provenance --access public
-    fi
+    echo "Publishing @$org/$lib@$LOCAL_VERSION..."
+    npm publish --workspace=packages/"$lib" --provenance --access public
   fi
 }
 
