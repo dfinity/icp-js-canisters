@@ -3,6 +3,8 @@ name: Publish Release
 on:
   release:
     types: [released]
+    tags:
+      - 'v*'
   workflow_dispatch:
     inputs:
       tag:
