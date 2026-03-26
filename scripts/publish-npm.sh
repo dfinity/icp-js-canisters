@@ -2,6 +2,8 @@
 
 # Reference: NPM RRFC --if-needed https://github.com/npm/rfcs/issues/466
 
+source "$(dirname "$0")/publish-packages.sh"
+
 function publish_npm() {
   local lib=$1
   local org=$2
@@ -24,21 +26,4 @@ function publish_npm() {
   fi
 }
 
-# Tips: libs use by other libs first
-DFINITY_LIBS=utils,zod-schemas,nns-proto
-
-for lib in $(echo $DFINITY_LIBS | sed "s/,/ /g"); do
-  publish_npm "$lib" "dfinity"
-done
-
-ICP_SDK=canisters
-
-for lib in $(echo $ICP_SDK | sed "s/,/ /g"); do
-  publish_npm "$lib" "icp-sdk"
-done
-
-DFINITY_LEGACY_LIBS=cmc,ic-management,ckbtc,cketh,ledger-icrc,ledger-icp,nns,sns
-
-for lib in $(echo $DFINITY_LEGACY_LIBS | sed "s/,/ /g"); do
-  publish_npm "$lib" "dfinity"
-done
+for_each_package publish_npm
