@@ -2,6 +2,8 @@
 
 # Reference: NPM RRFC --if-needed https://github.com/npm/rfcs/issues/466
 
+source "$(dirname "$0")/publish-packages.sh"
+
 function publish_npm() {
   local lib=$1
   local org=$2
