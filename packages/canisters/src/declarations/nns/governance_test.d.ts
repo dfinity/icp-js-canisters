@@ -387,6 +387,7 @@ export interface GovernanceCachedMetrics {
   community_fund_total_maturity_e8s_equivalent: bigint;
   total_staked_e8s_seed: bigint;
   total_staked_maturity_e8s_equivalent_ect: bigint;
+  total_maturity_disbursements_in_progress_e8s_equivalent: bigint;
   total_staked_e8s: bigint;
   fully_lost_voting_power_neuron_subset_metrics: [] | [NeuronSubsetMetrics];
   not_dissolving_neurons_count: bigint;
