@@ -33,7 +33,7 @@ jobs:
               exit 1
           fi
 
-  may-merge:
+  pr-checks-pass:
     needs: ['check-pr-title']
     runs-on: ubuntu-latest
     steps:

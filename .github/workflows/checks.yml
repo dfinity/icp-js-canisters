@@ -162,7 +162,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-  may-merge:
+  checks-pass:
     needs: ["formatting", "build", "lint", "test", "size"]
     runs-on: ubuntu-24.04
     steps:
