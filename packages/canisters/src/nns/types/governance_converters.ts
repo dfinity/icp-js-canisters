@@ -882,4 +882,5 @@ export interface GovernanceCachedMetrics {
   publicNeuronSubsetMetrics: Option<NeuronSubsetMetrics>;
   timestampSeconds: bigint;
   seedNeuronCount: bigint;
+  totalMaturityDisbursementsInProgressE8sEquivalent: bigint;
 }

@@ -2629,6 +2629,7 @@ describe("GovernanceCanister", () => {
       public_neuron_subset_metrics: [rawNeuronSubsetMetrics],
       timestamp_seconds: BigInt(8),
       seed_neuron_count: BigInt(8),
+      total_maturity_disbursements_in_progress_e8s_equivalent: BigInt(42),
     };
     const mockMetrics: GovernanceCachedMetrics = {
       communityFundTotalMaturityE8sEquivalent: 4n,
@@ -2733,6 +2734,7 @@ describe("GovernanceCanister", () => {
       totalStakedMaturityE8sEquivalentSeed: 8n,
       totalSupplyIcp: 1000000n,
       totalVotingPowerNonSelfAuthenticatingController: undefined,
+      totalMaturityDisbursementsInProgressE8sEquivalent: 42n,
     };
 
     it("gets ths metrics parameters", async () => {
