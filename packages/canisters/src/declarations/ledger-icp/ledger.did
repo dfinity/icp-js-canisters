@@ -1,4 +1,4 @@
-// Generated from IC repo commit 79faae8 (2026-03-06 tags: release-2026-03-06_10-46-base) 'rs/ledger_suite/icp/ledger.did' by import-candid
+// Generated from IC repo commit d17cf0b (2026-03-18 tags: release-2026-03-19_04-43-base) 'rs/ledger_suite/icp/ledger.did' by import-candid
 
 // This is the official Ledger interface that is guaranteed to be backward compatible.
 
@@ -347,9 +347,21 @@ type Value = variant {
   Blob : blob
 };
 
+type ChangeArchiveOptions = record {
+  trigger_threshold : opt nat64;
+  num_blocks_to_archive : opt nat64;
+  node_max_memory_size_bytes : opt nat64;
+  max_message_size_bytes : opt nat64;
+  controller_id : opt principal;
+  more_controller_ids : opt vec principal;
+  cycles_for_archive_creation : opt nat64;
+  max_transactions_per_response : opt nat64
+};
+
 type UpgradeArgs = record {
   icrc1_minting_account : opt Account;
-  feature_flags : opt FeatureFlags
+  feature_flags : opt FeatureFlags;
+  change_archive_options : opt ChangeArchiveOptions
 };
 
 type LedgerCanisterPayload = variant {

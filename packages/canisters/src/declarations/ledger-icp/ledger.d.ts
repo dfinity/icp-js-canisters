@@ -135,6 +135,16 @@ export interface BlockRange {
    */
   blocks: Array<Block>;
 }
+export interface ChangeArchiveOptions {
+  num_blocks_to_archive: [] | [bigint];
+  max_transactions_per_response: [] | [bigint];
+  trigger_threshold: [] | [bigint];
+  more_controller_ids: [] | [Array<Principal>];
+  max_message_size_bytes: [] | [bigint];
+  cycles_for_archive_creation: [] | [bigint];
+  node_max_memory_size_bytes: [] | [bigint];
+  controller_id: [] | [Principal];
+}
 export interface Duration {
   secs: bigint;
   nanos: number;
@@ -500,6 +510,7 @@ export type TransferFromResult =
   | { Err: TransferFromError };
 export type TransferResult = { Ok: BlockIndex } | { Err: TransferError };
 export interface UpgradeArgs {
+  change_archive_options: [] | [ChangeArchiveOptions];
   icrc1_minting_account: [] | [Account];
   feature_flags: [] | [FeatureFlags];
 }
