@@ -7,6 +7,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 export const idlFactory = ({ IDL }) => {
+  const ChangeArchiveOptions = IDL.Record({
+    num_blocks_to_archive: IDL.Opt(IDL.Nat64),
+    max_transactions_per_response: IDL.Opt(IDL.Nat64),
+    trigger_threshold: IDL.Opt(IDL.Nat64),
+    more_controller_ids: IDL.Opt(IDL.Vec(IDL.Principal)),
+    max_message_size_bytes: IDL.Opt(IDL.Nat64),
+    cycles_for_archive_creation: IDL.Opt(IDL.Nat64),
+    node_max_memory_size_bytes: IDL.Opt(IDL.Nat64),
+    controller_id: IDL.Opt(IDL.Principal),
+  });
   const SubAccount = IDL.Vec(IDL.Nat8);
   const Account = IDL.Record({
     owner: IDL.Principal,
@@ -14,6 +24,7 @@ export const idlFactory = ({ IDL }) => {
   });
   const FeatureFlags = IDL.Record({ icrc2: IDL.Bool });
   const UpgradeArgs = IDL.Record({
+    change_archive_options: IDL.Opt(ChangeArchiveOptions),
     icrc1_minting_account: IDL.Opt(Account),
     feature_flags: IDL.Opt(FeatureFlags),
   });
@@ -397,6 +408,16 @@ export const idlFactory = ({ IDL }) => {
 };
 
 export const init = ({ IDL }) => {
+  const ChangeArchiveOptions = IDL.Record({
+    num_blocks_to_archive: IDL.Opt(IDL.Nat64),
+    max_transactions_per_response: IDL.Opt(IDL.Nat64),
+    trigger_threshold: IDL.Opt(IDL.Nat64),
+    more_controller_ids: IDL.Opt(IDL.Vec(IDL.Principal)),
+    max_message_size_bytes: IDL.Opt(IDL.Nat64),
+    cycles_for_archive_creation: IDL.Opt(IDL.Nat64),
+    node_max_memory_size_bytes: IDL.Opt(IDL.Nat64),
+    controller_id: IDL.Opt(IDL.Principal),
+  });
   const SubAccount = IDL.Vec(IDL.Nat8);
   const Account = IDL.Record({
     owner: IDL.Principal,
@@ -404,6 +425,7 @@ export const init = ({ IDL }) => {
   });
   const FeatureFlags = IDL.Record({ icrc2: IDL.Bool });
   const UpgradeArgs = IDL.Record({
+    change_archive_options: IDL.Opt(ChangeArchiveOptions),
     icrc1_minting_account: IDL.Opt(Account),
     feature_flags: IDL.Opt(FeatureFlags),
   });
