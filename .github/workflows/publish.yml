@@ -16,11 +16,13 @@ on:
           - next
           - beta
           - release
+          - patch
 
 run-name: >-
   ${{
     (github.event_name == 'release' || github.event.inputs.tag == 'release') && format('Publish {0}', github.event.release.tag_name)
     || (github.event_name == 'workflow_dispatch' && (github.event.inputs.tag == 'next' || github.event.inputs.tag == 'beta')) && format('Publish {0}', github.event.inputs.tag)
+    || (github.event_name == 'workflow_dispatch' && github.event.inputs.tag == 'patch') && format('Publish patch from {0}', github.ref_name)
     || 'Publish Release' }}
 
 jobs:
@@ -98,6 +100,27 @@ jobs:
 
       - name: Publish @icp-sdk/canisters
         run: npm publish --provenance --tag ${{ inputs.tag }} --workspace=packages/canisters
+
+  publish-patch:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.tag == 'patch'
+    runs-on: ubuntu-24.04
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Prepare
+        uses: ./.github/actions/prepare
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish patch
+        run: ./scripts/publish-patch.sh
 
   publish-docs:
     needs: publish

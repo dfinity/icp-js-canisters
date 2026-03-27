@@ -1,5 +1,11 @@
 # Changelog
 
+## Next
+
+### Chore
+
+- Add support for patch releases with dedicated publish workflow and scripts.
+
 ## 96
 
 ### Overview
