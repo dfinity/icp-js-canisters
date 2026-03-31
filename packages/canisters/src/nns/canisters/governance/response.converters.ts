@@ -18,6 +18,7 @@ import type {
   LogVisibility,
   NeuronType,
   NeuronVisibility,
+  SnapshotVisibility,
 } from "../../enums/governance.enums";
 import { UnsupportedValueError } from "../../errors/governance.errors";
 import type {
@@ -1682,6 +1683,9 @@ const toCanisterSettings = (
         logVisibility: fromNullable(canisterSettings.log_visibility) as
           | LogVisibility
           | undefined,
+        snapshotVisibility: fromNullable(
+          canisterSettings.snapshot_visibility,
+        ) as SnapshotVisibility | undefined,
         wasmMemoryLimit: fromNullable(canisterSettings.wasm_memory_limit),
         computeAllocation: fromNullable(canisterSettings.compute_allocation),
         memoryAllocation: fromNullable(canisterSettings.memory_allocation),

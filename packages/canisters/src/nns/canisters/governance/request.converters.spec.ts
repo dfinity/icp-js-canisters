@@ -5,6 +5,7 @@ import {
   CanisterAction,
   CanisterInstallMode,
   LogVisibility,
+  SnapshotVisibility,
 } from "../../enums/governance.enums";
 import type {
   GovernanceParameters,
@@ -649,6 +650,7 @@ describe("request.converters", () => {
               wasmMemoryLimit: 123456n,
               wasmMemoryThreshold,
               logVisibility: LogVisibility.Controllers,
+              snapshotVisibility: SnapshotVisibility.Controllers,
             },
           },
         },
@@ -680,6 +682,7 @@ describe("request.converters", () => {
                         wasm_memory_limit: [123456n],
                         wasm_memory_threshold: [wasmMemoryThreshold],
                         log_visibility: [1],
+                        snapshot_visibility: [1],
                       },
                     ],
                   },

@@ -169,6 +169,14 @@ export enum LogVisibility {
   Public = 2,
 }
 
+export enum SnapshotVisibility {
+  Unspecified = 0,
+  /// The snapshot is visible to the controllers of the dapp canister.
+  Controllers = 1,
+  /// The snapshot is visible to the public.
+  Public = 2,
+}
+
 // Reference: https://github.com/dfinity/ic/blob/3b3ffedc6aa481fd9b92eefaf46beded9e51a344/rs/nns/governance/src/gen/ic_nns_governance.pb.v1.rs#L2419-L2423
 export enum CanisterAction {
   Unspecified = 0,

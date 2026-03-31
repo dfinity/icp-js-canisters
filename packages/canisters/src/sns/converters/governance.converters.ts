@@ -496,6 +496,7 @@ const convertManageDappCanisterSettings = (
   canister_ids: params.canister_ids,
   reserved_cycles_limit: fromNullable(params.reserved_cycles_limit),
   log_visibility: fromNullable(params.log_visibility),
+  snapshot_visibility: fromNullable(params.snapshot_visibility),
   wasm_memory_limit: fromNullable(params.wasm_memory_limit),
   memory_allocation: fromNullable(params.memory_allocation),
   compute_allocation: fromNullable(params.compute_allocation),

@@ -210,6 +210,7 @@ describe("governance converters", () => {
       const wasm_memory_threshold = BigInt(2);
       const reserved_cycles_limit = BigInt(3);
       const log_visibility = 4;
+      const snapshot_visibility = 5;
       const wasm_memory_limit = BigInt(5);
       const memory_allocation = BigInt(6);
       const compute_allocation = BigInt(7);
@@ -220,6 +221,7 @@ describe("governance converters", () => {
           canister_ids,
           reserved_cycles_limit: [reserved_cycles_limit],
           log_visibility: [log_visibility],
+          snapshot_visibility: [snapshot_visibility],
           wasm_memory_limit: [wasm_memory_limit],
           memory_allocation: [memory_allocation],
           compute_allocation: [compute_allocation],
@@ -232,6 +234,7 @@ describe("governance converters", () => {
           canister_ids,
           reserved_cycles_limit,
           log_visibility,
+          snapshot_visibility,
           wasm_memory_limit,
           memory_allocation,
           compute_allocation,

@@ -157,6 +157,7 @@ export const idlFactory = ({ IDL }) => {
     canister_ids: IDL.Vec(IDL.Principal),
     reserved_cycles_limit: IDL.Opt(IDL.Nat64),
     log_visibility: IDL.Opt(IDL.Int32),
+    snapshot_visibility: IDL.Opt(IDL.Int32),
     wasm_memory_limit: IDL.Opt(IDL.Nat64),
     memory_allocation: IDL.Opt(IDL.Nat64),
     compute_allocation: IDL.Opt(IDL.Nat64),
