@@ -13,7 +13,6 @@ import {
   CanisterInstallMode,
   LogVisibility,
   NeuronVisibility,
-  SnapshotVisibility,
   Topic,
   Vote,
 } from "./enums/governance.enums";
@@ -1132,7 +1131,7 @@ describe("GovernanceCanister", () => {
           wasmMemoryThreshold,
           freezingThreshold: 100n,
           logVisibility: LogVisibility.Controllers,
-          snapshotVisibility: SnapshotVisibility.Controllers,
+          snapshotVisibility: 1,
         },
       };
 

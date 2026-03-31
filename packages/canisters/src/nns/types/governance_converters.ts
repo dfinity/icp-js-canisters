@@ -9,7 +9,6 @@ import type {
   NeuronState,
   NeuronType,
   NeuronVisibility,
-  SnapshotVisibility,
   ProposalRewardStatus,
   ProposalStatus,
   Topic,
@@ -305,7 +304,7 @@ export interface CanisterSettings {
   freezingThreshold: Option<bigint>;
   controllers: Option<Array<PrincipalString>>;
   logVisibility: Option<LogVisibility>;
-  snapshotVisibility: Option<SnapshotVisibility>;
+  snapshotVisibility: Option<number>;
   wasmMemoryLimit: Option<bigint>;
   memoryAllocation: Option<bigint>;
   computeAllocation: Option<bigint>;
