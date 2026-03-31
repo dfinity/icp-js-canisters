@@ -453,9 +453,7 @@ const fromCanisterSettings = (
               ]
             : [],
           log_visibility: toNullable(canisterSettings.logVisibility as number),
-          snapshot_visibility: toNullable(
-            canisterSettings.snapshotVisibility,
-          ),
+          snapshot_visibility: toNullable(canisterSettings.snapshotVisibility),
           wasm_memory_limit: toNullable(canisterSettings.wasmMemoryLimit),
           compute_allocation: toNullable(canisterSettings.computeAllocation),
           memory_allocation: toNullable(canisterSettings.memoryAllocation),
