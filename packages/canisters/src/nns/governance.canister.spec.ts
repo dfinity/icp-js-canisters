@@ -1116,6 +1116,7 @@ describe("GovernanceCanister", () => {
               wasm_memory_threshold: [wasmMemoryThreshold],
               freezing_threshold: [100n],
               log_visibility: [1],
+              snapshot_visibility: [1],
             },
           ],
         };
@@ -1130,6 +1131,7 @@ describe("GovernanceCanister", () => {
           wasmMemoryThreshold,
           freezingThreshold: 100n,
           logVisibility: LogVisibility.Controllers,
+          snapshotVisibility: 1,
         },
       };
 

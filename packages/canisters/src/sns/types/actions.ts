@@ -141,6 +141,7 @@ export interface ManageDappCanisterSettings {
   canister_ids: Principal[];
   reserved_cycles_limit: Option<bigint>;
   log_visibility: Option<number>;
+  snapshot_visibility: Option<number>;
   wasm_memory_limit: Option<bigint>;
   memory_allocation: Option<bigint>;
   compute_allocation: Option<bigint>;

@@ -304,6 +304,7 @@ export interface CanisterSettings {
   freezingThreshold: Option<bigint>;
   controllers: Option<Array<PrincipalString>>;
   logVisibility: Option<LogVisibility>;
+  snapshotVisibility: Option<number>;
   wasmMemoryLimit: Option<bigint>;
   memoryAllocation: Option<bigint>;
   computeAllocation: Option<bigint>;

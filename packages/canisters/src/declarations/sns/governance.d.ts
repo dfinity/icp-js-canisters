@@ -406,6 +406,7 @@ export interface ManageDappCanisterSettings {
   canister_ids: Array<Principal>;
   reserved_cycles_limit: [] | [bigint];
   log_visibility: [] | [number];
+  snapshot_visibility: [] | [number];
   wasm_memory_limit: [] | [bigint];
   memory_allocation: [] | [bigint];
   compute_allocation: [] | [bigint];

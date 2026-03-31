@@ -94,6 +94,7 @@ export interface CanisterSettings {
   wasm_memory_threshold: [] | [bigint];
   controllers: [] | [Controllers];
   log_visibility: [] | [number];
+  snapshot_visibility: [] | [number];
   wasm_memory_limit: [] | [bigint];
   memory_allocation: [] | [bigint];
   compute_allocation: [] | [bigint];
