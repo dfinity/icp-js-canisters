@@ -1,10 +1,16 @@
-// Generated from dfinity/portal commit 2cc3d2a572c70234c046c66da1b0a294e5a64a15 for file 'docs/references/_attachments/ic.did'
+// Generated from dfinity/portal commit b8e9eff00e648fed39582848b650d952fe0674d1 for file 'docs/references/_attachments/ic.did'
 
 type canister_id = principal;
 type wasm_module = blob;
 type snapshot_id = blob;
 
 type log_visibility = variant {
+    controllers;
+    public;
+    allowed_viewers : vec principal;
+};
+
+type snapshot_visibility = variant {
     controllers;
     public;
     allowed_viewers : vec principal;
@@ -22,6 +28,7 @@ type canister_settings = record {
     freezing_threshold : opt nat;
     reserved_cycles_limit : opt nat;
     log_visibility : opt log_visibility;
+    snapshot_visibility : opt snapshot_visibility;
     wasm_memory_limit : opt nat;
     wasm_memory_threshold : opt nat;
     environment_variables : opt vec environment_variable;
@@ -34,6 +41,7 @@ type definite_canister_settings = record {
     freezing_threshold : nat;
     reserved_cycles_limit : nat;
     log_visibility : log_visibility;
+    snapshot_visibility : snapshot_visibility;
     wasm_memory_limit : nat;
     wasm_memory_threshold : nat;
     environment_variables : vec environment_variable;

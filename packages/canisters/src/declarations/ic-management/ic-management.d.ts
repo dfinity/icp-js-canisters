@@ -94,6 +94,7 @@ export interface canister_settings {
   controllers: [] | [Array<Principal>];
   reserved_cycles_limit: [] | [bigint];
   log_visibility: [] | [log_visibility];
+  snapshot_visibility: [] | [snapshot_visibility];
   wasm_memory_limit: [] | [bigint];
   memory_allocation: [] | [bigint];
   compute_allocation: [] | [bigint];
@@ -198,6 +199,7 @@ export interface definite_canister_settings {
   controllers: Array<Principal>;
   reserved_cycles_limit: bigint;
   log_visibility: log_visibility;
+  snapshot_visibility: snapshot_visibility;
   wasm_memory_limit: bigint;
   memory_allocation: bigint;
   compute_allocation: bigint;
@@ -392,6 +394,10 @@ export interface snapshot {
   taken_at_timestamp: bigint;
 }
 export type snapshot_id = Uint8Array;
+export type snapshot_visibility =
+  | { controllers: null }
+  | { public: null }
+  | { allowed_viewers: Array<Principal> };
 export interface start_canister_args {
   canister_id: canister_id;
 }
