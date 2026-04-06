@@ -16,8 +16,11 @@ import {
   mockPrincipalText,
 } from "./ic-management.mock";
 import {
+  type SnapshotVisibility,
   LogVisibility,
+  SnapshotVisibilityType,
   UnsupportedLogVisibility,
+  UnsupportedSnapshotVisibility,
   type CanisterSettings,
   type ClearChunkStoreParams,
   type InstallChunkedCodeParams,
@@ -189,6 +192,7 @@ describe("IcManagementCanister", () => {
           memory_allocation: [],
           reserved_cycles_limit: [],
           log_visibility: [],
+          snapshot_visibility: [],
           wasm_memory_limit: [],
           wasm_memory_threshold: [],
           environment_variables: [],
@@ -196,70 +200,169 @@ describe("IcManagementCanister", () => {
       });
     });
 
-    it("calls update_settings with mapped log_visibility controllers", async () => {
-      const service = mock<IcManagementService>();
-      service.update_settings.mockResolvedValue(undefined);
+    describe("log_visibility", () => {
+      it("calls update_settings with mapped log_visibility controllers", async () => {
+        const service = mock<IcManagementService>();
+        service.update_settings.mockResolvedValue(undefined);
 
-      const icManagement = await createIcManagement(service);
+        const icManagement = await createIcManagement(service);
 
-      await icManagement.updateSettings({
-        canisterId: mockCanisterId,
-        settings: {
-          ...mockCanisterSettings,
-          logVisibility: LogVisibility.Controllers,
-        },
-      });
-
-      expect(service.update_settings).toHaveBeenCalledWith({
-        canister_id: mockCanisterId,
-        settings: {
-          ...mappedMockCanisterSettings,
-          log_visibility: [{ controllers: null }],
-        },
-        sender_canister_version: [],
-      });
-    });
-
-    it("calls update_settings with mapped log_visibility public", async () => {
-      const service = mock<IcManagementService>();
-      service.update_settings.mockResolvedValue(undefined);
-
-      const icManagement = await createIcManagement(service);
-
-      await icManagement.updateSettings({
-        canisterId: mockCanisterId,
-        settings: {
-          ...mockCanisterSettings,
-          logVisibility: LogVisibility.Public,
-        },
-      });
-
-      expect(service.update_settings).toHaveBeenCalledWith({
-        canister_id: mockCanisterId,
-        settings: {
-          ...mappedMockCanisterSettings,
-          log_visibility: [{ public: null }],
-        },
-        sender_canister_version: [],
-      });
-    });
-
-    it("throws Error for unsupported log visibility", async () => {
-      const service = mock<IcManagementService>();
-      service.update_settings.mockResolvedValue(undefined);
-
-      const icManagement = await createIcManagement(service);
-
-      const call = () =>
-        icManagement.updateSettings({
+        await icManagement.updateSettings({
           canisterId: mockCanisterId,
           settings: {
             ...mockCanisterSettings,
-            logVisibility: 2 as unknown as LogVisibility,
+            logVisibility: LogVisibility.Controllers,
           },
         });
 
-      expect(call).toThrowError(UnsupportedLogVisibility);
+        expect(service.update_settings).toHaveBeenCalledWith({
+          canister_id: mockCanisterId,
+          settings: {
+            ...mappedMockCanisterSettings,
+            log_visibility: [{ controllers: null }],
+          },
+          sender_canister_version: [],
+        });
+      });
+
+      it("calls update_settings with mapped log_visibility public", async () => {
+        const service = mock<IcManagementService>();
+        service.update_settings.mockResolvedValue(undefined);
+
+        const icManagement = await createIcManagement(service);
+
+        await icManagement.updateSettings({
+          canisterId: mockCanisterId,
+          settings: {
+            ...mockCanisterSettings,
+            logVisibility: LogVisibility.Public,
+          },
+        });
+
+        expect(service.update_settings).toHaveBeenCalledWith({
+          canister_id: mockCanisterId,
+          settings: {
+            ...mappedMockCanisterSettings,
+            log_visibility: [{ public: null }],
+          },
+          sender_canister_version: [],
+        });
+      });
+
+      it("throws Error for unsupported log visibility", async () => {
+        const service = mock<IcManagementService>();
+        service.update_settings.mockResolvedValue(undefined);
+
+        const icManagement = await createIcManagement(service);
+
+        const call = () =>
+          icManagement.updateSettings({
+            canisterId: mockCanisterId,
+            settings: {
+              ...mockCanisterSettings,
+              logVisibility: 2 as unknown as LogVisibility,
+            },
+          });
+
+        expect(call).toThrowError(UnsupportedLogVisibility);
+      });
+    });
+
+    describe("snapshot_visibility", () => {
+      it("calls update_settings with mapped snapshot_visibility controllers", async () => {
+        const service = mock<IcManagementService>();
+        service.update_settings.mockResolvedValue(undefined);
+
+        const icManagement = await createIcManagement(service);
+
+        await icManagement.updateSettings({
+          canisterId: mockCanisterId,
+          settings: {
+            ...mockCanisterSettings,
+            snapshotVisibility: { type: SnapshotVisibilityType.Controllers },
+          },
+        });
+
+        expect(service.update_settings).toHaveBeenCalledWith({
+          canister_id: mockCanisterId,
+          settings: {
+            ...mappedMockCanisterSettings,
+            snapshot_visibility: [{ controllers: null }],
+          },
+          sender_canister_version: [],
+        });
+      });
+
+      it("calls update_settings with mapped snapshot_visibility public", async () => {
+        const service = mock<IcManagementService>();
+        service.update_settings.mockResolvedValue(undefined);
+
+        const icManagement = await createIcManagement(service);
+
+        await icManagement.updateSettings({
+          canisterId: mockCanisterId,
+          settings: {
+            ...mockCanisterSettings,
+            snapshotVisibility: { type: SnapshotVisibilityType.Public },
+          },
+        });
+
+        expect(service.update_settings).toHaveBeenCalledWith({
+          canister_id: mockCanisterId,
+          settings: {
+            ...mappedMockCanisterSettings,
+            snapshot_visibility: [{ public: null }],
+          },
+          sender_canister_version: [],
+        });
+      });
+
+      it("calls update_settings with mapped snapshot_visibility allowed_viewers", async () => {
+        const service = mock<IcManagementService>();
+        service.update_settings.mockResolvedValue(undefined);
+
+        const icManagement = await createIcManagement(service);
+
+        await icManagement.updateSettings({
+          canisterId: mockCanisterId,
+          settings: {
+            ...mockCanisterSettings,
+            snapshotVisibility: {
+              type: SnapshotVisibilityType.AllowedViewers,
+              viewers: [mockPrincipalText],
+            },
+          },
+        });
+
+        expect(service.update_settings).toHaveBeenCalledWith({
+          canister_id: mockCanisterId,
+          settings: {
+            ...mappedMockCanisterSettings,
+            snapshot_visibility: [{ allowed_viewers: [mockPrincipal] }],
+          },
+          sender_canister_version: [],
+        });
+      });
+
+      it("throws Error for unsupported snapshot visibility", async () => {
+        const service = mock<IcManagementService>();
+        service.update_settings.mockResolvedValue(undefined);
+
+        const icManagement = await createIcManagement(service);
+
+        const call = () =>
+          icManagement.updateSettings({
+            canisterId: mockCanisterId,
+            settings: {
+              ...mockCanisterSettings,
+              snapshotVisibility: {
+                type: 99 as unknown as SnapshotVisibilityType,
+              } as unknown as SnapshotVisibility,
+            },
+          });
+
+        expect(call).toThrowError(UnsupportedSnapshotVisibility);
+      });
     });
 
     it("throws Error", async () => {
@@ -416,6 +519,7 @@ describe("IcManagementCanister", () => {
       compute_allocation: BigInt(10),
       reserved_cycles_limit: BigInt(11),
       log_visibility: { controllers: null },
+      snapshot_visibility: { public: null },
       wasm_memory_limit: BigInt(500_00),
       wasm_memory_threshold: BigInt(100),
       environment_variables: [],

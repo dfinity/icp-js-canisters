@@ -7,6 +7,17 @@ export enum LogVisibility {
   Public,
 }
 
+export enum SnapshotVisibilityType {
+  Controllers,
+  Public,
+  AllowedViewers,
+}
+
+export type SnapshotVisibility =
+  | { type: SnapshotVisibilityType.Controllers }
+  | { type: SnapshotVisibilityType.Public }
+  | { type: SnapshotVisibilityType.AllowedViewers; viewers: string[] };
+
 export interface CanisterSettings {
   controllers?: string[];
   freezingThreshold?: bigint;
@@ -14,12 +25,14 @@ export interface CanisterSettings {
   computeAllocation?: bigint;
   reservedCyclesLimit?: bigint;
   logVisibility?: LogVisibility;
+  snapshotVisibility?: SnapshotVisibility;
   wasmMemoryLimit?: bigint;
   wasmMemoryThreshold?: bigint;
   environmentVariables?: IcManagementDid.environment_variable[];
 }
 
 export class UnsupportedLogVisibility extends Error {}
+export class UnsupportedSnapshotVisibility extends Error {}
 
 export const toCanisterSettings = ({
   controllers,
@@ -28,6 +41,7 @@ export const toCanisterSettings = ({
   computeAllocation,
   reservedCyclesLimit,
   logVisibility,
+  snapshotVisibility,
   wasmMemoryLimit,
   wasmMemoryThreshold,
   environmentVariables,
@@ -43,6 +57,25 @@ export const toCanisterSettings = ({
     }
   };
 
+  const toSnapshotVisibility = (
+    snapshotVisibility: SnapshotVisibility,
+  ): IcManagementDid.snapshot_visibility => {
+    switch (snapshotVisibility.type) {
+      case SnapshotVisibilityType.AllowedViewers:
+        return {
+          allowed_viewers: snapshotVisibility.viewers.map((principalText) =>
+            Principal.fromText(principalText),
+          ),
+        };
+      case SnapshotVisibilityType.Public:
+        return { public: null };
+      case SnapshotVisibilityType.Controllers:
+        return { controllers: null };
+      default:
+        throw new UnsupportedSnapshotVisibility();
+    }
+  };
+
   return {
     controllers: toNullable(controllers?.map((c) => Principal.fromText(c))),
     freezing_threshold: toNullable(freezingThreshold),
@@ -50,6 +83,9 @@ export const toCanisterSettings = ({
     compute_allocation: toNullable(computeAllocation),
     reserved_cycles_limit: toNullable(reservedCyclesLimit),
     log_visibility: isNullish(logVisibility) ? [] : [toLogVisibility()],
+    snapshot_visibility: isNullish(snapshotVisibility)
+      ? []
+      : [toSnapshotVisibility(snapshotVisibility)],
     wasm_memory_limit: toNullable(wasmMemoryLimit),
     wasm_memory_threshold: toNullable(wasmMemoryThreshold),
     environment_variables: toNullable(environmentVariables),
