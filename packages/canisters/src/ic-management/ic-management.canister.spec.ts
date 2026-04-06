@@ -16,7 +16,6 @@ import {
   mockPrincipalText,
 } from "./ic-management.mock";
 import {
-  type SnapshotVisibility,
   LogVisibility,
   SnapshotVisibilityType,
   UnsupportedLogVisibility,
@@ -25,6 +24,7 @@ import {
   type ClearChunkStoreParams,
   type InstallChunkedCodeParams,
   type InstallCodeParams,
+  type SnapshotVisibility,
   type StoredChunksParams,
   type UploadChunkParams,
 } from "./types/ic-management.params";
