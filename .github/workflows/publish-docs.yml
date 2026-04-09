@@ -36,7 +36,7 @@ jobs:
       - name: Prepare
         uses: ./.github/actions/prepare
 
-      - uses: dfinity/ci-tools/actions/extract-version@main
+      - uses: dfinity/ci-tools/actions/extract-version@afeee4fbdc0683a88ec5a74ed7f59a2ce0e833ad # main
         id: extract-version
         with:
             file: packages/canisters/package.json
@@ -67,7 +67,7 @@ jobs:
           path: icp-pages
 
       - name: Assemble docs
-        uses: dfinity/ci-tools/actions/assemble-docs@main
+        uses: dfinity/ci-tools/actions/assemble-docs@afeee4fbdc0683a88ec5a74ed7f59a2ce0e833ad # main
         with:
           assets_dir: 'docs/dist/${{ steps.ver.outputs.major_version }}'
           version: ${{ steps.ver.outputs.major_version }}
@@ -76,7 +76,7 @@ jobs:
           version_in_title: ${{ steps.ver.outputs.major_minor_patch_version }}
 
       - name: Assemble docs
-        uses: dfinity/ci-tools/actions/assemble-docs@main
+        uses: dfinity/ci-tools/actions/assemble-docs@afeee4fbdc0683a88ec5a74ed7f59a2ce0e833ad # main
         with:
           assets_dir: 'docs/dist/latest'
           version: 'latest'
@@ -84,7 +84,7 @@ jobs:
           version_label: 'Latest (${{ steps.ver.outputs.major_minor_patch_version }})'
 
       - name: Submit Documentation
-        uses: dfinity/ci-tools/actions/submit-docs@main
+        uses: dfinity/ci-tools/actions/submit-docs@afeee4fbdc0683a88ec5a74ed7f59a2ce0e833ad # main
         with:
           destination_repo: 'dfinity/icp-js-sdk-docs'
           token: ${{ steps.generate_token.outputs.token }}
