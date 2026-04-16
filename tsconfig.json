@@ -16,6 +16,7 @@
     "**/src/**/*.spec.ts",
     "**/src/**/*.mock.ts",
     "**/vitest.config.ts",
+    "**/vitest.base.config.ts",
     "**/vitest.setup.ts"
   ],
   "references": [{ "path": "./tsconfig.spec.json" }]
