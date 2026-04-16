@@ -71,38 +71,36 @@ describe("ledger-utils", () => {
     it("should raise an error if invalid input", () => {
       const call1 = () => decodeIcrcAccount("");
 
-      expect(call1).toThrowError(
-        new Error("Invalid account. No string provided."),
-      );
+      expect(call1).toThrow(new Error("Invalid account. No string provided."));
 
       const call2 = () => decodeIcrcAccount("aaa");
 
-      expect(call2).toThrowError();
+      expect(call2).toThrow();
 
       const call3 = () => decodeIcrcAccount("aaa.");
 
-      expect(call3).toThrowError();
+      expect(call3).toThrow();
 
       const call4 = () => decodeIcrcAccount("aaa.bbb");
 
-      expect(call4).toThrowError();
+      expect(call4).toThrow();
 
       const call5 = () => decodeIcrcAccount(".bbb");
 
-      expect(call5).toThrowError();
+      expect(call5).toThrow();
     });
 
     it("should raise an error if input is provided with an invalid checksum", () => {
       const call = () =>
         decodeIcrcAccount(`${ownerText}-abcdef.${subaccountHex}`);
 
-      expect(call).toThrowError();
+      expect(call).toThrow();
     });
 
     it("should raise an error if input contains more than one '.' separator", () => {
       const call = () => decodeIcrcAccount("aaa.bbb.ccc");
 
-      expect(call).toThrowError(
+      expect(call).toThrow(
         "Invalid account string format. Expected at most one '.' separator.",
       );
     });
