@@ -78,7 +78,7 @@ describe("assets", async () => {
     );
     expect(isCertified).toBeTruthy();
     expect(isValidSha).toBeTruthy();
-    await expect(assetManager.get(key)).rejects.toThrowError(/asset not found/);
+    await expect(assetManager.get(key)).rejects.toThrow(/asset not found/);
   };
 
   beforeAll(() => {
