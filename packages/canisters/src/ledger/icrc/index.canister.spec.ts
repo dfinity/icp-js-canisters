@@ -93,7 +93,7 @@ describe("Index canister", () => {
           max_results: BigInt(10),
         });
 
-      await expect(call).rejects.toThrowError(IndexError);
+      await expect(call).rejects.toThrow(IndexError);
     });
   });
 

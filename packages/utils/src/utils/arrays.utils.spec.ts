@@ -63,7 +63,7 @@ describe("arrays-utils", () => {
   });
 
   it("should throw error if empty hex string is provided to convert to uint8array", () => {
-    expect(() => hexStringToUint8Array("")).toThrowError();
+    expect(() => hexStringToUint8Array("")).toThrow();
   });
 
   it("should convert random string to uint8array of zeros", () => {

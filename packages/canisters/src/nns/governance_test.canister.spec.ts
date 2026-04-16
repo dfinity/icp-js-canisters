@@ -57,9 +57,9 @@ describe("GovernanceTestCanister", () => {
         accountIdentifier: newAccountIdentifier,
       };
 
-      await expect(() =>
-        governance.updateNeuron(newNeuron),
-      ).rejects.toThrowError("Neuron account identifier can't be changed");
+      await expect(() => governance.updateNeuron(newNeuron)).rejects.toThrow(
+        "Neuron account identifier can't be changed",
+      );
 
       expect(service.update_neuron).not.toHaveBeenCalled();
     });

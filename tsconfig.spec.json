@@ -5,5 +5,11 @@
     "types": ["vitest/globals", "node"]
   },
   "exclude": [],
-  "include": ["./packages/**/*.js", "./packages/**/*.ts", "./vitest.config.ts"]
+  "include": [
+    "./packages/**/*.js",
+    "./packages/**/*.ts",
+    "./packages/**/*.d.ts",
+    "./vitest.config.ts",
+    "./vitest.base.config.ts"
+  ]
 }

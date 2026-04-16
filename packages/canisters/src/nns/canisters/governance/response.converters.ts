@@ -9,9 +9,8 @@ import {
   type Nullable,
 } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
-import type { AccountIdentifierHex } from "../../../ledger/icp";
-
 import type { NnsGovernanceDid } from "../../../declarations";
+import type { AccountIdentifierHex } from "../../../ledger/icp";
 import type {
   CanisterAction,
   CanisterInstallMode,

@@ -18,11 +18,11 @@ describe("options", () => {
     });
 
     it("should reject null", () => {
-      expect(() => schema.parse(null)).toThrowError();
+      expect(() => schema.parse(null)).toThrow();
     });
 
     it("should reject wrong type", () => {
-      expect(() => schema.parse(123)).toThrowError();
+      expect(() => schema.parse(123)).toThrow();
     });
   });
 
@@ -38,11 +38,11 @@ describe("options", () => {
     });
 
     it("should reject undefined", () => {
-      expect(() => schema.parse(undefined)).toThrowError();
+      expect(() => schema.parse(undefined)).toThrow();
     });
 
     it("should reject wrong type", () => {
-      expect(() => schema.parse(123)).toThrowError();
+      expect(() => schema.parse(123)).toThrow();
     });
   });
 
@@ -62,7 +62,7 @@ describe("options", () => {
     });
 
     it("should reject wrong type", () => {
-      expect(() => schema.parse(123)).toThrowError();
+      expect(() => schema.parse(123)).toThrow();
     });
   });
 });
