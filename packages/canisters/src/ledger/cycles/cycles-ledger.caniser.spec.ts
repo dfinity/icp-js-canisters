@@ -95,7 +95,7 @@ describe("CyclesLedgerCanister", () => {
 
       const call = async () => await withdraw(args);
 
-      await expect(call).rejects.toThrowError();
+      await expect(call).rejects.toThrow();
     });
 
     it.each([

@@ -145,7 +145,7 @@ describe("IcManagementCanister", () => {
 
       const call = () => icManagement.createCanister();
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -264,7 +264,7 @@ describe("IcManagementCanister", () => {
             },
           });
 
-        expect(call).toThrowError(UnsupportedLogVisibility);
+        expect(call).toThrow(UnsupportedLogVisibility);
       });
     });
 
@@ -361,7 +361,7 @@ describe("IcManagementCanister", () => {
             },
           });
 
-        expect(call).toThrowError(UnsupportedSnapshotVisibility);
+        expect(call).toThrow(UnsupportedSnapshotVisibility);
       });
     });
 
@@ -378,7 +378,7 @@ describe("IcManagementCanister", () => {
           settings: mockCanisterSettings,
         });
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -424,7 +424,7 @@ describe("IcManagementCanister", () => {
 
       const call = () => icManagement.installCode(params);
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -453,7 +453,7 @@ describe("IcManagementCanister", () => {
       const call = () =>
         icManagement.uninstallCode({ canisterId: mockCanisterId });
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -480,7 +480,7 @@ describe("IcManagementCanister", () => {
 
       const call = () => icManagement.startCanister(mockCanisterId);
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -507,7 +507,7 @@ describe("IcManagementCanister", () => {
 
       const call = () => icManagement.stopCanister(mockCanisterId);
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -619,7 +619,7 @@ describe("IcManagementCanister", () => {
       const call = () =>
         icManagement.canisterStatus({ canisterId: mockCanisterId });
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -646,7 +646,7 @@ describe("IcManagementCanister", () => {
 
       const call = () => icManagement.deleteCanister(mockCanisterId);
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -690,7 +690,7 @@ describe("IcManagementCanister", () => {
 
       const call = () => icManagement.provisionalCreateCanisterWithCycles();
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -727,7 +727,7 @@ describe("IcManagementCanister", () => {
 
       const call = () => icManagement.uploadChunk(params);
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -758,7 +758,7 @@ describe("IcManagementCanister", () => {
 
       const call = () => icManagement.clearChunkStore(params);
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -796,7 +796,7 @@ describe("IcManagementCanister", () => {
 
       const call = () => icManagement.storedChunks(params);
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -910,7 +910,7 @@ describe("IcManagementCanister", () => {
 
       const call = () => icManagement.installChunkedCode(params);
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -968,7 +968,7 @@ describe("IcManagementCanister", () => {
 
       const call = () => icManagement.fetchCanisterLogs(mockCanisterId);
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -1105,7 +1105,7 @@ describe("IcManagementCanister", () => {
           canisterId: mockCanisterId,
         });
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -1172,7 +1172,7 @@ describe("IcManagementCanister", () => {
           canisterId: mockCanisterId,
         });
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -1251,7 +1251,7 @@ describe("IcManagementCanister", () => {
           snapshotId: Uint8Array.from([1, 2, 3, 4]),
         });
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -1307,7 +1307,7 @@ describe("IcManagementCanister", () => {
           snapshotId: Uint8Array.from([1, 2, 3, 4]),
         });
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -1390,7 +1390,7 @@ describe("IcManagementCanister", () => {
           snapshotId: Uint8Array.from([1, 2, 3, 4]),
         });
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -1466,7 +1466,7 @@ describe("IcManagementCanister", () => {
           kind: mockKind,
         });
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -1567,7 +1567,7 @@ describe("IcManagementCanister", () => {
           metadata: mockMetadata,
         });
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 
@@ -1645,7 +1645,7 @@ describe("IcManagementCanister", () => {
           chunk: mockChunk,
         });
 
-      await expect(call).rejects.toThrowError(error);
+      await expect(call).rejects.toThrow(error);
     });
   });
 });

@@ -844,7 +844,7 @@ describe("SnsWrapper", () => {
               controller: mockPrincipal,
             });
 
-          await expect(call).rejects.toThrowError("error");
+          await expect(call).rejects.toThrow("error");
           expect(
             mockCertifiedGovernanceCanister.queryNeuron,
           ).toHaveBeenCalledTimes(2);
@@ -871,7 +871,7 @@ describe("SnsWrapper", () => {
               controller: mockPrincipal,
             });
 
-          await expect(call).rejects.toThrowError(SnsGovernanceError);
+          await expect(call).rejects.toThrow(SnsGovernanceError);
           expect(
             mockCertifiedGovernanceCanister.queryNeuron,
           ).toHaveBeenCalledTimes(2);
@@ -919,7 +919,7 @@ describe("SnsWrapper", () => {
               neuronId: neuronIdMock,
             });
 
-          await expect(call).rejects.toThrowError("error");
+          await expect(call).rejects.toThrow("error");
 
           expect(mockCertifiedLedgerCanister.transfer).toHaveBeenCalled();
 
@@ -942,7 +942,7 @@ describe("SnsWrapper", () => {
               neuronId: neuronIdMock,
             });
 
-          await expect(call).rejects.toThrowError(SnsGovernanceError);
+          await expect(call).rejects.toThrow(SnsGovernanceError);
 
           expect(mockCertifiedLedgerCanister.transfer).toHaveBeenCalled();
 
@@ -978,9 +978,7 @@ describe("SnsWrapper", () => {
 
       const call = () => certifiedSnsWrapper.nextNeuronAccount(mockPrincipal);
 
-      await expect(call).rejects.toThrowError(
-        "No more neuron accounts available",
-      );
+      await expect(call).rejects.toThrow("No more neuron accounts available");
     });
   });
 });

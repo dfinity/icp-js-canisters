@@ -59,7 +59,7 @@ describe("did-utils", () => {
     });
 
     it("should throw on undefined", () => {
-      expect(() => fromDefinedNullable([])).toThrowError(NullishError);
+      expect(() => fromDefinedNullable([])).toThrow(NullishError);
     });
   });
 

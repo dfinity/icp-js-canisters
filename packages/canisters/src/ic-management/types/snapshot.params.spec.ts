@@ -91,7 +91,7 @@ describe("snapshot.params", () => {
       expect(() =>
         // @ts-expect-error - intentionally invalid
         toCanisterSnapshotMetadataKind({ nope: true }),
-      ).toThrowError("Unsupported snapshot metadata kind");
+      ).toThrow("Unsupported snapshot metadata kind");
     });
   });
 
@@ -198,7 +198,7 @@ describe("snapshot.params", () => {
       expect(() =>
         // @ts-expect-error - intentionally invalid
         toUploadCanisterSnapshotDataKind({ nope: true }),
-      ).toThrowError("Unsupported snapshot data kind");
+      ).toThrow("Unsupported snapshot data kind");
     });
   });
 });

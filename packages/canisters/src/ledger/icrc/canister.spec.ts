@@ -104,7 +104,7 @@ describe("ICRC canister", () => {
         certifiedServiceOverride: service,
       });
 
-      await expect(canister.balance({ owner })).rejects.toThrowError(mockError);
+      await expect(canister.balance({ owner })).rejects.toThrow(mockError);
     });
   });
 });
