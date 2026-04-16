@@ -5,6 +5,6 @@ export const baseConfig: ViteUserConfig = {
     environment: "node",
     globals: true,
     watch: false,
-    exclude: ["tests/integration/**", "node_modules/**"]
-  }
+    exclude: ["tests/integration/**", "node_modules/**"],
+  },
 };
