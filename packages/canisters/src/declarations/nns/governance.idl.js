@@ -554,6 +554,12 @@ export const idlFactory = ({ IDL }) => {
     nns_function: IDL.Int32,
     payload: IDL.Vec(IDL.Nat8),
   });
+  const CreateCanisterAndInstallCode = IDL.Record({
+    wasm_module_hash: IDL.Opt(IDL.Vec(IDL.Nat8)),
+    canister_settings: IDL.Opt(CanisterSettings),
+    install_arg_hash: IDL.Opt(IDL.Vec(IDL.Nat8)),
+    host_subnet_id: IDL.Opt(IDL.Principal),
+  });
   const NeuronBasketConstructionParameters_1 = IDL.Record({
     dissolve_delay_interval_seconds: IDL.Nat64,
     count: IDL.Nat64,
@@ -616,6 +622,7 @@ export const idlFactory = ({ IDL }) => {
     StopOrStartCanister: StopOrStartCanister,
     CreateServiceNervousSystem: CreateServiceNervousSystem,
     ExecuteNnsFunction: ExecuteNnsFunction,
+    CreateCanisterAndInstallCode: CreateCanisterAndInstallCode,
     RewardNodeProvider: RewardNodeProvider,
     OpenSnsTokenSwap: OpenSnsTokenSwap,
     SetSnsTokenSwapOpenTimeWindow: SetSnsTokenSwapOpenTimeWindow,
@@ -725,6 +732,7 @@ export const idlFactory = ({ IDL }) => {
     hot_keys: IDL.Vec(IDL.Principal),
     account: IDL.Vec(IDL.Nat8),
     joined_community_fund_timestamp_seconds: IDL.Opt(IDL.Nat64),
+    eight_year_gang_bonus_base_e8s: IDL.Opt(IDL.Nat64),
     maturity_disbursements_in_progress: IDL.Opt(IDL.Vec(MaturityDisbursement)),
     dissolve_state: IDL.Opt(DissolveState),
     followees: IDL.Vec(IDL.Tuple(IDL.Int32, Followees)),
@@ -804,6 +812,7 @@ export const idlFactory = ({ IDL }) => {
     state: IDL.Int32,
     stake_e8s: IDL.Nat64,
     joined_community_fund_timestamp_seconds: IDL.Opt(IDL.Nat64),
+    eight_year_gang_bonus_base_e8s: IDL.Opt(IDL.Nat64),
     retrieved_at_timestamp_seconds: IDL.Nat64,
     visibility: IDL.Opt(IDL.Int32),
     known_neuron_data: IDL.Opt(KnownNeuronData),
@@ -930,6 +939,13 @@ export const idlFactory = ({ IDL }) => {
     canister_id: IDL.Opt(IDL.Principal),
     install_mode: IDL.Opt(IDL.Int32),
   });
+  const WasmModule = IDL.Variant({ Inlined: IDL.Vec(IDL.Nat8) });
+  const CreateCanisterAndInstallCodeRequest = IDL.Record({
+    wasm_module: IDL.Opt(WasmModule),
+    canister_settings: IDL.Opt(CanisterSettings),
+    install_arg: IDL.Opt(IDL.Vec(IDL.Nat8)),
+    host_subnet_id: IDL.Opt(IDL.Principal),
+  });
   const ProposalActionRequest = IDL.Variant({
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
@@ -943,6 +959,7 @@ export const idlFactory = ({ IDL }) => {
     StopOrStartCanister: StopOrStartCanister,
     CreateServiceNervousSystem: CreateServiceNervousSystem,
     ExecuteNnsFunction: ExecuteNnsFunction,
+    CreateCanisterAndInstallCode: CreateCanisterAndInstallCodeRequest,
     RewardNodeProvider: RewardNodeProvider,
     RewardNodeProviders: RewardNodeProviders,
     ManageNetworkEconomics: NetworkEconomics,
@@ -1718,6 +1735,12 @@ export const init = ({ IDL }) => {
     nns_function: IDL.Int32,
     payload: IDL.Vec(IDL.Nat8),
   });
+  const CreateCanisterAndInstallCode = IDL.Record({
+    wasm_module_hash: IDL.Opt(IDL.Vec(IDL.Nat8)),
+    canister_settings: IDL.Opt(CanisterSettings),
+    install_arg_hash: IDL.Opt(IDL.Vec(IDL.Nat8)),
+    host_subnet_id: IDL.Opt(IDL.Principal),
+  });
   const NeuronBasketConstructionParameters_1 = IDL.Record({
     dissolve_delay_interval_seconds: IDL.Nat64,
     count: IDL.Nat64,
@@ -1780,6 +1803,7 @@ export const init = ({ IDL }) => {
     StopOrStartCanister: StopOrStartCanister,
     CreateServiceNervousSystem: CreateServiceNervousSystem,
     ExecuteNnsFunction: ExecuteNnsFunction,
+    CreateCanisterAndInstallCode: CreateCanisterAndInstallCode,
     RewardNodeProvider: RewardNodeProvider,
     OpenSnsTokenSwap: OpenSnsTokenSwap,
     SetSnsTokenSwapOpenTimeWindow: SetSnsTokenSwapOpenTimeWindow,
@@ -1889,6 +1913,7 @@ export const init = ({ IDL }) => {
     hot_keys: IDL.Vec(IDL.Principal),
     account: IDL.Vec(IDL.Nat8),
     joined_community_fund_timestamp_seconds: IDL.Opt(IDL.Nat64),
+    eight_year_gang_bonus_base_e8s: IDL.Opt(IDL.Nat64),
     maturity_disbursements_in_progress: IDL.Opt(IDL.Vec(MaturityDisbursement)),
     dissolve_state: IDL.Opt(DissolveState),
     followees: IDL.Vec(IDL.Tuple(IDL.Int32, Followees)),

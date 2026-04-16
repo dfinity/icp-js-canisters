@@ -62,6 +62,7 @@ describe("response.converters", () => {
     voting_power_refreshed_timestamp_seconds: [],
     potential_voting_power: [],
     deciding_voting_power: [],
+    eight_year_gang_bonus_base_e8s: [32n],
   };
 
   const defaultNeuron: Neuron = {
@@ -90,6 +91,7 @@ describe("response.converters", () => {
     votingPowerRefreshedTimestampSeconds: undefined,
     potentialVotingPower: undefined,
     decidingVotingPower: undefined,
+    eightYearGangBonusBaseE8s: 32n,
   };
 
   const defaultCandidNeuronInfo: NnsGovernanceDid.NeuronInfo = {
@@ -109,6 +111,7 @@ describe("response.converters", () => {
     known_neuron_data: [],
     voting_power: 0n,
     age_seconds: 0n,
+    eight_year_gang_bonus_base_e8s: [32n],
   };
 
   const defaultNeuronInfo: NeuronInfo = {
@@ -785,6 +788,108 @@ describe("response.converters", () => {
             LoadCanisterSnapshot: {
               snapshotId,
               canisterId: canisterIdText,
+            },
+          },
+          summary: "Proposal Summary",
+          selfDescribingAction: undefined,
+        },
+        proposer: 101n,
+        latestTally: undefined,
+        executedTimestampSeconds: 0n,
+        topic: 1,
+        status: 1,
+        rewardStatus: 1,
+        totalPotentialVotingPower: undefined,
+      };
+
+      const result = toProposalInfo(candidProposalInfo);
+
+      expect(result).toEqual(expectedProposalInfo);
+    });
+
+    it("should convert CreateCanisterAndInstallCode action", () => {
+      const canisterIdText = MAINNET_GOVERNANCE_CANISTER_ID.toText();
+      const wasmModuleHash = Uint8Array.from([1, 2, 3]);
+      const installArgHash = Uint8Array.from([4, 5, 6]);
+
+      const candidProposalInfo: NnsGovernanceDid.ProposalInfo = {
+        id: [{ id: 100n }],
+        ballots: [],
+        reject_cost_e8s: 100n,
+        proposal_timestamp_seconds: 1234567890n,
+        reward_event_round: 1n,
+        failed_timestamp_seconds: 0n,
+        deadline_timestamp_seconds: [],
+        decided_timestamp_seconds: 0n,
+        proposal: [
+          {
+            title: ["Proposal Title"],
+            url: "https://example.com",
+            action: [
+              {
+                CreateCanisterAndInstallCode: {
+                  wasm_module_hash: [wasmModuleHash],
+                  install_arg_hash: [installArgHash],
+                  host_subnet_id: [Principal.fromText(canisterIdText)],
+                  canister_settings: [
+                    {
+                      controllers: [
+                        { controllers: [Principal.fromText(canisterIdText)] },
+                      ],
+                      freezing_threshold: [100n],
+                      memory_allocation: [234567n],
+                      compute_allocation: [1n],
+                      wasm_memory_limit: [123456n],
+                      wasm_memory_threshold: [222222n],
+                      log_visibility: [1],
+                      snapshot_visibility: [1],
+                    },
+                  ],
+                },
+              },
+            ],
+            summary: "Proposal Summary",
+            self_describing_action: [],
+          },
+        ],
+        proposer: [{ id: 101n }],
+        latest_tally: [],
+        executed_timestamp_seconds: 0n,
+        topic: 1,
+        status: 1,
+        reward_status: 1,
+        total_potential_voting_power: [],
+        failure_reason: [],
+        derived_proposal_information: [],
+      };
+
+      const expectedProposalInfo = {
+        id: 100n,
+        ballots: [],
+        rejectCost: 100n,
+        proposalTimestampSeconds: 1234567890n,
+        rewardEventRound: 1n,
+        failedTimestampSeconds: 0n,
+        deadlineTimestampSeconds: undefined,
+        decidedTimestampSeconds: 0n,
+        proposal: {
+          title: "Proposal Title",
+          url: "https://example.com",
+          action: {
+            CreateCanisterAndInstallCode: {
+              wasmModuleHash,
+              installArgHash,
+              hostSubnetId: Principal.fromText(canisterIdText),
+              canisterSettings: {
+                controllers: [canisterIdText],
+                freezingThreshold: 100n,
+                memoryAllocation: 234567n,
+                computeAllocation: 1n,
+                wasmMemoryLimit: 123456n,
+                wasmMemoryThreshold: 222222n,
+                logVisibility: 1,
+                snapshotVisibility: 1,
+              },
             },
           },
           summary: "Proposal Summary",

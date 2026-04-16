@@ -45,7 +45,8 @@ export type Action =
   | { SetSnsTokenSwapOpenTimeWindow: SetSnsTokenSwapOpenTimeWindow }
   | { OpenSnsTokenSwap: OpenSnsTokenSwap }
   | { TakeCanisterSnapshot: TakeCanisterSnapshot }
-  | { LoadCanisterSnapshot: LoadCanisterSnapshot };
+  | { LoadCanisterSnapshot: LoadCanisterSnapshot }
+  | { CreateCanisterAndInstallCode: CreateCanisterAndInstallCode };
 export type ProposalActionRequest =
   | { RegisterKnownNeuron: KnownNeuron }
   | { DeregisterKnownNeuron: DeregisterKnownNeuron }
@@ -347,6 +348,14 @@ export interface LoadCanisterSnapshot {
   canisterId: Option<PrincipalString>;
   snapshotId: Option<Uint8Array>;
 }
+
+export interface CreateCanisterAndInstallCode {
+  wasmModuleHash: Option<Uint8Array>;
+  canisterSettings: Option<CanisterSettings>;
+  installArgHash: Option<Uint8Array>;
+  hostSubnetId: Option<Principal>;
+}
+
 export interface Merge {
   sourceNeuronId: Option<NeuronId>;
 }
@@ -467,6 +476,7 @@ export interface Neuron {
   votingPowerRefreshedTimestampSeconds: Option<bigint>;
   potentialVotingPower: Option<bigint>;
   decidingVotingPower: Option<bigint>;
+  eightYearGangBonusBaseE8s: Option<bigint>;
 }
 export type NeuronIdOrSubaccount =
   | { Subaccount: Array<number> }
