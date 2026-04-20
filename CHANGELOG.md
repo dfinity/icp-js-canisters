@@ -2,6 +2,10 @@
 
 ## Next
 
+### Features
+
+- NNS: expose `eightYearGangBonusBaseE8s` on the `NeuronInfo` converter type and map it in `toNeuronInfo` (the field was previously only wired for `Neuron`).
+
 ### Chore
 
 - Add support for patch releases with dedicated publish workflow and scripts.
