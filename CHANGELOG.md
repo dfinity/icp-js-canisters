@@ -8,7 +8,7 @@
 
 ### Fix
 
-- NNS: relax `GovernanceCachedMetrics.total_maturity_disbursements_in_progress_e8s_equivalent` to `opt nat64` (SDK divergence from the backend, see the disclaimer on `governance.did`) so the SDK can still decode responses from canister versions that predate the field (bundled dfx wasms, rolling-release mainnet). `toMetrics` now uses `fromNullable` and `GovernanceCachedMetrics.totalMaturityDisbursementsInProgressE8sEquivalent` is typed `Option<bigint>`.
+- Relax `GovernanceCachedMetrics.total_maturity_disbursements_in_progress_e8s_equivalent` to `opt nat64` (SDK divergence from the backend, see the disclaimer on `governance.did`) so the SDK can still decode responses from canister versions that predate the field (bundled dfx wasms, rolling-release mainnet). `toMetrics` now uses `fromNullable` and `GovernanceCachedMetrics.totalMaturityDisbursementsInProgressE8sEquivalent` is typed `Option<bigint>`.
 
 ### Chore
 

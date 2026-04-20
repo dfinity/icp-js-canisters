@@ -406,7 +406,7 @@ export interface GovernanceCachedMetrics {
    * ic@3ef6b6f876 (2026-03-06). We keep it `opt nat64` here so the SDK can
    * still decode responses from canister versions (e.g. bundled dfx wasms,
    * rolling-release mainnet) that predate the field. Revert to `nat64` once
-   * every consumed NNS governance wasm is guaranteed to include it.
+   * every consumed canister version is guaranteed to include it.
    */
   total_maturity_disbursements_in_progress_e8s_equivalent: [] | [bigint];
   total_staked_e8s: bigint;
