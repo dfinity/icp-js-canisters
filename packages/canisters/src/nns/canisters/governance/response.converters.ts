@@ -111,6 +111,9 @@ export const toNeuronInfo = ({
     ),
     decidingVotingPower: fromNullable(neuronInfo.deciding_voting_power),
     potentialVotingPower: fromNullable(neuronInfo.potential_voting_power),
+    eightYearGangBonusBaseE8s: fromNullable(
+      neuronInfo.eight_year_gang_bonus_base_e8s,
+    ),
     ageSeconds: neuronInfo.age_seconds,
     visibility: fromNullable(neuronInfo.visibility) as
       | NeuronVisibility
