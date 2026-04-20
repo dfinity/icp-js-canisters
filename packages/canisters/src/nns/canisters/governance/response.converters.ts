@@ -1287,8 +1287,9 @@ export const toMetrics = (
   ),
   timestampSeconds: metrics.timestamp_seconds,
   seedNeuronCount: metrics.seed_neuron_count,
-  totalMaturityDisbursementsInProgressE8sEquivalent:
+  totalMaturityDisbursementsInProgressE8sEquivalent: fromNullable(
     metrics.total_maturity_disbursements_in_progress_e8s_equivalent,
+  ),
 });
 
 const toNodeProvider = (

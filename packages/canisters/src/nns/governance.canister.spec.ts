@@ -2631,7 +2631,7 @@ describe("GovernanceCanister", () => {
       public_neuron_subset_metrics: [rawNeuronSubsetMetrics],
       timestamp_seconds: BigInt(8),
       seed_neuron_count: BigInt(8),
-      total_maturity_disbursements_in_progress_e8s_equivalent: BigInt(42),
+      total_maturity_disbursements_in_progress_e8s_equivalent: [BigInt(42)],
     };
     const mockMetrics: GovernanceCachedMetrics = {
       communityFundTotalMaturityE8sEquivalent: 4n,
@@ -2775,6 +2775,30 @@ describe("GovernanceCanister", () => {
       expect(response).toEqual({
         ...mockMetrics,
         publicNeuronSubsetMetrics: undefined,
+      });
+    });
+
+    it("handles total_maturity_disbursements_in_progress_e8s_equivalent when omitted", async () => {
+      const service = mock<ActorSubclass<NnsGovernanceService>>();
+      service.get_metrics.mockResolvedValue({
+        Ok: {
+          ...rawMetrics,
+          total_maturity_disbursements_in_progress_e8s_equivalent: [],
+        },
+      });
+
+      const governance = NnsGovernanceCanister.create({
+        certifiedServiceOverride: service,
+        serviceOverride: service,
+      });
+      const response = await governance.getMetrics({
+        certified: true,
+      });
+
+      expect(service.get_metrics).toHaveBeenCalledOnce();
+      expect(response).toEqual({
+        ...mockMetrics,
+        totalMaturityDisbursementsInProgressE8sEquivalent: undefined,
       });
     });
 
