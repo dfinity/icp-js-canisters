@@ -30,6 +30,7 @@ export type Action =
   | { StopOrStartCanister: StopOrStartCanister }
   | { CreateServiceNervousSystem: CreateServiceNervousSystem }
   | { ExecuteNnsFunction: ExecuteNnsFunction }
+  | { CreateCanisterAndInstallCode: CreateCanisterAndInstallCode }
   | { RewardNodeProvider: RewardNodeProvider }
   | { OpenSnsTokenSwap: OpenSnsTokenSwap }
   | { SetSnsTokenSwapOpenTimeWindow: SetSnsTokenSwapOpenTimeWindow }
@@ -174,6 +175,18 @@ export interface Controllers {
 }
 export interface Countries {
   iso_codes: Array<string>;
+}
+export interface CreateCanisterAndInstallCode {
+  wasm_module_hash: [] | [Uint8Array];
+  canister_settings: [] | [CanisterSettings];
+  install_arg_hash: [] | [Uint8Array];
+  host_subnet_id: [] | [Principal];
+}
+export interface CreateCanisterAndInstallCodeRequest {
+  wasm_module: [] | [WasmModule];
+  canister_settings: [] | [CanisterSettings];
+  install_arg: [] | [Uint8Array];
+  host_subnet_id: [] | [Principal];
 }
 /**
  * Request to create a new neuron using ICRC-2 transfer_from.
@@ -481,6 +494,11 @@ export interface InstallCode {
 }
 export interface InstallCodeRequest {
   arg: [] | [Uint8Array];
+  /**
+   * If we add support for chunked WASMs later, the WasmModule type should
+   * probably be used in place of this field in order to be consistent with
+   * CreateCanisterAndInstallCodeRequest.
+   */
   wasm_module: [] | [Uint8Array];
   skip_stopping_before_installing: [] | [boolean];
   canister_id: [] | [Principal];
@@ -830,6 +848,13 @@ export interface Neuron {
   account: Uint8Array;
   joined_community_fund_timestamp_seconds: [] | [bigint];
   /**
+   * Base value (in e8s) used for the "8-year gang" dissolve delay bonus. For neurons that had the
+   * maximum dissolve delay of 8 years before the maximum was reduced, this is set to the total
+   * staked value net of fees (including staked maturity) captured at the time of migration.
+   * For all other neurons, this is 0.
+   */
+  eight_year_gang_bonus_base_e8s: [] | [bigint];
+  /**
    * The maturity disbursements in progress, i.e. the disbursements that are initiated but not
    * finalized. The finalization happens 7 days after the disbursement is initiated.
    */
@@ -897,6 +922,10 @@ export interface NeuronInfo {
    */
   stake_e8s: bigint;
   joined_community_fund_timestamp_seconds: [] | [bigint];
+  /**
+   * See analogous field in Neuron.
+   */
+  eight_year_gang_bonus_base_e8s: [] | [bigint];
   retrieved_at_timestamp_seconds: bigint;
   visibility: [] | [number];
   known_neuron_data: [] | [KnownNeuronData];
@@ -1067,6 +1096,7 @@ export type ProposalActionRequest =
   | { StopOrStartCanister: StopOrStartCanister }
   | { CreateServiceNervousSystem: CreateServiceNervousSystem }
   | { ExecuteNnsFunction: ExecuteNnsFunction }
+  | { CreateCanisterAndInstallCode: CreateCanisterAndInstallCodeRequest }
   | { RewardNodeProvider: RewardNodeProvider }
   | { RewardNodeProviders: RewardNodeProviders }
   | { ManageNetworkEconomics: NetworkEconomics }
@@ -1391,6 +1421,7 @@ export interface VotingRewardParameters {
 export interface WaitForQuietState {
   current_deadline_timestamp_seconds: bigint;
 }
+export type WasmModule = { Inlined: Uint8Array };
 export interface XdrConversionRate {
   xdr_permyriad_per_icp: [] | [bigint];
   timestamp_seconds: [] | [bigint];

@@ -168,6 +168,9 @@ export const toNeuron = ({
   ),
   potentialVotingPower: fromNullable(neuron.potential_voting_power),
   decidingVotingPower: fromNullable(neuron.deciding_voting_power),
+  eightYearGangBonusBaseE8s: fromNullable(
+    neuron.eight_year_gang_bonus_base_e8s,
+  ),
 });
 
 export const toRawNeuron = ({
@@ -229,6 +232,7 @@ export const toRawNeuron = ({
   ),
   potential_voting_power: toNullable(neuron.potentialVotingPower),
   deciding_voting_power: toNullable(neuron.decidingVotingPower),
+  eight_year_gang_bonus_base_e8s: toNullable(neuron.eightYearGangBonusBaseE8s),
 });
 
 const toBallotInfo = ({
@@ -726,6 +730,27 @@ const toAction = (action: NnsGovernanceDid.Action): Action => {
       LoadCanisterSnapshot: {
         snapshotId: fromNullable(snapshot_id),
         canisterId: canister_id.length ? canister_id[0].toString() : undefined,
+      },
+    };
+  }
+
+  if ("CreateCanisterAndInstallCode" in action) {
+    return {
+      CreateCanisterAndInstallCode: {
+        installArgHash: fromNullable(
+          action.CreateCanisterAndInstallCode.install_arg_hash,
+        ),
+        wasmModuleHash: fromNullable(
+          action.CreateCanisterAndInstallCode.wasm_module_hash,
+        ),
+        hostSubnetId: fromNullable(
+          action.CreateCanisterAndInstallCode.host_subnet_id,
+        ),
+        canisterSettings: toCanisterSettings(
+          fromDefinedNullable(
+            action.CreateCanisterAndInstallCode.canister_settings,
+          ),
+        ),
       },
     };
   }
