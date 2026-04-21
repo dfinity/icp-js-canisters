@@ -828,6 +828,11 @@ export interface Neuron {
   account: Uint8Array;
   joined_community_fund_timestamp_seconds: [] | [bigint];
   /**
+   * Backport: added in ic@b4b0230 (2026-04-10). Optional, so safe to decode
+   * from older replicas that don't include it.
+   */
+  eight_year_gang_bonus_base_e8s: [] | [bigint];
+  /**
    * The maturity disbursements in progress, i.e. the disbursements that are initiated but not
    * finalized. The finalization happens 7 days after the disbursement is initiated.
    */
@@ -895,6 +900,11 @@ export interface NeuronInfo {
    */
   stake_e8s: bigint;
   joined_community_fund_timestamp_seconds: [] | [bigint];
+  /**
+   * Backport: added in ic@b4b0230 (2026-04-10). Optional, so safe to decode
+   * from older replicas that don't include it.
+   */
+  eight_year_gang_bonus_base_e8s: [] | [bigint];
   retrieved_at_timestamp_seconds: bigint;
   visibility: [] | [number];
   known_neuron_data: [] | [KnownNeuronData];

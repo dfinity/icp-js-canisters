@@ -62,6 +62,7 @@ describe("response.converters", () => {
     voting_power_refreshed_timestamp_seconds: [],
     potential_voting_power: [],
     deciding_voting_power: [],
+    eight_year_gang_bonus_base_e8s: [],
   };
 
   const defaultNeuron: Neuron = {
@@ -90,6 +91,7 @@ describe("response.converters", () => {
     votingPowerRefreshedTimestampSeconds: undefined,
     potentialVotingPower: undefined,
     decidingVotingPower: undefined,
+    eightYearGangBonusBaseE8s: undefined,
   };
 
   const defaultCandidNeuronInfo: NnsGovernanceDid.NeuronInfo = {
@@ -109,6 +111,7 @@ describe("response.converters", () => {
     known_neuron_data: [],
     voting_power: 0n,
     age_seconds: 0n,
+    eight_year_gang_bonus_base_e8s: [],
   };
 
   const defaultNeuronInfo: NeuronInfo = {
@@ -127,6 +130,7 @@ describe("response.converters", () => {
     ageSeconds: 0n,
     fullNeuron: undefined,
     visibility: undefined,
+    eightYearGangBonusBaseE8s: undefined,
   };
 
   const testRawMaturityDisbursementWithSubaccount: NnsGovernanceDid.MaturityDisbursement =
@@ -267,6 +271,22 @@ describe("response.converters", () => {
         }),
       ).toEqual({ ...defaultNeuronInfo, decidingVotingPower });
     });
+
+    it("should convert eight year gang bonus base", () => {
+      const eightYearGangBonusBaseE8s = 2_002_000n;
+
+      expect(
+        toNeuronInfo({
+          neuronId,
+          neuronInfo: {
+            ...defaultCandidNeuronInfo,
+            eight_year_gang_bonus_base_e8s: [eightYearGangBonusBaseE8s],
+          },
+          rawNeuron: undefined,
+          canisterId,
+        }),
+      ).toEqual({ ...defaultNeuronInfo, eightYearGangBonusBaseE8s });
+    });
   });
 
   describe("toNeuron", () => {
@@ -327,6 +347,23 @@ describe("response.converters", () => {
       ).toEqual({
         ...defaultNeuron,
         decidingVotingPower: votingPower,
+      });
+    });
+
+    it("should convert eight year gang bonus base", () => {
+      const eightYearGangBonusBaseE8s = 2_002_000n;
+
+      expect(
+        toNeuron({
+          neuron: {
+            ...defaultCandidNeuron,
+            eight_year_gang_bonus_base_e8s: [eightYearGangBonusBaseE8s],
+          },
+          canisterId,
+        }),
+      ).toEqual({
+        ...defaultNeuron,
+        eightYearGangBonusBaseE8s,
       });
     });
 
@@ -473,6 +510,23 @@ describe("response.converters", () => {
       ).toEqual({
         ...defaultCandidNeuron,
         voting_power_refreshed_timestamp_seconds: [timestamp],
+      });
+    });
+
+    it("should convert eight year gang bonus base", () => {
+      const eightYearGangBonusBaseE8s = 2_002_000n;
+
+      expect(
+        toRawNeuron({
+          neuron: {
+            ...defaultNeuron,
+            eightYearGangBonusBaseE8s,
+          },
+          account: new Uint8Array(),
+        }),
+      ).toEqual({
+        ...defaultCandidNeuron,
+        eight_year_gang_bonus_base_e8s: [eightYearGangBonusBaseE8s],
       });
     });
 

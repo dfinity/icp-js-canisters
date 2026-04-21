@@ -466,6 +466,7 @@ export interface Neuron {
   votingPowerRefreshedTimestampSeconds: Option<bigint>;
   potentialVotingPower: Option<bigint>;
   decidingVotingPower: Option<bigint>;
+  eightYearGangBonusBaseE8s: Option<bigint>;
 }
 export type NeuronIdOrSubaccount =
   | { Subaccount: Array<number> }
@@ -486,6 +487,7 @@ export interface NeuronInfo {
   ageSeconds: bigint;
   fullNeuron: Option<Neuron>;
   visibility: Option<NeuronVisibility>;
+  eightYearGangBonusBaseE8s: Option<bigint>;
 }
 
 export interface NodeProvider {

@@ -1,5 +1,19 @@
 # Changelog
 
+## Backport (branched off v96 / canisters v3.5.2)
+
+### Overview
+
+| Library              | Version                 | Status      |
+| -------------------- | ----------------------- | ----------- |
+| `@icp-sdk/canisters` | v3.5.2-next-\<date\>    | Backport 🩹 |
+
+### Features
+
+- Backport `eight_year_gang_bonus_base_e8s` on `Neuron` and `NeuronInfo` (field
+  added upstream in `ic@b4b0230`, 2026-04-10). Published as a `next`-tagged
+  release so consumers can opt in without picking up the newer main.
+
 ## 96
 
 ### Overview

@@ -780,6 +780,10 @@ type Neuron = record {
   // The maturity disbursements in progress, i.e. the disbursements that are initiated but not
   // finalized. The finalization happens 7 days after the disbursement is initiated.
   maturity_disbursements_in_progress : opt vec MaturityDisbursement;
+
+  // Backport: added in ic@b4b0230 (2026-04-10). Optional, so safe to decode
+  // from older replicas that don't include it.
+  eight_year_gang_bonus_base_e8s : opt nat64;
 };
 
 type NeuronBasketConstructionParameters = record {
@@ -871,6 +875,10 @@ type NeuronInfo = record {
   voting_power_refreshed_timestamp_seconds : opt nat64;
   deciding_voting_power : opt nat64;
   potential_voting_power : opt nat64;
+
+  // Backport: added in ic@b4b0230 (2026-04-10). Optional, so safe to decode
+  // from older replicas that don't include it.
+  eight_year_gang_bonus_base_e8s : opt nat64;
 };
 
 type NeuronStakeTransfer = record {

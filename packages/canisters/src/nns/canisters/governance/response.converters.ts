@@ -112,6 +112,9 @@ export const toNeuronInfo = ({
     ),
     decidingVotingPower: fromNullable(neuronInfo.deciding_voting_power),
     potentialVotingPower: fromNullable(neuronInfo.potential_voting_power),
+    eightYearGangBonusBaseE8s: fromNullable(
+      neuronInfo.eight_year_gang_bonus_base_e8s,
+    ),
     ageSeconds: neuronInfo.age_seconds,
     visibility: fromNullable(neuronInfo.visibility) as
       | NeuronVisibility
@@ -169,6 +172,9 @@ export const toNeuron = ({
   ),
   potentialVotingPower: fromNullable(neuron.potential_voting_power),
   decidingVotingPower: fromNullable(neuron.deciding_voting_power),
+  eightYearGangBonusBaseE8s: fromNullable(
+    neuron.eight_year_gang_bonus_base_e8s,
+  ),
 });
 
 export const toRawNeuron = ({
@@ -230,6 +236,7 @@ export const toRawNeuron = ({
   ),
   potential_voting_power: toNullable(neuron.potentialVotingPower),
   deciding_voting_power: toNullable(neuron.decidingVotingPower),
+  eight_year_gang_bonus_base_e8s: toNullable(neuron.eightYearGangBonusBaseE8s),
 });
 
 const toBallotInfo = ({
