@@ -894,5 +894,11 @@ export interface GovernanceCachedMetrics {
   publicNeuronSubsetMetrics: Option<NeuronSubsetMetrics>;
   timestampSeconds: bigint;
   seedNeuronCount: bigint;
-  totalMaturityDisbursementsInProgressE8sEquivalent: bigint;
+  /**
+   * SDK DIVERGENCE: optional here even though the backend declares the
+   * underlying Candid field as required, so the SDK can decode responses from
+   * canister versions that predate the field (e.g. bundled dfx wasms,
+   * rolling-release mainnet). See the comment on `governance.did`.
+   */
+  totalMaturityDisbursementsInProgressE8sEquivalent: Option<bigint>;
 }

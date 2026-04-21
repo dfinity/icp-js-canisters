@@ -1,0 +1,16 @@
+--- a/governance_test.did
++++ b/governance_test.did
+@@ -398,7 +398,12 @@
+   timestamp_seconds : nat64;
+   seed_neuron_count : nat64;
+   spawning_neurons_count : nat64;
+-  total_maturity_disbursements_in_progress_e8s_equivalent : nat64;
++  // SDK DIVERGENCE: the backend declares this as `nat64` (required) since
++  // ic@3ef6b6f876 (2026-03-06). We keep it `opt nat64` here so the SDK can
++  // still decode responses from canister versions (e.g. bundled dfx wasms,
++  // rolling-release mainnet) that predate the field. Revert to `nat64` once
++  // every consumed canister version is guaranteed to include it.
++  total_maturity_disbursements_in_progress_e8s_equivalent : opt nat64;
+ 
+   non_self_authenticating_controller_neuron_subset_metrics : opt NeuronSubsetMetrics;
+   public_neuron_subset_metrics : opt NeuronSubsetMetrics;

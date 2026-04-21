@@ -401,7 +401,14 @@ export interface GovernanceCachedMetrics {
   community_fund_total_maturity_e8s_equivalent: bigint;
   total_staked_e8s_seed: bigint;
   total_staked_maturity_e8s_equivalent_ect: bigint;
-  total_maturity_disbursements_in_progress_e8s_equivalent: bigint;
+  /**
+   * SDK DIVERGENCE: the backend declares this as `nat64` (required) since
+   * ic@3ef6b6f876 (2026-03-06). We keep it `opt nat64` here so the SDK can
+   * still decode responses from canister versions (e.g. bundled dfx wasms,
+   * rolling-release mainnet) that predate the field. Revert to `nat64` once
+   * every consumed canister version is guaranteed to include it.
+   */
+  total_maturity_disbursements_in_progress_e8s_equivalent: [] | [bigint];
   total_staked_e8s: bigint;
   fully_lost_voting_power_neuron_subset_metrics: [] | [NeuronSubsetMetrics];
   not_dissolving_neurons_count: bigint;
