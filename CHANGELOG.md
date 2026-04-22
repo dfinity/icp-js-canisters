@@ -1,10 +1,18 @@
 # Changelog
 
-## Next
+## 97
+
+### Overview
+
+| Library              | Version | Status       |
+| -------------------- | ------- | ------------ |
+| `@icp-sdk/canisters` | v3.6.0  | Maintained ⚙ |
 
 ### Features
 
 - NNS: expose `eightYearGangBonusBaseE8s` on the `NeuronInfo` converter type and map it in `toNeuronInfo` (the field was previously only wired for `Neuron`).
+- IC Management: add snapshot visibility support.
+- Update latest Candid files.
 
 ### Fix
 
