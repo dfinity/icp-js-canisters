@@ -1,4 +1,4 @@
-// Generated from IC repo commit b4b0230 (2026-04-09 tags: release-2026-04-10_04-17-base) 'rs/nns/governance/canister/governance.did' by import-candid
+// Generated from IC repo commit 52cf4d1 (2026-04-22 tags: release-2026-04-24_04-21-dirty-accessed-charging) 'rs/nns/governance/canister/governance.did' by import-candid
 
 type AccountIdentifier = record {
   hash : blob;
@@ -247,6 +247,14 @@ type CreateCanisterAndInstallCodeRequest = record {
   canister_settings : opt CanisterSettings;
   wasm_module : opt WasmModule;
   install_arg : opt blob;
+};
+
+type CreateCanisterAndInstallCodeOk = record {
+  canister_id : opt principal;
+};
+
+type SuccessfulProposalExecutionValue = variant {
+  CreateCanisterAndInstallCode : CreateCanisterAndInstallCodeOk;
 };
 
 type CreateServiceNervousSystem = record {
@@ -1170,6 +1178,7 @@ type ProposalData = record {
   original_total_community_fund_maturity_e8s_equivalent : opt nat64;
   total_potential_voting_power : opt nat64;
   topic: opt int32;
+  success_value : opt SuccessfulProposalExecutionValue;
 };
 
 type ProposalInfo = record {
@@ -1191,6 +1200,7 @@ type ProposalInfo = record {
   proposer : opt NeuronId;
   executed_timestamp_seconds : nat64;
   total_potential_voting_power : opt nat64;
+  success_value : opt SuccessfulProposalExecutionValue;
 };
 
 type RegisterVote = record {
