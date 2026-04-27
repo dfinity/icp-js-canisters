@@ -197,6 +197,12 @@ export const idlFactory = ({ IDL }) => {
     error_type: IDL.Int32,
   });
   const Ballot = IDL.Record({ vote: IDL.Int32, voting_power: IDL.Nat64 });
+  const CreateCanisterAndInstallCodeOk = IDL.Record({
+    canister_id: IDL.Opt(IDL.Principal),
+  });
+  const SuccessfulProposalExecutionValue = IDL.Variant({
+    CreateCanisterAndInstallCode: CreateCanisterAndInstallCodeOk,
+  });
   const SwapParticipationLimits = IDL.Record({
     min_participant_icp_e8s: IDL.Opt(IDL.Nat64),
     max_participant_icp_e8s: IDL.Opt(IDL.Nat64),
@@ -670,6 +676,7 @@ export const idlFactory = ({ IDL }) => {
     proposal_timestamp_seconds: IDL.Nat64,
     reward_event_round: IDL.Nat64,
     failed_timestamp_seconds: IDL.Nat64,
+    success_value: IDL.Opt(SuccessfulProposalExecutionValue),
     neurons_fund_data: IDL.Opt(NeuronsFundData),
     reject_cost_e8s: IDL.Nat64,
     derived_proposal_information: IDL.Opt(DerivedProposalInformation),
@@ -857,6 +864,7 @@ export const idlFactory = ({ IDL }) => {
     reward_event_round: IDL.Nat64,
     deadline_timestamp_seconds: IDL.Opt(IDL.Nat64),
     failed_timestamp_seconds: IDL.Nat64,
+    success_value: IDL.Opt(SuccessfulProposalExecutionValue),
     reject_cost_e8s: IDL.Nat64,
     derived_proposal_information: IDL.Opt(DerivedProposalInformation),
     latest_tally: IDL.Opt(Tally),
@@ -1370,6 +1378,12 @@ export const init = ({ IDL }) => {
     error_type: IDL.Int32,
   });
   const Ballot = IDL.Record({ vote: IDL.Int32, voting_power: IDL.Nat64 });
+  const CreateCanisterAndInstallCodeOk = IDL.Record({
+    canister_id: IDL.Opt(IDL.Principal),
+  });
+  const SuccessfulProposalExecutionValue = IDL.Variant({
+    CreateCanisterAndInstallCode: CreateCanisterAndInstallCodeOk,
+  });
   const SwapParticipationLimits = IDL.Record({
     min_participant_icp_e8s: IDL.Opt(IDL.Nat64),
     max_participant_icp_e8s: IDL.Opt(IDL.Nat64),
@@ -1843,6 +1857,7 @@ export const init = ({ IDL }) => {
     proposal_timestamp_seconds: IDL.Nat64,
     reward_event_round: IDL.Nat64,
     failed_timestamp_seconds: IDL.Nat64,
+    success_value: IDL.Opt(SuccessfulProposalExecutionValue),
     neurons_fund_data: IDL.Opt(NeuronsFundData),
     reject_cost_e8s: IDL.Nat64,
     derived_proposal_information: IDL.Opt(DerivedProposalInformation),
