@@ -24,6 +24,22 @@ export interface Approve {
   expires_at: [] | [bigint];
   spender: Account;
 }
+export interface AuthorizedBurn {
+  from: Account;
+  mthd: [] | [string];
+  caller: [] | [Principal];
+  created_at_time: [] | [bigint];
+  amount: bigint;
+  reason: [] | [string];
+}
+export interface AuthorizedMint {
+  to: Account;
+  mthd: [] | [string];
+  caller: [] | [Principal];
+  created_at_time: [] | [bigint];
+  amount: bigint;
+  reason: [] | [string];
+}
 export type Block = Value;
 export type BlockIndex = bigint;
 export interface Burn {
@@ -121,6 +137,8 @@ export interface Transaction {
   kind: string;
   mint: [] | [Mint];
   approve: [] | [Approve];
+  authorized_burn: [] | [AuthorizedBurn];
+  authorized_mint: [] | [AuthorizedMint];
   fee_collector: [] | [FeeCollector];
   timestamp: bigint;
   transfer: [] | [Transfer];

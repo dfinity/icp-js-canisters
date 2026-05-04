@@ -50,6 +50,10 @@ export interface bitcoin_send_transaction_args {
   network: bitcoin_network;
 }
 export type canister_id = Principal;
+export interface canister_id_range {
+  end: canister_id;
+  start: canister_id;
+}
 export interface canister_info_args {
   canister_id: canister_id;
   num_requested_changes: [] | [bigint];
@@ -277,6 +281,9 @@ export interface list_canister_snapshots_args {
   canister_id: canister_id;
 }
 export type list_canister_snapshots_result = Array<snapshot>;
+export interface list_canisters_result {
+  canisters: Array<canister_id_range>;
+}
 export interface load_canister_snapshot_args {
   canister_id: canister_id;
   sender_canister_version: [] | [bigint];
@@ -558,6 +565,10 @@ export interface _SERVICE {
     [list_canister_snapshots_args],
     list_canister_snapshots_result
   >;
+  /**
+   * subnet admin methods
+   */
+  list_canisters: ActorMethod<[], list_canisters_result>;
   load_canister_snapshot: ActorMethod<[load_canister_snapshot_args], undefined>;
   /**
    * metrics interface
