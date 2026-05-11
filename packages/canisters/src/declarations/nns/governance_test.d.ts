@@ -182,6 +182,9 @@ export interface CreateCanisterAndInstallCode {
   install_arg_hash: [] | [Uint8Array];
   host_subnet_id: [] | [Principal];
 }
+export interface CreateCanisterAndInstallCodeOk {
+  canister_id: [] | [Principal];
+}
 export interface CreateCanisterAndInstallCodeRequest {
   wasm_module: [] | [WasmModule];
   canister_settings: [] | [CanisterSettings];
@@ -312,6 +315,11 @@ export interface FolloweesForTopic {
  * canister).
  */
 export interface FulfillSubnetRentalRequest {
+  /**
+   * Optional subnet that should handle `setup_initial_dkg` for subnet creation.
+   * If not set, handling defaults to the NNS subnet.
+   */
+  initial_dkg_subnet_id: [] | [Principal];
   /**
    * Identifies which rental request to fulfill.
    *
@@ -1118,6 +1126,7 @@ export interface ProposalData {
   proposal_timestamp_seconds: bigint;
   reward_event_round: bigint;
   failed_timestamp_seconds: bigint;
+  success_value: [] | [SuccessfulProposalExecutionValue];
   neurons_fund_data: [] | [NeuronsFundData];
   reject_cost_e8s: bigint;
   derived_proposal_information: [] | [DerivedProposalInformation];
@@ -1144,6 +1153,7 @@ export interface ProposalInfo {
   reward_event_round: bigint;
   deadline_timestamp_seconds: [] | [bigint];
   failed_timestamp_seconds: bigint;
+  success_value: [] | [SuccessfulProposalExecutionValue];
   reject_cost_e8s: bigint;
   derived_proposal_information: [] | [DerivedProposalInformation];
   latest_tally: [] | [Tally];
@@ -1288,6 +1298,11 @@ export interface StopOrStartCanister {
   action: [] | [number];
   canister_id: [] | [Principal];
 }
+export type SuccessfulProposalExecutionValue =
+  | {
+      TakeCanisterSnapshot: TakeCanisterSnapshotOk;
+    }
+  | { CreateCanisterAndInstallCode: CreateCanisterAndInstallCodeOk };
 export interface SwapBackgroundInformation {
   ledger_index_canister_summary: [] | [CanisterSummary];
   fallback_controller_principal_ids: Array<Principal>;
@@ -1328,6 +1343,9 @@ export interface SwapParticipationLimits {
 export interface TakeCanisterSnapshot {
   replace_snapshot: [] | [Uint8Array];
   canister_id: [] | [Principal];
+}
+export interface TakeCanisterSnapshotOk {
+  snapshot_id: Uint8Array;
 }
 export interface Tally {
   no: bigint;
