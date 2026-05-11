@@ -1,4 +1,4 @@
-// Generated from dfinity/portal commit b8e9eff00e648fed39582848b650d952fe0674d1 for file 'docs/references/_attachments/ic.did'
+// Generated from dfinity/portal commit 09f6aa2701b221ac9aff120f254b50c86c5fd11b for file 'docs/references/_attachments/ic.did'
 
 type canister_id = principal;
 type wasm_module = blob;
@@ -513,6 +513,15 @@ type fetch_canister_logs_result = record {
     canister_log_records : vec canister_log_record;
 };
 
+type canister_id_range = record {
+    start : canister_id;
+    end : canister_id;
+};
+
+type list_canisters_result = record {
+    canisters : vec canister_id_range;
+};
+
 type read_canister_snapshot_metadata_args = record {
     canister_id : canister_id;
     snapshot_id : snapshot_id;
@@ -685,4 +694,7 @@ service ic : {
 
     // canister logging
     fetch_canister_logs : (fetch_canister_logs_args) -> (fetch_canister_logs_result) query;
+
+    // subnet admin methods
+    list_canisters : () -> (list_canisters_result) query;
 };
