@@ -135,6 +135,21 @@ export const idlFactory = ({ IDL }) => {
     canister_id: canister_id,
   });
   const canister_metadata_result = IDL.Record({ value: IDL.Vec(IDL.Nat8) });
+  const canister_metrics_args = IDL.Record({ canister_id: canister_id });
+  const cycles_consumed = IDL.Record({
+    memory: IDL.Nat,
+    canister_creation: IDL.Nat,
+    burned_cycles: IDL.Nat,
+    http_outcalls: IDL.Nat,
+    instructions: IDL.Nat,
+    uninstall: IDL.Nat,
+    ingress_induction: IDL.Nat,
+    request_and_response_transmission: IDL.Nat,
+    compute_allocation: IDL.Nat,
+  });
+  const canister_metrics_result = IDL.Record({
+    cycles_consumed: cycles_consumed,
+  });
   const canister_status_args = IDL.Record({ canister_id: canister_id });
   const environment_variable = IDL.Record({
     value: IDL.Text,
@@ -310,6 +325,13 @@ export const idlFactory = ({ IDL }) => {
     taken_at_timestamp: IDL.Nat64,
   });
   const list_canister_snapshots_result = IDL.Vec(snapshot);
+  const canister_id_range = IDL.Record({
+    end: canister_id,
+    start: canister_id,
+  });
+  const list_canisters_result = IDL.Record({
+    canisters: IDL.Vec(canister_id_range),
+  });
   const load_canister_snapshot_args = IDL.Record({
     canister_id: canister_id,
     sender_canister_version: IDL.Opt(IDL.Nat64),
@@ -553,6 +575,11 @@ export const idlFactory = ({ IDL }) => {
       [canister_metadata_result],
       [],
     ),
+    canister_metrics: IDL.Func(
+      [canister_metrics_args],
+      [canister_metrics_result],
+      [],
+    ),
     canister_status: IDL.Func(
       [canister_status_args],
       [canister_status_result],
@@ -585,6 +612,7 @@ export const idlFactory = ({ IDL }) => {
       [list_canister_snapshots_result],
       [],
     ),
+    list_canisters: IDL.Func([], [list_canisters_result], []),
     load_canister_snapshot: IDL.Func([load_canister_snapshot_args], [], []),
     node_metrics_history: IDL.Func(
       [node_metrics_history_args],

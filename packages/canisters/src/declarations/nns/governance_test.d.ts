@@ -182,6 +182,9 @@ export interface CreateCanisterAndInstallCode {
   install_arg_hash: [] | [Uint8Array];
   host_subnet_id: [] | [Principal];
 }
+export interface CreateCanisterAndInstallCodeOk {
+  canister_id: [] | [Principal];
+}
 export interface CreateCanisterAndInstallCodeRequest {
   wasm_module: [] | [WasmModule];
   canister_settings: [] | [CanisterSettings];
@@ -313,6 +316,11 @@ export interface FolloweesForTopic {
  */
 export interface FulfillSubnetRentalRequest {
   /**
+   * Optional subnet that should handle `setup_initial_dkg` for subnet creation.
+   * If not set, handling defaults to the NNS subnet.
+   */
+  initial_dkg_subnet_id: [] | [Principal];
+  /**
    * Identifies which rental request to fulfill.
    *
    * (Identifying the rental request by user works, because a user can have at
@@ -343,6 +351,10 @@ export interface FulfillSubnetRentalRequest {
    * Which nodes will be members of the subnet.
    */
   node_ids: [] | [Array<Principal>];
+}
+export type GetMaturityModulationRequest = {};
+export interface GetMaturityModulationResponse {
+  maturity_modulation: [] | [MaturityModulation];
 }
 export interface GetNeuronIndexRequest {
   page_size: [] | [number];
@@ -732,6 +744,10 @@ export interface MaturityDisbursement {
   account_to_disburse_to: [] | [Account];
   finalize_disbursement_timestamp_seconds: [] | [bigint];
 }
+export interface MaturityModulation {
+  current_value_permyriad: [] | [number];
+  updated_at_timestamp_seconds: [] | [bigint];
+}
 export interface Merge {
   source_neuron_id: [] | [NeuronId];
 }
@@ -912,6 +928,10 @@ export interface NeuronIndexData {
  */
 export interface NeuronInfo {
   id: [] | [NeuronId];
+  /**
+   * See analogous field in Neuron.
+   */
+  staked_maturity_e8s_equivalent: [] | [bigint];
   dissolve_delay_seconds: bigint;
   recent_ballots: Array<BallotInfo>;
   voting_power_refreshed_timestamp_seconds: [] | [bigint];
@@ -1118,6 +1138,7 @@ export interface ProposalData {
   proposal_timestamp_seconds: bigint;
   reward_event_round: bigint;
   failed_timestamp_seconds: bigint;
+  success_value: [] | [SuccessfulProposalExecutionValue];
   neurons_fund_data: [] | [NeuronsFundData];
   reject_cost_e8s: bigint;
   derived_proposal_information: [] | [DerivedProposalInformation];
@@ -1144,6 +1165,7 @@ export interface ProposalInfo {
   reward_event_round: bigint;
   deadline_timestamp_seconds: [] | [bigint];
   failed_timestamp_seconds: bigint;
+  success_value: [] | [SuccessfulProposalExecutionValue];
   reject_cost_e8s: bigint;
   derived_proposal_information: [] | [DerivedProposalInformation];
   latest_tally: [] | [Tally];
@@ -1288,6 +1310,11 @@ export interface StopOrStartCanister {
   action: [] | [number];
   canister_id: [] | [Principal];
 }
+export type SuccessfulProposalExecutionValue =
+  | {
+      TakeCanisterSnapshot: TakeCanisterSnapshotOk;
+    }
+  | { CreateCanisterAndInstallCode: CreateCanisterAndInstallCodeOk };
 export interface SwapBackgroundInformation {
   ledger_index_canister_summary: [] | [CanisterSummary];
   fallback_controller_principal_ids: Array<Principal>;
@@ -1328,6 +1355,9 @@ export interface SwapParticipationLimits {
 export interface TakeCanisterSnapshot {
   replace_snapshot: [] | [Uint8Array];
   canister_id: [] | [Principal];
+}
+export interface TakeCanisterSnapshotOk {
+  snapshot_id: Uint8Array;
 }
 export interface Tally {
   no: bigint;
@@ -1447,6 +1477,10 @@ export interface _SERVICE {
     Result_2
   >;
   get_latest_reward_event: ActorMethod<[], RewardEvent>;
+  get_maturity_modulation: ActorMethod<
+    [GetMaturityModulationRequest],
+    GetMaturityModulationResponse
+  >;
   get_metrics: ActorMethod<[], Result_3>;
   get_monthly_node_provider_rewards: ActorMethod<[], Result_4>;
   get_most_recent_monthly_node_provider_rewards: ActorMethod<
