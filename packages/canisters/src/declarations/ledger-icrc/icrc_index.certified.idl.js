@@ -58,6 +58,22 @@ export const idlFactory = ({ IDL }) => {
     expires_at: IDL.Opt(IDL.Nat64),
     spender: Account,
   });
+  const AuthorizedBurn = IDL.Record({
+    from: Account,
+    mthd: IDL.Opt(IDL.Text),
+    caller: IDL.Opt(IDL.Principal),
+    created_at_time: IDL.Opt(IDL.Nat64),
+    amount: IDL.Nat,
+    reason: IDL.Opt(IDL.Text),
+  });
+  const AuthorizedMint = IDL.Record({
+    to: Account,
+    mthd: IDL.Opt(IDL.Text),
+    caller: IDL.Opt(IDL.Principal),
+    created_at_time: IDL.Opt(IDL.Nat64),
+    amount: IDL.Nat,
+    reason: IDL.Opt(IDL.Text),
+  });
   const FeeCollector = IDL.Record({
     ts: IDL.Opt(IDL.Nat64),
     mthd: IDL.Opt(IDL.Text),
@@ -78,6 +94,8 @@ export const idlFactory = ({ IDL }) => {
     kind: IDL.Text,
     mint: IDL.Opt(Mint),
     approve: IDL.Opt(Approve),
+    authorized_burn: IDL.Opt(AuthorizedBurn),
+    authorized_mint: IDL.Opt(AuthorizedMint),
     fee_collector: IDL.Opt(FeeCollector),
     timestamp: IDL.Nat64,
     transfer: IDL.Opt(Transfer),
