@@ -67,10 +67,24 @@ export const idlFactory = ({ IDL }) => {
     index: IDL.Opt(IDL.Principal),
     archives: IDL.Vec(IDL.Principal),
   });
+  const MemoryMetrics = IDL.Record({
+    wasm_binary_size: IDL.Nat,
+    wasm_chunk_store_size: IDL.Nat,
+    canister_history_size: IDL.Nat,
+    stable_memory_size: IDL.Nat,
+    snapshots_size: IDL.Nat,
+    wasm_memory_size: IDL.Nat,
+    global_memory_size: IDL.Nat,
+    custom_sections_size: IDL.Nat,
+  });
   const CanisterStatusType = IDL.Variant({
     stopped: IDL.Null,
     stopping: IDL.Null,
     running: IDL.Null,
+  });
+  const environment_variable = IDL.Record({
+    value: IDL.Text,
+    name: IDL.Text,
   });
   const LogVisibility = IDL.Variant({
     controllers: IDL.Null,
@@ -79,6 +93,8 @@ export const idlFactory = ({ IDL }) => {
   });
   const DefiniteCanisterSettings = IDL.Record({
     freezing_threshold: IDL.Nat,
+    wasm_memory_threshold: IDL.Nat,
+    environment_variables: IDL.Vec(environment_variable),
     controllers: IDL.Vec(IDL.Principal),
     reserved_cycles_limit: IDL.Nat,
     log_visibility: LogVisibility,
@@ -93,8 +109,11 @@ export const idlFactory = ({ IDL }) => {
     request_payload_bytes_total: IDL.Nat,
   });
   const CanisterStatusResponse = IDL.Record({
+    memory_metrics: MemoryMetrics,
     status: CanisterStatusType,
     memory_size: IDL.Nat,
+    ready_for_migration: IDL.Bool,
+    version: IDL.Nat64,
     cycles: IDL.Nat,
     settings: DefiniteCanisterSettings,
     query_stats: QueryStats,

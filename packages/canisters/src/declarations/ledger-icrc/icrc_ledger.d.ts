@@ -66,6 +66,22 @@ export interface ArchiveInfo {
   canister_id: Principal;
   block_range_start: BlockIndex;
 }
+export interface AuthorizedBurn {
+  from: Account;
+  mthd: [] | [string];
+  caller: [] | [Principal];
+  created_at_time: [] | [Timestamp];
+  amount: bigint;
+  reason: [] | [string];
+}
+export interface AuthorizedMint {
+  to: Account;
+  mthd: [] | [string];
+  caller: [] | [Principal];
+  created_at_time: [] | [Timestamp];
+  amount: bigint;
+  reason: [] | [string];
+}
 export type Block = Value;
 export type BlockIndex = bigint;
 /**
@@ -122,6 +138,7 @@ export interface DataCertificate {
  */
 export type Duration = bigint;
 export interface FeatureFlags {
+  icrc152: boolean;
   icrc2: boolean;
 }
 export interface FeeCollector {
@@ -329,6 +346,31 @@ export type ICRC3Value =
   | { Blob: Uint8Array }
   | { Text: string }
   | { Array: Array<ICRC3Value> };
+export interface Icrc152BurnArgs {
+  from: Account;
+  created_at_time: bigint;
+  amount: bigint;
+  reason: [] | [string];
+}
+export type Icrc152BurnError =
+  | { InvalidAccount: string }
+  | { GenericError: { message: string; error_code: bigint } }
+  | { Duplicate: { duplicate_of: bigint } }
+  | { InsufficientBalance: { balance: bigint } }
+  | { Unauthorized: string };
+export type Icrc152BurnResult = { Ok: bigint } | { Err: Icrc152BurnError };
+export interface Icrc152MintArgs {
+  to: Account;
+  created_at_time: bigint;
+  amount: bigint;
+  reason: [] | [string];
+}
+export type Icrc152MintError =
+  | { InvalidAccount: string }
+  | { GenericError: { message: string; error_code: bigint } }
+  | { Duplicate: { duplicate_of: bigint } }
+  | { Unauthorized: string };
+export type Icrc152MintResult = { Ok: bigint } | { Err: Icrc152MintError };
 export type Icrc21Value =
   | { Text: { content: string } }
   | {
@@ -409,6 +451,8 @@ export interface Transaction {
   kind: string;
   mint: [] | [Mint];
   approve: [] | [Approve];
+  authorized_burn: [] | [AuthorizedBurn];
+  authorized_mint: [] | [AuthorizedMint];
   fee_collector: [] | [FeeCollector];
   timestamp: Timestamp;
   transfer: [] | [Transfer];
@@ -567,6 +611,8 @@ export interface _SERVICE {
     [],
     Array<{ url: string; name: string }>
   >;
+  icrc152_burn: ActorMethod<[Icrc152BurnArgs], Icrc152BurnResult>;
+  icrc152_mint: ActorMethod<[Icrc152MintArgs], Icrc152MintResult>;
   icrc1_balance_of: ActorMethod<[Account], Tokens>;
   icrc1_decimals: ActorMethod<[], number>;
   icrc1_fee: ActorMethod<[], Tokens>;
