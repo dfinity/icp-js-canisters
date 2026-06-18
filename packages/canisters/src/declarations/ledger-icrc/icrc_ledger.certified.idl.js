@@ -35,7 +35,7 @@ export const idlFactory = ({ IDL }) => {
     SetTo: Account,
     Unset: IDL.Null,
   });
-  const FeatureFlags = IDL.Record({ icrc2: IDL.Bool });
+  const FeatureFlags = IDL.Record({ icrc152: IDL.Bool, icrc2: IDL.Bool });
   const UpgradeArgs = IDL.Record({
     change_archive_options: IDL.Opt(ChangeArchiveOptions),
     token_symbol: IDL.Opt(IDL.Text),
@@ -147,6 +147,22 @@ export const idlFactory = ({ IDL }) => {
     expires_at: IDL.Opt(Timestamp),
     spender: Account,
   });
+  const AuthorizedBurn = IDL.Record({
+    from: Account,
+    mthd: IDL.Opt(IDL.Text),
+    caller: IDL.Opt(IDL.Principal),
+    created_at_time: IDL.Opt(Timestamp),
+    amount: IDL.Nat,
+    reason: IDL.Opt(IDL.Text),
+  });
+  const AuthorizedMint = IDL.Record({
+    to: Account,
+    mthd: IDL.Opt(IDL.Text),
+    caller: IDL.Opt(IDL.Principal),
+    created_at_time: IDL.Opt(Timestamp),
+    amount: IDL.Nat,
+    reason: IDL.Opt(IDL.Text),
+  });
   const FeeCollector = IDL.Record({
     ts: IDL.Opt(IDL.Nat64),
     mthd: IDL.Opt(IDL.Text),
@@ -167,6 +183,8 @@ export const idlFactory = ({ IDL }) => {
     kind: IDL.Text,
     mint: IDL.Opt(Mint),
     approve: IDL.Opt(Approve),
+    authorized_burn: IDL.Opt(AuthorizedBurn),
+    authorized_mint: IDL.Opt(AuthorizedMint),
     fee_collector: IDL.Opt(FeeCollector),
     timestamp: Timestamp,
     transfer: IDL.Opt(Transfer),
@@ -223,6 +241,45 @@ export const idlFactory = ({ IDL }) => {
   const GetIndexPrincipalResult = IDL.Variant({
     Ok: IDL.Principal,
     Err: GetIndexPrincipalError,
+  });
+  const Icrc152BurnArgs = IDL.Record({
+    from: Account,
+    created_at_time: IDL.Nat64,
+    amount: IDL.Nat,
+    reason: IDL.Opt(IDL.Text),
+  });
+  const Icrc152BurnError = IDL.Variant({
+    InvalidAccount: IDL.Text,
+    GenericError: IDL.Record({
+      message: IDL.Text,
+      error_code: IDL.Nat,
+    }),
+    Duplicate: IDL.Record({ duplicate_of: IDL.Nat }),
+    InsufficientBalance: IDL.Record({ balance: IDL.Nat }),
+    Unauthorized: IDL.Text,
+  });
+  const Icrc152BurnResult = IDL.Variant({
+    Ok: IDL.Nat,
+    Err: Icrc152BurnError,
+  });
+  const Icrc152MintArgs = IDL.Record({
+    to: Account,
+    created_at_time: IDL.Nat64,
+    amount: IDL.Nat,
+    reason: IDL.Opt(IDL.Text),
+  });
+  const Icrc152MintError = IDL.Variant({
+    InvalidAccount: IDL.Text,
+    GenericError: IDL.Record({
+      message: IDL.Text,
+      error_code: IDL.Nat,
+    }),
+    Duplicate: IDL.Record({ duplicate_of: IDL.Nat }),
+    Unauthorized: IDL.Text,
+  });
+  const Icrc152MintResult = IDL.Variant({
+    Ok: IDL.Nat,
+    Err: Icrc152MintError,
   });
   const Tokens = IDL.Nat;
   const StandardRecord = IDL.Record({ url: IDL.Text, name: IDL.Text });
@@ -424,6 +481,8 @@ export const idlFactory = ({ IDL }) => {
       [IDL.Vec(IDL.Record({ url: IDL.Text, name: IDL.Text }))],
       [],
     ),
+    icrc152_burn: IDL.Func([Icrc152BurnArgs], [Icrc152BurnResult], []),
+    icrc152_mint: IDL.Func([Icrc152MintArgs], [Icrc152MintResult], []),
     icrc1_balance_of: IDL.Func([Account], [Tokens], []),
     icrc1_decimals: IDL.Func([], [IDL.Nat8], []),
     icrc1_fee: IDL.Func([], [Tokens], []),
@@ -488,7 +547,7 @@ export const init = ({ IDL }) => {
     SetTo: Account,
     Unset: IDL.Null,
   });
-  const FeatureFlags = IDL.Record({ icrc2: IDL.Bool });
+  const FeatureFlags = IDL.Record({ icrc152: IDL.Bool, icrc2: IDL.Bool });
   const UpgradeArgs = IDL.Record({
     change_archive_options: IDL.Opt(ChangeArchiveOptions),
     token_symbol: IDL.Opt(IDL.Text),

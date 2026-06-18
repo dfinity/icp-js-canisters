@@ -139,7 +139,7 @@ describe("snapshot.responses", () => {
       source: { something_else: 1 },
     } as unknown as IcManagementDid.read_canister_snapshot_metadata_response;
 
-    expect(() => fromReadCanisterSnapshotMetadataResponse(candid)).toThrowError(
+    expect(() => fromReadCanisterSnapshotMetadataResponse(candid)).toThrow(
       "Unsupported snapshot metadata source",
     );
   });
@@ -150,7 +150,7 @@ describe("snapshot.responses", () => {
       on_low_wasm_memory_hook_status: [{ unknown: null }],
     } as unknown as IcManagementDid.read_canister_snapshot_metadata_response;
 
-    expect(() => fromReadCanisterSnapshotMetadataResponse(candid)).toThrowError(
+    expect(() => fromReadCanisterSnapshotMetadataResponse(candid)).toThrow(
       "Unsupported snapshot metadata on_low_wasm_memory_hook_status",
     );
   });

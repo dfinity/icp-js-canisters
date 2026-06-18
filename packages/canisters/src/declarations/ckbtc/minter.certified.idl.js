@@ -300,6 +300,59 @@ export const idlFactory = ({ IDL }) => {
     min_confirmations: IDL.Nat32,
     kyt_fee: IDL.Nat64,
   });
+  const Icrc10StandardRecord = IDL.Record({
+    url: IDL.Text,
+    name: IDL.Text,
+  });
+  const Icrc21ConsentMessageMetadata = IDL.Record({
+    utc_offset_minutes: IDL.Opt(IDL.Int16),
+    language: IDL.Text,
+  });
+  const Icrc21DeviceSpec = IDL.Variant({
+    GenericDisplay: IDL.Null,
+    FieldsDisplay: IDL.Null,
+  });
+  const Icrc21ConsentMessageSpec = IDL.Record({
+    metadata: Icrc21ConsentMessageMetadata,
+    device_spec: IDL.Opt(Icrc21DeviceSpec),
+  });
+  const Icrc21ConsentMessageRequest = IDL.Record({
+    arg: IDL.Vec(IDL.Nat8),
+    method: IDL.Text,
+    user_preferences: Icrc21ConsentMessageSpec,
+  });
+  const Icrc21Value = IDL.Variant({
+    Text: IDL.Record({ content: IDL.Text }),
+    TokenAmount: IDL.Record({
+      decimals: IDL.Nat8,
+      amount: IDL.Nat64,
+      symbol: IDL.Text,
+    }),
+    TimestampSeconds: IDL.Record({ amount: IDL.Nat64 }),
+    DurationSeconds: IDL.Record({ amount: IDL.Nat64 }),
+  });
+  const Icrc21FieldsDisplay = IDL.Record({
+    fields: IDL.Vec(IDL.Tuple(IDL.Text, Icrc21Value)),
+    intent: IDL.Text,
+  });
+  const Icrc21ConsentMessage = IDL.Variant({
+    FieldsDisplayMessage: Icrc21FieldsDisplay,
+    GenericDisplayMessage: IDL.Text,
+  });
+  const Icrc21ConsentInfo = IDL.Record({
+    metadata: Icrc21ConsentMessageMetadata,
+    consent_message: Icrc21ConsentMessage,
+  });
+  const Icrc21ErrorInfo = IDL.Record({ description: IDL.Text });
+  const Icrc21Error = IDL.Variant({
+    GenericError: IDL.Record({
+      description: IDL.Text,
+      error_code: IDL.Nat,
+    }),
+    InsufficientPayment: Icrc21ErrorInfo,
+    UnsupportedCanisterCall: Icrc21ErrorInfo,
+    ConsentMessageUnavailable: Icrc21ErrorInfo,
+  });
   const RetrieveBtcArgs = IDL.Record({
     address: IDL.Text,
     amount: IDL.Nat64,
@@ -440,6 +493,16 @@ export const idlFactory = ({ IDL }) => {
     ),
     get_minter_info: IDL.Func([], [MinterInfo], []),
     get_withdrawal_account: IDL.Func([], [Account], []),
+    icrc10_supported_standards: IDL.Func(
+      [],
+      [IDL.Vec(Icrc10StandardRecord)],
+      [],
+    ),
+    icrc21_canister_call_consent_message: IDL.Func(
+      [Icrc21ConsentMessageRequest],
+      [IDL.Variant({ Ok: Icrc21ConsentInfo, Err: Icrc21Error })],
+      [],
+    ),
     retrieve_btc: IDL.Func(
       [RetrieveBtcArgs],
       [IDL.Variant({ Ok: RetrieveBtcOk, Err: RetrieveBtcError })],

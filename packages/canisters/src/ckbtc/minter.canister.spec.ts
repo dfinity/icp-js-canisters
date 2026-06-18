@@ -84,7 +84,7 @@ describe("ckBTC minter canister", () => {
         canister.getBtcAddress({
           owner,
         }),
-      ).toThrowError();
+      ).toThrow();
     });
   });
 
@@ -148,7 +148,7 @@ describe("ckBTC minter canister", () => {
           owner,
         });
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterGenericError(
           `${error.Err.GenericError.error_message} (${error.Err.GenericError.error_code})`,
         ),
@@ -170,7 +170,7 @@ describe("ckBTC minter canister", () => {
           owner,
         });
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterTemporaryUnavailableError(error.Err.TemporarilyUnavailable),
       );
     });
@@ -190,9 +190,7 @@ describe("ckBTC minter canister", () => {
           owner,
         });
 
-      await expect(call).rejects.toThrowError(
-        new MinterAlreadyProcessingError(),
-      );
+      await expect(call).rejects.toThrow(new MinterAlreadyProcessingError());
     });
 
     it("should throw MinterNoNewUtxosError", async () => {
@@ -226,7 +224,7 @@ describe("ckBTC minter canister", () => {
           owner,
         });
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterNoNewUtxosError({
           pending_utxos: [[pendingUtxo]],
           required_confirmations: 123,
@@ -256,7 +254,7 @@ describe("ckBTC minter canister", () => {
           owner,
         });
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterNoNewUtxosError({
           pending_utxos: [],
           required_confirmations: 123,
@@ -281,7 +279,7 @@ describe("ckBTC minter canister", () => {
           owner,
         });
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterUpdateBalanceError(
           `Unsupported response type in minter.updateBalance ${JSON.stringify(
             error.Err,
@@ -321,7 +319,7 @@ describe("ckBTC minter canister", () => {
 
       const canister = minter(service);
 
-      expect(() => canister.getWithdrawalAccount()).toThrowError();
+      expect(() => canister.getWithdrawalAccount()).toThrow();
     });
   });
 
@@ -360,7 +358,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtc(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterGenericError(
           `${error.Err.GenericError.error_message} (${error.Err.GenericError.error_code})`,
         ),
@@ -377,7 +375,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtc(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterTemporaryUnavailableError(error.Err.TemporarilyUnavailable),
       );
     });
@@ -392,9 +390,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtc(params);
 
-      await expect(call).rejects.toThrowError(
-        new MinterAlreadyProcessingError(),
-      );
+      await expect(call).rejects.toThrow(new MinterAlreadyProcessingError());
     });
 
     it("should throw MinterMalformedAddress", async () => {
@@ -407,7 +403,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtc(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterMalformedAddressError(error.Err.MalformedAddress),
       );
     });
@@ -422,7 +418,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtc(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterAmountTooLowError(`${error.Err.AmountTooLow}`),
       );
     });
@@ -437,7 +433,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtc(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterInsufficientFundsError(
           `${error.Err.InsufficientFunds.balance}`,
         ),
@@ -456,7 +452,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtc(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterRetrieveBtcError(
           `Unsupported response type in minter.retrieveBtc ${JSON.stringify(
             error.Err,
@@ -527,7 +523,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtcWithApproval(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterGenericError(
           `${error.Err.GenericError.error_message} (${error.Err.GenericError.error_code})`,
         ),
@@ -544,7 +540,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtcWithApproval(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterTemporaryUnavailableError(error.Err.TemporarilyUnavailable),
       );
     });
@@ -559,9 +555,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtcWithApproval(params);
 
-      await expect(call).rejects.toThrowError(
-        new MinterAlreadyProcessingError(),
-      );
+      await expect(call).rejects.toThrow(new MinterAlreadyProcessingError());
     });
 
     it("should throw MinterMalformedAddress", async () => {
@@ -574,7 +568,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtcWithApproval(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterMalformedAddressError(error.Err.MalformedAddress),
       );
     });
@@ -589,7 +583,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtcWithApproval(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterAmountTooLowError(`${error.Err.AmountTooLow}`),
       );
     });
@@ -604,7 +598,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtcWithApproval(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterInsufficientFundsError(
           `${error.Err.InsufficientFunds.balance}`,
         ),
@@ -621,7 +615,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtcWithApproval(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterInsufficientAllowanceError(
           `${error.Err.InsufficientAllowance.allowance}`,
         ),
@@ -640,7 +634,7 @@ describe("ckBTC minter canister", () => {
 
       const call = () => canister.retrieveBtcWithApproval(params);
 
-      await expect(call).rejects.toThrowError(
+      await expect(call).rejects.toThrow(
         new MinterRetrieveBtcError(
           `Unsupported response type in minter.retrieveBtc ${JSON.stringify(
             error.Err,
@@ -854,12 +848,13 @@ describe("ckBTC minter canister", () => {
       const canister = minter(service);
 
       await expect(
+        // eslint-disable-next-line vitest/no-unneeded-async-expect-function
         async () =>
           await canister.estimateWithdrawalFee({
             certified: true,
             amount: undefined,
           }),
-      ).rejects.toThrowError();
+      ).rejects.toThrow();
     });
   });
 
@@ -894,8 +889,9 @@ describe("ckBTC minter canister", () => {
       const canister = minter(service);
 
       await expect(
+        // eslint-disable-next-line vitest/no-unneeded-async-expect-function
         async () => await canister.getMinterInfo({ certified: true }),
-      ).rejects.toThrowError();
+      ).rejects.toThrow();
     });
   });
 
@@ -965,7 +961,7 @@ describe("ckBTC minter canister", () => {
         canister.getKnownUtxos({
           owner,
         }),
-      ).toThrowError();
+      ).toThrow();
     });
   });
 });

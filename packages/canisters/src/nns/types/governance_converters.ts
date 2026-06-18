@@ -45,7 +45,8 @@ export type Action =
   | { SetSnsTokenSwapOpenTimeWindow: SetSnsTokenSwapOpenTimeWindow }
   | { OpenSnsTokenSwap: OpenSnsTokenSwap }
   | { TakeCanisterSnapshot: TakeCanisterSnapshot }
-  | { LoadCanisterSnapshot: LoadCanisterSnapshot };
+  | { LoadCanisterSnapshot: LoadCanisterSnapshot }
+  | { CreateCanisterAndInstallCode: CreateCanisterAndInstallCode };
 export type ProposalActionRequest =
   | { RegisterKnownNeuron: KnownNeuron }
   | { DeregisterKnownNeuron: DeregisterKnownNeuron }
@@ -321,6 +322,7 @@ export interface FulfillSubnetRentalRequest {
 }
 export interface GuestLaunchMeasurementMetadata {
   kernelCmdline: Option<string>;
+  vcpuType: Option<string>;
 }
 export interface GuestLaunchMeasurement {
   metadata: Option<GuestLaunchMeasurementMetadata>;
@@ -347,6 +349,14 @@ export interface LoadCanisterSnapshot {
   canisterId: Option<PrincipalString>;
   snapshotId: Option<Uint8Array>;
 }
+
+export interface CreateCanisterAndInstallCode {
+  wasmModuleHash: Option<Uint8Array>;
+  canisterSettings: Option<CanisterSettings>;
+  installArgHash: Option<Uint8Array>;
+  hostSubnetId: Option<Principal>;
+}
+
 export interface Merge {
   sourceNeuronId: Option<NeuronId>;
 }
@@ -467,6 +477,7 @@ export interface Neuron {
   votingPowerRefreshedTimestampSeconds: Option<bigint>;
   potentialVotingPower: Option<bigint>;
   decidingVotingPower: Option<bigint>;
+  eightYearGangBonusBaseE8s: Option<bigint>;
 }
 export type NeuronIdOrSubaccount =
   | { Subaccount: Array<number> }
@@ -484,6 +495,7 @@ export interface NeuronInfo {
   votingPowerRefreshedTimestampSeconds: Option<bigint>;
   decidingVotingPower: Option<bigint>;
   potentialVotingPower: Option<bigint>;
+  eightYearGangBonusBaseE8s: Option<bigint>;
   ageSeconds: bigint;
   fullNeuron: Option<Neuron>;
   visibility: Option<NeuronVisibility>;
@@ -883,5 +895,11 @@ export interface GovernanceCachedMetrics {
   publicNeuronSubsetMetrics: Option<NeuronSubsetMetrics>;
   timestampSeconds: bigint;
   seedNeuronCount: bigint;
-  totalMaturityDisbursementsInProgressE8sEquivalent: bigint;
+  /**
+   * SDK DIVERGENCE: optional here even though the backend declares the
+   * underlying Candid field as required, so the SDK can decode responses from
+   * canister versions that predate the field (e.g. bundled dfx wasms,
+   * rolling-release mainnet). See the comment on `governance.did`.
+   */
+  totalMaturityDisbursementsInProgressE8sEquivalent: Option<bigint>;
 }

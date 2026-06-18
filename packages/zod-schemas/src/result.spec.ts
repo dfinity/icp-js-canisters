@@ -16,13 +16,13 @@ describe("result", () => {
       it("should reject a success result with wrong result type", () => {
         expect(() =>
           schema.parse({ status: "success", result: 123 }),
-        ).toThrowError();
+        ).toThrow();
       });
 
       it("should reject a success result with extra fields", () => {
         expect(() =>
           schema.parse({ status: "success", result: "hello", extra: true }),
-        ).toThrowError();
+        ).toThrow();
       });
     });
 
@@ -41,14 +41,12 @@ describe("result", () => {
       });
 
       it("should reject an error result with extra fields", () => {
-        expect(() =>
-          schema.parse({ status: "error", extra: true }),
-        ).toThrowError();
+        expect(() => schema.parse({ status: "error", extra: true })).toThrow();
       });
     });
 
     it("should reject an unknown status", () => {
-      expect(() => schema.parse({ status: "unknown" })).toThrowError();
+      expect(() => schema.parse({ status: "unknown" })).toThrow();
     });
   });
 });

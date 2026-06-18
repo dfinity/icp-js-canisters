@@ -1,6 +1,6 @@
 {
   "name": "@dfinity/icp-js-canisters",
-  "version": "96",
+  "version": "97",
   "description": "A collection of library for interfacing with the Internet Computer.",
   "license": "Apache-2.0",
   "workspaces": [
@@ -41,26 +41,26 @@
     "url": "https://github.com/dfinity/icp-js-canisters"
   },
   "devDependencies": {
-    "@dfinity/eslint-config-oisy-wallet": "^0.2.3",
+    "@dfinity/eslint-config-oisy-wallet": "^0.3.0",
     "@icp-sdk/bindgen": "^0.3.0",
-    "@size-limit/esbuild": "^12.0.0",
-    "@size-limit/preset-small-lib": "^12.0.0",
-    "@types/node": "^24.10.1",
-    "esbuild": "^0.27.0",
-    "prettier": "^3.7.3",
+    "@size-limit/esbuild": "^12.1.0",
+    "@size-limit/preset-small-lib": "^12.1.0",
+    "@types/node": "^25.6.0",
+    "esbuild": "^0.28.1",
+    "prettier": "^3.8.3",
     "prettier-plugin-organize-imports": "^4.3.0",
-    "size-limit": "^12.0.0",
+    "size-limit": "^12.1.0",
     "ts-protoc-gen": "^0.15.0",
     "tsdoc-markdown": "^1.4.1",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.14",
-    "vitest-mock-extended": "^3.1.0"
+    "vitest": "^4.1.4",
+    "vitest-mock-extended": "^4.0.0"
   },
   "size-limit": [
     {
       "name": "@dfinity/ckbtc",
       "path": "./packages/ckbtc/dist/index.js",
-      "limit": "9 kB",
+      "limit": "10 kB",
       "gzip": true,
       "ignore": [
         "@dfinity/agent",
@@ -206,7 +206,7 @@
     {
       "name": "@icp-sdk/canisters/ckbtc",
       "path": "./packages/canisters/ckbtc/index.js",
-      "limit": "9 kB",
+      "limit": "10 kB",
       "gzip": true,
       "ignore": [
         "@dfinity/agent",

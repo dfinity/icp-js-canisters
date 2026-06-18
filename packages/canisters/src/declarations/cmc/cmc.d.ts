@@ -19,8 +19,6 @@ export interface CanisterSettings {
   controllers: [] | [Array<Principal>];
   reserved_cycles_limit: [] | [bigint];
   log_visibility: [] | [log_visibility];
-  log_memory_limit: [] | [bigint];
-  snapshot_visibility: [] | [snapshot_visibility];
   wasm_memory_limit: [] | [bigint];
   memory_allocation: [] | [bigint];
   compute_allocation: [] | [bigint];
@@ -294,10 +292,6 @@ export interface environment_variable {
   name: string;
 }
 export type log_visibility =
-  | { controllers: null }
-  | { public: null }
-  | { allowed_viewers: Array<Principal> };
-export type snapshot_visibility =
   | { controllers: null }
   | { public: null }
   | { allowed_viewers: Array<Principal> };

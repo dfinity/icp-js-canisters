@@ -89,6 +89,27 @@ patch_import_did() {
   rm -f "$out_path" "$out_path".orig "$out_path".rej
 }
 
+# Apply a repo-local patch on top of an already-imported did file.
+# The patch is read from scripts/patches/<pkg>/<filename>.patch relative to
+# the repo root. No-op when no such file exists, so calls are safe to leave
+# in place. Fails loudly if the patch no longer applies cleanly -- that is
+# the intended signal to revisit the divergence (e.g. the upstream did
+# finally caught up with the local change).
+apply_local_patches() {
+  local out_filename="$1"
+  local pkg="$2"
+
+  local patch_fullpath="scripts/patches/${pkg}/${out_filename}.patch"
+  if [ ! -f "$patch_fullpath" ]; then
+    return 0
+  fi
+
+  local out_path="$(get_out_path "$pkg" "$out_filename")"
+  echo "Applying local patch ${patch_fullpath} -> REPO_ROOT/${out_path}"
+  patch --quiet "$out_path" "$patch_fullpath"
+  rm -f "${out_path}".orig "${out_path}".rej
+}
+
 : Move to root of the repo
 cd "$(dirname "$(realpath "$0")")/.."
 
@@ -120,7 +141,9 @@ test -n "${IC_DIR:-}" || {
 : Import canisters
 mkdir -p packages/canisters/src/declarations/nns
 import_did "rs/nns/governance/canister/governance.did" "governance.did" "nns"
+apply_local_patches "governance.did" "nns"
 patch_import_did "rs/nns/governance/canister/governance.did" "rs/nns/governance/canister/governance_test.did.patch" "governance_test.did" "nns"
+apply_local_patches "governance_test.did" "nns"
 import_did "rs/nns/gtc/canister/gtc.did" "genesis_token.did" "nns"
 import_did "rs/nns/sns-wasm/canister/sns-wasm.did" "sns_wasm.did" "nns"
 

@@ -1,13 +1,5 @@
-import { defineConfig, type ViteUserConfig } from "vitest/config";
-
-export const baseConfig: ViteUserConfig = {
-  test: {
-    environment: "node",
-    globals: true,
-    watch: false,
-    exclude: ["tests/integration/**", "node_modules/**"],
-  },
-};
+import { defineConfig } from "vitest/config";
+import { baseConfig } from "./vitest.base.config";
 
 export default defineConfig({
   ...baseConfig,

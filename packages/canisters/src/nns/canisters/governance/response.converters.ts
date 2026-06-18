@@ -9,9 +9,8 @@ import {
   type Nullable,
 } from "@dfinity/utils";
 import { Principal } from "@icp-sdk/core/principal";
-import type { AccountIdentifierHex } from "../../../ledger/icp";
-
 import type { NnsGovernanceDid } from "../../../declarations";
+import type { AccountIdentifierHex } from "../../../ledger/icp";
 import type {
   CanisterAction,
   CanisterInstallMode,
@@ -112,6 +111,9 @@ export const toNeuronInfo = ({
     ),
     decidingVotingPower: fromNullable(neuronInfo.deciding_voting_power),
     potentialVotingPower: fromNullable(neuronInfo.potential_voting_power),
+    eightYearGangBonusBaseE8s: fromNullable(
+      neuronInfo.eight_year_gang_bonus_base_e8s,
+    ),
     ageSeconds: neuronInfo.age_seconds,
     visibility: fromNullable(neuronInfo.visibility) as
       | NeuronVisibility
@@ -169,6 +171,9 @@ export const toNeuron = ({
   ),
   potentialVotingPower: fromNullable(neuron.potential_voting_power),
   decidingVotingPower: fromNullable(neuron.deciding_voting_power),
+  eightYearGangBonusBaseE8s: fromNullable(
+    neuron.eight_year_gang_bonus_base_e8s,
+  ),
 });
 
 export const toRawNeuron = ({
@@ -230,6 +235,7 @@ export const toRawNeuron = ({
   ),
   potential_voting_power: toNullable(neuron.potentialVotingPower),
   deciding_voting_power: toNullable(neuron.decidingVotingPower),
+  eight_year_gang_bonus_base_e8s: toNullable(neuron.eightYearGangBonusBaseE8s),
 });
 
 const toBallotInfo = ({
@@ -701,7 +707,10 @@ const toAction = (action: NnsGovernanceDid.Action): Action => {
                 return {
                   measurement: fromNullable(m.measurement),
                   metadata: nonNullish(metadata)
-                    ? { kernelCmdline: fromNullable(metadata.kernel_cmdline) }
+                    ? {
+                        kernelCmdline: fromNullable(metadata.kernel_cmdline),
+                        vcpuType: fromNullable(metadata.vcpu_type),
+                      }
                     : undefined,
                 };
               }),
@@ -727,6 +736,27 @@ const toAction = (action: NnsGovernanceDid.Action): Action => {
       LoadCanisterSnapshot: {
         snapshotId: fromNullable(snapshot_id),
         canisterId: canister_id.length ? canister_id[0].toString() : undefined,
+      },
+    };
+  }
+
+  if ("CreateCanisterAndInstallCode" in action) {
+    return {
+      CreateCanisterAndInstallCode: {
+        installArgHash: fromNullable(
+          action.CreateCanisterAndInstallCode.install_arg_hash,
+        ),
+        wasmModuleHash: fromNullable(
+          action.CreateCanisterAndInstallCode.wasm_module_hash,
+        ),
+        hostSubnetId: fromNullable(
+          action.CreateCanisterAndInstallCode.host_subnet_id,
+        ),
+        canisterSettings: toCanisterSettings(
+          fromDefinedNullable(
+            action.CreateCanisterAndInstallCode.canister_settings,
+          ),
+        ),
       },
     };
   }
@@ -1260,8 +1290,9 @@ export const toMetrics = (
   ),
   timestampSeconds: metrics.timestamp_seconds,
   seedNeuronCount: metrics.seed_neuron_count,
-  totalMaturityDisbursementsInProgressE8sEquivalent:
+  totalMaturityDisbursementsInProgressE8sEquivalent: fromNullable(
     metrics.total_maturity_disbursements_in_progress_e8s_equivalent,
+  ),
 });
 
 const toNodeProvider = (

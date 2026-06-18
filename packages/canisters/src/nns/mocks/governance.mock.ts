@@ -20,6 +20,8 @@ export const mockNeuronInfo: NnsGovernanceDid.NeuronInfo = {
   voting_power_refreshed_timestamp_seconds: [],
   potential_voting_power: [one],
   deciding_voting_power: [one],
+  eight_year_gang_bonus_base_e8s: [one],
+  staked_maturity_e8s_equivalent: [one],
 };
 export const mockNeuron: NnsGovernanceDid.Neuron = {
   id: [{ id: mockNeuronId }],
@@ -48,6 +50,7 @@ export const mockNeuron: NnsGovernanceDid.Neuron = {
   voting_power_refreshed_timestamp_seconds: [],
   potential_voting_power: [one],
   deciding_voting_power: [one],
+  eight_year_gang_bonus_base_e8s: [one],
 };
 export const mockListNeuronsResponse: NnsGovernanceDid.ListNeuronsResponse = {
   neuron_infos: [[mockNeuronId, mockNeuronInfo]],

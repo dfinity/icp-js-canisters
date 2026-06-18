@@ -66,6 +66,7 @@ jobs:
             echo "updated=1" >> "$GITHUB_OUTPUT"
           fi
       - name: Create Pull Request
+        id: create_pull_request
         if: ${{ steps.update.outputs.updated == '1' }}
         uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7.0.11
         with:
@@ -92,3 +93,41 @@ jobs:
 
             # Tests
               - [ ] Please check the API updates for any breaking changes that affect our code.
+      - name: Close previous IC update pull requests
+        if: ${{ steps.update.outputs.updated == '1' && steps.create_pull_request.outputs.pull-request-number != '' }}
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          NEW_PR_NUMBER: ${{ steps.create_pull_request.outputs.pull-request-number }}
+          PR_BRANCH_PREFIX: bot-ic-update
+          PR_TITLE: 'feat(core): Update Candid Files'
+          REPO: ${{ github.repository }}
+          REPO_OWNER: ${{ github.repository_owner }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+
+          # Run gh separately so a failure (auth, rate limit) aborts the step
+          # instead of being swallowed by process substitution.
+          previous_prs_tsv="$(
+            gh pr list \
+              --repo "$REPO" \
+              --state open \
+              --limit 200 \
+              --json number,title,headRefName,headRepositoryOwner \
+              --jq '.[] | select(.number != (env.NEW_PR_NUMBER | tonumber) and .title == env.PR_TITLE and (.headRefName | startswith(env.PR_BRANCH_PREFIX)) and .headRepositoryOwner.login == env.REPO_OWNER) | [.number, .headRefName] | @tsv'
+          )"
+
+          if [[ -z "$previous_prs_tsv" ]]; then
+            echo "No previous IC update pull requests to close."
+            exit 0
+          fi
+
+          mapfile -t previous_prs <<< "$previous_prs_tsv"
+
+          close_comment="Closing this superseded automated IC Candid update PR because workflow run ${RUN_URL} opened PR #${NEW_PR_NUMBER} as a fresh replacement. The new PR contains the latest generated Candid files and bindings, so keeping older generated PRs open creates duplicate review work."
+
+          for pr in "${previous_prs[@]}"; do
+            IFS=$'\t' read -r number branch <<< "$pr"
+            echo "Closing PR #${number} (${branch}) and deleting its branch."
+            gh pr close "$number" --repo "$REPO" --delete-branch --comment "$close_comment"
+          done

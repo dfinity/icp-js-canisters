@@ -30,6 +30,7 @@ export type Action =
   | { StopOrStartCanister: StopOrStartCanister }
   | { CreateServiceNervousSystem: CreateServiceNervousSystem }
   | { ExecuteNnsFunction: ExecuteNnsFunction }
+  | { CreateCanisterAndInstallCode: CreateCanisterAndInstallCode }
   | { RewardNodeProvider: RewardNodeProvider }
   | { OpenSnsTokenSwap: OpenSnsTokenSwap }
   | { SetSnsTokenSwapOpenTimeWindow: SetSnsTokenSwapOpenTimeWindow }
@@ -175,6 +176,21 @@ export interface Controllers {
 export interface Countries {
   iso_codes: Array<string>;
 }
+export interface CreateCanisterAndInstallCode {
+  wasm_module_hash: [] | [Uint8Array];
+  canister_settings: [] | [CanisterSettings];
+  install_arg_hash: [] | [Uint8Array];
+  host_subnet_id: [] | [Principal];
+}
+export interface CreateCanisterAndInstallCodeOk {
+  canister_id: [] | [Principal];
+}
+export interface CreateCanisterAndInstallCodeRequest {
+  wasm_module: [] | [WasmModule];
+  canister_settings: [] | [CanisterSettings];
+  install_arg: [] | [Uint8Array];
+  host_subnet_id: [] | [Principal];
+}
 /**
  * Request to create a new neuron using ICRC-2 transfer_from.
  * The caller must have previously approved the governance canister to spend the specified amount.
@@ -300,6 +316,11 @@ export interface FolloweesForTopic {
  */
 export interface FulfillSubnetRentalRequest {
   /**
+   * Optional subnet that should handle `setup_initial_dkg` for subnet creation.
+   * If not set, handling defaults to the NNS subnet.
+   */
+  initial_dkg_subnet_id: [] | [Principal];
+  /**
    * Identifies which rental request to fulfill.
    *
    * (Identifying the rental request by user works, because a user can have at
@@ -330,6 +351,10 @@ export interface FulfillSubnetRentalRequest {
    * Which nodes will be members of the subnet.
    */
   node_ids: [] | [Array<Principal>];
+}
+export type GetMaturityModulationRequest = {};
+export interface GetMaturityModulationResponse {
+  maturity_modulation: [] | [MaturityModulation];
 }
 export interface GetNeuronIndexRequest {
   page_size: [] | [number];
@@ -388,7 +413,14 @@ export interface GovernanceCachedMetrics {
   community_fund_total_maturity_e8s_equivalent: bigint;
   total_staked_e8s_seed: bigint;
   total_staked_maturity_e8s_equivalent_ect: bigint;
-  total_maturity_disbursements_in_progress_e8s_equivalent: bigint;
+  /**
+   * SDK DIVERGENCE: the backend declares this as `nat64` (required) since
+   * ic@3ef6b6f876 (2026-03-06). We keep it `opt nat64` here so the SDK can
+   * still decode responses from canister versions (e.g. bundled dfx wasms,
+   * rolling-release mainnet) that predate the field. Revert to `nat64` once
+   * every consumed canister version is guaranteed to include it.
+   */
+  total_maturity_disbursements_in_progress_e8s_equivalent: [] | [bigint];
   total_staked_e8s: bigint;
   fully_lost_voting_power_neuron_subset_metrics: [] | [NeuronSubsetMetrics];
   not_dissolving_neurons_count: bigint;
@@ -454,6 +486,10 @@ export interface GuestLaunchMeasurementMetadata {
    * Kernel command line used for this measurement.
    */
   kernel_cmdline: [] | [string];
+  /**
+   * Virtual CPU type used for this measurement.
+   */
+  vcpu_type: [] | [string];
 }
 export interface GuestLaunchMeasurements {
   guest_launch_measurements: [] | [Array<GuestLaunchMeasurement>];
@@ -481,6 +517,11 @@ export interface InstallCode {
 }
 export interface InstallCodeRequest {
   arg: [] | [Uint8Array];
+  /**
+   * If we add support for chunked WASMs later, the WasmModule type should
+   * probably be used in place of this field in order to be consistent with
+   * CreateCanisterAndInstallCodeRequest.
+   */
   wasm_module: [] | [Uint8Array];
   skip_stopping_before_installing: [] | [boolean];
   canister_id: [] | [Principal];
@@ -707,6 +748,10 @@ export interface MaturityDisbursement {
   account_to_disburse_to: [] | [Account];
   finalize_disbursement_timestamp_seconds: [] | [bigint];
 }
+export interface MaturityModulation {
+  current_value_permyriad: [] | [number];
+  updated_at_timestamp_seconds: [] | [bigint];
+}
 export interface Merge {
   source_neuron_id: [] | [NeuronId];
 }
@@ -830,6 +875,13 @@ export interface Neuron {
   account: Uint8Array;
   joined_community_fund_timestamp_seconds: [] | [bigint];
   /**
+   * Base value (in e8s) used for the "8-year gang" dissolve delay bonus. For neurons that had the
+   * maximum dissolve delay of 8 years before the maximum was reduced, this is set to the total
+   * staked value net of fees (including staked maturity) captured at the time of migration.
+   * For all other neurons, this is 0.
+   */
+  eight_year_gang_bonus_base_e8s: [] | [bigint];
+  /**
    * The maturity disbursements in progress, i.e. the disbursements that are initiated but not
    * finalized. The finalization happens 7 days after the disbursement is initiated.
    */
@@ -880,6 +932,10 @@ export interface NeuronIndexData {
  */
 export interface NeuronInfo {
   id: [] | [NeuronId];
+  /**
+   * See analogous field in Neuron.
+   */
+  staked_maturity_e8s_equivalent: [] | [bigint];
   dissolve_delay_seconds: bigint;
   recent_ballots: Array<BallotInfo>;
   voting_power_refreshed_timestamp_seconds: [] | [bigint];
@@ -897,6 +953,10 @@ export interface NeuronInfo {
    */
   stake_e8s: bigint;
   joined_community_fund_timestamp_seconds: [] | [bigint];
+  /**
+   * See analogous field in Neuron.
+   */
+  eight_year_gang_bonus_base_e8s: [] | [bigint];
   retrieved_at_timestamp_seconds: bigint;
   visibility: [] | [number];
   known_neuron_data: [] | [KnownNeuronData];
@@ -1067,6 +1127,7 @@ export type ProposalActionRequest =
   | { StopOrStartCanister: StopOrStartCanister }
   | { CreateServiceNervousSystem: CreateServiceNervousSystem }
   | { ExecuteNnsFunction: ExecuteNnsFunction }
+  | { CreateCanisterAndInstallCode: CreateCanisterAndInstallCodeRequest }
   | { RewardNodeProvider: RewardNodeProvider }
   | { RewardNodeProviders: RewardNodeProviders }
   | { ManageNetworkEconomics: NetworkEconomics }
@@ -1081,6 +1142,7 @@ export interface ProposalData {
   proposal_timestamp_seconds: bigint;
   reward_event_round: bigint;
   failed_timestamp_seconds: bigint;
+  success_value: [] | [SuccessfulProposalExecutionValue];
   neurons_fund_data: [] | [NeuronsFundData];
   reject_cost_e8s: bigint;
   derived_proposal_information: [] | [DerivedProposalInformation];
@@ -1107,6 +1169,7 @@ export interface ProposalInfo {
   reward_event_round: bigint;
   deadline_timestamp_seconds: [] | [bigint];
   failed_timestamp_seconds: bigint;
+  success_value: [] | [SuccessfulProposalExecutionValue];
   reject_cost_e8s: bigint;
   derived_proposal_information: [] | [DerivedProposalInformation];
   latest_tally: [] | [Tally];
@@ -1251,6 +1314,11 @@ export interface StopOrStartCanister {
   action: [] | [number];
   canister_id: [] | [Principal];
 }
+export type SuccessfulProposalExecutionValue =
+  | {
+      TakeCanisterSnapshot: TakeCanisterSnapshotOk;
+    }
+  | { CreateCanisterAndInstallCode: CreateCanisterAndInstallCodeOk };
 export interface SwapBackgroundInformation {
   ledger_index_canister_summary: [] | [CanisterSummary];
   fallback_controller_principal_ids: Array<Principal>;
@@ -1291,6 +1359,9 @@ export interface SwapParticipationLimits {
 export interface TakeCanisterSnapshot {
   replace_snapshot: [] | [Uint8Array];
   canister_id: [] | [Principal];
+}
+export interface TakeCanisterSnapshotOk {
+  snapshot_id: Uint8Array;
 }
 export interface Tally {
   no: bigint;
@@ -1391,6 +1462,7 @@ export interface VotingRewardParameters {
 export interface WaitForQuietState {
   current_deadline_timestamp_seconds: bigint;
 }
+export type WasmModule = { Inlined: Uint8Array };
 export interface XdrConversionRate {
   xdr_permyriad_per_icp: [] | [bigint];
   timestamp_seconds: [] | [bigint];
@@ -1409,6 +1481,10 @@ export interface _SERVICE {
     Result_2
   >;
   get_latest_reward_event: ActorMethod<[], RewardEvent>;
+  get_maturity_modulation: ActorMethod<
+    [GetMaturityModulationRequest],
+    GetMaturityModulationResponse
+  >;
   get_metrics: ActorMethod<[], Result_3>;
   get_monthly_node_provider_rewards: ActorMethod<[], Result_4>;
   get_most_recent_monthly_node_provider_rewards: ActorMethod<

@@ -272,6 +272,66 @@ export type EventType =
       };
     };
 /**
+ * ICRC-10 supported standards record.
+ */
+export interface Icrc10StandardRecord {
+  url: string;
+  name: string;
+}
+export interface Icrc21ConsentInfo {
+  metadata: Icrc21ConsentMessageMetadata;
+  consent_message: Icrc21ConsentMessage;
+}
+export type Icrc21ConsentMessage =
+  | {
+      FieldsDisplayMessage: Icrc21FieldsDisplay;
+    }
+  | { GenericDisplayMessage: string };
+/**
+ * ICRC-21 Canister Call Consent Message types.
+ */
+export interface Icrc21ConsentMessageMetadata {
+  utc_offset_minutes: [] | [number];
+  language: string;
+}
+export interface Icrc21ConsentMessageRequest {
+  arg: Uint8Array;
+  method: string;
+  user_preferences: Icrc21ConsentMessageSpec;
+}
+export interface Icrc21ConsentMessageSpec {
+  metadata: Icrc21ConsentMessageMetadata;
+  device_spec: [] | [Icrc21DeviceSpec];
+}
+export type Icrc21DeviceSpec =
+  | { GenericDisplay: null }
+  | { FieldsDisplay: null };
+export type Icrc21Error =
+  | {
+      GenericError: { description: string; error_code: bigint };
+    }
+  | { InsufficientPayment: Icrc21ErrorInfo }
+  | { UnsupportedCanisterCall: Icrc21ErrorInfo }
+  | { ConsentMessageUnavailable: Icrc21ErrorInfo };
+export interface Icrc21ErrorInfo {
+  description: string;
+}
+export interface Icrc21FieldsDisplay {
+  fields: Array<[string, Icrc21Value]>;
+  intent: string;
+}
+export type Icrc21Value =
+  | { Text: { content: string } }
+  | {
+      TokenAmount: {
+        decimals: number;
+        amount: bigint;
+        symbol: string;
+      };
+    }
+  | { TimestampSeconds: { amount: bigint } }
+  | { DurationSeconds: { amount: bigint } };
+/**
  * The initialization parameters of the minter canister.
  */
 export interface InitArgs {
@@ -960,6 +1020,19 @@ export interface _SERVICE {
    * before withdrawing BTC using the [retrieve_btc] endpoint.
    */
   get_withdrawal_account: ActorMethod<[], Account>;
+  /**
+   * Returns the list of supported ICRC standards.
+   */
+  icrc10_supported_standards: ActorMethod<[], Array<Icrc10StandardRecord>>;
+  /**
+   * Returns a human-readable consent message describing the requested
+   * canister call. See the ICRC-21 standard for details:
+   * https://github.com/dfinity/ICRC/blob/main/ICRCs/ICRC-21/ICRC-21.md
+   */
+  icrc21_canister_call_consent_message: ActorMethod<
+    [Icrc21ConsentMessageRequest],
+    { Ok: Icrc21ConsentInfo } | { Err: Icrc21Error }
+  >;
   /**
    * Submits a request to convert ckBTC to BTC.
    *

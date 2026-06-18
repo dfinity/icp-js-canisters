@@ -15,8 +15,11 @@ export interface AddErc20Arg {
   ledger_init_arg: LedgerInitArg;
 }
 export interface CanisterStatusResponse {
+  memory_metrics: MemoryMetrics;
   status: CanisterStatusType;
   memory_size: bigint;
+  ready_for_migration: boolean;
+  version: bigint;
   cycles: bigint;
   settings: DefiniteCanisterSettings;
   query_stats: QueryStats;
@@ -48,6 +51,8 @@ export interface CyclesManagement {
 }
 export interface DefiniteCanisterSettings {
   freezing_threshold: bigint;
+  wasm_memory_threshold: bigint;
+  environment_variables: Array<environment_variable>;
   controllers: Array<Principal>;
   reserved_cycles_limit: bigint;
   log_visibility: LogVisibility;
@@ -190,6 +195,16 @@ export interface ManagedLedgerSuite {
    */
   archives: Array<Principal>;
 }
+export interface MemoryMetrics {
+  wasm_binary_size: bigint;
+  wasm_chunk_store_size: bigint;
+  canister_history_size: bigint;
+  stable_memory_size: bigint;
+  snapshots_size: bigint;
+  wasm_memory_size: bigint;
+  global_memory_size: bigint;
+  custom_sections_size: bigint;
+}
 export type OrchestratorArg =
   | { UpgradeArg: UpgradeArg }
   | { InitArg: InitArg }
@@ -288,6 +303,10 @@ export interface UpgradeArg {
    * Leaving this field empty will not upgrade the index canisters.
    */
   index_compressed_wasm_hash: [] | [string];
+}
+export interface environment_variable {
+  value: string;
+  name: string;
 }
 export interface _SERVICE {
   /**
