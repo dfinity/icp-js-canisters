@@ -112,6 +112,7 @@ describe("response.converters", () => {
     voting_power: 0n,
     age_seconds: 0n,
     eight_year_gang_bonus_base_e8s: [32n],
+    staked_maturity_e8s_equivalent: [],
   };
 
   const defaultNeuronInfo: NeuronInfo = {
@@ -590,6 +591,7 @@ describe("response.converters", () => {
       const rootfsHash = "rootfs_hash";
       const measurement = Uint8Array.from([4, 5, 6]);
       const kernelCmdline = "kernel_cmdline";
+      const vcpuType = "vcpu_type";
 
       const candidProposalInfo: NnsGovernanceDid.ProposalInfo = {
         id: [{ id: 100n }],
@@ -618,6 +620,7 @@ describe("response.converters", () => {
                             metadata: [
                               {
                                 kernel_cmdline: [kernelCmdline],
+                                vcpu_type: [vcpuType],
                               },
                             ],
                           },
@@ -640,6 +643,7 @@ describe("response.converters", () => {
         reward_status: 1,
         total_potential_voting_power: [],
         failure_reason: [],
+        success_value: [],
         derived_proposal_information: [],
       };
 
@@ -665,6 +669,7 @@ describe("response.converters", () => {
                     measurement,
                     metadata: {
                       kernelCmdline,
+                      vcpuType,
                     },
                   },
                 ],
@@ -725,6 +730,7 @@ describe("response.converters", () => {
         reward_status: 1,
         total_potential_voting_power: [],
         failure_reason: [],
+        success_value: [],
         derived_proposal_information: [],
       };
 
@@ -800,6 +806,7 @@ describe("response.converters", () => {
         reward_status: 1,
         total_potential_voting_power: [],
         failure_reason: [],
+        success_value: [],
         derived_proposal_information: [],
       };
 
@@ -891,6 +898,7 @@ describe("response.converters", () => {
         reward_status: 1,
         total_potential_voting_power: [],
         failure_reason: [],
+        success_value: [],
         derived_proposal_information: [],
       };
 
@@ -996,6 +1004,7 @@ describe("response.converters", () => {
         reward_status: 1,
         total_potential_voting_power: [],
         failure_reason: [],
+        success_value: [],
         derived_proposal_information: [],
       };
 
@@ -1052,6 +1061,7 @@ describe("response.converters", () => {
         reward_status: 1,
         total_potential_voting_power: [],
         failure_reason: [],
+        success_value: [],
         derived_proposal_information: [],
       };
 

@@ -662,6 +662,7 @@ const fromAction = (
                               kernel_cmdline: toNullable(
                                 m.metadata.kernelCmdline,
                               ),
+                              vcpu_type: toNullable(m.metadata.vcpuType),
                             }
                           : undefined,
                       ),

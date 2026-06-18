@@ -707,7 +707,10 @@ const toAction = (action: NnsGovernanceDid.Action): Action => {
                 return {
                   measurement: fromNullable(m.measurement),
                   metadata: nonNullish(metadata)
-                    ? { kernelCmdline: fromNullable(metadata.kernel_cmdline) }
+                    ? {
+                        kernelCmdline: fromNullable(metadata.kernel_cmdline),
+                        vcpuType: fromNullable(metadata.vcpu_type),
+                      }
                     : undefined,
                 };
               }),

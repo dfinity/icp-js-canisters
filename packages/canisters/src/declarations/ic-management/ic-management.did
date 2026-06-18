@@ -1,4 +1,4 @@
-// Generated from dfinity/portal commit b8e9eff00e648fed39582848b650d952fe0674d1 for file 'docs/references/_attachments/ic.did'
+// Generated from dfinity/portal commit fe646b2990d25d0f00714d50d9df283dac5d2e91 for file 'docs/references/_attachments/ic.did'
 
 type canister_id = principal;
 type wasm_module = blob;
@@ -513,6 +513,15 @@ type fetch_canister_logs_result = record {
     canister_log_records : vec canister_log_record;
 };
 
+type canister_id_range = record {
+    start : canister_id;
+    end : canister_id;
+};
+
+type list_canisters_result = record {
+    canisters : vec canister_id_range;
+};
+
 type read_canister_snapshot_metadata_args = record {
     canister_id : canister_id;
     snapshot_id : snapshot_id;
@@ -623,6 +632,30 @@ type upload_canister_snapshot_data_args = record {
     chunk : blob;
 };
 
+type cycles_consumed = record {
+  memory : nat;
+  compute_allocation : nat;
+  ingress_induction : nat;
+  instructions : nat;
+  request_and_response_transmission : nat;
+  // This metric applies to canisters that ran out of cycles. In particular,
+  // uninstalling code explicitly would not result in this metric being updated.
+  // In fact, others might be updated in that case, e.g. cycles for ingress induction
+  // if the uninstallation of the canister was requested via an ingress message.
+  uninstall : nat;
+  canister_creation : nat;
+  http_outcalls : nat;
+  burned_cycles : nat;
+};
+
+type canister_metrics_args = record {
+  canister_id : canister_id;
+};
+
+type canister_metrics_result = record {
+  cycles_consumed : cycles_consumed;
+};
+
 service ic : {
     create_canister : (create_canister_args) -> (create_canister_result);
     update_settings : (update_settings_args) -> ();
@@ -635,6 +668,8 @@ service ic : {
     start_canister : (start_canister_args) -> ();
     stop_canister : (stop_canister_args) -> ();
     canister_status : (canister_status_args) -> (canister_status_result) query;
+    // Returns canister related metrics
+    canister_metrics: (canister_metrics_args) -> (canister_metrics_result) query;
     delete_canister : (delete_canister_args) -> ();
     deposit_cycles : (deposit_cycles_args) -> ();
     raw_rand : () -> (raw_rand_result);
@@ -685,4 +720,7 @@ service ic : {
 
     // canister logging
     fetch_canister_logs : (fetch_canister_logs_args) -> (fetch_canister_logs_result) query;
+
+    // subnet admin methods
+    list_canisters : () -> (list_canisters_result) query;
 };
