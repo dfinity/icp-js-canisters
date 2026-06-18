@@ -1,13 +1,8 @@
-// Generated from IC repo commit 606cab7 (2026-04-01 tags: release-2026-04-02_04-48-base) 'rs/nns/cmc/cmc.did' by import-candid
+// Generated from IC repo commit 93274f1 (2026-06-15 tags: release-2026-06-12_04-52-hotfix) 'rs/nns/cmc/cmc.did' by import-candid
 
 type Cycles = nat;
 type BlockIndex = nat64;
 type log_visibility = variant {
-  controllers;
-  public;
-  allowed_viewers : vec principal;
-};
-type snapshot_visibility = variant {
   controllers;
   public;
   allowed_viewers : vec principal;
@@ -23,11 +18,9 @@ type CanisterSettings = record {
   freezing_threshold : opt nat;
   reserved_cycles_limit : opt nat;
   log_visibility : opt log_visibility;
-  snapshot_visibility : opt snapshot_visibility;
   wasm_memory_limit : opt nat;
   wasm_memory_threshold : opt nat;
   environment_variables : opt vec environment_variable;
-  log_memory_limit : opt nat;
 };
 type Subaccount = opt blob;
 type Memo = opt blob;
