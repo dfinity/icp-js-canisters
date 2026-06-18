@@ -322,6 +322,7 @@ export interface FulfillSubnetRentalRequest {
 }
 export interface GuestLaunchMeasurementMetadata {
   kernelCmdline: Option<string>;
+  vcpuType: Option<string>;
 }
 export interface GuestLaunchMeasurement {
   metadata: Option<GuestLaunchMeasurementMetadata>;

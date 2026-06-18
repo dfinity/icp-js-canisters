@@ -714,6 +714,7 @@ describe("request.converters", () => {
             measurement: Uint8Array.from([4, 5, 6]),
             metadata: {
               kernelCmdline: "kernel_cmdline",
+              vcpuType: "vcpu_type",
             },
           },
         ],
@@ -755,6 +756,7 @@ describe("request.converters", () => {
                               metadata: [
                                 {
                                   kernel_cmdline: ["kernel_cmdline"],
+                                  vcpu_type: ["vcpu_type"],
                                 },
                               ],
                             },

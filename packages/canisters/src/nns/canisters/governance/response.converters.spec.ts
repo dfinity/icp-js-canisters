@@ -590,6 +590,7 @@ describe("response.converters", () => {
       const rootfsHash = "rootfs_hash";
       const measurement = Uint8Array.from([4, 5, 6]);
       const kernelCmdline = "kernel_cmdline";
+      const vcpuType = "vcpu_type";
 
       const candidProposalInfo: NnsGovernanceDid.ProposalInfo = {
         id: [{ id: 100n }],
@@ -618,6 +619,7 @@ describe("response.converters", () => {
                             metadata: [
                               {
                                 kernel_cmdline: [kernelCmdline],
+                                vcpu_type: [vcpuType],
                               },
                             ],
                           },
@@ -665,6 +667,7 @@ describe("response.converters", () => {
                     measurement,
                     metadata: {
                       kernelCmdline,
+                      vcpuType,
                     },
                   },
                 ],
