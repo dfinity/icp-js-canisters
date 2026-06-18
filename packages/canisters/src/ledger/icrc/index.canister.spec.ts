@@ -48,6 +48,8 @@ describe("Index canister", () => {
           },
         ],
         approve: [],
+        authorized_burn: [],
+        authorized_mint: [],
         fee_collector: [],
       };
       const transactionWithId = {
