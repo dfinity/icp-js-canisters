@@ -106,19 +106,23 @@ jobs:
         run: |
           set -euo pipefail
 
-          mapfile -t previous_prs < <(
+          # Run gh separately so a failure (auth, rate limit) aborts the step
+          # instead of being swallowed by process substitution.
+          previous_prs_tsv="$(
             gh pr list \
               --repo "$REPO" \
               --state open \
               --limit 200 \
               --json number,title,headRefName,headRepositoryOwner \
               --jq '.[] | select(.number != (env.NEW_PR_NUMBER | tonumber) and .title == env.PR_TITLE and (.headRefName | startswith(env.PR_BRANCH_PREFIX)) and .headRepositoryOwner.login == env.REPO_OWNER) | [.number, .headRefName] | @tsv'
-          )
+          )"
 
-          if [[ "${#previous_prs[@]}" -eq 0 ]]; then
+          if [[ -z "$previous_prs_tsv" ]]; then
             echo "No previous IC update pull requests to close."
             exit 0
           fi
+
+          mapfile -t previous_prs <<< "$previous_prs_tsv"
 
           close_comment="Closing this superseded automated IC Candid update PR because workflow run ${RUN_URL} opened PR #${NEW_PR_NUMBER} as a fresh replacement. The new PR contains the latest generated Candid files and bindings, so keeping older generated PRs open creates duplicate review work."
 
