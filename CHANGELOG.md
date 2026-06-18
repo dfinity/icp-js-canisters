@@ -2,6 +2,11 @@
 
 ## Next
 
+### Features
+
+- Update latest Candid files.
+- NNS: support the new `vcpuType` field on `GuestLaunchMeasurement` metadata, wired through the `BlessAlternativeGuestOsVersion` proposal request and response converters.
+
 ## 97
 
 ### Overview
