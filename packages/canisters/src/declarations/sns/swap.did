@@ -1,4 +1,4 @@
-// Generated from IC repo commit 606cab7 (2026-04-01 tags: release-2026-04-02_04-48-base) 'rs/sns/swap/canister/swap.did' by import-candid
+// Generated from IC repo commit 93274f1 (2026-06-15 tags: release-2026-06-12_04-52-hotfix) 'rs/sns/swap/canister/swap.did' by import-candid
 
 type BuyerState = record {
   icp : opt TransferableAmount;

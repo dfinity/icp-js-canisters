@@ -197,6 +197,16 @@ export const idlFactory = ({ IDL }) => {
     error_type: IDL.Int32,
   });
   const Ballot = IDL.Record({ vote: IDL.Int32, voting_power: IDL.Nat64 });
+  const TakeCanisterSnapshotOk = IDL.Record({
+    snapshot_id: IDL.Vec(IDL.Nat8),
+  });
+  const CreateCanisterAndInstallCodeOk = IDL.Record({
+    canister_id: IDL.Opt(IDL.Principal),
+  });
+  const SuccessfulProposalExecutionValue = IDL.Variant({
+    TakeCanisterSnapshot: TakeCanisterSnapshotOk,
+    CreateCanisterAndInstallCode: CreateCanisterAndInstallCodeOk,
+  });
   const SwapParticipationLimits = IDL.Record({
     min_participant_icp_e8s: IDL.Opt(IDL.Nat64),
     max_participant_icp_e8s: IDL.Opt(IDL.Nat64),
@@ -297,6 +307,7 @@ export const idlFactory = ({ IDL }) => {
     known_neuron_data: IDL.Opt(KnownNeuronData),
   });
   const FulfillSubnetRentalRequest = IDL.Record({
+    initial_dkg_subnet_id: IDL.Opt(IDL.Principal),
     user: IDL.Opt(IDL.Principal),
     replica_version_id: IDL.Opt(IDL.Text),
     node_ids: IDL.Opt(IDL.Vec(IDL.Principal)),
@@ -421,6 +432,7 @@ export const idlFactory = ({ IDL }) => {
   });
   const GuestLaunchMeasurementMetadata = IDL.Record({
     kernel_cmdline: IDL.Opt(IDL.Text),
+    vcpu_type: IDL.Opt(IDL.Text),
   });
   const GuestLaunchMeasurement = IDL.Record({
     metadata: IDL.Opt(GuestLaunchMeasurementMetadata),
@@ -670,6 +682,7 @@ export const idlFactory = ({ IDL }) => {
     proposal_timestamp_seconds: IDL.Nat64,
     reward_event_round: IDL.Nat64,
     failed_timestamp_seconds: IDL.Nat64,
+    success_value: IDL.Opt(SuccessfulProposalExecutionValue),
     neurons_fund_data: IDL.Opt(NeuronsFundData),
     reject_cost_e8s: IDL.Nat64,
     derived_proposal_information: IDL.Opt(DerivedProposalInformation),
@@ -788,6 +801,14 @@ export const idlFactory = ({ IDL }) => {
     Err: GovernanceError,
   });
   const Result_2 = IDL.Variant({ Ok: Neuron, Err: GovernanceError });
+  const GetMaturityModulationRequest = IDL.Record({});
+  const MaturityModulation = IDL.Record({
+    current_value_permyriad: IDL.Opt(IDL.Int32),
+    updated_at_timestamp_seconds: IDL.Opt(IDL.Nat64),
+  });
+  const GetMaturityModulationResponse = IDL.Record({
+    maturity_modulation: IDL.Opt(MaturityModulation),
+  });
   const Result_3 = IDL.Variant({
     Ok: GovernanceCachedMetrics,
     Err: GovernanceError,
@@ -802,6 +823,7 @@ export const idlFactory = ({ IDL }) => {
   });
   const NeuronInfo = IDL.Record({
     id: IDL.Opt(NeuronId),
+    staked_maturity_e8s_equivalent: IDL.Opt(IDL.Nat64),
     dissolve_delay_seconds: IDL.Nat64,
     recent_ballots: IDL.Vec(BallotInfo),
     voting_power_refreshed_timestamp_seconds: IDL.Opt(IDL.Nat64),
@@ -857,6 +879,7 @@ export const idlFactory = ({ IDL }) => {
     reward_event_round: IDL.Nat64,
     deadline_timestamp_seconds: IDL.Opt(IDL.Nat64),
     failed_timestamp_seconds: IDL.Nat64,
+    success_value: IDL.Opt(SuccessfulProposalExecutionValue),
     reject_cost_e8s: IDL.Nat64,
     derived_proposal_information: IDL.Opt(DerivedProposalInformation),
     latest_tally: IDL.Opt(Tally),
@@ -1108,6 +1131,11 @@ export const idlFactory = ({ IDL }) => {
       ["query"],
     ),
     get_latest_reward_event: IDL.Func([], [RewardEvent], ["query"]),
+    get_maturity_modulation: IDL.Func(
+      [GetMaturityModulationRequest],
+      [GetMaturityModulationResponse],
+      ["query"],
+    ),
     get_metrics: IDL.Func([], [Result_3], ["query"]),
     get_monthly_node_provider_rewards: IDL.Func([], [Result_4], []),
     get_most_recent_monthly_node_provider_rewards: IDL.Func(
@@ -1379,6 +1407,16 @@ export const init = ({ IDL }) => {
     error_type: IDL.Int32,
   });
   const Ballot = IDL.Record({ vote: IDL.Int32, voting_power: IDL.Nat64 });
+  const TakeCanisterSnapshotOk = IDL.Record({
+    snapshot_id: IDL.Vec(IDL.Nat8),
+  });
+  const CreateCanisterAndInstallCodeOk = IDL.Record({
+    canister_id: IDL.Opt(IDL.Principal),
+  });
+  const SuccessfulProposalExecutionValue = IDL.Variant({
+    TakeCanisterSnapshot: TakeCanisterSnapshotOk,
+    CreateCanisterAndInstallCode: CreateCanisterAndInstallCodeOk,
+  });
   const SwapParticipationLimits = IDL.Record({
     min_participant_icp_e8s: IDL.Opt(IDL.Nat64),
     max_participant_icp_e8s: IDL.Opt(IDL.Nat64),
@@ -1479,6 +1517,7 @@ export const init = ({ IDL }) => {
     known_neuron_data: IDL.Opt(KnownNeuronData),
   });
   const FulfillSubnetRentalRequest = IDL.Record({
+    initial_dkg_subnet_id: IDL.Opt(IDL.Principal),
     user: IDL.Opt(IDL.Principal),
     replica_version_id: IDL.Opt(IDL.Text),
     node_ids: IDL.Opt(IDL.Vec(IDL.Principal)),
@@ -1603,6 +1642,7 @@ export const init = ({ IDL }) => {
   });
   const GuestLaunchMeasurementMetadata = IDL.Record({
     kernel_cmdline: IDL.Opt(IDL.Text),
+    vcpu_type: IDL.Opt(IDL.Text),
   });
   const GuestLaunchMeasurement = IDL.Record({
     metadata: IDL.Opt(GuestLaunchMeasurementMetadata),
@@ -1852,6 +1892,7 @@ export const init = ({ IDL }) => {
     proposal_timestamp_seconds: IDL.Nat64,
     reward_event_round: IDL.Nat64,
     failed_timestamp_seconds: IDL.Nat64,
+    success_value: IDL.Opt(SuccessfulProposalExecutionValue),
     neurons_fund_data: IDL.Opt(NeuronsFundData),
     reject_cost_e8s: IDL.Nat64,
     derived_proposal_information: IDL.Opt(DerivedProposalInformation),
