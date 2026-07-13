@@ -49,6 +49,7 @@ export const idlFactory = ({ IDL }) => {
     controllers: IDL.Opt(IDL.Vec(IDL.Principal)),
     reserved_cycles_limit: IDL.Opt(IDL.Nat),
     log_visibility: IDL.Opt(log_visibility),
+    log_memory_limit: IDL.Opt(IDL.Nat),
     wasm_memory_limit: IDL.Opt(IDL.Nat),
     memory_allocation: IDL.Opt(IDL.Nat),
     compute_allocation: IDL.Opt(IDL.Nat),

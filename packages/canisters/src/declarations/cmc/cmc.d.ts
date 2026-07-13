@@ -19,6 +19,7 @@ export interface CanisterSettings {
   controllers: [] | [Array<Principal>];
   reserved_cycles_limit: [] | [bigint];
   log_visibility: [] | [log_visibility];
+  log_memory_limit: [] | [bigint];
   wasm_memory_limit: [] | [bigint];
   memory_allocation: [] | [bigint];
   compute_allocation: [] | [bigint];
