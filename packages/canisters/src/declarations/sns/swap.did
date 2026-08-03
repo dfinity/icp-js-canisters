@@ -1,4 +1,4 @@
-// Generated from IC repo commit 0e5c184 (2026-07-17 tags: release-2026-07-17_04-19-deterministic-tracker) 'rs/sns/swap/canister/swap.did' by import-candid
+// Generated from IC repo commit e3d101b (2026-07-30 tags: release-2026-07-31_04-23-base) 'rs/sns/swap/canister/swap.did' by import-candid
 
 type BuyerState = record {
   icp : opt TransferableAmount;

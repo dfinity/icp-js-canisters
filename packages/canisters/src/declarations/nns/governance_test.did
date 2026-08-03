@@ -1,4 +1,4 @@
-// Generated from IC repo commit 037b411 (2026-06-18) 'packages/canisters/src/declarations/nns/governance_test.did.tmp' by import-candid
+// Generated from IC repo commit 06e43eb (2026-07-24) 'packages/canisters/src/declarations/nns/governance_test.did.tmp' by import-candid
 
 type AccountIdentifier = record {
   hash : blob;
@@ -27,6 +27,7 @@ type Action = variant {
   TakeCanisterSnapshot : TakeCanisterSnapshot;
   LoadCanisterSnapshot : LoadCanisterSnapshot;
   CreateCanisterAndInstallCode : CreateCanisterAndInstallCode;
+  UpdateStandardEngineReplicaVersion : UpdateStandardEngineReplicaVersion;
 };
 
 type AddHotKey = record {
@@ -1103,6 +1104,7 @@ type ProposalActionRequest = variant {
   TakeCanisterSnapshot : TakeCanisterSnapshot;
   LoadCanisterSnapshot : LoadCanisterSnapshot;
   CreateCanisterAndInstallCode : CreateCanisterAndInstallCodeRequest;
+  UpdateStandardEngineReplicaVersion : UpdateStandardEngineReplicaVersion;
 };
 
 // Creates a rented subnet from a rental request (in the Subnet Rental
@@ -1157,6 +1159,13 @@ type BlessAlternativeGuestOsVersion = record {
   //
   // (Here, we refer to the version being replaced as the "base" version.)
   base_guest_launch_measurements : opt GuestLaunchMeasurements; };
+
+// Changes what replica version(s) are run by Cloud Engines.
+type UpdateStandardEngineReplicaVersion = record {
+  new_replica_version_id : opt text;
+  old_replica_version_id : opt text;
+  deployment_progress : opt float64;
+};
 
 type GuestLaunchMeasurements = record {
   guest_launch_measurements : opt vec GuestLaunchMeasurement;

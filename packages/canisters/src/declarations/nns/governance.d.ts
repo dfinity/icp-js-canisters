@@ -18,6 +18,9 @@ export interface AccountIdentifier {
   hash: Uint8Array;
 }
 export type Action =
+  | {
+      UpdateStandardEngineReplicaVersion: UpdateStandardEngineReplicaVersion;
+    }
   | { RegisterKnownNeuron: KnownNeuron }
   | { FulfillSubnetRentalRequest: FulfillSubnetRentalRequest }
   | { ManageNeuron: ManageNeuronProposal }
@@ -1115,6 +1118,9 @@ export interface Proposal {
   self_describing_action: [] | [SelfDescribingProposalAction];
 }
 export type ProposalActionRequest =
+  | {
+      UpdateStandardEngineReplicaVersion: UpdateStandardEngineReplicaVersion;
+    }
   | { RegisterKnownNeuron: KnownNeuron }
   | { FulfillSubnetRentalRequest: FulfillSubnetRentalRequest }
   | { ManageNeuron: ManageNeuronRequest }
@@ -1407,6 +1413,14 @@ export interface UpdateCanisterSettings {
 }
 export interface UpdateNodeProvider {
   reward_account: [] | [AccountIdentifier];
+}
+/**
+ * Changes what replica version(s) are run by Cloud Engines.
+ */
+export interface UpdateStandardEngineReplicaVersion {
+  new_replica_version_id: [] | [string];
+  old_replica_version_id: [] | [string];
+  deployment_progress: [] | [number];
 }
 export type Vote =
   | { No: null }

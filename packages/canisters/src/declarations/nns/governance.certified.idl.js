@@ -276,6 +276,11 @@ export const idlFactory = ({ IDL }) => {
     total: IDL.Nat64,
     timestamp_seconds: IDL.Nat64,
   });
+  const UpdateStandardEngineReplicaVersion = IDL.Record({
+    new_replica_version_id: IDL.Opt(IDL.Text),
+    old_replica_version_id: IDL.Opt(IDL.Text),
+    deployment_progress: IDL.Opt(IDL.Float64),
+  });
   const TopicToFollow = IDL.Variant({
     Kyc: IDL.Null,
     ServiceNervousSystemManagement: IDL.Null,
@@ -622,6 +627,7 @@ export const idlFactory = ({ IDL }) => {
   const AddOrRemoveNodeProvider = IDL.Record({ change: IDL.Opt(Change) });
   const Motion = IDL.Record({ motion_text: IDL.Text });
   const Action = IDL.Variant({
+    UpdateStandardEngineReplicaVersion: UpdateStandardEngineReplicaVersion,
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronProposal,
@@ -970,6 +976,7 @@ export const idlFactory = ({ IDL }) => {
     host_subnet_id: IDL.Opt(IDL.Principal),
   });
   const ProposalActionRequest = IDL.Variant({
+    UpdateStandardEngineReplicaVersion: UpdateStandardEngineReplicaVersion,
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronRequest,
@@ -1477,6 +1484,11 @@ export const init = ({ IDL }) => {
     total: IDL.Nat64,
     timestamp_seconds: IDL.Nat64,
   });
+  const UpdateStandardEngineReplicaVersion = IDL.Record({
+    new_replica_version_id: IDL.Opt(IDL.Text),
+    old_replica_version_id: IDL.Opt(IDL.Text),
+    deployment_progress: IDL.Opt(IDL.Float64),
+  });
   const TopicToFollow = IDL.Variant({
     Kyc: IDL.Null,
     ServiceNervousSystemManagement: IDL.Null,
@@ -1823,6 +1835,7 @@ export const init = ({ IDL }) => {
   const AddOrRemoveNodeProvider = IDL.Record({ change: IDL.Opt(Change) });
   const Motion = IDL.Record({ motion_text: IDL.Text });
   const Action = IDL.Variant({
+    UpdateStandardEngineReplicaVersion: UpdateStandardEngineReplicaVersion,
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronProposal,
