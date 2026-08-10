@@ -1,4 +1,4 @@
-// Generated from IC repo commit 0e5c184 (2026-07-17 tags: release-2026-07-17_04-19-deterministic-tracker) 'rs/ledger_suite/icrc1/index-ng/index-ng.did' by import-candid
+// Generated from IC repo commit fffab35 (2026-08-05 tags: release-2026-08-06_04-21-base) 'rs/ledger_suite/icrc1/index-ng/index-ng.did' by import-candid
 
 type Tokens = nat;
 

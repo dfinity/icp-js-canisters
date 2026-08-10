@@ -276,6 +276,11 @@ export const idlFactory = ({ IDL }) => {
     total: IDL.Nat64,
     timestamp_seconds: IDL.Nat64,
   });
+  const UpdateStandardEngineReplicaVersion = IDL.Record({
+    new_replica_version_id: IDL.Opt(IDL.Text),
+    old_replica_version_id: IDL.Opt(IDL.Text),
+    deployment_progress: IDL.Opt(IDL.Float64),
+  });
   const TopicToFollow = IDL.Variant({
     Kyc: IDL.Null,
     ServiceNervousSystemManagement: IDL.Null,
@@ -461,11 +466,16 @@ export const idlFactory = ({ IDL }) => {
     canister_id: IDL.Opt(IDL.Principal),
     settings: IDL.Opt(CanisterSettings),
   });
+  const CanisterUpgradeOptions = IDL.Record({
+    wasm_memory_persistence: IDL.Opt(IDL.Int32),
+    skip_pre_upgrade: IDL.Opt(IDL.Bool),
+  });
   const InstallCode = IDL.Record({
     skip_stopping_before_installing: IDL.Opt(IDL.Bool),
     wasm_module_hash: IDL.Opt(IDL.Vec(IDL.Nat8)),
     canister_id: IDL.Opt(IDL.Principal),
     arg_hash: IDL.Opt(IDL.Vec(IDL.Nat8)),
+    canister_upgrade_options: IDL.Opt(CanisterUpgradeOptions),
     install_mode: IDL.Opt(IDL.Int32),
   });
   const DeregisterKnownNeuron = IDL.Record({ id: IDL.Opt(NeuronId) });
@@ -622,6 +632,7 @@ export const idlFactory = ({ IDL }) => {
   const AddOrRemoveNodeProvider = IDL.Record({ change: IDL.Opt(Change) });
   const Motion = IDL.Record({ motion_text: IDL.Text });
   const Action = IDL.Variant({
+    UpdateStandardEngineReplicaVersion: UpdateStandardEngineReplicaVersion,
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronProposal,
@@ -960,6 +971,7 @@ export const idlFactory = ({ IDL }) => {
     wasm_module: IDL.Opt(IDL.Vec(IDL.Nat8)),
     skip_stopping_before_installing: IDL.Opt(IDL.Bool),
     canister_id: IDL.Opt(IDL.Principal),
+    canister_upgrade_options: IDL.Opt(CanisterUpgradeOptions),
     install_mode: IDL.Opt(IDL.Int32),
   });
   const WasmModule = IDL.Variant({ Inlined: IDL.Vec(IDL.Nat8) });
@@ -970,6 +982,7 @@ export const idlFactory = ({ IDL }) => {
     host_subnet_id: IDL.Opt(IDL.Principal),
   });
   const ProposalActionRequest = IDL.Variant({
+    UpdateStandardEngineReplicaVersion: UpdateStandardEngineReplicaVersion,
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronRequest,
@@ -1486,6 +1499,11 @@ export const init = ({ IDL }) => {
     total: IDL.Nat64,
     timestamp_seconds: IDL.Nat64,
   });
+  const UpdateStandardEngineReplicaVersion = IDL.Record({
+    new_replica_version_id: IDL.Opt(IDL.Text),
+    old_replica_version_id: IDL.Opt(IDL.Text),
+    deployment_progress: IDL.Opt(IDL.Float64),
+  });
   const TopicToFollow = IDL.Variant({
     Kyc: IDL.Null,
     ServiceNervousSystemManagement: IDL.Null,
@@ -1671,11 +1689,16 @@ export const init = ({ IDL }) => {
     canister_id: IDL.Opt(IDL.Principal),
     settings: IDL.Opt(CanisterSettings),
   });
+  const CanisterUpgradeOptions = IDL.Record({
+    wasm_memory_persistence: IDL.Opt(IDL.Int32),
+    skip_pre_upgrade: IDL.Opt(IDL.Bool),
+  });
   const InstallCode = IDL.Record({
     skip_stopping_before_installing: IDL.Opt(IDL.Bool),
     wasm_module_hash: IDL.Opt(IDL.Vec(IDL.Nat8)),
     canister_id: IDL.Opt(IDL.Principal),
     arg_hash: IDL.Opt(IDL.Vec(IDL.Nat8)),
+    canister_upgrade_options: IDL.Opt(CanisterUpgradeOptions),
     install_mode: IDL.Opt(IDL.Int32),
   });
   const DeregisterKnownNeuron = IDL.Record({ id: IDL.Opt(NeuronId) });
@@ -1832,6 +1855,7 @@ export const init = ({ IDL }) => {
   const AddOrRemoveNodeProvider = IDL.Record({ change: IDL.Opt(Change) });
   const Motion = IDL.Record({ motion_text: IDL.Text });
   const Action = IDL.Variant({
+    UpdateStandardEngineReplicaVersion: UpdateStandardEngineReplicaVersion,
     RegisterKnownNeuron: KnownNeuron,
     FulfillSubnetRentalRequest: FulfillSubnetRentalRequest,
     ManageNeuron: ManageNeuronProposal,

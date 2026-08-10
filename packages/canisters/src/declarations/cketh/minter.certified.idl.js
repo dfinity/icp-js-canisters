@@ -87,6 +87,20 @@ export const idlFactory = ({ IDL }) => {
     Ok: IDL.Opt(DecodedMemo),
     Err: IDL.Opt(DecodeLedgerMemoError),
   });
+  const DepositMode = IDL.Variant({
+    Unsponsored: IDL.Record({ subaccount: IDL.Opt(IDL.Vec(IDL.Nat8)) }),
+  });
+  const DepositErc20Arg = IDL.Record({ mode: DepositMode });
+  const DepositErc20Response = IDL.Record({
+    valid_until: IDL.Nat64,
+    address: IDL.Text,
+    scan_count: IDL.Nat64,
+    last_scanned_block: IDL.Opt(IDL.Nat),
+  });
+  const DepositErc20Error = IDL.Variant({
+    TemporarilyUnavailable: IDL.Text,
+    TooManyActiveAddresses: IDL.Null,
+  });
   const Eip1559TransactionPriceArg = IDL.Record({
     ckerc20_ledger_id: IDL.Principal,
   });
@@ -236,6 +250,20 @@ export const idlFactory = ({ IDL }) => {
         transaction: UnsignedTransaction,
       }),
       QuarantinedReimbursement: IDL.Record({ index: ReimbursementIndex }),
+      RegisteredDepositAddresses: IDL.Record({
+        registrations: IDL.Vec(
+          IDL.Record({
+            expires_at_nanos: IDL.Nat64,
+            owner: IDL.Principal,
+            subaccount: IDL.Opt(Subaccount),
+            address: IDL.Text,
+            scan_count: IDL.Nat64,
+            last_scanned_block: IDL.Opt(IDL.Nat),
+          }),
+        ),
+        capacity: IDL.Nat64,
+        scan_window_nanos: IDL.Nat64,
+      }),
       MintedCkEth: IDL.Record({
         event_source: EventSource,
         mint_block_index: IDL.Nat,
@@ -442,6 +470,16 @@ export const idlFactory = ({ IDL }) => {
     decode_ledger_memo: IDL.Func(
       [DecodeLedgerMemoArgs],
       [DecodeLedgerMemoResult],
+      [],
+    ),
+    deposit_erc20: IDL.Func(
+      [DepositErc20Arg],
+      [
+        IDL.Variant({
+          Ok: DepositErc20Response,
+          Err: DepositErc20Error,
+        }),
+      ],
       [],
     ),
     eip_1559_transaction_price: IDL.Func(
