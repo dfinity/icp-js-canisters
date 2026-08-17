@@ -1,4 +1,4 @@
-// Generated from IC repo commit 0e5c184 (2026-07-17 tags: release-2026-07-17_04-19-deterministic-tracker) 'rs/sns/governance/canister/governance.did' by import-candid
+// Generated from IC repo commit 59c4249 (2026-08-12 tags: release-2026-08-13_03-55-base) 'rs/sns/governance/canister/governance.did' by import-candid
 
 type Account = record {
   owner : opt principal;

@@ -18,6 +18,9 @@ export interface AccountIdentifier {
   hash: Uint8Array;
 }
 export type Action =
+  | {
+      UpdateStandardEngineReplicaVersion: UpdateStandardEngineReplicaVersion;
+    }
   | { RegisterKnownNeuron: KnownNeuron }
   | { FulfillSubnetRentalRequest: FulfillSubnetRentalRequest }
   | { ManageNeuron: ManageNeuronProposal }
@@ -112,6 +115,10 @@ export interface CanisterStatusResultV2 {
 export interface CanisterSummary {
   status: [] | [CanisterStatusResultV2];
   canister_id: [] | [Principal];
+}
+export interface CanisterUpgradeOptions {
+  wasm_memory_persistence: [] | [number];
+  skip_pre_upgrade: [] | [boolean];
 }
 export type Change = { ToRemove: NodeProvider } | { ToAdd: NodeProvider };
 export interface ChangeAutoStakeMaturity {
@@ -513,6 +520,7 @@ export interface InstallCode {
   wasm_module_hash: [] | [Uint8Array];
   canister_id: [] | [Principal];
   arg_hash: [] | [Uint8Array];
+  canister_upgrade_options: [] | [CanisterUpgradeOptions];
   install_mode: [] | [number];
 }
 export interface InstallCodeRequest {
@@ -525,6 +533,7 @@ export interface InstallCodeRequest {
   wasm_module: [] | [Uint8Array];
   skip_stopping_before_installing: [] | [boolean];
   canister_id: [] | [Principal];
+  canister_upgrade_options: [] | [CanisterUpgradeOptions];
   install_mode: [] | [number];
 }
 export interface KnownNeuron {
@@ -1115,6 +1124,9 @@ export interface Proposal {
   self_describing_action: [] | [SelfDescribingProposalAction];
 }
 export type ProposalActionRequest =
+  | {
+      UpdateStandardEngineReplicaVersion: UpdateStandardEngineReplicaVersion;
+    }
   | { RegisterKnownNeuron: KnownNeuron }
   | { FulfillSubnetRentalRequest: FulfillSubnetRentalRequest }
   | { ManageNeuron: ManageNeuronRequest }
@@ -1407,6 +1419,14 @@ export interface UpdateCanisterSettings {
 }
 export interface UpdateNodeProvider {
   reward_account: [] | [AccountIdentifier];
+}
+/**
+ * Changes what replica version(s) are run by Cloud Engines.
+ */
+export interface UpdateStandardEngineReplicaVersion {
+  new_replica_version_id: [] | [string];
+  old_replica_version_id: [] | [string];
+  deployment_progress: [] | [number];
 }
 export type Vote =
   | { No: null }
