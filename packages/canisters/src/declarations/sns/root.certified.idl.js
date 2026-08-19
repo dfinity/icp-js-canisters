@@ -74,9 +74,17 @@ export const idlFactory = ({ IDL }) => {
     module_hash: IDL.Opt(IDL.Vec(IDL.Nat8)),
     reserved_cycles: IDL.Opt(IDL.Nat),
   });
+  const WasmMemoryPersistence = IDL.Variant({
+    keep: IDL.Null,
+    replace: IDL.Null,
+  });
+  const CanisterUpgradeOptions = IDL.Record({
+    wasm_memory_persistence: IDL.Opt(WasmMemoryPersistence),
+    skip_pre_upgrade: IDL.Opt(IDL.Bool),
+  });
   const CanisterInstallMode = IDL.Variant({
     reinstall: IDL.Null,
-    upgrade: IDL.Null,
+    upgrade: IDL.Opt(CanisterUpgradeOptions),
     install: IDL.Null,
   });
   const ChunkedCanisterWasm = IDL.Record({
