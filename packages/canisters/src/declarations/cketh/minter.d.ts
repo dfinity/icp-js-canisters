@@ -174,9 +174,118 @@ export interface DefiniteCanisterSettings {
   controllers: Array<Principal>;
   reserved_cycles_limit: bigint;
   log_visibility: LogVisibility;
+  log_memory_limit: bigint;
   wasm_memory_limit: bigint;
   memory_allocation: bigint;
   compute_allocation: bigint;
+}
+/**
+ * Argument for the deposit_erc20 endpoint.
+ */
+export interface DepositErc20Arg {
+  mode: DepositMode;
+  /**
+   * The Ethereum ERC-20 contract address of the token to deposit (e.g. USDC).
+   * Traps if it cannot be parsed as an Ethereum address. Must be a ckERC20
+   * token supported by the minter.
+   */
+  erc20_contract_address: string;
+}
+export type DepositErc20Error =
+  | {
+      /**
+       * The erc20_contract_address is not a ckERC20 token supported by the minter.
+       */
+      TokenNotSupported: { supported_tokens: Array<CkErc20Token> };
+    }
+  | {
+      /**
+       * The minter is temporarily unavailable, retry the request.
+       */
+      TemporarilyUnavailable: string;
+    }
+  | {
+      /**
+       * The maximum number of concurrently armed deposits (account, token pairs) has been reached.
+       */
+      TooManyActiveDeposits: null;
+    }
+  | {
+      /**
+       * The account already has the maximum number of ERC-20 tokens armed.
+       */
+      TooManyTokensForAccount: null;
+    };
+/**
+ * Response of the deposit_erc20 endpoint.
+ */
+export interface DepositErc20Response {
+  /**
+   * Where the deposit stands in the detect-and-sweep pipeline.
+   */
+  status: DepositStatus;
+  /**
+   * The Ethereum deposit address derived for the caller.
+   */
+  address: string;
+}
+/**
+ * How the fee for a ckERC20 deposit address registration is settled.
+ */
+export type DepositMode = {
+  /**
+   * The registration fee is deducted from the deposited amount. The deposit
+   * address is derived from the caller's principal and the given subaccount.
+   */
+  Unsponsored: { subaccount: [] | [Uint8Array] };
+};
+/**
+ * The stage a ckERC20 deposit address is at.
+ */
+export type DepositStatus =
+  | {
+      /**
+       * Armed and being scanned; no deposit at or above the minimum detected yet.
+       */
+      Scanning: {
+        /**
+         * Timestamp in nanoseconds since the Unix epoch until which a deposit
+         * sent to the address is guaranteed to be noticed by the minter.
+         */
+        valid_until: bigint;
+        /**
+         * How many times the address' balance has been scanned so far.
+         */
+        scan_count: bigint;
+        /**
+         * The latest Ethereum block at which the address' balance was scanned,
+         * or null if it has not been scanned yet.
+         */
+        last_scanned_block: [] | [bigint];
+      };
+    }
+  | {
+      /**
+       * Funds were detected at or above the minimum and queued for sweeping.
+       */
+      AwaitingSweep: DetectedDeposit;
+    };
+/**
+ * A funded token detected at a deposit address and queued for sweeping.
+ */
+export interface DetectedDeposit {
+  /**
+   * The Ethereum block at which the balance was detected.
+   */
+  detected_at_block: bigint;
+  /**
+   * The ERC-20 token contract whose balance was found.
+   */
+  erc20_contract_address: string;
+  /**
+   * The balance scanned for `erc20_contract_address`; may change before the sweep.
+   */
+  scanned_balance: bigint;
 }
 /**
  * Estimate price of an EIP-1559 transaction
@@ -295,6 +404,21 @@ export interface Event {
       }
     | { QuarantinedReimbursement: { index: ReimbursementIndex } }
     | {
+        RegisteredDepositAddresses: {
+          registrations: Array<{
+            expires_at_nanos: bigint;
+            owner: Principal;
+            subaccount: [] | [Subaccount];
+            erc20_contract_address: string;
+            address: string;
+            scan_count: bigint;
+            last_scanned_block: [] | [bigint];
+          }>;
+          capacity: bigint;
+          scan_window_nanos: bigint;
+        };
+      }
+    | {
         MintedCkEth: {
           event_source: EventSource;
           mint_block_index: bigint;
@@ -314,6 +438,16 @@ export interface Event {
           withdrawal_id: bigint;
           reimbursed_amount: bigint;
           to_subaccount: [] | [Uint8Array];
+        };
+      }
+    | {
+        AcceptedSweeperFundingRequest: {
+          ledger_burn_index: bigint;
+          destination: string;
+          withdrawal_amount: bigint;
+          from: Principal;
+          created_at: [] | [bigint];
+          from_subaccount: [] | [Uint8Array];
         };
       }
     | {
@@ -364,6 +498,17 @@ export interface Event {
           from: Principal;
           created_at: [] | [bigint];
           from_subaccount: [] | [Uint8Array];
+        };
+      }
+    | {
+        AutomaticDepositReceived: {
+          owner: Principal;
+          subaccount: [] | [Subaccount];
+          erc20_contract_address: string;
+          address: string;
+          scan_count: bigint;
+          scanned_balance: bigint;
+          last_scanned_block: bigint;
         };
       }
     | {
@@ -422,6 +567,10 @@ export interface InitArg {
    * staging EVM RPC canister based on the ethereum_network field.
    */
   evm_rpc_id: [] | [Principal];
+  /**
+   * Address of the sweeper smart contract.
+   */
+  ethereum_sweeper_contract_address: [] | [string];
   /**
    * The principal of the ledger that handles ckETH transfers.
    * The default account of the ckETH minter must be configured as
@@ -489,6 +638,7 @@ export type LogVisibility =
 export type MemoType = { Burn: null } | { Mint: null };
 export interface MemoryMetrics {
   wasm_binary_size: bigint;
+  log_memory_store_size: bigint;
   wasm_chunk_store_size: bigint;
   canister_history_size: bigint;
   stable_memory_size: bigint;
@@ -609,6 +759,10 @@ export interface MinterInfo {
    * Ethereum address controlled by the minter via threshold ECDSA.
    */
   minter_address: [] | [string];
+  /**
+   * Address of the sweeper smart contract.
+   */
+  sweeper_contract_address: [] | [string];
   /**
    * Last scraped block number for logs of the deposit with subaccount helper contract.
    */
@@ -745,6 +899,10 @@ export interface UpgradeArg {
    * with the Ethereum blockchain.
    */
   evm_rpc_id: [] | [Principal];
+  /**
+   * Change the sweeper smart contract address.
+   */
+  ethereum_sweeper_contract_address: [] | [string];
   /**
    * The principal of the ledger suite orchestrator that handles the ICRC1 ledger suites
    * for all ckERC20 tokens.
@@ -987,6 +1145,16 @@ export interface _SERVICE {
   decode_ledger_memo: ActorMethod<
     [DecodeLedgerMemoArgs],
     DecodeLedgerMemoResult
+  >;
+  /**
+   * Derive and register the ckERC20 deposit address for the caller.
+   * The account is derived from the caller's principal and the subaccount in the argument.
+   * Returns the EIP-55 checksummed deposit address together with `valid_until`, the timestamp
+   * (nanoseconds since the Unix epoch) until which a deposit to it is guaranteed to be noticed.
+   */
+  deposit_erc20: ActorMethod<
+    [DepositErc20Arg],
+    { Ok: DepositErc20Response } | { Err: DepositErc20Error }
   >;
   /**
    * Estimate the price of a transaction issued by the minter when converting ckETH to ETH.

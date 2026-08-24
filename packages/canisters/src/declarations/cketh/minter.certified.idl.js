@@ -16,6 +16,7 @@ export const idlFactory = ({ IDL }) => {
     deposit_with_subaccount_helper_contract_address: IDL.Opt(IDL.Text),
     next_transaction_nonce: IDL.Opt(IDL.Nat),
     evm_rpc_id: IDL.Opt(IDL.Principal),
+    ethereum_sweeper_contract_address: IDL.Opt(IDL.Text),
     ledger_suite_orchestrator_id: IDL.Opt(IDL.Principal),
     erc20_helper_contract_address: IDL.Opt(IDL.Text),
     last_erc20_scraped_block_number: IDL.Opt(IDL.Nat),
@@ -34,6 +35,7 @@ export const idlFactory = ({ IDL }) => {
     ecdsa_key_name: IDL.Text,
     next_transaction_nonce: IDL.Nat,
     evm_rpc_id: IDL.Opt(IDL.Principal),
+    ethereum_sweeper_contract_address: IDL.Opt(IDL.Text),
     ledger_id: IDL.Principal,
     ethereum_contract_address: IDL.Opt(IDL.Text),
     minimum_withdrawal_amount: IDL.Nat,
@@ -87,6 +89,43 @@ export const idlFactory = ({ IDL }) => {
     Ok: IDL.Opt(DecodedMemo),
     Err: IDL.Opt(DecodeLedgerMemoError),
   });
+  const DepositMode = IDL.Variant({
+    Unsponsored: IDL.Record({ subaccount: IDL.Opt(IDL.Vec(IDL.Nat8)) }),
+  });
+  const DepositErc20Arg = IDL.Record({
+    mode: DepositMode,
+    erc20_contract_address: IDL.Text,
+  });
+  const DetectedDeposit = IDL.Record({
+    detected_at_block: IDL.Nat,
+    erc20_contract_address: IDL.Text,
+    scanned_balance: IDL.Nat,
+  });
+  const DepositStatus = IDL.Variant({
+    Scanning: IDL.Record({
+      valid_until: IDL.Nat64,
+      scan_count: IDL.Nat64,
+      last_scanned_block: IDL.Opt(IDL.Nat),
+    }),
+    AwaitingSweep: DetectedDeposit,
+  });
+  const DepositErc20Response = IDL.Record({
+    status: DepositStatus,
+    address: IDL.Text,
+  });
+  const CkErc20Token = IDL.Record({
+    erc20_contract_address: IDL.Text,
+    ledger_canister_id: IDL.Principal,
+    ckerc20_token_symbol: IDL.Text,
+  });
+  const DepositErc20Error = IDL.Variant({
+    TokenNotSupported: IDL.Record({
+      supported_tokens: IDL.Vec(CkErc20Token),
+    }),
+    TemporarilyUnavailable: IDL.Text,
+    TooManyActiveDeposits: IDL.Null,
+    TooManyTokensForAccount: IDL.Null,
+  });
   const Eip1559TransactionPriceArg = IDL.Record({
     ckerc20_ledger_id: IDL.Principal,
   });
@@ -99,6 +138,7 @@ export const idlFactory = ({ IDL }) => {
   });
   const MemoryMetrics = IDL.Record({
     wasm_binary_size: IDL.Nat,
+    log_memory_store_size: IDL.Nat,
     wasm_chunk_store_size: IDL.Nat,
     canister_history_size: IDL.Nat,
     stable_memory_size: IDL.Nat,
@@ -128,6 +168,7 @@ export const idlFactory = ({ IDL }) => {
     controllers: IDL.Vec(IDL.Principal),
     reserved_cycles_limit: IDL.Nat,
     log_visibility: LogVisibility,
+    log_memory_limit: IDL.Nat,
     wasm_memory_limit: IDL.Nat,
     memory_allocation: IDL.Nat,
     compute_allocation: IDL.Nat,
@@ -236,6 +277,21 @@ export const idlFactory = ({ IDL }) => {
         transaction: UnsignedTransaction,
       }),
       QuarantinedReimbursement: IDL.Record({ index: ReimbursementIndex }),
+      RegisteredDepositAddresses: IDL.Record({
+        registrations: IDL.Vec(
+          IDL.Record({
+            expires_at_nanos: IDL.Nat64,
+            owner: IDL.Principal,
+            subaccount: IDL.Opt(Subaccount),
+            erc20_contract_address: IDL.Text,
+            address: IDL.Text,
+            scan_count: IDL.Nat64,
+            last_scanned_block: IDL.Opt(IDL.Nat),
+          }),
+        ),
+        capacity: IDL.Nat64,
+        scan_window_nanos: IDL.Nat64,
+      }),
       MintedCkEth: IDL.Record({
         event_source: EventSource,
         mint_block_index: IDL.Nat,
@@ -251,6 +307,14 @@ export const idlFactory = ({ IDL }) => {
         withdrawal_id: IDL.Nat,
         reimbursed_amount: IDL.Nat,
         to_subaccount: IDL.Opt(IDL.Vec(IDL.Nat8)),
+      }),
+      AcceptedSweeperFundingRequest: IDL.Record({
+        ledger_burn_index: IDL.Nat,
+        destination: IDL.Text,
+        withdrawal_amount: IDL.Nat,
+        from: IDL.Principal,
+        created_at: IDL.Opt(IDL.Nat64),
+        from_subaccount: IDL.Opt(IDL.Vec(IDL.Nat8)),
       }),
       ReimbursedErc20Withdrawal: IDL.Record({
         burn_in_block: IDL.Nat,
@@ -295,16 +359,20 @@ export const idlFactory = ({ IDL }) => {
         created_at: IDL.Opt(IDL.Nat64),
         from_subaccount: IDL.Opt(IDL.Vec(IDL.Nat8)),
       }),
+      AutomaticDepositReceived: IDL.Record({
+        owner: IDL.Principal,
+        subaccount: IDL.Opt(Subaccount),
+        erc20_contract_address: IDL.Text,
+        address: IDL.Text,
+        scan_count: IDL.Nat64,
+        scanned_balance: IDL.Nat,
+        last_scanned_block: IDL.Nat,
+      }),
       FinalizedTransaction: IDL.Record({
         withdrawal_id: IDL.Nat,
         transaction_receipt: TransactionReceipt,
       }),
     }),
-  });
-  const CkErc20Token = IDL.Record({
-    erc20_contract_address: IDL.Text,
-    ledger_canister_id: IDL.Principal,
-    ckerc20_token_symbol: IDL.Text,
   });
   const GasFeeEstimate = IDL.Record({
     max_priority_fee_per_gas: IDL.Nat,
@@ -331,6 +399,7 @@ export const idlFactory = ({ IDL }) => {
       ),
     ),
     minter_address: IDL.Opt(IDL.Text),
+    sweeper_contract_address: IDL.Opt(IDL.Text),
     last_deposit_with_subaccount_scraped_block_number: IDL.Opt(IDL.Nat),
     ethereum_block_height: IDL.Opt(BlockTag),
   });
@@ -444,6 +513,16 @@ export const idlFactory = ({ IDL }) => {
       [DecodeLedgerMemoResult],
       [],
     ),
+    deposit_erc20: IDL.Func(
+      [DepositErc20Arg],
+      [
+        IDL.Variant({
+          Ok: DepositErc20Response,
+          Err: DepositErc20Error,
+        }),
+      ],
+      [],
+    ),
     eip_1559_transaction_price: IDL.Func(
       [IDL.Opt(Eip1559TransactionPriceArg)],
       [Eip1559TransactionPrice],
@@ -498,6 +577,7 @@ export const init = ({ IDL }) => {
     deposit_with_subaccount_helper_contract_address: IDL.Opt(IDL.Text),
     next_transaction_nonce: IDL.Opt(IDL.Nat),
     evm_rpc_id: IDL.Opt(IDL.Principal),
+    ethereum_sweeper_contract_address: IDL.Opt(IDL.Text),
     ledger_suite_orchestrator_id: IDL.Opt(IDL.Principal),
     erc20_helper_contract_address: IDL.Opt(IDL.Text),
     last_erc20_scraped_block_number: IDL.Opt(IDL.Nat),
@@ -516,6 +596,7 @@ export const init = ({ IDL }) => {
     ecdsa_key_name: IDL.Text,
     next_transaction_nonce: IDL.Nat,
     evm_rpc_id: IDL.Opt(IDL.Principal),
+    ethereum_sweeper_contract_address: IDL.Opt(IDL.Text),
     ledger_id: IDL.Principal,
     ethereum_contract_address: IDL.Opt(IDL.Text),
     minimum_withdrawal_amount: IDL.Nat,

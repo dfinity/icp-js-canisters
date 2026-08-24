@@ -145,6 +145,7 @@ export interface DefiniteCanisterSettings {
   controllers: Array<Principal>;
   reserved_cycles_limit: bigint;
   log_visibility: LogVisibility;
+  log_memory_limit: bigint;
   wasm_memory_limit: bigint;
   memory_allocation: bigint;
   compute_allocation: bigint;
@@ -412,6 +413,7 @@ export type LogVisibility =
 export type MemoType = { Burn: null } | { Mint: null };
 export interface MemoryMetrics {
   wasm_binary_size: bigint;
+  log_memory_store_size: bigint;
   wasm_chunk_store_size: bigint;
   canister_history_size: bigint;
   stable_memory_size: bigint;

@@ -1,4 +1,4 @@
-// Generated from IC repo commit 0e5c184 (2026-07-17 tags: release-2026-07-17_04-19-deterministic-tracker) 'rs/ethereum/ledger-suite-orchestrator/ledger_suite_orchestrator.did' by import-candid
+// Generated from IC repo commit 79c0105 (2026-08-19 tags: release-2026-08-20_03-30-base) 'rs/ethereum/ledger-suite-orchestrator/ledger_suite_orchestrator.did' by import-candid
 
 type OrchestratorArg = variant {
     UpgradeArg : UpgradeArg;
@@ -238,6 +238,7 @@ type MemoryMetrics = record {
     canister_history_size : nat;
     wasm_chunk_store_size : nat;
     snapshots_size : nat;
+    log_memory_store_size : nat;
 };
 
 type DefiniteCanisterSettings = record {
@@ -250,6 +251,7 @@ type DefiniteCanisterSettings = record {
   wasm_memory_limit : nat;
   wasm_memory_threshold : nat;
   environment_variables : vec environment_variable;
+  log_memory_limit : nat;
 };
 
 type LogVisibility = variant {
