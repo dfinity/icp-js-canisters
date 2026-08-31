@@ -1,4 +1,4 @@
-// Generated from IC repo commit 0e5c184 (2026-07-17 tags: release-2026-07-17_04-19-deterministic-tracker) 'rs/nns/gtc/canister/gtc.did' by import-candid
+// Generated from IC repo commit a2a3e3d (2026-08-27 tags: release-2026-08-27_05-01-all-in-one) 'rs/nns/gtc/canister/gtc.did' by import-candid
 
 type AccountState = record {
   authenticated_principal_id : opt principal;
