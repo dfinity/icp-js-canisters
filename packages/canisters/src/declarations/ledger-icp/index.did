@@ -1,4 +1,4 @@
-// Generated from IC repo commit 0e5c184 (2026-07-17 tags: release-2026-07-17_04-19-deterministic-tracker) 'rs/ledger_suite/icp/index/index.did' by import-candid
+// Generated from IC repo commit 7360f8f (2026-09-02 tags: release-2026-09-03_04-41-base) 'rs/ledger_suite/icp/index/index.did' by import-candid
 
 type Account = record { owner : principal; subaccount : opt vec nat8 };
 type GetAccountIdentifierTransactionsArgs = record {

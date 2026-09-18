@@ -1,4 +1,4 @@
-// Generated from IC repo commit 037b411 (2026-06-18) 'packages/canisters/src/declarations/sns/governance_test.did.tmp' by import-candid
+// Generated from IC repo commit 4e61782 (2026-08-19) 'packages/canisters/src/declarations/sns/governance_test.did.tmp' by import-candid
 
 type Account = record {
   owner : opt principal;
@@ -908,8 +908,14 @@ type ChunkedCanisterWasm = record {
   chunk_hashes_list : vec blob;
 };
 
+type CanisterUpgradeOptions = record {
+  skip_pre_upgrade : opt bool;
+  wasm_memory_persistence : opt int32;
+};
+
 type UpgradeSnsControlledCanister = record {
   new_canister_wasm : blob;
+  canister_upgrade_options : opt CanisterUpgradeOptions;
   chunked_canister_wasm : opt ChunkedCanisterWasm;
   mode : opt int32;
   canister_id : opt principal;
