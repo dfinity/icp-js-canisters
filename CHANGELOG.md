@@ -7,6 +7,10 @@
 - Update latest Candid files.
 - NNS: support the new `vcpuType` field on `GuestLaunchMeasurement` metadata, wired through the `BlessAlternativeGuestOsVersion` proposal request and response converters.
 
+### Build
+
+- Upgrade [@icp-sdk/core](https://github.com/dfinity/icp-js-core/releases/tag/v6.0.0) to v6.
+
 ## 97
 
 ### Overview
