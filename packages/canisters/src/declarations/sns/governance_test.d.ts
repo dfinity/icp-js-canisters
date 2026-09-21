@@ -97,6 +97,10 @@ export type CanisterStatusType =
   | { stopped: null }
   | { stopping: null }
   | { running: null };
+export interface CanisterUpgradeOptions {
+  wasm_memory_persistence: [] | [number];
+  skip_pre_upgrade: [] | [boolean];
+}
 export interface ChangeAutoStakeMaturity {
   requested_setting_for_auto_stake_maturity: boolean;
 }
@@ -855,6 +859,7 @@ export interface UpgradeSnsControlledCanister {
   new_canister_wasm: Uint8Array;
   mode: [] | [number];
   canister_id: [] | [Principal];
+  canister_upgrade_options: [] | [CanisterUpgradeOptions];
   chunked_canister_wasm: [] | [ChunkedCanisterWasm];
   canister_upgrade_arg: [] | [Uint8Array];
 }

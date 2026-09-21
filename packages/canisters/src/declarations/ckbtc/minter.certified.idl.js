@@ -96,6 +96,7 @@ export const idlFactory = ({ IDL }) => {
   });
   const MemoryMetrics = IDL.Record({
     wasm_binary_size: IDL.Nat,
+    log_memory_store_size: IDL.Nat,
     wasm_chunk_store_size: IDL.Nat,
     canister_history_size: IDL.Nat,
     stable_memory_size: IDL.Nat,
@@ -125,6 +126,7 @@ export const idlFactory = ({ IDL }) => {
     controllers: IDL.Vec(IDL.Principal),
     reserved_cycles_limit: IDL.Nat,
     log_visibility: LogVisibility,
+    log_memory_limit: IDL.Nat,
     wasm_memory_limit: IDL.Nat,
     memory_allocation: IDL.Nat,
     compute_allocation: IDL.Nat,

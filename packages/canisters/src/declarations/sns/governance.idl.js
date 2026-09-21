@@ -318,10 +318,15 @@ export const idlFactory = ({ IDL }) => {
     memo: IDL.Opt(IDL.Nat64),
     amount_e8s: IDL.Nat64,
   });
+  const CanisterUpgradeOptions = IDL.Record({
+    wasm_memory_persistence: IDL.Opt(IDL.Int32),
+    skip_pre_upgrade: IDL.Opt(IDL.Bool),
+  });
   const UpgradeSnsControlledCanister = IDL.Record({
     new_canister_wasm: IDL.Vec(IDL.Nat8),
     mode: IDL.Opt(IDL.Int32),
     canister_id: IDL.Opt(IDL.Principal),
+    canister_upgrade_options: IDL.Opt(CanisterUpgradeOptions),
     chunked_canister_wasm: IDL.Opt(ChunkedCanisterWasm),
     canister_upgrade_arg: IDL.Opt(IDL.Vec(IDL.Nat8)),
   });
@@ -1202,10 +1207,15 @@ export const init = ({ IDL }) => {
     memo: IDL.Opt(IDL.Nat64),
     amount_e8s: IDL.Nat64,
   });
+  const CanisterUpgradeOptions = IDL.Record({
+    wasm_memory_persistence: IDL.Opt(IDL.Int32),
+    skip_pre_upgrade: IDL.Opt(IDL.Bool),
+  });
   const UpgradeSnsControlledCanister = IDL.Record({
     new_canister_wasm: IDL.Vec(IDL.Nat8),
     mode: IDL.Opt(IDL.Int32),
     canister_id: IDL.Opt(IDL.Principal),
+    canister_upgrade_options: IDL.Opt(CanisterUpgradeOptions),
     chunked_canister_wasm: IDL.Opt(ChunkedCanisterWasm),
     canister_upgrade_arg: IDL.Opt(IDL.Vec(IDL.Nat8)),
   });
