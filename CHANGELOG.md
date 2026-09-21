@@ -16,7 +16,7 @@
 | `@dfinity/ledger-icp`    | v10.0.0 | Breaking Changes ⚠️ |
 | `@dfinity/ledger-icrc`   | v8.0.0  | Breaking Changes ⚠️ |
 | `@dfinity/nns`           | v13.0.0 | Breaking Changes ⚠️ |
-| `@dfinity/nns-proto`     | v2.0.4  | Unchanged️           |
+| `@dfinity/nns-proto`     | v2.0.5  | Maintained ⚙        |
 | `@dfinity/sns`           | v8.0.0  | Breaking Changes ⚠️ |
 | `@dfinity/utils`         | v5.0.0  | Breaking Changes ⚠️ |
 | `@dfinity/zod-schemas`   | v3.2.0  | Unchanged️           |
@@ -36,6 +36,7 @@ No exported API changed in this release; the major versions reflect the tightene
 ### Build
 
 - Upgrade [@icp-sdk/core](https://github.com/dfinity/icp-js-core/releases/tag/v6.0.0) to v6.
+- Republish `@dfinity/nns-proto` so its bundle is built with the esbuild version currently pinned in the workspace.
 
 ## 97
 

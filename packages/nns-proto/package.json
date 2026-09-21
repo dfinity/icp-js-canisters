@@ -1,6 +1,6 @@
 {
   "name": "@dfinity/nns-proto",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "The protobuf source used by nns-js to support hardware wallets.",
   "license": "Apache-2.0",
   "main": "dist/cjs/index.cjs.js",
