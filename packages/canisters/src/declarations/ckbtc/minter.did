@@ -1,4 +1,4 @@
-// Generated from IC repo commit 0e5c184 (2026-07-17 tags: release-2026-07-17_04-19-deterministic-tracker) 'rs/bitcoin/ckbtc/minter/ckbtc_minter.did' by import-candid
+// Generated from IC repo commit e590083 (2026-09-18 tags: release-2026-09-18_03-28--all-in-one-node) 'rs/bitcoin/ckbtc/minter/ckbtc_minter.did' by import-candid
 
 // Represents an account on the ckBTC ledger.
 type Account = record { owner : principal; subaccount : opt blob };
@@ -38,6 +38,7 @@ type MemoryMetrics = record {
     canister_history_size : nat;
     wasm_chunk_store_size : nat;
     snapshots_size : nat;
+    log_memory_store_size : nat;
 };
 
 type CanisterStatusType = variant { stopped; stopping; running };
@@ -52,6 +53,7 @@ type DefiniteCanisterSettings = record {
   wasm_memory_limit : nat;
   wasm_memory_threshold : nat;
   environment_variables : vec environment_variable;
+  log_memory_limit : nat;
 };
 
 type LogVisibility = variant {

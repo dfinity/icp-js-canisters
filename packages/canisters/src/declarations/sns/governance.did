@@ -1,4 +1,4 @@
-// Generated from IC repo commit 0e5c184 (2026-07-17 tags: release-2026-07-17_04-19-deterministic-tracker) 'rs/sns/governance/canister/governance.did' by import-candid
+// Generated from IC repo commit e590083 (2026-09-18 tags: release-2026-09-18_03-28--all-in-one-node) 'rs/sns/governance/canister/governance.did' by import-candid
 
 type Account = record {
   owner : opt principal;
@@ -908,8 +908,14 @@ type ChunkedCanisterWasm = record {
   chunk_hashes_list : vec blob;
 };
 
+type CanisterUpgradeOptions = record {
+  skip_pre_upgrade : opt bool;
+  wasm_memory_persistence : opt int32;
+};
+
 type UpgradeSnsControlledCanister = record {
   new_canister_wasm : blob;
+  canister_upgrade_options : opt CanisterUpgradeOptions;
   chunked_canister_wasm : opt ChunkedCanisterWasm;
   mode : opt int32;
   canister_id : opt principal;
