@@ -2,6 +2,32 @@
 
 ## Next
 
+## 98
+
+### Overview
+
+| Library                  | Version | Status              |
+| ------------------------ | ------- | ------------------- |
+| `@icp-sdk/canisters`     | v4.0.0  | Breaking Changes ⚠️ |
+| `@dfinity/ckbtc`         | v8.0.0  | Breaking Changes ⚠️ |
+| `@dfinity/cketh`         | v8.0.0  | Breaking Changes ⚠️ |
+| `@dfinity/cmc`           | v10.0.0 | Breaking Changes ⚠️ |
+| `@dfinity/ic-management` | v11.0.0 | Breaking Changes ⚠️ |
+| `@dfinity/ledger-icp`    | v10.0.0 | Breaking Changes ⚠️ |
+| `@dfinity/ledger-icrc`   | v8.0.0  | Breaking Changes ⚠️ |
+| `@dfinity/nns`           | v13.0.0 | Breaking Changes ⚠️ |
+| `@dfinity/nns-proto`     | v2.0.5  | Maintained ⚙        |
+| `@dfinity/sns`           | v8.0.0  | Breaking Changes ⚠️ |
+| `@dfinity/utils`         | v5.0.0  | Breaking Changes ⚠️ |
+| `@dfinity/zod-schemas`   | v3.2.0  | Unchanged️           |
+
+### Breaking Changes
+
+- `@icp-sdk/core` is now required at `^6`. Projects still on core v5 must upgrade to install these versions — see the [v6.0.0 release notes](https://github.com/dfinity/icp-js-core/releases/tag/v6.0.0) for the effective subnet ID API change.
+- `@icp-sdk/canisters` now requires `@dfinity/utils` at `^5`, and the wrapper libraries now require `@icp-sdk/canisters` at `^4`.
+
+No exported API changed in this release; the major versions reflect the tightened peer requirements.
+
 ### Features
 
 - Update latest Candid files.
@@ -10,6 +36,7 @@
 ### Build
 
 - Upgrade [@icp-sdk/core](https://github.com/dfinity/icp-js-core/releases/tag/v6.0.0) to v6.
+- Republish `@dfinity/nns-proto` so its bundle is built with the esbuild version currently pinned in the workspace.
 
 ## 97
 
