@@ -19,7 +19,7 @@ export interface CanisterIdRecord {
 }
 export type CanisterInstallMode =
   | { reinstall: null }
-  | { upgrade: null }
+  | { upgrade: [] | [CanisterUpgradeOptions] }
   | { install: null };
 export interface CanisterStatusResult {
   memory_metrics: [] | [MemoryMetrics];
@@ -49,6 +49,10 @@ export type CanisterStatusType =
 export interface CanisterSummary {
   status: [] | [CanisterStatusResultV2];
   canister_id: [] | [Principal];
+}
+export interface CanisterUpgradeOptions {
+  wasm_memory_persistence: [] | [WasmMemoryPersistence];
+  skip_pre_upgrade: [] | [boolean];
 }
 export interface ChangeCanisterRequest {
   arg: Uint8Array;
@@ -192,6 +196,7 @@ export interface Timers {
   last_reset_timestamp_seconds: [] | [bigint];
   requires_periodic_tasks: [] | [boolean];
 }
+export type WasmMemoryPersistence = { keep: null } | { replace: null };
 export interface _SERVICE {
   canister_status: ActorMethod<[CanisterIdRecord], CanisterStatusResult>;
   change_canister: ActorMethod<[ChangeCanisterRequest], undefined>;
