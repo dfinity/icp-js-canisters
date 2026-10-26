@@ -31,6 +31,20 @@ export type CanisterStatusType =
   | { stopped: null }
   | { stopping: null }
   | { running: null };
+/**
+ * Changes the parameters used to spawn and maintain archive canisters.
+ * Same type as `ChangeArchiveOptions` in the ICRC1 ledger's Candid file.
+ */
+export interface ChangeArchiveOptions {
+  num_blocks_to_archive: [] | [bigint];
+  max_transactions_per_response: [] | [bigint];
+  trigger_threshold: [] | [bigint];
+  more_controller_ids: [] | [Array<Principal>];
+  max_message_size_bytes: [] | [bigint];
+  cycles_for_archive_creation: [] | [bigint];
+  node_max_memory_size_bytes: [] | [bigint];
+  controller_id: [] | [Principal];
+}
 export interface CyclesManagement {
   /**
    * Number of cycles to add to a canister managed by the orchestrator whose cycles balance is running low.
@@ -56,6 +70,7 @@ export interface DefiniteCanisterSettings {
   controllers: Array<Principal>;
   reserved_cycles_limit: bigint;
   log_visibility: LogVisibility;
+  log_memory_limit: bigint;
   wasm_memory_limit: bigint;
   memory_allocation: bigint;
   compute_allocation: bigint;
@@ -131,6 +146,13 @@ export interface LedgerSuiteVersion {
    */
   index_compressed_wasm_hash: string;
 }
+/**
+ * Subset of the ICRC1 ledger `UpgradeArgs` (see the ledger's Candid file) that the
+ * orchestrator forwards to its managed ledger canisters.
+ */
+export interface LedgerUpgradeArg {
+  change_archive_options: [] | [ChangeArchiveOptions];
+}
 export type LogVisibility =
   | { controllers: null }
   | { public: null }
@@ -197,6 +219,7 @@ export interface ManagedLedgerSuite {
 }
 export interface MemoryMetrics {
   wasm_binary_size: bigint;
+  log_memory_store_size: bigint;
   wasm_chunk_store_size: bigint;
   canister_history_size: bigint;
   stable_memory_size: bigint;
@@ -303,6 +326,12 @@ export interface UpgradeArg {
    * Leaving this field empty will not upgrade the index canisters.
    */
   index_compressed_wasm_hash: [] | [string];
+  /**
+   * Upgrade argument forwarded to every managed ledger canister when upgrading it.
+   * Requires `ledger_compressed_wasm_hash` to be set, since ledger canisters are only
+   * upgraded when that field is present.
+   */
+  ledger_upgrade_arg: [] | [LedgerUpgradeArg];
 }
 export interface environment_variable {
   value: string;

@@ -1,4 +1,4 @@
-// Generated from IC repo commit 0e5c184 (2026-07-17 tags: release-2026-07-17_04-19-deterministic-tracker) 'rs/ledger_suite/icrc1/ledger/ledger.did' by import-candid
+// Generated from IC repo commit 5e8370e (2026-10-21 tags: release-2026-10-22_03-29-base) 'rs/ledger_suite/icrc1/ledger/ledger.did' by import-candid
 
 type BlockIndex = nat;
 type Subaccount = blob;

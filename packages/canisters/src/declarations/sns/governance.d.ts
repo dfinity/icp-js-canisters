@@ -83,6 +83,10 @@ export type CanisterStatusType =
   | { stopped: null }
   | { stopping: null }
   | { running: null };
+export interface CanisterUpgradeOptions {
+  wasm_memory_persistence: [] | [number];
+  skip_pre_upgrade: [] | [boolean];
+}
 export interface ChangeAutoStakeMaturity {
   requested_setting_for_auto_stake_maturity: boolean;
 }
@@ -521,6 +525,7 @@ export interface Neuron {
   source_nns_neuron_id: [] | [bigint];
   auto_stake_maturity: [] | [boolean];
   aging_since_timestamp_seconds: bigint;
+  latest_reward_event_participation: [] | [RewardEventParticipation];
   dissolve_state: [] | [DissolveState];
   voting_power_percentage_multiplier: bigint;
   vesting_period_seconds: [] | [bigint];
@@ -616,6 +621,7 @@ export interface ProposalData {
   id: [] | [ProposalId];
   payload_text_rendering: [] | [string];
   topic: [] | [Topic];
+  execution_reply: [] | [Uint8Array];
   action: bigint;
   failure_reason: [] | [GovernanceError];
   action_auxiliary: [] | [ActionAuxiliary];
@@ -675,6 +681,10 @@ export interface RewardEvent {
   distributed_e8s_equivalent: bigint;
   round: bigint;
   settled_proposals: Array<ProposalId>;
+}
+export interface RewardEventParticipation {
+  reward_event_end_timestamp_seconds: [] | [bigint];
+  reward_shares: [] | [bigint];
 }
 export interface SetDissolveTimestamp {
   dissolve_timestamp_seconds: bigint;
@@ -837,6 +847,7 @@ export interface UpgradeSnsControlledCanister {
   new_canister_wasm: Uint8Array;
   mode: [] | [number];
   canister_id: [] | [Principal];
+  canister_upgrade_options: [] | [CanisterUpgradeOptions];
   chunked_canister_wasm: [] | [ChunkedCanisterWasm];
   canister_upgrade_arg: [] | [Uint8Array];
 }
