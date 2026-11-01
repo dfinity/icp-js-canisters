@@ -1039,6 +1039,69 @@ describe("GovernanceCanister", () => {
       expect(InstallCode).toEqual(expectedInstallCode);
     });
 
+    it("should fetch and convert InstallCode with canister upgrade options on ProposalInfo", async () => {
+      const service = mock<ActorSubclass<NnsGovernanceService>>();
+      const governance = NnsGovernanceCanister.create({
+        certifiedServiceOverride: service,
+        serviceOverride: service,
+      });
+
+      const rawInstallCode: NnsGovernanceDid.InstallCode = {
+        arg_hash: [Uint8Array.from([1, 2, 3])],
+        wasm_module_hash: [Uint8Array.from([4, 5, 6])],
+        skip_stopping_before_installing: [true],
+        canister_id: [Principal.fromText("miw6j-knlcl-xq")],
+        install_mode: [3],
+        canister_upgrade_options: [
+          {
+            skip_pre_upgrade: [false],
+            wasm_memory_persistence: [1],
+          },
+        ],
+      };
+
+      const expectedInstallCode: InstallCode = {
+        skipStoppingBeforeInstalling: true,
+        canisterId: "miw6j-knlcl-xq",
+        installMode: CanisterInstallMode.Upgrade,
+        argHash: "010203",
+        wasmModuleHash: "040506",
+        canisterUpgradeOptions: {
+          skipPreUpgrade: false,
+          wasmMemoryPersistence: 1,
+        },
+      };
+
+      const rawProposal = {
+        id: [{ id: 1n }],
+        ballots: [],
+        proposal: [
+          {
+            title: ["This is a title"],
+            url: "some-url",
+            summary: "Here it goes the summary",
+            action: [
+              {
+                InstallCode: rawInstallCode,
+              },
+            ],
+          },
+        ],
+        proposer: [],
+        latest_tally: [],
+      } as unknown as NnsGovernanceDid.ProposalInfo;
+      service.get_proposal_info.mockResolvedValue([rawProposal]);
+      const response = await governance.getProposal({
+        proposalId: 5467n,
+      });
+
+      const { InstallCode } = response?.proposal?.action as {
+        InstallCode: InstallCode;
+      };
+
+      expect(InstallCode).toEqual(expectedInstallCode);
+    });
+
     it("should fetch and convert StopOrStartCanister on ProposalInfo", async () => {
       const service = mock<ActorSubclass<NnsGovernanceService>>();
       const governance = NnsGovernanceCanister.create({
