@@ -516,6 +516,7 @@ describe("governance converters", () => {
           ],
           canister_id: [canister_id],
           canister_upgrade_arg: [],
+          canister_upgrade_options: [],
           mode: [mode],
         },
       };

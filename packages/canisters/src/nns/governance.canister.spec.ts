@@ -990,6 +990,7 @@ describe("GovernanceCanister", () => {
         skip_stopping_before_installing: [true],
         canister_id: [Principal.fromText("miw6j-knlcl-xq")],
         install_mode: [3],
+        canister_upgrade_options: [],
       };
 
       const expectedInstallCode: InstallCode = {
@@ -998,6 +999,7 @@ describe("GovernanceCanister", () => {
         installMode: CanisterInstallMode.Upgrade,
         argHash: "010203",
         wasmModuleHash: "040506",
+        canisterUpgradeOptions: undefined,
       };
 
       const rawProposal = {
@@ -1117,6 +1119,7 @@ describe("GovernanceCanister", () => {
               freezing_threshold: [100n],
               log_visibility: [1],
               snapshot_visibility: [1],
+              reserved_cycles_limit: [],
             },
           ],
         };
@@ -1132,6 +1135,7 @@ describe("GovernanceCanister", () => {
           freezingThreshold: 100n,
           logVisibility: LogVisibility.Controllers,
           snapshotVisibility: 1,
+          reservedCyclesLimit: undefined,
         },
       };
 

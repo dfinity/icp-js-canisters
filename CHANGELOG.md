@@ -2,6 +2,12 @@
 
 ## Next
 
+### Features
+
+- Update latest Candid files.
+- NNS: support the new `UpdateStandardEngineReplicaVersion` proposal action.
+- NNS: support the new `canisterUpgradeOptions` field on `InstallCode` and the new `reservedCyclesLimit` field on `CanisterSettings`, in the proposal request and response converters.
+
 ## 98
 
 ### Overview

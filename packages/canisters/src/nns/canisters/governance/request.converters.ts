@@ -432,6 +432,18 @@ const fromInstallCode = (
         : undefined,
     ),
     install_mode: toNullable(installCode.installMode as number),
+    canister_upgrade_options: toNullable(
+      installCode.canisterUpgradeOptions === undefined
+        ? undefined
+        : {
+            skip_pre_upgrade: toNullable(
+              installCode.canisterUpgradeOptions.skipPreUpgrade,
+            ),
+            wasm_memory_persistence: toNullable(
+              installCode.canisterUpgradeOptions.wasmMemoryPersistence,
+            ),
+          },
+    ),
   };
 };
 
@@ -459,6 +471,9 @@ const fromCanisterSettings = (
           memory_allocation: toNullable(canisterSettings.memoryAllocation),
           wasm_memory_threshold: toNullable(
             canisterSettings.wasmMemoryThreshold,
+          ),
+          reserved_cycles_limit: toNullable(
+            canisterSettings.reservedCyclesLimit,
           ),
         },
   );

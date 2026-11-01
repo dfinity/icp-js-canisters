@@ -32,6 +32,7 @@ import type {
   BallotInfo,
   By,
   CanisterSettings,
+  CanisterUpgradeOptions,
   Change,
   Command,
   Countries,
@@ -642,6 +643,9 @@ const toAction = (action: NnsGovernanceDid.Action): Action => {
         argHash: uint8ArrayToHexString(
           fromDefinedNullable(installCode.arg_hash),
         ),
+        canisterUpgradeOptions: toCanisterUpgradeOptions(
+          fromNullable(installCode.canister_upgrade_options),
+        ),
       },
     };
   }
@@ -757,6 +761,21 @@ const toAction = (action: NnsGovernanceDid.Action): Action => {
             action.CreateCanisterAndInstallCode.canister_settings,
           ),
         ),
+      },
+    };
+  }
+
+  if ("UpdateStandardEngineReplicaVersion" in action) {
+    const {
+      new_replica_version_id,
+      old_replica_version_id,
+      deployment_progress,
+    } = action.UpdateStandardEngineReplicaVersion;
+    return {
+      UpdateStandardEngineReplicaVersion: {
+        newReplicaVersionId: fromNullable(new_replica_version_id),
+        oldReplicaVersionId: fromNullable(old_replica_version_id),
+        deploymentProgress: fromNullable(deployment_progress),
       },
     };
   }
@@ -1700,6 +1719,18 @@ const toInitialTokenDistribution = (
         ),
       };
 
+const toCanisterUpgradeOptions = (
+  canisterUpgradeOptions: NnsGovernanceDid.CanisterUpgradeOptions | undefined,
+): CanisterUpgradeOptions | undefined =>
+  canisterUpgradeOptions === undefined
+    ? undefined
+    : {
+        skipPreUpgrade: fromNullable(canisterUpgradeOptions.skip_pre_upgrade),
+        wasmMemoryPersistence: fromNullable(
+          canisterUpgradeOptions.wasm_memory_persistence,
+        ),
+      };
+
 const toCanisterSettings = (
   canisterSettings: NnsGovernanceDid.CanisterSettings | undefined,
 ): CanisterSettings | undefined =>
@@ -1719,5 +1750,8 @@ const toCanisterSettings = (
         memoryAllocation: fromNullable(canisterSettings.memory_allocation),
         wasmMemoryThreshold: fromNullable(
           canisterSettings.wasm_memory_threshold,
+        ),
+        reservedCyclesLimit: fromNullable(
+          canisterSettings.reserved_cycles_limit,
         ),
       };
