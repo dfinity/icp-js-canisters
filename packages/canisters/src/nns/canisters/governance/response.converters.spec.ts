@@ -881,6 +881,7 @@ describe("response.converters", () => {
                       wasm_memory_threshold: [222222n],
                       log_visibility: [1],
                       snapshot_visibility: [1],
+                      reserved_cycles_limit: [333333n],
                     },
                   ],
                 },
@@ -928,7 +929,83 @@ describe("response.converters", () => {
                 wasmMemoryThreshold: 222222n,
                 logVisibility: 1,
                 snapshotVisibility: 1,
+                reservedCyclesLimit: 333333n,
               },
+            },
+          },
+          summary: "Proposal Summary",
+          selfDescribingAction: undefined,
+        },
+        proposer: 101n,
+        latestTally: undefined,
+        executedTimestampSeconds: 0n,
+        topic: 1,
+        status: 1,
+        rewardStatus: 1,
+        totalPotentialVotingPower: undefined,
+      };
+
+      const result = toProposalInfo(candidProposalInfo);
+
+      expect(result).toEqual(expectedProposalInfo);
+    });
+
+    it("should convert UpdateStandardEngineReplicaVersion action", () => {
+      const candidProposalInfo: NnsGovernanceDid.ProposalInfo = {
+        id: [{ id: 100n }],
+        ballots: [],
+        reject_cost_e8s: 100n,
+        proposal_timestamp_seconds: 1234567890n,
+        reward_event_round: 1n,
+        failed_timestamp_seconds: 0n,
+        deadline_timestamp_seconds: [],
+        decided_timestamp_seconds: 0n,
+        proposal: [
+          {
+            title: ["Proposal Title"],
+            url: "https://example.com",
+            action: [
+              {
+                UpdateStandardEngineReplicaVersion: {
+                  new_replica_version_id: ["new-version"],
+                  old_replica_version_id: ["old-version"],
+                  deployment_progress: [0.5],
+                },
+              },
+            ],
+            summary: "Proposal Summary",
+            self_describing_action: [],
+          },
+        ],
+        proposer: [{ id: 101n }],
+        latest_tally: [],
+        executed_timestamp_seconds: 0n,
+        topic: 1,
+        status: 1,
+        reward_status: 1,
+        total_potential_voting_power: [],
+        failure_reason: [],
+        success_value: [],
+        derived_proposal_information: [],
+      };
+
+      const expectedProposalInfo = {
+        id: 100n,
+        ballots: [],
+        rejectCost: 100n,
+        proposalTimestampSeconds: 1234567890n,
+        rewardEventRound: 1n,
+        failedTimestampSeconds: 0n,
+        deadlineTimestampSeconds: undefined,
+        decidedTimestampSeconds: 0n,
+        proposal: {
+          title: "Proposal Title",
+          url: "https://example.com",
+          action: {
+            UpdateStandardEngineReplicaVersion: {
+              newReplicaVersionId: "new-version",
+              oldReplicaVersionId: "old-version",
+              deploymentProgress: 0.5,
             },
           },
           summary: "Proposal Summary",

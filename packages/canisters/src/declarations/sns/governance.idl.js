@@ -318,10 +318,15 @@ export const idlFactory = ({ IDL }) => {
     memo: IDL.Opt(IDL.Nat64),
     amount_e8s: IDL.Nat64,
   });
+  const CanisterUpgradeOptions = IDL.Record({
+    wasm_memory_persistence: IDL.Opt(IDL.Int32),
+    skip_pre_upgrade: IDL.Opt(IDL.Bool),
+  });
   const UpgradeSnsControlledCanister = IDL.Record({
     new_canister_wasm: IDL.Vec(IDL.Nat8),
     mode: IDL.Opt(IDL.Int32),
     canister_id: IDL.Opt(IDL.Principal),
+    canister_upgrade_options: IDL.Opt(CanisterUpgradeOptions),
     chunked_canister_wasm: IDL.Opt(ChunkedCanisterWasm),
     canister_upgrade_arg: IDL.Opt(IDL.Vec(IDL.Nat8)),
   });
@@ -390,6 +395,7 @@ export const idlFactory = ({ IDL }) => {
     id: IDL.Opt(ProposalId),
     payload_text_rendering: IDL.Opt(IDL.Text),
     topic: IDL.Opt(Topic),
+    execution_reply: IDL.Opt(IDL.Vec(IDL.Nat8)),
     action: IDL.Nat64,
     failure_reason: IDL.Opt(GovernanceError),
     action_auxiliary: IDL.Opt(ActionAuxiliary),
@@ -503,6 +509,10 @@ export const idlFactory = ({ IDL }) => {
     principal: IDL.Opt(IDL.Principal),
     permission_type: IDL.Vec(IDL.Int32),
   });
+  const RewardEventParticipation = IDL.Record({
+    reward_event_end_timestamp_seconds: IDL.Opt(IDL.Nat64),
+    reward_shares: IDL.Opt(IDL.Nat),
+  });
   const DissolveState = IDL.Variant({
     DissolveDelaySeconds: IDL.Nat64,
     WhenDissolvedTimestampSeconds: IDL.Nat64,
@@ -528,6 +538,7 @@ export const idlFactory = ({ IDL }) => {
     source_nns_neuron_id: IDL.Opt(IDL.Nat64),
     auto_stake_maturity: IDL.Opt(IDL.Bool),
     aging_since_timestamp_seconds: IDL.Nat64,
+    latest_reward_event_participation: IDL.Opt(RewardEventParticipation),
     dissolve_state: IDL.Opt(DissolveState),
     voting_power_percentage_multiplier: IDL.Nat64,
     vesting_period_seconds: IDL.Opt(IDL.Nat64),
@@ -1202,10 +1213,15 @@ export const init = ({ IDL }) => {
     memo: IDL.Opt(IDL.Nat64),
     amount_e8s: IDL.Nat64,
   });
+  const CanisterUpgradeOptions = IDL.Record({
+    wasm_memory_persistence: IDL.Opt(IDL.Int32),
+    skip_pre_upgrade: IDL.Opt(IDL.Bool),
+  });
   const UpgradeSnsControlledCanister = IDL.Record({
     new_canister_wasm: IDL.Vec(IDL.Nat8),
     mode: IDL.Opt(IDL.Int32),
     canister_id: IDL.Opt(IDL.Principal),
+    canister_upgrade_options: IDL.Opt(CanisterUpgradeOptions),
     chunked_canister_wasm: IDL.Opt(ChunkedCanisterWasm),
     canister_upgrade_arg: IDL.Opt(IDL.Vec(IDL.Nat8)),
   });
@@ -1274,6 +1290,7 @@ export const init = ({ IDL }) => {
     id: IDL.Opt(ProposalId),
     payload_text_rendering: IDL.Opt(IDL.Text),
     topic: IDL.Opt(Topic),
+    execution_reply: IDL.Opt(IDL.Vec(IDL.Nat8)),
     action: IDL.Nat64,
     failure_reason: IDL.Opt(GovernanceError),
     action_auxiliary: IDL.Opt(ActionAuxiliary),
@@ -1387,6 +1404,10 @@ export const init = ({ IDL }) => {
     principal: IDL.Opt(IDL.Principal),
     permission_type: IDL.Vec(IDL.Int32),
   });
+  const RewardEventParticipation = IDL.Record({
+    reward_event_end_timestamp_seconds: IDL.Opt(IDL.Nat64),
+    reward_shares: IDL.Opt(IDL.Nat),
+  });
   const DissolveState = IDL.Variant({
     DissolveDelaySeconds: IDL.Nat64,
     WhenDissolvedTimestampSeconds: IDL.Nat64,
@@ -1412,6 +1433,7 @@ export const init = ({ IDL }) => {
     source_nns_neuron_id: IDL.Opt(IDL.Nat64),
     auto_stake_maturity: IDL.Opt(IDL.Bool),
     aging_since_timestamp_seconds: IDL.Nat64,
+    latest_reward_event_participation: IDL.Opt(RewardEventParticipation),
     dissolve_state: IDL.Opt(DissolveState),
     voting_power_percentage_multiplier: IDL.Nat64,
     vesting_period_seconds: IDL.Opt(IDL.Nat64),

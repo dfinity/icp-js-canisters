@@ -46,7 +46,10 @@ export type Action =
   | { OpenSnsTokenSwap: OpenSnsTokenSwap }
   | { TakeCanisterSnapshot: TakeCanisterSnapshot }
   | { LoadCanisterSnapshot: LoadCanisterSnapshot }
-  | { CreateCanisterAndInstallCode: CreateCanisterAndInstallCode };
+  | { CreateCanisterAndInstallCode: CreateCanisterAndInstallCode }
+  | {
+      UpdateStandardEngineReplicaVersion: UpdateStandardEngineReplicaVersion;
+    };
 export type ProposalActionRequest =
   | { RegisterKnownNeuron: KnownNeuron }
   | { DeregisterKnownNeuron: DeregisterKnownNeuron }
@@ -283,12 +286,17 @@ export interface ManageNeuronRequest {
   command: Option<ManageNeuronCommandRequest>;
   neuronIdOrSubaccount: Option<NeuronIdOrSubaccount>;
 }
+export interface CanisterUpgradeOptions {
+  skipPreUpgrade: Option<boolean>;
+  wasmMemoryPersistence: Option<number>;
+}
 export interface InstallCode {
   argHash: string;
   wasmModuleHash: string;
   skipStoppingBeforeInstalling: Option<boolean>;
   canisterId: Option<PrincipalString>;
   installMode: Option<CanisterInstallMode>;
+  canisterUpgradeOptions: Option<CanisterUpgradeOptions>;
 }
 export interface InstallCodeRequest {
   arg: ArrayBuffer;
@@ -296,6 +304,7 @@ export interface InstallCodeRequest {
   skipStoppingBeforeInstalling: Option<boolean>;
   canisterId: Option<PrincipalString>;
   installMode: Option<CanisterInstallMode>;
+  canisterUpgradeOptions: Option<CanisterUpgradeOptions>;
 }
 export interface StopOrStartCanister {
   canisterId: Option<PrincipalString>;
@@ -310,6 +319,7 @@ export interface CanisterSettings {
   memoryAllocation: Option<bigint>;
   computeAllocation: Option<bigint>;
   wasmMemoryThreshold: Option<bigint>;
+  reservedCyclesLimit: Option<bigint>;
 }
 export interface UpdateCanisterSettings {
   canisterId: Option<PrincipalString>;
@@ -355,6 +365,15 @@ export interface CreateCanisterAndInstallCode {
   canisterSettings: Option<CanisterSettings>;
   installArgHash: Option<Uint8Array>;
   hostSubnetId: Option<Principal>;
+}
+
+/**
+ * Changes what replica version(s) are run by Cloud Engines.
+ */
+export interface UpdateStandardEngineReplicaVersion {
+  newReplicaVersionId: Option<string>;
+  oldReplicaVersionId: Option<string>;
+  deploymentProgress: Option<number>;
 }
 
 export interface Merge {

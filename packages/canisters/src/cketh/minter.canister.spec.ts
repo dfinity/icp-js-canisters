@@ -884,6 +884,10 @@ describe("ckETH minter canister", () => {
           ckETHSmartContractAddressMock,
         ),
         last_deposit_with_subaccount_scraped_block_number: [123n],
+        minimum_deposit_amounts: [],
+        minimum_eth_deposit_amount: toNullable(4n),
+        sweeper_contract_address: [],
+        sweeper_address: [],
       };
 
       const service = mock<ActorSubclass<CkEthMinterService>>();
