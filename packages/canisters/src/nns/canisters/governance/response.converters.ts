@@ -50,6 +50,7 @@ import type {
   LedgerParameters,
   ListProposalsResponse,
   MaturityDisbursement,
+  MaturityModulation,
   NetworkEconomics,
   Neuron,
   NeuronBasketConstructionParameters,
@@ -1199,6 +1200,25 @@ export const toNetworkEconomics = (
     networkEconomics.voting_power_economics,
   ),
 });
+
+export const toMaturityModulation = (
+  rawMaturityModulation: Nullable<NnsGovernanceDid.MaturityModulation>,
+): Option<MaturityModulation> => {
+  const maturityModulation = fromNullable(rawMaturityModulation);
+
+  if (isNullish(maturityModulation)) {
+    return undefined;
+  }
+
+  return {
+    currentValuePermyriad: fromNullable(
+      maturityModulation.current_value_permyriad,
+    ),
+    updatedAtTimestampSeconds: fromNullable(
+      maturityModulation.updated_at_timestamp_seconds,
+    ),
+  };
+};
 
 const toNeuronSubsetMetrics = (
   rawNeuronSubsetMetrics: Nullable<NnsGovernanceDid.NeuronSubsetMetrics>,

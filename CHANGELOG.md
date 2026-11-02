@@ -7,6 +7,7 @@
 - Update latest Candid files.
 - NNS: support the new `UpdateStandardEngineReplicaVersion` proposal action.
 - NNS: support the new `canisterUpgradeOptions` field on `InstallCode` and the new `reservedCyclesLimit` field on `CanisterSettings`, in the proposal request and response converters.
+- NNS: add `getMaturityModulation` to `NnsGovernanceCanister`.
 
 ## 98
 
