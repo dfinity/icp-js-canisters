@@ -23,6 +23,19 @@ export const idlFactory = ({ IDL }) => {
     cycles_for_archive_creation: IDL.Opt(IDL.Nat),
     cycles_for_index_creation: IDL.Opt(IDL.Nat),
   });
+  const ChangeArchiveOptions = IDL.Record({
+    num_blocks_to_archive: IDL.Opt(IDL.Nat64),
+    max_transactions_per_response: IDL.Opt(IDL.Nat64),
+    trigger_threshold: IDL.Opt(IDL.Nat64),
+    more_controller_ids: IDL.Opt(IDL.Vec(IDL.Principal)),
+    max_message_size_bytes: IDL.Opt(IDL.Nat64),
+    cycles_for_archive_creation: IDL.Opt(IDL.Nat64),
+    node_max_memory_size_bytes: IDL.Opt(IDL.Nat64),
+    controller_id: IDL.Opt(IDL.Principal),
+  });
+  const LedgerUpgradeArg = IDL.Record({
+    change_archive_options: IDL.Opt(ChangeArchiveOptions),
+  });
   const UpgradeArg = IDL.Record({
     manage_ledger_suites: IDL.Opt(IDL.Vec(InstalledLedgerSuite)),
     cycles_management: IDL.Opt(UpdateCyclesManagement),
@@ -30,6 +43,7 @@ export const idlFactory = ({ IDL }) => {
     git_commit_hash: IDL.Opt(IDL.Text),
     ledger_compressed_wasm_hash: IDL.Opt(IDL.Text),
     index_compressed_wasm_hash: IDL.Opt(IDL.Text),
+    ledger_upgrade_arg: IDL.Opt(LedgerUpgradeArg),
   });
   const CyclesManagement = IDL.Record({
     cycles_top_up_increment: IDL.Nat,
@@ -69,6 +83,7 @@ export const idlFactory = ({ IDL }) => {
   });
   const MemoryMetrics = IDL.Record({
     wasm_binary_size: IDL.Nat,
+    log_memory_store_size: IDL.Nat,
     wasm_chunk_store_size: IDL.Nat,
     canister_history_size: IDL.Nat,
     stable_memory_size: IDL.Nat,
@@ -98,6 +113,7 @@ export const idlFactory = ({ IDL }) => {
     controllers: IDL.Vec(IDL.Principal),
     reserved_cycles_limit: IDL.Nat,
     log_visibility: LogVisibility,
+    log_memory_limit: IDL.Nat,
     wasm_memory_limit: IDL.Nat,
     memory_allocation: IDL.Nat,
     compute_allocation: IDL.Nat,
@@ -179,6 +195,19 @@ export const init = ({ IDL }) => {
     cycles_for_archive_creation: IDL.Opt(IDL.Nat),
     cycles_for_index_creation: IDL.Opt(IDL.Nat),
   });
+  const ChangeArchiveOptions = IDL.Record({
+    num_blocks_to_archive: IDL.Opt(IDL.Nat64),
+    max_transactions_per_response: IDL.Opt(IDL.Nat64),
+    trigger_threshold: IDL.Opt(IDL.Nat64),
+    more_controller_ids: IDL.Opt(IDL.Vec(IDL.Principal)),
+    max_message_size_bytes: IDL.Opt(IDL.Nat64),
+    cycles_for_archive_creation: IDL.Opt(IDL.Nat64),
+    node_max_memory_size_bytes: IDL.Opt(IDL.Nat64),
+    controller_id: IDL.Opt(IDL.Principal),
+  });
+  const LedgerUpgradeArg = IDL.Record({
+    change_archive_options: IDL.Opt(ChangeArchiveOptions),
+  });
   const UpgradeArg = IDL.Record({
     manage_ledger_suites: IDL.Opt(IDL.Vec(InstalledLedgerSuite)),
     cycles_management: IDL.Opt(UpdateCyclesManagement),
@@ -186,6 +215,7 @@ export const init = ({ IDL }) => {
     git_commit_hash: IDL.Opt(IDL.Text),
     ledger_compressed_wasm_hash: IDL.Opt(IDL.Text),
     index_compressed_wasm_hash: IDL.Opt(IDL.Text),
+    ledger_upgrade_arg: IDL.Opt(LedgerUpgradeArg),
   });
   const CyclesManagement = IDL.Record({
     cycles_top_up_increment: IDL.Nat,
