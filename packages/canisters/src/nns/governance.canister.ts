@@ -54,6 +54,7 @@ import {
 import {
   toArrayOfNeuronInfo,
   toListProposalsResponse,
+  toMaturityModulation,
   toMetrics,
   toNetworkEconomics,
   toNeuronInfo,
@@ -85,6 +86,7 @@ import type {
   ListProposalsRequest,
   ListProposalsResponse,
   MakeProposalRequest,
+  MaturityModulation,
   NetworkEconomics,
   NeuronInfo,
   ProposalId,
@@ -1037,6 +1039,23 @@ export class NnsGovernanceCanister {
         certified,
       ).get_network_economics_parameters();
     return toNetworkEconomics(rawResponse);
+  };
+
+  /**
+   * Return the current maturity modulation applied when maturity is disbursed or spawned.
+   *
+   * If `certified` is true, the request is fetched as an update call, otherwise
+   * it is fetched using a query call.
+   */
+  public getMaturityModulation = async ({
+    certified = true,
+  }: {
+    certified: boolean;
+  }): Promise<MaturityModulation | undefined> => {
+    const { maturity_modulation } = await this.getNnsGovernanceService(
+      certified,
+    ).get_maturity_modulation({});
+    return toMaturityModulation(maturity_modulation);
   };
 
   /**

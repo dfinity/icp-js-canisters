@@ -2490,6 +2490,79 @@ describe("GovernanceCanister", () => {
     });
   });
 
+  describe("getMaturityModulation", () => {
+    it("gets the maturity modulation", async () => {
+      const service = mock<ActorSubclass<NnsGovernanceService>>();
+      service.get_maturity_modulation.mockResolvedValue({
+        maturity_modulation: [
+          {
+            current_value_permyriad: [-123],
+            updated_at_timestamp_seconds: [1_700_000_000n],
+          },
+        ],
+      });
+
+      const governance = NnsGovernanceCanister.create({
+        certifiedServiceOverride: service,
+      });
+      const response = await governance.getMaturityModulation({
+        certified: true,
+      });
+
+      expect(service.get_maturity_modulation).toHaveBeenCalledExactlyOnceWith(
+        {},
+      );
+      expect(response).toEqual({
+        currentValuePermyriad: -123,
+        updatedAtTimestampSeconds: 1_700_000_000n,
+      });
+    });
+
+    it("uses the query service when not certified", async () => {
+      const certifiedService = mock<ActorSubclass<NnsGovernanceService>>();
+      const service = mock<ActorSubclass<NnsGovernanceService>>();
+      service.get_maturity_modulation.mockResolvedValue({
+        maturity_modulation: [
+          {
+            current_value_permyriad: [],
+            updated_at_timestamp_seconds: [],
+          },
+        ],
+      });
+
+      const governance = NnsGovernanceCanister.create({
+        certifiedServiceOverride: certifiedService,
+        serviceOverride: service,
+      });
+      const response = await governance.getMaturityModulation({
+        certified: false,
+      });
+
+      expect(service.get_maturity_modulation).toHaveBeenCalledOnce();
+      expect(certifiedService.get_maturity_modulation).not.toHaveBeenCalled();
+      expect(response).toEqual({
+        currentValuePermyriad: undefined,
+        updatedAtTimestampSeconds: undefined,
+      });
+    });
+
+    it("returns undefined when the maturity modulation is not set", async () => {
+      const service = mock<ActorSubclass<NnsGovernanceService>>();
+      service.get_maturity_modulation.mockResolvedValue({
+        maturity_modulation: [],
+      });
+
+      const governance = NnsGovernanceCanister.create({
+        certifiedServiceOverride: service,
+      });
+      const response = await governance.getMaturityModulation({
+        certified: true,
+      });
+
+      expect(response).toBeUndefined();
+    });
+  });
+
   describe("disburseMaturity", () => {
     it("disburses maturity", async () => {
       const neuronId = BigInt(10);

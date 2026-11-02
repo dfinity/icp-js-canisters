@@ -452,6 +452,10 @@ export interface NetworkEconomics {
   neuronsFundEconomics: Option<NeuronsFundEconomics>;
   votingPowerEconomics: Option<VotingPowerEconomics>;
 }
+export interface MaturityModulation {
+  currentValuePermyriad: Option<number>;
+  updatedAtTimestampSeconds: Option<bigint>;
+}
 export interface VotingPowerEconomics {
   startReducingVotingPowerAfterSeconds: Option<bigint>;
   neuronMinimumDissolveDelayToVoteSeconds: Option<bigint>;
