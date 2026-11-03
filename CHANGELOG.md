@@ -1,5 +1,11 @@
 # Changelog
 
+## Next
+
+### Breaking Changes
+
+- `@dfinity/zod-schemas` now requires `zod` at `^4.6.6`. Earlier versions of `zod` have a high severity advisory ([GHSA-mrhx-c7xc-m3w5](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5)), and the emitted types now use `z.ZodInstanceOf`, which `zod` adds in `4.6.0`.
+
 ## 99
 
 ### Overview
