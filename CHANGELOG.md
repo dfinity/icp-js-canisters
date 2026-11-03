@@ -1,6 +1,12 @@
 # Changelog
 
-## Next
+## 99
+
+### Overview
+
+| Library              | Version | Status       |
+| -------------------- | ------- | ------------ |
+| `@icp-sdk/canisters` | v4.1.0  | Maintained ⚙ |
 
 ### Features
 
