@@ -193,7 +193,7 @@ Examples:
 UrlSchema.parse("https://example.com"); // Valid
 UrlSchema.parse("http://127.0.0.1"); // Valid (localhost exception)
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L85)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L88)
 
 ### :nut_and_bolt: Enum
 

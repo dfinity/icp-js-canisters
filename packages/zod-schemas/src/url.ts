@@ -42,8 +42,11 @@ export const createUrlSchema = ({
     .overwrite((url: string): string => {
       try {
         const { href } = new URL(url);
-        return !url.endsWith("/") && href.endsWith("/")
-          ? href.slice(0, -1)
+        const withoutSlash = href.slice(0, -1);
+        return !url.endsWith("/") &&
+          href.endsWith("/") &&
+          new URL(withoutSlash).href === href
+          ? withoutSlash
           : href;
       } catch (_err: unknown) {
         return url;

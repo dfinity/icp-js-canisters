@@ -108,6 +108,15 @@ describe("UrlSchema", () => {
       );
     });
 
+    it("should keep a path slash from dot segments", () => {
+      expect(UrlSchema.parse("https://example.com/api/.")).toBe(
+        "https://example.com/api/",
+      );
+      expect(UrlSchema.parse("https://example.com/api/b/..")).toBe(
+        "https://example.com/api/",
+      );
+    });
+
     it("should have the correct schema id", () => {
       expect(UrlSchema.meta()).toEqual({
         id: ZodSchemaId.Url,
