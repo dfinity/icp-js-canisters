@@ -1,4 +1,4 @@
-// Generated from IC repo commit 185ae34 (2026-09-22) 'packages/canisters/src/declarations/nns/governance_test.did.tmp' by import-candid
+// Generated from IC repo commit c4e32d9 (2026-11-02) 'packages/canisters/src/declarations/nns/governance_test.did.tmp' by import-candid
 
 type AccountIdentifier = record {
   hash : blob;
