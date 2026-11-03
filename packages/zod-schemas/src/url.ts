@@ -32,7 +32,10 @@ export const createUrlSchema = ({
   additionalProtocols?: UrlProtocol[];
   allowHttpLocally?: boolean;
 }): z.ZodURL =>
-  z.url().refine(
+  // With a `protocol` option, Zod validates with `URL.parse` instead of `URL.canParse`.
+  // On Node 20 and 22, `URL.canParse` can reject valid internationalized hostnames (nodejs/node#67012).
+  // The refinement below checks the allowed protocols.
+  z.url({ protocol: /^[a-z][a-z\d+.-]*$/i }).refine(
     (url: string | URL): boolean => {
       try {
         const protocols = [...new Set(["https:", ...additionalProtocols])];

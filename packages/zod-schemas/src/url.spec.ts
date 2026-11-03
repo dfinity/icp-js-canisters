@@ -2,6 +2,10 @@ import { ZodSchemaId } from "./schema-id";
 import { createUrlSchema, UrlSchema } from "./url";
 
 describe("UrlSchema", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   describe("UrlSchema", () => {
     it("should accept valid https URLs", () => {
       const validUrl = "https://example.com";
@@ -67,6 +71,22 @@ describe("UrlSchema", () => {
       const invalidUrl = "";
 
       expect(() => UrlSchema.parse(invalidUrl)).toThrow("Invalid URL.");
+    });
+
+    it("should accept https URLs with an internationalized hostname", () => {
+      const validUrl = "https://münchen.example/zahlungen";
+
+      expect(() => UrlSchema.parse(validUrl)).not.toThrow();
+    });
+
+    it("should not depend on URL.canParse", () => {
+      // URL.canParse can return false for valid internationalized hostnames on Node 20 and 22 (nodejs/node#67012).
+      const spy = vi.spyOn(URL, "canParse").mockReturnValue(false);
+
+      expect(() =>
+        UrlSchema.parse("https://münchen.example/zahlungen"),
+      ).not.toThrow();
+      expect(spy).not.toHaveBeenCalled();
     });
 
     it("should have the correct schema id", () => {
