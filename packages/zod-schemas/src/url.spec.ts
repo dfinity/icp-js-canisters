@@ -89,6 +89,25 @@ describe("UrlSchema", () => {
       expect(spy).not.toHaveBeenCalled();
     });
 
+    it("should return the parsed URL", () => {
+      expect(UrlSchema.parse("http:localhost")).toBe("http://localhost");
+      expect(UrlSchema.parse("https:example.com/a")).toBe(
+        "https://example.com/a",
+      );
+      expect(UrlSchema.parse("https://münchen.example")).toBe(
+        "https://xn--mnchen-3ya.example",
+      );
+    });
+
+    it("should keep the trailing slash of the input", () => {
+      expect(UrlSchema.parse("https://example.com")).toBe(
+        "https://example.com",
+      );
+      expect(UrlSchema.parse("https://example.com/")).toBe(
+        "https://example.com/",
+      );
+    });
+
     it("should have the correct schema id", () => {
       expect(UrlSchema.meta()).toEqual({
         id: ZodSchemaId.Url,
