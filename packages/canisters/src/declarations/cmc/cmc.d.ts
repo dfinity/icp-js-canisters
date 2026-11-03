@@ -17,11 +17,13 @@ export interface CanisterSettings {
   wasm_memory_threshold: [] | [bigint];
   environment_variables: [] | [Array<environment_variable>];
   controllers: [] | [Array<Principal>];
+  minimum_incoming_canister_call_cycles: [] | [bigint];
   reserved_cycles_limit: [] | [bigint];
   log_visibility: [] | [log_visibility];
   log_memory_limit: [] | [bigint];
   snapshot_visibility: [] | [snapshot_visibility];
   wasm_memory_limit: [] | [bigint];
+  status_visibility: [] | [status_visibility];
   memory_allocation: [] | [bigint];
   compute_allocation: [] | [bigint];
 }
@@ -298,6 +300,10 @@ export type log_visibility =
   | { public: null }
   | { allowed_viewers: Array<Principal> };
 export type snapshot_visibility =
+  | { controllers: null }
+  | { public: null }
+  | { allowed_viewers: Array<Principal> };
+export type status_visibility =
   | { controllers: null }
   | { public: null }
   | { allowed_viewers: Array<Principal> };

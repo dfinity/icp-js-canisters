@@ -47,16 +47,23 @@ export const idlFactory = ({ IDL }) => {
     public: IDL.Null,
     allowed_viewers: IDL.Vec(IDL.Principal),
   });
+  const status_visibility = IDL.Variant({
+    controllers: IDL.Null,
+    public: IDL.Null,
+    allowed_viewers: IDL.Vec(IDL.Principal),
+  });
   const CanisterSettings = IDL.Record({
     freezing_threshold: IDL.Opt(IDL.Nat),
     wasm_memory_threshold: IDL.Opt(IDL.Nat),
     environment_variables: IDL.Opt(IDL.Vec(environment_variable)),
     controllers: IDL.Opt(IDL.Vec(IDL.Principal)),
+    minimum_incoming_canister_call_cycles: IDL.Opt(IDL.Nat),
     reserved_cycles_limit: IDL.Opt(IDL.Nat),
     log_visibility: IDL.Opt(log_visibility),
     log_memory_limit: IDL.Opt(IDL.Nat),
     snapshot_visibility: IDL.Opt(snapshot_visibility),
     wasm_memory_limit: IDL.Opt(IDL.Nat),
+    status_visibility: IDL.Opt(status_visibility),
     memory_allocation: IDL.Opt(IDL.Nat),
     compute_allocation: IDL.Opt(IDL.Nat),
   });
