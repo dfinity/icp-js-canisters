@@ -61,6 +61,6 @@
   ],
   "peerDependencies": {
     "@icp-sdk/core": "*",
-    "zod": "^4"
+    "zod": "^4.6.6"
   }
 }

@@ -32,27 +32,50 @@ export const createUrlSchema = ({
   additionalProtocols?: UrlProtocol[];
   allowHttpLocally?: boolean;
 }): z.ZodURL =>
-  z.url().refine(
-    (url: string | URL): boolean => {
+  // With a `protocol` option, Zod validates with `URL.parse` instead of `URL.canParse`.
+  // On Node 20 and 22, `URL.canParse` can reject valid internationalized hostnames (nodejs/node#67012).
+  // The refinement below checks the allowed protocols.
+  z
+    .url({ protocol: /^[a-z][a-z\d+.-]*$/i })
+    // Return the parsed URL (e.g. "http:localhost" becomes "http://localhost"), so consumers get the URL that the refinement validates.
+    // Do not add a trailing slash that the input does not have.
+    .overwrite((url: string): string => {
       try {
-        const protocols = [...new Set(["https:", ...additionalProtocols])];
-
-        const { protocol, hostname } = new URL(url);
-
-        // We allow http for development locally
-        if (allowHttpLocally && ["localhost", "127.0.0.1"].includes(hostname)) {
-          return ["http:", ...protocols].includes(protocol);
-        }
-
-        return protocols.includes(protocol);
+        const { href } = new URL(url);
+        const withoutSlash = href.slice(0, -1);
+        return !url.endsWith("/") &&
+          href.endsWith("/") &&
+          new URL(withoutSlash).href === href
+          ? withoutSlash
+          : href;
       } catch (_err: unknown) {
-        return false;
+        return url;
       }
-    },
-    {
-      error: "Invalid URL.",
-    },
-  );
+    })
+    .refine(
+      (url: string | URL): boolean => {
+        try {
+          const protocols = [...new Set(["https:", ...additionalProtocols])];
+
+          const { protocol, hostname } = new URL(url);
+
+          // We allow http for development locally
+          if (
+            allowHttpLocally &&
+            ["localhost", "127.0.0.1"].includes(hostname)
+          ) {
+            return ["http:", ...protocols].includes(protocol);
+          }
+
+          return protocols.includes(protocol);
+        } catch (_err: unknown) {
+          return false;
+        }
+      },
+      {
+        error: "Invalid URL.",
+      },
+    );
 
 /**
  * Default URL schema that enforces HTTPS and allows HTTP locally.

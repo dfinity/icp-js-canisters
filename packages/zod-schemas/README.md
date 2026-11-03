@@ -75,9 +75,9 @@ References:
 
 #### :gear: inferResultSchema
 
-| Function            | Type                                                                                                                                                                                                          |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inferResultSchema` | `<T extends z.ZodType>(schema: T) => ZodDiscriminatedUnion<[ZodObject<{ status: ZodLiteral<"success">; result: T; }, $strict>, ZodObject<{ status: ZodLiteral<"error">; err: ZodOptional<...>; }, $strict>]>` |
+| Function            | Type                                                                                                                                                                                                                    |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inferResultSchema` | `<T extends z.ZodType>(schema: T) => ZodDiscriminatedUnion<[ZodObject<{ status: ZodLiteral<"success">; result: T; }, $strict>, ZodObject<{ status: ZodLiteral<"error">; err: ZodOptional<...>; }, $strict>], "status">` |
 
 References:
 
@@ -127,9 +127,9 @@ schema.parse("http://localhost"); // Invalid if allowHttpLocally is false
 
 Zod schema to validate a value is a `Uint8Array` instance.
 
-| Constant           | Type                                                          |
-| ------------------ | ------------------------------------------------------------- |
-| `Uint8ArraySchema` | `ZodCustom<Uint8Array<ArrayBuffer>, Uint8Array<ArrayBuffer>>` |
+| Constant           | Type                                     |
+| ------------------ | ---------------------------------------- |
+| `Uint8ArraySchema` | `ZodInstanceOf<Uint8Array<ArrayBuffer>>` |
 
 Examples:
 
@@ -193,7 +193,7 @@ Examples:
 UrlSchema.parse("https://example.com"); // Valid
 UrlSchema.parse("http://127.0.0.1"); // Valid (localhost exception)
 
-[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L65)
+[:link: Source](https://github.com/dfinity/icp-js-canisters/tree/main/packages/zod-schemas/src/url.ts#L88)
 
 ### :nut_and_bolt: Enum
 

@@ -2,6 +2,10 @@ import { ZodSchemaId } from "./schema-id";
 import { createUrlSchema, UrlSchema } from "./url";
 
 describe("UrlSchema", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   describe("UrlSchema", () => {
     it("should accept valid https URLs", () => {
       const validUrl = "https://example.com";
@@ -67,6 +71,50 @@ describe("UrlSchema", () => {
       const invalidUrl = "";
 
       expect(() => UrlSchema.parse(invalidUrl)).toThrow("Invalid URL.");
+    });
+
+    it("should accept https URLs with an internationalized hostname", () => {
+      const validUrl = "https://münchen.example/zahlungen";
+
+      expect(() => UrlSchema.parse(validUrl)).not.toThrow();
+    });
+
+    it("should not depend on URL.canParse", () => {
+      // URL.canParse can return false for valid internationalized hostnames on Node 20 and 22 (nodejs/node#67012).
+      const spy = vi.spyOn(URL, "canParse").mockReturnValue(false);
+
+      expect(() =>
+        UrlSchema.parse("https://münchen.example/zahlungen"),
+      ).not.toThrow();
+      expect(spy).not.toHaveBeenCalled();
+    });
+
+    it("should return the parsed URL", () => {
+      expect(UrlSchema.parse("http:localhost")).toBe("http://localhost");
+      expect(UrlSchema.parse("https:example.com/a")).toBe(
+        "https://example.com/a",
+      );
+      expect(UrlSchema.parse("https://münchen.example")).toBe(
+        "https://xn--mnchen-3ya.example",
+      );
+    });
+
+    it("should keep the trailing slash of the input", () => {
+      expect(UrlSchema.parse("https://example.com")).toBe(
+        "https://example.com",
+      );
+      expect(UrlSchema.parse("https://example.com/")).toBe(
+        "https://example.com/",
+      );
+    });
+
+    it("should keep a path slash from dot segments", () => {
+      expect(UrlSchema.parse("https://example.com/api/.")).toBe(
+        "https://example.com/api/",
+      );
+      expect(UrlSchema.parse("https://example.com/api/b/..")).toBe(
+        "https://example.com/api/",
+      );
     });
 
     it("should have the correct schema id", () => {
