@@ -1,4 +1,4 @@
-// Generated from IC repo commit 83f29e0 (2026-10-30 tags: release-2026-10-30_12-16-base) 'rs/nns/governance/canister/governance.did' by import-candid
+// Generated from IC repo commit c088cfc (2026-11-02 tags: release-2026-11-13_03-18-raised-heap-limits) 'rs/nns/governance/canister/governance.did' by import-candid
 
 type AccountIdentifier = record {
   hash : blob;

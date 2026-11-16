@@ -159,6 +159,19 @@ export const idlFactory = ({ IDL }) => {
     dapps: IDL.Vec(IDL.Principal),
     archives: IDL.Vec(IDL.Principal),
   });
+  const LoadCanisterSnapshotRequest = IDL.Record({
+    canister_id: IDL.Principal,
+    snapshot_id: IDL.Vec(IDL.Nat8),
+  });
+  const LoadCanisterSnapshotOk = IDL.Record({});
+  const LoadCanisterSnapshotError = IDL.Record({
+    code: IDL.Opt(IDL.Int32),
+    description: IDL.Text,
+  });
+  const LoadCanisterSnapshotResponse = IDL.Variant({
+    Ok: LoadCanisterSnapshotOk,
+    Err: LoadCanisterSnapshotError,
+  });
   const ManageDappCanisterSettingsRequest = IDL.Record({
     freezing_threshold: IDL.Opt(IDL.Nat64),
     wasm_memory_threshold: IDL.Opt(IDL.Nat64),
@@ -200,6 +213,23 @@ export const idlFactory = ({ IDL }) => {
   const SetDappControllersResponse = IDL.Record({
     failed_updates: IDL.Vec(FailedUpdate),
   });
+  const TakeCanisterSnapshotRequest = IDL.Record({
+    replace_snapshot: IDL.Opt(IDL.Vec(IDL.Nat8)),
+    canister_id: IDL.Principal,
+  });
+  const TakeCanisterSnapshotOk = IDL.Record({
+    id: IDL.Vec(IDL.Nat8),
+    total_size: IDL.Nat64,
+    taken_at_timestamp: IDL.Nat64,
+  });
+  const TakeCanisterSnapshotError = IDL.Record({
+    code: IDL.Opt(IDL.Int32),
+    description: IDL.Text,
+  });
+  const TakeCanisterSnapshotResponse = IDL.Variant({
+    Ok: TakeCanisterSnapshotOk,
+    Err: TakeCanisterSnapshotError,
+  });
 
   return IDL.Service({
     canister_status: IDL.Func([CanisterIdRecord], [CanisterStatusResult], []),
@@ -219,6 +249,11 @@ export const idlFactory = ({ IDL }) => {
     list_sns_canisters: IDL.Func(
       [IDL.Record({})],
       [ListSnsCanistersResponse],
+      [],
+    ),
+    load_canister_snapshot: IDL.Func(
+      [LoadCanisterSnapshotRequest],
+      [LoadCanisterSnapshotResponse],
       [],
     ),
     manage_dapp_canister_settings: IDL.Func(
@@ -245,6 +280,11 @@ export const idlFactory = ({ IDL }) => {
     set_dapp_controllers: IDL.Func(
       [SetDappControllersRequest],
       [SetDappControllersResponse],
+      [],
+    ),
+    take_canister_snapshot: IDL.Func(
+      [TakeCanisterSnapshotRequest],
+      [TakeCanisterSnapshotResponse],
       [],
     ),
   });
