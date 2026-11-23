@@ -1,4 +1,4 @@
-// Generated from IC repo commit 83f29e0 (2026-10-30 tags: release-2026-10-30_12-16-base) 'rs/nns/governance/canister/governance.did' by import-candid
+// Generated from IC repo commit f80a8c3 (2026-11-03 tags: release-2026-11-20_03-19-enable-heap-limits) 'rs/nns/governance/canister/governance.did' by import-candid
 
 type AccountIdentifier = record {
   hash : blob;
@@ -1579,6 +1579,11 @@ type Vote = variant {
 type SelfDescribingProposalAction = record {
   type_name : opt text;
   type_description : opt text;
+
+  // May be absent, e.g. when the proposal's payload could not be converted, or
+  // the result would be excessively large. In that case, type_name and
+  // type_description are still populated, and the full proposal (including
+  // action) can still be obtained via get_proposal_info.
   value : opt SelfDescribingValue;
 };
 

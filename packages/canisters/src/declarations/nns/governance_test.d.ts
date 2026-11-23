@@ -1262,6 +1262,12 @@ export interface RewardToNeuron {
 export interface SelfDescribingProposalAction {
   type_description: [] | [string];
   type_name: [] | [string];
+  /**
+   * May be absent, e.g. when the proposal's payload could not be converted, or
+   * the result would be excessively large. In that case, type_name and
+   * type_description are still populated, and the full proposal (including
+   * action) can still be obtained via get_proposal_info.
+   */
   value: [] | [SelfDescribingValue];
 }
 export type SelfDescribingValue =
