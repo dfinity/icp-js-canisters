@@ -126,6 +126,18 @@ export interface ListSnsCanistersResponse {
   dapps: Array<Principal>;
   archives: Array<Principal>;
 }
+export interface LoadCanisterSnapshotError {
+  code: [] | [number];
+  description: string;
+}
+export type LoadCanisterSnapshotOk = {};
+export interface LoadCanisterSnapshotRequest {
+  canister_id: Principal;
+  snapshot_id: Uint8Array;
+}
+export type LoadCanisterSnapshotResponse =
+  | { Ok: LoadCanisterSnapshotOk }
+  | { Err: LoadCanisterSnapshotError };
 export type LogVisibility =
   | { controllers: null }
   | { public: null }
@@ -191,6 +203,22 @@ export interface SnsRootCanister {
   swap_canister_id: [] | [Principal];
   ledger_canister_id: [] | [Principal];
 }
+export interface TakeCanisterSnapshotError {
+  code: [] | [number];
+  description: string;
+}
+export interface TakeCanisterSnapshotOk {
+  id: Uint8Array;
+  total_size: bigint;
+  taken_at_timestamp: bigint;
+}
+export interface TakeCanisterSnapshotRequest {
+  replace_snapshot: [] | [Uint8Array];
+  canister_id: Principal;
+}
+export type TakeCanisterSnapshotResponse =
+  | { Ok: TakeCanisterSnapshotOk }
+  | { Err: TakeCanisterSnapshotError };
 export interface Timers {
   last_spawned_timestamp_seconds: [] | [bigint];
   last_reset_timestamp_seconds: [] | [bigint];
@@ -211,6 +239,10 @@ export interface _SERVICE {
   >;
   get_timers: ActorMethod<[{}], GetTimersResponse>;
   list_sns_canisters: ActorMethod<[{}], ListSnsCanistersResponse>;
+  load_canister_snapshot: ActorMethod<
+    [LoadCanisterSnapshotRequest],
+    LoadCanisterSnapshotResponse
+  >;
   manage_dapp_canister_settings: ActorMethod<
     [ManageDappCanisterSettingsRequest],
     ManageDappCanisterSettingsResponse
@@ -225,6 +257,10 @@ export interface _SERVICE {
   set_dapp_controllers: ActorMethod<
     [SetDappControllersRequest],
     SetDappControllersResponse
+  >;
+  take_canister_snapshot: ActorMethod<
+    [TakeCanisterSnapshotRequest],
+    TakeCanisterSnapshotResponse
   >;
 }
 export declare const idlFactory: IDL.InterfaceFactory;

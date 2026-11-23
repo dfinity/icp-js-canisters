@@ -1,4 +1,4 @@
-// Generated from IC repo commit 83f29e0 (2026-10-30 tags: release-2026-10-30_12-16-base) 'rs/sns/governance/canister/governance.did' by import-candid
+// Generated from IC repo commit f80a8c3 (2026-11-03 tags: release-2026-11-20_03-19-enable-heap-limits) 'rs/sns/governance/canister/governance.did' by import-candid
 
 type Account = record {
   owner : opt principal;
